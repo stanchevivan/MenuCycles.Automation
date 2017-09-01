@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace MenuCycles.Tests
+namespace MenuCycles.Tests.CustomClasses
 {
     public class MenuCycle
     {

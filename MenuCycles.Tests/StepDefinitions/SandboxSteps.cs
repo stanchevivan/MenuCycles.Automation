@@ -22,8 +22,12 @@ namespace MenuCycles.Tests
                            .PerformLogin()
                            .OpenMenuCycles()
                            .LoginAsCentralUser()
-                           .Search("Buffet")
-                           .GetMenuCyclesInfo();
+                           .Search("9051")
+                           .GetMenuCyclesInfo()
+                           .OpenMenuCycle(1)
+                           .GetDaysInfo();
+            
+            System.Threading.Thread.Sleep(2000);
    		}
     }
 }

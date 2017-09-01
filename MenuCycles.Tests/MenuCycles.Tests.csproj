@@ -108,9 +108,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.4.1.1\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
@@ -125,6 +122,9 @@
     </Reference>
     <Reference Include="AutomationFramework">
       <HintPath>..\packages\AutomationFramework.1.0.0.30\lib\net45\AutomationFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +158,9 @@
     <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="CustomClasses\MenuCycle.cs" />
     <Compile Include="PageObjects\MCBasePage.cs" />
+    <Compile Include="PageObjects\MenuCyclePage.cs" />
+    <Compile Include="CustomClasses\MealPeriod.cs" />
+    <Compile Include="CustomClasses\Day.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

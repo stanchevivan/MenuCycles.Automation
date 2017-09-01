@@ -17,6 +17,7 @@ namespace MenuCycles.Tests.PageObjects
         #endregion
 
         #region PageObjects
+        // [FindsBy(How = How.CssSelector, Using = "[data-webelement='ICN_Search']")]
         [FindsBy(How = How.ClassName, Using = "search-icon")]
         private IWebElement BTN_OpenSearch { get; set; }
         [FindsBy(How = How.ClassName, Using = "home-search-button")]
@@ -49,12 +50,14 @@ namespace MenuCycles.Tests.PageObjects
             return this;
         }
 
-        public void OpenMenuCycle(int index)
+        public MenuCyclePage OpenMenuCycle(int index)
         {
             MenuCycles[index - 1].NameLink.Click();
+
+            return new MenuCyclePage(Driver);
         }
 
-        public void GetMenuCyclesInfo()
+        public HomePage GetMenuCyclesInfo()
         {
             System.Console.WriteLine();
             try
@@ -64,7 +67,7 @@ namespace MenuCycles.Tests.PageObjects
             catch (NoSuchElementException)
             {
                 System.Console.WriteLine("No menu cycles detected !");
-                return;
+                return this;
             }
             System.Console.WriteLine();
 
@@ -75,6 +78,8 @@ namespace MenuCycles.Tests.PageObjects
                 System.Console.WriteLine("Published: " + (item.Published ? "Published" : "Unpublished"));
                 System.Console.WriteLine();
             }
+
+            return this;
         }
         #endregion
     }
