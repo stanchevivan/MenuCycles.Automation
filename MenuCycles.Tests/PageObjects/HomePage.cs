@@ -2,6 +2,7 @@
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Page;
+using MenuCycles.Tests.CustomClasses;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 

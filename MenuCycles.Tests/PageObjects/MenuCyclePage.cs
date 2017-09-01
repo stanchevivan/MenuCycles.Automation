@@ -30,14 +30,14 @@ namespace MenuCycles.Tests.PageObjects
         #endregion
 
         public IDictionary<string, MealPeriod> Days;
-        public IList<IList<MealPeriod>> DaysList = new List<>;
+        public IList<MealPeriod> DaysList = new List<MealPeriod>();
 
         #region Methods
         public MenuCyclePage GetDaysInfo()
         {
             foreach (var day in DaysList)
             {
-                foreach (var mealPeriod in day)
+                foreach (var mealPeriod in DaysList)
                 {
                     System.Console.WriteLine(mealPeriod.Title);
                     foreach (var recipy in mealPeriod.Recipes)
