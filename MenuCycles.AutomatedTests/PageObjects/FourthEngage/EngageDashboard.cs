@@ -15,8 +15,11 @@ namespace MenuCycles.AutomatedTests.PageObjects
         [FindsBy(How = How.XPath, Using = "//span[@class='left-buttons']")]
         public IWebElement LeftSideMenuButton { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = "#applications ion-item[target]")]
+        public IList<IWebElement> TopThreeApplicationsList { get; set; }
+
         [FindsBy(How = How.Id, Using = "applications-all-apps")]
-        public IWebElement AllApplicationsItem { get; set; }
+        public IWebElement AllApplicationsButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "div[id='apps-popup'] a[ng-click*='openAppFromModal']")]
         public IList<IWebElement> AllApplicationsList { get; set; }
@@ -24,14 +27,14 @@ namespace MenuCycles.AutomatedTests.PageObjects
         public void WaitPageToLoad()
         {
             Driver.WaitIsClickable(LeftSideMenuButton);
-            Driver.WaitIsClickable(AllApplicationsItem);
-            AllApplicationsItem.WaitMovementToEnd();
+            Driver.WaitIsClickable(AllApplicationsButton);
+            Driver.WaitListItemsLoad(TopThreeApplicationsList);
         }
 
         public void SelectApplication(string option)
         {
             WaitPageToLoad();
-            AllApplicationsItem.Click();
+            AllApplicationsButton.Click();
             AllApplicationsList.ElementByText(option).Click();
         }
     }

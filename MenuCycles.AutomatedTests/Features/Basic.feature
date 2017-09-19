@@ -9,5 +9,5 @@ Scenario: Menu Cycle with No Non Serving Days
 	When a Menu Cycle with the following data is created
 	  | Offer    |
 	  | SodexoUp |
-	Then the message Menu Cycle has been created. is displayed
+	Then the message 'Menu Cycle has been created.' is displayed
 	And the calendar view is opened

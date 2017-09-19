@@ -50,7 +50,7 @@ namespace MenuCycles.AutomatedTests.Steps
             createMenuCycle.Create(mc);
         }
 
-        [Then(@"the message (.*) is displayed")]
+        [Then(@"the message '(.*)' is displayed")]
         public void ThenAMessageIsDisplayed(string message)
         {
             createMenuCycle.ValidateToastMessage(message);

@@ -83,7 +83,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 9
  testRunner.When("a Menu Cycle with the following data is created", ((string)(null)), table1, "When ");
 #line 12
- testRunner.Then("the message Menu Cycle has been created. is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the message \'Menu Cycle has been created.\' is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 13
  testRunner.And("the calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

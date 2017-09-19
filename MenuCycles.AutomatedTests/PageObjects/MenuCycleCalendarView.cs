@@ -34,10 +34,13 @@ namespace MenuCycles.AutomatedTests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".daily-header-div")]
         public IWebElement CalendarWeek { get; set; }
 
+        [FindsBy(How = How.Id, Using = "BlueLoaderShowHide")]
+        public IWebElement SpinningWheel { get; set; }
 
         public void ValidateWindow(string TitleExpected)
         {
             WaitPageLoad();
+
             Assert.IsTrue(MenuCycleName.Exist());
             Assert.IsTrue(DaysViewButton.Exist());
             Assert.IsTrue(WeeksViewButton.Exist());
@@ -56,6 +59,7 @@ namespace MenuCycles.AutomatedTests.PageObjects
         {
             Driver.WaitElementToExists(CalendarWeek);
             Driver.WaitIsClickable(DaysViewButton);
+            Driver.WaitElementToDisappear(SpinningWheel);
         }
     }
 }
