@@ -4,6 +4,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuCycles.Tests", "MenuCycles.Tests\MenuCycles.Tests.csproj", "{440BB536-9A01-459E-A263-9CCDC607E72C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuCycles.AutomatedTests", "MenuCycles.AutomatedTests\MenuCycles.AutomatedTests.csproj", "{2892126D-58A1-46E0-A503-E940A67A57D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Android|Any CPU = Android|Any CPU
@@ -32,6 +34,22 @@ Global
 		{440BB536-9A01-459E-A263-9CCDC607E72C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{440BB536-9A01-459E-A263-9CCDC607E72C}.RemoteDriver|Any CPU.ActiveCfg = RemoteDriver|Any CPU
 		{440BB536-9A01-459E-A263-9CCDC607E72C}.RemoteDriver|Any CPU.Build.0 = RemoteDriver|Any CPU
+		{2892126D-58A1-46E0-A503-E940A67A57D6}.Android|Any CPU.ActiveCfg = Release|Any CPU
+		{2892126D-58A1-46E0-A503-E940A67A57D6}.Android|Any CPU.Build.0 = Release|Any CPU
+		{2892126D-58A1-46E0-A503-E940A67A57D6}.Chrome|Any CPU.ActiveCfg = Release|Any CPU
+		{2892126D-58A1-46E0-A503-E940A67A57D6}.Chrome|Any CPU.Build.0 = Release|Any CPU
+		{2892126D-58A1-46E0-A503-E940A67A57D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2892126D-58A1-46E0-A503-E940A67A57D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2892126D-58A1-46E0-A503-E940A67A57D6}.Firefox|Any CPU.ActiveCfg = Release|Any CPU
+		{2892126D-58A1-46E0-A503-E940A67A57D6}.Firefox|Any CPU.Build.0 = Release|Any CPU
+		{2892126D-58A1-46E0-A503-E940A67A57D6}.InternetExplorer|Any CPU.ActiveCfg = Release|Any CPU
+		{2892126D-58A1-46E0-A503-E940A67A57D6}.InternetExplorer|Any CPU.Build.0 = Release|Any CPU
+		{2892126D-58A1-46E0-A503-E940A67A57D6}.iOS|Any CPU.ActiveCfg = Release|Any CPU
+		{2892126D-58A1-46E0-A503-E940A67A57D6}.iOS|Any CPU.Build.0 = Release|Any CPU
+		{2892126D-58A1-46E0-A503-E940A67A57D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2892126D-58A1-46E0-A503-E940A67A57D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2892126D-58A1-46E0-A503-E940A67A57D6}.RemoteDriver|Any CPU.ActiveCfg = Release|Any CPU
+		{2892126D-58A1-46E0-A503-E940A67A57D6}.RemoteDriver|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
