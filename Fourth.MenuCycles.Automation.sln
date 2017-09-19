@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuCycles.Tests", "MenuCyc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuCycles.AutomatedTests", "MenuCycles.AutomatedTests\MenuCycles.AutomatedTests.csproj", "{2892126D-58A1-46E0-A503-E940A67A57D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuCyclesData", "MenuCyclesData\MenuCyclesData.csproj", "{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{764980E6-D922-491C-BCB9-E021B60C8AA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Android|Any CPU = Android|Any CPU
@@ -50,9 +54,28 @@ Global
 		{2892126D-58A1-46E0-A503-E940A67A57D6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2892126D-58A1-46E0-A503-E940A67A57D6}.RemoteDriver|Any CPU.ActiveCfg = Release|Any CPU
 		{2892126D-58A1-46E0-A503-E940A67A57D6}.RemoteDriver|Any CPU.Build.0 = Release|Any CPU
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}.Android|Any CPU.ActiveCfg = Release|Any CPU
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}.Android|Any CPU.Build.0 = Release|Any CPU
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}.Chrome|Any CPU.ActiveCfg = Release|Any CPU
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}.Chrome|Any CPU.Build.0 = Release|Any CPU
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}.Firefox|Any CPU.ActiveCfg = Release|Any CPU
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}.Firefox|Any CPU.Build.0 = Release|Any CPU
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}.InternetExplorer|Any CPU.ActiveCfg = Release|Any CPU
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}.InternetExplorer|Any CPU.Build.0 = Release|Any CPU
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}.iOS|Any CPU.ActiveCfg = Release|Any CPU
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}.iOS|Any CPU.Build.0 = Release|Any CPU
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}.RemoteDriver|Any CPU.ActiveCfg = Release|Any CPU
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3}.RemoteDriver|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4A5D7C8E-9556-42C5-94BA-D576405F1FE3} = {764980E6-D922-491C-BCB9-E021B60C8AA2}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

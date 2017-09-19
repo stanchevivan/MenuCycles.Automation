@@ -14,7 +14,7 @@ namespace MenuCycles.AutomatedTests.PageObjects
         [FindsBy(How = How.CssSelector, Using = "div[class='borbot clickable']")]
         public IWebElement Create { get; set; }
 
-        public void CreateMenuCycle()
+        public void CreateMenuCycleClick()
         {
             Driver.WaitElementAndClick(Create);
         }

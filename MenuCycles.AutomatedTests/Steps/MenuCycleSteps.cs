@@ -1,46 +1,44 @@
 ﻿using MenuCycles.AutomatedTests.PageObjects;
 using MenuCycles.AutomatedTests.Model;
-using System;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
+using System.Linq;
 
 namespace MenuCycles.AutomatedTests.Steps
 {
     [Binding]
-    public class BasicSteps
+    public sealed class MenuCycleSteps
     {
-        private EngageLogin engageLogin;
         private EngageDashboard engageDashboard;
         private LogInAs logInAs;
         private MenuCyclesDashboard menuCycleDashboard;
         private CreateMenuCycle createMenuCycle;
         private MenuCycleCalendarView menuCycleCalendarView;
+        private ScenarioContext scenarioContext;
 
-        public BasicSteps(EngageLogin engageLogin, EngageDashboard engageDashboard, LogInAs logInAs,
+        public MenuCycleSteps(ScenarioContext scenarioContext, EngageDashboard engageDashboard, LogInAs logInAs,
             MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleCalendarView menuCycleCalendarView)
         {
-            this.engageLogin = engageLogin;
             this.engageDashboard = engageDashboard;
             this.logInAs = logInAs;
             this.menuCycleDashboard = menuCycleDashboard;
             this.createMenuCycle = createMenuCycle;
             this.menuCycleCalendarView = menuCycleCalendarView;
+            this.scenarioContext = scenarioContext;
         }
 
-        [Given(@"the Menu Cycles Dashboard is opened as a (.*) user")]
-        public void GivenTheMenuCycleDashboardIsOpened(string userType)
+        [Given(@"the Menu Cycles Dashboard is open as a (.*) user")]
+        public void GivenTheMenuCycleDashboardIsOpen(string userType)
         {
-            engageLogin.OpenLoginPage();
-            engageLogin.PerformLogin();
-            engageDashboard.SelectApplication("Menu Cycles");
             logInAs.LogAs(userType);
         }
 
         [When(@"a Menu Cycle with the following data is created")]
         public void WhenAMenuCycleWithTheFollowingDataIsCreated(List<MenuCycle> menuCycle)
         {
-            menuCycleDashboard.CreateMenuCycle();
-            createMenuCycle.Create(menuCycle[0]);
+            scenarioContext.Set(menuCycle);
+            menuCycleDashboard.CreateMenuCycleClick();
+            createMenuCycle.Create(menuCycle.First());
         }
 
         [Then(@"the message '(.*)' is displayed")]
@@ -52,8 +50,8 @@ namespace MenuCycles.AutomatedTests.Steps
         [Then(@"the calendar view is opened")]
         public void ThenTheCalendardViewIsOpened()
         {
-            menuCycleCalendarView.ValidateWindow("Icaro here");
+            string name = scenarioContext.Get<List<MenuCycle>>().First().Name;
+            menuCycleCalendarView.ValidateWindow(name);
         }
-
     }
 }

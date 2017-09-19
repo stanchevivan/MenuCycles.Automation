@@ -25,8 +25,8 @@ namespace MenuCycles.AutomatedTests.Hooks
                     {
                         Name = row.FindValue("Name", faker.Name.FirstName()),
                         Description = row.FindValue("Description", faker.Lorem.Sentence(10)),
-                        Offer = row.FindValue("Offer", ""),
-                        NonServingDays = row.FindValue("NonServingDays", faker.Random.Number(6).ToString()).ToWeekDay()
+                        Group = row.FindValue("Offer", ""),
+                        NonServingDays = row.FindValue("NonServingDays", "").ToWeekDay()
                     }
                 );
             }
@@ -47,11 +47,13 @@ namespace MenuCycles.AutomatedTests.Hooks
         {
             List<DayOfWeek> list = new List<DayOfWeek>();
 
-            foreach (var item in self.Split(','))
+            if (self != "")
             {
-                list.Add((DayOfWeek)Enum.Parse(typeof(DayOfWeek), item, true));
+                foreach (var item in self.Split(','))
+                {
+                    list.Add((DayOfWeek)Enum.Parse(typeof(DayOfWeek), item, true));
+                }
             }
-
             return list;
         }
     }

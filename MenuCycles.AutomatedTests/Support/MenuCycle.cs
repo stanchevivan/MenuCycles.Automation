@@ -8,7 +8,7 @@ namespace MenuCycles.AutomatedTests.Model
         public string Name { get; set;}
         public string Description { get; set;}
         public List<DayOfWeek> NonServingDays { get; set; }
-        public string Offer { get; set; }
+        public string Group { get; set; }
     }
 }
 

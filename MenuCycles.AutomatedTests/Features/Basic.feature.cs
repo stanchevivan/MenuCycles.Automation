@@ -64,6 +64,16 @@ namespace MenuCycles.AutomatedTests.Features
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 6
+#line 7
+testRunner.Given("Fourth Engage Dashboard is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+testRunner.And("\'Menu Cycles\' application is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Menu Cycle with No Non Serving Days")]
         [NUnit.Framework.CategoryAttribute("create")]
@@ -71,21 +81,102 @@ namespace MenuCycles.AutomatedTests.Features
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Menu Cycle with No Non Serving Days", new string[] {
                         "create"});
-#line 7
+#line 11
 this.ScenarioSetup(scenarioInfo);
-#line 8
- testRunner.Given("the Menu Cycles Dashboard is opened as a central user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 6
+this.FeatureBackground();
+#line 12
+ testRunner.Given("the Menu Cycles Dashboard is open as a central user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Offer"});
+                        "Group",
+                        "NonServingDays"});
             table1.AddRow(new string[] {
-                        "SodexoUp"});
-#line 9
- testRunner.When("a Menu Cycle with the following data is created", ((string)(null)), table1, "When ");
-#line 12
- testRunner.Then("the message \'Menu Cycle has been created.\' is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                        "SodexoUp",
+                        ""});
 #line 13
+ testRunner.When("a Menu Cycle with the following data is created", ((string)(null)), table1, "When ");
+#line 16
+ testRunner.Then("the message \'Menu Cycle has been created.\' is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 17
  testRunner.And("the calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Add recipe searching by Name #1")]
+        public virtual void AddRecipeSearchingByName1()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add recipe searching by Name #1", ((string[])(null)));
+#line 19
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 20
+ testRunner.Given("the Menu Cycles Dashboard is open as a central user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Description",
+                        "NonServingDays",
+                        "Group"});
+            table2.AddRow(new string[] {
+                        "Winter Schools Menu Cycle",
+                        "Lorem ipsum dolor school",
+                        "Saturday, Sunday",
+                        "SodexoUp"});
+#line 21
+ testRunner.And("a Menu Cycle with the following data exists", ((string)(null)), table2, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name"});
+            table3.AddRow(new string[] {
+                        "Whatever"});
+#line 24
+ testRunner.And("a Recipe with the followin data exists", ((string)(null)), table3, "And ");
+#line 27
+ testRunner.When("a recipe found searching by name is added to a meal period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 28
+ testRunner.Then("the message \'Meal Period Saved successfully.\' is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 29
+ testRunner.And("recipe is shown in the calendar view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Add recipe searching by Name #2")]
+        public virtual void AddRecipeSearchingByName2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add recipe searching by Name #2", ((string[])(null)));
+#line 31
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 32
+ testRunner.Given("a Menu Cycle and Recipe exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 33
+ testRunner.And("the Menu Cycles Dashboard is open as a central user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
+ testRunner.When("a recipe found searching by name is added to a meal period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 35
+ testRunner.Then("the message \'Meal Period Saved successfully.\' is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 36
+ testRunner.And("recipe is shown in the calendar view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("NOTE")]
+        public virtual void NOTE()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("NOTE", ((string[])(null)));
+#line 38
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }

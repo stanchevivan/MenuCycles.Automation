@@ -64,7 +64,7 @@ namespace MenuCycles.AutomatedTests.PageObjects
             SelectNonServingDays(mc.NonServingDays);
             NextButton.Click();
 
-            SearchAndSelectOffer(mc.Offer);
+            SearchAndSelectOffer(mc.Group);
             CreateButton.Click();
         }
 
