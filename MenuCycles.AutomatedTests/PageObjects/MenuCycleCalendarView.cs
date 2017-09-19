@@ -4,6 +4,7 @@ using Fourth.Automation.Framework.Reporting;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using System.Collections.Generic;
 
 namespace MenuCycles.AutomatedTests.PageObjects
 {
@@ -36,6 +37,9 @@ namespace MenuCycles.AutomatedTests.PageObjects
 
         [FindsBy(How = How.Id, Using = "BlueLoaderShowHide")]
         public IWebElement SpinningWheel { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".daily-header-container .mealPeriodButtons")]
+        public IList<IWebElement> MealPeriodButtons { get; set; }
 
         public void ValidateWindow(string TitleExpected)
         {

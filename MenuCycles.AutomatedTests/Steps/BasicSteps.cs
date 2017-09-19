@@ -37,17 +37,10 @@ namespace MenuCycles.AutomatedTests.Steps
         }
 
         [When(@"a Menu Cycle with the following data is created")]
-        public void WhenAMenuCycleWithTheFollowingDataIsCreated(Table table)
+        public void WhenAMenuCycleWithTheFollowingDataIsCreated(List<MenuCycle> menuCycle)
         {
-            MenuCycle mc = new MenuCycle()
-            {
-                Name = "Icaro here",
-                Description = "Testing Up",
-                Offer = table.Rows[0][0],
-                NonServingDays = new List<DayOfWeek>()
-            };
             menuCycleDashboard.CreateMenuCycle();
-            createMenuCycle.Create(mc);
+            createMenuCycle.Create(menuCycle[0]);
         }
 
         [Then(@"the message '(.*)' is displayed")]
