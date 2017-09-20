@@ -6,17 +6,13 @@ namespace MenuCyclesData.Helpers
 {
     public static class Constants
     {
-        public static string baseUrl = "https://api-dev.fourth.com/prelive/api/menuservice";
-        public static string csvBaseFolder = @"ApiPerformanceTests\CsvFiles";
-
-        public static string jsonBaseFolder = @"ApiPerformanceTests\Json";
-        public static string rootPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-        public static DataBaseActions DatabaseAction = DataBaseActions.NONE;
-
         public static string ConnectionString = "Data Source=ie1apiqdb02.cloudapp.net;User ID=SQLA-VenkatSalivendra;Password=hi2o2qcDYD5ipK6DvOM7; Initial Catalog = MenuServiceSodexoQAI;";
+
+        public static string myPrefix = "Ico ";
 
         public static int customerId = 1;
         public static int userId = 36;
+        public static string groupName = "SodexoUp";
 
         public static int baseValue                         = 1; //Users
             public static int groupBase                         = 1;
@@ -32,12 +28,5 @@ namespace MenuCyclesData.Helpers
             public static int mealPeriodsPerDay                 = 3;
             public static int scheduleWeeks                     = 1;
 
-    }
-
-    public enum DataBaseActions
-    {
-        NONE = 1,
-        RESET = 2,
-        SEED = 3
     }
 }

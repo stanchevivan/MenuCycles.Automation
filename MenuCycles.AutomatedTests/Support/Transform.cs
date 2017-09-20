@@ -1,60 +1,56 @@
 ﻿using TechTalk.SpecFlow;
-using Bogus;
-using MenuCycles.AutomatedTests.Model;
+using MenuCyclesData.DatabaseDataModel;
 using System;
 using System.Collections.Generic;
+using MenuCyclesData;
+using MenuCyclesData.Helpers;
 
 namespace MenuCycles.AutomatedTests.Hooks
 {
     [Binding]
-    public static class Transform
+    public class Transform
     {
-        //Converts a Specflow into a list of Menu Cycles
-        //If the value is not in the table, it uses Bogus to generate a random value
-        [StepArgumentTransformation]
-        public static List<MenuCycle> MenuCycleList(Table table)
+        private Seeding seed;
+        public Transform(Seeding seed)
         {
-            Faker faker = new Faker();
+            this.seed = seed;
+        }
 
+        [StepArgumentTransformation]
+        public List<MenuCycle> MenuCyclesList(Table table)
+        {
             List<MenuCycle> list = new List<MenuCycle>();
             foreach (TableRow row in table.Rows)
             {
-                list.Add
-                (
-                    new MenuCycle()
-                    {
-                        Name = row.FindValue("Name", faker.Name.FirstName()),
-                        Description = row.FindValue("Description", faker.Lorem.Sentence(10)),
-                        Group = row.FindValue("Offer", ""),
-                        NonServingDays = row.FindValue("NonServingDays", "").ToWeekDay()
-                    }
-                );
+                list.Add(this.seed.GenerateMenuCycle());
+                //list.Add(GenerateMenuCycle(row));
             }
 
             return list;
         }
 
-        private static string FindValue(this TableRow row, string key, string ifNotFound)
+        [StepArgumentTransformation]
+        public MenuCycle SingleMenuCycle(Table table)
         {
-            if (row.ContainsKey(key))
+            if (table.RowCount > 1)
             {
-                return (row[key] != "") ? row[key] : ifNotFound;
+                throw new Exception("Table should contain only one row");
             }
-            return ifNotFound;
+            
+            return ReplaceWithTable(this.seed.GenerateMenuCycle(), table.Rows[0]); 
+            //return GenerateMenuCycle(table.Rows[0]);
         }
 
-        private static List<DayOfWeek> ToWeekDay(this string self)
+        private static MenuCycle ReplaceWithTable(MenuCycle menu, TableRow row)
         {
-            List<DayOfWeek> list = new List<DayOfWeek>();
-
-            if (self != "")
+            foreach (var item in row.Keys)
             {
-                foreach (var item in self.Split(','))
-                {
-                    list.Add((DayOfWeek)Enum.Parse(typeof(DayOfWeek), item, true));
-                }
+                System.Reflection.PropertyInfo propInfo = menu.GetType().GetProperty(item);
+                var value = Convert.ChangeType(row[item], propInfo.PropertyType);
+                menu.GetType().GetProperty(item).SetValue(menu, value);
             }
-            return list;
+
+            return menu;
         }
     }
 }

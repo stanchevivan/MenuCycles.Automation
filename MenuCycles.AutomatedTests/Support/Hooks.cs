@@ -4,9 +4,8 @@ using Fourth.Automation.Framework.Reporting;
 using BoDi;
 using OpenQA.Selenium;
 using System.Collections.Generic;
-using MenuCycles.AutomatedTests.Model;
-using System.Linq;
 using MenuCyclesData;
+using MenuCyclesData.DatabaseDataModel;
 
 namespace MenuCycles.AutomatedTests.Hooks
 {
@@ -16,12 +15,14 @@ namespace MenuCycles.AutomatedTests.Hooks
         private readonly IObjectContainer objectContainer;
         private IWebDriver driver;
         private ScenarioContext scenarioContext;
+        private Seeding data;
 
         public Hooks(IObjectContainer container, ScenarioContext scenarioContext)
         {
             this.objectContainer = container;
             this.objectContainer.RegisterTypeAs<Artefacts, IArtefacts>();
             this.scenarioContext = scenarioContext;
+            this.data = new Seeding();
         }
 
         [BeforeScenario]
@@ -34,9 +35,11 @@ namespace MenuCycles.AutomatedTests.Hooks
         [AfterScenario]
         public void AfterScenario()
         {
-            DataSeeding data = new DataSeeding();
-            data.DeleteScenarioData(scenarioContext.Get<List<MenuCycle>>().Select(c => c.Name).ToList());
-            driver.Quit();
+            List<MenuCycle> list = new List<MenuCycle>();
+            if (scenarioContext.TryGetValue(out list))
+            {
+                data.DeleteScenarioData(list);
+            }
         }
     }
 }

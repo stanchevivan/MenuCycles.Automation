@@ -3,7 +3,7 @@ using MenuCyclesData.Helpers;
 using MenuCyclesData.Repositories;
 using System;
 using System.Collections.Generic;
-using System.IO;
+using Bogus;
 
 namespace MenuCyclesData
 {
@@ -33,17 +33,62 @@ namespace MenuCyclesData
         private List<Note> notesList = new List<Note>();
         private List<MenuCycleItem> mcItems = new List<MenuCycleItem>();
 
+        public List<MenuCycle> SeedMenuCycles(int quantity)
+        {
+            customer = new CustomerRepository().Find<Customer>(Constants.customerId);
+            user = new UserRepository().Find<User>(Constants.userId);
+
+            Faker faker = new Faker();
+            MenuCycleRepository repository = new MenuCycleRepository();
+            List<MenuCycle> list = new List<MenuCycle>();
+
+            for (int i = 0; i <= quantity; i++)
+            {
+                list.Add
+                (
+                    new MenuCycle()
+                    {
+                        Name = Constants.myPrefix + faker.Name.FindName() + i,
+                        Description = Constants.myPrefix + faker.Lorem.Sentence(10) + i,
+                        ParentId = 0,
+                        IsPublished = 0,
+                        IsDeleted = 0,
+                        StartDate = null,
+                        EndDate = null,
+                        NonServingDays = 0,
+                        CustomerId = customer.CustomerId,
+                        DateCreatedUtc = DateTime.UtcNow,
+                        CreatedByExternalId = user.Name,
+                        DateUpdatedUtc = DateTime.UtcNow,
+                        UpdatedByExternalId = user.Name,
+                    }
+                );
+            }
+
+            return SeedMenuCycles(list);
+        }
+        public List<MenuCycle> SeedMenuCycles(List<MenuCycle> list)
+        {
+            MenuCycleRepository repository = new MenuCycleRepository();
+            menuCycleList = repository.BulkInsertAndReturn(list);
+            return menuCycleList;
+        }
+
         public void SeedAll()
         {
             customer = new CustomerRepository().Find<Customer>(Constants.customerId);
             user = new UserRepository().Find<User>(Constants.userId);
 
+            SeedGroups();
+            SeedLocations();
             SeedMenuCycles();
             SeedMealPeriod();
             SeedRecipes();
             SeedMenus();
             SeedNotes();
+
             SeedRelationships();
+
             SeedMenuCycleItems();
         }
         public void ClearAll()
@@ -168,7 +213,6 @@ namespace MenuCyclesData
                     menuCycle.Description = "Menu Cycle Seeded " + i;
                     menuCycle.ParentId = 0;
                     menuCycle.IsPublished = 0;
-                    menuCycle.IsMaster = 1;
                     menuCycle.IsDeleted = 0;
                     menuCycle.StartDate = null;
                     menuCycle.EndDate = null;
@@ -407,7 +451,7 @@ namespace MenuCyclesData
                         UpdatedByExternalId = user.Name
                     };
                     repository.InsertMenuCycleGroup(dRelation);
-                    menuCycleList[j].GroupId = groupList[i].GroupId;
+                    // menuCycleList[j].GroupId = groupList[i].GroupId;
                 }
             }
 

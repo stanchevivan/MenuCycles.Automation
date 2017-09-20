@@ -126,6 +126,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\FourthEngageSteps.cs" />
     <Compile Include="Steps\MenuCycleSteps.cs" />
+    <Compile Include="Support\Extensions.cs" />
     <Compile Include="Support\Transform.cs" />
     <Compile Include="Support\MenuCycle.cs" />
     <Compile Include="Support\Hooks.cs" />

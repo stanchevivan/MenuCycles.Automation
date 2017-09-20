@@ -41,20 +41,22 @@ namespace MenuCyclesData.Repositories
             var sql =
                 "INSERT INTO MenuCycles VALUES (" +
                 "@Name, @Description, @ParentId, @IsPublished, " +
-                "@IsMaster, @IsDeleted, @StartDate, " +
+                "@IsDeleted, @StartDate, " +
                 "@EndDate, @NonServingDays, @CustomerId, @DateCreatedUtc, " +
-                "@CreatedByExternalId, @DateUpdatedUtc , @UpdatedByExternalId);";
+                "@CreatedByExternalId, @DateUpdatedUtc , @UpdatedByExternalId, " +
+                "@LocationId, @ReleaseDate, @Status, @IsModifiedLocally);";
 
             this.db.Execute(sql, list);
         }
         public List<T> BulkInsertAndReturn<T>(List<T> list)
         {
             var sql =
-               "INSERT INTO MenuCycles VALUES (" +
-               "@Name, @Description, @ParentId, @IsPublished, " +
-               "@IsMaster, @IsDeleted, @StartDate, " +
-               "@EndDate, @NonServingDays, @CustomerId, @DateCreatedUtc, " +
-               "@CreatedByExternalId, @DateUpdatedUtc , @UpdatedByExternalId);";
+                "INSERT INTO MenuCycles VALUES (" +
+                "@Name, @Description, @ParentId, @IsPublished, " +
+                "@IsDeleted, @StartDate, " +
+                "@EndDate, @NonServingDays, @CustomerId, @DateCreatedUtc, " +
+                "@CreatedByExternalId, @DateUpdatedUtc , @UpdatedByExternalId, " +
+                "@LocationId, @ReleaseDate, @Status, @IsModifiedLocally);";
 
             this.db.Execute(sql, list);
 
@@ -62,7 +64,7 @@ namespace MenuCyclesData.Repositories
         }
         public List<T> GetAll<T>()
         {
-            return this.db.Query<T>("SELECT * FROM MenuCycles WHERE Name LIKE 'Seed%'").ToList();
+            return this.db.Query<T>("SELECT * FROM MenuCycles WHERE Name LIKE '" + Constants.myPrefix + "%'").ToList();
         }
         public List<T> GetAllModified<T>()
         {

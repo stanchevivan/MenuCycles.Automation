@@ -1,7 +1,8 @@
 ﻿using Fourth.Automation.Framework.Page;
 using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Reporting;
-using MenuCycles.AutomatedTests.Model;
+//using MenuCycles.AutomatedTests.Model;
+using MenuCyclesData.DatabaseDataModel;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
@@ -68,14 +69,14 @@ namespace MenuCycles.AutomatedTests.PageObjects
             CreateButton.Click();
         }
 
-        internal void SelectNonServingDays(List<DayOfWeek> daysOfWeekList)
+        internal void SelectNonServingDays(int daysOfWeekList)
         {
-            if (daysOfWeekList != null && daysOfWeekList.Count > 0)
+            if (daysOfWeekList > 0)
             {
-                foreach (var item in daysOfWeekList)
-                {
-                    DaysOfWeek.ElementByText(item.ToString()).FindElement(By.CssSelector("label")).Click();
-                }
+                //foreach (var item in daysOfWeekList)
+                //{
+                //    DaysOfWeek.ElementByText(item.ToString()).FindElement(By.CssSelector("label")).Click();
+                //}
             }
         }
 

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MenuCyclesData.DatabaseDataModel
 {
@@ -13,25 +10,20 @@ namespace MenuCyclesData.DatabaseDataModel
         public string Description { get; set; }
         public int? ParentId { get; set; }
         public int IsPublished { get; set; }
-        public int IsMaster { get; set; }
         public int IsDeleted { get; set; }
-        public DateTime? StartDate{ get; set; }
-        public DateTime? EndDate{ get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public int NonServingDays { get; set; }
         public int CustomerId { get; set; }
         public DateTime DateCreatedUtc { get; set; }
         public string CreatedByExternalId { get; set; }
         public DateTime DateUpdatedUtc { get; set; }
         public string UpdatedByExternalId { get; set; }
-        
-        internal bool IsNew
-        {
-            get
-            {
-                return this.MenuCycleId == default(int);
-            }
-        }
+        public int? LocationId { get; set; }
+        public DateTime? ReleaseDate { get; set; }
+        public int Status { get; set; }
+        public int IsModifiedLocally { get; set; }
 
-        public int GroupId { get; set; }
+        public string Group { get; set; }
     }
 }

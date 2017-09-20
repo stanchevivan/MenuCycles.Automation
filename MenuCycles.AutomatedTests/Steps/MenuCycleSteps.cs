@@ -1,8 +1,9 @@
 ﻿using MenuCycles.AutomatedTests.PageObjects;
-using MenuCycles.AutomatedTests.Model;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
 using System.Linq;
+using MenuCyclesData.DatabaseDataModel;
+using MenuCyclesData;
 
 namespace MenuCycles.AutomatedTests.Steps
 {
@@ -15,8 +16,9 @@ namespace MenuCycles.AutomatedTests.Steps
         private CreateMenuCycle createMenuCycle;
         private MenuCycleCalendarView menuCycleCalendarView;
         private ScenarioContext scenarioContext;
+        private Seeding seeding;
 
-        public MenuCycleSteps(ScenarioContext scenarioContext, EngageDashboard engageDashboard, LogInAs logInAs,
+        public MenuCycleSteps(ScenarioContext scenarioContext, Seeding seeding, EngageDashboard engageDashboard, LogInAs logInAs,
             MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleCalendarView menuCycleCalendarView)
         {
             this.engageDashboard = engageDashboard;
@@ -25,6 +27,7 @@ namespace MenuCycles.AutomatedTests.Steps
             this.createMenuCycle = createMenuCycle;
             this.menuCycleCalendarView = menuCycleCalendarView;
             this.scenarioContext = scenarioContext;
+            this.seeding = seeding;
         }
 
         [Given(@"the Menu Cycles Dashboard is open as a (.*) user")]
@@ -34,11 +37,11 @@ namespace MenuCycles.AutomatedTests.Steps
         }
 
         [When(@"a Menu Cycle with the following data is created")]
-        public void WhenAMenuCycleWithTheFollowingDataIsCreated(List<MenuCycle> menuCycle)
+        public void WhenAMenuCycleWithTheFollowingDataIsCreated(MenuCycle menuCycle)
         {
             scenarioContext.Set(menuCycle);
             menuCycleDashboard.CreateMenuCycleClick();
-            createMenuCycle.Create(menuCycle.First());
+            createMenuCycle.Create(menuCycle);
         }
 
         [Then(@"the message '(.*)' is displayed")]
@@ -50,8 +53,20 @@ namespace MenuCycles.AutomatedTests.Steps
         [Then(@"the calendar view is opened")]
         public void ThenTheCalendardViewIsOpened()
         {
-            string name = scenarioContext.Get<List<MenuCycle>>().First().Name;
-            menuCycleCalendarView.ValidateWindow(name);
+            menuCycleCalendarView.ValidateWindow(scenarioContext.Get<MenuCycle>().Name);
         }
+
+        [Given(@"a Menu Cycle with the following data exists")]
+        public void GivenAMenuCycleWithTheFollowingDataExists(List<MenuCycle> menuCyclesList)
+        {
+            scenarioContext.Set(seeding.MenuCycles(menuCyclesList));
+        }
+
+        [Given(@"a Menu Cycle and Recipe exists")]
+        public void GivenAMenuCycleAndRecipeExists()
+        {
+            scenarioContext.Set(seeding.RandomMenuCycles(1));
+        }
+
     }
 }

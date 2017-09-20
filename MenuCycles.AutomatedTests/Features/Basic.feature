@@ -12,16 +12,17 @@ Scenario: Menu Cycle with No Non Serving Days
 	Given the Menu Cycles Dashboard is open as a central user
 	When a Menu Cycle with the following data is created
 	  | Group    | NonServingDays |
-	  | SodexoUp |                |
+	  | SodexoUp | 0              |
 	Then the message 'Menu Cycle has been created.' is displayed
 	And the calendar view is opened
 
 Scenario: Add recipe searching by Name #1
-	Given the Menu Cycles Dashboard is open as a central user
-	And a Menu Cycle with the following data exists
-	| Name                      | Description              | NonServingDays   | Group    |
-	| Winter Schools Menu Cycle | Lorem ipsum dolor school | Saturday, Sunday | SodexoUp |  
-	And a Recipe with the followin data exists
+	Given a Menu Cycle with the following data exists
+	| Name                      | Description              | NonServingDays | Group    |
+	| Winter Schools Menu Cycle | Lorem ipsum dolor school | 0              | SodexoUp |
+	| Testing Second Line       | This is just a test      | 0              | SodexoUp |
+	And the Menu Cycles Dashboard is open as a central user
+	And a Recipe with the following data exists
 	| Name     |
 	| Whatever | 
 	When a recipe found searching by name is added to a meal period
@@ -36,6 +37,13 @@ Scenario: Add recipe searching by Name #2
 	And recipe is shown in the calendar view
 
 Scenario: NOTE
+	Given a Menu Cycle with the following data exists
+	| Name                      | Description              | NonServingDays | Group    |
+	| Winter Schools Menu Cycle | Lorem ipsum dolor school | Saturday, Sunday              | SodexoUp |
+	| Testing Second Line       | This is just a test      | Saturday, Sunday              | SodexoUp |
+	When a Menu Cycle with the following data is created
+	  | Group    | NonServingDays |
+	  | SodexoUp | 0              |
 #Given: 
 	#Creates a Menu Cycles with a meal Period to DB
 	#Creates a Recipe

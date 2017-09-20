@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseDataModel\MenuCycleItem.cs" />
+    <Compile Include="IndividualSeeding.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="DatabaseDataModel\Note.cs" />
     <Compile Include="DatabaseDataModel\MealPeriod.cs" />
