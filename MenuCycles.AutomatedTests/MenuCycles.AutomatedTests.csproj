@@ -114,12 +114,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Basic.feature</DependentUpon>
     </Compile>
+    <Compile Include="PageObjects\CalendarView\DayColumn.cs" />
     <Compile Include="PageObjects\CreateMenuCycle.cs" />
-    <Compile Include="PageObjects\RecipeItem.cs" />
-    <Compile Include="PageObjects\RecipeSearch.cs" />
-    <Compile Include="PageObjects\MealPeriod.cs" />
-    <Compile Include="PageObjects\MenuCycleCalendarView.cs" />
-    <Compile Include="PageObjects\MenuCyclesDashboard.cs" />
+    <Compile Include="PageObjects\CalendarView\MealPeriodCard.cs" />
+    <Compile Include="PageObjects\Dashboard\MenuCycleItem.cs" />
+    <Compile Include="PageObjects\CalendarView\WeekDays.cs" />
+    <Compile Include="PageObjects\Recipe\RecipeItem.cs" />
+    <Compile Include="PageObjects\Recipe\RecipeSearch.cs" />
+    <Compile Include="PageObjects\CreateMealPeriod.cs" />
+    <Compile Include="PageObjects\CalendarView\MenuCycleCalendarView.cs" />
+    <Compile Include="PageObjects\Dashboard\MenuCyclesDashboard.cs" />
     <Compile Include="PageObjects\LogInAs.cs" />
     <Compile Include="PageObjects\FourthEngage\EngageDashboard.cs" />
     <Compile Include="PageObjects\FourthEngage\EngageLogin.cs" />
@@ -147,6 +151,7 @@
       <Name>MenuCyclesData</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

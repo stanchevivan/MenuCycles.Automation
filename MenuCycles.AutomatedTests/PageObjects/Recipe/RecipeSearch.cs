@@ -29,8 +29,16 @@ namespace MenuCycles.AutomatedTests.PageObjects
         [FindsBy(How = How.Id, Using = "BlueLoaderShowHideSearch")]
         public IWebElement SpinningWheel { get; set; }
 
-        [FindsBy(How = How.Id, Using = ".strip-pad .colorstrip-Recipe")]
+        [FindsBy(How = How.CssSelector, Using = ".strip-pad .colorstrip-Recipe")]
         public IList<IWebElement> RecipesList { get; set; }
 
+        public void SearchRecipeByName(string recipeName)
+        {
+            SearchTextBox.SendKeys(recipeName);
+            SearchButton.Click();
+            Driver.WaitElementToDisappear(SpinningWheel);
+            List<RecipeItem> recipes = RecipesList.ToPageObjectList<RecipeItem>(Driver);
+            recipes.Find(c => c.Title.Text == recipeName).ActionButton.Click();
+        }
     }
 }

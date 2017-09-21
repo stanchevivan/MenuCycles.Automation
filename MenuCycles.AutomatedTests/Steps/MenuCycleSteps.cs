@@ -15,17 +15,23 @@ namespace MenuCycles.AutomatedTests.Steps
         private MenuCyclesDashboard menuCycleDashboard;
         private CreateMenuCycle createMenuCycle;
         private MenuCycleCalendarView menuCycleCalendarView;
+        private CreateMealPeriod createMealPeriod;
+        private RecipeSearch recipeSearch;
         private ScenarioContext scenarioContext;
         private Seeding seeding;
 
         public MenuCycleSteps(ScenarioContext scenarioContext, Seeding seeding, EngageDashboard engageDashboard, LogInAs logInAs,
-            MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleCalendarView menuCycleCalendarView)
+            MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleCalendarView menuCycleCalendarView,
+            CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch)
         {
             this.engageDashboard = engageDashboard;
             this.logInAs = logInAs;
             this.menuCycleDashboard = menuCycleDashboard;
             this.createMenuCycle = createMenuCycle;
             this.menuCycleCalendarView = menuCycleCalendarView;
+            this.createMealPeriod = createMealPeriod;
+            this.recipeSearch = recipeSearch;
+
             this.scenarioContext = scenarioContext;
             this.seeding = seeding;
         }
@@ -62,11 +68,38 @@ namespace MenuCycles.AutomatedTests.Steps
             scenarioContext.Set(seeding.MenuCycles(menuCyclesList));
         }
 
-        [Given(@"a Menu Cycle and Recipe exists")]
-        public void GivenAMenuCycleAndRecipeExists()
+        [Given(@"data exists")]
+        public void GivenDataExists()
         {
             scenarioContext.Set(seeding.RandomMenuCycles(1));
+            scenarioContext.Set(seeding.RandomRecipe(1));
+
+            scenarioContext.Set(new MealPeriod()
+            {
+                Name = "LUNCH",
+            });
         }
 
+
+        [When(@"a test is made for (.*)")]
+        public void WhenATestIsMade(string weekDay)
+        {
+            var mc = scenarioContext.Get<List<MenuCycle>>()[0];
+            menuCycleDashboard.SelectMenuCycleByName(mc.Name);
+            menuCycleCalendarView.AddMealPeriod(weekDay);
+
+            var mp = scenarioContext.Get<MealPeriod>();
+            createMealPeriod.SelectMealPeriod(mp.Name);
+            createMealPeriod.AddRecipe();
+
+            var recipe = scenarioContext.Get<List<Recipe>>();
+            recipeSearch.SearchRecipeByName(recipe[0].Name);
+
+            createMealPeriod.SaveMealPeriod();
+            createMenuCycle.ValidateToastMessage("Meal Period Saved successfully");
+            createMealPeriod.CloseMealPeriod();
+
+            menuCycleCalendarView.ValidateMealPeriod(weekDay, mp, recipe);
+        }
     }
 }

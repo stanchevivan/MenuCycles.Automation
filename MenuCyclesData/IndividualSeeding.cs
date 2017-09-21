@@ -38,38 +38,58 @@ namespace MenuCyclesData
                     UpdatedByExternalId = user.ExternalId,
                 };
         }
-        public List<MenuCycle> RandomMenuCycles(int quantity)
+        public Recipe GenerateRecipe()
         {
             User user = new UserRepository().Find<User>(Constants.userId);
 
-            MenuCycleRepository repository = new MenuCycleRepository();
+            return
+                new Recipe()
+                {
+                    ExternalId = Guid.NewGuid().ToString(),
+                    Name = Constants.myPrefix + this.faker.Lorem.Sentence(5),
+                    Cost = new Random().Next(1, 50),
+                    CostQuantity = new Random().Next(11, 39),
+                    CostUnitOfMeasure = "kg",
+                    CustomerId = Constants.customerId,
+                    MinimumCost = new Random().Next(1, 10),
+                    MaximumCost = new Random().Next(40, 50),
+                    SellPriceModel = 1,
+                    SellPriceModelValue = 1,
+                    DateCreatedUtc = DateTime.UtcNow,
+                    CreatedByExternalId = "admin",
+                    DateUpdatedUtc = DateTime.UtcNow,
+                    UpdatedByExternalId = "admin"
+                };
+        }
+        public List<MenuCycle> RandomMenuCycles(int quantity)
+        {
             List<MenuCycle> list = new List<MenuCycle>();
 
             for (int i = 0; i < quantity; i++)
             {
                 list.Add
                 (
-                    new MenuCycle()
-                    {
-                        Name = Constants.myPrefix + this.faker.Name.FirstName(),
-                        Description = Constants.myPrefix + this.faker.Lorem.Sentence(10),
-                        ParentId = null,
-                        IsPublished = 0,
-                        IsDeleted = 0,
-                        StartDate = null,
-                        EndDate = null,
-                        NonServingDays = 0,
-                        CustomerId = Constants.customerId,
-                        DateCreatedUtc = DateTime.UtcNow,
-                        CreatedByExternalId = user.ExternalId,
-                        DateUpdatedUtc = DateTime.UtcNow,
-                        UpdatedByExternalId = user.ExternalId,
-                    }
+                    GenerateMenuCycle()
                 );
             }
 
             return MenuCycles(list);
         }
+        public List<Recipe> RandomRecipe(int quantity)
+        {
+            List<Recipe> list = new List<Recipe>();
+
+            for (int i = 0; i < quantity; i++)
+            {
+                list.Add
+                (
+                    GenerateRecipe()
+                );
+            }
+
+            return Recipes(list);
+        }
+
         public List<MenuCycle> MenuCycles(List<MenuCycle> list)
         {
             MenuCycleRepository mRepository = new MenuCycleRepository();
@@ -99,6 +119,32 @@ namespace MenuCyclesData
             }
 
             return menuCycleList;
+        }
+        public List<Recipe> Recipes(List<Recipe> list)
+        {
+            RecipeRepository reRepository = new RecipeRepository();
+            GroupRepository gRepository = new GroupRepository();
+            RelationshipsRepository rRepository = new RelationshipsRepository();
+
+            List<Recipe> recipeList = reRepository.BulkInsertAndReturn(list);
+            Group group = gRepository.Find<Group>(Constants.groupName);
+
+            //GroupRecipe
+            for (int i = 0; i < list.Count; i++)
+            {
+                dynamic dRelation = new
+                {
+                    id1 = group.GroupId,
+                    id2 = recipeList[i].RecipeId,
+                    DateCreatedUtc = DateTime.UtcNow,
+                    CreatedByExternalId = "admin",
+                    DateUpdatedUtc = DateTime.UtcNow,
+                    UpdatedByExternalId = "admin"
+                };
+                rRepository.InsertGroupRecipe(dRelation);
+            }
+
+            return recipeList;
         }
         public void DeleteScenarioData(List<MenuCycle> list)
         {

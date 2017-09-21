@@ -16,19 +16,28 @@ namespace MenuCycles.AutomatedTests.Hooks
             this.seed = seed;
         }
 
+        /// <summary>
+        /// Creates a list of Menu Cycles based on a table passed through the steps
+        /// </summary>
+        /// <param name="table">The table from feature step</param>
+        /// <returns></returns>
         [StepArgumentTransformation]
         public List<MenuCycle> MenuCyclesList(Table table)
         {
             List<MenuCycle> list = new List<MenuCycle>();
             foreach (TableRow row in table.Rows)
             {
-                list.Add(this.seed.GenerateMenuCycle());
-                //list.Add(GenerateMenuCycle(row));
+                list.Add(ReplaceWithTable(this.seed.GenerateMenuCycle(), row));
             }
 
             return list;
         }
 
+        /// <summary>
+        /// Creates a single Menu Cycle based on a table passed through the steps
+        /// </summary>
+        /// <param name="table">The table from feature step</param>
+        /// <returns></returns>
         [StepArgumentTransformation]
         public MenuCycle SingleMenuCycle(Table table)
         {
@@ -38,9 +47,14 @@ namespace MenuCycles.AutomatedTests.Hooks
             }
             
             return ReplaceWithTable(this.seed.GenerateMenuCycle(), table.Rows[0]); 
-            //return GenerateMenuCycle(table.Rows[0]);
         }
 
+        /// <summary>
+        /// This replaces the value from a menu cycle object with the ones set in the table from steps
+        /// </summary>
+        /// <param name="menu">The Menu Cycle object</param>
+        /// <param name="row">The row to search for the value replacements</param>
+        /// <returns>A modified menu cycle object</returns>
         private static MenuCycle ReplaceWithTable(MenuCycle menu, TableRow row)
         {
             foreach (var item in row.Keys)

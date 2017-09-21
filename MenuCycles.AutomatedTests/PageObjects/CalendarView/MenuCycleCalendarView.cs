@@ -1,10 +1,12 @@
 ﻿using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Page;
 using Fourth.Automation.Framework.Reporting;
+using MenuCyclesData.DatabaseDataModel;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MenuCycles.AutomatedTests.PageObjects
 {
@@ -38,8 +40,11 @@ namespace MenuCycles.AutomatedTests.PageObjects
         [FindsBy(How = How.Id, Using = "BlueLoaderShowHide")]
         public IWebElement SpinningWheel { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".daily-header-container .mealPeriodButtons")]
-        public IList<IWebElement> MealPeriodButtons { get; set; }
+        [FindsBy(How = How.CssSelector, Using = "#dailyCalendarTableHolder .daily-header-container > div")]
+        public IList<IWebElement> WeekDays { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "#dailyCalendarTableHolder .daily-view-screen > div")]
+        public IList<IWebElement> DayColumns { get; set; }
 
         public void ValidateWindow(string TitleExpected)
         {
@@ -64,6 +69,31 @@ namespace MenuCycles.AutomatedTests.PageObjects
             Driver.WaitElementToExists(CalendarWeek);
             Driver.WaitIsClickable(DaysViewButton);
             Driver.WaitElementToDisappear(SpinningWheel);
+        }
+
+        public void AddMealPeriod(string weekDayName)
+        {
+            WaitPageLoad();
+            List<WeekDays> weekDaysList = WeekDays.ToPageObjectList<WeekDays>(Driver);
+            weekDaysList.Find(c => c.WeekDayName.Text.StartsWith(weekDayName)).MealPeriodButton.Click();
+
+        }
+
+        public void ValidateMealPeriod(string weekDay, MealPeriod mp, List<Recipe> recipes)
+        {
+            List<WeekDays> weekDaysList = WeekDays.ToPageObjectList<WeekDays>(Driver);
+            int column = weekDaysList.FindIndex(c => c.WeekDayName.Text.StartsWith(weekDay));
+
+            DayColumn dayColumn = DayColumns.ToPageObjectList<DayColumn>(Driver)[column];
+            List<MealPeriodCard> cards = DayColumns.ToPageObjectList<MealPeriodCard>(Driver);
+
+            MealPeriodCard mealPeriod = dayColumn.MealPeriodCards.ToPageObjectList<MealPeriodCard>(Driver).Find(m => m.MealPeriodName.Text == mp.Name);
+
+            Assert.GreaterOrEqual(recipes.Count, mealPeriod.Recipes.Count);
+            foreach (var recipe in recipes)
+            {
+                Assert.IsNotNull(mealPeriod.Recipes.FirstOrDefault(r => r.Text == recipe.Name));
+            }
         }
     }
 }

@@ -8,16 +8,16 @@ using System.Collections.Generic;
 
 namespace MenuCycles.AutomatedTests.PageObjects
 {
-    public class MealPeriod : BasePage
+    public class CreateMealPeriod : BasePage
     {
         private readonly IArtefacts Artefacts;
 
-        public MealPeriod(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver)
+        public CreateMealPeriod(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver)
         {
             Artefacts = artefacts;
         }
 
-        [FindsBy(How = How.CssSelector, Using = ".daily-header-container .mealPeriodButtons")]
+        [FindsBy(How = How.CssSelector, Using = ".select-meal-box .custom-searchbox > div")]
         public IWebElement MealPeriodSearchBox { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".custom-searchbox-options .clickable")]
@@ -40,5 +40,32 @@ namespace MenuCycles.AutomatedTests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = "div[id='toast-container'] div[class='toast-message']")]
         public IWebElement ToastMessage { get; set; }
+
+        public void SelectMealPeriod(string mealPeriodName)
+        {
+            MealPeriodSearchBox.Click();
+            MealPeriodList.ElementByText(mealPeriodName).Click();
+        }
+
+        public void AddRecipe()
+        {
+            Driver.WaitElementAndClick(AddRecipeButton);
+        }
+
+        public void SaveAndCloseMealPeriod()
+        {
+            SaveMealPeriod();
+            CloseMealPeriod();
+        }
+
+        public void SaveMealPeriod()
+        {
+            Driver.WaitElementAndClick(SaveButton);
+        }
+
+        public void CloseMealPeriod()
+        {
+            Driver.WaitElementAndClick(CloseWindow);
+        }
     }
 }
