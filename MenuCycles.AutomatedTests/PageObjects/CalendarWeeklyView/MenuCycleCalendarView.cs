@@ -78,17 +78,15 @@ namespace MenuCycles.AutomatedTests.PageObjects
             int columnIndex = CalendarHeaders.ToPageObjectList<WeekDays>(Driver)
                                 .FindIndex(c => c.Name.Text.StartsWith(weekDay));
 
-            var test = CalendarColumns.ToPageObjectList<DayColumn>(Driver)[columnIndex];
-
-            MealPeriodCard mealPeriodCard = test
+            MealPeriodCard mealPeriodCard = CalendarColumns.ToPageObjectList<DayColumn>(Driver)[columnIndex]
                                     .MealPeriodCards.ToPageObjectList<MealPeriodCard>(Driver)
-                                    .First(m => m.Name.Text == expectedMealPeriod.Name);
+                                    .First(m => m.Name.Text == expectedMealPeriod.Name.ToUpper());
 
-            Assert.GreaterOrEqual(mealPeriodCard.Recipes.Count, expectedRecipes.Count);
+            Assert.GreaterOrEqual(expectedRecipes.Count, mealPeriodCard.Recipes.Count);
 
-            foreach (var item in expectedRecipes)
+            foreach (var item in mealPeriodCard.Recipes)
             {
-                Assert.IsTrue(mealPeriodCard.Recipes.Any(r => r.Text == item.Name));
+                Assert.IsTrue(expectedRecipes.Any(r => r.Name == item.Text));
             }
         }
     }
