@@ -46,16 +46,6 @@ namespace MenuCycles.AutomatedTests.PageObjects
         [FindsBy(How = How.Id, Using = "cancel")]
         public IWebElement CancelButton { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "div[id='toast-container'] div[class='toast-message']")]
-        public IWebElement ToastMessage { get; set; }
-
-        public void ValidateToastMessage(string expected)
-        {
-            Driver.WaitElementToExists(ToastMessage);
-            Assert.AreEqual(expected, ToastMessage.Text);
-            Artefacts.TakeScreenshot();
-        }
-
         public void Create(MenuCycle mc)
         {
             MenuName.SendKeys(mc.Name);

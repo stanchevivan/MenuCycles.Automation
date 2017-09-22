@@ -17,12 +17,13 @@ namespace MenuCycles.AutomatedTests.Steps
         private MenuCycleCalendarView menuCycleCalendarView;
         private CreateMealPeriod createMealPeriod;
         private RecipeSearch recipeSearch;
+        private ToastNotification notification;
         private ScenarioContext scenarioContext;
         private Seeding seeding;
 
         public MenuCycleSteps(ScenarioContext scenarioContext, Seeding seeding, EngageDashboard engageDashboard, LogInAs logInAs,
             MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleCalendarView menuCycleCalendarView,
-            CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch)
+            CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification)
         {
             this.engageDashboard = engageDashboard;
             this.logInAs = logInAs;
@@ -31,6 +32,7 @@ namespace MenuCycles.AutomatedTests.Steps
             this.menuCycleCalendarView = menuCycleCalendarView;
             this.createMealPeriod = createMealPeriod;
             this.recipeSearch = recipeSearch;
+            this.notification = notification;
 
             this.scenarioContext = scenarioContext;
             this.seeding = seeding;
@@ -53,7 +55,7 @@ namespace MenuCycles.AutomatedTests.Steps
         [Then(@"the message '(.*)' is displayed")]
         public void ThenAMessageIsDisplayed(string message)
         {
-            createMenuCycle.ValidateToastMessage(message);
+            notification.ValidateToastMessage(message);
         }
 
         [Then(@"the calendar view is opened")]
@@ -96,7 +98,7 @@ namespace MenuCycles.AutomatedTests.Steps
             recipeSearch.SearchRecipeByName(recipe[0].Name);
 
             createMealPeriod.SaveMealPeriod();
-            createMenuCycle.ValidateToastMessage("Meal Period Saved successfully");
+            notification.ValidateToastMessage("Meal Period Saved successfully");
             createMealPeriod.CloseMealPeriod();
 
             menuCycleCalendarView.ValidateMealPeriod(weekDay, mp, recipe);

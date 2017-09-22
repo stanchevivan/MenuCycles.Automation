@@ -83,17 +83,18 @@ namespace MenuCycles.AutomatedTests.PageObjects
         {
             List<WeekDays> weekDaysList = WeekDays.ToPageObjectList<WeekDays>(Driver);
             int column = weekDaysList.FindIndex(c => c.WeekDayName.Text.StartsWith(weekDay));
+            List<MealPeriodCard> mealperiodcard = DayColumns.ToPageObjectList<DayColumn>(Driver)[column].MealPeriodCards.ToPageObjectList<MealPeriodCard>(Driver); ;
+            var correcntMealPeriod = mealperiodcard.Find(m => m.MealPeriodName.Text == mp.Name);
 
-            DayColumn dayColumn = DayColumns.ToPageObjectList<DayColumn>(Driver)[column];
-            List<MealPeriodCard> cards = DayColumns.ToPageObjectList<MealPeriodCard>(Driver);
-
-            MealPeriodCard mealPeriod = dayColumn.MealPeriodCards.ToPageObjectList<MealPeriodCard>(Driver).Find(m => m.MealPeriodName.Text == mp.Name);
-
-            Assert.GreaterOrEqual(recipes.Count, mealPeriod.Recipes.Count);
-            foreach (var recipe in recipes)
+            Assert.GreaterOrEqual(correcntMealPeriod.Recipes.Count, recipes.Count);
+            foreach (var item in recipes)
             {
-                Assert.IsNotNull(mealPeriod.Recipes.FirstOrDefault(r => r.Text == recipe.Name));
+                Assert.IsTrue(correcntMealPeriod.Recipes.Any(r => r.Text == item.Name));
+                Assert.IsTrue(correcntMealPeriod.Recipes.Any(r => r.Text == "Ronald"));
             }
+            
+
+
         }
     }
 }

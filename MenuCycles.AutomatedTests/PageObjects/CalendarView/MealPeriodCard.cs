@@ -17,10 +17,7 @@ namespace MenuCycles.AutomatedTests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".daily-item-title")]
         public IWebElement MealPeriodName { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".sideBar > div")]
+        [FindsBy(How = How.CssSelector, Using = ".daily-item-item-contain > div > div")]
         public IList<IWebElement> Recipes { get; set; }
-
-        [FindsBy(How = How.CssSelector, Using = ".sideBar")]
-        public IWebElement ExpandButton { get; set; }
     }
 }

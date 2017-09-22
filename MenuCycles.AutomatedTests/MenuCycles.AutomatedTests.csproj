@@ -51,7 +51,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Fourth.Automation.Framework.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fourth.Automation.Framework.Core.1.4.1\lib\Fourth.Automation.Framework.Core.dll</HintPath>
+      <HintPath>..\packages\Fourth.Automation.Framework.Core.1.4.2\lib\Fourth.Automation.Framework.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Fourth.Automation.Framework.Mobile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -119,6 +119,7 @@
     <Compile Include="PageObjects\CalendarView\MealPeriodCard.cs" />
     <Compile Include="PageObjects\Dashboard\MenuCycleItem.cs" />
     <Compile Include="PageObjects\CalendarView\WeekDays.cs" />
+    <Compile Include="PageObjects\ToastNotification.cs" />
     <Compile Include="PageObjects\Recipe\RecipeItem.cs" />
     <Compile Include="PageObjects\Recipe\RecipeSearch.cs" />
     <Compile Include="PageObjects\CreateMealPeriod.cs" />
