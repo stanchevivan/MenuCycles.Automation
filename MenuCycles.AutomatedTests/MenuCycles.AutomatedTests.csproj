@@ -109,27 +109,34 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Features\Basic.feature.cs">
+    <Compile Include="Features\RecipeSearch.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Basic.feature</DependentUpon>
+      <DependentUpon>RecipeSearch.feature</DependentUpon>
     </Compile>
-    <Compile Include="PageObjects\CalendarView\DayColumn.cs" />
+    <Compile Include="Features\MenuCycles.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenuCycles.feature</DependentUpon>
+    </Compile>
+    <Compile Include="PageObjects\CalendarWeeklyView\DayColumn.cs" />
     <Compile Include="PageObjects\CreateMenuCycle.cs" />
-    <Compile Include="PageObjects\CalendarView\MealPeriodCard.cs" />
+    <Compile Include="PageObjects\CalendarWeeklyView\MealPeriodCard.cs" />
     <Compile Include="PageObjects\Dashboard\MenuCycleItem.cs" />
-    <Compile Include="PageObjects\CalendarView\WeekDays.cs" />
+    <Compile Include="PageObjects\CalendarWeeklyView\WeekDays.cs" />
     <Compile Include="PageObjects\ToastNotification.cs" />
     <Compile Include="PageObjects\Recipe\RecipeItem.cs" />
     <Compile Include="PageObjects\Recipe\RecipeSearch.cs" />
     <Compile Include="PageObjects\CreateMealPeriod.cs" />
-    <Compile Include="PageObjects\CalendarView\MenuCycleCalendarView.cs" />
+    <Compile Include="PageObjects\CalendarWeeklyView\MenuCycleCalendarView.cs" />
     <Compile Include="PageObjects\Dashboard\MenuCyclesDashboard.cs" />
     <Compile Include="PageObjects\LogInAs.cs" />
     <Compile Include="PageObjects\FourthEngage\EngageDashboard.cs" />
     <Compile Include="PageObjects\FourthEngage\EngageLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\FourthEngageSteps.cs" />
+    <Compile Include="Steps\SearchRecipeSteps.cs" />
+    <Compile Include="Steps\SeedSteps.cs" />
     <Compile Include="Steps\MenuCycleSteps.cs" />
     <Compile Include="Support\Extensions.cs" />
     <Compile Include="Support\Transform.cs" />
@@ -140,9 +147,13 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Features\Basic.feature">
+    <None Include="Features\RecipeSearch.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Basic.feature.cs</LastGenOutput>
+      <LastGenOutput>RecipeSearch.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\MenuCycles.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>MenuCycles.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

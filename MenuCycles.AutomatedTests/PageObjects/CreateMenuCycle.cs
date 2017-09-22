@@ -1,7 +1,6 @@
 ﻿using Fourth.Automation.Framework.Page;
 using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Reporting;
-//using MenuCycles.AutomatedTests.Model;
 using MenuCyclesData.DatabaseDataModel;
 using NUnit.Framework;
 using OpenQA.Selenium;

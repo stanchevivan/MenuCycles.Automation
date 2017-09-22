@@ -20,7 +20,7 @@ namespace MenuCycles.AutomatedTests.PageObjects
         }
 
         [FindsBy(How = How.Id, Using = "menucycleName")]
-        public IWebElement MenuCycleName { get; set; }
+        public IWebElement Name { get; set; }
 
         [FindsBy(How = How.Id, Using = "daysTab")]
         public IWebElement DaysViewButton { get; set; }
@@ -34,30 +34,26 @@ namespace MenuCycles.AutomatedTests.PageObjects
         [FindsBy(How = How.Id, Using = "delWeekbtn")]
         public IWebElement DeleteWeekButton { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".daily-header-div")]
-        public IWebElement CalendarWeek { get; set; }
-
         [FindsBy(How = How.Id, Using = "BlueLoaderShowHide")]
         public IWebElement SpinningWheel { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#dailyCalendarTableHolder .daily-header-container > div")]
-        public IList<IWebElement> WeekDays { get; set; }
+        public IList<IWebElement> CalendarHeaders { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#dailyCalendarTableHolder .daily-view-screen > div")]
-        public IList<IWebElement> DayColumns { get; set; }
+        public IList<IWebElement> CalendarColumns { get; set; }
 
-        public void ValidateWindow(string TitleExpected)
+        public void ValidateWindow(string ExpectedTitle)
         {
             WaitPageLoad();
 
-            Assert.IsTrue(MenuCycleName.Exist());
+            Assert.IsTrue(Name.Exist());
             Assert.IsTrue(DaysViewButton.Exist());
             Assert.IsTrue(WeeksViewButton.Exist());
             Assert.IsTrue(AddWeekButton.Exist());
             Assert.IsTrue(DeleteWeekButton.Exist());
-            Assert.IsTrue(CalendarWeek.Exist());
 
-            Assert.AreEqual(TitleExpected, MenuCycleName.Text);
+            Assert.AreEqual(ExpectedTitle, Name.Text);
             Assert.AreEqual("DAYS", DaysViewButton.Text);
             Assert.AreEqual("WEEKS", WeeksViewButton.Text);
 
@@ -66,7 +62,7 @@ namespace MenuCycles.AutomatedTests.PageObjects
 
         public void WaitPageLoad()
         {
-            Driver.WaitElementToExists(CalendarWeek);
+            Driver.WaitListItemsLoad(CalendarHeaders);
             Driver.WaitIsClickable(DaysViewButton);
             Driver.WaitElementToDisappear(SpinningWheel);
         }
@@ -74,27 +70,26 @@ namespace MenuCycles.AutomatedTests.PageObjects
         public void AddMealPeriod(string weekDayName)
         {
             WaitPageLoad();
-            List<WeekDays> weekDaysList = WeekDays.ToPageObjectList<WeekDays>(Driver);
-            weekDaysList.Find(c => c.WeekDayName.Text.StartsWith(weekDayName)).MealPeriodButton.Click();
-
+            CalendarHeaders.ToPageObjectList<WeekDays>(Driver).Find(c => c.Name.Text.StartsWith(weekDayName)).MealPeriodButton.Click();
         }
 
-        public void ValidateMealPeriod(string weekDay, MealPeriod mp, List<Recipe> recipes)
+        public void ValidateMealPeriod(string weekDay, MealPeriod expectedMealPeriod, List<Recipe> expectedRecipes)
         {
-            List<WeekDays> weekDaysList = WeekDays.ToPageObjectList<WeekDays>(Driver);
-            int column = weekDaysList.FindIndex(c => c.WeekDayName.Text.StartsWith(weekDay));
-            List<MealPeriodCard> mealperiodcard = DayColumns.ToPageObjectList<DayColumn>(Driver)[column].MealPeriodCards.ToPageObjectList<MealPeriodCard>(Driver); ;
-            var correcntMealPeriod = mealperiodcard.Find(m => m.MealPeriodName.Text == mp.Name);
+            int columnIndex = CalendarHeaders.ToPageObjectList<WeekDays>(Driver)
+                                .FindIndex(c => c.Name.Text.StartsWith(weekDay));
 
-            Assert.GreaterOrEqual(correcntMealPeriod.Recipes.Count, recipes.Count);
-            foreach (var item in recipes)
+            var test = CalendarColumns.ToPageObjectList<DayColumn>(Driver)[columnIndex];
+
+            MealPeriodCard mealPeriodCard = test
+                                    .MealPeriodCards.ToPageObjectList<MealPeriodCard>(Driver)
+                                    .First(m => m.Name.Text == expectedMealPeriod.Name);
+
+            Assert.GreaterOrEqual(mealPeriodCard.Recipes.Count, expectedRecipes.Count);
+
+            foreach (var item in expectedRecipes)
             {
-                Assert.IsTrue(correcntMealPeriod.Recipes.Any(r => r.Text == item.Name));
-                Assert.IsTrue(correcntMealPeriod.Recipes.Any(r => r.Text == "Ronald"));
+                Assert.IsTrue(mealPeriodCard.Recipes.Any(r => r.Text == item.Name));
             }
-            
-
-
         }
     }
 }

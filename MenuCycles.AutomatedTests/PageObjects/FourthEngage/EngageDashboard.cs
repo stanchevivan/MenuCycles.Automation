@@ -21,8 +21,8 @@ namespace MenuCycles.AutomatedTests.PageObjects
         [FindsBy(How = How.Id, Using = "applications-all-apps")]
         public IWebElement AllApplicationsButton { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "div[id='apps-popup'] a[ng-click*='openAppFromModal']")]
-        public IList<IWebElement> AllApplicationsList { get; set; }
+        [FindsBy(How = How.CssSelector, Using = "#apps-popup .app")]
+        public IList<IWebElement> AllApplications { get; set; }
 
         public void WaitPageToLoad()
         {
@@ -35,7 +35,7 @@ namespace MenuCycles.AutomatedTests.PageObjects
         {
             WaitPageToLoad();
             AllApplicationsButton.Click();
-            AllApplicationsList.ElementByText(option).Click();
+            AllApplications.ElementByText(option).Click();
         }
     }
 }

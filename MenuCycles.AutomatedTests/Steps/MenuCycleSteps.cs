@@ -10,7 +10,6 @@ namespace MenuCycles.AutomatedTests.Steps
     [Binding]
     public sealed class MenuCycleSteps
     {
-        private EngageDashboard engageDashboard;
         private LogInAs logInAs;
         private MenuCyclesDashboard menuCycleDashboard;
         private CreateMenuCycle createMenuCycle;
@@ -21,11 +20,10 @@ namespace MenuCycles.AutomatedTests.Steps
         private ScenarioContext scenarioContext;
         private Seeding seeding;
 
-        public MenuCycleSteps(ScenarioContext scenarioContext, Seeding seeding, EngageDashboard engageDashboard, LogInAs logInAs,
+        public MenuCycleSteps(ScenarioContext scenarioContext, Seeding seeding, LogInAs logInAs,
             MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleCalendarView menuCycleCalendarView,
             CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification)
         {
-            this.engageDashboard = engageDashboard;
             this.logInAs = logInAs;
             this.menuCycleDashboard = menuCycleDashboard;
             this.createMenuCycle = createMenuCycle;
@@ -38,13 +36,19 @@ namespace MenuCycles.AutomatedTests.Steps
             this.seeding = seeding;
         }
 
-        [Given(@"the Menu Cycles Dashboard is open as a (.*) user")]
-        public void GivenTheMenuCycleDashboardIsOpen(string userType)
+        [Given(@"a (.*) user is selected")]
+        public void GivenAUserIsSelected(string userType)
         {
             logInAs.LogAs(userType);
         }
 
-        [When(@"a Menu Cycle with the following data is created")]
+        [Given(@"a Menu Cycle is selected")]
+        public void GivenAMenuCycleIsSelected()
+        {
+            menuCycleDashboard.SelectMenuCycleByName(scenarioContext.Get<List<MenuCycle>>().First().Name);
+        }
+
+        [When(@"a Menu Cycle with the following criteria is create")]
         public void WhenAMenuCycleWithTheFollowingDataIsCreated(MenuCycle menuCycle)
         {
             scenarioContext.Set(menuCycle);
@@ -62,46 +66,6 @@ namespace MenuCycles.AutomatedTests.Steps
         public void ThenTheCalendardViewIsOpened()
         {
             menuCycleCalendarView.ValidateWindow(scenarioContext.Get<MenuCycle>().Name);
-        }
-
-        [Given(@"a Menu Cycle with the following data exists")]
-        public void GivenAMenuCycleWithTheFollowingDataExists(List<MenuCycle> menuCyclesList)
-        {
-            scenarioContext.Set(seeding.MenuCycles(menuCyclesList));
-        }
-
-        [Given(@"data exists")]
-        public void GivenDataExists()
-        {
-            scenarioContext.Set(seeding.RandomMenuCycles(1));
-            scenarioContext.Set(seeding.RandomRecipe(1));
-
-            scenarioContext.Set(new MealPeriod()
-            {
-                Name = "LUNCH",
-            });
-        }
-
-
-        [When(@"a test is made for (.*)")]
-        public void WhenATestIsMade(string weekDay)
-        {
-            var mc = scenarioContext.Get<List<MenuCycle>>()[0];
-            menuCycleDashboard.SelectMenuCycleByName(mc.Name);
-            menuCycleCalendarView.AddMealPeriod(weekDay);
-
-            var mp = scenarioContext.Get<MealPeriod>();
-            createMealPeriod.SelectMealPeriod(mp.Name);
-            createMealPeriod.AddRecipe();
-
-            var recipe = scenarioContext.Get<List<Recipe>>();
-            recipeSearch.SearchRecipeByName(recipe[0].Name);
-
-            createMealPeriod.SaveMealPeriod();
-            notification.ValidateToastMessage("Meal Period Saved successfully");
-            createMealPeriod.CloseMealPeriod();
-
-            menuCycleCalendarView.ValidateMealPeriod(weekDay, mp, recipe);
         }
     }
 }

@@ -42,7 +42,7 @@ namespace MenuCyclesData.Repositories
         }
         public List<T> GetAll<T>()
         {
-            return this.db.Query<T>("SELECT * FROM MealPeriods WHERE Name LIKE 'Seed%'").ToList();
+            return this.db.Query<T>("SELECT * FROM MealPeriods WHERE Name LIKE '" + Constants.myPrefix + "%'").ToList();
         }
         public void DeleteAll()
         {

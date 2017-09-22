@@ -2,8 +2,6 @@
 using Fourth.Automation.Framework.Page;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using System.Linq;
-using System;
 using NUnit.Framework;
 using Fourth.Automation.Framework.Reporting;
 
@@ -18,12 +16,12 @@ namespace MenuCycles.AutomatedTests.PageObjects
         }
 
         [FindsBy(How = How.CssSelector, Using = "div[id='toast-container'] div[class='toast-message']")]
-        public IWebElement ToastMessage { get; set; }
+        public IWebElement Message { get; set; }
 
         public void ValidateToastMessage(string expected)
         {
-            Driver.WaitElementToExists(ToastMessage);
-            Assert.AreEqual(expected, ToastMessage.Text);
+            Driver.WaitElementToExists(Message);
+            Assert.AreEqual(expected, Message.Text);
             Artefacts.TakeScreenshot();
         }
     }

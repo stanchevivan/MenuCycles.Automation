@@ -1,10 +1,6 @@
-﻿using Fourth.Automation.Framework.Extension;
-using Fourth.Automation.Framework.Page;
-using Fourth.Automation.Framework.Reporting;
-using NUnit.Framework;
+﻿using Fourth.Automation.Framework.Page;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using System.Collections.Generic;
 
 namespace MenuCycles.AutomatedTests.PageObjects
 {
@@ -19,9 +15,6 @@ namespace MenuCycles.AutomatedTests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = ".name_sub")]
         public IWebElement Description { get; set; }
-
-        //[FindsBy(How = How.CssSelector, Using = ".home-row-is-published")]
-        //public IWebElement Status { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".home-button-expand")]
         public IWebElement ActionButton { get; set; }

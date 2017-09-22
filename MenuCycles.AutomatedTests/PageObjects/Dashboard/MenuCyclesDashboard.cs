@@ -3,7 +3,6 @@ using Fourth.Automation.Framework.Page;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace MenuCycles.AutomatedTests.PageObjects
 {
@@ -14,21 +13,21 @@ namespace MenuCycles.AutomatedTests.PageObjects
         }
 
         [FindsBy(How = How.CssSelector, Using = "div[class='borbot clickable']")]
-        public IWebElement Create { get; set; }
+        public IWebElement CreateMenuCycleButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".menuCycleTableBody .home-div-row")]
-        public IList<IWebElement> MenuCyclesList { get; set; }
+        public IList<IWebElement> MenuCycles { get; set; }
 
         public void CreateMenuCycleClick()
         {
-            Driver.WaitElementAndClick(Create);
+            Driver.WaitElementAndClick(CreateMenuCycleButton);
         }
 
-        public void SelectMenuCycleByName(string name)
+        public void SelectMenuCycleByName(string menuCycleName)
         {
-            Driver.WaitListItemsLoad(MenuCyclesList);
-            var list = MenuCyclesList.ToPageObjectList<MenuCycleItem>(Driver);
-            list.Find(v => v.Name.Text == name).Name.Click();
+            Driver.WaitListItemsLoad(MenuCycles);
+            MenuCycles.ToPageObjectList<MenuCycleItem>(Driver)
+                .Find(v => v.Name.Text == menuCycleName).Name.Click();
         }
     }
 }

@@ -13,9 +13,6 @@ namespace MenuCycles.AutomatedTests.PageObjects
         {
         }
 
-        [FindsBy(How = How.Id, Using = "div[class='login-header-container']")]
-        public IWebElement ContainerTitle { get; set; }
-
         [FindsBy(How = How.CssSelector, Using = "div[class='central-text']")]
         public IWebElement Central { get; set; }
 
@@ -61,11 +58,7 @@ namespace MenuCycles.AutomatedTests.PageObjects
 
         private void ResumeToastNotification()
         {
-            Driver.WaitIsClickable(ToastMessageCloseButton);
-            if (ToastMessageCloseButton.Exist())
-            {
-                ToastMessageCloseButton.Click();
-            }
+            Driver.WaitElementAndClick(ToastMessageCloseButton);
         }
     }
 }

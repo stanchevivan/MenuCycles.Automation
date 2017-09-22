@@ -38,6 +38,22 @@ namespace MenuCyclesData
                     UpdatedByExternalId = user.ExternalId,
                 };
         }
+        public MealPeriod GenerateMealPeriod()
+        {
+            User user = new UserRepository().Find<User>(Constants.userId);
+
+            return
+                new MealPeriod()
+                {
+                    Name = Constants.myPrefix + this.faker.Name.FirstName(),
+                    CustomerId = Constants.customerId,
+                    DateCreatedUtc = DateTime.UtcNow,
+                    CreatedByExternalId = user.ExternalId,
+                    DateUpdatedUtc = DateTime.UtcNow,
+                    UpdatedByExternalId = user.ExternalId,
+                    ExternalId = Guid.NewGuid(),
+                };
+        }
         public Recipe GenerateRecipe()
         {
             User user = new UserRepository().Find<User>(Constants.userId);
@@ -75,6 +91,20 @@ namespace MenuCyclesData
 
             return MenuCycles(list);
         }
+        public List<MealPeriod> RandomMealPeriods(int quantity)
+        {
+            List<MealPeriod> list = new List<MealPeriod>();
+
+            for (int i = 0; i < quantity; i++)
+            {
+                list.Add
+                (
+                    GenerateMealPeriod()
+                );
+            }
+
+            return MealPeriods(list);
+        }
         public List<Recipe> RandomRecipe(int quantity)
         {
             List<Recipe> list = new List<Recipe>();
@@ -89,7 +119,6 @@ namespace MenuCyclesData
 
             return Recipes(list);
         }
-
         public List<MenuCycle> MenuCycles(List<MenuCycle> list)
         {
             MenuCycleRepository mRepository = new MenuCycleRepository();
@@ -119,6 +148,11 @@ namespace MenuCyclesData
             }
 
             return menuCycleList;
+        }
+        public List<MealPeriod> MealPeriods(List<MealPeriod> list)
+        {
+            MealPeriodRepository mRepository = new MealPeriodRepository();
+            return mRepository.BulkInsertAndReturn(list);
         }
         public List<Recipe> Recipes(List<Recipe> list)
         {

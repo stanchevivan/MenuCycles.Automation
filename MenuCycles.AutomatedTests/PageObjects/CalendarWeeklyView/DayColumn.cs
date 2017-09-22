@@ -1,7 +1,4 @@
-﻿using Fourth.Automation.Framework.Extension;
-using Fourth.Automation.Framework.Page;
-using Fourth.Automation.Framework.Reporting;
-using NUnit.Framework;
+﻿using Fourth.Automation.Framework.Page;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;

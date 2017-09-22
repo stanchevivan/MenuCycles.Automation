@@ -28,5 +28,11 @@ namespace MenuCycles.AutomatedTests.Steps
             engageDashboard.SelectApplication(application);
         }
 
+        [Given(@"'(.*)' application is open")]
+        public void GivenApplicationIsOpen(string application)
+        {
+            GivenFourthEngageDashboarIsOpen();
+            GivenApplicationIsSelected(application);
+        }
     }
 }

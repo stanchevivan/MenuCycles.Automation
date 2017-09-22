@@ -19,7 +19,7 @@ namespace MenuCycles.AutomatedTests.PageObjects
         public IWebElement Password { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "input[value='Sign In']")]
-        public IWebElement SignIn { get; set; }
+        public IWebElement SignInButton { get; set; }
 
         public void OpenLoginPage()
         {
@@ -41,7 +41,7 @@ namespace MenuCycles.AutomatedTests.PageObjects
         {
             UserName.ClearAndSendKeys(user);
             Password.ClearAndSendKeys(password);
-            SignIn.Click();
+            SignInButton.Click();
         }
 
         public void WaitPageToLoad()

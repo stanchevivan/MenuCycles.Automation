@@ -1,10 +1,6 @@
-﻿using Fourth.Automation.Framework.Extension;
-using Fourth.Automation.Framework.Page;
-using Fourth.Automation.Framework.Reporting;
-using NUnit.Framework;
+﻿using Fourth.Automation.Framework.Page;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using System.Collections.Generic;
 
 namespace MenuCycles.AutomatedTests.PageObjects
 {
@@ -15,7 +11,7 @@ namespace MenuCycles.AutomatedTests.PageObjects
         }
 
         [FindsBy(How = How.CssSelector, Using = ".daily-calendar-heading")]
-        public IWebElement WeekDayName { get; set; }
+        public IWebElement Name { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".mealPeriodButtons")]
         public IWebElement MealPeriodButton { get; set; }
