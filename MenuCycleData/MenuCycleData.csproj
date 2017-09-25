@@ -63,6 +63,8 @@
     <Compile Include="Customer.cs">
       <DependentUpon>MenuCycleDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Generators\IGenerator.cs" />
+    <Compile Include="Generators\RecipeGenerator.cs" />
     <Compile Include="Group.cs">
       <DependentUpon>MenuCycleDataModel.tt</DependentUpon>
     </Compile>
@@ -152,6 +154,8 @@
     <Compile Include="SellPrice.cs">
       <DependentUpon>MenuCycleDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Services\DefaultValuesService.cs" />
+    <Compile Include="Services\RecipeService.cs" />
     <Compile Include="Tariff.cs">
       <DependentUpon>MenuCycleDataModel.tt</DependentUpon>
     </Compile>
@@ -191,6 +195,7 @@
       <LastGenOutput>MenuCycleDataModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
