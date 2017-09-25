@@ -29,7 +29,7 @@ namespace MenuCycles.AutomatedTests.Steps
             this.seeding = seeding;
         }
 
-        [When(@"a Meal Period for (.*) is added")]
+        [Given(@"a Meal Period for (.*) is added")]
         public void GivenAMealPeriodForIsAddedToAMenuCycle(string weekDayName)
         {
             menuCycleCalendarView.AddMealPeriod(weekDayName);

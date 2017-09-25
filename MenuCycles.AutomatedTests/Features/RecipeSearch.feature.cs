@@ -72,8 +72,10 @@ testRunner.Given("1 Menu Cycles exists", ((string)(null)), ((TechTalk.SpecFlow.T
 #line 8
 testRunner.And("1 Meal Period exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
-testRunner.And("\'Menu Cycles\' application is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("3 recipes exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
+testRunner.And("\'Menu Cycles\' application is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
 testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
@@ -85,18 +87,16 @@ testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFl
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Recipe Searching By Name", new string[] {
                         "searchRecipe"});
-#line 13
+#line 14
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 14
- testRunner.Given("3 recipes exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 15
- testRunner.And("a Menu Cycle is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("a Menu Cycle is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 16
- testRunner.When("a Meal Period for MONDAY is added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("a Meal Period for MONDAY is added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
- testRunner.And("the first recipe is searched by name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("the first recipe is searched by name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 18
  testRunner.And("recipe is added to a meal period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 19

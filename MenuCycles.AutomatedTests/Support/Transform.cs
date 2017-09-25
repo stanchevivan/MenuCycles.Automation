@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using MenuCycleData;
 using MenuCycleData.Repositories;
 
-namespace MenuCycles.AutomatedTests.Hooks
+namespace MenuCycles.AutomatedTests.Support
 {
     [Binding]
     public class Transform
@@ -25,29 +25,29 @@ namespace MenuCycles.AutomatedTests.Hooks
         [StepArgumentTransformation]
         public List<MenuCycle> MenuCyclesList(Table table)
         {
-            List<MenuCycle> list = new List<MenuCycle>();
+            List<MenuCycle> menuCycleList = new List<MenuCycle>();
 
-            List<Group> glist = new List<Group>();
-            GroupRepository gRepository = new GroupRepository();
+            List<Group> groupList = new List<Group>();
+            GroupRepository groupRepository = new GroupRepository();
 
             foreach (TableRow row in table.Rows)
             {
-                list.Add(ReplaceWithTable(this.seed.GenerateMenuCycle(), row));
+                menuCycleList.Add(ReplaceWithTable(this.seed.GenerateMenuCycle(), row));
 
                 if (row.ContainsKey("Group"))
                 {
-                    glist.Add(gRepository.FindByName(row["Group"]));
+                    groupList.Add(groupRepository.FindByName(row["Group"]));
                 }
             }
 
-            context.Set(glist);
-            context.Set(list);
+            context.Set(groupList);
+            context.Set(menuCycleList);
 
-            return list;
+            return menuCycleList;
         }
 
         /// <summary>
-        /// This replaces the value from a menu cycle object with the ones set in the table from steps
+        /// Replaces the value from a menu cycle object with the ones set in the table from steps
         /// </summary>
         /// <param name="menu">The Menu Cycle object</param>
         /// <param name="row">The row to search for the value replacements</param>
@@ -56,9 +56,13 @@ namespace MenuCycles.AutomatedTests.Hooks
         {
             foreach (var item in row.Keys)
             {
-                System.Reflection.PropertyInfo propInfo = menu.GetType().GetProperty(item);
-                var value = Convert.ChangeType(row[item], propInfo.PropertyType);
-                menu.GetType().GetProperty(item).SetValue(menu, value);
+                var propInfo = menu.GetType().GetProperty(item);
+
+                if (propInfo != null)
+                {
+                    var value = Convert.ChangeType(row[item], propInfo.PropertyType);
+                    menu.GetType().GetProperty(item).SetValue(menu, value);
+                }
             }
 
             return menu;

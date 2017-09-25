@@ -4,7 +4,7 @@ using Fourth.Automation.Framework.Reporting;
 using BoDi;
 using OpenQA.Selenium;
 
-namespace MenuCycles.AutomatedTests.Hooks
+namespace MenuCycles.AutomatedTests.Support
 {
     [Binding]
     public sealed class Hooks

@@ -8,8 +8,6 @@ namespace MenuCycleData
 {
     public class Seeding
     {
-        private string myPrefix;
-
         private Faker faker;
 
         private User user;
@@ -19,13 +17,12 @@ namespace MenuCycleData
         public Seeding()
         {
             this.faker = new Faker();
-            var test = ConfigurationManager.ConnectionStrings;
 
+            // Using default values as User, Customer and Group are not changing for the created scenario examples
+            // All of them can easily be created and used.
             this.user = new UserRepository().FindById(36);
             this.customer = new CustomerRepository().FindById(1);
             this.group = new GroupRepository().FindByName("SodexoUp");
-
-            this.myPrefix = "Ico ";
         }
 
         public MenuCycle GenerateMenuCycle()
@@ -33,8 +30,8 @@ namespace MenuCycleData
             return
                 new MenuCycle()
                 {
-                    Name = this.myPrefix + this.faker.Name.FirstName(),
-                    Description = this.myPrefix + this.faker.Lorem.Sentence(10),
+                    Name = this.faker.Name.FirstName(),
+                    Description = this.faker.Lorem.Sentence(10),
                     ParentId = null,
                     IsPublished = false,
                     IsDeleted = false,
@@ -53,7 +50,7 @@ namespace MenuCycleData
             return
                 new MealPeriod()
                 {
-                    Name = this.myPrefix + this.faker.Name.FirstName(),
+                    Name = this.faker.Name.FirstName(),
                     CustomerId = this.customer.CustomerId,
                     DateCreatedUtc = DateTime.UtcNow,
                     CreatedByExternalId = user.ExternalId,
@@ -68,7 +65,7 @@ namespace MenuCycleData
                 new Recipe()
                 {
                     ExternalId = Guid.NewGuid(),
-                    Name = this.myPrefix + this.faker.Lorem.Sentence(5),
+                    Name = this.faker.Lorem.Sentence(5),
                     Cost = new Random().Next(1, 50),
                     CostQuantity = new Random().Next(11, 39),
                     CostUnitOfMeasure = "kg",

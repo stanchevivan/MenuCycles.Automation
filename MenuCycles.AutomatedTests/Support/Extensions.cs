@@ -1,5 +1,4 @@
-﻿using TechTalk.SpecFlow;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace MenuCycles.AutomatedTests.Support
