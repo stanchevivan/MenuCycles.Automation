@@ -59,6 +59,7 @@ namespace MenuCycleData
                     ExternalId = Guid.NewGuid(),
                 };
         }
+
         public Recipe GenerateRecipe()
         {
             return
@@ -80,6 +81,7 @@ namespace MenuCycleData
                     UpdatedByExternalId = "admin"
                 };
         }
+
         public List<MenuCycle> RandomMenuCycles(int quantity)
         {
             List<MenuCycle> list = new List<MenuCycle>();
@@ -94,6 +96,7 @@ namespace MenuCycleData
 
             return MenuCycles(list);
         }
+
         public List<MealPeriod> RandomMealPeriods(int quantity)
         {
             List<MealPeriod> list = new List<MealPeriod>();
@@ -108,20 +111,22 @@ namespace MenuCycleData
 
             return MealPeriods(list);
         }
-        public List<Recipe> RandomRecipe(int quantity)
-        {
-            List<Recipe> list = new List<Recipe>();
 
-            for (int i = 0; i < quantity; i++)
-            {
-                list.Add
-                (
-                    GenerateRecipe()
-                );
-            }
+        //public List<Recipe> RandomRecipe(int quantity)
+        //{
+        //    List<Recipe> list = new List<Recipe>();
 
-            return Recipes(list);
-        }
+        //    for (int i = 0; i < quantity; i++)
+        //    {
+        //        list.Add
+        //        (
+        //            GenerateRecipe()
+        //        );
+        //    }
+
+        //    return Recipes(list);
+        //}
+
         public List<MenuCycle> MenuCycles(List<MenuCycle> list)
         {
             MenuCycleRepository mRepository = new MenuCycleRepository();
@@ -151,29 +156,30 @@ namespace MenuCycleData
             mRepository.BulkInsert(list);
             return list;
         }
-        public List<Recipe> Recipes(List<Recipe> list)
-        {
-            RecipeRepository reRepository = new RecipeRepository();
-            RelationshipsRepository rRepository = new RelationshipsRepository();
 
-            reRepository.BulkInsert(list);
+        //public List<Recipe> Recipes(List<Recipe> list)
+        //{
+        //    RecipeRepository reRepository = new RecipeRepository();
+        //    RelationshipsRepository rRepository = new RelationshipsRepository();
 
-            //GroupRecipe
-            for (int i = 0; i < list.Count; i++)
-            {
-                rRepository.InsertGroupRecipe(new GroupRecipe()
-                {
-                    RecipeId = list[i].RecipeId,
-                    GroupId = this.group.GroupId,
-                    DateCreatedUtc = DateTime.UtcNow,
-                    CreatedByExternalId = user.ExternalId,
-                    DateUpdatedUtc = DateTime.UtcNow,
-                    UpdatedByExternalId = user.ExternalId
-                });
-            }
+        //    reRepository.BulkInsert(list);
 
-            return list;
-        }
+        //    //GroupRecipe
+        //    for (int i = 0; i < list.Count; i++)
+        //    {
+        //        rRepository.InsertGroupRecipe(new GroupRecipe()
+        //        {
+        //            RecipeId = list[i].RecipeId,
+        //            GroupId = this.group.GroupId,
+        //            DateCreatedUtc = DateTime.UtcNow,
+        //            CreatedByExternalId = user.ExternalId,
+        //            DateUpdatedUtc = DateTime.UtcNow,
+        //            UpdatedByExternalId = user.ExternalId
+        //        });
+        //    }
+
+        //    return list;
+        //}
 
         //NOT DONE YET
         public void DeleteScenarioData()
