@@ -1,9 +1,8 @@
 ﻿using TechTalk.SpecFlow;
-using MenuCyclesData.DatabaseDataModel;
 using System;
 using System.Collections.Generic;
-using MenuCyclesData;
-using MenuCyclesData.Helpers;
+using MenuCycleData;
+using MenuCycleData.Repositories;
 
 namespace MenuCycles.AutomatedTests.Hooks
 {
@@ -11,9 +10,11 @@ namespace MenuCycles.AutomatedTests.Hooks
     public class Transform
     {
         private Seeding seed;
-        public Transform(Seeding seed)
+        private ScenarioContext context;
+        public Transform(Seeding seed, ScenarioContext context)
         {
             this.seed = seed;
+            this.context = context;
         }
 
         /// <summary>
@@ -25,28 +26,24 @@ namespace MenuCycles.AutomatedTests.Hooks
         public List<MenuCycle> MenuCyclesList(Table table)
         {
             List<MenuCycle> list = new List<MenuCycle>();
+
+            List<Group> glist = new List<Group>();
+            GroupRepository gRepository = new GroupRepository();
+
             foreach (TableRow row in table.Rows)
             {
                 list.Add(ReplaceWithTable(this.seed.GenerateMenuCycle(), row));
+
+                if (row.ContainsKey("Group"))
+                {
+                    glist.Add(gRepository.FindByName(row["Group"]));
+                }
             }
+
+            context.Set(glist);
+            context.Set(list);
 
             return list;
-        }
-
-        /// <summary>
-        /// Creates a single Menu Cycle based on a table passed through the steps
-        /// </summary>
-        /// <param name="table">The table from feature step</param>
-        /// <returns></returns>
-        [StepArgumentTransformation]
-        public MenuCycle SingleMenuCycle(Table table)
-        {
-            if (table.RowCount > 1)
-            {
-                throw new Exception("Table should contain only one row");
-            }
-            
-            return ReplaceWithTable(this.seed.GenerateMenuCycle(), table.Rows[0]); 
         }
 
         /// <summary>

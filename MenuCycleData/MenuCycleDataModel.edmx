@@ -1,0 +1,2774 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MenuServiceSodexoQAIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExternalId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupLocations">
+          <Key>
+            <PropertyRef Name="GroupId" />
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="GroupId" Type="bigint" Nullable="false" />
+          <Property Name="LocationId" Type="bigint" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupMenus">
+          <Key>
+            <PropertyRef Name="GroupId" />
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="GroupId" Type="bigint" Nullable="false" />
+          <Property Name="MenuId" Type="bigint" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupRecipes">
+          <Key>
+            <PropertyRef Name="GroupId" />
+            <PropertyRef Name="RecipeId" />
+          </Key>
+          <Property Name="GroupId" Type="bigint" Nullable="false" />
+          <Property Name="RecipeId" Type="bigint" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExternalId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CustomerId" Type="bigint" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="GroupCode" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="GroupUsers">
+          <Key>
+            <PropertyRef Name="GroupId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="GroupId" Type="bigint" Nullable="false" />
+          <Property Name="UserId" Type="bigint" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ImportGroupLocations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OfferCode" Type="nvarchar(max)" />
+          <Property Name="LocationCode" Type="nvarchar(max)" />
+          <Property Name="Processed" Type="bit" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar(max)" />
+          <Property Name="ImportLogId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ImportLogs">
+          <Key>
+            <PropertyRef Name="ImportLogId" />
+          </Key>
+          <Property Name="ImportLogId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImportType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ImportDate" Type="datetime" Nullable="false" />
+          <Property Name="CustomerId" Type="bigint" Nullable="false" />
+          <Property Name="ImportStatus" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="LocationId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExternalId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="CustomerId" Type="bigint" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="LocationCode" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MealPeriods">
+          <Key>
+            <PropertyRef Name="MealPeriodId" />
+          </Key>
+          <Property Name="MealPeriodId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExternalId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CustomerId" Type="bigint" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MenuCycleGroups">
+          <Key>
+            <PropertyRef Name="MenuCycleId" />
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="MenuCycleId" Type="bigint" Nullable="false" />
+          <Property Name="GroupId" Type="bigint" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MenuCycleItems">
+          <Key>
+            <PropertyRef Name="MenuCycleItemId" />
+          </Key>
+          <Property Name="MenuCycleItemId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Day" Type="int" Nullable="false" />
+          <Property Name="Order" Type="int" Nullable="false" />
+          <Property Name="ParentId" Type="bigint" />
+          <Property Name="MenuId" Type="bigint" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Course" Type="nvarchar" MaxLength="255" />
+          <Property Name="MenuCycleId" Type="bigint" Nullable="false" />
+          <Property Name="RecipeId" Type="bigint" />
+          <Property Name="MenuCycleItemType" Type="int" Nullable="false" />
+          <Property Name="MenuType" Type="int" />
+          <Property Name="MealPeriodId" Type="bigint" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MenuCycles">
+          <Key>
+            <PropertyRef Name="MenuCycleId" />
+          </Key>
+          <Property Name="MenuCycleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ParentId" Type="bigint" />
+          <Property Name="IsPublished" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="NonServingDays" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="bigint" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LocationId" Type="bigint" />
+          <Property Name="ReleaseDate" Type="datetime" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="IsModifiedLocally" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MenuRecipes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="MenuId" Type="bigint" Nullable="false" />
+          <Property Name="RecipeId" Type="bigint" Nullable="false" />
+          <Property Name="Course" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="Cover" Type="float" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menus">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExternalId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="MenuType" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="bigint" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cover" Type="float" />
+        </EntityType>
+        <EntityType Name="Notes">
+          <Key>
+            <PropertyRef Name="NoteId" />
+          </Key>
+          <Property Name="NoteId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="MenuCycleId" Type="bigint" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostProductions">
+          <Key>
+            <PropertyRef Name="PostProductionId" />
+          </Key>
+          <Property Name="MenuCycleItemId" Type="bigint" Nullable="false" />
+          <Property Name="TariffId" Type="bigint" />
+          <Property Name="LocationId" Type="bigint" />
+          <Property Name="ProducedQuantity" Type="int" Nullable="false" />
+          <Property Name="SoldQuantity" Type="int" Nullable="false" />
+          <Property Name="Wastage" Type="int" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="RequiredQuantity" Type="int" Nullable="false" />
+          <Property Name="NoChargeApplied" Type="int" Nullable="false" />
+          <Property Name="ReturnToStock" Type="int" Nullable="false" />
+          <Property Name="PostProductionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecipeCategories">
+          <Key>
+            <PropertyRef Name="RecipeId" />
+            <PropertyRef Name="CategoryExternalId" />
+            <PropertyRef Name="CategoryName" />
+          </Key>
+          <Property Name="RecipeId" Type="bigint" Nullable="false" />
+          <Property Name="CategoryExternalId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecipeIngredientDetails">
+          <Key>
+            <PropertyRef Name="RecipeId" />
+          </Key>
+          <Property Name="RecipeId" Type="bigint" Nullable="false" />
+          <Property Name="ContainsMilkOrMilkProducts" Type="bit" />
+          <Property Name="ContainsEggOrEggDerivatives" Type="bit" />
+          <Property Name="ContainsCerealsThatContainGluten" Type="bit" />
+          <Property Name="ContainsPeanuts" Type="bit" />
+          <Property Name="ContainsNutsOrNutTrace" Type="bit" />
+          <Property Name="ContainsSesameSeedOrSesameSeedProducts" Type="bit" />
+          <Property Name="ContainsSoya" Type="bit" />
+          <Property Name="ContainsFishOrFishProducts" Type="bit" />
+          <Property Name="ContainsCrustaceans" Type="bit" />
+          <Property Name="ContainsMolluscs" Type="bit" />
+          <Property Name="ContainsMustardOrMustardProducts" Type="bit" />
+          <Property Name="ContainsCeleryOrCeleriacProducts" Type="bit" />
+          <Property Name="ContainsSulphurDioxideOrSulphites" Type="bit" />
+          <Property Name="ContainsLupinFlourOrLupinProducts" Type="bit" />
+          <Property Name="ContainsGlutenOrGlutenProducts" Type="bit" />
+          <Property Name="EnergyKJperServing" Type="float" />
+          <Property Name="EnergyKCalPerServing" Type="float" />
+          <Property Name="FatPerServing" Type="float" />
+          <Property Name="SaturatedFatPerServing" Type="float" />
+          <Property Name="SugarPerServing" Type="float" />
+          <Property Name="SaltPerServing" Type="float" />
+        </EntityType>
+        <EntityType Name="RecipeLocationPrices">
+          <Key>
+            <PropertyRef Name="RecipeId" />
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="RecipeId" Type="bigint" Nullable="false" />
+          <Property Name="LocationId" Type="bigint" Nullable="false" />
+          <Property Name="PriceLookupNumber" Type="bigint" />
+          <Property Name="CostPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CurrencyIsoCode" Type="nvarchar(max)" />
+          <Property Name="HasRecipeGap" Type="bit" />
+          <Property Name="CustomerId" Type="bigint" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recipes">
+          <Key>
+            <PropertyRef Name="RecipeId" />
+          </Key>
+          <Property Name="RecipeId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExternalId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cost" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CostQuantity" Type="float" />
+          <Property Name="CostUnitOfMeasure" Type="nvarchar(max)" />
+          <Property Name="CustomerId" Type="bigint" Nullable="false" />
+          <Property Name="MinimumCost" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MaximumCost" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SellPriceModel" Type="int" Nullable="false" />
+          <Property Name="SellPriceModelValue" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SellPrices">
+          <Key>
+            <PropertyRef Name="SellPriceId" />
+          </Key>
+          <Property Name="MenuCycleItemId" Type="bigint" Nullable="false" />
+          <Property Name="SellPricesModel" Type="int" Nullable="false" />
+          <Property Name="TariffId" Type="bigint" />
+          <Property Name="Value" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="VAT" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LocationId" Type="bigint" />
+          <Property Name="TaxRateId" Type="bigint" />
+          <Property Name="SellPriceId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tariffs">
+          <Key>
+            <PropertyRef Name="TariffId" />
+          </Key>
+          <Property Name="TariffId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Customer_CustomerId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaxRates">
+          <Key>
+            <PropertyRef Name="TaxRateId" />
+          </Key>
+          <Property Name="TaxRateId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Rate" Type="float" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="IsEnabled" Type="bit" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserLocations">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="UserId" Type="bigint" Nullable="false" />
+          <Property Name="LocationId" Type="bigint" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CanCreateMenuCycle" Type="bit" Nullable="false" />
+          <Property Name="CanDeleteMenuCycle" Type="bit" Nullable="false" />
+          <Property Name="CanEditMenuCycle" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ExternalId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerId" Type="bigint" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedByExternalId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CanCreateMenuCycle" Type="bit" Nullable="false" />
+          <Property Name="CanDeleteMenuCycle" Type="bit" Nullable="false" />
+          <Property Name="CanEditMenuCycle" Type="bit" Nullable="false" />
+          <Property Name="CanViewMenu" Type="bit" Nullable="false" />
+          <Property Name="CanViewMenuCycle" Type="bit" Nullable="false" />
+          <Property Name="CanViewRecipe" Type="bit" Nullable="false" />
+          <Property Name="CanPublishMenuCycle" Type="bit" Nullable="false" />
+          <Property Name="CanLockMenuCycle" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_GroupLocations_dbo_Groups_GroupId">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="GroupLocations" Type="Self.GroupLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="GroupLocations">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GroupLocations_dbo_Locations_LocationId">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="1" />
+          <End Role="GroupLocations" Type="Self.GroupLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="GroupLocations">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GroupMenus_dbo_Groups_GroupId">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="GroupMenus" Type="Self.GroupMenus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="GroupMenus">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GroupMenus_dbo_Menus_MenuId">
+          <End Role="Menus" Type="Self.Menus" Multiplicity="1" />
+          <End Role="GroupMenus" Type="Self.GroupMenus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menus">
+              <PropertyRef Name="MenuId" />
+            </Principal>
+            <Dependent Role="GroupMenus">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GroupRecipes_dbo_Groups_GroupId">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="GroupRecipes" Type="Self.GroupRecipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="GroupRecipes">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GroupRecipes_dbo_Recipes_RecipeId">
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="1" />
+          <End Role="GroupRecipes" Type="Self.GroupRecipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="GroupRecipes">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Groups_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GroupUsers_dbo_Groups_GroupId">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="GroupUsers" Type="Self.GroupUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="GroupUsers">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GroupUsers_dbo_Users_UserId">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="GroupUsers" Type="Self.GroupUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="GroupUsers">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ImportGroupLocations_dbo_ImportLogs_ImportLogId">
+          <End Role="ImportLogs" Type="Self.ImportLogs" Multiplicity="1" />
+          <End Role="ImportGroupLocations" Type="Self.ImportGroupLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImportLogs">
+              <PropertyRef Name="ImportLogId" />
+            </Principal>
+            <Dependent Role="ImportGroupLocations">
+              <PropertyRef Name="ImportLogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Locations_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Locations" Type="Self.Locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Locations">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MealPeriods_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="MealPeriods" Type="Self.MealPeriods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="MealPeriods">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycleGroups_dbo_Groups_GroupId">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="MenuCycleGroups" Type="Self.MenuCycleGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="MenuCycleGroups">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycleGroups_dbo_MenuCycles_MenuCycleId">
+          <End Role="MenuCycles" Type="Self.MenuCycles" Multiplicity="1" />
+          <End Role="MenuCycleGroups" Type="Self.MenuCycleGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCycles">
+              <PropertyRef Name="MenuCycleId" />
+            </Principal>
+            <Dependent Role="MenuCycleGroups">
+              <PropertyRef Name="MenuCycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycleItems_dbo_MealPeriods_MealPeriodId">
+          <End Role="MealPeriods" Type="Self.MealPeriods" Multiplicity="0..1" />
+          <End Role="MenuCycleItems" Type="Self.MenuCycleItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MealPeriods">
+              <PropertyRef Name="MealPeriodId" />
+            </Principal>
+            <Dependent Role="MenuCycleItems">
+              <PropertyRef Name="MealPeriodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycleItems_dbo_MenuCycleItems_ParentId">
+          <End Role="MenuCycleItems" Type="Self.MenuCycleItems" Multiplicity="0..1" />
+          <End Role="MenuCycleItems1" Type="Self.MenuCycleItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCycleItems">
+              <PropertyRef Name="MenuCycleItemId" />
+            </Principal>
+            <Dependent Role="MenuCycleItems1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycleItems_dbo_MenuCycles_MenuCycleId">
+          <End Role="MenuCycles" Type="Self.MenuCycles" Multiplicity="1" />
+          <End Role="MenuCycleItems" Type="Self.MenuCycleItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCycles">
+              <PropertyRef Name="MenuCycleId" />
+            </Principal>
+            <Dependent Role="MenuCycleItems">
+              <PropertyRef Name="MenuCycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycleItems_dbo_Menus_MenuId">
+          <End Role="Menus" Type="Self.Menus" Multiplicity="0..1" />
+          <End Role="MenuCycleItems" Type="Self.MenuCycleItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menus">
+              <PropertyRef Name="MenuId" />
+            </Principal>
+            <Dependent Role="MenuCycleItems">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycleItems_dbo_Recipes_RecipeId">
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="0..1" />
+          <End Role="MenuCycleItems" Type="Self.MenuCycleItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="MenuCycleItems">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycles_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="MenuCycles" Type="Self.MenuCycles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="MenuCycles">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycles_dbo_Locations_LocationId">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+          <End Role="MenuCycles" Type="Self.MenuCycles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="MenuCycles">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycles_dbo_MenuCycles_ParentId">
+          <End Role="MenuCycles" Type="Self.MenuCycles" Multiplicity="0..1" />
+          <End Role="MenuCycles1" Type="Self.MenuCycles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCycles">
+              <PropertyRef Name="MenuCycleId" />
+            </Principal>
+            <Dependent Role="MenuCycles1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuRecipes_dbo_Menus_MenuId">
+          <End Role="Menus" Type="Self.Menus" Multiplicity="1" />
+          <End Role="MenuRecipes" Type="Self.MenuRecipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menus">
+              <PropertyRef Name="MenuId" />
+            </Principal>
+            <Dependent Role="MenuRecipes">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuRecipes_dbo_Recipes_RecipeId">
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="1" />
+          <End Role="MenuRecipes" Type="Self.MenuRecipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="MenuRecipes">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Menus_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Menus" Type="Self.Menus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Menus">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Notes_dbo_MenuCycles_MenuCycleId">
+          <End Role="MenuCycles" Type="Self.MenuCycles" Multiplicity="1" />
+          <End Role="Notes" Type="Self.Notes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCycles">
+              <PropertyRef Name="MenuCycleId" />
+            </Principal>
+            <Dependent Role="Notes">
+              <PropertyRef Name="MenuCycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PostProductions_dbo_Locations_LocationId">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+          <End Role="PostProductions" Type="Self.PostProductions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="PostProductions">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PostProductions_dbo_MenuCycleItems_MenuCycleItemId">
+          <End Role="MenuCycleItems" Type="Self.MenuCycleItems" Multiplicity="1" />
+          <End Role="PostProductions" Type="Self.PostProductions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCycleItems">
+              <PropertyRef Name="MenuCycleItemId" />
+            </Principal>
+            <Dependent Role="PostProductions">
+              <PropertyRef Name="MenuCycleItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PostProductions_dbo_Tariffs_TariffId">
+          <End Role="Tariffs" Type="Self.Tariffs" Multiplicity="0..1" />
+          <End Role="PostProductions" Type="Self.PostProductions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tariffs">
+              <PropertyRef Name="TariffId" />
+            </Principal>
+            <Dependent Role="PostProductions">
+              <PropertyRef Name="TariffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_RecipeCategories_dbo_Recipes_RecipeId">
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="1" />
+          <End Role="RecipeCategories" Type="Self.RecipeCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="RecipeCategories">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_RecipeIngredientDetails_dbo_Recipes_RecipeId">
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="1" />
+          <End Role="RecipeIngredientDetails" Type="Self.RecipeIngredientDetails" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="RecipeIngredientDetails">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_RecipeLocationPrices_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="RecipeLocationPrices" Type="Self.RecipeLocationPrices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="RecipeLocationPrices">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_RecipeLocationPrices_dbo_Locations_LocationId">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="1" />
+          <End Role="RecipeLocationPrices" Type="Self.RecipeLocationPrices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="RecipeLocationPrices">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_RecipeLocationPrices_dbo_Recipes_RecipeId">
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="1" />
+          <End Role="RecipeLocationPrices" Type="Self.RecipeLocationPrices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="RecipeLocationPrices">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Recipes_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SellPrices_dbo_Locations_LocationId">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+          <End Role="SellPrices" Type="Self.SellPrices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="SellPrices">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SellPrices_dbo_MenuCycleItems_MenuCycleItemId">
+          <End Role="MenuCycleItems" Type="Self.MenuCycleItems" Multiplicity="1" />
+          <End Role="SellPrices" Type="Self.SellPrices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCycleItems">
+              <PropertyRef Name="MenuCycleItemId" />
+            </Principal>
+            <Dependent Role="SellPrices">
+              <PropertyRef Name="MenuCycleItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SellPrices_dbo_Tariffs_TariffId">
+          <End Role="Tariffs" Type="Self.Tariffs" Multiplicity="0..1" />
+          <End Role="SellPrices" Type="Self.SellPrices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tariffs">
+              <PropertyRef Name="TariffId" />
+            </Principal>
+            <Dependent Role="SellPrices">
+              <PropertyRef Name="TariffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SellPrices_dbo_TaxRates_TaxRateId">
+          <End Role="TaxRates" Type="Self.TaxRates" Multiplicity="0..1" />
+          <End Role="SellPrices" Type="Self.SellPrices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxRates">
+              <PropertyRef Name="TaxRateId" />
+            </Principal>
+            <Dependent Role="SellPrices">
+              <PropertyRef Name="TaxRateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Tariffs_dbo_Customers_Customer_CustomerId">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Tariffs" Type="Self.Tariffs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Tariffs">
+              <PropertyRef Name="Customer_CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserLocations_dbo_Locations_LocationId">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="1" />
+          <End Role="UserLocations" Type="Self.UserLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="UserLocations">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserLocations_dbo_Users_UserId">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserLocations" Type="Self.UserLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserLocations">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Users_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MenuServiceSodexoQAIModelStoreContainer">
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupLocations" EntityType="Self.GroupLocations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupMenus" EntityType="Self.GroupMenus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupRecipes" EntityType="Self.GroupRecipes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupUsers" EntityType="Self.GroupUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImportGroupLocations" EntityType="Self.ImportGroupLocations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImportLogs" EntityType="Self.ImportLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MealPeriods" EntityType="Self.MealPeriods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuCycleGroups" EntityType="Self.MenuCycleGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuCycleItems" EntityType="Self.MenuCycleItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuCycles" EntityType="Self.MenuCycles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuRecipes" EntityType="Self.MenuRecipes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notes" EntityType="Self.Notes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostProductions" EntityType="Self.PostProductions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipeCategories" EntityType="Self.RecipeCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipeIngredientDetails" EntityType="Self.RecipeIngredientDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipeLocationPrices" EntityType="Self.RecipeLocationPrices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recipes" EntityType="Self.Recipes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SellPrices" EntityType="Self.SellPrices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tariffs" EntityType="Self.Tariffs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaxRates" EntityType="Self.TaxRates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLocations" EntityType="Self.UserLocations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_GroupLocations_dbo_Groups_GroupId" Association="Self.FK_dbo_GroupLocations_dbo_Groups_GroupId">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="GroupLocations" EntitySet="GroupLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GroupLocations_dbo_Locations_LocationId" Association="Self.FK_dbo_GroupLocations_dbo_Locations_LocationId">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="GroupLocations" EntitySet="GroupLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GroupMenus_dbo_Groups_GroupId" Association="Self.FK_dbo_GroupMenus_dbo_Groups_GroupId">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="GroupMenus" EntitySet="GroupMenus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GroupMenus_dbo_Menus_MenuId" Association="Self.FK_dbo_GroupMenus_dbo_Menus_MenuId">
+            <End Role="Menus" EntitySet="Menus" />
+            <End Role="GroupMenus" EntitySet="GroupMenus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GroupRecipes_dbo_Groups_GroupId" Association="Self.FK_dbo_GroupRecipes_dbo_Groups_GroupId">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="GroupRecipes" EntitySet="GroupRecipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GroupRecipes_dbo_Recipes_RecipeId" Association="Self.FK_dbo_GroupRecipes_dbo_Recipes_RecipeId">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="GroupRecipes" EntitySet="GroupRecipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Groups_dbo_Customers_CustomerId" Association="Self.FK_dbo_Groups_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GroupUsers_dbo_Groups_GroupId" Association="Self.FK_dbo_GroupUsers_dbo_Groups_GroupId">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="GroupUsers" EntitySet="GroupUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GroupUsers_dbo_Users_UserId" Association="Self.FK_dbo_GroupUsers_dbo_Users_UserId">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="GroupUsers" EntitySet="GroupUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ImportGroupLocations_dbo_ImportLogs_ImportLogId" Association="Self.FK_dbo_ImportGroupLocations_dbo_ImportLogs_ImportLogId">
+            <End Role="ImportLogs" EntitySet="ImportLogs" />
+            <End Role="ImportGroupLocations" EntitySet="ImportGroupLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Locations_dbo_Customers_CustomerId" Association="Self.FK_dbo_Locations_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Locations" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MealPeriods_dbo_Customers_CustomerId" Association="Self.FK_dbo_MealPeriods_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="MealPeriods" EntitySet="MealPeriods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycleGroups_dbo_Groups_GroupId" Association="Self.FK_dbo_MenuCycleGroups_dbo_Groups_GroupId">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="MenuCycleGroups" EntitySet="MenuCycleGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycleGroups_dbo_MenuCycles_MenuCycleId" Association="Self.FK_dbo_MenuCycleGroups_dbo_MenuCycles_MenuCycleId">
+            <End Role="MenuCycles" EntitySet="MenuCycles" />
+            <End Role="MenuCycleGroups" EntitySet="MenuCycleGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycleItems_dbo_MealPeriods_MealPeriodId" Association="Self.FK_dbo_MenuCycleItems_dbo_MealPeriods_MealPeriodId">
+            <End Role="MealPeriods" EntitySet="MealPeriods" />
+            <End Role="MenuCycleItems" EntitySet="MenuCycleItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycleItems_dbo_MenuCycleItems_ParentId" Association="Self.FK_dbo_MenuCycleItems_dbo_MenuCycleItems_ParentId">
+            <End Role="MenuCycleItems" EntitySet="MenuCycleItems" />
+            <End Role="MenuCycleItems1" EntitySet="MenuCycleItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycleItems_dbo_MenuCycles_MenuCycleId" Association="Self.FK_dbo_MenuCycleItems_dbo_MenuCycles_MenuCycleId">
+            <End Role="MenuCycles" EntitySet="MenuCycles" />
+            <End Role="MenuCycleItems" EntitySet="MenuCycleItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycleItems_dbo_Menus_MenuId" Association="Self.FK_dbo_MenuCycleItems_dbo_Menus_MenuId">
+            <End Role="Menus" EntitySet="Menus" />
+            <End Role="MenuCycleItems" EntitySet="MenuCycleItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycleItems_dbo_Recipes_RecipeId" Association="Self.FK_dbo_MenuCycleItems_dbo_Recipes_RecipeId">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="MenuCycleItems" EntitySet="MenuCycleItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycles_dbo_Customers_CustomerId" Association="Self.FK_dbo_MenuCycles_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="MenuCycles" EntitySet="MenuCycles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycles_dbo_Locations_LocationId" Association="Self.FK_dbo_MenuCycles_dbo_Locations_LocationId">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="MenuCycles" EntitySet="MenuCycles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycles_dbo_MenuCycles_ParentId" Association="Self.FK_dbo_MenuCycles_dbo_MenuCycles_ParentId">
+            <End Role="MenuCycles" EntitySet="MenuCycles" />
+            <End Role="MenuCycles1" EntitySet="MenuCycles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuRecipes_dbo_Menus_MenuId" Association="Self.FK_dbo_MenuRecipes_dbo_Menus_MenuId">
+            <End Role="Menus" EntitySet="Menus" />
+            <End Role="MenuRecipes" EntitySet="MenuRecipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuRecipes_dbo_Recipes_RecipeId" Association="Self.FK_dbo_MenuRecipes_dbo_Recipes_RecipeId">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="MenuRecipes" EntitySet="MenuRecipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Menus_dbo_Customers_CustomerId" Association="Self.FK_dbo_Menus_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Menus" EntitySet="Menus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Notes_dbo_MenuCycles_MenuCycleId" Association="Self.FK_dbo_Notes_dbo_MenuCycles_MenuCycleId">
+            <End Role="MenuCycles" EntitySet="MenuCycles" />
+            <End Role="Notes" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PostProductions_dbo_Locations_LocationId" Association="Self.FK_dbo_PostProductions_dbo_Locations_LocationId">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="PostProductions" EntitySet="PostProductions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PostProductions_dbo_MenuCycleItems_MenuCycleItemId" Association="Self.FK_dbo_PostProductions_dbo_MenuCycleItems_MenuCycleItemId">
+            <End Role="MenuCycleItems" EntitySet="MenuCycleItems" />
+            <End Role="PostProductions" EntitySet="PostProductions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PostProductions_dbo_Tariffs_TariffId" Association="Self.FK_dbo_PostProductions_dbo_Tariffs_TariffId">
+            <End Role="Tariffs" EntitySet="Tariffs" />
+            <End Role="PostProductions" EntitySet="PostProductions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_RecipeCategories_dbo_Recipes_RecipeId" Association="Self.FK_dbo_RecipeCategories_dbo_Recipes_RecipeId">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="RecipeCategories" EntitySet="RecipeCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_RecipeIngredientDetails_dbo_Recipes_RecipeId" Association="Self.FK_dbo_RecipeIngredientDetails_dbo_Recipes_RecipeId">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="RecipeIngredientDetails" EntitySet="RecipeIngredientDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_RecipeLocationPrices_dbo_Customers_CustomerId" Association="Self.FK_dbo_RecipeLocationPrices_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="RecipeLocationPrices" EntitySet="RecipeLocationPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_RecipeLocationPrices_dbo_Locations_LocationId" Association="Self.FK_dbo_RecipeLocationPrices_dbo_Locations_LocationId">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="RecipeLocationPrices" EntitySet="RecipeLocationPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_RecipeLocationPrices_dbo_Recipes_RecipeId" Association="Self.FK_dbo_RecipeLocationPrices_dbo_Recipes_RecipeId">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="RecipeLocationPrices" EntitySet="RecipeLocationPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Recipes_dbo_Customers_CustomerId" Association="Self.FK_dbo_Recipes_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SellPrices_dbo_Locations_LocationId" Association="Self.FK_dbo_SellPrices_dbo_Locations_LocationId">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="SellPrices" EntitySet="SellPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SellPrices_dbo_MenuCycleItems_MenuCycleItemId" Association="Self.FK_dbo_SellPrices_dbo_MenuCycleItems_MenuCycleItemId">
+            <End Role="MenuCycleItems" EntitySet="MenuCycleItems" />
+            <End Role="SellPrices" EntitySet="SellPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SellPrices_dbo_Tariffs_TariffId" Association="Self.FK_dbo_SellPrices_dbo_Tariffs_TariffId">
+            <End Role="Tariffs" EntitySet="Tariffs" />
+            <End Role="SellPrices" EntitySet="SellPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SellPrices_dbo_TaxRates_TaxRateId" Association="Self.FK_dbo_SellPrices_dbo_TaxRates_TaxRateId">
+            <End Role="TaxRates" EntitySet="TaxRates" />
+            <End Role="SellPrices" EntitySet="SellPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Tariffs_dbo_Customers_Customer_CustomerId" Association="Self.FK_dbo_Tariffs_dbo_Customers_Customer_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Tariffs" EntitySet="Tariffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserLocations_dbo_Locations_LocationId" Association="Self.FK_dbo_UserLocations_dbo_Locations_LocationId">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="UserLocations" EntitySet="UserLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserLocations_dbo_Users_UserId" Association="Self.FK_dbo_UserLocations_dbo_Users_UserId">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserLocations" EntitySet="UserLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Users_dbo_Customers_CustomerId" Association="Self.FK_dbo_Users_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MenuServiceSodexoQAIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExternalId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK_dbo_Groups_dbo_Customers_CustomerId" FromRole="Customers" ToRole="Groups" />
+          <NavigationProperty Name="Locations" Relationship="Self.FK_dbo_Locations_dbo_Customers_CustomerId" FromRole="Customers" ToRole="Locations" />
+          <NavigationProperty Name="MealPeriods" Relationship="Self.FK_dbo_MealPeriods_dbo_Customers_CustomerId" FromRole="Customers" ToRole="MealPeriods" />
+          <NavigationProperty Name="MenuCycles" Relationship="Self.FK_dbo_MenuCycles_dbo_Customers_CustomerId" FromRole="Customers" ToRole="MenuCycles" />
+          <NavigationProperty Name="Menus" Relationship="Self.FK_dbo_Menus_dbo_Customers_CustomerId" FromRole="Customers" ToRole="Menus" />
+          <NavigationProperty Name="RecipeLocationPrices" Relationship="Self.FK_dbo_RecipeLocationPrices_dbo_Customers_CustomerId" FromRole="Customers" ToRole="RecipeLocationPrices" />
+          <NavigationProperty Name="Recipes" Relationship="Self.FK_dbo_Recipes_dbo_Customers_CustomerId" FromRole="Customers" ToRole="Recipes" />
+          <NavigationProperty Name="Tariffs" Relationship="Self.FK_dbo_Tariffs_dbo_Customers_Customer_CustomerId" FromRole="Customers" ToRole="Tariffs" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_dbo_Users_dbo_Customers_CustomerId" FromRole="Customers" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="GroupLocation">
+          <Key>
+            <PropertyRef Name="GroupId" />
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="GroupId" Type="Int64" Nullable="false" />
+          <Property Name="LocationId" Type="Int64" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_dbo_GroupLocations_dbo_Groups_GroupId" FromRole="GroupLocations" ToRole="Groups" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_dbo_GroupLocations_dbo_Locations_LocationId" FromRole="GroupLocations" ToRole="Locations" />
+        </EntityType>
+        <EntityType Name="GroupMenu">
+          <Key>
+            <PropertyRef Name="GroupId" />
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="GroupId" Type="Int64" Nullable="false" />
+          <Property Name="MenuId" Type="Int64" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_dbo_GroupMenus_dbo_Groups_GroupId" FromRole="GroupMenus" ToRole="Groups" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK_dbo_GroupMenus_dbo_Menus_MenuId" FromRole="GroupMenus" ToRole="Menus" />
+        </EntityType>
+        <EntityType Name="GroupRecipe">
+          <Key>
+            <PropertyRef Name="GroupId" />
+            <PropertyRef Name="RecipeId" />
+          </Key>
+          <Property Name="GroupId" Type="Int64" Nullable="false" />
+          <Property Name="RecipeId" Type="Int64" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_dbo_GroupRecipes_dbo_Groups_GroupId" FromRole="GroupRecipes" ToRole="Groups" />
+          <NavigationProperty Name="Recipe" Relationship="Self.FK_dbo_GroupRecipes_dbo_Recipes_RecipeId" FromRole="GroupRecipes" ToRole="Recipes" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExternalId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerId" Type="Int64" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GroupCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_Groups_dbo_Customers_CustomerId" FromRole="Groups" ToRole="Customers" />
+          <NavigationProperty Name="GroupLocations" Relationship="Self.FK_dbo_GroupLocations_dbo_Groups_GroupId" FromRole="Groups" ToRole="GroupLocations" />
+          <NavigationProperty Name="GroupMenus" Relationship="Self.FK_dbo_GroupMenus_dbo_Groups_GroupId" FromRole="Groups" ToRole="GroupMenus" />
+          <NavigationProperty Name="GroupRecipes" Relationship="Self.FK_dbo_GroupRecipes_dbo_Groups_GroupId" FromRole="Groups" ToRole="GroupRecipes" />
+          <NavigationProperty Name="GroupUsers" Relationship="Self.FK_dbo_GroupUsers_dbo_Groups_GroupId" FromRole="Groups" ToRole="GroupUsers" />
+          <NavigationProperty Name="MenuCycleGroups" Relationship="Self.FK_dbo_MenuCycleGroups_dbo_Groups_GroupId" FromRole="Groups" ToRole="MenuCycleGroups" />
+        </EntityType>
+        <EntityType Name="GroupUser">
+          <Key>
+            <PropertyRef Name="GroupId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="GroupId" Type="Int64" Nullable="false" />
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_dbo_GroupUsers_dbo_Groups_GroupId" FromRole="GroupUsers" ToRole="Groups" />
+          <NavigationProperty Name="User" Relationship="Self.FK_dbo_GroupUsers_dbo_Users_UserId" FromRole="GroupUsers" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="ImportGroupLocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OfferCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LocationCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Processed" Type="Boolean" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImportLogId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ImportLog" Relationship="Self.FK_dbo_ImportGroupLocations_dbo_ImportLogs_ImportLogId" FromRole="ImportGroupLocations" ToRole="ImportLogs" />
+        </EntityType>
+        <EntityType Name="ImportLog">
+          <Key>
+            <PropertyRef Name="ImportLogId" />
+          </Key>
+          <Property Name="ImportLogId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImportType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImportDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CustomerId" Type="Int64" Nullable="false" />
+          <Property Name="ImportStatus" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ImportGroupLocations" Relationship="Self.FK_dbo_ImportGroupLocations_dbo_ImportLogs_ImportLogId" FromRole="ImportLogs" ToRole="ImportGroupLocations" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="LocationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExternalId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerId" Type="Int64" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LocationCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_Locations_dbo_Customers_CustomerId" FromRole="Locations" ToRole="Customers" />
+          <NavigationProperty Name="GroupLocations" Relationship="Self.FK_dbo_GroupLocations_dbo_Locations_LocationId" FromRole="Locations" ToRole="GroupLocations" />
+          <NavigationProperty Name="MenuCycles" Relationship="Self.FK_dbo_MenuCycles_dbo_Locations_LocationId" FromRole="Locations" ToRole="MenuCycles" />
+          <NavigationProperty Name="PostProductions" Relationship="Self.FK_dbo_PostProductions_dbo_Locations_LocationId" FromRole="Locations" ToRole="PostProductions" />
+          <NavigationProperty Name="RecipeLocationPrices" Relationship="Self.FK_dbo_RecipeLocationPrices_dbo_Locations_LocationId" FromRole="Locations" ToRole="RecipeLocationPrices" />
+          <NavigationProperty Name="SellPrices" Relationship="Self.FK_dbo_SellPrices_dbo_Locations_LocationId" FromRole="Locations" ToRole="SellPrices" />
+          <NavigationProperty Name="UserLocations" Relationship="Self.FK_dbo_UserLocations_dbo_Locations_LocationId" FromRole="Locations" ToRole="UserLocations" />
+        </EntityType>
+        <EntityType Name="MealPeriod">
+          <Key>
+            <PropertyRef Name="MealPeriodId" />
+          </Key>
+          <Property Name="MealPeriodId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExternalId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerId" Type="Int64" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_MealPeriods_dbo_Customers_CustomerId" FromRole="MealPeriods" ToRole="Customers" />
+          <NavigationProperty Name="MenuCycleItems" Relationship="Self.FK_dbo_MenuCycleItems_dbo_MealPeriods_MealPeriodId" FromRole="MealPeriods" ToRole="MenuCycleItems" />
+        </EntityType>
+        <EntityType Name="MenuCycleGroup">
+          <Key>
+            <PropertyRef Name="MenuCycleId" />
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="MenuCycleId" Type="Int64" Nullable="false" />
+          <Property Name="GroupId" Type="Int64" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_dbo_MenuCycleGroups_dbo_Groups_GroupId" FromRole="MenuCycleGroups" ToRole="Groups" />
+          <NavigationProperty Name="MenuCycle" Relationship="Self.FK_dbo_MenuCycleGroups_dbo_MenuCycles_MenuCycleId" FromRole="MenuCycleGroups" ToRole="MenuCycles" />
+        </EntityType>
+        <EntityType Name="MenuCycleItem">
+          <Key>
+            <PropertyRef Name="MenuCycleItemId" />
+          </Key>
+          <Property Name="MenuCycleItemId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Day" Type="Int32" Nullable="false" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
+          <Property Name="ParentId" Type="Int64" />
+          <Property Name="MenuId" Type="Int64" />
+          <Property Name="MenuName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MenuCycleId" Type="Int64" Nullable="false" />
+          <Property Name="RecipeId" Type="Int64" />
+          <Property Name="MenuCycleItemType" Type="Int32" Nullable="false" />
+          <Property Name="MenuType" Type="Int32" />
+          <Property Name="MealPeriodId" Type="Int64" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MealPeriod" Relationship="Self.FK_dbo_MenuCycleItems_dbo_MealPeriods_MealPeriodId" FromRole="MenuCycleItems" ToRole="MealPeriods" />
+          <NavigationProperty Name="MenuCycleItems1" Relationship="Self.FK_dbo_MenuCycleItems_dbo_MenuCycleItems_ParentId" FromRole="MenuCycleItems" ToRole="MenuCycleItems1" />
+          <NavigationProperty Name="MenuCycleItem1" Relationship="Self.FK_dbo_MenuCycleItems_dbo_MenuCycleItems_ParentId" FromRole="MenuCycleItems1" ToRole="MenuCycleItems" />
+          <NavigationProperty Name="MenuCycle" Relationship="Self.FK_dbo_MenuCycleItems_dbo_MenuCycles_MenuCycleId" FromRole="MenuCycleItems" ToRole="MenuCycles" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK_dbo_MenuCycleItems_dbo_Menus_MenuId" FromRole="MenuCycleItems" ToRole="Menus" />
+          <NavigationProperty Name="Recipe" Relationship="Self.FK_dbo_MenuCycleItems_dbo_Recipes_RecipeId" FromRole="MenuCycleItems" ToRole="Recipes" />
+          <NavigationProperty Name="PostProductions" Relationship="Self.FK_dbo_PostProductions_dbo_MenuCycleItems_MenuCycleItemId" FromRole="MenuCycleItems" ToRole="PostProductions" />
+          <NavigationProperty Name="SellPrices" Relationship="Self.FK_dbo_SellPrices_dbo_MenuCycleItems_MenuCycleItemId" FromRole="MenuCycleItems" ToRole="SellPrices" />
+        </EntityType>
+        <EntityType Name="MenuCycle">
+          <Key>
+            <PropertyRef Name="MenuCycleId" />
+          </Key>
+          <Property Name="MenuCycleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int64" />
+          <Property Name="IsPublished" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="NonServingDays" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int64" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LocationId" Type="Int64" />
+          <Property Name="ReleaseDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="IsModifiedLocally" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_MenuCycles_dbo_Customers_CustomerId" FromRole="MenuCycles" ToRole="Customers" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_dbo_MenuCycles_dbo_Locations_LocationId" FromRole="MenuCycles" ToRole="Locations" />
+          <NavigationProperty Name="MenuCycleGroups" Relationship="Self.FK_dbo_MenuCycleGroups_dbo_MenuCycles_MenuCycleId" FromRole="MenuCycles" ToRole="MenuCycleGroups" />
+          <NavigationProperty Name="MenuCycleItems" Relationship="Self.FK_dbo_MenuCycleItems_dbo_MenuCycles_MenuCycleId" FromRole="MenuCycles" ToRole="MenuCycleItems" />
+          <NavigationProperty Name="MenuCycles1" Relationship="Self.FK_dbo_MenuCycles_dbo_MenuCycles_ParentId" FromRole="MenuCycles" ToRole="MenuCycles1" />
+          <NavigationProperty Name="MenuCycle1" Relationship="Self.FK_dbo_MenuCycles_dbo_MenuCycles_ParentId" FromRole="MenuCycles1" ToRole="MenuCycles" />
+          <NavigationProperty Name="Notes" Relationship="Self.FK_dbo_Notes_dbo_MenuCycles_MenuCycleId" FromRole="MenuCycles" ToRole="Notes" />
+        </EntityType>
+        <EntityType Name="MenuRecipe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="MenuId" Type="Int64" Nullable="false" />
+          <Property Name="RecipeId" Type="Int64" Nullable="false" />
+          <Property Name="Course" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="Cover" Type="Double" />
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK_dbo_MenuRecipes_dbo_Menus_MenuId" FromRole="MenuRecipes" ToRole="Menus" />
+          <NavigationProperty Name="Recipe" Relationship="Self.FK_dbo_MenuRecipes_dbo_Recipes_RecipeId" FromRole="MenuRecipes" ToRole="Recipes" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExternalId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MenuType" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int64" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cover" Type="Double" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_Menus_dbo_Customers_CustomerId" FromRole="Menus" ToRole="Customers" />
+          <NavigationProperty Name="GroupMenus" Relationship="Self.FK_dbo_GroupMenus_dbo_Menus_MenuId" FromRole="Menus" ToRole="GroupMenus" />
+          <NavigationProperty Name="MenuCycleItems" Relationship="Self.FK_dbo_MenuCycleItems_dbo_Menus_MenuId" FromRole="Menus" ToRole="MenuCycleItems" />
+          <NavigationProperty Name="MenuRecipes" Relationship="Self.FK_dbo_MenuRecipes_dbo_Menus_MenuId" FromRole="Menus" ToRole="MenuRecipes" />
+        </EntityType>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="NoteId" />
+          </Key>
+          <Property Name="NoteId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MenuCycleId" Type="Int64" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MenuCycle" Relationship="Self.FK_dbo_Notes_dbo_MenuCycles_MenuCycleId" FromRole="Notes" ToRole="MenuCycles" />
+        </EntityType>
+        <EntityType Name="PostProduction">
+          <Key>
+            <PropertyRef Name="PostProductionId" />
+          </Key>
+          <Property Name="MenuCycleItemId" Type="Int64" Nullable="false" />
+          <Property Name="TariffId" Type="Int64" />
+          <Property Name="LocationId" Type="Int64" />
+          <Property Name="ProducedQuantity" Type="Int32" Nullable="false" />
+          <Property Name="SoldQuantity" Type="Int32" Nullable="false" />
+          <Property Name="Wastage" Type="Int32" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RequiredQuantity" Type="Int32" Nullable="false" />
+          <Property Name="NoChargeApplied" Type="Int32" Nullable="false" />
+          <Property Name="ReturnToStock" Type="Int32" Nullable="false" />
+          <Property Name="PostProductionId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_dbo_PostProductions_dbo_Locations_LocationId" FromRole="PostProductions" ToRole="Locations" />
+          <NavigationProperty Name="MenuCycleItem" Relationship="Self.FK_dbo_PostProductions_dbo_MenuCycleItems_MenuCycleItemId" FromRole="PostProductions" ToRole="MenuCycleItems" />
+          <NavigationProperty Name="Tariff" Relationship="Self.FK_dbo_PostProductions_dbo_Tariffs_TariffId" FromRole="PostProductions" ToRole="Tariffs" />
+        </EntityType>
+        <EntityType Name="RecipeCategory">
+          <Key>
+            <PropertyRef Name="RecipeId" />
+            <PropertyRef Name="CategoryExternalId" />
+            <PropertyRef Name="CategoryName" />
+          </Key>
+          <Property Name="RecipeId" Type="Int64" Nullable="false" />
+          <Property Name="CategoryExternalId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Recipe" Relationship="Self.FK_dbo_RecipeCategories_dbo_Recipes_RecipeId" FromRole="RecipeCategories" ToRole="Recipes" />
+        </EntityType>
+        <EntityType Name="RecipeIngredientDetail">
+          <Key>
+            <PropertyRef Name="RecipeId" />
+          </Key>
+          <Property Name="RecipeId" Type="Int64" Nullable="false" />
+          <Property Name="ContainsMilkOrMilkProducts" Type="Boolean" />
+          <Property Name="ContainsEggOrEggDerivatives" Type="Boolean" />
+          <Property Name="ContainsCerealsThatContainGluten" Type="Boolean" />
+          <Property Name="ContainsPeanuts" Type="Boolean" />
+          <Property Name="ContainsNutsOrNutTrace" Type="Boolean" />
+          <Property Name="ContainsSesameSeedOrSesameSeedProducts" Type="Boolean" />
+          <Property Name="ContainsSoya" Type="Boolean" />
+          <Property Name="ContainsFishOrFishProducts" Type="Boolean" />
+          <Property Name="ContainsCrustaceans" Type="Boolean" />
+          <Property Name="ContainsMolluscs" Type="Boolean" />
+          <Property Name="ContainsMustardOrMustardProducts" Type="Boolean" />
+          <Property Name="ContainsCeleryOrCeleriacProducts" Type="Boolean" />
+          <Property Name="ContainsSulphurDioxideOrSulphites" Type="Boolean" />
+          <Property Name="ContainsLupinFlourOrLupinProducts" Type="Boolean" />
+          <Property Name="ContainsGlutenOrGlutenProducts" Type="Boolean" />
+          <Property Name="EnergyKJperServing" Type="Double" />
+          <Property Name="EnergyKCalPerServing" Type="Double" />
+          <Property Name="FatPerServing" Type="Double" />
+          <Property Name="SaturatedFatPerServing" Type="Double" />
+          <Property Name="SugarPerServing" Type="Double" />
+          <Property Name="SaltPerServing" Type="Double" />
+          <NavigationProperty Name="Recipe" Relationship="Self.FK_dbo_RecipeIngredientDetails_dbo_Recipes_RecipeId" FromRole="RecipeIngredientDetails" ToRole="Recipes" />
+        </EntityType>
+        <EntityType Name="RecipeLocationPrice">
+          <Key>
+            <PropertyRef Name="RecipeId" />
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="RecipeId" Type="Int64" Nullable="false" />
+          <Property Name="LocationId" Type="Int64" Nullable="false" />
+          <Property Name="PriceLookupNumber" Type="Int64" />
+          <Property Name="CostPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CurrencyIsoCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HasRecipeGap" Type="Boolean" />
+          <Property Name="CustomerId" Type="Int64" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_RecipeLocationPrices_dbo_Customers_CustomerId" FromRole="RecipeLocationPrices" ToRole="Customers" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_dbo_RecipeLocationPrices_dbo_Locations_LocationId" FromRole="RecipeLocationPrices" ToRole="Locations" />
+          <NavigationProperty Name="Recipe" Relationship="Self.FK_dbo_RecipeLocationPrices_dbo_Recipes_RecipeId" FromRole="RecipeLocationPrices" ToRole="Recipes" />
+        </EntityType>
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="RecipeId" />
+          </Key>
+          <Property Name="RecipeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExternalId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CostQuantity" Type="Double" />
+          <Property Name="CostUnitOfMeasure" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerId" Type="Int64" Nullable="false" />
+          <Property Name="MinimumCost" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MaximumCost" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SellPriceModel" Type="Int32" Nullable="false" />
+          <Property Name="SellPriceModelValue" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_Recipes_dbo_Customers_CustomerId" FromRole="Recipes" ToRole="Customers" />
+          <NavigationProperty Name="GroupRecipes" Relationship="Self.FK_dbo_GroupRecipes_dbo_Recipes_RecipeId" FromRole="Recipes" ToRole="GroupRecipes" />
+          <NavigationProperty Name="MenuCycleItems" Relationship="Self.FK_dbo_MenuCycleItems_dbo_Recipes_RecipeId" FromRole="Recipes" ToRole="MenuCycleItems" />
+          <NavigationProperty Name="MenuRecipes" Relationship="Self.FK_dbo_MenuRecipes_dbo_Recipes_RecipeId" FromRole="Recipes" ToRole="MenuRecipes" />
+          <NavigationProperty Name="RecipeCategories" Relationship="Self.FK_dbo_RecipeCategories_dbo_Recipes_RecipeId" FromRole="Recipes" ToRole="RecipeCategories" />
+          <NavigationProperty Name="RecipeIngredientDetail" Relationship="Self.FK_dbo_RecipeIngredientDetails_dbo_Recipes_RecipeId" FromRole="Recipes" ToRole="RecipeIngredientDetails" />
+          <NavigationProperty Name="RecipeLocationPrices" Relationship="Self.FK_dbo_RecipeLocationPrices_dbo_Recipes_RecipeId" FromRole="Recipes" ToRole="RecipeLocationPrices" />
+        </EntityType>
+        <EntityType Name="SellPrice">
+          <Key>
+            <PropertyRef Name="SellPriceId" />
+          </Key>
+          <Property Name="MenuCycleItemId" Type="Int64" Nullable="false" />
+          <Property Name="SellPricesModel" Type="Int32" Nullable="false" />
+          <Property Name="TariffId" Type="Int64" />
+          <Property Name="Value" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="VAT" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LocationId" Type="Int64" />
+          <Property Name="TaxRateId" Type="Int64" />
+          <Property Name="SellPriceId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_dbo_SellPrices_dbo_Locations_LocationId" FromRole="SellPrices" ToRole="Locations" />
+          <NavigationProperty Name="MenuCycleItem" Relationship="Self.FK_dbo_SellPrices_dbo_MenuCycleItems_MenuCycleItemId" FromRole="SellPrices" ToRole="MenuCycleItems" />
+          <NavigationProperty Name="Tariff" Relationship="Self.FK_dbo_SellPrices_dbo_Tariffs_TariffId" FromRole="SellPrices" ToRole="Tariffs" />
+          <NavigationProperty Name="TaxRate" Relationship="Self.FK_dbo_SellPrices_dbo_TaxRates_TaxRateId" FromRole="SellPrices" ToRole="TaxRates" />
+        </EntityType>
+        <EntityType Name="Tariff">
+          <Key>
+            <PropertyRef Name="TariffId" />
+          </Key>
+          <Property Name="TariffId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_CustomerId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_Tariffs_dbo_Customers_Customer_CustomerId" FromRole="Tariffs" ToRole="Customers" />
+          <NavigationProperty Name="PostProductions" Relationship="Self.FK_dbo_PostProductions_dbo_Tariffs_TariffId" FromRole="Tariffs" ToRole="PostProductions" />
+          <NavigationProperty Name="SellPrices" Relationship="Self.FK_dbo_SellPrices_dbo_Tariffs_TariffId" FromRole="Tariffs" ToRole="SellPrices" />
+        </EntityType>
+        <EntityType Name="TaxRate">
+          <Key>
+            <PropertyRef Name="TaxRateId" />
+          </Key>
+          <Property Name="TaxRateId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rate" Type="Double" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="IsEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SellPrices" Relationship="Self.FK_dbo_SellPrices_dbo_TaxRates_TaxRateId" FromRole="TaxRates" ToRole="SellPrices" />
+        </EntityType>
+        <EntityType Name="UserLocation">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="LocationId" Type="Int64" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CanCreateMenuCycle" Type="Boolean" Nullable="false" />
+          <Property Name="CanDeleteMenuCycle" Type="Boolean" Nullable="false" />
+          <Property Name="CanEditMenuCycle" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_dbo_UserLocations_dbo_Locations_LocationId" FromRole="UserLocations" ToRole="Locations" />
+          <NavigationProperty Name="User" Relationship="Self.FK_dbo_UserLocations_dbo_Users_UserId" FromRole="UserLocations" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExternalId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerId" Type="Int64" Nullable="false" />
+          <Property Name="DateCreatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateUpdatedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedByExternalId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CanCreateMenuCycle" Type="Boolean" Nullable="false" />
+          <Property Name="CanDeleteMenuCycle" Type="Boolean" Nullable="false" />
+          <Property Name="CanEditMenuCycle" Type="Boolean" Nullable="false" />
+          <Property Name="CanViewMenu" Type="Boolean" Nullable="false" />
+          <Property Name="CanViewMenuCycle" Type="Boolean" Nullable="false" />
+          <Property Name="CanViewRecipe" Type="Boolean" Nullable="false" />
+          <Property Name="CanPublishMenuCycle" Type="Boolean" Nullable="false" />
+          <Property Name="CanLockMenuCycle" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_Users_dbo_Customers_CustomerId" FromRole="Users" ToRole="Customers" />
+          <NavigationProperty Name="GroupUsers" Relationship="Self.FK_dbo_GroupUsers_dbo_Users_UserId" FromRole="Users" ToRole="GroupUsers" />
+          <NavigationProperty Name="UserLocations" Relationship="Self.FK_dbo_UserLocations_dbo_Users_UserId" FromRole="Users" ToRole="UserLocations" />
+        </EntityType>
+        <Association Name="FK_dbo_Groups_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Locations_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Locations" Type="Self.Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Locations">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MealPeriods_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="MealPeriods" Type="Self.MealPeriod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="MealPeriods">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycles_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="MenuCycles" Type="Self.MenuCycle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="MenuCycles">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Menus_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Menus" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Menus">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_RecipeLocationPrices_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="RecipeLocationPrices" Type="Self.RecipeLocationPrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="RecipeLocationPrices">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Recipes_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Tariffs_dbo_Customers_Customer_CustomerId">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Tariffs" Type="Self.Tariff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Tariffs">
+              <PropertyRef Name="Customer_CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Users_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GroupLocations_dbo_Groups_GroupId">
+          <End Role="Groups" Type="Self.Group" Multiplicity="1" />
+          <End Role="GroupLocations" Type="Self.GroupLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="GroupLocations">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GroupLocations_dbo_Locations_LocationId">
+          <End Role="Locations" Type="Self.Location" Multiplicity="1" />
+          <End Role="GroupLocations" Type="Self.GroupLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="GroupLocations">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GroupMenus_dbo_Groups_GroupId">
+          <End Role="Groups" Type="Self.Group" Multiplicity="1" />
+          <End Role="GroupMenus" Type="Self.GroupMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="GroupMenus">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GroupMenus_dbo_Menus_MenuId">
+          <End Role="Menus" Type="Self.Menu" Multiplicity="1" />
+          <End Role="GroupMenus" Type="Self.GroupMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menus">
+              <PropertyRef Name="MenuId" />
+            </Principal>
+            <Dependent Role="GroupMenus">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GroupRecipes_dbo_Groups_GroupId">
+          <End Role="Groups" Type="Self.Group" Multiplicity="1" />
+          <End Role="GroupRecipes" Type="Self.GroupRecipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="GroupRecipes">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GroupRecipes_dbo_Recipes_RecipeId">
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="1" />
+          <End Role="GroupRecipes" Type="Self.GroupRecipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="GroupRecipes">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GroupUsers_dbo_Groups_GroupId">
+          <End Role="Groups" Type="Self.Group" Multiplicity="1" />
+          <End Role="GroupUsers" Type="Self.GroupUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="GroupUsers">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycleGroups_dbo_Groups_GroupId">
+          <End Role="Groups" Type="Self.Group" Multiplicity="1" />
+          <End Role="MenuCycleGroups" Type="Self.MenuCycleGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="MenuCycleGroups">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_GroupUsers_dbo_Users_UserId">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="GroupUsers" Type="Self.GroupUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="GroupUsers">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ImportGroupLocations_dbo_ImportLogs_ImportLogId">
+          <End Role="ImportLogs" Type="Self.ImportLog" Multiplicity="1" />
+          <End Role="ImportGroupLocations" Type="Self.ImportGroupLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImportLogs">
+              <PropertyRef Name="ImportLogId" />
+            </Principal>
+            <Dependent Role="ImportGroupLocations">
+              <PropertyRef Name="ImportLogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycles_dbo_Locations_LocationId">
+          <End Role="Locations" Type="Self.Location" Multiplicity="0..1" />
+          <End Role="MenuCycles" Type="Self.MenuCycle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="MenuCycles">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PostProductions_dbo_Locations_LocationId">
+          <End Role="Locations" Type="Self.Location" Multiplicity="0..1" />
+          <End Role="PostProductions" Type="Self.PostProduction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="PostProductions">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_RecipeLocationPrices_dbo_Locations_LocationId">
+          <End Role="Locations" Type="Self.Location" Multiplicity="1" />
+          <End Role="RecipeLocationPrices" Type="Self.RecipeLocationPrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="RecipeLocationPrices">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SellPrices_dbo_Locations_LocationId">
+          <End Role="Locations" Type="Self.Location" Multiplicity="0..1" />
+          <End Role="SellPrices" Type="Self.SellPrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="SellPrices">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserLocations_dbo_Locations_LocationId">
+          <End Role="Locations" Type="Self.Location" Multiplicity="1" />
+          <End Role="UserLocations" Type="Self.UserLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="UserLocations">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycleItems_dbo_MealPeriods_MealPeriodId">
+          <End Role="MealPeriods" Type="Self.MealPeriod" Multiplicity="0..1" />
+          <End Role="MenuCycleItems" Type="Self.MenuCycleItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MealPeriods">
+              <PropertyRef Name="MealPeriodId" />
+            </Principal>
+            <Dependent Role="MenuCycleItems">
+              <PropertyRef Name="MealPeriodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycleGroups_dbo_MenuCycles_MenuCycleId">
+          <End Role="MenuCycles" Type="Self.MenuCycle" Multiplicity="1" />
+          <End Role="MenuCycleGroups" Type="Self.MenuCycleGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCycles">
+              <PropertyRef Name="MenuCycleId" />
+            </Principal>
+            <Dependent Role="MenuCycleGroups">
+              <PropertyRef Name="MenuCycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycleItems_dbo_MenuCycleItems_ParentId">
+          <End Role="MenuCycleItems" Type="Self.MenuCycleItem" Multiplicity="0..1" />
+          <End Role="MenuCycleItems1" Type="Self.MenuCycleItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCycleItems">
+              <PropertyRef Name="MenuCycleItemId" />
+            </Principal>
+            <Dependent Role="MenuCycleItems1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycleItems_dbo_MenuCycles_MenuCycleId">
+          <End Role="MenuCycles" Type="Self.MenuCycle" Multiplicity="1" />
+          <End Role="MenuCycleItems" Type="Self.MenuCycleItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCycles">
+              <PropertyRef Name="MenuCycleId" />
+            </Principal>
+            <Dependent Role="MenuCycleItems">
+              <PropertyRef Name="MenuCycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycleItems_dbo_Menus_MenuId">
+          <End Role="Menus" Type="Self.Menu" Multiplicity="0..1" />
+          <End Role="MenuCycleItems" Type="Self.MenuCycleItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menus">
+              <PropertyRef Name="MenuId" />
+            </Principal>
+            <Dependent Role="MenuCycleItems">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycleItems_dbo_Recipes_RecipeId">
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="0..1" />
+          <End Role="MenuCycleItems" Type="Self.MenuCycleItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="MenuCycleItems">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PostProductions_dbo_MenuCycleItems_MenuCycleItemId">
+          <End Role="MenuCycleItems" Type="Self.MenuCycleItem" Multiplicity="1" />
+          <End Role="PostProductions" Type="Self.PostProduction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCycleItems">
+              <PropertyRef Name="MenuCycleItemId" />
+            </Principal>
+            <Dependent Role="PostProductions">
+              <PropertyRef Name="MenuCycleItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SellPrices_dbo_MenuCycleItems_MenuCycleItemId">
+          <End Role="MenuCycleItems" Type="Self.MenuCycleItem" Multiplicity="1" />
+          <End Role="SellPrices" Type="Self.SellPrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCycleItems">
+              <PropertyRef Name="MenuCycleItemId" />
+            </Principal>
+            <Dependent Role="SellPrices">
+              <PropertyRef Name="MenuCycleItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuCycles_dbo_MenuCycles_ParentId">
+          <End Role="MenuCycles" Type="Self.MenuCycle" Multiplicity="0..1" />
+          <End Role="MenuCycles1" Type="Self.MenuCycle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCycles">
+              <PropertyRef Name="MenuCycleId" />
+            </Principal>
+            <Dependent Role="MenuCycles1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Notes_dbo_MenuCycles_MenuCycleId">
+          <End Role="MenuCycles" Type="Self.MenuCycle" Multiplicity="1" />
+          <End Role="Notes" Type="Self.Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCycles">
+              <PropertyRef Name="MenuCycleId" />
+            </Principal>
+            <Dependent Role="Notes">
+              <PropertyRef Name="MenuCycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuRecipes_dbo_Menus_MenuId">
+          <End Role="Menus" Type="Self.Menu" Multiplicity="1" />
+          <End Role="MenuRecipes" Type="Self.MenuRecipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menus">
+              <PropertyRef Name="MenuId" />
+            </Principal>
+            <Dependent Role="MenuRecipes">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_MenuRecipes_dbo_Recipes_RecipeId">
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="1" />
+          <End Role="MenuRecipes" Type="Self.MenuRecipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="MenuRecipes">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PostProductions_dbo_Tariffs_TariffId">
+          <End Role="Tariffs" Type="Self.Tariff" Multiplicity="0..1" />
+          <End Role="PostProductions" Type="Self.PostProduction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tariffs">
+              <PropertyRef Name="TariffId" />
+            </Principal>
+            <Dependent Role="PostProductions">
+              <PropertyRef Name="TariffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_RecipeCategories_dbo_Recipes_RecipeId">
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="1" />
+          <End Role="RecipeCategories" Type="Self.RecipeCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="RecipeCategories">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_RecipeIngredientDetails_dbo_Recipes_RecipeId">
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="1" />
+          <End Role="RecipeIngredientDetails" Type="Self.RecipeIngredientDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="RecipeIngredientDetails">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_RecipeLocationPrices_dbo_Recipes_RecipeId">
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="1" />
+          <End Role="RecipeLocationPrices" Type="Self.RecipeLocationPrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="RecipeLocationPrices">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SellPrices_dbo_Tariffs_TariffId">
+          <End Role="Tariffs" Type="Self.Tariff" Multiplicity="0..1" />
+          <End Role="SellPrices" Type="Self.SellPrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tariffs">
+              <PropertyRef Name="TariffId" />
+            </Principal>
+            <Dependent Role="SellPrices">
+              <PropertyRef Name="TariffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SellPrices_dbo_TaxRates_TaxRateId">
+          <End Role="TaxRates" Type="Self.TaxRate" Multiplicity="0..1" />
+          <End Role="SellPrices" Type="Self.SellPrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxRates">
+              <PropertyRef Name="TaxRateId" />
+            </Principal>
+            <Dependent Role="SellPrices">
+              <PropertyRef Name="TaxRateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserLocations_dbo_Users_UserId">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="UserLocations" Type="Self.UserLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserLocations">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MenuServiceSodexoQAIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="GroupLocations" EntityType="Self.GroupLocation" />
+          <EntitySet Name="GroupMenus" EntityType="Self.GroupMenu" />
+          <EntitySet Name="GroupRecipes" EntityType="Self.GroupRecipe" />
+          <EntitySet Name="Groups" EntityType="Self.Group" />
+          <EntitySet Name="GroupUsers" EntityType="Self.GroupUser" />
+          <EntitySet Name="ImportGroupLocations" EntityType="Self.ImportGroupLocation" />
+          <EntitySet Name="ImportLogs" EntityType="Self.ImportLog" />
+          <EntitySet Name="Locations" EntityType="Self.Location" />
+          <EntitySet Name="MealPeriods" EntityType="Self.MealPeriod" />
+          <EntitySet Name="MenuCycleGroups" EntityType="Self.MenuCycleGroup" />
+          <EntitySet Name="MenuCycleItems" EntityType="Self.MenuCycleItem" />
+          <EntitySet Name="MenuCycles" EntityType="Self.MenuCycle" />
+          <EntitySet Name="MenuRecipes" EntityType="Self.MenuRecipe" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="Notes" EntityType="Self.Note" />
+          <EntitySet Name="PostProductions" EntityType="Self.PostProduction" />
+          <EntitySet Name="RecipeCategories" EntityType="Self.RecipeCategory" />
+          <EntitySet Name="RecipeIngredientDetails" EntityType="Self.RecipeIngredientDetail" />
+          <EntitySet Name="RecipeLocationPrices" EntityType="Self.RecipeLocationPrice" />
+          <EntitySet Name="Recipes" EntityType="Self.Recipe" />
+          <EntitySet Name="SellPrices" EntityType="Self.SellPrice" />
+          <EntitySet Name="Tariffs" EntityType="Self.Tariff" />
+          <EntitySet Name="TaxRates" EntityType="Self.TaxRate" />
+          <EntitySet Name="UserLocations" EntityType="Self.UserLocation" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_dbo_Groups_dbo_Customers_CustomerId" Association="Self.FK_dbo_Groups_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Locations_dbo_Customers_CustomerId" Association="Self.FK_dbo_Locations_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Locations" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MealPeriods_dbo_Customers_CustomerId" Association="Self.FK_dbo_MealPeriods_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="MealPeriods" EntitySet="MealPeriods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycles_dbo_Customers_CustomerId" Association="Self.FK_dbo_MenuCycles_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="MenuCycles" EntitySet="MenuCycles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Menus_dbo_Customers_CustomerId" Association="Self.FK_dbo_Menus_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Menus" EntitySet="Menus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_RecipeLocationPrices_dbo_Customers_CustomerId" Association="Self.FK_dbo_RecipeLocationPrices_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="RecipeLocationPrices" EntitySet="RecipeLocationPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Recipes_dbo_Customers_CustomerId" Association="Self.FK_dbo_Recipes_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Tariffs_dbo_Customers_Customer_CustomerId" Association="Self.FK_dbo_Tariffs_dbo_Customers_Customer_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Tariffs" EntitySet="Tariffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Users_dbo_Customers_CustomerId" Association="Self.FK_dbo_Users_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GroupLocations_dbo_Groups_GroupId" Association="Self.FK_dbo_GroupLocations_dbo_Groups_GroupId">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="GroupLocations" EntitySet="GroupLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GroupLocations_dbo_Locations_LocationId" Association="Self.FK_dbo_GroupLocations_dbo_Locations_LocationId">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="GroupLocations" EntitySet="GroupLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GroupMenus_dbo_Groups_GroupId" Association="Self.FK_dbo_GroupMenus_dbo_Groups_GroupId">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="GroupMenus" EntitySet="GroupMenus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GroupMenus_dbo_Menus_MenuId" Association="Self.FK_dbo_GroupMenus_dbo_Menus_MenuId">
+            <End Role="Menus" EntitySet="Menus" />
+            <End Role="GroupMenus" EntitySet="GroupMenus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GroupRecipes_dbo_Groups_GroupId" Association="Self.FK_dbo_GroupRecipes_dbo_Groups_GroupId">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="GroupRecipes" EntitySet="GroupRecipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GroupRecipes_dbo_Recipes_RecipeId" Association="Self.FK_dbo_GroupRecipes_dbo_Recipes_RecipeId">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="GroupRecipes" EntitySet="GroupRecipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GroupUsers_dbo_Groups_GroupId" Association="Self.FK_dbo_GroupUsers_dbo_Groups_GroupId">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="GroupUsers" EntitySet="GroupUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycleGroups_dbo_Groups_GroupId" Association="Self.FK_dbo_MenuCycleGroups_dbo_Groups_GroupId">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="MenuCycleGroups" EntitySet="MenuCycleGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_GroupUsers_dbo_Users_UserId" Association="Self.FK_dbo_GroupUsers_dbo_Users_UserId">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="GroupUsers" EntitySet="GroupUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ImportGroupLocations_dbo_ImportLogs_ImportLogId" Association="Self.FK_dbo_ImportGroupLocations_dbo_ImportLogs_ImportLogId">
+            <End Role="ImportLogs" EntitySet="ImportLogs" />
+            <End Role="ImportGroupLocations" EntitySet="ImportGroupLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycles_dbo_Locations_LocationId" Association="Self.FK_dbo_MenuCycles_dbo_Locations_LocationId">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="MenuCycles" EntitySet="MenuCycles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PostProductions_dbo_Locations_LocationId" Association="Self.FK_dbo_PostProductions_dbo_Locations_LocationId">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="PostProductions" EntitySet="PostProductions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_RecipeLocationPrices_dbo_Locations_LocationId" Association="Self.FK_dbo_RecipeLocationPrices_dbo_Locations_LocationId">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="RecipeLocationPrices" EntitySet="RecipeLocationPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SellPrices_dbo_Locations_LocationId" Association="Self.FK_dbo_SellPrices_dbo_Locations_LocationId">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="SellPrices" EntitySet="SellPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserLocations_dbo_Locations_LocationId" Association="Self.FK_dbo_UserLocations_dbo_Locations_LocationId">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="UserLocations" EntitySet="UserLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycleItems_dbo_MealPeriods_MealPeriodId" Association="Self.FK_dbo_MenuCycleItems_dbo_MealPeriods_MealPeriodId">
+            <End Role="MealPeriods" EntitySet="MealPeriods" />
+            <End Role="MenuCycleItems" EntitySet="MenuCycleItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycleGroups_dbo_MenuCycles_MenuCycleId" Association="Self.FK_dbo_MenuCycleGroups_dbo_MenuCycles_MenuCycleId">
+            <End Role="MenuCycles" EntitySet="MenuCycles" />
+            <End Role="MenuCycleGroups" EntitySet="MenuCycleGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycleItems_dbo_MenuCycleItems_ParentId" Association="Self.FK_dbo_MenuCycleItems_dbo_MenuCycleItems_ParentId">
+            <End Role="MenuCycleItems" EntitySet="MenuCycleItems" />
+            <End Role="MenuCycleItems1" EntitySet="MenuCycleItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycleItems_dbo_MenuCycles_MenuCycleId" Association="Self.FK_dbo_MenuCycleItems_dbo_MenuCycles_MenuCycleId">
+            <End Role="MenuCycles" EntitySet="MenuCycles" />
+            <End Role="MenuCycleItems" EntitySet="MenuCycleItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycleItems_dbo_Menus_MenuId" Association="Self.FK_dbo_MenuCycleItems_dbo_Menus_MenuId">
+            <End Role="Menus" EntitySet="Menus" />
+            <End Role="MenuCycleItems" EntitySet="MenuCycleItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycleItems_dbo_Recipes_RecipeId" Association="Self.FK_dbo_MenuCycleItems_dbo_Recipes_RecipeId">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="MenuCycleItems" EntitySet="MenuCycleItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PostProductions_dbo_MenuCycleItems_MenuCycleItemId" Association="Self.FK_dbo_PostProductions_dbo_MenuCycleItems_MenuCycleItemId">
+            <End Role="MenuCycleItems" EntitySet="MenuCycleItems" />
+            <End Role="PostProductions" EntitySet="PostProductions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SellPrices_dbo_MenuCycleItems_MenuCycleItemId" Association="Self.FK_dbo_SellPrices_dbo_MenuCycleItems_MenuCycleItemId">
+            <End Role="MenuCycleItems" EntitySet="MenuCycleItems" />
+            <End Role="SellPrices" EntitySet="SellPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuCycles_dbo_MenuCycles_ParentId" Association="Self.FK_dbo_MenuCycles_dbo_MenuCycles_ParentId">
+            <End Role="MenuCycles" EntitySet="MenuCycles" />
+            <End Role="MenuCycles1" EntitySet="MenuCycles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Notes_dbo_MenuCycles_MenuCycleId" Association="Self.FK_dbo_Notes_dbo_MenuCycles_MenuCycleId">
+            <End Role="MenuCycles" EntitySet="MenuCycles" />
+            <End Role="Notes" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuRecipes_dbo_Menus_MenuId" Association="Self.FK_dbo_MenuRecipes_dbo_Menus_MenuId">
+            <End Role="Menus" EntitySet="Menus" />
+            <End Role="MenuRecipes" EntitySet="MenuRecipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_MenuRecipes_dbo_Recipes_RecipeId" Association="Self.FK_dbo_MenuRecipes_dbo_Recipes_RecipeId">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="MenuRecipes" EntitySet="MenuRecipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PostProductions_dbo_Tariffs_TariffId" Association="Self.FK_dbo_PostProductions_dbo_Tariffs_TariffId">
+            <End Role="Tariffs" EntitySet="Tariffs" />
+            <End Role="PostProductions" EntitySet="PostProductions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_RecipeCategories_dbo_Recipes_RecipeId" Association="Self.FK_dbo_RecipeCategories_dbo_Recipes_RecipeId">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="RecipeCategories" EntitySet="RecipeCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_RecipeIngredientDetails_dbo_Recipes_RecipeId" Association="Self.FK_dbo_RecipeIngredientDetails_dbo_Recipes_RecipeId">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="RecipeIngredientDetails" EntitySet="RecipeIngredientDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_RecipeLocationPrices_dbo_Recipes_RecipeId" Association="Self.FK_dbo_RecipeLocationPrices_dbo_Recipes_RecipeId">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="RecipeLocationPrices" EntitySet="RecipeLocationPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SellPrices_dbo_Tariffs_TariffId" Association="Self.FK_dbo_SellPrices_dbo_Tariffs_TariffId">
+            <End Role="Tariffs" EntitySet="Tariffs" />
+            <End Role="SellPrices" EntitySet="SellPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SellPrices_dbo_TaxRates_TaxRateId" Association="Self.FK_dbo_SellPrices_dbo_TaxRates_TaxRateId">
+            <End Role="TaxRates" EntitySet="TaxRates" />
+            <End Role="SellPrices" EntitySet="SellPrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserLocations_dbo_Users_UserId" Association="Self.FK_dbo_UserLocations_dbo_Users_UserId">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserLocations" EntitySet="UserLocations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MenuServiceSodexoQAIModelStoreContainer" CdmEntityContainer="MenuServiceSodexoQAIEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupLocations">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.GroupLocation">
+              <MappingFragment StoreEntitySet="GroupLocations">
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupMenus">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.GroupMenu">
+              <MappingFragment StoreEntitySet="GroupMenus">
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupRecipes">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.GroupRecipe">
+              <MappingFragment StoreEntitySet="GroupRecipes">
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.Group">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+                <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupUsers">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.GroupUser">
+              <MappingFragment StoreEntitySet="GroupUsers">
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImportGroupLocations">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.ImportGroupLocation">
+              <MappingFragment StoreEntitySet="ImportGroupLocations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OfferCode" ColumnName="OfferCode" />
+                <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+                <ScalarProperty Name="Processed" ColumnName="Processed" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ImportLogId" ColumnName="ImportLogId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImportLogs">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.ImportLog">
+              <MappingFragment StoreEntitySet="ImportLogs">
+                <ScalarProperty Name="ImportLogId" ColumnName="ImportLogId" />
+                <ScalarProperty Name="ImportType" ColumnName="ImportType" />
+                <ScalarProperty Name="ImportDate" ColumnName="ImportDate" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="ImportStatus" ColumnName="ImportStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.Location">
+              <MappingFragment StoreEntitySet="Locations">
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MealPeriods">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.MealPeriod">
+              <MappingFragment StoreEntitySet="MealPeriods">
+                <ScalarProperty Name="MealPeriodId" ColumnName="MealPeriodId" />
+                <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuCycleGroups">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.MenuCycleGroup">
+              <MappingFragment StoreEntitySet="MenuCycleGroups">
+                <ScalarProperty Name="MenuCycleId" ColumnName="MenuCycleId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuCycleItems">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.MenuCycleItem">
+              <MappingFragment StoreEntitySet="MenuCycleItems">
+                <ScalarProperty Name="MenuCycleItemId" ColumnName="MenuCycleItemId" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="MenuCycleId" ColumnName="MenuCycleId" />
+                <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+                <ScalarProperty Name="MenuCycleItemType" ColumnName="MenuCycleItemType" />
+                <ScalarProperty Name="MenuType" ColumnName="MenuType" />
+                <ScalarProperty Name="MealPeriodId" ColumnName="MealPeriodId" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuCycles">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.MenuCycle">
+              <MappingFragment StoreEntitySet="MenuCycles">
+                <ScalarProperty Name="MenuCycleId" ColumnName="MenuCycleId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="NonServingDays" ColumnName="NonServingDays" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IsModifiedLocally" ColumnName="IsModifiedLocally" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuRecipes">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.MenuRecipe">
+              <MappingFragment StoreEntitySet="MenuRecipes">
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Cover" ColumnName="Cover" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.Menu">
+              <MappingFragment StoreEntitySet="Menus">
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MenuType" ColumnName="MenuType" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+                <ScalarProperty Name="Cover" ColumnName="Cover" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notes">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.Note">
+              <MappingFragment StoreEntitySet="Notes">
+                <ScalarProperty Name="NoteId" ColumnName="NoteId" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="MenuCycleId" ColumnName="MenuCycleId" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostProductions">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.PostProduction">
+              <MappingFragment StoreEntitySet="PostProductions">
+                <ScalarProperty Name="MenuCycleItemId" ColumnName="MenuCycleItemId" />
+                <ScalarProperty Name="TariffId" ColumnName="TariffId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="ProducedQuantity" ColumnName="ProducedQuantity" />
+                <ScalarProperty Name="SoldQuantity" ColumnName="SoldQuantity" />
+                <ScalarProperty Name="Wastage" ColumnName="Wastage" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+                <ScalarProperty Name="RequiredQuantity" ColumnName="RequiredQuantity" />
+                <ScalarProperty Name="NoChargeApplied" ColumnName="NoChargeApplied" />
+                <ScalarProperty Name="ReturnToStock" ColumnName="ReturnToStock" />
+                <ScalarProperty Name="PostProductionId" ColumnName="PostProductionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeCategories">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.RecipeCategory">
+              <MappingFragment StoreEntitySet="RecipeCategories">
+                <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+                <ScalarProperty Name="CategoryExternalId" ColumnName="CategoryExternalId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeIngredientDetails">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.RecipeIngredientDetail">
+              <MappingFragment StoreEntitySet="RecipeIngredientDetails">
+                <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+                <ScalarProperty Name="ContainsMilkOrMilkProducts" ColumnName="ContainsMilkOrMilkProducts" />
+                <ScalarProperty Name="ContainsEggOrEggDerivatives" ColumnName="ContainsEggOrEggDerivatives" />
+                <ScalarProperty Name="ContainsCerealsThatContainGluten" ColumnName="ContainsCerealsThatContainGluten" />
+                <ScalarProperty Name="ContainsPeanuts" ColumnName="ContainsPeanuts" />
+                <ScalarProperty Name="ContainsNutsOrNutTrace" ColumnName="ContainsNutsOrNutTrace" />
+                <ScalarProperty Name="ContainsSesameSeedOrSesameSeedProducts" ColumnName="ContainsSesameSeedOrSesameSeedProducts" />
+                <ScalarProperty Name="ContainsSoya" ColumnName="ContainsSoya" />
+                <ScalarProperty Name="ContainsFishOrFishProducts" ColumnName="ContainsFishOrFishProducts" />
+                <ScalarProperty Name="ContainsCrustaceans" ColumnName="ContainsCrustaceans" />
+                <ScalarProperty Name="ContainsMolluscs" ColumnName="ContainsMolluscs" />
+                <ScalarProperty Name="ContainsMustardOrMustardProducts" ColumnName="ContainsMustardOrMustardProducts" />
+                <ScalarProperty Name="ContainsCeleryOrCeleriacProducts" ColumnName="ContainsCeleryOrCeleriacProducts" />
+                <ScalarProperty Name="ContainsSulphurDioxideOrSulphites" ColumnName="ContainsSulphurDioxideOrSulphites" />
+                <ScalarProperty Name="ContainsLupinFlourOrLupinProducts" ColumnName="ContainsLupinFlourOrLupinProducts" />
+                <ScalarProperty Name="ContainsGlutenOrGlutenProducts" ColumnName="ContainsGlutenOrGlutenProducts" />
+                <ScalarProperty Name="EnergyKJperServing" ColumnName="EnergyKJperServing" />
+                <ScalarProperty Name="EnergyKCalPerServing" ColumnName="EnergyKCalPerServing" />
+                <ScalarProperty Name="FatPerServing" ColumnName="FatPerServing" />
+                <ScalarProperty Name="SaturatedFatPerServing" ColumnName="SaturatedFatPerServing" />
+                <ScalarProperty Name="SugarPerServing" ColumnName="SugarPerServing" />
+                <ScalarProperty Name="SaltPerServing" ColumnName="SaltPerServing" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeLocationPrices">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.RecipeLocationPrice">
+              <MappingFragment StoreEntitySet="RecipeLocationPrices">
+                <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="PriceLookupNumber" ColumnName="PriceLookupNumber" />
+                <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
+                <ScalarProperty Name="CurrencyIsoCode" ColumnName="CurrencyIsoCode" />
+                <ScalarProperty Name="HasRecipeGap" ColumnName="HasRecipeGap" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recipes">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.Recipe">
+              <MappingFragment StoreEntitySet="Recipes">
+                <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+                <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="CostQuantity" ColumnName="CostQuantity" />
+                <ScalarProperty Name="CostUnitOfMeasure" ColumnName="CostUnitOfMeasure" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="MinimumCost" ColumnName="MinimumCost" />
+                <ScalarProperty Name="MaximumCost" ColumnName="MaximumCost" />
+                <ScalarProperty Name="SellPriceModel" ColumnName="SellPriceModel" />
+                <ScalarProperty Name="SellPriceModelValue" ColumnName="SellPriceModelValue" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SellPrices">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.SellPrice">
+              <MappingFragment StoreEntitySet="SellPrices">
+                <ScalarProperty Name="MenuCycleItemId" ColumnName="MenuCycleItemId" />
+                <ScalarProperty Name="SellPricesModel" ColumnName="SellPricesModel" />
+                <ScalarProperty Name="TariffId" ColumnName="TariffId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="TaxRateId" ColumnName="TaxRateId" />
+                <ScalarProperty Name="SellPriceId" ColumnName="SellPriceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tariffs">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.Tariff">
+              <MappingFragment StoreEntitySet="Tariffs">
+                <ScalarProperty Name="TariffId" ColumnName="TariffId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+                <ScalarProperty Name="Customer_CustomerId" ColumnName="Customer_CustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxRates">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.TaxRate">
+              <MappingFragment StoreEntitySet="TaxRates">
+                <ScalarProperty Name="TaxRateId" ColumnName="TaxRateId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLocations">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.UserLocation">
+              <MappingFragment StoreEntitySet="UserLocations">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+                <ScalarProperty Name="CanCreateMenuCycle" ColumnName="CanCreateMenuCycle" />
+                <ScalarProperty Name="CanDeleteMenuCycle" ColumnName="CanDeleteMenuCycle" />
+                <ScalarProperty Name="CanEditMenuCycle" ColumnName="CanEditMenuCycle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="MenuServiceSodexoQAIModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="DateCreatedUtc" ColumnName="DateCreatedUtc" />
+                <ScalarProperty Name="CreatedByExternalId" ColumnName="CreatedByExternalId" />
+                <ScalarProperty Name="DateUpdatedUtc" ColumnName="DateUpdatedUtc" />
+                <ScalarProperty Name="UpdatedByExternalId" ColumnName="UpdatedByExternalId" />
+                <ScalarProperty Name="CanCreateMenuCycle" ColumnName="CanCreateMenuCycle" />
+                <ScalarProperty Name="CanDeleteMenuCycle" ColumnName="CanDeleteMenuCycle" />
+                <ScalarProperty Name="CanEditMenuCycle" ColumnName="CanEditMenuCycle" />
+                <ScalarProperty Name="CanViewMenu" ColumnName="CanViewMenu" />
+                <ScalarProperty Name="CanViewMenuCycle" ColumnName="CanViewMenuCycle" />
+                <ScalarProperty Name="CanViewRecipe" ColumnName="CanViewRecipe" />
+                <ScalarProperty Name="CanPublishMenuCycle" ColumnName="CanPublishMenuCycle" />
+                <ScalarProperty Name="CanLockMenuCycle" ColumnName="CanLockMenuCycle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

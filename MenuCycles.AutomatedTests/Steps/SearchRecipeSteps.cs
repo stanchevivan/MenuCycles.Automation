@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
 using System.Linq;
-using MenuCyclesData.DatabaseDataModel;
-using MenuCyclesData;
+using MenuCycleData;
 
 
 namespace MenuCycles.AutomatedTests.Steps

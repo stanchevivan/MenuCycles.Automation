@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
 using System.Linq;
-using MenuCyclesData.DatabaseDataModel;
-using MenuCyclesData;
+using MenuCycleData;
 
 namespace MenuCycles.AutomatedTests.Steps
 {
@@ -49,11 +48,14 @@ namespace MenuCycles.AutomatedTests.Steps
         }
 
         [When(@"a Menu Cycle with the following criteria is create")]
-        public void WhenAMenuCycleWithTheFollowingDataIsCreated(MenuCycle menuCycle)
+        public void WhenAMenuCycleWithTheFollowingDataIsCreated(List<MenuCycle> menuCycles)
         {
-            scenarioContext.Set(menuCycle);
             menuCycleDashboard.CreateMenuCycleClick();
-            createMenuCycle.Create(menuCycle);
+
+            Group group = scenarioContext.Get<List<Group>>().First();
+            MenuCycle menuCycle = scenarioContext.Get<List<MenuCycle>>().First();
+
+            createMenuCycle.Create(menuCycle, group);
         }
 
         [Then(@"the message '(.*)' is displayed")]

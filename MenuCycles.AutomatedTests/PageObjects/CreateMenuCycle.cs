@@ -1,7 +1,7 @@
 ﻿using Fourth.Automation.Framework.Page;
 using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Reporting;
-using MenuCyclesData.DatabaseDataModel;
+using MenuCycleData;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
@@ -45,16 +45,17 @@ namespace MenuCycles.AutomatedTests.PageObjects
         [FindsBy(How = How.Id, Using = "cancel")]
         public IWebElement CancelButton { get; set; }
 
-        public void Create(MenuCycle mc)
+        public void Create(MenuCycle menuCycle, Group group)
         {
-            MenuName.SendKeys(mc.Name);
-            Description.SendKeys(mc.Description);
+
+            MenuName.SendKeys(menuCycle.Name);
+            Description.SendKeys(menuCycle.Description);
             NextButton.Click();
 
-            SelectNonServingDays(mc.NonServingDays);
+            SelectNonServingDays(menuCycle.NonServingDays);
             NextButton.Click();
 
-            SearchAndSelectOffer(mc.Group);
+            SearchAndSelectOffer(group.Name);
             CreateButton.Click();
         }
 

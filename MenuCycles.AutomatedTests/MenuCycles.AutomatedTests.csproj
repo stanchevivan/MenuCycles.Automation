@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MenuCycles.AutomatedTests</RootNamespace>
     <AssemblyName>MenuCycles.AutomatedTests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -59,6 +59,14 @@
       <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Fourth.Automation.Framework.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fourth.Automation.Framework.Core.1.4.3\lib\Fourth.Automation.Framework.Core.dll</HintPath>
       <Private>True</Private>
@@ -89,6 +97,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.ServiceModel" />
@@ -149,7 +158,6 @@
     <Compile Include="Steps\MenuCycleSteps.cs" />
     <Compile Include="Support\Extensions.cs" />
     <Compile Include="Support\Transform.cs" />
-    <Compile Include="Support\MenuCycle.cs" />
     <Compile Include="Support\Hooks.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -167,15 +175,15 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MenuCycles.feature.cs</LastGenOutput>
     </None>
+    <None Include="JenkinsSteps" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MenuCyclesData\MenuCyclesData.csproj">
-      <Project>{4a5d7c8e-9556-42c5-94ba-d576405f1fe3}</Project>
-      <Name>MenuCyclesData</Name>
+    <ProjectReference Include="..\MenuCycleData\MenuCycleData.csproj">
+      <Project>{98f45a50-2f29-47d5-9b6a-7183ec03a0e7}</Project>
+      <Name>MenuCycleData</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
