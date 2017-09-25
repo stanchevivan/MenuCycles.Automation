@@ -32,9 +32,13 @@ namespace MenuCycleData.Repositories
             return dbContext.MenuCycles.FirstOrDefault(m => m.MenuCycleId == id);
         }
 
-        public void DeleteAll(List<MenuCycle> list)
+        public void DeleteAll(List<MenuCycle> menuCycleList)
         {
-            dbContext.MenuCycles.RemoveRange(list);
+            //Gets all from the list that has id = 0, finds it and update list in order to proper delete.
+            menuCycleList.Where(l => l.MenuCycleId == 0).ToList().ForEach(l => l.MenuCycleId = FindByName(l.Name).MenuCycleId);
+
+            dbContext.MenuCycleItems.Remove();
+            dbContext.MenuCycles.RemoveRange(menuCycleList);
             dbContext.SaveChanges();
         }
 
