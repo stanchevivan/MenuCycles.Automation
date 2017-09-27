@@ -21,6 +21,6 @@ node('ie1tqabld02')
     {
     	archiveArtifacts artifacts: 'TestResults/*.xml'
 		nunit testResultsPattern: 'TestResults/*.xml'
-    	step([$class: 'CucumberReportPublisher', fileIncludePattern: 'bin/**/Reports/Reports_*.json', jenkinsBasePath: '', jsonReportDirectory: ''])    
+    	step([$class: 'CucumberReportPublisher', fileIncludePattern: 'MenuCycles.AutomatedTests/bin/**/Reports/Reports_*.json', jenkinsBasePath: '', jsonReportDirectory: ''])    
     }
 }
