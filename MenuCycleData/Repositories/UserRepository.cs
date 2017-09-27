@@ -33,7 +33,7 @@ namespace MenuCycleData.Repositories
             return dbContext.Users.FirstOrDefault(m => m.UserId == id);
         }
 
-        public void DeleteAll(List<User> list)
+        public void DeleteAll(IList<User> list)
         {
             dbContext.Users.RemoveRange(list);
             dbContext.SaveChanges();

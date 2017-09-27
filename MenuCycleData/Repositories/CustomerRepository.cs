@@ -34,7 +34,7 @@ namespace MenuCycleData.Repositories
             return dbContext.Customers.FirstOrDefault(m => m.CustomerId == id);
         }
 
-        public void DeleteAll(List<Customer> list)
+        public void DeleteAll(IList<Customer> list)
         {
         }
     }

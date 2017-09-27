@@ -34,11 +34,10 @@ namespace MenuCycleData.Repositories
             return dbContext.Recipes.FirstOrDefault(m => m.RecipeId == id);
         }
 
-        public void DeleteAll(List<Recipe> list)
+        public void DeleteAll(IList<Recipe> list)
         {
             dbContext.Recipes.RemoveRange(list);
             dbContext.SaveChanges();
         }
-
     }
 }

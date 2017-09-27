@@ -32,7 +32,7 @@ namespace MenuCycleData.Repositories
             return dbContext.MenuCycleItems.FirstOrDefault(m => m.MealPeriodId == id);
         }
 
-        public void DeleteAll(List<MenuCycleItem> list)
+        public void DeleteAll(IList<MenuCycleItem> list)
         {
             dbContext.MenuCycleItems.RemoveRange(list);
             dbContext.SaveChanges();

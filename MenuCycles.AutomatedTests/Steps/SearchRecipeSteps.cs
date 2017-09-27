@@ -15,9 +15,8 @@ namespace MenuCycles.AutomatedTests.Steps
         private RecipeSearch recipeSearch;
         private ToastNotification notification;
         private ScenarioContext scenarioContext;
-        private Seeding seeding;
-
-        public SearchRecipeSteps(ScenarioContext scenarioContext, Seeding seeding, MenuCycleCalendarView menuCycleCalendarView, 
+        
+        public SearchRecipeSteps(ScenarioContext scenarioContext, MenuCycleCalendarView menuCycleCalendarView, 
             CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification)
         {
             this.menuCycleCalendarView = menuCycleCalendarView;
@@ -26,7 +25,6 @@ namespace MenuCycles.AutomatedTests.Steps
             this.notification = notification;
 
             this.scenarioContext = scenarioContext;
-            this.seeding = seeding;
         }
 
         [Given(@"a Meal Period for (.*) is added")]

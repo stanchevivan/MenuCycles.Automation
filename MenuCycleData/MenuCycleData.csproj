@@ -64,6 +64,8 @@
       <DependentUpon>MenuCycleDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Generators\IGenerator.cs" />
+    <Compile Include="Generators\MealPeriodGenerator.cs" />
+    <Compile Include="Generators\MenuCycleGenerator.cs" />
     <Compile Include="Generators\RecipeGenerator.cs" />
     <Compile Include="Group.cs">
       <DependentUpon>MenuCycleDataModel.tt</DependentUpon>
@@ -155,6 +157,8 @@
       <DependentUpon>MenuCycleDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Services\DefaultValuesService.cs" />
+    <Compile Include="Services\MealPeriodService.cs" />
+    <Compile Include="Services\MenuCycleService.cs" />
     <Compile Include="Services\RecipeService.cs" />
     <Compile Include="Tariff.cs">
       <DependentUpon>MenuCycleDataModel.tt</DependentUpon>

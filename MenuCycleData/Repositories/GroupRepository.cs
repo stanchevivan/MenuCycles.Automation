@@ -34,10 +34,9 @@ namespace MenuCycleData.Repositories
             return dbContext.Groups.FirstOrDefault(m => m.GroupId == id);
         }
 
-        public void DeleteAll(List<Group> list)
+        public void DeleteAll(IList<Group> list)
         {
-            dbContext.Groups.RemoveRange(list);
-            dbContext.SaveChanges();
+
         }
     }
 }

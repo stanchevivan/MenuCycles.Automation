@@ -19,9 +19,72 @@ namespace MenuCycleData.Repositories
             dbContext.SaveChanges();
         }
 
+        public List<MenuCycleGroup> FindMenuCycleGroupByMenuCycleId(MenuCycle menuCycle)
+        {
+            var query = from mg in dbContext.MenuCycleGroups
+                        join r in dbContext.MenuCycles
+                        on mg.MenuCycleId equals r.MenuCycleId
+                        where mg.MenuCycleId == menuCycle.MenuCycleId
+                        select mg;
+
+            return query.ToList(); 
+        }
+
+        public void DeleteMenuCycleGroup(IList<MenuCycle> menuCycles)
+        {
+            foreach (var item in menuCycles)
+            {
+                var menuCycleGroups = FindMenuCycleGroupByMenuCycleId(item);
+                dbContext.MenuCycleGroups.RemoveRange(menuCycleGroups);
+            }
+            dbContext.SaveChanges();
+        }
+
+        public List<MenuCycleItem> FindMenuCycleItemsByMenuCycleId(MenuCycle menuCycle)
+        {
+            var query = from mi in dbContext.MenuCycleItems
+                        join r in dbContext.MenuCycles
+                        on mi.MenuCycleId equals r.MenuCycleId
+                        where mi.MenuCycleId == menuCycle.MenuCycleId
+                        select mi;
+
+            return query.ToList();
+        }
+
+        public void DeleteMenuCycleItems(IList<MenuCycle> menuCycles)
+        {
+            foreach (var item in menuCycles)
+            {
+                var menuCycleItems = FindMenuCycleItemsByMenuCycleId(item);
+                dbContext.MenuCycleItems.RemoveRange(menuCycleItems);
+            }
+            dbContext.SaveChanges();
+        }
+
         public void InsertGroupRecipe(GroupRecipe item)
         {
             dbContext.GroupRecipes.Add(item);
+            dbContext.SaveChanges();
+        }
+
+        public List<GroupRecipe> FindGroupRecipesByRecipeId(Recipe recipe)
+        {
+            var query = from gp in dbContext.GroupRecipes
+                        join r in dbContext.Recipes
+                        on gp.RecipeId equals r.RecipeId
+                        where gp.RecipeId == recipe.RecipeId
+                        select gp;
+
+            return query.ToList(); // dbContext.GroupRecipes.First(r => r.RecipeId == recipe.RecipeId);
+        }
+
+        public void DeleteGroupRecipe(IList<Recipe> recipes)
+        {
+            foreach (var item in recipes)
+            {
+                var groupRecipe = FindGroupRecipesByRecipeId(item);
+                dbContext.GroupRecipes.RemoveRange(groupRecipe);
+            }
             dbContext.SaveChanges();
         }
 
@@ -60,7 +123,7 @@ namespace MenuCycleData.Repositories
         //                    }
         //                    );
         //}
-        
+
         //public void InsertGroupMenu(dynamic item)
         //{
         //    var sql = "INSERT INTO GroupMenus VALUES (@GroupId, @MenuId, @DateCreatedUtc, @CreatedByExternalId, @DateUpdatedUtc , @UpdatedByExternalId);";
@@ -154,7 +217,7 @@ namespace MenuCycleData.Repositories
         //    {
         //        this.db.Execute("DELETE FROM MenuCycleLocations WHERE MenuCycleId = @Id", new { Id = item.MenuCycleId });
         //        this.db.Execute("DELETE FROM MenuCycleItems WHERE MenuCycleId = @Id", new { Id = item.MenuCycleId });
-                
+
         //    }
 
         //    //UserLocations

@@ -11,17 +11,20 @@ namespace MenuCycleData.Services
         private readonly RecipeGenerator recipeGenerator;
         private readonly RecipeRepository recipeRepository;
         private readonly RelationshipsRepository relationshipsRepository;
+        private readonly DefaultValues defaultValues;
 
-        public RecipeService(RecipeGenerator recipeGenerator, RecipeRepository recipeRepository, RelationshipsRepository relationshipsRepository)
+        public RecipeService(RecipeGenerator recipeGenerator, RecipeRepository recipeRepository, 
+            RelationshipsRepository relationshipsRepository, DefaultValues defaultValues)
         {
             this.recipeGenerator = recipeGenerator;
             this.recipeRepository = recipeRepository;
             this.relationshipsRepository = relationshipsRepository;
+            this.defaultValues = defaultValues;
         }
 
-        public IList<Recipe> CreateRecipe(User user, Customer customer, long groupId, int count)
+        public IList<Recipe> CreateRecipe(int count)
         {
-            var recipes = this.recipeGenerator.Generate(count, customer.CustomerId);
+            var recipes = this.recipeGenerator.Generate(count, defaultValues.Customer.CustomerId);
 
             this.recipeRepository.BulkInsert(recipes.ToList());
 
@@ -30,15 +33,24 @@ namespace MenuCycleData.Services
                 this.relationshipsRepository.InsertGroupRecipe(new GroupRecipe()
                 {
                     RecipeId = item.RecipeId,
-                    GroupId = groupId,
+                    GroupId = this.defaultValues.Group.GroupId,
                     DateCreatedUtc = DateTime.UtcNow,
-                    CreatedByExternalId = user.ExternalId,
+                    CreatedByExternalId = this.defaultValues.User.ExternalId,
                     DateUpdatedUtc = DateTime.UtcNow,
-                    UpdatedByExternalId = user.ExternalId
+                    UpdatedByExternalId = this.defaultValues.User.ExternalId
                 });
             }
 
             return recipes;
+        }
+
+        public void DeleteRecipe(IList<Recipe> list)
+        {
+            //Makes sure that Recipes created by user can also be deleted by the repository
+            list.Where(l => l.RecipeId == 0).ToList().ForEach(l => l.RecipeId = this.recipeRepository.FindByName(l.Name).RecipeId);
+
+            this.relationshipsRepository.DeleteGroupRecipe(list);
+            this.recipeRepository.DeleteAll(list);
         }
     }
 }

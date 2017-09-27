@@ -8,6 +8,6 @@ namespace MenuCycleData.Repositories
         void BulkInsert(List<T> list);
         T FindById(int id);
         T FindByName(string name);
-        void DeleteAll(List<T> list);
+        void DeleteAll(IList<T> list);
     }
 }

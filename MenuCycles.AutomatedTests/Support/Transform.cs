@@ -3,18 +3,20 @@ using System;
 using System.Collections.Generic;
 using MenuCycleData;
 using MenuCycleData.Repositories;
+using MenuCycleData.Services;
+using System.Linq;
 
 namespace MenuCycles.AutomatedTests.Support
 {
     [Binding]
     public class Transform
     {
-        private Seeding seed;
         private ScenarioContext context;
-        public Transform(Seeding seed, ScenarioContext context)
+        private MenuCycleService menuCycleService;
+        public Transform(ScenarioContext context, MenuCycleService menuCycleService)
         {
-            this.seed = seed;
             this.context = context;
+            this.menuCycleService = menuCycleService;
         }
 
         /// <summary>
@@ -25,21 +27,19 @@ namespace MenuCycles.AutomatedTests.Support
         [StepArgumentTransformation]
         public List<MenuCycle> MenuCyclesList(Table table)
         {
-            List<MenuCycle> menuCycleList = new List<MenuCycle>();
+            List<MenuCycle> menuCycleList = this.menuCycleService.CreateMenuCycle(table.RowCount).ToList();
 
             List<Group> groupList = new List<Group>();
             GroupRepository groupRepository = new GroupRepository();
 
             foreach (TableRow row in table.Rows)
             {
-                menuCycleList.Add(ReplaceWithTable(this.seed.GenerateMenuCycle(), row));
-
+                menuCycleList.ForEach(m => ReplaceWithTable(m, row));
                 if (row.ContainsKey("Group"))
                 {
                     groupList.Add(groupRepository.FindByName(row["Group"]));
                 }
             }
-
             context.Set(groupList);
             context.Set(menuCycleList);
 

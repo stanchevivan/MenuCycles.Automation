@@ -17,9 +17,8 @@ namespace MenuCycles.AutomatedTests.Steps
         private RecipeSearch recipeSearch;
         private ToastNotification notification;
         private ScenarioContext scenarioContext;
-        private Seeding seeding;
 
-        public MenuCycleSteps(ScenarioContext scenarioContext, Seeding seeding, LogInAs logInAs,
+        public MenuCycleSteps(ScenarioContext scenarioContext, LogInAs logInAs,
             MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleCalendarView menuCycleCalendarView,
             CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification)
         {
@@ -32,7 +31,6 @@ namespace MenuCycles.AutomatedTests.Steps
             this.notification = notification;
 
             this.scenarioContext = scenarioContext;
-            this.seeding = seeding;
         }
 
         [Given(@"a (.*) user is selected")]

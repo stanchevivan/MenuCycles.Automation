@@ -10,45 +10,35 @@ namespace MenuCycles.AutomatedTests.Steps
     public sealed class SeedSteps
     {
         private ScenarioContext scenarioContext;
-        private Seeding seeding;
         private readonly RecipeService recipeService;
-        private readonly DefaultValues defaultValues;
+        private readonly MealPeriodService mealPeriodService;
+        private readonly MenuCycleService menuCycleService;
 
-        public SeedSteps(ScenarioContext scenarioContext, Seeding seeding, RecipeService recipeService, DefaultValues defaultValues)
+        public SeedSteps(ScenarioContext scenarioContext, RecipeService recipeService, MealPeriodService mealPeriodService, MenuCycleService menuCycleService)
         {
             this.scenarioContext = scenarioContext;
-            this.seeding = seeding;
             this.recipeService = recipeService;
-
-            this.defaultValues = defaultValues;
+            this.menuCycleService = menuCycleService;
+            this.mealPeriodService = mealPeriodService;
         }
 
         [Given(@"(.*) Menu Cycles exists")]
         public void GivenMenuCyclesWithMealPeriodExists(int menuCyclesQuantity)
         {
-            scenarioContext.Set(seeding.RandomMenuCycles(menuCyclesQuantity));
+            this.scenarioContext.Set(this.menuCycleService.CreateMenuCycle(menuCyclesQuantity));
         }
 
         [Given(@"(.*) Meal Period exists")]
         public void GivenMealPeriodExists(int mealPeriodQuantity)
         {
-            scenarioContext.Set(seeding.RandomMealPeriods(mealPeriodQuantity));
+            this.scenarioContext.Set(this.mealPeriodService.CreateMealPeriod(mealPeriodQuantity));
         }
 
 
         [Given(@"(.*) recipes exists")]
         public void GivenRecipesExists(int recipeQuantity)
         {
-            ////scenarioContext.Set(seeding.RandomRecipe(recipeQuantity));
-            this.scenarioContext.Set(
-
-                this.recipeService.CreateRecipe(
-                    this.defaultValues.User, 
-                    this.defaultValues.Customer,
-                    this.defaultValues.Group.GroupId,
-                    recipeQuantity));
+            this.scenarioContext.Set(this.recipeService.CreateRecipe(recipeQuantity));
         }
-
-
     }
 }
