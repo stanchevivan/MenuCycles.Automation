@@ -18,7 +18,7 @@ namespace MenuCycleData.Repositories
             dbContext.SaveChanges();
         }
 
-        public void BulkInsert(List<Recipe> list)
+        public void BulkInsert(IList<Recipe> list)
         {
             dbContext.Recipes.AddRange(list);
             dbContext.SaveChanges();

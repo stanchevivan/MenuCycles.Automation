@@ -70,19 +70,23 @@ namespace MenuCycles.AutomatedTests.PageObjects
         public void AddMealPeriod(string weekDayName)
         {
             WaitPageLoad();
-            CalendarHeaders.ToPageObjectList<WeekDays>(Driver).Find(c => c.Name.Text.StartsWith(weekDayName)).MealPeriodButton.Click();
+            CalendarHeaders.ToPageObjectList<WeekDays>(Driver)
+                .Find(c => c.Name.Text.StartsWith(weekDayName))
+                .MealPeriodButton.Click();
         }
 
-        public void ValidateMealPeriod(string weekDay, MealPeriod expectedMealPeriod, List<Recipe> expectedRecipes)
+        public void ValidateMealPeriod(string weekDay, MealPeriod expectedMealPeriod, IList<Recipe> expectedRecipes)
         {
+            //Gets index for column of specified week day
             int columnIndex = CalendarHeaders.ToPageObjectList<WeekDays>(Driver)
                                 .FindIndex(c => c.Name.Text.StartsWith(weekDay));
 
+            //Gets the meal period
             MealPeriodCard mealPeriodCard = CalendarColumns.ToPageObjectList<DayColumn>(Driver)[columnIndex]
                                     .MealPeriodCards.ToPageObjectList<MealPeriodCard>(Driver)
                                     .First(m => m.Name.Text == expectedMealPeriod.Name.ToUpper());
 
-            Assert.GreaterOrEqual(expectedRecipes.Count, mealPeriodCard.Recipes.Count);
+            Assert.AreEqual(expectedRecipes.Count, mealPeriodCard.Recipes.Count);
 
             foreach (var item in mealPeriodCard.Recipes)
             {

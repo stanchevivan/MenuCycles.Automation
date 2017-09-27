@@ -31,7 +31,7 @@ namespace MenuCycles.AutomatedTests.Steps
         public void GivenAMealPeriodForIsAddedToAMenuCycle(string weekDayName)
         {
             menuCycleCalendarView.AddMealPeriod(weekDayName);
-            createMealPeriod.SelectMealPeriod(scenarioContext.Get<List<MealPeriod>>().First().Name);
+            createMealPeriod.SelectMealPeriod(scenarioContext.Get<IList<MealPeriod>>().First().Name);
         }
 
 
@@ -39,41 +39,20 @@ namespace MenuCycles.AutomatedTests.Steps
         public void WhenTheFirstRecipeIsSearchedByName()
         {
             createMealPeriod.AddRecipe();
-            recipeSearch.SearchRecipeByName(scenarioContext.Get<List<Recipe>>().First().Name);
+            recipeSearch.SearchRecipeByName(scenarioContext.Get<IList<Recipe>>().First().Name);
         }
 
         [When(@"recipe is added to a meal period")]
         public void WhenRecipeIsAddedToAMealPeriod()
         {
-            recipeSearch.AddRecipe(scenarioContext.Get<List<Recipe>>().First().Name);
+            recipeSearch.AddRecipe(scenarioContext.Get<IList<Recipe>>().First().Name);
             createMealPeriod.SaveAndCloseMealPeriod();
         }
 
         [Then(@"recipe is displayed under (.*) column inside the correct Meal Period")]
         public void ThenRecipeIsDiplayedUnderColumnInsideTheCorrectMealPeriod(string weekDayName)
         {
-            menuCycleCalendarView.ValidateMealPeriod(weekDayName, scenarioContext.Get<List<MealPeriod>>().First(), scenarioContext.Get<List<Recipe>>());
+            menuCycleCalendarView.ValidateMealPeriod(weekDayName, scenarioContext.Get<IList<MealPeriod>>().First(), scenarioContext.Get<IList<Recipe>>());
         }
-
-        //[When(@"a test is made for (.*)")]
-        //public void WhenATestIsMade(string weekDay)
-        //{
-        //    var mc = scenarioContext.Get<List<MenuCycle>>()[0];
-        //    menuCycleDashboard.SelectMenuCycleByName(mc.Name);
-        //    menuCycleCalendarView.AddMealPeriod(weekDay);
-
-        //    var mp = scenarioContext.Get<MealPeriod>();
-        //    createMealPeriod.SelectMealPeriod(mp.Name);
-        //    createMealPeriod.AddRecipe();
-
-        //    var recipe = scenarioContext.Get<List<Recipe>>();
-        //    recipeSearch.SearchRecipeByName(recipe[0].Name);
-
-        //    createMealPeriod.SaveMealPeriod();
-        //    notification.ValidateToastMessage("Meal Period Saved successfully");
-        //    createMealPeriod.CloseMealPeriod();
-
-        //    menuCycleCalendarView.ValidateMealPeriod(weekDay, mp, recipe);
-        //}
     }
 }

@@ -1,12 +1,6 @@
 ﻿using TechTalk.SpecFlow;
-using Fourth.Automation.Framework.Core;
-using Fourth.Automation.Framework.Reporting;
-using BoDi;
-using OpenQA.Selenium;
 using System.Collections.Generic;
 using MenuCycleData;
-using MenuCycleData.Repositories;
-using MenuCycleData.Generators;
 using MenuCycleData.Services;
 
 namespace MenuCycles.AutomatedTests.Support
@@ -19,7 +13,8 @@ namespace MenuCycles.AutomatedTests.Support
         private readonly MealPeriodService mealPeriodService;
         private readonly MenuCycleService menuCycleService;
 
-        public SeedHooks(ScenarioContext scenarioContext, RecipeService recipeService, MealPeriodService mealPeriodService, MenuCycleService menuCycleService)
+        public SeedHooks(ScenarioContext scenarioContext, RecipeService recipeService, 
+            MealPeriodService mealPeriodService, MenuCycleService menuCycleService)
         {
             this.scenarioContext = scenarioContext;
             this.recipeService = recipeService;
@@ -28,28 +23,24 @@ namespace MenuCycles.AutomatedTests.Support
         }
 
         [AfterScenario]
-        public void AfterScenario()
+        [Scope(Tag = "menucycle")]
+        public void DeleteMenuCycleAfterScenario()
         {
-            IList<MenuCycle> menuCycles;
-            if (scenarioContext.TryGetValue(out menuCycles))
-            {
-                new MenuCycleRepository().DeleteAll(menuCycles);
-            }
+            this.menuCycleService.DeleteMenuCycle(this.scenarioContext.Get<IList<MenuCycle>>());
+        }
 
-            IList<MenuCycle> recipes;
-            if (scenarioContext.TryGetValue(out recipes))
-            {
-                new MenuCycleRepository().DeleteAll(recipes);
-            }
+        [AfterScenario]
+        [Scope(Tag = "mealperiod")]
+        public void DeleteMealPeriodAfterScenario()
+        {
+            this.mealPeriodService.DeleteMealPeriod(this.scenarioContext.Get<IList<MealPeriod>>());
+        }
 
-            IList<MenuCycle> mealPeriods;
-            if (scenarioContext.TryGetValue(out mealPeriods))
-            {
-                this.recipeService.DeleteRecipe(this.scenarioContext.Get<IList<Recipe>>());
-                this.mealPeriodService.DeleteMealPeriod(this.scenarioContext.Get<IList<MealPeriod>>());
-                this.menuCycleService.DeleteMenuCycle(this.scenarioContext.Get<IList<MenuCycle>>());
-            }
-            //data.DeleteScenarioData();
+        [AfterScenario]
+        [Scope(Tag = "recipe")]
+        public void DeleteRecipeAfterScenario()
+        {
+            this.recipeService.DeleteRecipe(this.scenarioContext.Get<IList<Recipe>>());
         }
     }
 }

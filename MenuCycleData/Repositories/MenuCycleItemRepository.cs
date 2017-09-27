@@ -16,7 +16,7 @@ namespace MenuCycleData.Repositories
             dbContext.SaveChanges();
         }
 
-        public void BulkInsert(List<MenuCycleItem> list)
+        public void BulkInsert(IList<MenuCycleItem> list)
         {
             dbContext.MenuCycleItems.AddRange(list);
             dbContext.SaveChanges();
@@ -36,6 +36,26 @@ namespace MenuCycleData.Repositories
         {
             dbContext.MenuCycleItems.RemoveRange(list);
             dbContext.SaveChanges();
+        }
+
+        public void DeleteAllByMenuCycle(IList<MenuCycle> menuCycles)
+        {
+            foreach (var item in menuCycles)
+            {
+                var menuCycleItems = FindByMenuCycleId(item);
+                dbContext.MenuCycleItems.RemoveRange(menuCycleItems);
+            }
+            dbContext.SaveChanges();
+        }
+        public IList<MenuCycleItem> FindByMenuCycleId(MenuCycle menuCycle)
+        {
+            var query = from mi in dbContext.MenuCycleItems
+                        join r in dbContext.MenuCycles
+                        on mi.MenuCycleId equals r.MenuCycleId
+                        where mi.MenuCycleId == menuCycle.MenuCycleId
+                        select mi;
+
+            return query.ToList();
         }
     }
 }

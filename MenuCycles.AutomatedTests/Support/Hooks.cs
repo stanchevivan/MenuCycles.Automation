@@ -3,10 +3,6 @@ using Fourth.Automation.Framework.Core;
 using Fourth.Automation.Framework.Reporting;
 using BoDi;
 using OpenQA.Selenium;
-using System.Collections.Generic;
-using MenuCycleData;
-using MenuCycleData.Repositories;
-using MenuCycleData.Generators;
 using MenuCycleData.Services;
 
 namespace MenuCycles.AutomatedTests.Support
@@ -31,6 +27,12 @@ namespace MenuCycles.AutomatedTests.Support
         {
             driver = DriverFactory.Create();
             objectContainer.RegisterInstanceAs<IWebDriver>(driver);
+        }
+
+        [AfterScenario]
+        public void AfterScenario()
+        {
+            driver.Quit();
         }
     }
 }

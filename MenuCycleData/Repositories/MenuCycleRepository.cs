@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace MenuCycleData.Repositories
@@ -16,7 +18,7 @@ namespace MenuCycleData.Repositories
             dbContext.SaveChanges();
         }
 
-        public void BulkInsert(List<MenuCycle> list)
+        public void BulkInsert(IList<MenuCycle> list)
         {
             dbContext.MenuCycles.AddRange(list);
             dbContext.SaveChanges();
@@ -34,24 +36,12 @@ namespace MenuCycleData.Repositories
 
         public void DeleteAll(IList<MenuCycle> menuCycleList)
         {
-            //Gets all from the list that has id = 0, finds it and update list in order to proper delete.
-            menuCycleList.Where(l => l.MenuCycleId == 0).ToList().ForEach(l => l.MenuCycleId = FindByName(l.Name).MenuCycleId);
-
-            dbContext.MenuCycles.RemoveRange(menuCycleList);
+            foreach (var item in menuCycleList)
+            {
+                var menuCycle = (item.MenuCycleId == 0) ? FindByName(item.Name) : FindById(Convert.ToInt32(item.MenuCycleId));
+                dbContext.MenuCycles.Remove(menuCycle);
+            }
             dbContext.SaveChanges();
-        }
-
-        public void CleanTestData()
-        {
-            //dbContext.MenuCycles.Remove(FindByName());
-            //dbContext.SaveChanges();
-
-            //this.db.Execute("DELETE FROM MenuCycleItems Where MenuCycleId In (SELECT MenuCycleId FROM MenuCycles WHERE NAME LIKE 'Ico %')");
-            //this.db.Execute("DELETE FROM MenuCycleGroups Where MenuCycleId In (SELECT MenuCycleId FROM MenuCycles WHERE NAME LIKE 'Ico %')");
-            //this.db.Execute("DELETE FROM MenuCycles Where MenuCycleId In (SELECT MenuCycleId FROM MenuCycles WHERE NAME LIKE 'Ico %')");
-            //this.db.Execute("DELETE FROM GroupRecipes WHERE RecipeId IN (SELECT RecipeId FROM Recipes  WHERE NAME LIKE 'Ico %')");
-            //this.db.Execute("DELETE FROM Recipes WHERE RecipeId IN (SELECT RecipeId FROM Recipes  WHERE NAME LIKE 'Ico %')");
-            //this.db.Execute("DELETE FROM MealPeriods WHERE MealPeriodId IN (SELECT MealPeriodId FROM MealPeriods WHERE NAME LIKE 'Ico %')");
         }
     }
 }

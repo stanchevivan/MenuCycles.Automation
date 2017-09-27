@@ -1,4 +1,5 @@
-﻿Feature: RecipeSearch
+﻿@menucycle @recipe @mealperiod
+Feature: RecipeSearch
 	In order to guarantee Recipe Search works
 	As a QA
 	I want to validate all permutations and functionalities
@@ -10,7 +11,6 @@ And 3 recipes exists
 And 'Menu Cycles' application is open
 And a central user is selected
 
-@searchRecipe
 Scenario: Add Recipe Searching By Name
 	Given a Menu Cycle is selected
 	And a Meal Period for MONDAY is added

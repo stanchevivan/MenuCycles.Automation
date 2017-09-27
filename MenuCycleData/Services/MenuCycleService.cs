@@ -11,14 +11,17 @@ namespace MenuCycleData.Services
         private readonly MenuCycleGenerator menuCycleGenerator;
         private readonly MenuCycleRepository menuCycleRepository;
         private readonly RelationshipsRepository relationshipsRepository;
+        private readonly MenuCycleItemRepository menuCycleItemsRepository;
         private readonly DefaultValues defaultValues;
 
         public MenuCycleService(MenuCycleGenerator menuCycleGenerator, MenuCycleRepository menuCycleRepository, 
-            RelationshipsRepository relationshipsRepository, DefaultValues defaultValues)
+            RelationshipsRepository relationshipsRepository, DefaultValues defaultValues,
+            MenuCycleItemRepository menuCycleItemsRepository)
         {
             this.menuCycleGenerator = menuCycleGenerator;
             this.menuCycleRepository = menuCycleRepository;
             this.relationshipsRepository = relationshipsRepository;
+            this.menuCycleItemsRepository = menuCycleItemsRepository;
             this.defaultValues = defaultValues;
         }
 
@@ -46,12 +49,22 @@ namespace MenuCycleData.Services
 
         public void DeleteMenuCycle(IList<MenuCycle> list)
         {
-            //Makes sure that Recipes created by user can also be deleted by the repository
-            list.Where(l => l.MenuCycleId == 0).ToList().ForEach(l => l.MenuCycleId = this.menuCycleRepository.FindByName(l.Name).MenuCycleId);
+            this.menuCycleItemsRepository.DeleteAllByMenuCycle(FixList(list));
+            this.relationshipsRepository.DeleteMenuCycleGroup(FixList(list));
+            this.menuCycleRepository.DeleteAll(FixList(list));
+        }
 
-            this.relationshipsRepository.DeleteMenuCycleItems(list);
-            this.relationshipsRepository.DeleteMenuCycleGroup(list);
-            this.menuCycleRepository.DeleteAll(list);
+
+        //This method makes sure that Menu Cycles created by UI will also be deleted instead of only the DB seeded ones.
+        private List<MenuCycle> FixList(IList<MenuCycle> list)
+        {
+            List<MenuCycle> fixedList = new List<MenuCycle>();
+            foreach (var item in list)
+            {
+                fixedList.Add((item.MenuCycleId == 0) ? this.menuCycleRepository.FindByName(item.Name) : item);
+            }
+
+            return fixedList;
         }
     }
 }

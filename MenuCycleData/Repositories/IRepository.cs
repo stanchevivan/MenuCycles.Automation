@@ -5,7 +5,7 @@ namespace MenuCycleData.Repositories
     public interface IRepository<T>
     {
         void SingleInsert(T item);
-        void BulkInsert(List<T> list);
+        void BulkInsert(IList<T> list);
         T FindById(int id);
         T FindByName(string name);
         void DeleteAll(IList<T> list);

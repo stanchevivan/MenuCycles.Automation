@@ -156,7 +156,7 @@
     <Compile Include="Steps\SearchRecipeSteps.cs" />
     <Compile Include="Steps\SeedSteps.cs" />
     <Compile Include="Steps\MenuCycleSteps.cs" />
-    <Compile Include="Support\Extensions.cs" />
+    <Compile Include="Support\SeedHooks.cs" />
     <Compile Include="Support\Transform.cs" />
     <Compile Include="Support\Hooks.cs" />
   </ItemGroup>

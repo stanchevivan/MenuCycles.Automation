@@ -5,6 +5,7 @@ using MenuCycleData;
 using MenuCycleData.Repositories;
 using MenuCycleData.Services;
 using System.Linq;
+using MenuCycleData.Generators;
 
 namespace MenuCycles.AutomatedTests.Support
 {
@@ -12,11 +13,11 @@ namespace MenuCycles.AutomatedTests.Support
     public class Transform
     {
         private ScenarioContext context;
-        private MenuCycleService menuCycleService;
-        public Transform(ScenarioContext context, MenuCycleService menuCycleService)
+        private MenuCycleGenerator menuCycleGenerator;
+        public Transform(ScenarioContext context, MenuCycleGenerator menuCycleGenerator)
         {
             this.context = context;
-            this.menuCycleService = menuCycleService;
+            this.menuCycleGenerator = menuCycleGenerator;
         }
 
         /// <summary>
@@ -25,16 +26,16 @@ namespace MenuCycles.AutomatedTests.Support
         /// <param name="table">The table from feature step</param>
         /// <returns></returns>
         [StepArgumentTransformation]
-        public List<MenuCycle> MenuCyclesList(Table table)
+        public IList<MenuCycle> MenuCyclesList(Table table)
         {
-            List<MenuCycle> menuCycleList = this.menuCycleService.CreateMenuCycle(table.RowCount).ToList();
+            IList<MenuCycle> menuCycleList = this.menuCycleGenerator.Generate(table.RowCount).ToList();
 
-            List<Group> groupList = new List<Group>();
+            IList<Group> groupList = new List<Group>();
             GroupRepository groupRepository = new GroupRepository();
 
             foreach (TableRow row in table.Rows)
             {
-                menuCycleList.ForEach(m => ReplaceWithTable(m, row));
+                menuCycleList.ToList().ForEach(m => ReplaceWithTable(m, row));
                 if (row.ContainsKey("Group"))
                 {
                     groupList.Add(groupRepository.FindByName(row["Group"]));

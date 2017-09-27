@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Bogus;
 
 namespace MenuCycleData.Generators
 {
-
-
     public class RecipeGenerator : IGenerator<Recipe>
     {
         private readonly Faker<Recipe> faker;
-
         public RecipeGenerator()
         {
             this.faker = new Faker<Recipe>()
@@ -30,12 +26,14 @@ namespace MenuCycleData.Generators
                 .RuleFor(f => f.UpdatedByExternalId, f => "admin");
         }
 
-        public Recipe Generate() =>
-            this.faker.Generate();
+        public Recipe Generate()
+        {
+            return this.faker.Generate();
+        }
 
         public IList<Recipe> Generate(int count)
         {
-            throw new NotImplementedException();
+            return this.faker.Generate(count);
         }
 
         public IList<Recipe> Generate(int count, long customerId)

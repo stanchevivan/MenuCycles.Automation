@@ -1,7 +1,4 @@
-﻿using MenuCycles.AutomatedTests.PageObjects;
-using System.Collections.Generic;
-using TechTalk.SpecFlow;
-using MenuCycleData;
+﻿using TechTalk.SpecFlow;
 using MenuCycleData.Services;
 
 namespace MenuCycles.AutomatedTests.Steps

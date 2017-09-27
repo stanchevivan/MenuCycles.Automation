@@ -29,9 +29,6 @@ namespace MenuCycleData.Services
         }
         public void DeleteMealPeriod(IList<MealPeriod> list)
         {
-            //Makes sure that Recipes created by user can also be deleted by the repository
-            list.Where(l => l.MealPeriodId == 0).ToList().ForEach(l => l.MealPeriodId = this.mealPeriodRepository.FindByName(l.Name).MealPeriodId);
-
             this.mealPeriodRepository.DeleteAll(list);
         }
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace MenuCycleData.Repositories
@@ -18,7 +17,7 @@ namespace MenuCycleData.Repositories
             dbContext.SaveChanges();
         }
 
-        public void BulkInsert(List<Group> list)
+        public void BulkInsert(IList<Group> list)
         {
             dbContext.Groups.AddRange(list);
             dbContext.SaveChanges();

@@ -46,9 +46,6 @@ namespace MenuCycleData.Services
 
         public void DeleteRecipe(IList<Recipe> list)
         {
-            //Makes sure that Recipes created by user can also be deleted by the repository
-            list.Where(l => l.RecipeId == 0).ToList().ForEach(l => l.RecipeId = this.recipeRepository.FindByName(l.Name).RecipeId);
-
             this.relationshipsRepository.DeleteGroupRecipe(list);
             this.recipeRepository.DeleteAll(list);
         }

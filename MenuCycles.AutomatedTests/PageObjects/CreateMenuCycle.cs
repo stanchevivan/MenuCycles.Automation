@@ -2,11 +2,9 @@
 using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Reporting;
 using MenuCycleData;
-using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;
-using System;
 
 namespace MenuCycles.AutomatedTests.PageObjects
 {
@@ -61,13 +59,16 @@ namespace MenuCycles.AutomatedTests.PageObjects
 
         internal void SelectNonServingDays(int daysOfWeekList)
         {
-            if (daysOfWeekList > 0)
+            if (daysOfWeekList == 0)
             {
-                //foreach (var item in daysOfWeekList)
-                //{
-                //    DaysOfWeek.ElementByText(item.ToString()).FindElement(By.CssSelector("label")).Click();
-                //}
+                return;
             }
+
+            if (daysOfWeekList < 64)
+            {
+                DaysOfWeek.ElementByText(((NonServingDays)daysOfWeekList).ToString()).FindElement(By.CssSelector("label")).Click();
+            }
+            //TODO: Implement logic to when more than one day of the week is selected.
         }
 
         internal void SearchAndSelectOffer(string offer)
@@ -76,6 +77,17 @@ namespace MenuCycles.AutomatedTests.PageObjects
             SearchGroup.SendKeys(offer);
             SearchGroupButton.Click();
             OffersList.ElementByText(offer).FindElement(By.CssSelector("label")).Click();
+        }
+        public enum NonServingDays
+        {
+            None = 0,
+            Monday = 1,
+            Tuesday = 2,
+            Wednesday = 4,
+            Thursday = 8,
+            Friday = 16,
+            Saturday = 32,
+            Sunday = 64
         }
     }
 }

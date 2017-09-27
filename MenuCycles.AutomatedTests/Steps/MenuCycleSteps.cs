@@ -42,17 +42,17 @@ namespace MenuCycles.AutomatedTests.Steps
         [Given(@"a Menu Cycle is selected")]
         public void GivenAMenuCycleIsSelected()
         {
-            MenuCycle menuCycle = scenarioContext.Get<List<MenuCycle>>().First();
+            MenuCycle menuCycle = scenarioContext.Get<IList<MenuCycle>>().First();
             menuCycleDashboard.SelectMenuCycleByName(menuCycle.Name);
         }
 
         [When(@"a Menu Cycle with the following criteria is create")]
-        public void WhenAMenuCycleWithTheFollowingDataIsCreated(List<MenuCycle> menuCycles)
+        public void WhenAMenuCycleWithTheFollowingDataIsCreated(IList<MenuCycle> menuCycles)
         {
             menuCycleDashboard.CreateMenuCycleClick();
 
-            Group group = scenarioContext.Get<List<Group>>().First();
-            MenuCycle menuCycle = scenarioContext.Get<List<MenuCycle>>().First();
+            Group group = scenarioContext.Get<IList<Group>>().First();
+            MenuCycle menuCycle = scenarioContext.Get<IList<MenuCycle>>().First();
 
             createMenuCycle.Create(menuCycle, group);
         }
@@ -66,7 +66,7 @@ namespace MenuCycles.AutomatedTests.Steps
         [Then(@"the calendar view is opened")]
         public void ThenTheCalendardViewIsOpened()
         {
-            MenuCycle menuCycle = scenarioContext.Get<List<MenuCycle>>().First();
+            MenuCycle menuCycle = scenarioContext.Get<IList<MenuCycle>>().First();
             menuCycleCalendarView.ValidateWindow(menuCycle.Name);
         }
     }
