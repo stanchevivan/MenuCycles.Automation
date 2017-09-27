@@ -52,7 +52,7 @@ namespace MenuCycles.AutomatedTests.Steps
         [Then(@"recipe is displayed under (.*) column inside the correct Meal Period")]
         public void ThenRecipeIsDiplayedUnderColumnInsideTheCorrectMealPeriod(string weekDayName)
         {
-            menuCycleCalendarView.ValidateMealPeriod(weekDayName, scenarioContext.Get<IList<MealPeriod>>().First(), scenarioContext.Get<IList<Recipe>>());
+            menuCycleCalendarView.ValidateMealPeriod(weekDayName, scenarioContext.Get<IList<MealPeriod>>().First(), scenarioContext.Get<IList<Recipe>>().First());
         }
     }
 }

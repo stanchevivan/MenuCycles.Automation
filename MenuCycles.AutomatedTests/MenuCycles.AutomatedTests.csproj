@@ -175,7 +175,6 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MenuCycles.feature.cs</LastGenOutput>
     </None>
-    <None Include="JenkinsSteps" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

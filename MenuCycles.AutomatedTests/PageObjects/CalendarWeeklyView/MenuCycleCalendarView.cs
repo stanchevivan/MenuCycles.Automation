@@ -75,7 +75,7 @@ namespace MenuCycles.AutomatedTests.PageObjects
                 .MealPeriodButton.Click();
         }
 
-        public void ValidateMealPeriod(string weekDay, MealPeriod expectedMealPeriod, IList<Recipe> expectedRecipes)
+        public void ValidateMealPeriod(string weekDay, MealPeriod expectedMealPeriod, Recipe expectedRecipes)
         {
             //Gets index for column of specified week day
             int columnIndex = CalendarHeaders.ToPageObjectList<WeekDays>(Driver)
@@ -86,12 +86,8 @@ namespace MenuCycles.AutomatedTests.PageObjects
                                     .MealPeriodCards.ToPageObjectList<MealPeriodCard>(Driver)
                                     .First(m => m.Name.Text == expectedMealPeriod.Name.ToUpper());
 
-            Assert.AreEqual(expectedRecipes.Count, mealPeriodCard.Recipes.Count);
-
-            foreach (var item in mealPeriodCard.Recipes)
-            {
-                Assert.IsTrue(expectedRecipes.Any(r => r.Name == item.Text));
-            }
+            Assert.AreEqual(1, mealPeriodCard.Recipes.Count);
+            Assert.AreEqual(expectedRecipes.Name, mealPeriodCard.Recipes[0].Text);
         }
     }
 }
