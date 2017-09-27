@@ -8,36 +8,19 @@ node('ie1tqabld02')
 	stage('\u269B Build')
 	{
 		checkout scm
-		bat 'nuget restore AutomationFramework.sln'
-			
-		bat "\"${msbuild}\" AutomationFramework.sln /p:Configuration=Release"
+		bat 'nuget restore Fourth.MenuCycles.Automation.sln'
 		bat "\"${msbuild}\" AutomationFramework.sln /p:Configuration=Chrome"
-		bat "\"${msbuild}\" AutomationFramework.sln /p:Configuration=Firefox"
-		bat "\"${msbuild}\" AutomationFramework.sln /p:Configuration=InternetExplorer"
-		bat "\"${msbuild}\" AutomationFramework.sln /p:Configuration=Android"
-		bat "\"${msbuild}\" AutomationFramework.sln /p:Configuration=iOS"
-		
-		openTasks canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', high: 'FIXME', low: 'TBD', normal: 'TODO', pattern: '**/*.cs, **/*.feature', unHealthy: ''
 	}
-	
-	stage('\u2622 Unit Tests')
-	{
-		bat 'nunit Fourth.Automation.Framework.Unit/bin/Release/Fourth.Automation.Framework.Unit.dll --result:TestResults/UnitTestResults.xml;format=nunit2'
-		archiveArtifacts artifacts: 'TestResults/UnitTestResults.xml'
-        step([$class: 'NUnitPublisher', testResultsPattern: 'TestResults/UnitTestResults.xml', debug: false, keepJUnitReports: true, skipJUnitArchiver:false, failIfNoResults: true])		
-	}
-	
+
 	stage('\u2622 Test - Chrome')
 	{
-		bat 'nunit Fourth.Automation.Framework.Functional/bin/Chrome/Fourth.Automation.Framework.Functional.dll --result:TestResults/ChromeTestResults.xml;format=nunit2'
-		archiveArtifacts artifacts: 'TestResults/ChromeTestResults.xml'
-        step([$class: 'NUnitPublisher', testResultsPattern: 'TestResults/ChromeTestResults.xml', debug: false, keepJUnitReports: true, skipJUnitArchiver:false, failIfNoResults: true])
+		bat 'nunit MenuCycles.AutomatedTests/bin/Chrome/MenuCycles.AutomatedTests.dll --result:TestResults/ChromeTestResults.xml;format=nunit2'
 	}
-	
-	stage('\u2622 Test - Firefox')
-	{
-		bat 'nunit Fourth.Automation.Framework.Functional/bin/Firefox/Fourth.Automation.Framework.Functional.dll --result:TestResults/FirefoxTestResults.xml;format=nunit2'
-		archiveArtifacts artifacts: 'TestResults/FirefoxTestResults.xml'
-        step([$class: 'NUnitPublisher', testResultsPattern: 'TestResults/FirefoxTestResults.xml', debug: false, keepJUnitReports: true, skipJUnitArchiver:false, failIfNoResults: true])
-	}
+
+	stage('Reporting')
+    {
+    	archiveArtifacts artifacts: 'TestResults/*.xml'
+		nunit testResultsPattern: 'TestResults/*.xml'
+    	step([$class: 'CucumberReportPublisher', fileIncludePattern: 'bin/**/Reports/Reports_*.json', jenkinsBasePath: '', jsonReportDirectory: ''])    
+    }
 }
