@@ -9,7 +9,7 @@ node('ie1tqabld02')
 	{
 		checkout scm
 		bat 'nuget restore Fourth.MenuCycles.Automation.sln'
-		bat "\"${msbuild}\" AutomationFramework.sln /p:Configuration=Chrome"
+		bat "\"${msbuild}\" Fourth.MenuCycles.Automation.sln /p:Configuration=Chrome"
 	}
 
 	stage('\u2622 Test - Chrome')
