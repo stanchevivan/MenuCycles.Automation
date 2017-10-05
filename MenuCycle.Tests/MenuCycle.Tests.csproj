@@ -326,9 +326,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Selenium.Chrome.WebDriver.2.32\build\Selenium.Chrome.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Chrome.WebDriver.2.32\build\Selenium.Chrome.WebDriver.targets'))" />
-    <Error Condition="!Exists('..\packages\SlowMonkey.1.1.1\build\SlowMonkey.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SlowMonkey.1.1.1\build\SlowMonkey.targets'))" />
   </Target>
-  <Import Project="..\packages\SlowMonkey.1.1.1\build\SlowMonkey.targets" Condition="Exists('..\packages\SlowMonkey.1.1.1\build\SlowMonkey.targets')" />
   <Target Name="AfterCompile" Condition="Exists('App.$(Configuration).config')">
     <!--Generate transformed app config in the intermediate directory-->
     <TransformXml Source="App.config" Destination="$(IntermediateOutputPath)$(TargetFileName).config" Transform="App.$(Configuration).config" />
@@ -348,4 +346,5 @@
     <!--Publish copies the untransformed App.config to deployment directory so overwrite it-->
     <Copy Condition="Exists('$(DeployedConfig)')" SourceFiles="$(IntermediateOutputPath)$(TargetFileName).config" DestinationFiles="$(DeployedConfig)" />
   </Target>
+  <Import Project="..\packages\SlowMonkey.1.1.1\build\SlowMonkey.targets" Condition="Exists('..\packages\SlowMonkey.1.1.1\build\SlowMonkey.targets')" />
 </Project>

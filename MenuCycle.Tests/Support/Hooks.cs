@@ -4,6 +4,7 @@ using Fourth.Automation.Framework.Reporting;
 using BoDi;
 using OpenQA.Selenium;
 using MenuCycle.Data.Services;
+using Fourth.Automation.Framework.Mobile.Resolvers;
 
 namespace MenuCycle.Tests.Support
 {
@@ -20,6 +21,14 @@ namespace MenuCycle.Tests.Support
             this.scenarioContext = scenarioContext;
             this.objectContainer.RegisterFactoryAs<DefaultValues>(d => 
                 d.Resolve<DefaultValuesService>().GetDefaults(36, 1, "SodexoUp"));
+        }
+
+
+        [BeforeTestRun]
+        public static void BeforeTestRun()
+        {
+            DriverFactory.Resolvers.Add(new AndroidResolver());
+            DriverFactory.Resolvers.Add(new IOSResolver());
         }
 
         [BeforeScenario]
