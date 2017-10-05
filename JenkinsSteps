@@ -1,26 +1,23 @@
 node('ie1tqabld02') 
 {
 	def msbuild = tool 'v15';
-	def version = VersionNumber projectStartDate: '', skipFailedBuilds: true, versionNumberString: '${BUILDS_ALL_TIME}', versionPrefix: '1.0.1.'
-	
-	currentBuild.setDisplayName(version)
 	
 	stage('\u269B Build')
 	{
 		checkout scm
-		bat 'nuget restore Fourth.MenuCycles.Automation.sln'
-		bat "\"${msbuild}\" Fourth.MenuCycles.Automation.sln /p:Configuration=Chrome"
+		bat 'nuget restore MenuCycle.Automation.sln'
+		bat "\"${msbuild}\" MenuCycle.Automation.sln /p:Configuration=Chrome"
 	}
 
 	stage('\u2622 Test - Chrome')
 	{
-		bat 'nunit MenuCycles.AutomatedTests/bin/Chrome/MenuCycles.AutomatedTests.dll --result:TestResults/ChromeTestResults.xml;format=nunit2'
+		bat 'nunit MenuCycle.Tests/bin/Chrome/MenuCycle.Tests.dll --result:TestResults/ChromeTestResults.xml;format=nunit2'
 	}
 
 	stage('Reporting')
     {
     	archiveArtifacts artifacts: 'TestResults/*.xml'
 		nunit testResultsPattern: 'TestResults/*.xml'
-    	step([$class: 'CucumberReportPublisher', fileIncludePattern: 'MenuCycles.AutomatedTests/bin/**/Reports/Reports_*.json', jenkinsBasePath: '', jsonReportDirectory: ''])    
+		cucumber buildStatus: null, fileIncludePattern: 'MenuCycle.Tests/bin/**/Reports/Reports_*.json', sortingMethod: 'NORMAL'
     }
 }
