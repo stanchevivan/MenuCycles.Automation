@@ -1,0 +1,45 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MenuCycle.Data", "MenuCycle.Data\MenuCycle.Data.csproj", "{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuCycle.Tests", "MenuCycle.Tests\MenuCycle.Tests.csproj", "{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Android|Any CPU = Android|Any CPU
+		Chrome|Any CPU = Chrome|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		iOS|Any CPU = iOS|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.Android|Any CPU.ActiveCfg = Android|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.Android|Any CPU.Build.0 = Android|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.Chrome|Any CPU.ActiveCfg = Chrome|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.Chrome|Any CPU.Build.0 = Chrome|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.iOS|Any CPU.ActiveCfg = iOS|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.iOS|Any CPU.Build.0 = iOS|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Android|Any CPU.ActiveCfg = Android|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Android|Any CPU.Build.0 = Android|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Chrome|Any CPU.ActiveCfg = Chrome|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Chrome|Any CPU.Build.0 = Chrome|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iOS|Any CPU.ActiveCfg = iOS|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iOS|Any CPU.Build.0 = iOS|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84356633-FA83-40C3-A1E9-CC315D695018}
+	EndGlobalSection
+EndGlobal
