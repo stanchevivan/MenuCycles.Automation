@@ -18,6 +18,6 @@ node('ie1tqabld02')
     {
     	archiveArtifacts artifacts: 'TestResults/*.xml'
 		nunit testResultsPattern: 'TestResults/*.xml'
-		cucumber buildStatus: null, fileIncludePattern: 'MenuCycle.Tests/bin/**/Reports/Reports_*.json', sortingMethod: 'NORMAL'
+		cucumber fileIncludePattern: 'Reports_*.json', jsonReportDirectory: 'MenuCycle.Tests/bin/**/Reports/'
     }
 }
