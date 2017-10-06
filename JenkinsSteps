@@ -5,6 +5,7 @@ node('ie1tqabld02')
 	stage('\u269B Build')
 	{
 		checkout scm
+		bat 'dotnet restore'
 		bat 'nuget restore MenuCycle.Automation.sln'
 		bat "\"${msbuild}\" MenuCycle.Automation.sln /p:Configuration=Chrome"
 	}
