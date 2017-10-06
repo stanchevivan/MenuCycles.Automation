@@ -19,6 +19,6 @@ node('ie1tqabld02')
     {
     	archiveArtifacts artifacts: 'TestResults/*.xml'
 		nunit testResultsPattern: 'TestResults/*.xml'
-		cucumber fileIncludePattern: 'Reports_*.json', jsonReportDirectory: 'MenuCycle.Tests/bin/**/Reports/'
+		cucumber fileIncludePattern: '**/Reports/Reports_*.json', jsonReportDirectory: 'MenuCycle.Tests/bin/'
     }
 }
