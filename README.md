@@ -34,13 +34,13 @@ A standard .Net project containing the tests using Fourth frameworks. Please not
 
 ## Requirements
 
-	* [Visual Studio 2017] (https://www.visualstudio.com/downloads/)
-	* [.Net Core 2.0 SDK](https://www.microsoft.com/net/download/core)
-	* [NuGet > 4.0] (https://www.nuget.org/downloads)
-	* [Windows Only: Microsoft .Net Framework 4.6.2] (https://www.microsoft.com/en-us/download/confirmation.aspx?id=53321)
-	
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+* [.Net Core 2.0 SDK](https://www.microsoft.com/net/download/core)
+* [NuGet > 4.0](https://www.nuget.org/downloads)
+* [Windows Only: Microsoft .Net Framework 4.6.2](https://www.microsoft.com/en-us/download/confirmation.aspx?id=53321)
+
 
 ## Extra
-	*[Entity Framework Core](https://github.com/aspnet/EntityFrameworkCore)
-	*[]()
+
+*[Entity Framework Core](https://github.com/aspnet/EntityFrameworkCore)
 	
