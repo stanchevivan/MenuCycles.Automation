@@ -4,6 +4,7 @@ using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MenuCycle.Tests.PageObjects
 {
@@ -26,7 +27,9 @@ namespace MenuCycle.Tests.PageObjects
         public IWebElement SpinningWheel { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".strip-pad .colorstrip-Recipe")]
-        public IList<IWebElement> Recipes { get; set; }
+        public IList<IWebElement> RecipesContainer { get; set; }
+
+        public IList<RecipeItem> Recipes => this.RecipesContainer.Select(p => new RecipeItem(p)).ToList();
 
         public void SearchRecipeByName(string recipeName)
         {
@@ -37,8 +40,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public void AddRecipe(string recipeName)
         {
-            Recipes.ToPageObjectList<RecipeItem>(Driver)
-                .Find(c => c.Title.Text == recipeName).ActionButton.Click();
+            Recipes.First(c => c.Title.Text == recipeName).ActionButton.Click();
         }
     }
 }

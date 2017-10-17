@@ -3,6 +3,7 @@ using Fourth.Automation.Framework.Page;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MenuCycle.Tests.PageObjects
 {
@@ -16,7 +17,9 @@ namespace MenuCycle.Tests.PageObjects
         public IWebElement CreateMenuCycleButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".menuCycleTableBody .home-div-row")]
-        public IList<IWebElement> MenuCycles { get; set; }
+        public IList<IWebElement> MenuCyclesContainer { get; set; }
+
+        public IList<MenuCycleItem> MenuCycles => this.MenuCyclesContainer.Select(p => new MenuCycleItem(p)).ToList();
 
         public void CreateMenuCycleClick()
         {
@@ -25,9 +28,8 @@ namespace MenuCycle.Tests.PageObjects
 
         public void SelectMenuCycleByName(string menuCycleName)
         {
-            Driver.WaitListItemsLoad(MenuCycles);
-            MenuCycles.ToPageObjectList<MenuCycleItem>(Driver)
-                .Find(v => v.Name.Text == menuCycleName).Name.Click();
+            Driver.WaitListItemsLoad(MenuCyclesContainer);
+            MenuCycles.First(v => v.Name.Text == menuCycleName).Name.Click();
         }
     }
 }

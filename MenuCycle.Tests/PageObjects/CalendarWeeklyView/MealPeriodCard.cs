@@ -5,10 +5,11 @@ using System.Collections.Generic;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class MealPeriodCard : BasePage
+    public class MealPeriodCard
     {
-        public MealPeriodCard(IWebDriver webDriver) : base(webDriver)
+        public MealPeriodCard(IWebElement parent)
         {
+            PageFactory.InitElements(parent, this);
         }
 
         [FindsBy(How = How.CssSelector, Using = ".daily-item-title")]

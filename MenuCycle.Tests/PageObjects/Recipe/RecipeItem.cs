@@ -4,10 +4,11 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class RecipeItem : BasePage
+    public class RecipeItem
     {
-        public RecipeItem(IWebDriver webDriver) : base(webDriver)
+        public RecipeItem(IWebElement parent)
         {
+            PageFactory.InitElements(parent, this);
         }
 
         [FindsBy(How = How.CssSelector, Using = ".recipe-name-underline")]

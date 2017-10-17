@@ -4,10 +4,11 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class WeekDays : BasePage
+    public class WeekDays
     {
-        public WeekDays(IWebDriver webDriver) : base(webDriver)
+        public WeekDays(IWebElement parent)
         {
+            PageFactory.InitElements(parent, this);
         }
 
         [FindsBy(How = How.CssSelector, Using = ".daily-calendar-heading")]

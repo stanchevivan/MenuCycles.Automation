@@ -4,10 +4,11 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class MenuCycleItem : BasePage
+    public class MenuCycleItem
     {
-        public MenuCycleItem(IWebDriver webDriver) : base(webDriver)
+        public MenuCycleItem(IWebElement parent)
         {
+            PageFactory.InitElements(parent, this);
         }
 
         [FindsBy(How = How.CssSelector, Using = ".name_title a")]

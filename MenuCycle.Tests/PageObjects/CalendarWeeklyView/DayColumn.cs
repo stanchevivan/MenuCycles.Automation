@@ -2,16 +2,20 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class DayColumn : BasePage
+    public class DayColumn
     {
-        public DayColumn(IWebDriver webDriver) : base(webDriver)
+        public DayColumn(IWebElement parent)
         {
+            PageFactory.InitElements(parent, this);
         }
 
         [FindsBy(How = How.CssSelector, Using = ".daily-item-container-div")]
-        public IList<IWebElement> MealPeriodCards { get; set; }
+        public IList<IWebElement> MealPeriodCardContainer { get; set; }
+
+        public IList<MealPeriodCard> MealPeriodCards => this.MealPeriodCardContainer.Select(p => new MealPeriodCard(p)).ToList();
     }
 }

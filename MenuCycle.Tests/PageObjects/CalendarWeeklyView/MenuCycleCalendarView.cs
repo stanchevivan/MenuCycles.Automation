@@ -39,10 +39,14 @@ namespace MenuCycle.Tests.PageObjects
         public IWebElement SpinningWheel { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#dailyCalendarTableHolder .daily-header-container > div")]
-        public IList<IWebElement> CalendarHeaders { get; set; }
+        public IList<IWebElement> CalendarHeaderContainer { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#dailyCalendarTableHolder .daily-view-screen > div")]
-        public IList<IWebElement> CalendarColumns { get; set; }
+        public IList<IWebElement> CalendarColumnContainer { get; set; }
+
+        public List<WeekDays> CalendarHeaders => this.CalendarHeaderContainer.Select(p => new WeekDays(p)).ToList();
+
+        public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p)).ToList();
 
         public void ValidateWindow(string ExpectedTitle)
         {
@@ -63,7 +67,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public void WaitPageLoad()
         {
-            Driver.WaitListItemsLoad(CalendarHeaders);
+            Driver.WaitListItemsLoad(CalendarHeaderContainer);
             Driver.WaitIsClickable(DaysViewButton);
             Driver.WaitElementToDisappear(SpinningWheel);
         }
@@ -71,21 +75,16 @@ namespace MenuCycle.Tests.PageObjects
         public void AddMealPeriod(string weekDayName)
         {
             WaitPageLoad();
-            CalendarHeaders.ToPageObjectList<WeekDays>(Driver)
-                .Find(c => c.Name.Text.StartsWith(weekDayName))
-                .MealPeriodButton.Click();
+            CalendarHeaders.First(c => c.Name.Text.StartsWith(weekDayName)).MealPeriodButton.Click();
         }
 
         public void ValidateMealPeriod(string weekDay, MealPeriods expectedMealPeriod, Recipes expectedRecipes)
         {
             //Gets index for column of specified week day
-            int columnIndex = CalendarHeaders.ToPageObjectList<WeekDays>(Driver)
-                                .FindIndex(c => c.Name.Text.StartsWith(weekDay));
+            int columnIndex = CalendarHeaders.FindIndex(c => c.Name.Text.StartsWith(weekDay));
 
             //Gets the meal period
-            MealPeriodCard mealPeriodCard = CalendarColumns.ToPageObjectList<DayColumn>(Driver)[columnIndex]
-                                    .MealPeriodCards.ToPageObjectList<MealPeriodCard>(Driver)
-                                    .First(m => m.Name.Text == expectedMealPeriod.Name.ToUpper());
+            MealPeriodCard mealPeriodCard = CalendarColumns[columnIndex].MealPeriodCards.First(m => m.Name.Text == expectedMealPeriod.Name.ToUpper());
 
             Assert.AreEqual(1, mealPeriodCard.Recipes.Count);
             Assert.AreEqual(expectedRecipes.Name, mealPeriodCard.Recipes[0].Text);
