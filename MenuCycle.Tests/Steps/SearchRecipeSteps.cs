@@ -33,7 +33,6 @@ namespace MenuCycle.Tests.Steps
             createMealPeriod.SelectMealPeriod(scenarioContext.Get<IList<MealPeriods>>().First().Name);
         }
 
-
         [When(@"the first recipe is searched by name")]
         public void WhenTheFirstRecipeIsSearchedByName()
         {

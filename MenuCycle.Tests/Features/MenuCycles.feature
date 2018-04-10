@@ -13,4 +13,4 @@ Scenario: Create Menu Cycle
       | Group    | NonServingDays |
       | SodexoUp | 32             |
     Then the message 'Menu Cycle has been created.' is displayed
-    And the calendar view is opened     
+    And the calendar view is opened

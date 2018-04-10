@@ -50,8 +50,6 @@ namespace MenuCycle.Tests.PageObjects
 
         public void ValidateWindow(string ExpectedTitle)
         {
-            WaitPageLoad();
-
             Assert.IsTrue(Name.Exist());
             Assert.IsTrue(DaysViewButton.Exist());
             Assert.IsTrue(WeeksViewButton.Exist());
@@ -74,7 +72,6 @@ namespace MenuCycle.Tests.PageObjects
 
         public void AddMealPeriod(string weekDayName)
         {
-            WaitPageLoad();
             CalendarHeaders.First(c => c.Name.Text.StartsWith(weekDayName)).MealPeriodButton.Click();
         }
 

@@ -18,3 +18,8 @@ Scenario: Add Recipe Searching By Name
     And recipe is added to a meal period
     Then the message 'Meal Period Saved successfully' is displayed
     And recipe is displayed under MONDAY column inside the correct Meal Period 
+
+Scenario: Open daily planning with one meal period
+    Given a Menu Cycle is selected
+    #When daily planning with one meal period is visited
+    #Then the meal period is opened by default

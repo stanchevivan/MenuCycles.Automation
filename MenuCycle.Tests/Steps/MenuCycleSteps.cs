@@ -44,6 +44,7 @@ namespace MenuCycle.Tests.Steps
         {
             MenuCycles menuCycle = scenarioContext.Get<IList<MenuCycles>>().First();
             menuCycleDashboard.SelectMenuCycleByName(menuCycle.Name);
+            menuCycleCalendarView.WaitPageLoad();
         }
 
         [When(@"a Menu Cycle with the following criteria is create")]
@@ -55,6 +56,8 @@ namespace MenuCycle.Tests.Steps
             MenuCycles menuCycle = scenarioContext.Get<IList<MenuCycles>>().First();
 
             createMenuCycle.Create(menuCycle, group);
+
+            menuCycleCalendarView.WaitPageLoad();
         }
 
         [Then(@"the message '(.*)' is displayed")]

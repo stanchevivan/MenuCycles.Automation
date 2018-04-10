@@ -21,8 +21,8 @@ namespace MenuCycle.Data.Models
         public double? CostQuantity { get; set; }
         public string CostUnitOfMeasure { get; set; }
         public long CustomerId { get; set; }
-        public decimal? MinimumCost { get; set; }
-        public decimal? MaximumCost { get; set; }
+        //public decimal? MinimumCost { get; set; }
+        // public decimal? MaximumCost { get; set; }
         public int SellPriceModel { get; set; }
         public decimal? SellPriceModelValue { get; set; }
         public DateTime DateCreatedUtc { get; set; }
