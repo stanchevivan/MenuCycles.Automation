@@ -3,21 +3,24 @@ using TechTalk.SpecFlow;
 using System.Linq;
 using MenuCycle.Tests.PageObjects;
 using MenuCycle.Data.Models;
+using NUnit.Framework;
 
 namespace MenuCycle.Tests.Steps
 {
     [Binding]
     public sealed class SearchRecipeSteps
     {
+        private MenuCyclePlanningView menuCyclePlanningView;
         private MenuCycleCalendarView menuCycleCalendarView;
         private CreateMealPeriod createMealPeriod;
         private RecipeSearch recipeSearch;
         private ToastNotification notification;
         private ScenarioContext scenarioContext;
         
-        public SearchRecipeSteps(ScenarioContext scenarioContext, MenuCycleCalendarView menuCycleCalendarView, 
+        public SearchRecipeSteps(ScenarioContext scenarioContext, MenuCyclePlanningView menuCyclePlanningView, MenuCycleCalendarView menuCycleCalendarView, 
             CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification)
         {
+            this.menuCyclePlanningView = menuCyclePlanningView;
             this.menuCycleCalendarView = menuCycleCalendarView;
             this.createMealPeriod = createMealPeriod;
             this.recipeSearch = recipeSearch;
@@ -51,6 +54,19 @@ namespace MenuCycle.Tests.Steps
         public void ThenRecipeIsDiplayedUnderColumnInsideTheCorrectMealPeriod(string weekDayName)
         {
             menuCycleCalendarView.ValidateMealPeriod(weekDayName, scenarioContext.Get<IList<MealPeriods>>().First(), scenarioContext.Get<IList<Recipes>>().First());
+        }
+
+        [When(@"planning for (.*) is opened")]
+        public void WhenPlanningForADayIsOpened(string weekDay)
+        {
+            menuCycleCalendarView.OpenDailyPlanningForDay(weekDay);
+            menuCyclePlanningView.WaitPageToLoad();
+        }
+
+        [Then(@"the planning screen for (.*) is opened")]
+        public void ThenThePlanningScreenForADayIsOpened(string weekDay)
+        {
+            Assert.That(menuCyclePlanningView.GetHeaderText(), Contains.Substring(weekDay.ToUpper()));
         }
     }
 }

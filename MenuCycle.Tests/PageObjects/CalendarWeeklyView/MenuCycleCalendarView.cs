@@ -1,13 +1,12 @@
-﻿using Fourth.Automation.Framework.Extension;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Page;
 using Fourth.Automation.Framework.Reporting;
-using MenuCycle.Data;
+using MenuCycle.Data.Models;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using System.Collections.Generic;
-using System.Linq;
-using MenuCycle.Data.Models;
 
 namespace MenuCycle.Tests.PageObjects
 {
@@ -43,6 +42,12 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = "#dailyCalendarTableHolder .daily-view-screen > div")]
         public IList<IWebElement> CalendarColumnContainer { get; set; }
+
+        [FindsBy(How = How.ClassName, Using = "daily-calendar-heading")]
+        public IList<IWebElement> DaysLinks { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".option-drop-down-Daily > a")]
+        public IList<IWebElement> PlanningLinks { get; set; }
 
         public List<WeekDays> CalendarHeaders => this.CalendarHeaderContainer.Select(p => new WeekDays(p)).ToList();
 
@@ -85,6 +90,15 @@ namespace MenuCycle.Tests.PageObjects
 
             Assert.AreEqual(1, mealPeriodCard.Recipes.Count);
             Assert.AreEqual(expectedRecipes.Name, mealPeriodCard.Recipes[0].Text);
+        }
+
+        public void OpenDailyPlanningForDay(string weekDay)
+        {
+            DaysLinks.First(x => x.Text.Contains(weekDay.ToUpper())).Click();
+
+            var planningLink = PlanningLinks.First(x => x.GetAttribute("href").Contains(weekDay.ToUpper()));
+            Driver.WaitIsClickable(planningLink);
+            planningLink.Click();
         }
     }
 }

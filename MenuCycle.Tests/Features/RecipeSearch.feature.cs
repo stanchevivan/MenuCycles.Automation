@@ -112,16 +112,20 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Open daily planning with one meal period")]
-        public virtual void OpenDailyPlanningWithOneMealPeriod()
+        [NUnit.Framework.DescriptionAttribute("Open daily planning")]
+        public virtual void OpenDailyPlanning()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open daily planning with one meal period", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open daily planning", ((string[])(null)));
 #line 22
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line 23
     testRunner.Given("a Menu Cycle is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 24
+    testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 25
+    testRunner.Then("the planning screen for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
