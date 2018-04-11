@@ -46,7 +46,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "daily-calendar-heading")]
         public IList<IWebElement> DaysLinks { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".option-drop-down-Daily > a")]
+        [FindsBy(How = How.CssSelector, Using = ".Planning-engine")]
         public IList<IWebElement> PlanningLinks { get; set; }
 
         public List<WeekDays> CalendarHeaders => this.CalendarHeaderContainer.Select(p => new WeekDays(p)).ToList();
@@ -94,11 +94,12 @@ namespace MenuCycle.Tests.PageObjects
 
         public void OpenDailyPlanningForDay(string weekDay)
         {
-            DaysLinks.First(x => x.Text.Contains(weekDay.ToUpper())).Click();
+            var dayLink = DaysLinks.First(x => x.Text.Contains(weekDay.ToUpper()));
+            dayLink.Click();
+            int indexOfDay = DaysLinks.IndexOf(dayLink);
 
-            var planningLink = PlanningLinks.First(x => x.GetAttribute("href").Contains(weekDay.ToUpper()));
-            Driver.WaitIsClickable(planningLink);
-            planningLink.Click();
+            var planningLink = PlanningLinks[indexOfDay];
+            Driver.WaitElementAndClick(planningLink);
         }
     }
 }

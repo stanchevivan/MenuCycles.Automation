@@ -66,7 +66,7 @@ namespace MenuCycle.Tests.Steps
         [Then(@"the planning screen for (.*) is open")]
         public void ThenThePlanningScreenForADayIsOpened(string weekDay)
         {
-            Assert.That(menuCyclePlanningView.GetHeaderText(), Contains.Substring(weekDay.ToUpper()));
+            Assert.That(menuCyclePlanningView.GetHeaderText(), Is.EqualTo(weekDay.ToUpper()));
         }
     }
 }

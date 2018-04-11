@@ -11,19 +11,17 @@ namespace MenuCycle.Tests.PageObjects
         {
         }
 
-        [FindsBy(How = How.ClassName, Using = "total-bottom__title")]
-        private IWebElement DailyTotalLabel { get; set; }
-        [FindsBy(How = How.ClassName, Using = "header-navigation__day-and-week")]
-        private IWebElement HeaderDayAndWeekText { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".mainheader__period > span:first-of-type")]
+        private IWebElement HeaderDayText { get; set; }
 
         public void WaitPageToLoad()
         {
-            Driver.WaitElementToExists(DailyTotalLabel);
+            Driver.WaitElementToExists(HeaderDayText);
         }
 
         public string GetHeaderText()
         {
-            return HeaderDayAndWeekText.Text;
+            return HeaderDayText.Text;
         }
     }
 }
