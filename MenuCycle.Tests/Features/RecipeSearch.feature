@@ -22,4 +22,4 @@ Scenario: Add Recipe Searching By Name
 Scenario: Open daily planning
     Given a Menu Cycle is selected
     When planning for Tuesday is opened
-    Then the planning screen for Tuesday is opened
+    Then the planning screen for Tuesday is open
