@@ -269,10 +269,10 @@
     <Compile Include="PageObjects\CreateMenuCycle.cs" />
     <Compile Include="PageObjects\LogInAs.cs" />
     <Compile Include="PageObjects\ToastNotification.cs" />
-    <Compile Include="PageObjects\CalendarWeeklyView\DayColumn.cs" />
-    <Compile Include="PageObjects\CalendarWeeklyView\MealPeriodCard.cs" />
-    <Compile Include="PageObjects\CalendarWeeklyView\MenuCycleCalendarView.cs" />
-    <Compile Include="PageObjects\CalendarWeeklyView\WeekDays.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn.cs" />
+    <Compile Include="PageObjects\CalendarDays\MealPeriodCard.cs" />
+    <Compile Include="PageObjects\CalendarDays\MenuCycleCalendarView.cs" />
+    <Compile Include="PageObjects\CalendarDays\WeekDays.cs" />
     <Compile Include="PageObjects\Dashboard\MenuCycleItem.cs" />
     <Compile Include="PageObjects\Dashboard\MenuCyclesDashboard.cs" />
     <Compile Include="PageObjects\FourthEngage\EngageDashboard.cs" />
@@ -286,7 +286,19 @@
     <Compile Include="Support\Hooks.cs" />
     <Compile Include="Support\SeedHooks.cs" />
     <Compile Include="Support\Transform.cs" />
-    <Compile Include="PageObjects\PlanningView\MenuCyclePlanningView.cs" />
+    <Compile Include="PageObjects\PlanningDays\DailyPlanningView.cs" />
+    <Compile Include="Features\MealPeriods.feature.cs">
+      <DependentUpon>MealPeriods.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\PlanningScreen.feature.cs">
+      <DependentUpon>PlanningScreen.feature</DependentUpon>
+    </Compile>
+    <Compile Include="PageObjects\PlanningDays\PlanningTabDays\MealPeriodDays.cs" />
+    <Compile Include="PageObjects\PlanningDays\PlanningTabDays\PlanningTabDays.cs" />
+    <Compile Include="PageObjects\PlanningDays\NutritionTabDays\NutritionTabDays.cs" />
+    <Compile Include="PageObjects\PlanningWeeks\PlanningTabWeeks\MealPeriodWeeks.cs" />
+    <Compile Include="PageObjects\PlanningWeeks\PlanningTabWeeks\PlanningTabWeeks.cs" />
+    <Compile Include="PageObjects\PlanningWeeks\NutritionTabDays\NutritionTabWeeks.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -310,6 +322,14 @@
       <LastGenOutput>MenuCycles.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Features\MealPeriods.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>MealPeriods.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\PlanningScreen.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PlanningScreen.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MenuCycle.Data\MenuCycle.Data.csproj">
@@ -321,7 +341,14 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PageObjects\PlanningView\" />
+    <Folder Include="PageObjects\PlanningDays\" />
+    <Folder Include="PageObjects\PlanningDays\PlanningTabDays\" />
+    <Folder Include="PageObjects\PlanningDays\NutritionTabDays\" />
+    <Folder Include="PageObjects\PlanningDays\PostProductionTab\" />
+    <Folder Include="PageObjects\PlanningWeeks\" />
+    <Folder Include="PageObjects\CalendarWeeks\" />
+    <Folder Include="PageObjects\PlanningWeeks\PlanningTabWeeks\" />
+    <Folder Include="PageObjects\PlanningWeeks\NutritionTabDays\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Selenium.Chrome.WebDriver.2.32\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.32\build\Selenium.Chrome.WebDriver.targets')" />

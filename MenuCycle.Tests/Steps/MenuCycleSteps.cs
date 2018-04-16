@@ -47,6 +47,13 @@ namespace MenuCycle.Tests.Steps
             menuCycleCalendarView.WaitPageLoad();
         }
 
+        [Given(@"Menu Cycle ""(.*)"" is selected")]
+        public void GivenMenuCycleIsSelected(string menuCycleName)
+        {
+            menuCycleDashboard.SelectMenuCycleByName(menuCycleName);
+            menuCycleCalendarView.WaitPageLoad();
+        }
+
         [When(@"a Menu Cycle with the following criteria is create")]
         public void WhenAMenuCycleWithTheFollowingDataIsCreated(IList<MenuCycles> menuCycles)
         {

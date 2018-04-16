@@ -49,6 +49,9 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".Planning-engine")]
         public IList<IWebElement> PlanningLinks { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = ".daily-view-screen > div")]
+        private IList<IWebElement> DaysColumnContainer { get; set; }
+
         public List<WeekDays> CalendarHeaders => this.CalendarHeaderContainer.Select(p => new WeekDays(p)).ToList();
 
         public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p)).ToList();
@@ -100,6 +103,27 @@ namespace MenuCycle.Tests.PageObjects
 
             var planningLink = PlanningLinks[indexOfDay];
             Driver.WaitElementAndClick(planningLink);
+        }
+
+        public IList<string> GetMealPeriodColours(string weekDay)
+        {
+            IList<string> Colours = new List<string>();
+
+            switch (weekDay.ToUpper())
+            {
+                case "TUESDAY":
+                    {
+                        foreach (var item in DaysColumnContainer[1].FindElements(By.ClassName("daily-item-container-div")))
+                        {
+                            Colours.Add(item.GetCssValue("background-color"));
+                        }
+                        break;
+                    }
+                default:
+                    break;
+            }
+
+            return Colours;
         }
     }
 }

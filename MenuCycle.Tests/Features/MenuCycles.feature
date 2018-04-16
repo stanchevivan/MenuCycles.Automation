@@ -1,7 +1,5 @@
 ﻿Feature: MenuCycles
-    In order to guarantee the Menu Cycles UI quality
-    As a QA
-    I want to validate all possible functionalities and permutations
+    Menu Cycles functionalities and validations
 
 Background: 
 Given 'Menu Cycles' application is open

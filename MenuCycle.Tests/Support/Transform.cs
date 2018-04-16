@@ -35,7 +35,7 @@ namespace MenuCycle.Tests.Support
             GroupRepository groupRepository = new GroupRepository();
 
             foreach (TableRow row in table.Rows)
-            {
+            {   
                 menuCycleList.ToList().ForEach(m => ReplaceWithTable(m, row));
                 if (row.ContainsKey("Group"))
                 {
