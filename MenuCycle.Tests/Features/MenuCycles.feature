@@ -1,4 +1,5 @@
-﻿@ignore
+﻿# Example feature
+@ignore
 Feature: MenuCycles
     Menu Cycles functionalities and validations
 

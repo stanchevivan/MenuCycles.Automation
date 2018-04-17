@@ -67,10 +67,10 @@ namespace MenuCycle.Tests.Features
         
         public virtual void FeatureBackground()
         {
-#line 5
 #line 6
-testRunner.Given("\'Menu Cycles\' application is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
+testRunner.Given("\'Menu Cycles\' application is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
 testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
@@ -82,9 +82,9 @@ testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFl
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Menu Cycle", new string[] {
                         "menucycle"});
-#line 10
+#line 11
 this.ScenarioSetup(scenarioInfo);
-#line 5
+#line 6
 this.FeatureBackground();
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -93,11 +93,11 @@ this.FeatureBackground();
             table1.AddRow(new string[] {
                         "SodexoUp",
                         "32"});
-#line 11
+#line 12
     testRunner.When("a Menu Cycle with the following criteria is create", ((string)(null)), table1, "When ");
-#line 14
-    testRunner.Then("the message \'Menu Cycle has been created.\' is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 15
+    testRunner.Then("the message \'Menu Cycle has been created.\' is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 16
     testRunner.And("the calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
