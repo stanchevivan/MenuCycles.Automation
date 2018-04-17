@@ -9,7 +9,6 @@ Background:
 And 'Menu Cycles' application is open
 And a central user is selected
 
-#TODO (also Local?)
 @TC28526
 Scenario: Open Planning Screen, go to Nutritions, go back to Planning screen (Central User)
     Given Menu Cycle "Meda" is selected
@@ -18,8 +17,7 @@ Scenario: Open Planning Screen, go to Nutritions, go back to Planning screen (Ce
     And daily planning tab is opened
     Then planning screen engine is loaded
 
-#TODO (also Local?)
-@TC28555 @ignore
+@TC28555
 Scenario: Open Planning Screen, go to Weeks, go back to Planning screen (Central User)
     Given Menu Cycle "Meda" is selected
     When planning for Tuesday is opened
@@ -27,7 +25,7 @@ Scenario: Open Planning Screen, go to Weeks, go back to Planning screen (Central
     And switching to Daily Planning view
     Then planning screen engine is loaded
 
-#TODO
+#TODO Post-Production tab not present yet
 @TC28557 @ignore
 Scenario: Open Planning Screen, go to Post-Production, go back to Planning screen (Local User)
     Given a Menu Cycle is selected

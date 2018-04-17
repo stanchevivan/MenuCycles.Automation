@@ -19,6 +19,7 @@ namespace MenuCycle.Tests.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("RecipeSearch")]
+    [NUnit.Framework.IgnoreAttribute("Ignored feature")]
     [NUnit.Framework.CategoryAttribute("menucycle")]
     [NUnit.Framework.CategoryAttribute("recipe")]
     public partial class RecipeSearchFeature
@@ -35,7 +36,8 @@ namespace MenuCycle.Tests.Features
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "RecipeSearch", "    Recipe search functionalities and validations", ProgrammingLanguage.CSharp, new string[] {
                         "menucycle",
-                        "recipe"});
+                        "recipe",
+                        "ignore"});
             testRunner.OnFeatureStart(featureInfo);
         }
         

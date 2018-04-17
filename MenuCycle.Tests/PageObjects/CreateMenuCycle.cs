@@ -1,11 +1,10 @@
-﻿using Fourth.Automation.Framework.Page;
+﻿using System.Collections.Generic;
 using Fourth.Automation.Framework.Extension;
+using Fourth.Automation.Framework.Page;
 using Fourth.Automation.Framework.Reporting;
-using MenuCycle.Data;
+using MenuCycle.Data.Models;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using System.Collections.Generic;
-using MenuCycle.Data.Models;
 
 namespace MenuCycle.Tests.PageObjects
 {

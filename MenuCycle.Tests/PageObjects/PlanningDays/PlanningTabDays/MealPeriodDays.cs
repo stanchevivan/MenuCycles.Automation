@@ -1,5 +1,4 @@
-﻿using System;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
@@ -19,11 +18,12 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement MealPeriodName { get; set; }
         [FindsBy(How = How.ClassName, Using = "mealperiod-main")]
         private IWebElement MealPeriodMain { get; set; }
-        [FindsBy(How = How.ClassName, Using = "mealperiod-header")]
-        private IWebElement Header { get; set; }
+        [FindsBy(How = How.ClassName, Using = "mealperiod-wrapper")]
+        private IWebElement Wrapper { get; set; }
 
         public string Name => MealPeriodName.Text;
-        public string HeaderColour => Header.GetCssValue("background-color");
+        public string Colour => Wrapper.GetCssValue("background-color");
+        public bool IsExpanded => MealPeriodMain.Get().ElementPresent();
 
         public void Expand()
         {
@@ -33,11 +33,6 @@ namespace MenuCycle.Tests.PageObjects
         public void Collapse()
         {
             CollapseArrow.Click();
-        }
-
-        public bool IsExpanded()
-        {
-            return MealPeriodMain.Displayed;
         }
     }
 }

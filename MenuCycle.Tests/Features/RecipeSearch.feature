@@ -1,4 +1,4 @@
-﻿@menucycle @recipe
+﻿@menucycle @recipe @ignore
 Feature: RecipeSearch
     Recipe search functionalities and validations
 

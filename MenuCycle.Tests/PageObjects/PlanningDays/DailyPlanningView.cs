@@ -14,14 +14,22 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".mainheader__period > span:first-of-type")]
         private IWebElement HeaderDayText { get; set; }
         [FindsBy(How = How.XPath, Using = "//button[text()='Nutrition']")]
-        private IWebElement NutritionTab { get; set; }
+        private IWebElement NutritionTabButton { get; set; }
         [FindsBy(How = How.XPath, Using = "//div[text()='Planning']")] // Old Menu Cycles
         [FindsBy(How = How.XPath, Using = "//button[text()='Planning']")] // Engine
-        private IWebElement PlanningTab { get; set; }
+        private IWebElement PlanningTabButton { get; set; }
 
-        public void WaitForLoad()
+        [FindsBy(How = How.ClassName, Using = "mealperiodLoader")]
+        private IWebElement Loader { get; set; }
+
+        public virtual void WaitForLoad()
         {
-            Driver.WaitElementToExists(HeaderDayText);
+            new PlanningTabDays(Driver).WaitForLoad();
+        }
+
+        public virtual void WaitForLoader()
+        {
+            Driver.WaitElementToDisappear(Loader);
         }
 
         public string GetHeaderText()
@@ -31,12 +39,12 @@ namespace MenuCycle.Tests.PageObjects
 
         public void OpenDailyNutritionTab()
         {
-            NutritionTab.Click();
+            NutritionTabButton.Click();
         }
 
         public void OpenDailyPlanningTab()
         {
-            PlanningTab.Click();
+            PlanningTabButton.Click();
         }
     }
 }

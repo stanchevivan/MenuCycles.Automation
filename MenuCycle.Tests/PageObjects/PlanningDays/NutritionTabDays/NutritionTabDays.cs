@@ -1,5 +1,4 @@
 ﻿using Fourth.Automation.Framework.Extension;
-using Fourth.Automation.Framework.Page;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -13,10 +12,13 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.ClassName, Using = "nutrition-meal-period-content")]
         private IWebElement PageContent { get; set; }
+        [FindsBy(How = How.ClassName, Using = "mealperiodLoader")]
+        private IWebElement Loader { get; set; }
 
-        public new void WaitForLoad()
+        public override void WaitForLoader()
         {
             Driver.WaitElementToExists(PageContent);
+            base.WaitForLoader();
         }
     }
 }

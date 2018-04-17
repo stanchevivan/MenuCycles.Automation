@@ -9,12 +9,17 @@ Background:
 And 'Menu Cycles' application is open
 And a central user is selected
 
-#TODO
 @TC28547
 Scenario: Open daily planning with one meal period
     Given Menu Cycle "Meda" is selected
+    When planning for Monday is opened
+    Then main data for Meal Period "Lunch" is expanded
+
+@TC27663
+Scenario: Open daily planning with multiple meal period
+    Given Menu Cycle "Meda" is selected
     When planning for Tuesday is opened
-    Then the planning screen for Tuesday is open
+    Then main data for Meal Period "Dinner" is collapsed
 
 @TC28566
 Scenario: Display correct meal period name
@@ -25,11 +30,10 @@ Scenario: Display correct meal period name
 @TC28549
 Scenario: Collapse single meal period
     Given Menu Cycle "Meda" is selected
-    When planning for Tuesday is opened
-    And Meal Period "Dinner" is collapsed
-    Then main data for Meal Period "Dinner" is collapsed
+    When planning for Monday is opened
+    And Meal Period "Lunch" is collapsed
+    Then main data for Meal Period "Lunch" is collapsed
 
-#TODO
 @TC28548
 Scenario: Expand single meal period
     Given Menu Cycle "Meda" is selected
@@ -37,7 +41,6 @@ Scenario: Expand single meal period
     And Meal Period "Lunch" is expanded
     Then main data for Meal Period "Lunch" is expanded
 
-# Fails until colours are implemented in the engine
 @TC28546
 Scenario: The colour of every meal period in the Planning screen is the same as in the calendar page
     Given Menu Cycle "Meda" is selected

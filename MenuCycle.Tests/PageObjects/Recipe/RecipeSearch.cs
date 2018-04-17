@@ -1,10 +1,10 @@
-﻿using Fourth.Automation.Framework.Extension;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Page;
 using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace MenuCycle.Tests.PageObjects
 {

@@ -1,4 +1,5 @@
-﻿Feature: MenuCycles
+﻿@ignore
+Feature: MenuCycles
     Menu Cycles functionalities and validations
 
 Background: 

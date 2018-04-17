@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
-using Fourth.Automation.Framework.Page;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -13,7 +12,7 @@ namespace MenuCycle.Tests.PageObjects
         {
         }
 
-        [FindsBy(How = How.ClassName, Using = "mealperiod-wrapper")]
+        [FindsBy(How = How.CssSelector, Using = ".main > div")]
         private IList<IWebElement> MealPeriodWrappers { get; set; }
         [FindsBy(How = How.ClassName, Using = "main")]
         private IWebElement PageContent { get; set; }
@@ -24,9 +23,10 @@ namespace MenuCycle.Tests.PageObjects
 
         public IList<MealPeriodDays> MealPeriods => this.MealPeriodWrappers.Select(p => new MealPeriodDays(p)).ToList();
 
-        public new void WaitForLoad()
+        public override void WaitForLoad()
         {
             Driver.WaitElementToExists(PageContent);
+            base.WaitForLoader();
         }
 
         public void SwitchToWeeklyView()
@@ -51,12 +51,12 @@ namespace MenuCycle.Tests.PageObjects
 
         public bool IsMealPeriodExpanded(string periodName)
         {
-            return MealPeriods.First(x => x.Name == periodName.ToUpper()).IsExpanded();
+            return MealPeriods.First(x => x.Name == periodName.ToUpper()).IsExpanded;
         }
 
         public IList<string> GetMealPeriodColours()
         {
-            return MealPeriods.Select(x => x.HeaderColour).ToList();
+            return MealPeriods.Select(x => x.Colour).ToList();
         }
     }
 }

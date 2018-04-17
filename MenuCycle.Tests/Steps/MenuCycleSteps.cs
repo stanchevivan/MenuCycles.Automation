@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using TechTalk.SpecFlow;
 using System.Linq;
 using MenuCycle.Data.Models;
 using MenuCycle.Tests.PageObjects;
+using TechTalk.SpecFlow;
 
 namespace MenuCycle.Tests.Steps
 {
@@ -10,6 +10,7 @@ namespace MenuCycle.Tests.Steps
     public sealed class MenuCycleSteps
     {
         private LogInAs logInAs;
+        private DailyPlanningView dailyPlanningView;
         private MenuCyclesDashboard menuCycleDashboard;
         private CreateMenuCycle createMenuCycle;
         private MenuCycleCalendarView menuCycleCalendarView;
@@ -18,7 +19,7 @@ namespace MenuCycle.Tests.Steps
         private ToastNotification notification;
         private ScenarioContext scenarioContext;
 
-        public MenuCycleSteps(ScenarioContext scenarioContext, LogInAs logInAs,
+        public MenuCycleSteps(ScenarioContext scenarioContext, DailyPlanningView dailyPlanningView, LogInAs logInAs,
             MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleCalendarView menuCycleCalendarView,
             CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification)
         {
@@ -29,6 +30,7 @@ namespace MenuCycle.Tests.Steps
             this.createMealPeriod = createMealPeriod;
             this.recipeSearch = recipeSearch;
             this.notification = notification;
+            this.dailyPlanningView = dailyPlanningView;
 
             this.scenarioContext = scenarioContext;
         }
@@ -78,6 +80,13 @@ namespace MenuCycle.Tests.Steps
         {
             MenuCycles menuCycle = scenarioContext.Get<IList<MenuCycles>>().First();
             menuCycleCalendarView.ValidateWindow(menuCycle.Name);
+        }
+
+        [When(@"planning for (.*) is opened")]
+        public void WhenPlanningForADayIsOpened(string weekDay)
+        {
+            menuCycleCalendarView.OpenDailyPlanningForDay(weekDay);
+            dailyPlanningView.WaitForLoad();
         }
     }
 }
