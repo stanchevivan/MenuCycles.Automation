@@ -58,6 +58,10 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'IE|AnyCPU'">
+    <OutputPath>bin\IE\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="appium-dotnet-driver, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Appium.WebDriver.3.0.0.2\lib\net45\appium-dotnet-driver.dll</HintPath>
@@ -292,6 +296,7 @@
     <None Include="App.Chrome.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="App.IE.config" />
     <None Include="App.iOS.config">
       <SubType>Designer</SubType>
     </None>
@@ -329,15 +334,8 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PageObjects\PlanningDays\" />
-    <Folder Include="PageObjects\PlanningDays\PlanningTabDays\" />
-    <Folder Include="PageObjects\PlanningDays\NutritionTabDays\" />
-    <Folder Include="PageObjects\PlanningDays\PostProductionTab\" />
-    <Folder Include="PageObjects\PlanningWeeks\" />
     <Folder Include="PageObjects\CalendarWeeks\" />
-    <Folder Include="PageObjects\PlanningWeeks\PlanningTabWeeks\" />
-    <Folder Include="PageObjects\PlanningWeeks\NutritionTabDays\" />
-    <Folder Include="Support\Helpers\" />
+    <Folder Include="PageObjects\PlanningDays\PostProductionTab\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterCompile" Condition="Exists('App.$(Configuration).config')">
@@ -360,7 +358,13 @@
     <Copy Condition="Exists('$(DeployedConfig)')" SourceFiles="$(IntermediateOutputPath)$(TargetFileName).config" DestinationFiles="$(DeployedConfig)" />
   </Target>
   <Import Project="..\packages\SlowMonkey.1.1.1\build\SlowMonkey.targets" Condition="Exists('..\packages\SlowMonkey.1.1.1\build\SlowMonkey.targets')" />
-  <Import Project="..\packages\NETStandard.Library.2.0.2\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.2\build\netstandard2.0\NETStandard.Library.targets')" />
   <Import Project="..\packages\Selenium.Chrome.WebDriver.2.37\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.37\build\Selenium.Chrome.WebDriver.targets')" />
   <Import Project="..\packages\SpecFlow.2.3.2\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.3.2\build\SpecFlow.targets')" />
+  <Import Project="..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets'))" />
+  </Target>
 </Project>

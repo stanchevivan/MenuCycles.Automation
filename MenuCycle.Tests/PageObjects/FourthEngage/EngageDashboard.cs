@@ -24,11 +24,17 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = "#apps-popup .app")]
         public IList<IWebElement> AllApplications { get; set; }
 
+        [FindsBy(How = How.ClassName, Using = "backdrop")]
+        public IWebElement Backdrop { get; set; }
+        
+
         public void WaitPageToLoad()
         {
             Driver.WaitIsClickable(LeftSideMenuButton);
             Driver.WaitIsClickable(AllApplicationsButton);
             Driver.WaitListItemsLoad(TopThreeApplicationsList);
+            Driver.WaitElementToDisappear(Backdrop);
+            System.Threading.Thread.Sleep(10000);
         }
 
         public void SelectApplication(string option)
