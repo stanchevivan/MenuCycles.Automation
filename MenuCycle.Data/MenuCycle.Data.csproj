@@ -3,6 +3,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Configurations>Debug;Release;Chrome;Android;iOS</Configurations>  
  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <NoWarn>1701;1702;1705;</NoWarn>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Bogus" Version="22.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.0" />

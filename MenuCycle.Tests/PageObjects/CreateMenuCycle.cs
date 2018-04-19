@@ -10,7 +10,7 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class CreateMenuCycle : BasePage
     {
-        private readonly IArtefacts Artefacts;
+        readonly IArtefacts Artefacts;
         public CreateMenuCycle(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver)
         {
             Artefacts = artefacts;

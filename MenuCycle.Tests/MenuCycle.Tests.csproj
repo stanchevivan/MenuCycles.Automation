@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>MenuCycle.Tests</RootNamespace>
     <AssemblyName>MenuCycle.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
@@ -38,7 +38,6 @@
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Android|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +46,6 @@
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'iOS|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -56,7 +54,6 @@
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'IE|AnyCPU'">
     <OutputPath>bin\IE\</OutputPath>
@@ -242,6 +239,12 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="SeleniumExtras.WaitHelpers">
+      <HintPath>..\packages\DotNetSeleniumExtras.WaitHelpers.3.11.0\lib\net45\SeleniumExtras.WaitHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="SeleniumExtras.PageObjects">
+      <HintPath>..\packages\DotNetSeleniumExtras.PageObjects.3.11.0\lib\net45\SeleniumExtras.PageObjects.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Features\MenuCycles.feature.cs">
@@ -275,22 +278,22 @@
     <Compile Include="Support\Hooks.cs" />
     <Compile Include="Support\SeedHooks.cs" />
     <Compile Include="Support\Transform.cs" />
-    <Compile Include="PageObjects\PlanningDays\DailyPlanningView.cs" />
+    <Compile Include="PageObjects\Planning\PlanningView.cs" />
     <Compile Include="Features\MealPeriods.feature.cs">
       <DependentUpon>MealPeriods.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\PlanningScreen.feature.cs">
       <DependentUpon>PlanningScreen.feature</DependentUpon>
     </Compile>
-    <Compile Include="PageObjects\PlanningDays\PlanningTabDays\MealPeriodDays.cs" />
-    <Compile Include="PageObjects\PlanningDays\PlanningTabDays\PlanningTabDays.cs" />
-    <Compile Include="PageObjects\PlanningDays\NutritionTabDays\NutritionTabDays.cs" />
-    <Compile Include="PageObjects\PlanningWeeks\PlanningTabWeeks\MealPeriodWeeks.cs" />
-    <Compile Include="PageObjects\PlanningWeeks\PlanningTabWeeks\PlanningTabWeeks.cs" />
-    <Compile Include="PageObjects\PlanningWeeks\NutritionTabDays\NutritionTabWeeks.cs" />
+    <Compile Include="PageObjects\Planning\PlanningTabDays\MealPeriodDays.cs" />
+    <Compile Include="PageObjects\Planning\PlanningTabDays\PlanningTabDays.cs" />
+    <Compile Include="PageObjects\Planning\NutritionTabDays\NutritionTabDays.cs" />
     <Compile Include="Support\Helpers\Get.cs" />
     <Compile Include="Steps\MealPeriodSteps.cs" />
     <Compile Include="Steps\PlanningSteps.cs" />
+    <Compile Include="PageObjects\Planning\NutritionTabWeeks\NutritionTabWeeks.cs" />
+    <Compile Include="PageObjects\Planning\PlanningTabWeeks\MealPeriodWeeks.cs" />
+    <Compile Include="PageObjects\Planning\PlanningTabWeeks\PlanningTabWeeks.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -335,7 +338,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PageObjects\CalendarWeeks\" />
-    <Folder Include="PageObjects\PlanningDays\PostProductionTab\" />
+    <Folder Include="PageObjects\Planning\PostProductionTab\" />
+    <Folder Include="PageObjects\Planning\NutritionTabWeeks\" />
+    <Folder Include="PageObjects\Planning\PlanningTabWeeks\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterCompile" Condition="Exists('App.$(Configuration).config')">

@@ -206,6 +206,87 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Display recipes, added to a meal period in the planning screen")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.CategoryAttribute("TC28800")]
+        public virtual void DisplayRecipesAddedToAMealPeriodInThePlanningScreen()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Display recipes, added to a meal period in the planning screen", new string[] {
+                        "ignore",
+                        "TC28800"});
+#line 54
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 55
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 56
+    testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 57
+    testRunner.And("Meal Period \"Lunch\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 58
+    testRunner.Then("recipe \"Rotten egg\" is present for \"Lunch\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 59
+    testRunner.And("recipe colour for \"Rotten egg\" is the same as the colour for meal period \"Lunch\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Display Buffet menus, added to a meal period in the planning screen")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.CategoryAttribute("TC28801")]
+        public virtual void DisplayBuffetMenusAddedToAMealPeriodInThePlanningScreen()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Display Buffet menus, added to a meal period in the planning screen", new string[] {
+                        "ignore",
+                        "TC28801"});
+#line 64
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 65
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 66
+    testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 67
+    testRunner.And("Meal Period \"Lunch\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 68
+    testRunner.Then("buffet \"BUFFET\" is present for \"Lunch\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 69
+    testRunner.And("recipe colour for \"BUFFET\" is the same as the colour for meal period \"Lunch\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Display A la carte menus, added to a meal period in the planning screen")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.CategoryAttribute("TC28802")]
+        public virtual void DisplayALaCarteMenusAddedToAMealPeriodInThePlanningScreen()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Display A la carte menus, added to a meal period in the planning screen", new string[] {
+                        "ignore",
+                        "TC28802"});
+#line 74
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 75
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 76
+    testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 77
+    testRunner.And("Meal Period \"Lunch\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 78
+    testRunner.Then("a la carte \"A LA CARTE\" is present for \"Lunch\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 79
+    testRunner.And("recipe colour for \"A LA CARTE\" is the same as the colour for meal period \"Lunch\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

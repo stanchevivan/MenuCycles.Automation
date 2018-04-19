@@ -9,17 +9,17 @@ namespace MenuCycle.Tests.Steps
     [Binding]
     public sealed class MenuCycleSteps
     {
-        private LogInAs logInAs;
-        private DailyPlanningView dailyPlanningView;
-        private MenuCyclesDashboard menuCycleDashboard;
-        private CreateMenuCycle createMenuCycle;
-        private MenuCycleCalendarView menuCycleCalendarView;
-        private CreateMealPeriod createMealPeriod;
-        private RecipeSearch recipeSearch;
-        private ToastNotification notification;
-        private ScenarioContext scenarioContext;
+        readonly LogInAs logInAs;
+        readonly PlanningView planningView;
+        readonly MenuCyclesDashboard menuCycleDashboard;
+        readonly CreateMenuCycle createMenuCycle;
+        readonly MenuCycleCalendarView menuCycleCalendarView;
+        readonly CreateMealPeriod createMealPeriod;
+        readonly RecipeSearch recipeSearch;
+        readonly ToastNotification notification;
+        readonly ScenarioContext scenarioContext;
 
-        public MenuCycleSteps(ScenarioContext scenarioContext, DailyPlanningView dailyPlanningView, LogInAs logInAs,
+        public MenuCycleSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, LogInAs logInAs,
             MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleCalendarView menuCycleCalendarView,
             CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification)
         {
@@ -30,7 +30,7 @@ namespace MenuCycle.Tests.Steps
             this.createMealPeriod = createMealPeriod;
             this.recipeSearch = recipeSearch;
             this.notification = notification;
-            this.dailyPlanningView = dailyPlanningView;
+            this.planningView = dailyPlanningView;
 
             this.scenarioContext = scenarioContext;
         }
@@ -44,7 +44,7 @@ namespace MenuCycle.Tests.Steps
         [Given(@"a Menu Cycle is selected")]
         public void GivenAMenuCycleIsSelected()
         {
-            MenuCycles menuCycle = scenarioContext.Get<IList<MenuCycles>>().First();
+            var menuCycle = scenarioContext.Get<IList<MenuCycles>>().First();
             menuCycleDashboard.SelectMenuCycleByName(menuCycle.Name);
             menuCycleCalendarView.WaitPageLoad();
         }
@@ -57,12 +57,12 @@ namespace MenuCycle.Tests.Steps
         }
 
         [When(@"a Menu Cycle with the following criteria is create")]
-        public void WhenAMenuCycleWithTheFollowingDataIsCreated(IList<MenuCycles> menuCycles)
+        public void WhenAMenuCycleWithTheFollowingDataIsCreated()
         {
             menuCycleDashboard.CreateMenuCycleClick();
 
-            Groups group = scenarioContext.Get<IList<Groups>>().First();
-            MenuCycles menuCycle = scenarioContext.Get<IList<MenuCycles>>().First();
+            var group = scenarioContext.Get<IList<Groups>>().First();
+            var menuCycle = scenarioContext.Get<IList<MenuCycles>>().First();
 
             createMenuCycle.Create(menuCycle, group);
 
@@ -78,7 +78,7 @@ namespace MenuCycle.Tests.Steps
         [Then(@"the calendar view is opened")]
         public void ThenTheCalendardViewIsOpened()
         {
-            MenuCycles menuCycle = scenarioContext.Get<IList<MenuCycles>>().First();
+            var menuCycle = scenarioContext.Get<IList<MenuCycles>>().First();
             menuCycleCalendarView.ValidateWindow(menuCycle.Name);
         }
 
@@ -86,7 +86,7 @@ namespace MenuCycle.Tests.Steps
         public void WhenPlanningForADayIsOpened(string weekDay)
         {
             menuCycleCalendarView.OpenDailyPlanningForDay(weekDay);
-            dailyPlanningView.WaitForLoad();
+            planningView.WaitForLoad();
         }
     }
 }

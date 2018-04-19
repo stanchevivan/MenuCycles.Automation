@@ -6,10 +6,10 @@ namespace MenuCycle.Tests.Steps
     [Binding]
     public sealed class SeedSteps
     {
-        private ScenarioContext scenarioContext;
-        private readonly RecipeService recipeService;
-        private readonly MealPeriodService mealPeriodService;
-        private readonly MenuCycleService menuCycleService;
+        readonly ScenarioContext scenarioContext;
+        readonly RecipeService recipeService;
+        readonly MealPeriodService mealPeriodService;
+        readonly MenuCycleService menuCycleService;
 
         public SeedSteps(ScenarioContext scenarioContext, RecipeService recipeService, MealPeriodService mealPeriodService, MenuCycleService menuCycleService)
         {

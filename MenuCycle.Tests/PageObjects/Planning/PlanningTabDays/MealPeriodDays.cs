@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
+using SeleniumExtras.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
@@ -11,15 +11,15 @@ namespace MenuCycle.Tests.PageObjects
         }
 
         [FindsBy(How = How.ClassName, Using = "icon-chevron-up")]
-        private IWebElement CollapseArrow { get; set; }
+        IWebElement CollapseArrow { get; set; }
         [FindsBy(How = How.ClassName, Using = "icon-chevron-down")]
-        private IWebElement ExpandArrow { get; set; }
+        IWebElement ExpandArrow { get; set; }
         [FindsBy(How = How.ClassName, Using = "mealperiod-header__name")]
-        private IWebElement MealPeriodName { get; set; }
+        IWebElement MealPeriodName { get; set; }
         [FindsBy(How = How.ClassName, Using = "mealperiod-main")]
-        private IWebElement MealPeriodMain { get; set; }
+        IWebElement MealPeriodMain { get; set; }
         [FindsBy(How = How.ClassName, Using = "mealperiod-wrapper")]
-        private IWebElement Wrapper { get; set; }
+        IWebElement Wrapper { get; set; }
 
         public string Name => MealPeriodName.Text;
         public string Colour => Wrapper.GetCssValue("background-color");

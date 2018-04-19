@@ -11,9 +11,9 @@ namespace MenuCycle.Tests.Support
     [Binding]
     public sealed class Hooks
     {
-        private readonly IObjectContainer objectContainer;
-        private IWebDriver driver;
-        private ScenarioContext scenarioContext;
+        readonly IObjectContainer objectContainer;
+        IWebDriver driver;
+        ScenarioContext scenarioContext;
         public Hooks(IObjectContainer container, ScenarioContext scenarioContext)
         {
             this.objectContainer = container;

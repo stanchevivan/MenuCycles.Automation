@@ -6,20 +6,20 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class PlanningTabDays : DailyPlanningView
+    public class PlanningTabDays : PlanningView
     {
         public PlanningTabDays(IWebDriver webDriver) : base(webDriver)
         {
         }
 
         [FindsBy(How = How.CssSelector, Using = ".main > div")]
-        private IList<IWebElement> MealPeriodWrappers { get; set; }
+        IList<IWebElement> MealPeriodWrappers { get; set; }
         [FindsBy(How = How.ClassName, Using = "main")]
-        private IWebElement PageContent { get; set; }
+        IWebElement PageContent { get; set; }
         [FindsBy(How = How.ClassName, Using = "mainheader")] //Investigate if more suitable element for the check is needed
-        private IWebElement EngineCheck { get; set; }
+        IWebElement EngineCheck { get; set; }
         [FindsBy(How = How.XPath, Using = "//button[text()='Weeks']")] // Engine
-        private IWebElement WeeksButton { get; set; }
+        IWebElement WeeksButton { get; set; }
 
         public IList<MealPeriodDays> MealPeriods => this.MealPeriodWrappers.Select(p => new MealPeriodDays(p)).ToList();
 

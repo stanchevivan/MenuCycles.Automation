@@ -9,10 +9,10 @@ namespace MenuCycle.Tests.Support
     [Binding]
     public sealed class SeedHooks
     {
-        private ScenarioContext scenarioContext;
-        private readonly RecipeService recipeService;
-        private readonly MealPeriodService mealPeriodService;
-        private readonly MenuCycleService menuCycleService;
+        readonly ScenarioContext scenarioContext;
+        readonly RecipeService recipeService;
+        readonly MealPeriodService mealPeriodService;
+        readonly MenuCycleService menuCycleService;
 
         public SeedHooks(ScenarioContext scenarioContext, RecipeService recipeService, 
             MealPeriodService mealPeriodService, MenuCycleService menuCycleService)

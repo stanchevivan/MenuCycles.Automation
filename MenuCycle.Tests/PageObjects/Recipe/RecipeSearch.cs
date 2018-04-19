@@ -10,7 +10,7 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class RecipeSearch : BasePage
     {
-        private readonly IArtefacts Artefacts;
+        readonly IArtefacts Artefacts;
 
         public RecipeSearch(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver)
         {

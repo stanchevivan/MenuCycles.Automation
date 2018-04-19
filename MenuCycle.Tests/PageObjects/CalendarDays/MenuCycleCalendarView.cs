@@ -12,7 +12,7 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class MenuCycleCalendarView : BasePage
     {
-        private readonly IArtefacts Artefacts;
+        readonly IArtefacts Artefacts;
 
         public MenuCycleCalendarView(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver)
         {
@@ -20,37 +20,37 @@ namespace MenuCycle.Tests.PageObjects
         }
 
         [FindsBy(How = How.Id, Using = "menucycleName")]
-        public IWebElement Name { get; set; }
+        IWebElement Name { get; set; }
 
         [FindsBy(How = How.Id, Using = "daysTab")]
-        public IWebElement DaysViewButton { get; set; }
+        IWebElement DaysViewButton { get; set; }
 
         [FindsBy(How = How.Id, Using = "weeksTab")]
-        public IWebElement WeeksViewButton { get; set; }
+        IWebElement WeeksViewButton { get; set; }
 
         [FindsBy(How = How.Id, Using = "daily-view-add-week-button")]
-        public IWebElement AddWeekButton { get; set; }
+        IWebElement AddWeekButton { get; set; }
 
         [FindsBy(How = How.Id, Using = "delWeekbtn")]
-        public IWebElement DeleteWeekButton { get; set; }
+        IWebElement DeleteWeekButton { get; set; }
 
         [FindsBy(How = How.Id, Using = "BlueLoaderShowHide")]
-        public IWebElement SpinningWheel { get; set; }
+        IWebElement SpinningWheel { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#dailyCalendarTableHolder .daily-header-container > div")]
-        public IList<IWebElement> CalendarHeaderContainer { get; set; }
+        IList<IWebElement> CalendarHeaderContainer { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#dailyCalendarTableHolder .daily-view-screen > div")]
-        public IList<IWebElement> CalendarColumnContainer { get; set; }
+        IList<IWebElement> CalendarColumnContainer { get; set; }
 
         [FindsBy(How = How.ClassName, Using = "daily-calendar-heading")]
-        public IList<IWebElement> DaysLinks { get; set; }
+        IList<IWebElement> DaysLinks { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".Planning-engine")]
-        public IList<IWebElement> PlanningLinks { get; set; }
+        IList<IWebElement> PlanningLinks { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".daily-view-screen > div")]
-        private IList<IWebElement> DaysColumnContainer { get; set; }
+        IList<IWebElement> DaysColumnContainer { get; set; }
 
         public List<WeekDays> CalendarHeaders => this.CalendarHeaderContainer.Select(p => new WeekDays(p)).ToList();
 
@@ -80,16 +80,16 @@ namespace MenuCycle.Tests.PageObjects
 
         public void AddMealPeriod(string weekDayName)
         {
-            CalendarHeaders.First(c => c.Name.Text.StartsWith(weekDayName)).MealPeriodButton.Click();
+            CalendarHeaders.First(c => c.Name.Text.StartsWith(weekDayName, System.StringComparison.CurrentCultureIgnoreCase)).MealPeriodButton.Click();
         }
 
         public void ValidateMealPeriod(string weekDay, MealPeriods expectedMealPeriod, Recipes expectedRecipes)
         {
             //Gets index for column of specified week day
-            int columnIndex = CalendarHeaders.FindIndex(c => c.Name.Text.StartsWith(weekDay));
+            var columnIndex = CalendarHeaders.FindIndex(c => c.Name.Text.StartsWith(weekDay, System.StringComparison.CurrentCultureIgnoreCase));
 
             //Gets the meal period
-            MealPeriodCard mealPeriodCard = CalendarColumns[columnIndex].MealPeriodCards.First(m => m.Name.Text == expectedMealPeriod.Name.ToUpper());
+            var mealPeriodCard = CalendarColumns[columnIndex].MealPeriodCards.First(m => m.Name.Text == expectedMealPeriod.Name.ToUpper());
 
             Assert.AreEqual(1, mealPeriodCard.Recipes.Count);
             Assert.AreEqual(expectedRecipes.Name, mealPeriodCard.Recipes[0].Text);
@@ -99,7 +99,7 @@ namespace MenuCycle.Tests.PageObjects
         {
             var dayLink = DaysLinks.First(x => x.Text.Contains(weekDay.ToUpper()));
             dayLink.Click();
-            int indexOfDay = DaysLinks.IndexOf(dayLink);
+            var indexOfDay = DaysLinks.IndexOf(dayLink);
 
             var planningLink = PlanningLinks[indexOfDay];
             Driver.WaitElementAndClick(planningLink);
@@ -108,19 +108,33 @@ namespace MenuCycle.Tests.PageObjects
         public IList<string> GetMealPeriodColours(string weekDay)
         {
             IList<string> Colours = new List<string>();
+            int dayIndex;
 
             switch (weekDay.ToUpper())
             {
-                case "TUESDAY":
-                    {
-                        foreach (var item in DaysColumnContainer[1].FindElements(By.ClassName("daily-item-container-div")))
-                        {
-                            Colours.Add(item.GetCssValue("background-color"));
-                        }
-                        break;
-                    }
+                case "MONDAY": 
+                    { dayIndex = 0; break; }
+                case "TUESDAY": 
+                    { dayIndex = 1; break; }
+                case "WEDNESDAY": 
+                    { dayIndex = 2; break; }
+                case "THURSDAY": 
+                    { dayIndex = 3; break; }
+                case "FRIDAY": 
+                    { dayIndex = 4; break; }
+                case "SATURDAY": 
+                    { dayIndex = 5; break; }
+                case "SUNDAY": 
+                    { dayIndex = 6; break; }
                 default:
-                    break;
+                    {
+                        throw new System.Exception($"Could match day {weekDay}");   
+                    }
+            }
+
+            foreach (var item in DaysColumnContainer[dayIndex].FindElements(By.ClassName("daily-item-container-div")))
+            {
+                Colours.Add(item.GetCssValue("background-color"));
             }
 
             return Colours;

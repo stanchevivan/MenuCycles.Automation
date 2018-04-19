@@ -9,7 +9,7 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class CreateMealPeriod : BasePage
     {
-        private readonly IArtefacts Artefacts;
+        readonly IArtefacts Artefacts;
 
         public CreateMealPeriod(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver)
         {

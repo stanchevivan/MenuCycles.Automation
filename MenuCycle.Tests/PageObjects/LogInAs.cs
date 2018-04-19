@@ -56,7 +56,7 @@ namespace MenuCycle.Tests.PageObjects
             Driver.WaitIsClickable(Local);
         }
 
-        private void ResumeToastNotification()
+        void ResumeToastNotification()
         {
             Driver.WaitElementAndClick(ToastMessageCloseButton);
         }

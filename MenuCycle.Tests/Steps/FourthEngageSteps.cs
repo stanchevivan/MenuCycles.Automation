@@ -6,8 +6,8 @@ namespace MenuCycle.Tests.Steps
     [Binding]
     public class FourthEngageSteps
     {
-        private EngageLogin engageLogin;
-        private EngageDashboard engageDashboard;
+        EngageLogin engageLogin;
+        EngageDashboard engageDashboard;
 
         public FourthEngageSteps(EngageLogin engageLogin, EngageDashboard engageDashboard)
         {

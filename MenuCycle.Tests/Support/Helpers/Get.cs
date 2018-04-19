@@ -14,7 +14,7 @@ namespace MenuCycle.Tests
 
     public class Get
     {
-        private IWebElement webElement;
+        readonly IWebElement webElement;
 
         public Get(IWebElement element)
         {

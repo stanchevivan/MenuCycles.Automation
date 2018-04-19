@@ -47,3 +47,33 @@ Scenario: The colour of every meal period in the Planning screen is the same as 
     And Meal Period colours for "Tuesday" are saved
     When planning for Tuesday is opened
     Then Meal Period colours match the calendar view colours
+
+@ignore
+#TODO Waiting to be developed
+@TC28800
+Scenario: Display recipes, added to a meal period in the planning screen
+    Given Menu Cycle "Meda" is selected
+    When planning for Tuesday is opened
+    And Meal Period "Lunch" is expanded
+    Then recipe "Rotten egg" is present for "Lunch"
+    And recipe colour for "Rotten egg" is the same as the colour for meal period "Lunch"
+
+@ignore
+#TODO Waiting to be developed
+@TC28801
+Scenario: Display Buffet menus, added to a meal period in the planning screen
+    Given Menu Cycle "Meda" is selected
+    When planning for Tuesday is opened
+    And Meal Period "Lunch" is expanded
+    Then buffet "BUFFET" is present for "Lunch"
+    And recipe colour for "BUFFET" is the same as the colour for meal period "Lunch"
+
+@ignore
+#TODO Waiting to be developed
+@TC28802
+Scenario: Display A la carte menus, added to a meal period in the planning screen
+    Given Menu Cycle "Meda" is selected
+    When planning for Tuesday is opened
+    And Meal Period "Lunch" is expanded
+    Then a la carte "A LA CARTE" is present for "Lunch"
+    And recipe colour for "A LA CARTE" is the same as the colour for meal period "Lunch"

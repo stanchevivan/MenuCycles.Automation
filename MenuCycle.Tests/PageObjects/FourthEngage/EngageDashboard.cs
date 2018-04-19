@@ -34,7 +34,6 @@ namespace MenuCycle.Tests.PageObjects
             Driver.WaitIsClickable(AllApplicationsButton);
             Driver.WaitListItemsLoad(TopThreeApplicationsList);
             Driver.WaitElementToDisappear(Backdrop);
-            System.Threading.Thread.Sleep(10000);
         }
 
         public void SelectApplication(string option)

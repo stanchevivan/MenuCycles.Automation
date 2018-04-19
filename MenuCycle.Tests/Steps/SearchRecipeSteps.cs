@@ -9,20 +9,20 @@ namespace MenuCycle.Tests.Steps
     [Binding]
     public sealed class SearchRecipeSteps
     {
-        private DailyPlanningView dailyPlanningView;
-        private PlanningTabDays planningTabDays;
-        private PlanningTabWeeks planningTabWeeks;
-        private NutritionTabDays nutritionTabDays;
-        private MenuCycleCalendarView menuCycleCalendarView;
-        private CreateMealPeriod createMealPeriod;
-        private RecipeSearch recipeSearch;
-        private ToastNotification notification;
-        private ScenarioContext scenarioContext;
+        readonly PlanningView planningView;
+        readonly PlanningTabDays planningTabDays;
+        readonly PlanningTabWeeks planningTabWeeks;
+        readonly NutritionTabDays nutritionTabDays;
+        readonly MenuCycleCalendarView menuCycleCalendarView;
+        readonly CreateMealPeriod createMealPeriod;
+        readonly RecipeSearch recipeSearch;
+        readonly ToastNotification notification;
+        readonly ScenarioContext scenarioContext;
         
-        public SearchRecipeSteps(ScenarioContext scenarioContext, DailyPlanningView dailyPlanningView, PlanningTabDays planningTab, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTab, MenuCycleCalendarView menuCycleCalendarView, 
+        public SearchRecipeSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTab, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTab, MenuCycleCalendarView menuCycleCalendarView, 
             CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification)
         {
-            this.dailyPlanningView = dailyPlanningView;
+            this.planningView = dailyPlanningView;
             this.planningTabDays = planningTab;
             this.planningTabWeeks = planningTabWeeks;
             this.nutritionTabDays = nutritionTab;

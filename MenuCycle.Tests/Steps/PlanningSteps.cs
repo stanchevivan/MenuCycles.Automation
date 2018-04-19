@@ -7,20 +7,20 @@ namespace MenuCycle.Tests.Steps
     [Binding]
     public class PlanningSteps
     {
-        private DailyPlanningView dailyPlanningView;
-        private PlanningTabDays planningTabDays;
-        private PlanningTabWeeks planningTabWeeks;
-        private NutritionTabDays nutritionTabDays;
-        private MenuCycleCalendarView menuCycleCalendarView;
-        private CreateMealPeriod createMealPeriod;
-        private RecipeSearch recipeSearch;
-        private ToastNotification notification;
-        private ScenarioContext scenarioContext;
+        readonly PlanningView planningView;
+        readonly PlanningTabDays planningTabDays;
+        readonly PlanningTabWeeks planningTabWeeks;
+        readonly NutritionTabDays nutritionTabDays;
+        readonly MenuCycleCalendarView menuCycleCalendarView;
+        readonly CreateMealPeriod createMealPeriod;
+        readonly RecipeSearch recipeSearch;
+        readonly ToastNotification notification;
+        readonly ScenarioContext scenarioContext;
 
-        public PlanningSteps(ScenarioContext scenarioContext, DailyPlanningView dailyPlanningView, PlanningTabDays planningTab, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTab, MenuCycleCalendarView menuCycleCalendarView,
+        public PlanningSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTab, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTab, MenuCycleCalendarView menuCycleCalendarView,
             CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification)
         {
-            this.dailyPlanningView = dailyPlanningView;
+            this.planningView = dailyPlanningView;
             this.planningTabDays = planningTab;
             this.planningTabWeeks = planningTabWeeks;
             this.nutritionTabDays = nutritionTab;
@@ -35,7 +35,7 @@ namespace MenuCycle.Tests.Steps
         [Then(@"the planning screen for (.*) is open")]
         public void ThenThePlanningScreenForADayIsOpened(string weekDay)
         {
-            Assert.That(dailyPlanningView.GetHeaderText(), Is.EqualTo(weekDay.ToUpper()));
+            Assert.That(planningView.GetHeaderText(), Is.EqualTo(weekDay.ToUpper()));
         }
 
         [Then(@"planning screen engine is loaded")]
@@ -47,14 +47,14 @@ namespace MenuCycle.Tests.Steps
         [When(@"daily nutrition tab is opened")]
         public void WhenNutritionTabIsOpened()
         {
-            dailyPlanningView.OpenDailyNutritionTab();
+            planningView.OpenDailyNutritionTab();
             nutritionTabDays.WaitForLoad();
         }
 
         [When(@"daily planning tab is opened")]
         public void WhenPlanningTabIsOpened()
         {
-            dailyPlanningView.OpenDailyPlanningTab();
+            planningView.OpenDailyPlanningTab();
             planningTabDays.WaitForLoad();
         }
 

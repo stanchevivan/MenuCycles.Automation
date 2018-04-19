@@ -13,8 +13,8 @@ namespace MenuCycle.Tests.Support
     [Binding]
     public class Transform
     {
-        private ScenarioContext context;
-        private MenuCycleGenerator menuCycleGenerator;
+        ScenarioContext context;
+        MenuCycleGenerator menuCycleGenerator;
         public Transform(ScenarioContext context, MenuCycleGenerator menuCycleGenerator)
         {
             this.context = context;
@@ -32,7 +32,7 @@ namespace MenuCycle.Tests.Support
             IList<MenuCycles> menuCycleList = this.menuCycleGenerator.Generate(table.RowCount).ToList();
 
             IList<Groups> groupList = new List<Groups>();
-            GroupRepository groupRepository = new GroupRepository();
+            var groupRepository = new GroupRepository();
 
             foreach (TableRow row in table.Rows)
             {   
@@ -54,7 +54,7 @@ namespace MenuCycle.Tests.Support
         /// <param name="menu">The Menu Cycle object</param>
         /// <param name="row">The row to search for the value replacements</param>
         /// <returns>A modified menu cycle object</returns>
-        private static MenuCycles ReplaceWithTable(MenuCycles menu, TableRow row)
+        static MenuCycles ReplaceWithTable(MenuCycles menu, TableRow row)
         {
             foreach (var item in row.Keys)
             {

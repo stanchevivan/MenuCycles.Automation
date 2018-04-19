@@ -9,7 +9,7 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class ToastNotification : BasePage
     {
-        private readonly IArtefacts Artefacts;
+        readonly IArtefacts Artefacts;
         public ToastNotification(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver)
         {
             Artefacts = artefacts;
