@@ -107,7 +107,6 @@ namespace MenuCycle.Tests.PageObjects
 
         public IList<string> GetMealPeriodColours(string weekDay)
         {
-            IList<string> Colours = new List<string>();
             int dayIndex;
 
             switch (weekDay.ToUpper())
@@ -132,12 +131,11 @@ namespace MenuCycle.Tests.PageObjects
                     }
             }
 
-            foreach (var item in DaysColumnContainer[dayIndex].FindElements(By.ClassName("daily-item-container-div")))
-            {
-                Colours.Add(item.GetCssValue("background-color"));
-            }
+            // Get all meal period containers for a day
+            var mealPeriods = DaysColumnContainer[dayIndex].FindElements(By.ClassName("daily-item-container-div"));
 
-            return Colours;
+            // Return the background colours for the meal periods
+            return mealPeriods.Select(x => x.GetCssValue("background-color")).ToList();
         }
     }
 }
