@@ -294,6 +294,7 @@
     <Compile Include="PageObjects\Planning\NutritionTabWeeks\NutritionTabWeeks.cs" />
     <Compile Include="PageObjects\Planning\PlanningTabWeeks\MealPeriodWeeks.cs" />
     <Compile Include="PageObjects\Planning\PlanningTabWeeks\PlanningTabWeeks.cs" />
+    <Compile Include="PageObjects\MenuCyclesBasePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

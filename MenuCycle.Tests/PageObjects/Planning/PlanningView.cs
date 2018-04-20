@@ -5,7 +5,7 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class PlanningView : BasePage
+    public class PlanningView : MenuCyclesBasePage
     {
         public PlanningView(IWebDriver webDriver) : base(webDriver)
         {
@@ -13,7 +13,8 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = ".mainheader__period > span:first-of-type")]
         IWebElement HeaderDayText { get; set; }
-        [FindsBy(How = How.XPath, Using = "//button[text()='Nutrition']")]
+        [FindsBy(How = How.XPath, Using = "//div[text()='Planning']")] // Old MC
+        [FindsBy(How = How.XPath, Using = "//button[text()='Nutrition']")] // Engine
         IWebElement NutritionTabButton { get; set; }
         [FindsBy(How = How.XPath, Using = "//div[text()='Planning']")] // Old Menu Cycles
         [FindsBy(How = How.XPath, Using = "//button[text()='Planning']")] // Engine
