@@ -4,13 +4,16 @@ using MenuCycle.Data.Models;
 using MenuCycle.Tests.PageObjects;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
+using MenuCycle.Tests.Models;
+using MenuCycle.Tests.PageObjects.Planning.PlanningTabDays;
 
 namespace MenuCycle.Tests.Steps
 {
     [Binding]
     public class MealPeriodSteps
     {
-        readonly PlanningView planningView;
+        readonly PlanningView dailyPlanningView;
         readonly PlanningTabDays planningTabDays;
         readonly PlanningTabWeeks planningTabWeeks;
         readonly NutritionTabDays nutritionTabDays;
@@ -20,13 +23,13 @@ namespace MenuCycle.Tests.Steps
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
 
-        public MealPeriodSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTab, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTab, MenuCycleCalendarView menuCycleCalendarView,
+        public MealPeriodSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleCalendarView menuCycleCalendarView,
             CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification)
         {
-            this.planningView = dailyPlanningView;
-            this.planningTabDays = planningTab;
+            this.dailyPlanningView = dailyPlanningView;
+            this.planningTabDays = planningTabDays;
             this.planningTabWeeks = planningTabWeeks;
-            this.nutritionTabDays = nutritionTab;
+            this.nutritionTabDays = nutritionTabDays;
             this.menuCycleCalendarView = menuCycleCalendarView;
             this.createMealPeriod = createMealPeriod;
             this.recipeSearch = recipeSearch;
@@ -72,11 +75,132 @@ namespace MenuCycle.Tests.Steps
             scenarioContext.Add("MealPeriodColours", menuCycleCalendarView.GetMealPeriodColours(weekDay));
         }
 
+        /// <summary>
+        /// Must be used with the step "Meal Period colours for ""(.*)"" are saved"
+        /// </summary>
         [Then(@"Meal Period colours match the calendar view colours")]
         public void ThenMealPeriodColoursMatchTheCalendarViewColours()
         {
             Assert.That(planningTabDays.GetMealPeriodColours(), Is.EqualTo(scenarioContext.Get<IList<string>>("MealPeriodColours")));
         }
 
+        /// <summary>
+        /// Checks that meal period has recipe with certain name.
+        /// </summary>
+        /// <param name="recipeTitle">Recipe name.</param>
+        /// <param name="mealPeriodName">Meal period name.</param>
+        [Then(@"recipe named ""(.*)"" is present for meal period ""(.*)""")]
+        public void ThenRecipeNamedIsPresentForMealPeriod(string recipeTitle, string mealPeriodName)
+        {
+            var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
+
+            Assert.IsTrue(mealPeriod.Recipes.Any(a => a.Title == recipeTitle));
+        }
+
+        [Then(@"recipe colour for ""(.*)"" match the colour for meal period ""(.*)""")]
+        public void ThenRecipeColourForIsTheSameAsTheColourForMealPeriod(string recipeName, string mealPeriodName)
+        {
+            var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
+
+            Assert.That(mealPeriod.Colour, Is.EqualTo(mealPeriod.GetRecipe(recipeName).Colour));
+        }
+
+        /// <summary>
+        /// Checks that meal period has a la carte with certain name.
+        /// </summary>
+        /// <param name="aLaCarteTitle">A La Carte name.</param>
+        /// <param name="mealPeriodName">Meal period name.</param>
+        [Then(@"a la carte named ""(.*)"" is present for meal period ""(.*)""")]
+        public void ThenALaCarteNamedIsPresentForMealPeriod(string aLaCarteTitle, string mealPeriodName)
+        {
+            var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
+
+            Assert.IsTrue(mealPeriod.ALaCartes.Any(a => a.Title == aLaCarteTitle));
+        }
+
+        [Then(@"a la carte colour for ""(.*)"" match the colour for meal period ""(.*)""")]
+        public void ThenALaCarteColourForIsTheSameAsTheColourForMealPeriod(string aLaCarteTitle, string mealPeriodName)
+        {
+            var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
+
+            Assert.That(mealPeriod.Colour, Is.EqualTo(mealPeriod.GetALaCarte(aLaCarteTitle).Colour));
+        }
+
+        /// <summary>
+        /// Checks that meal period has buffet with certain name.
+        /// </summary>
+        /// <param name="buffetTitle">Buffet name.</param>
+        /// <param name="mealPeriodName">Meal period name.</param>
+        [Then(@"buffet named ""(.*)"" is present for meal period ""(.*)""")]
+        public void ThenBuffetNamedIsPresentForMealPeriod(string buffetTitle, string mealPeriodName)
+        {
+            var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
+
+            Assert.IsTrue(mealPeriod.Buffets.Any(a => a.Title == buffetTitle));
+        }
+
+        [Then(@"buffet colour for ""(.*)"" match the colour for meal period ""(.*)""")]
+        public void ThenBuffetColourForIsTheSameAsTheColourForMealPeriod(string buffetTitle, string mealPeriodName)
+        {
+            var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
+
+            Assert.That(mealPeriod.Colour, Is.EqualTo(mealPeriod.GetBuffet(buffetTitle).Colour));
+        }
+
+        [Then(@"in meal period ""(.*)"" all recipe colours inside ""(.*)"" match the A La Carte colour")]
+        public void AllRecipeColoursInsideAreTheSameAsTheALaCarteColour(string mealPeriodName, string aLaCarteTitle)
+        {
+            var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
+            var aLaCarte = mealPeriod.GetALaCarte(aLaCarteTitle);
+
+            Assert.IsTrue(aLaCarte.Recipes.All(r => r.Colour == aLaCarte.Colour));
+        }
+
+        [Then(@"in meal period ""(.*)"" all recipe colours inside ""(.*)"" match the buffet colour")]
+        public void AllRecipeColoursInsideAreTheSameAsBuffetColour(string mealPeriodName, string buffetTitle)
+        {
+            var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
+            var buffet = mealPeriod.GetBuffet(buffetTitle);
+
+            Assert.IsTrue(buffet.Recipes.All(r => r.Colour == buffet.Colour));
+        }
+
+        [Then(@"all data is populated for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void ThenAllDataIsPopulatedForRecipeInMealPeriod(string recipeName, string mealPeriodName)
+        {
+            var recipe = planningTabDays.GetMealPeriod(mealPeriodName).GetRecipe(recipeName);
+
+            Assert.IsNotEmpty(recipe.PlannedQuantity);
+            Assert.IsNotEmpty(recipe.CostPerUnit);
+            Assert.IsNotEmpty(recipe.TotalCosts);
+            Assert.IsNotEmpty(recipe.Type);
+            Assert.IsNotEmpty(recipe.PriceModel);
+            Assert.IsNotEmpty(recipe.TargetGP);
+            Assert.IsNotEmpty(recipe.TaxPercentage);
+            Assert.IsNotEmpty(recipe.SellPrice);
+        }
+
+        [Then(@"verify the following recipes:")]
+        public void CheckAllDataForRecipe(Table table)
+        {
+            var expectedRecipes = table.CreateSet<RecipeModel>();
+
+            var actualRecipes = new List<RecipeModel>();
+
+            expectedRecipes.ToList().ForEach(recipe => actualRecipes.Add(
+                new RecipeModel(planningTabDays
+                                .GetMealPeriod(recipe.MealPeriodName)
+                                .GetRecipe(recipe.RecipeTitle)
+            )));
+
+            table.CompareToSet(actualRecipes);
+        }
+        [Then(@"number of covers for meal period ""(.*)"" is ""(.*)""")]
+        public void NumberOfCoversForMealPeriodIs(string mealPeriodName, string numberOfCoves)
+        {
+            var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
+
+            Assert.That(mealPeriod.NumberOfCovers, Is.EqualTo(numberOfCoves));
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.XPath, Using = "//button[text()='Weeks']")] // Engine
         IWebElement WeeksButton { get; set; }
 
-        public IList<MealPeriodDays> MealPeriods => this.MealPeriodWrappers.Select(p => new MealPeriodDays(p)).ToList();
+        public IList<DailyMealPeriod> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriod(p)).ToList();
 
         public override void WaitForLoad()
         {
@@ -41,17 +41,22 @@ namespace MenuCycle.Tests.PageObjects
 
         public void ExpandMealPeriod(string periodName)
         {
-            MealPeriods.First(x => x.Name == periodName.ToUpper()).Expand();
+            GetMealPeriod(periodName).Expand();
         }
 
         public void CollapseMealPeriod(string periodName)
         {
-            MealPeriods.First(x => x.Name == periodName.ToUpper()).Collapse();
+            GetMealPeriod(periodName).Collapse();
         }
 
         public bool IsMealPeriodExpanded(string periodName)
         {
-            return MealPeriods.First(x => x.Name == periodName.ToUpper()).IsExpanded;
+            return GetMealPeriod(periodName).IsExpanded;
+        }
+
+        public DailyMealPeriod GetMealPeriod(string name)
+        {
+            return MealPeriods.First(x => x.Name == name.ToUpper());
         }
 
         public IList<string> GetMealPeriodColours()

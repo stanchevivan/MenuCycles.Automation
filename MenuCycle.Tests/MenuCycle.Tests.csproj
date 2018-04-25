@@ -252,10 +252,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MenuCycles.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\RecipeSearch.feature.cs">
+    <Compile Include="Features\Recipes.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RecipeSearch.feature</DependentUpon>
+      <DependentUpon>Recipes.feature</DependentUpon>
     </Compile>
     <Compile Include="PageObjects\CreateMealPeriod.cs" />
     <Compile Include="PageObjects\CreateMenuCycle.cs" />
@@ -285,8 +285,8 @@
     <Compile Include="Features\PlanningScreen.feature.cs">
       <DependentUpon>PlanningScreen.feature</DependentUpon>
     </Compile>
-    <Compile Include="PageObjects\Planning\PlanningTabDays\MealPeriodDays.cs" />
-    <Compile Include="PageObjects\Planning\PlanningTabDays\PlanningTabDays.cs" />
+    <Compile Include="PageObjects\Planning\PlanningTabDays\DailyMealPeriod.cs" />
+    <Compile Include="PageObjects\Planning\PlanningTabDays\PlanningTabDaysView.cs" />
     <Compile Include="PageObjects\Planning\NutritionTabDays\NutritionTabDays.cs" />
     <Compile Include="Support\Helpers\Get.cs" />
     <Compile Include="Steps\MealPeriodSteps.cs" />
@@ -295,6 +295,11 @@
     <Compile Include="PageObjects\Planning\PlanningTabWeeks\MealPeriodWeeks.cs" />
     <Compile Include="PageObjects\Planning\PlanningTabWeeks\PlanningTabWeeks.cs" />
     <Compile Include="PageObjects\MenuCyclesBasePage.cs" />
+    <Compile Include="PageObjects\Planning\PlanningTabDays\Recipe.cs" />
+    <Compile Include="PageObjects\Planning\PlanningTabDays\Buffet.cs" />
+    <Compile Include="PageObjects\Planning\PlanningTabDays\ALaCarte.cs" />
+    <Compile Include="PageObjects\Planning\PlanningTabDays\NestedRecipe.cs" />
+    <Compile Include="Models\RecipeModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -327,6 +332,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>PlanningScreen.feature.cs</LastGenOutput>
     </None>
+    <None Include="Features\Recipes.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Recipes.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MenuCycle.Data\MenuCycle.Data.csproj">
@@ -342,6 +351,7 @@
     <Folder Include="PageObjects\Planning\PostProductionTab\" />
     <Folder Include="PageObjects\Planning\NutritionTabWeeks\" />
     <Folder Include="PageObjects\Planning\PlanningTabWeeks\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterCompile" Condition="Exists('App.$(Configuration).config')">

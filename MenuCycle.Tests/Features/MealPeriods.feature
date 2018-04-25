@@ -1,6 +1,6 @@
 ﻿#@menucycle @mealperiod @recipe
 Feature: MealPeriods
-	Meal Peridos functionalities and validations
+	Meal Periods functionalities and validations
 
 Background: 
 # Given 1 Menu Cycles exists
@@ -48,32 +48,33 @@ Scenario: The colour of every meal period in the Planning screen is the same as 
     When planning for Tuesday is opened
     Then Meal Period colours match the calendar view colours
 
-@ignore
-#TODO Waiting to be developed
 @TC28800
 Scenario: Display recipes, added to a meal period in the planning screen
     Given Menu Cycle "Meda" is selected
     When planning for Tuesday is opened
-    And Meal Period "Lunch" is expanded
-    Then recipe "Rotten egg" is present for "Lunch"
-    And recipe colour for "Rotten egg" is the same as the colour for meal period "Lunch"
+    And Meal Period "LUNCH" is expanded
+    Then recipe named "724Gourmet Beef Burger 6oz" is present for meal period "LUNCH"
+    And recipe colour for "724Gourmet Beef Burger 6oz" match the colour for meal period "LUNCH"
 
-@ignore
-#TODO Waiting to be developed
 @TC28801
 Scenario: Display Buffet menus, added to a meal period in the planning screen
     Given Menu Cycle "Meda" is selected
     When planning for Tuesday is opened
-    And Meal Period "Lunch" is expanded
-    Then buffet "BUFFET" is present for "Lunch"
-    And recipe colour for "BUFFET" is the same as the colour for meal period "Lunch"
+    And Meal Period "DANGELO" is expanded
+    Then buffet named "Aneliya Buffet" is present for meal period "DANGELO"
+    And buffet colour for "Aneliya Buffet" match the colour for meal period "DANGELO"
+    And in meal period "DANGELO" all recipe colours inside "Aneliya Buffet" match the buffet colour
 
-@ignore
-#TODO Waiting to be developed
 @TC28802
 Scenario: Display A la carte menus, added to a meal period in the planning screen
     Given Menu Cycle "Meda" is selected
-    When planning for Tuesday is opened
-    And Meal Period "Lunch" is expanded
-    Then a la carte "A LA CARTE" is present for "Lunch"
-    And recipe colour for "A LA CARTE" is the same as the colour for meal period "Lunch"
+    When planning for Wednesday is opened
+    Then a la carte named "Holiday A La Carte" is present for meal period "LANCE"
+    And a la carte colour for "Holiday A La Carte" match the colour for meal period "LANCE"
+    And in meal period "LANCE" all recipe colours inside "Holiday A La Carte" match the A La Carte colour
+
+@TC28897
+Scenario: Retrieve Number of covers for meal period from the API
+    Given Menu Cycle "Test Reports" is selected
+    When planning for Monday is opened
+    Then number of covers for meal period "Dinner" is "11"
