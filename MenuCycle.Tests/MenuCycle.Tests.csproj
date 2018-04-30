@@ -59,6 +59,11 @@
     <OutputPath>bin\IE\</OutputPath>
     <DefineConstants>TRACE;DEBUG</DefineConstants>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Firefox|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Firefox</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="appium-dotnet-driver, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Appium.WebDriver.3.0.0.2\lib\net45\appium-dotnet-driver.dll</HintPath>
@@ -218,9 +223,6 @@
     <Reference Include="System.Net.Http">
       <HintPath>..\packages\System.Net.Http.4.3.3\lib\net46\System.Net.Http.dll</HintPath>
     </Reference>
-    <Reference Include="Fourth.Automation.Framework.Reporting">
-      <HintPath>..\packages\Fourth.Automation.Framework.Reporting.3.0.60\lib\net45\Fourth.Automation.Framework.Reporting.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.ReaderWriter">
       <HintPath>..\packages\System.Xml.ReaderWriter.4.3.1\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
     </Reference>
@@ -230,12 +232,6 @@
     <Reference Include="System.ValueTuple">
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
-    <Reference Include="Fourth.Automation.Framework.Core">
-      <HintPath>..\packages\Fourth.Automation.Framework.Core.3.0.60\lib\net45\Fourth.Automation.Framework.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Fourth.Automation.Framework.Mobile">
-      <HintPath>..\packages\Fourth.Automation.Framework.Mobile.3.0.60\lib\net45\Fourth.Automation.Framework.Mobile.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
@@ -244,6 +240,15 @@
     </Reference>
     <Reference Include="SeleniumExtras.PageObjects">
       <HintPath>..\packages\DotNetSeleniumExtras.PageObjects.3.11.0\lib\net45\SeleniumExtras.PageObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="Fourth.Automation.Framework.Core">
+      <HintPath>..\packages\Fourth.Automation.Framework.Core.3.0.64\lib\net45\Fourth.Automation.Framework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Fourth.Automation.Framework.Mobile">
+      <HintPath>..\packages\Fourth.Automation.Framework.Mobile.3.0.64\lib\net45\Fourth.Automation.Framework.Mobile.dll</HintPath>
+    </Reference>
+    <Reference Include="Fourth.Automation.Framework.Reporting">
+      <HintPath>..\packages\Fourth.Automation.Framework.Reporting.3.0.64\lib\net45\Fourth.Automation.Framework.Reporting.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -300,6 +305,7 @@
     <Compile Include="PageObjects\Planning\PlanningTabDays\ALaCarte.cs" />
     <Compile Include="PageObjects\Planning\PlanningTabDays\NestedRecipe.cs" />
     <Compile Include="Models\RecipeModel.cs" />
+    <Compile Include="Support\Helpers\Do.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -335,6 +341,9 @@
     <None Include="Features\Recipes.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Recipes.feature.cs</LastGenOutput>
+    </None>
+    <None Include="App.Firefox.config">
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -374,7 +383,6 @@
     <Copy Condition="Exists('$(DeployedConfig)')" SourceFiles="$(IntermediateOutputPath)$(TargetFileName).config" DestinationFiles="$(DeployedConfig)" />
   </Target>
   <Import Project="..\packages\SlowMonkey.1.1.1\build\SlowMonkey.targets" Condition="Exists('..\packages\SlowMonkey.1.1.1\build\SlowMonkey.targets')" />
-  <Import Project="..\packages\Selenium.Chrome.WebDriver.2.37\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.37\build\Selenium.Chrome.WebDriver.targets')" />
   <Import Project="..\packages\SpecFlow.2.3.2\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.3.2\build\SpecFlow.targets')" />
   <Import Project="..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -383,4 +391,6 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets'))" />
   </Target>
+  <Import Project="..\packages\Selenium.Firefox.WebDriver.0.20.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.20.0\build\Selenium.Firefox.WebDriver.targets')" />
+  <Import Project="..\packages\Selenium.Chrome.WebDriver.2.38\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.38\build\Selenium.Chrome.WebDriver.targets')" />
 </Project>

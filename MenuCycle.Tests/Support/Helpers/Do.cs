@@ -26,7 +26,7 @@ namespace MenuCycle.Tests
 
         public void JavaClick(IWebDriver driver)
         {
-            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].Cli‌​ck()", webElement);
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click();", webElement);
         }
 
         public void HighlightAndClick(IWebDriver driver)
