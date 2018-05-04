@@ -31,3 +31,10 @@ Scenario: Open Planning Screen, go to Post-Production, go back to Planning scree
     Given a Menu Cycle is selected
     When planning for Tuesday is opened
     Then the planning screen for Tuesday is open
+
+@TC29023
+Scenario: Save button is clicked without any changes applied
+    Given Menu Cycle "Meda" is selected
+    When planning for Monday is opened
+    When Save button is clicked
+    Then the user stays on the planning page

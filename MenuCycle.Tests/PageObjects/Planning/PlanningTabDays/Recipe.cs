@@ -65,12 +65,18 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             set => new SelectElement(this.priceModel).SelectByText(value);
         }
         public string TargetGP { get => this.targetGP.GetAttribute("value"); set => this.targetGP.SendKeys(value); }
+        public bool IsTargetGPPresent => targetGP.Get().ElementPresent;
+
         public string TaxPercentage
         {
             get => new SelectElement(this.taxPercentage).SelectedOption.Text;
             set => new SelectElement(this.taxPercentage).SelectByText(value);
         }
+
         public string SellPrice { get => this.sellPrice.GetAttribute("value"); set => this.sellPrice.SendKeys(value); }
+
+        // May need another check
+        public bool IsSellPriceEditable => sellPrice.Enabled;
 
         public string Revenue => this.revenue.Text;
         public string ActualGP => this.actualGP.Text;

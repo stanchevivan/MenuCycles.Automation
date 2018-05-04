@@ -18,11 +18,22 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.XPath, Using = "//div[text()='Planning']")] // Old Menu Cycles
         [FindsBy(How = How.XPath, Using = "//button[text()='Planning']")] // Engine
         IWebElement PlanningTabButton { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".footer__controls > button:last-of-type")]
+        IWebElement SaveButton { get; set; }
+        [FindsBy(How = How.TagName, Using = "body")]
+        IWebElement Body { get; set; }
 
         [FindsBy(How = How.ClassName, Using = "mealperiodLoader")]
         IWebElement Loader { get; set; }
 
         public string HeaderText => HeaderDayText.Text;
+
+        public bool IsPlanningTabOpen => PlanningTabButton.Get().HasAttribute("subheader__tab-btn-active");
+
+        public void FocusOut()
+        {
+            Body.SendKeys(Keys.Tab);
+        }
 
         public virtual void WaitForLoad()
         {
@@ -42,6 +53,11 @@ namespace MenuCycle.Tests.PageObjects
         public void OpenDailyPlanningTab()
         {
             PlanningTabButton.Click();
+        }
+
+        public void UseSavebutton()
+        {
+            SaveButton.Click();
         }
     }
 }

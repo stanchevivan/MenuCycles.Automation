@@ -36,6 +36,11 @@ namespace MenuCycle.Tests
             webElement.Click();
         }
 
+        public void FocusOut(IWebDriver driver)
+        {
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].blur(); return true", webElement);
+        }
+
         public void ClearAndSendKeys(string text)
         {
             webElement.Clear();

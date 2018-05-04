@@ -86,5 +86,18 @@ namespace MenuCycle.Tests.Steps
         public void SwitchingToWeeklyNutritionView()
         {
         }
+
+        [When(@"Save button is clicked")]
+        public void WhenSaveButtonIsClicked()
+        {
+            planningTabDays.UseSavebutton();
+            // May need to wait after cicking save.
+        }
+
+        [Then(@"the user stays on the planning page")]
+        public void ThenTheUserStaysOnThePlanningPage()
+        {
+            Assert.IsTrue(planningTabDays.IsPlanningTabOpen);
+        }
     }
 }

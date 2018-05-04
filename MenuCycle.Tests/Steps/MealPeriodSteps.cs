@@ -165,44 +165,6 @@ namespace MenuCycle.Tests.Steps
             Assert.IsTrue(buffet.Recipes.All(r => r.Colour == buffet.Colour));
         }
 
-        [Then(@"all data is populated for recipe ""(.*)"" in meal period ""(.*)""")]
-        public void ThenAllDataIsPopulatedForRecipeInMealPeriod(string recipeName, string mealPeriodName)
-        {
-            var recipe = planningTabDays.GetMealPeriod(mealPeriodName).GetRecipe(recipeName);
-
-            Assert.IsNotEmpty(recipe.PlannedQuantity);
-            Assert.IsNotEmpty(recipe.CostPerUnit);
-            Assert.IsNotEmpty(recipe.TotalCosts);
-            Assert.IsNotEmpty(recipe.Type);
-            Assert.IsNotEmpty(recipe.PriceModel);
-            Assert.IsNotEmpty(recipe.TargetGP);
-            Assert.IsNotEmpty(recipe.TaxPercentage);
-            Assert.IsNotEmpty(recipe.SellPrice);
-        }
-
-        [Then(@"verify the following recipes:")]
-        public void CheckAllDataForRecipe(Table table)
-        {
-            if (!planningTabDays.HasMealPeriods)
-            {
-                throw new System.Exception($"ERROR: No meal periods for the day ! {planningTabDays.HeaderText}");
-            }
-
-            var expectedRecipes = table.CreateSet<RecipeModel>();
-
-            var actualRecipes = new List<RecipeModel>();
-
-            expectedRecipes.ToList().ForEach(
-                recipe => 
-                actualRecipes.Add(
-                    planningTabDays
-                    .GetMealPeriod(recipe.MealPeriodName)
-                    .GetRecipe(recipe.RecipeTitle)
-                    .LoadDTO()
-            ));
-
-            table.CompareToSet(actualRecipes);
-        }
         [Then(@"number of covers for meal period ""(.*)"" is ""(.*)""")]
         public void NumberOfCoversForMealPeriodIs(string mealPeriodName, string numberOfCoves)
         {

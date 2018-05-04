@@ -81,7 +81,7 @@ testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFl
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Retrieve recipe information from the API", new string[] {
                         "TC28829"});
 #line 13
-    this.ScenarioSetup(scenarioInfo);
+this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line 14
@@ -119,6 +119,65 @@ this.FeatureBackground();
                         "-"});
 #line 17
     testRunner.Then("verify the following recipes:", ((string)(null)), table1, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("\"Target %\" field is not present and \"Sell Price\" can be edited if \"Price model\" =" +
+            " \"Fixed\"")]
+        [NUnit.Framework.CategoryAttribute("TC28830")]
+        public virtual void TargetFieldIsNotPresentAndSellPriceCanBeEditedIfPriceModelFixed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("\"Target %\" field is not present and \"Sell Price\" can be edited if \"Price model\" =" +
+                    " \"Fixed\"", new string[] {
+                        "TC28830"});
+#line 22
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 23
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 24
+    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 25
+    testRunner.And("Price model for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"Fixed" +
+                    "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+    testRunner.Then("Target % field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is not presen" +
+                    "t", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 27
+    testRunner.And("Sell Price for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is an editable fi" +
+                    "eld", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Target GP % has format: float and type: 2 decimals")]
+        [NUnit.Framework.CategoryAttribute("TC29033")]
+        public virtual void TargetGPHasFormatFloatAndType2Decimals()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Target GP % has format: float and type: 2 decimals", new string[] {
+                        "TC29033"});
+#line 30
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 31
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 32
+    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 33
+    testRunner.And("Price model for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"GP\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
+    testRunner.And("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"2" +
+                    ".333333\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
+    testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 36
+    testRunner.Then("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is automatic" +
+                    "ally changed to two decimal number \"2.33\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
