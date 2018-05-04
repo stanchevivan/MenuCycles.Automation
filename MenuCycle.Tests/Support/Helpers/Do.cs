@@ -12,7 +12,7 @@ namespace MenuCycle.Tests
 
     public class Do
     {
-        private IWebElement webElement;
+        readonly IWebElement webElement;
 
         public Do(IWebElement element)
         {

@@ -23,6 +23,9 @@ namespace MenuCycle.Tests.PageObjects
 
         public IList<DailyMealPeriod> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriod(p)).ToList();
 
+        public bool HasMealPeriods => MealPeriods.Any();
+        public IList<string> MealPeriodColours => MealPeriods.Select(x => x.Colour).ToList();
+
         public override void WaitForLoad()
         {
             Driver.WaitElementToExists(PageContent);
@@ -56,12 +59,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public DailyMealPeriod GetMealPeriod(string name)
         {
-            return MealPeriods.First(x => x.Name == name.ToUpper());
-        }
-
-        public IList<string> GetMealPeriodColours()
-        {
-            return MealPeriods.Select(x => x.Colour).ToList();
+            return MealPeriods.FirstOrDefault(x => x.Name == name.ToUpper());
         }
     }
 }

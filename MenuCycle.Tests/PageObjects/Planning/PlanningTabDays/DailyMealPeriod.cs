@@ -31,7 +31,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public string Name => MealPeriodName.Text;
         public string Colour => parent_MealPeriodWrapper.GetCssValue("background-color");
-        public bool IsExpanded => MealPeriodMain.Get().ElementPresent();
+        public bool IsExpanded => MealPeriodMain.Get().ElementPresent;
         public string NumberOfCovers => Covers.GetAttribute("value");
 
         public IList<Recipe> Recipes => this.Items.Where(p => new Recipe(p, this.Name).Type == "RECIPE").Select(p => new Recipe(p, this.Name)).ToList();

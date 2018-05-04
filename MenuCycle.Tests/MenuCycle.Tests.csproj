@@ -242,13 +242,16 @@
       <HintPath>..\packages\DotNetSeleniumExtras.PageObjects.3.11.0\lib\net45\SeleniumExtras.PageObjects.dll</HintPath>
     </Reference>
     <Reference Include="Fourth.Automation.Framework.Core">
-      <HintPath>..\packages\Fourth.Automation.Framework.Core.3.0.64\lib\net45\Fourth.Automation.Framework.Core.dll</HintPath>
+      <HintPath>..\packages\Fourth.Automation.Framework.Core.3.0.69\lib\net45\Fourth.Automation.Framework.Core.dll</HintPath>
     </Reference>
     <Reference Include="Fourth.Automation.Framework.Mobile">
-      <HintPath>..\packages\Fourth.Automation.Framework.Mobile.3.0.64\lib\net45\Fourth.Automation.Framework.Mobile.dll</HintPath>
+      <HintPath>..\packages\Fourth.Automation.Framework.Mobile.3.0.69\lib\net45\Fourth.Automation.Framework.Mobile.dll</HintPath>
     </Reference>
     <Reference Include="Fourth.Automation.Framework.Reporting">
-      <HintPath>..\packages\Fourth.Automation.Framework.Reporting.3.0.64\lib\net45\Fourth.Automation.Framework.Reporting.dll</HintPath>
+      <HintPath>..\packages\Fourth.Automation.Framework.Reporting.3.0.69\lib\net45\Fourth.Automation.Framework.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="FourthApp">
+      <HintPath>..\packages\FourthApp.Pages.1.0.1\lib\net46\FourthApp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -272,8 +275,6 @@
     <Compile Include="PageObjects\CalendarDays\WeekDays.cs" />
     <Compile Include="PageObjects\Dashboard\MenuCycleItem.cs" />
     <Compile Include="PageObjects\Dashboard\MenuCyclesDashboard.cs" />
-    <Compile Include="PageObjects\FourthEngage\EngageDashboard.cs" />
-    <Compile Include="PageObjects\FourthEngage\EngageLogin.cs" />
     <Compile Include="PageObjects\Recipe\RecipeItem.cs" />
     <Compile Include="PageObjects\Recipe\RecipeSearch.cs" />
     <Compile Include="Steps\FourthEngageSteps.cs" />

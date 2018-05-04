@@ -1,5 +1,4 @@
 ﻿using Fourth.Automation.Framework.Extension;
-using Fourth.Automation.Framework.Page;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -23,6 +22,8 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "mealperiodLoader")]
         IWebElement Loader { get; set; }
 
+        public string HeaderText => HeaderDayText.Text;
+
         public virtual void WaitForLoad()
         {
             new PlanningTabDays(Driver).WaitForLoad();
@@ -31,11 +32,6 @@ namespace MenuCycle.Tests.PageObjects
         public virtual void WaitForLoader()
         {
             Driver.WaitElementToDisappear(Loader);
-        }
-
-        public string GetHeaderText()
-        {
-            return HeaderDayText.Text;
         }
 
         public void OpenDailyNutritionTab()

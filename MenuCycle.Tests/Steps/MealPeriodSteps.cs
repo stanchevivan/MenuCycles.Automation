@@ -81,7 +81,7 @@ namespace MenuCycle.Tests.Steps
         [Then(@"Meal Period colours match the calendar view colours")]
         public void ThenMealPeriodColoursMatchTheCalendarViewColours()
         {
-            Assert.That(planningTabDays.GetMealPeriodColours(), Is.EqualTo(scenarioContext.Get<IList<string>>("MealPeriodColours")));
+            Assert.That(planningTabDays.MealPeriodColours, Is.EqualTo(scenarioContext.Get<IList<string>>("MealPeriodColours")));
         }
 
         /// <summary>
@@ -183,15 +183,23 @@ namespace MenuCycle.Tests.Steps
         [Then(@"verify the following recipes:")]
         public void CheckAllDataForRecipe(Table table)
         {
+            if (!planningTabDays.HasMealPeriods)
+            {
+                throw new System.Exception($"ERROR: No meal periods for the day ! {planningTabDays.HeaderText}");
+            }
+
             var expectedRecipes = table.CreateSet<RecipeModel>();
 
             var actualRecipes = new List<RecipeModel>();
 
-            expectedRecipes.ToList().ForEach(recipe => actualRecipes.Add(
-                new RecipeModel(planningTabDays
-                                .GetMealPeriod(recipe.MealPeriodName)
-                                .GetRecipe(recipe.RecipeTitle)
-            )));
+            expectedRecipes.ToList().ForEach(
+                recipe => 
+                actualRecipes.Add(
+                    planningTabDays
+                    .GetMealPeriod(recipe.MealPeriodName)
+                    .GetRecipe(recipe.RecipeTitle)
+                    .LoadDTO()
+            ));
 
             table.CompareToSet(actualRecipes);
         }

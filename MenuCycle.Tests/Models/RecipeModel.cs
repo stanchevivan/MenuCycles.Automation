@@ -1,29 +1,7 @@
-﻿using MenuCycle.Tests.PageObjects.Planning.PlanningTabDays;
-
-namespace MenuCycle.Tests.Models
+﻿namespace MenuCycle.Tests.Models
 {
     public class RecipeModel
     {
-        public RecipeModel()
-        {
-        }
-
-        public RecipeModel(Recipe recipe)
-        {
-            MealPeriodName = recipe.MealPeriodName;
-            RecipeTitle = recipe.Title;
-            PlannedQuantity = recipe.PlannedQuantity;
-            CostPerUnit = recipe.CostPerUnit;
-            TotalCosts = recipe.TotalCosts;
-            Type = recipe.Type;
-            PriceModel = recipe.PriceModel;
-            TargetGP = recipe.TargetGP;
-            TaxPercentage = recipe.TaxPercentage;
-            SellPrice = recipe.SellPrice;
-            Revenue = recipe.Revenue;
-            ActualGP = recipe.ActualGP;
-        }
-
         public string MealPeriodName { get; set; }
         public string RecipeTitle { get; set; }
         public string PlannedQuantity { get; set;}

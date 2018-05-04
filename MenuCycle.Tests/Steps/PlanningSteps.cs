@@ -35,7 +35,7 @@ namespace MenuCycle.Tests.Steps
         [Then(@"the planning screen for (.*) is open")]
         public void ThenThePlanningScreenForADayIsOpened(string weekDay)
         {
-            Assert.That(planningView.GetHeaderText(), Is.EqualTo(weekDay.ToUpper()));
+            Assert.That(planningView.HeaderText, Is.EqualTo(weekDay.ToUpper()));
         }
 
         [Then(@"planning screen engine is loaded")]

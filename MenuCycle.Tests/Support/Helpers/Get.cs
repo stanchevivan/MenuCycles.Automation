@@ -21,48 +21,35 @@ namespace MenuCycle.Tests
             webElement = element;
         }
 
-        public List<string> Classes()
+        public List<string> Classes => webElement.GetAttribute("class").Split(' ').ToList();
+        public string Text => webElement.Text;
+        public bool ElementDisplayed => webElement.Displayed;
+        public bool ElementEnabled => webElement.Enabled;
+        public bool ElementPresent
         {
-            return webElement.GetAttribute("class").Split(' ').ToList();
+            get
+            {
+                try
+                {
+                    var t = webElement.TagName;
+                }
+                catch (NoSuchElementException)
+                {
+                    return false;
+                }
+
+                return true;
+            }
         }
 
         public bool HasClass(string className)
         {
-            return Classes().Contains(className);
+            return Classes.Contains(className);
         }
 
         public bool HasAttribute(string attributeName)
         {
             return string.IsNullOrEmpty(webElement.GetAttribute(attributeName));
-        }
-
-        public string Text()
-        {
-            return webElement.Text;
-        }
-
-        public bool ElementPresent()
-        {
-            try
-            {
-                var t = webElement.TagName;
-            }
-            catch (OpenQA.Selenium.NoSuchElementException)
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        public bool ElementDisplayed()
-        {
-            return webElement.Displayed;
-        }
-
-        public bool ElementEnabled()
-        {
-            return webElement.Enabled;
         }
     }
 }

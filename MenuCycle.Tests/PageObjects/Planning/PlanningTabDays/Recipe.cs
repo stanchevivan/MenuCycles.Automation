@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using MenuCycle.Tests.Models;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 
@@ -53,15 +54,19 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public string TotalCosts => this.totalCosts.Text.Replace("-", string.Empty);
 
-        public string TariffType { 
+        public string TariffType
+        {
             get => new SelectElement(this.tariffType).SelectedOption.Text;
-            set => new SelectElement(this.tariffType).SelectByText(value); }
-        public string PriceModel {
+            set => new SelectElement(this.tariffType).SelectByText(value);
+        }
+        public string PriceModel
+        {
             get => new SelectElement(this.priceModel).SelectedOption.Text;
             set => new SelectElement(this.priceModel).SelectByText(value);
         }
         public string TargetGP { get => this.targetGP.GetAttribute("value"); set => this.targetGP.SendKeys(value); }
-        public string TaxPercentage {
+        public string TaxPercentage
+        {
             get => new SelectElement(this.taxPercentage).SelectedOption.Text;
             set => new SelectElement(this.taxPercentage).SelectByText(value);
         }
@@ -69,6 +74,25 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public string Revenue => this.revenue.Text;
         public string ActualGP => this.actualGP.Text;
+
+        public RecipeModel LoadDTO()
+        {
+            return new RecipeModel
+            {
+                MealPeriodName = this.MealPeriodName,
+                RecipeTitle = this.Title,
+                PlannedQuantity = this.PlannedQuantity,
+                CostPerUnit = this.CostPerUnit,
+                TotalCosts = this.TotalCosts,
+                Type = this.Type,
+                PriceModel = this.PriceModel,
+                TargetGP = this.TargetGP,
+                TaxPercentage = this.TaxPercentage,
+                SellPrice = this.SellPrice,
+                Revenue = this.Revenue,
+                ActualGP = this.ActualGP
+            };
+        }
 
         public void AddType()
         {

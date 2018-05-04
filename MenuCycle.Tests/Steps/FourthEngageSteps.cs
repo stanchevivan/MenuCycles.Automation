@@ -1,4 +1,5 @@
-﻿using MenuCycle.Tests.PageObjects;
+﻿using System;
+using System.Configuration;
 using TechTalk.SpecFlow;
 
 namespace MenuCycle.Tests.Steps
@@ -6,26 +7,25 @@ namespace MenuCycle.Tests.Steps
     [Binding]
     public class FourthEngageSteps
     {
-        EngageLogin engageLogin;
-        EngageDashboard engageDashboard;
+        FourthApp.Pages.Login fourthAppLogin;
+        FourthApp.Pages.MainPage fourthAppMain;
 
-        public FourthEngageSteps(EngageLogin engageLogin, EngageDashboard engageDashboard)
+        public FourthEngageSteps(FourthApp.Pages.Login fourthAppLogin, FourthApp.Pages.MainPage fourthAppMain)
         {
-            this.engageLogin = engageLogin;
-            this.engageDashboard = engageDashboard;
+            this.fourthAppLogin = fourthAppLogin;
+            this.fourthAppMain = fourthAppMain;
         }
 
         [Given(@"Fourth Engage Dashboard is open")]
         public void GivenFourthEngageDashboarIsOpen()
         {
-            engageLogin.OpenLoginPage();
-            engageLogin.PerformLogin();
+            fourthAppLogin.PerformLogin(ConfigurationManager.AppSettings["Engage.User"], ConfigurationManager.AppSettings["Engage.Password"], new Uri(ConfigurationManager.AppSettings["Engage.Url"]));
         }
 
         [Given(@"'(.*)' application is selected")]
         public void GivenApplicationIsSelected(string application)
         {
-            engageDashboard.SelectApplication(application);
+            fourthAppMain.OpenApp(application);
         }
 
         [Given(@"'(.*)' application is open")]
