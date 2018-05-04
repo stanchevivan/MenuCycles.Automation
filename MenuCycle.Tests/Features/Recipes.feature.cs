@@ -176,8 +176,7 @@ this.FeatureBackground();
 #line 35
     testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 36
-    testRunner.Then("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is automatic" +
-                    "ally changed to two decimal number \"2.33\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is \"2.33\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

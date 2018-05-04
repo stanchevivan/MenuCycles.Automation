@@ -117,7 +117,7 @@ namespace MenuCycle.Tests.Steps
             planningTabDays.FocusOut();
         }
 
-        [Then(@"TargetGP% for recipe named ""(.*)"" in meal period ""(.*)"" is automatically changed to two decimal number ""(.*)""")]
+        [Then(@"TargetGP% for recipe named ""(.*)"" in meal period ""(.*)"" is ""(.*)""")]
         public void ThenTargetGPIsAutomaticallyChangedToTwoDecimalNumber(string recipeName, string mealPeriod, string value)
         {
             Assert.That(planningTabDays

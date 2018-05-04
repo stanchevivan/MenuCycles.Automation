@@ -33,4 +33,4 @@ Scenario: Target GP % has format: float and type: 2 decimals
     And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "GP"
     And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2.333333"
     And the user focus out
-    Then TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is automatically changed to two decimal number "2.33"
+    Then TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is "2.33"
