@@ -117,7 +117,7 @@ namespace MenuCycle.Tests.Steps
             planningTabDays.FocusOut();
         }
 
-        [Then(@"TargetGP% for recipe named ""(.*)"" in meal period ""(.*)"" is ""(.*)""")]
+        [Then(@"TargetGP% for recipe named ""(.*)"" in meal period ""(.*)"" is equal to ""(.*)""")]
         public void ThenTargetGPIsAutomaticallyChangedToTwoDecimalNumber(string recipeName, string mealPeriod, string value)
         {
             Assert.That(planningTabDays
@@ -125,6 +125,36 @@ namespace MenuCycle.Tests.Steps
                         .GetRecipe(recipeName)
                         .TargetGP,
                         Is.EqualTo(value));
+        }
+
+        [Given(@"SellPrice for recipe named ""(.*)"" in meal period ""(.*)"" is set to ""(.*)""")]
+        [When(@"SellPrice for recipe named ""(.*)"" in meal period ""(.*)"" is set to ""(.*)""")]
+        public void WhenSellPriceForRecipeNamedInMealPeriodIsSetTo(string recipeName, string mealPeriod, string value)
+        {
+            planningTabDays
+                .GetMealPeriod(mealPeriod)
+                .GetRecipe(recipeName)
+                .SellPrice = value;
+        }
+
+        [Then(@"SellPrice for recipe named ""(.*)"" in meal period ""(.*)"" is equal to ""(.*)""")]
+        public void ThenSellPriceForRecipeNamedInMealPeriodIs(string recipeName, string mealPeriod, string value)
+        {
+            Assert.That(planningTabDays
+                        .GetMealPeriod(mealPeriod)
+                        .GetRecipe(recipeName)
+                        .SellPrice, 
+                        Is.EqualTo(value));
+        }
+
+        [Then(@"CostPerUnit for recipe named ""(.*)"" in meal period ""(.*)"" is equal to ""(.*)""")]
+        public void ThenCostPerUnitForRecipeNamedInMealPeriodIs(string recipeName, string mealPeriod, string price)
+        {
+            Assert.That(planningTabDays
+                        .GetMealPeriod(mealPeriod)
+                        .GetRecipe(recipeName)
+                        .CostPerUnit,
+                        Is.EqualTo(price));
         }
     }
 }

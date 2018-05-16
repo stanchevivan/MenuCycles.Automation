@@ -77,4 +77,4 @@ Scenario: Display A la carte menus, added to a meal period in the planning scree
 Scenario: Retrieve Number of covers for meal period from the API
     Given Menu Cycle "Test Reports" is selected
     When planning for Monday is opened
-    Then number of covers for meal period "Dinner" is "11"
+    Then number of covers for meal period "Dinner" is equal to "10"

@@ -97,15 +97,15 @@ this.FeatureBackground();
 #line 13
     testRunner.Given("a Menu Cycle is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 14
-    testRunner.And("a Meal Period for MONDAY is added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a Meal Period for MONDAY is added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
     testRunner.When("the first recipe is searched by name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 16
-    testRunner.And("recipe is added to a meal period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("recipe is added to a meal period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
     testRunner.Then("the message \'Meal Period Saved successfully\' is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 18
-    testRunner.And("recipe is displayed under MONDAY column inside the correct Meal Period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("recipe is displayed under MONDAY column inside the correct Meal Period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

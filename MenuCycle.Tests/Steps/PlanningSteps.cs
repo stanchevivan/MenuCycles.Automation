@@ -1,4 +1,5 @@
-﻿using MenuCycle.Tests.PageObjects;
+﻿using System;
+using MenuCycle.Tests.PageObjects;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
@@ -87,17 +88,100 @@ namespace MenuCycle.Tests.Steps
         {
         }
 
+        [Given(@"Save button is clicked")]
         [When(@"Save button is clicked")]
         public void WhenSaveButtonIsClicked()
         {
             planningTabDays.UseSavebutton();
-            // May need to wait after cicking save.
+            notification.WaitToDisappear();
         }
 
         [Then(@"the user stays on the planning page")]
         public void ThenTheUserStaysOnThePlanningPage()
         {
             Assert.IsTrue(planningTabDays.IsPlanningTabOpen);
+        }
+
+        [Given(@"quantity for recipe named ""(.*)"" in meal period ""(.*)"" is set to random number")]
+        [When(@"quantity for recipe named ""(.*)"" in meal period ""(.*)"" is set to random number")]
+        public void WhenQuantityForRecipeNamedInMealPeriodIsSetToRandomNumber(string recipeName, string mealPeriod)
+        {
+            Random rnd = new Random();
+            int randomNumber = rnd.Next(1, 101);
+            string recipeQuantity = randomNumber.ToString();
+
+            scenarioContext.Add("RecipeQuantity", recipeQuantity);
+
+            planningTabDays
+                .GetMealPeriod(mealPeriod)
+                .GetRecipe(recipeName)
+                .PlannedQuantity = recipeQuantity;
+        }
+
+        [Then(@"quantity for recipe named ""(.*)"" in meal period ""(.*)"" is equal to the previous inputted number")]
+        public void ThenQuantityForRecipeNamedInMealPeriodIsEqualTo(string recipeName, string mealPeriod)
+        {
+            Assert.That(planningTabDays
+                        .GetMealPeriod(mealPeriod)
+                        .GetRecipe(recipeName)
+                        .PlannedQuantity,
+                        Is.EqualTo(scenarioContext.Get<string>("RecipeQuantity")));
+        }
+
+        [Given(@"Cancel button is clicked")]
+        [When(@"Cancel button is clicked")]
+        public void WhenCancelButtonIsClicked()
+        {
+            planningTabDays.UseCancelButton();
+        }
+
+        [Given(@"Cross button is clicked")]
+        [When(@"Cross button is clicked")]
+        public void WhenCrossButtonIsClicked()
+        {
+            planningTabDays.UseCrossButton();
+        }
+
+        [When(@"Number of covers value for meal period ""(.*)"" is set to random number")]
+        public void WhenNumberOfCoversValueForMealPeriodIsSetTo(string mealPeriod)
+        {
+            Random rnd = new Random();
+            int randomNumber = rnd.Next(1, 101);
+            string coversValue = randomNumber.ToString();
+
+            scenarioContext.Add("NumberOfCoversValue", coversValue);
+
+            planningTabDays
+                .GetMealPeriod(mealPeriod)
+                .NumberOfCovers = coversValue;
+        }
+
+        [Then(@"number of covers for meal period ""(.*)"" is equal to the previous inputted number")]
+        public void ThenQuantityForRecipeNamedNumberOfCoversFoMealPeriodIsEqualToThePreviousInputedNumber(string mealPeriod)
+        {
+            Assert.That(planningTabDays
+                        .GetMealPeriod(mealPeriod)
+                        .NumberOfCovers, 
+                        Is.EqualTo(scenarioContext.Get<string>("NumberOfCoversValue")));
+        }
+
+        [When(@"quantity for recipe named ""(.*)"" in meal period ""(.*)"" is set to ""(.*)""")]
+        public void WhenQuantityForRecipeNamedInMealPeriodIsSetTo(string recipeName, string mealPeriod, string value)
+        {
+            planningTabDays
+                .GetMealPeriod(mealPeriod)
+                .GetRecipe(recipeName)
+                .PlannedQuantity = value;
+        }
+
+        [When(@"Save button is clicked and the message '(.*)' is displayed")]
+        [Then(@"Save button is clicked and the message '(.*)' is displayed")]
+        public void WhenSaveButtonIsClickedAndTheMessageIsDisplayed(string message)
+        {
+            planningView.UseSavebutton();
+            notification.ValidateToastMessage(message);
+            notification.CloseNotification();
+            notification.WaitToDisappear();
         }
     }
 }

@@ -22,9 +22,16 @@ namespace MenuCycle.Tests.PageObjects
         IWebElement SaveButton { get; set; }
         [FindsBy(How = How.TagName, Using = "body")]
         IWebElement Body { get; set; }
-
+        [FindsBy(How = How.ClassName, Using = "mainheader__close-icon")]
+        IWebElement HeaderCrossButton { get; set; }
         [FindsBy(How = How.ClassName, Using = "mealperiodLoader")]
         IWebElement Loader { get; set; }
+        [FindsBy(How = How.ClassName, Using = "daily-week-add-group")]
+        IWebElement DailyWeekAddGroup { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".footer__controls > button:first-of-type")]
+        IWebElement CancelButton { get; set; }
+        [FindsBy(How = How.CssSelector, Using = "div[id='toast-container'] div[class='toast-message']")]
+        public IWebElement ToastMessage { get; set; }
 
         public string HeaderText => HeaderDayText.Text;
 
@@ -58,6 +65,18 @@ namespace MenuCycle.Tests.PageObjects
         public void UseSavebutton()
         {
             SaveButton.Click();
+        }
+
+        public void UseCrossButton()
+        {
+            HeaderCrossButton.Click();
+            Driver.WaitElementToExists(DailyWeekAddGroup);
+        }
+
+        public void UseCancelButton()
+        {
+            CancelButton.Click();
+            Driver.WaitElementToExists(DailyWeekAddGroup);
         }
     }
 }

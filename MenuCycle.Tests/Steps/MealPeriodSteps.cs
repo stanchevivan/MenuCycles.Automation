@@ -165,12 +165,11 @@ namespace MenuCycle.Tests.Steps
             Assert.IsTrue(buffet.Recipes.All(r => r.Colour == buffet.Colour));
         }
 
-        [Then(@"number of covers for meal period ""(.*)"" is ""(.*)""")]
-        public void NumberOfCoversForMealPeriodIs(string mealPeriodName, string numberOfCoves)
+        [Then(@"number of covers for meal period ""(.*)"" is equal to ""(.*)""")]
+        public void NumberOfCoversForMealPeriodIs(string mealPeriodName, string numberOfCovers)
         {
             var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
-
-            Assert.That(mealPeriod.NumberOfCovers, Is.EqualTo(numberOfCoves));
+            Assert.That(mealPeriod.NumberOfCovers, Is.EqualTo(numberOfCovers));
         }
     }
 }

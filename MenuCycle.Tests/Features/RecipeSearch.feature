@@ -11,8 +11,8 @@ And a central user is selected
 
 Scenario: Add Recipe Searching By Name
     Given a Menu Cycle is selected
-    And a Meal Period for MONDAY is added
+        And a Meal Period for MONDAY is added
     When the first recipe is searched by name 
-    And recipe is added to a meal period
+        And recipe is added to a meal period
     Then the message 'Meal Period Saved successfully' is displayed
-    And recipe is displayed under MONDAY column inside the correct Meal Period 
+        And recipe is displayed under MONDAY column inside the correct Meal Period 

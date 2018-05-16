@@ -308,6 +308,9 @@
     <Compile Include="Models\RecipeModel.cs" />
     <Compile Include="Support\Helpers\Do.cs" />
     <Compile Include="Steps\RecipeSteps.cs" />
+    <Compile Include="Features\RecipeSearch.feature.cs">
+      <DependentUpon>RecipeSearch.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

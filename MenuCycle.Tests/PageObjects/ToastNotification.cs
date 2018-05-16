@@ -16,13 +16,25 @@ namespace MenuCycle.Tests.PageObjects
         }
 
         [FindsBy(How = How.CssSelector, Using = "div[id='toast-container'] div[class='toast-message']")]
-        public IWebElement Message { get; set; }
+        private IWebElement Message { get; set; }
+        [FindsBy(How = How.ClassName, Using = "toast-close-button")]
+        private IWebElement CloseButton { get; set; }
 
         public void ValidateToastMessage(string expected)
         {
             Driver.WaitElementToExists(Message);
             Assert.AreEqual(expected, Message.Text);
             Artefacts.TakeScreenshot();
+        }
+
+        public void WaitToDisappear()
+        {
+            Driver.WaitElementToDisappear(Message);
+        }
+
+        public void CloseNotification()
+        {
+            CloseButton.Click();
         }
     }
 }

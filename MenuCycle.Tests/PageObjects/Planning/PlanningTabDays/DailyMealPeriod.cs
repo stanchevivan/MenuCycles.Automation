@@ -32,7 +32,7 @@ namespace MenuCycle.Tests.PageObjects
         public string Name => MealPeriodName.Text;
         public string Colour => parent_MealPeriodWrapper.GetCssValue("background-color");
         public bool IsExpanded => MealPeriodMain.Get().ElementPresent;
-        public string NumberOfCovers => Covers.GetAttribute("value");
+        public string NumberOfCovers { get => Covers.GetAttribute("value"); set => Covers.Do().ClearAndSendKeys(value); }
 
         public IList<Recipe> Recipes => this.Items.Where(p => new Recipe(p, this.Name).Type == "RECIPE").Select(p => new Recipe(p, this.Name)).ToList();
         public IList<Buffet> Buffets => this.Items.Where(p => new Buffet(p, this.Name).Type == "BUFFET").Select(p => new Buffet(p, this.Name)).ToList();

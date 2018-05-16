@@ -52,6 +52,9 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".daily-view-screen > div")]
         IList<IWebElement> DaysColumnContainer { get; set; }
 
+        [FindsBy(How = How.ClassName, Using = "modal-backdrop")]
+        IWebElement Backdrop { get; set; }
+
         public List<WeekDays> CalendarHeaders => this.CalendarHeaderContainer.Select(p => new WeekDays(p)).ToList();
 
         public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p)).ToList();
@@ -97,6 +100,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public void OpenDailyPlanningForDay(string weekDay)
         {
+            Driver.WaitElementToDisappear(Backdrop);
             var dayLink = DaysLinks.First(x => x.Text.Contains(weekDay.ToUpper()));
             dayLink.Click();
             var indexOfDay = DaysLinks.IndexOf(dayLink);

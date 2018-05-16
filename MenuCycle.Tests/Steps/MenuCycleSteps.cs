@@ -69,6 +69,8 @@ namespace MenuCycle.Tests.Steps
             menuCycleCalendarView.WaitPageLoad();
         }
 
+        [Given(@"the message '(.*)' is displayed")]
+        [When(@"the message '(.*)' is displayed")]
         [Then(@"the message '(.*)' is displayed")]
         public void ThenAMessageIsDisplayed(string message)
         {
@@ -82,6 +84,7 @@ namespace MenuCycle.Tests.Steps
             menuCycleCalendarView.ValidateWindow(menuCycle.Name);
         }
 
+        [Given(@"planning for (.*) is opened")]
         [When(@"planning for (.*) is opened")]
         public void WhenPlanningForADayIsOpened(string weekDay)
         {
