@@ -1,26 +1,22 @@
-﻿using TechTalk.SpecFlow;
-using Fourth.Automation.Framework.Core;
-using Fourth.Automation.Framework.Reporting;
-using BoDi;
-using OpenQA.Selenium;
-using MenuCycle.Data.Services;
+﻿using Fourth.Automation.Framework.Core;
 using Fourth.Automation.Framework.Mobile.Resolvers;
+using OpenQA.Selenium;
+using TechTalk.SpecFlow;
 
 namespace MenuCycle.Tests.Support
 {
     [Binding]
     public sealed class Hooks
     {
-        readonly IObjectContainer objectContainer;
         IWebDriver driver;
         ScenarioContext scenarioContext;
-        public Hooks(IObjectContainer container, ScenarioContext scenarioContext)
+        public Hooks(IWebDriver driver, ScenarioContext scenarioContext)
         {
-            this.objectContainer = container;
-            this.objectContainer.RegisterTypeAs<Artefacts, IArtefacts>();
+            this.driver = driver;
+
             this.scenarioContext = scenarioContext;
-            this.objectContainer.RegisterFactoryAs<DefaultValues>(d => 
-                d.Resolve<DefaultValuesService>().GetDefaults(36, 1, "SodexoUp"));
+            // this.objectContainer.RegisterFactoryAs(d => 
+            //    d.Resolve<DefaultValuesService>().GetDefaults(36, 1, "SodexoUp"));
         }
 
 
@@ -34,8 +30,6 @@ namespace MenuCycle.Tests.Support
         [BeforeScenario]
         public void BeforeScenario()
         {
-            driver = DriverFactory.Create();
-            objectContainer.RegisterInstanceAs<IWebDriver>(driver);
         }
 
         [AfterScenario]
