@@ -1,0 +1,171 @@
+#!groovy
+properties([
+	parameters([
+		string(name: 'Include_Tags', defaultValue: '', description: 'The test tags to run. Empty if all. This only applies to the master execution. Smoke tests are dealt separately'),
+		string(name: 'Exclude_Tags', defaultValue: '', description: 'The test tags to exclude. This only applies to the master execution. Smoke tests are dealt separately'),
+	])
+])
+
+releaseTag = ''
+commonReleaseBuildParams = ''
+solutionPath = ''
+msbuild = ''
+
+//List of App.config mobile transformations to be run by Jenkins
+//appsList = ['AndroidApp', 'iOsApp']
+
+//List of App.config browser transformations to be run by Jenkins
+browsersList = ['Chrome']
+
+solutionName = "Fourth.MenuCycles.Automation.sln"
+projectPath = "MenuCycles.Tests"
+projectName = "MenuCycles.Tests.csproj"
+
+node('IE1UIBLD03') {
+	stage ('Get Source Code') {
+
+		checkout([
+		$class: 'GitSCM',
+		branches: scm.branches,
+		extensions: scm.extensions + [[$class: 'CleanCheckout']],
+		userRemoteConfigs: scm.userRemoteConfigs
+		])
+
+		echo "Retrieved $env.BRANCH_NAME in workspace: $env.WORKSPACE"
+	}
+
+	commonReleaseBuildParams = "/p:CI_BuildNum=${env.BUILD_ID};CI_BuildId=${releaseTag}"
+	solutionPath = "$env.WORKSPACE/$solutionName"
+	msbuild = tool 'v15'
+
+	stage('Initialize') {
+	 script { currentBuild.description = "Including: ${Include_Tags} Excluding: ${Exclude_Tags}" }
+
+		echo 'Restore nuget packages for solution'
+		bat "\"$env.WORKSPACE/Tools/nuget.exe\" restore \"$solutionPath\" -configFile Tools/NugetSources.Config"
+
+		echo 'Build Release Configuration'
+		bat "\"$msbuild\" ./$projectPath/$projectName /p:OutDir=\"$env.WORKSPACE\" $commonReleaseBuildParams /p:Configuration=Release"
+	}
+
+	if (onReleaseBranch()) {
+        try {
+            stage ('Browser Tests') {
+                //Builds all configurations in order to generate a test dll
+                buildConfigurations(browsersList)
+
+                //Run the tests specified in the text file using nunit
+                runTestsByFile("$projectPath/BrowserTests.txt")
+            }
+        } catch (e) {
+            echo e.message
+            currentBuild.result = "FAILED"
+        }
+
+         // try {
+		// 	stage ('App Tests') {
+
+        //         //Builds all configurations in order to generate a test dll
+        //         buildConfigurations(appsList)
+
+        //         //Run the tests specified in the text file using nunit
+        //         runTestsByFile('MyAppConfigurationsToRun.txt')
+		// 	}
+		// } catch (e) {
+		// 	echo e.message
+		// 	currentBuild.result = "FAILED"
+		// }
+    }
+    else {
+        try {
+            stage ('Browser Smoke Tests') {
+                buildAndRunSmokeTests("Chrome")
+            }
+        } catch (e) {
+            echo e.message
+            currentBuild.result = "FAILED"
+        }
+    }
+
+
+    try {
+        stage('Test Results Archive') {
+            archiveArtifacts artifacts: '*TestResults.xml'
+            nunit testResultsPattern: '*TestResults.xml'
+            cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: "$projectPath/bin"
+        }
+    } catch (e) {
+        echo e
+        currentBuild.result = "FAILED"
+    }
+}
+
+def onReleaseBranch() {
+    return env.BRANCH_NAME == 'develop'
+}
+
+def buildConfigurations(list){
+    for (int i = 0; i < list.size(); ++i) {
+        echo "Building ${list[i]}"
+        bat "\"$msbuild\" \"${solutionPath}\" /t:Rebuild $commonReleaseBuildParams /p:Configuration=\"${list[i]}\""
+    }
+}
+
+def runTestsByFile(fileName)
+{
+    if (Include_Tags == '' && Exclude_Tags == ''){
+        print "Not tag to include or exclude. Running all tests"
+        bat "nunit @${fileName}"
+    }
+    else
+    {
+
+			def include = ''
+			def includeTags = Include_Tags.split(',')
+			def firstTag = true
+
+			if (Include_Tags != '')
+			{
+				includeTags.each
+				{
+					def and = firstTag ? '' : " && "
+					include += "${and}cat == ${it}"
+					firstTag = false
+				}
+			}
+
+			def exclude = ''
+			def excludeTags = Exclude_Tags.split(',')
+		 	firstTag = true
+
+			if (Exclude_Tags != '')
+			{
+				excludeTags.each
+				{
+					def and = firstTag ? '' : " && "
+					exclude += "${and}cat != ${it}"
+					firstTag = false
+				}
+			}
+
+			//def includeTags = Include_Tags != '' ? " cat == ${Include_Tags}" : ''
+			//def excludeTags = Exclude_Tags != '' ? " cat != ${Exclude_Tags}" : ''
+			def and = Include_Tags != '' && Exclude_Tags != '' ? " && " : ''
+
+      print "Including tags:  ${Include_Tags}"
+			print "Excluding tags:  ${Exclude_Tags}"
+
+			// --result:${resultsPath};format=nunit2
+      bat "nunit @${fileName} -where \"${include}${and}${exclude}\""
+			//bat "nunit @${fileName} -where \"cat != ${Exclude_Tags}\""
+    }
+}
+
+def buildAndRunSmokeTests(configurationName) {
+	bat "\"$msbuild\" \"${solutionPath}\" /t:Rebuild $commonReleaseBuildParams /p:Configuration=\"${configurationName}\""
+
+	def dllPath = "$projectPath/bin/${configurationName}/MenuCycles.Tests.dll"
+	def resultsPath = "${configurationName}TestResults.xml"
+
+    bat "nunit ${dllPath} -where \"cat == Smoke && cat != EMEA && cat != NA\""
+}
