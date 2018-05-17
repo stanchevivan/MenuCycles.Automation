@@ -31,20 +31,20 @@ Scenario: Display correct meal period name
 Scenario: Collapse single meal period
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
-    And Meal Period "Lunch" is collapsed
+        And Meal Period "Lunch" is collapsed
     Then main data for Meal Period "Lunch" is collapsed
 
 @TC28548
 Scenario: Expand single meal period
     Given Menu Cycle "Meda" is selected
     When planning for Tuesday is opened
-    And Meal Period "Lunch" is expanded
+        And Meal Period "Lunch" is expanded
     Then main data for Meal Period "Lunch" is expanded
 
 @TC28546
 Scenario: The colour of every meal period in the Planning screen is the same as in the calendar page
     Given Menu Cycle "Meda" is selected
-    And Meal Period colours for "Tuesday" are saved
+        And Meal Period colours for "Tuesday" are saved
     When planning for Tuesday is opened
     Then Meal Period colours match the calendar view colours
 
@@ -52,26 +52,26 @@ Scenario: The colour of every meal period in the Planning screen is the same as 
 Scenario: Display recipes, added to a meal period in the planning screen
     Given Menu Cycle "Meda" is selected
     When planning for Tuesday is opened
-    And Meal Period "LUNCH" is expanded
+        And Meal Period "LUNCH" is expanded
     Then recipe named "724Gourmet Beef Burger 6oz" is present for meal period "LUNCH"
-    And recipe colour for "724Gourmet Beef Burger 6oz" match the colour for meal period "LUNCH"
+        And recipe colour for "724Gourmet Beef Burger 6oz" match the colour for meal period "LUNCH"
 
 @TC28801
 Scenario: Display Buffet menus, added to a meal period in the planning screen
     Given Menu Cycle "Meda" is selected
     When planning for Tuesday is opened
-    And Meal Period "DANGELO" is expanded
+        And Meal Period "DANGELO" is expanded
     Then buffet named "Aneliya Buffet" is present for meal period "DANGELO"
-    And buffet colour for "Aneliya Buffet" match the colour for meal period "DANGELO"
-    And in meal period "DANGELO" all recipe colours inside "Aneliya Buffet" match the buffet colour
+        And buffet colour for "Aneliya Buffet" match the colour for meal period "DANGELO"
+        And in meal period "DANGELO" all recipe colours inside "Aneliya Buffet" match the buffet colour
 
 @TC28802
 Scenario: Display A la carte menus, added to a meal period in the planning screen
     Given Menu Cycle "Meda" is selected
     When planning for Wednesday is opened
     Then a la carte named "Holiday A La Carte" is present for meal period "LANCE"
-    And a la carte colour for "Holiday A La Carte" match the colour for meal period "LANCE"
-    And in meal period "LANCE" all recipe colours inside "Holiday A La Carte" match the A La Carte colour
+        And a la carte colour for "Holiday A La Carte" match the colour for meal period "LANCE"
+        And in meal period "LANCE" all recipe colours inside "Holiday A La Carte" match the A La Carte colour
 
 @TC28897
 Scenario: Retrieve Number of covers for meal period from the API

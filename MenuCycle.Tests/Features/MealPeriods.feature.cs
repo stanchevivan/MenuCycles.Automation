@@ -152,7 +152,7 @@ this.FeatureBackground();
 #line 33
     testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 34
-    testRunner.And("Meal Period \"Lunch\" is collapsed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Meal Period \"Lunch\" is collapsed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 35
     testRunner.Then("main data for Meal Period \"Lunch\" is collapsed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -175,7 +175,7 @@ this.FeatureBackground();
 #line 40
     testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 41
-    testRunner.And("Meal Period \"Lunch\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Meal Period \"Lunch\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 42
     testRunner.Then("main data for Meal Period \"Lunch\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -198,7 +198,7 @@ this.FeatureBackground();
 #line 46
     testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 47
-    testRunner.And("Meal Period colours for \"Tuesday\" are saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Meal Period colours for \"Tuesday\" are saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 48
     testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 49
@@ -223,11 +223,11 @@ this.FeatureBackground();
 #line 54
     testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 55
-    testRunner.And("Meal Period \"LUNCH\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Meal Period \"LUNCH\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 56
     testRunner.Then("recipe named \"724Gourmet Beef Burger 6oz\" is present for meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 57
-    testRunner.And("recipe colour for \"724Gourmet Beef Burger 6oz\" match the colour for meal period \"" +
+        testRunner.And("recipe colour for \"724Gourmet Beef Burger 6oz\" match the colour for meal period \"" +
                     "LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -249,13 +249,13 @@ this.FeatureBackground();
 #line 62
     testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 63
-    testRunner.And("Meal Period \"DANGELO\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Meal Period \"DANGELO\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 64
     testRunner.Then("buffet named \"Aneliya Buffet\" is present for meal period \"DANGELO\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 65
-    testRunner.And("buffet colour for \"Aneliya Buffet\" match the colour for meal period \"DANGELO\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("buffet colour for \"Aneliya Buffet\" match the colour for meal period \"DANGELO\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 66
-    testRunner.And("in meal period \"DANGELO\" all recipe colours inside \"Aneliya Buffet\" match the buf" +
+        testRunner.And("in meal period \"DANGELO\" all recipe colours inside \"Aneliya Buffet\" match the buf" +
                     "fet colour", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -279,10 +279,10 @@ this.FeatureBackground();
 #line 72
     testRunner.Then("a la carte named \"Holiday A La Carte\" is present for meal period \"LANCE\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 73
-    testRunner.And("a la carte colour for \"Holiday A La Carte\" match the colour for meal period \"LANC" +
+        testRunner.And("a la carte colour for \"Holiday A La Carte\" match the colour for meal period \"LANC" +
                     "E\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 74
-    testRunner.And("in meal period \"LANCE\" all recipe colours inside \"Holiday A La Carte\" match the A" +
+        testRunner.And("in meal period \"LANCE\" all recipe colours inside \"Holiday A La Carte\" match the A" +
                     " La Carte colour", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

@@ -41,24 +41,24 @@ Scenario: Save button is clicked without any changes applied
 
 @TC29022
 Scenario: Save all updated figures (fields)
-     Given Menu Cycle "Meda" is selected
-     When planning for Monday is opened
+    Given Menu Cycle "Meda" is selected
+    When planning for Monday is opened
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2"
         Then Save button is clicked and the message 'Planning figures updated.' is displayed
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to the previous inputted number
-        And the user stays on the planning page
+    And the user stays on the planning page
 
 @TC29024
 Scenario: Saved data is retrieved from the API
-     Given Menu Cycle "Meda" is selected
+    Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2"
-     When Save button is clicked and the message 'Planning figures updated.' is displayed
+    When Save button is clicked and the message 'Planning figures updated.' is displayed
         And Cancel button is clicked
         And planning for Monday is opened
-     Then quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to the previous inputted number
+    Then quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to the previous inputted number
 
 @TC29019
 Scenario: Successfully Update and Save number of covers
@@ -74,20 +74,21 @@ Scenario: Successfully Update and Save number of covers
 
 @TC29080 @D23144
 Scenario: Open Monday planning screen, then go to Tuesday, back to Monday update total quantity and click Save
-     Given Menu Cycle "Meda" is selected
+    Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
         And Cancel button is clicked
         And planning for Tuesday is opened
         And Cancel button is clicked
-     When planning for Monday is opened
+    When planning for Monday is opened
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2"
-     Then Save button is clicked and the message 'Planning figures updated.' is displayed
+    Then Save button is clicked and the message 'Planning figures updated.' is displayed
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to the previous inputted number
 
 @TC29101
 Scenario: Error message is displayed when planned quantity for recipe is set to number <= 0
-     Given Menu Cycle "Meda" is selected
-     When planning for Monday is opened
+    Given Menu Cycle "Meda" is selected
+    When planning for Monday is opened
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "0"
-     Then Save button is clicked and the message 'Sorry, we could not proceed with your request' is displayed
+    Then red border is displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And Save button is clicked and the message 'Sorry, we could not proceed with your request' is displayed

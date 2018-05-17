@@ -69,7 +69,7 @@ namespace MenuCycle.Tests.Steps
                     planningTabDays
                     .GetMealPeriod(recipe.MealPeriodName)
                     .GetRecipe(recipe.RecipeTitle)
-                    .LoadDTO()
+                    .GetDTO()
             ));
 
             table.CompareToSet(actualRecipes);

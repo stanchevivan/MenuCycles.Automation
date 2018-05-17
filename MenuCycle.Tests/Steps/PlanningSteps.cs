@@ -183,5 +183,11 @@ namespace MenuCycle.Tests.Steps
             notification.CloseNotification();
             notification.WaitToDisappear();
         }
+
+        [Then(@"red border is displayed around Planned Quantity for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void ThenRedBorderIsDisplayedAroundPlannedQuantityForRecipeInMealPeriod(string recipeName, string mealperiod)
+        {
+            Assert.IsTrue(planningTabDays.GetMealPeriod(mealperiod).GetRecipe(recipeName).IsPlannedQuantityWithRedBorder);
+        }
     }
 }

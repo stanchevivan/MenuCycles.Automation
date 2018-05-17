@@ -16,33 +16,35 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         }
 
         [FindsBy(How = How.ClassName, Using = "recipe-header__title-type")]
-        IWebElement type { get; set; }
+        private IWebElement type { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-header__title > span:last-of-type")]
-        IWebElement title { get; set; }
+        private IWebElement title { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(1) > *")]
-        IWebElement plannedQuantity { get; set; }
+        private IWebElement plannedQuantity { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(2) > *")]
-        IWebElement costPerUnit { get; set; }
+        private IWebElement costPerUnit { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(3) > *")]
-        IWebElement totalCosts { get; set; }
+        private IWebElement totalCosts { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(4) > *")]
-        IWebElement tariffType { get; set; }
+        private IWebElement tariffType { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(5) > *")]
-        IWebElement priceModel { get; set; }
+        private IWebElement priceModel { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(6) > *")]
-        IWebElement targetGP { get; set; }
+        private IWebElement targetGP { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(7) > *")]
-        IWebElement taxPercentage { get; set; }
+        private IWebElement taxPercentage { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(8) > *")]
-        IWebElement sellPrice { get; set; }
+        private IWebElement sellPrice { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(9) > *")]
-        IWebElement revenue { get; set; }
+        private IWebElement revenue { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(10) > *")]
-        IWebElement actualGP { get; set; }
+        private IWebElement actualGP { get; set; }
         [FindsBy(How = How.ClassName, Using = "icon-bin")]
-        IWebElement deleteType { get; set; }
+        private IWebElement deleteType { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".update-prices > span:nth-of-type(2)")]
-        IWebElement updatePrices { get; set; }
+        private IWebElement updatePrices { get; set; }
+        [FindsBy(How = How.ClassName, Using = "border-error")]
+        private IWebElement BorderError { get; set; }
 
         public virtual string Type => this.type.Text;
         public virtual string Title => this.title.Text;
@@ -81,7 +83,10 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         public string Revenue => this.revenue.Text;
         public string ActualGP => this.actualGP.Text;
 
-        public RecipeModel LoadDTO()
+        public bool IsPlannedQuantityWithRedBorder => plannedQuantity.Get().HasClass("border-error");
+        public bool SellPriceHasRedBorder => sellPrice.Get().HasClass("border-error");
+
+        public RecipeModel GetDTO()
         {
             return new RecipeModel
             {
