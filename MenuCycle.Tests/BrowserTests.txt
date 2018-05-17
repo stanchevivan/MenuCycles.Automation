@@ -1,2 +1,2 @@
-StockCount.Tests\bin\Chrome\StockCount.Tests.dll --result:RemoteDesktopChromeTestResults.xml;format=nunit2
+MenuCycle.Tests\bin\Chrome\MenuCycle.Tests.dll --result:RemoteDesktopChromeTestResults.xml;format=nunit2
 --framework:net-4.5
