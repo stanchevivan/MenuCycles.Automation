@@ -17,7 +17,7 @@ msbuild = ''
 //List of App.config browser transformations to be run by Jenkins
 browsersList = ['Chrome']
 
-solutionName = "Fourth.MenuCycle.Automation.sln"
+solutionName = "MenuCycle.Automation.sln"
 projectPath = "MenuCycle.Tests"
 projectName = "MenuCycle.Tests.csproj"
 
