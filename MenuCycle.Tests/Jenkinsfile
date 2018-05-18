@@ -53,29 +53,29 @@ node('IE1UIBLD03') {
 
 	if (jobName.contains("Smoke"))
 	{
-		try {
-				stage ('Browser Smoke Tests') {
-						buildAndRunSmokeTests("Chrome")
-				}
-		} catch (e) {
-				echo e.message
-				currentBuild.result = "FAILED"
+		if (Include_Tags != '')
+		{
+			Include_Tags += ",Smoke"
+		}
+		else
+		{
+			Include_Tags = "Smoke"
 		}
   }
-    else {
-			try {
-					stage ('Browser Tests') {
-							//Builds all configurations in order to generate a test dll
-							buildConfigurations(browsersList)
 
-							//Run the tests specified in the text file using nunit
-							runTestsByFile("$projectPath/BrowserTests.txt")
-					}
-			} catch (e) {
-					echo e.message
-					currentBuild.result = "FAILED"
+	try {
+			stage ('Browser Tests') {
+					//Builds all configurations in order to generate a test dll
+					buildConfigurations(browsersList)
+
+					//Run the tests specified in the text file using nunit
+					runTestsByFile("$projectPath/BrowserTests.txt")
 			}
-    }
+	} catch (e) {
+			echo e.message
+			currentBuild.result = "FAILED"
+	}
+
 
     try {
         stage('Test Results Archive') {
