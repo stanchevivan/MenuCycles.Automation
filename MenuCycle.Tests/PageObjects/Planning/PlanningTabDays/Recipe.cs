@@ -19,25 +19,25 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         private IWebElement type { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-header__title > span:last-of-type")]
         private IWebElement title { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(1) > *")]
+        [FindsBy(How = How.CssSelector, Using = ".quantity > .recipe-data__cell")]
         private IWebElement plannedQuantity { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(2) > *")]
+        [FindsBy(How = How.CssSelector, Using = ".cost > .recipe-data__text-cell")]
         private IWebElement costPerUnit { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(3) > *")]
+        [FindsBy(How = How.CssSelector, Using = ".total-cost > .recipe-data__text-cell")]
         private IWebElement totalCosts { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(4) > *")]
+        [FindsBy(How = How.ClassName, Using = "select-type")]
         private IWebElement tariffType { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(5) > *")]
+        [FindsBy(How = How.ClassName, Using = "select-price-model")]
         private IWebElement priceModel { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(6) > *")]
+        [FindsBy(How = How.CssSelector, Using = ".target > .recipe-data__cell")]
         private IWebElement targetGP { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(7) > *")]
+        [FindsBy(How = How.ClassName, Using = "select-tax")]
         private IWebElement taxPercentage { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(8) > *")]
+        [FindsBy(How = How.CssSelector, Using = ".sell-price > .recipe-data__text-cell")]
         private IWebElement sellPrice { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(9) > *")]
+        [FindsBy(How = How.CssSelector, Using = ".revenue > .recipe-data__text-cell")]
         private IWebElement revenue { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".recipe-data__row > div:nth-of-type(10) > *")]
+        [FindsBy(How = How.CssSelector, Using = ".actual-gp > .recipe-data__text-cell")]
         private IWebElement actualGP { get; set; }
         [FindsBy(How = How.ClassName, Using = "icon-bin")]
         private IWebElement deleteType { get; set; }
@@ -58,12 +58,12 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public string TariffType
         {
-            get => new SelectElement(this.tariffType).SelectedOption.Text;
+            get => new SelectElement(this.tariffType).SelectedOption.Text.Trim();
             set => new SelectElement(this.tariffType).SelectByText(value);
         }
         public string PriceModel
         {
-            get => new SelectElement(this.priceModel).SelectedOption.Text;
+            get => new SelectElement(this.priceModel).SelectedOption.Text.Trim();
             set => new SelectElement(this.priceModel).SelectByText(value);
         }
         public string TargetGP { get => this.targetGP.GetAttribute("value"); set => this.targetGP.Do().ClearAndSendKeys(value); }
@@ -71,11 +71,11 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public string TaxPercentage
         {
-            get => new SelectElement(this.taxPercentage).SelectedOption.Text;
+            get => new SelectElement(this.taxPercentage).SelectedOption.Text.Trim();
             set => new SelectElement(this.taxPercentage).SelectByText(value);
         }
 
-        public string SellPrice { get => this.sellPrice.GetAttribute("value"); set => this.sellPrice.Do().ClearAndSendKeys(value); }
+        public string SellPrice { get => this.sellPrice.Text; set => this.sellPrice.Do().ClearAndSendKeys(value); }
 
         // May need another check
         public bool IsSellPriceEditable => sellPrice.Enabled;
@@ -101,7 +101,8 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
                 TaxPercentage = this.TaxPercentage,
                 SellPrice = this.SellPrice,
                 Revenue = this.Revenue,
-                ActualGP = this.ActualGP
+                ActualGP = this.ActualGP,
+                TariffType = this.TariffType
             };
         }
 

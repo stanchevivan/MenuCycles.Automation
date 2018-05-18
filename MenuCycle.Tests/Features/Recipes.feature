@@ -11,12 +11,11 @@ And a central user is selected
 
 @TC28829
 Scenario: Retrieve recipe information from the API
-    Given Menu Cycle "Test Reports" is selected
-    When planning for Monday is opened
-        And Meal Period "BREAKFAST UPDATED" is expanded
+    Given Menu Cycle "Meda" is selected
+    When planning for Thursday is opened
     Then verify the following recipes:
-    |MealPeriodName   |RecipeTitle       |PlannedQuantity|CostPerUnit|TotalCosts|Type     |PriceModel|TargetGP|TaxPercentage|SellPrice|Revenue|ActualGP|
-    |BREAKFAST UPDATED|724Core Fruit Bowl|              1|          0|         -|TariffTwo|Markup    |       3|            5|         |-      |-       |
+    |MealPeriodName   |Type  |RecipeTitle       |PlannedQuantity|CostPerUnit|TotalCosts|TariffType|PriceModel|TargetGP|TaxPercentage|SellPrice|Revenue|ActualGP|
+    |DANGELO          |RECIPE|Cheese            |              2|      20.27|     40.54| TariffTwo|    Markup|      12|           20|    27.24|   45.4|     11%|
 
 @TC28830
 Scenario: "Target %" field is not present and "Sell Price" can be edited if "Price model" = "Fixed"
