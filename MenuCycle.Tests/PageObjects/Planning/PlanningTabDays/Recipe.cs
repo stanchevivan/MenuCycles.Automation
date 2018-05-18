@@ -29,11 +29,11 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         private IWebElement tariffType { get; set; }
         [FindsBy(How = How.ClassName, Using = "select-price-model")]
         private IWebElement priceModel { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".target > .recipe-data__cell")]
+        [FindsBy(How = How.CssSelector, Using = ".target > *")]
         private IWebElement targetGP { get; set; }
         [FindsBy(How = How.ClassName, Using = "select-tax")]
         private IWebElement taxPercentage { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".sell-price > .recipe-data__text-cell")]
+        [FindsBy(How = How.CssSelector, Using = ".sell-price > *")]
         private IWebElement sellPrice { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".revenue > .recipe-data__text-cell")]
         private IWebElement revenue { get; set; }
@@ -66,7 +66,11 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             get => new SelectElement(this.priceModel).SelectedOption.Text.Trim();
             set => new SelectElement(this.priceModel).SelectByText(value);
         }
-        public string TargetGP { get => this.targetGP.GetAttribute("value"); set => this.targetGP.Do().ClearAndSendKeys(value); }
+        public string TargetGP 
+        { 
+            get => this.targetGP.TagName == "span" ? this.targetGP.Text : this.targetGP.GetAttribute("value");
+            set => this.targetGP.Do().ClearAndSendKeys(value);
+        }
         public bool IsTargetGPPresent => targetGP.Get().ElementPresent;
 
         public string TaxPercentage
@@ -75,7 +79,11 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             set => new SelectElement(this.taxPercentage).SelectByText(value);
         }
 
-        public string SellPrice { get => this.sellPrice.Text; set => this.sellPrice.Do().ClearAndSendKeys(value); }
+        public string SellPrice
+        { 
+            get => this.sellPrice.TagName == "span" ? this.sellPrice.Text : this.sellPrice.GetAttribute("value");
+            set => this.sellPrice.Do().ClearAndSendKeys(value);
+        }
 
         // May need another check
         public bool IsSellPriceEditable => sellPrice.Enabled;
