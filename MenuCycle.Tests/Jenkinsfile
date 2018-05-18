@@ -53,14 +53,12 @@ node('IE1UIBLD03') {
 
 	if (jobName.contains("Smoke"))
 	{
-		if (Include_Tags != '')
-		{
-			Include_Tags += ",Smoke"
-		}
-		else
-		{
-			Include_Tags = "Smoke"
-		}
+		includeTag("Smoke")
+  }
+
+	if (jobName.contains("QAI"))
+	{
+		includeTag("QAI")
   }
 
 	try {
@@ -87,10 +85,6 @@ node('IE1UIBLD03') {
         echo e
         currentBuild.result = "FAILED"
     }
-}
-
-def onReleaseBranch() {
-    return env.BRANCH_NAME == 'master'
 }
 
 def buildConfigurations(list){
@@ -150,11 +144,14 @@ def runTestsByFile(fileName)
     }
 }
 
-def buildAndRunSmokeTests(configurationName) {
-	bat "\"$msbuild\" \"${solutionPath}\" /t:Rebuild $commonReleaseBuildParams /p:Configuration=\"${configurationName}\""
-
-	def dllPath = "$projectPath/bin/${configurationName}/MenuCycle.Tests.dll"
-	def resultsPath = "${configurationName}TestResults.xml"
-
-    bat "nunit ${dllPath} -where \"cat == Smoke && cat != EMEA && cat != NA\""
+def includeTag(tag)
+{
+	if (Include_Tags != '')
+	{
+		Include_Tags += ",${tag}"
+	}
+	else
+	{
+		Include_Tags = "${tag}"
+	}
 }
