@@ -51,7 +51,7 @@ node('IE1UIBLD03') {
 
 	def jobName = "${env.JOB_NAME}"
 
-	if (jobName.contains("Smoke")
+	if (jobName.contains("Smoke"))
 	{
 		try {
 				stage ('Browser Smoke Tests') {
