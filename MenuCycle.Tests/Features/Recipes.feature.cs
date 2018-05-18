@@ -76,10 +76,12 @@ testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFl
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Retrieve recipe information from the API")]
         [NUnit.Framework.CategoryAttribute("TC28829")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
         public virtual void RetrieveRecipeInformationFromTheAPI()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Retrieve recipe information from the API", new string[] {
-                        "TC28829"});
+                        "TC28829",
+                        "Smoke"});
 #line 13
 this.ScenarioSetup(scenarioInfo);
 #line 5

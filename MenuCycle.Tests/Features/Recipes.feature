@@ -9,7 +9,7 @@ Background:
 And 'Menu Cycles' application is open
 And a central user is selected
 
-@TC28829
+@TC28829 @Smoke
 Scenario: Retrieve recipe information from the API
     Given Menu Cycle "Meda" is selected
     When planning for Thursday is opened
