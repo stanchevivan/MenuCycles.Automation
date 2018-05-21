@@ -51,15 +51,14 @@ node('IE1UIBLD03') {
 
 	def jobName = "${env.JOB_NAME}"
 
-	if (jobName.contains("Smoke"))
+	// Chech for environment tag in Job Name
+	['Smoke', 'QAI', 'UAT', 'PRELIVE', 'EMEA', 'NA'].each
 	{
-		includeTag("Smoke")
-  }
-
-	if (jobName.contains("QAI"))
-	{
-		includeTag("QAI")
-  }
+		if (jobName.contains("${it}"))
+		{
+				includeTag("${it}")
+		}
+	}
 
 	try {
 			stage ('Browser Tests') {
