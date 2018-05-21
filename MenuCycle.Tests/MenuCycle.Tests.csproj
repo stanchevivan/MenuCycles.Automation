@@ -322,6 +322,10 @@
       <DependentUpon>RecipeSearch.feature</DependentUpon>
     </Compile>
     <Compile Include="Support\ContainerConfig.cs" />
+    <Compile Include="Features\Buffet.feature.cs">
+      <DependentUpon>Buffet.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Steps\BuffetSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -360,6 +364,10 @@
     </None>
     <None Include="App.Firefox.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Features\Buffet.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Buffet.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

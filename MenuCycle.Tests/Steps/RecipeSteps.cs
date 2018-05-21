@@ -46,7 +46,7 @@ namespace MenuCycle.Tests.Steps
             Assert.IsNotEmpty(recipe.TotalCosts);
             Assert.IsNotEmpty(recipe.Type);
             Assert.IsNotEmpty(recipe.PriceModel);
-            Assert.IsNotEmpty(recipe.TargetGP);
+            Assert.IsNotEmpty(recipe.Target);
             Assert.IsNotEmpty(recipe.TaxPercentage);
             Assert.IsNotEmpty(recipe.SellPrice);
         }
@@ -108,7 +108,7 @@ namespace MenuCycle.Tests.Steps
             planningTabDays
                 .GetMealPeriod(mealPeriod)
                 .GetRecipe(recipeName)
-                .TargetGP = value;
+                .Target = value;
         }
 
         [When(@"the user focus out")]
@@ -123,7 +123,7 @@ namespace MenuCycle.Tests.Steps
             Assert.That(planningTabDays
                         .GetMealPeriod(mealPeriod)
                         .GetRecipe(recipeName)
-                        .TargetGP,
+                        .Target,
                         Is.EqualTo(value));
         }
 

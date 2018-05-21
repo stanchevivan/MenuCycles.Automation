@@ -16,7 +16,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         }
 
         [FindsBy(How = How.ClassName, Using = "recipe-header__title-type")]
-        private IWebElement type { get; set; }
+        protected IWebElement type { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-header__title > span:last-of-type")]
         private IWebElement title { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".quantity > .recipe-data__cell")]
@@ -50,7 +50,11 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         public virtual string Title => this.title.Text;
         public virtual string Colour => this.type.GetCssValue("color");
 
-        public string PlannedQuantity { get => this.plannedQuantity.GetAttribute("value"); set => this.plannedQuantity.Do().ClearAndSendKeys(value); }
+        public string PlannedQuantity 
+        { 
+            get => this.plannedQuantity.GetAttribute("value"); 
+            set => this.plannedQuantity.Do().ClearAndSendKeys(value);
+        }
 
         public string CostPerUnit => this.costPerUnit.Text;
 
@@ -66,7 +70,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             get => new SelectElement(this.priceModel).SelectedOption.Text.Trim();
             set => new SelectElement(this.priceModel).SelectByText(value);
         }
-        public string TargetGP 
+        public string Target 
         { 
             get => this.targetGP.TagName == "span" ? this.targetGP.Text : this.targetGP.GetAttribute("value");
             set => this.targetGP.Do().ClearAndSendKeys(value);
@@ -99,13 +103,13 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             return new RecipeModel
             {
                 MealPeriodName = this.MealPeriodName,
+                Type = this.Type,
                 RecipeTitle = this.Title,
                 PlannedQuantity = this.PlannedQuantity,
                 CostPerUnit = this.CostPerUnit,
                 TotalCosts = this.TotalCosts,
-                Type = this.Type,
                 PriceModel = this.PriceModel,
-                TargetGP = this.TargetGP,
+                Target = this.Target,
                 TaxPercentage = this.TaxPercentage,
                 SellPrice = this.SellPrice,
                 Revenue = this.Revenue,

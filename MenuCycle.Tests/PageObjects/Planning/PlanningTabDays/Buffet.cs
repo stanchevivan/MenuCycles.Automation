@@ -20,5 +20,14 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public override string Type => new Recipe(Items[0], MealPeriodName).Type;
         public override string Title => new Recipe(Items[0], MealPeriodName).Title;
+
+        public NestedRecipe GetRecipe(string title)
+        {
+            if (!Recipes.Any(x => x.Title == title))
+            {
+                throw new System.Exception($"No such recipe {title}");
+            }
+            return Recipes.First(x => x.Title == title);
+        }
     }
 }

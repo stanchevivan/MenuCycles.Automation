@@ -45,6 +45,7 @@ namespace MenuCycle.Tests.Steps
             createMealPeriod.SelectMealPeriod(scenarioContext.Get<IList<MealPeriods>>().First().Name);
         }
 
+        [Given(@"Meal Period ""(.*)"" is expanded")]
         [When(@"Meal Period ""(.*)"" is expanded")]
         public void WhenMealPeriodIsExpanded(string periodName)
         {

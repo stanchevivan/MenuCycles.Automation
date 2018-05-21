@@ -10,7 +10,7 @@
         public string TotalCosts { get; set; }
         public string TariffType { get; set; }
         public string PriceModel { get; set; }
-        public string TargetGP { get; set; }
+        public string Target { get; set; }
         public string TaxPercentage{ get; set; }
         public string SellPrice{ get; set; }
         public string Revenue{ get; set; }

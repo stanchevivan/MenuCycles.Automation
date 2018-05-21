@@ -38,9 +38,9 @@ namespace MenuCycle.Tests.PageObjects
         public IList<Buffet> Buffets => this.Items.Where(p => new Buffet(p, this.Name).Type == "BUFFET").Select(p => new Buffet(p, this.Name)).ToList();
         public IList<ALaCarte> ALaCartes => this.Items.Where(p => new ALaCarte(p, this.Name).Type == "A LA CARTE").Select(p => new ALaCarte(p, this.Name)).ToList();
 
-        public Recipe GetRecipe(string name)
+        public Recipe GetRecipe(string title)
         {
-            return this.Recipes.First(a => a.Title == name);
+            return this.Recipes.First(a => a.Title == title);
         }
 
         public ALaCarte GetALaCarte(string name)
