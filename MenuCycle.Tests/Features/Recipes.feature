@@ -14,8 +14,8 @@ Scenario: Retrieve recipe information from the API
     Given Menu Cycle "Meda" is selected
     When planning for Thursday is opened
     Then verify the following recipes:
-    |MealPeriodName   |Type  |RecipeTitle       |PlannedQuantity|CostPerUnit|TotalCosts|TariffType|PriceModel|TargetGP|TaxPercentage|SellPrice|Revenue|ActualGP|
-    |DANGELO          |RECIPE|Cheese            |              2|      20.27|     40.54| TariffTwo|    Markup|      12|           20|    27.24|   45.4|     11%|
+    |MealPeriodName   |Type  |RecipeTitle       |PlannedQuantity|CostPerUnit|TotalCosts|TariffType|PriceModel|Target|TaxPercentage|SellPrice|Revenue|ActualGP|
+    |DANGELO          |RECIPE|Cheese            |              2|      20.27|     40.54| TariffTwo|    Markup|    12|           20|    27.24|   45.4|     11%|
 
 @TC28830
 Scenario: "Target %" field is not present and "Sell Price" can be edited if "Price model" = "Fixed"
@@ -43,7 +43,7 @@ Scenario: Target Mark up % has format: float and type: 2 decimals
         And the user focus out
     Then TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to "2.33"
 
-@TC29035 @ignore    
+@TC29035 @ignore
 Scenario: Min selected Target GP % is -99.99
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened

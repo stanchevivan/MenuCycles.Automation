@@ -100,7 +100,7 @@ this.FeatureBackground();
                         "TotalCosts",
                         "TariffType",
                         "PriceModel",
-                        "TargetGP",
+                        "Target",
                         "TaxPercentage",
                         "SellPrice",
                         "Revenue",

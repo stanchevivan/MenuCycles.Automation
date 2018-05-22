@@ -15,7 +15,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             this.MealPeriodName = mealPeriodName;
         }
 
-        [FindsBy(How = How.ClassName, Using = "recipe-header__title-type")]
+        [FindsBy(How = How.CssSelector, Using = ".recipe-header__title > span:first-of-type")]
         protected IWebElement type { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-header__title > span:last-of-type")]
         private IWebElement title { get; set; }
