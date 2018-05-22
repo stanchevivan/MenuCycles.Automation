@@ -80,21 +80,27 @@ namespace MenuCycle.Tests.Steps
 
                 if (data.PriceModel != null) item.PriceModel = data.PriceModel;
 
-                if (data.Target != null || data.SellPrice != null)
+                if (data.Target != null) 
                 {
-                    switch (data.PriceModel.ToUpper())
+                    if (item.PriceModel == "GP" || item.PriceModel == "Markup")
                     {
-                        case "FIXED":
-                            {
-                                item.SellPrice = data.SellPrice;
-                                break;
-                            }
-                        case "GP":
-                        case "MARKUP":
-                            {
-                                item.Target = data.Target;
-                                break;
-                            }
+                        item.Target = data.Target;
+                    }
+                    else
+                    {
+                        throw new System.Exception($"Price model is {item.PriceModel} (Target field is not present)!");
+                    }
+                }
+
+                if (data.SellPrice != null) 
+                {
+                    if (item.PriceModel == "Fixed")
+                    {
+                        item.SellPrice = data.SellPrice;
+                    }
+                    else
+                    {
+                        throw new System.Exception($"Price model is {item.PriceModel} (Sell Price field is not present)!");
                     }
                 }
 

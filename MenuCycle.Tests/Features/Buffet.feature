@@ -11,8 +11,8 @@ And a central user is selected
 @TC27790
 Scenario: Calculations for "Total Cost" and "Revenue" should be correct for GP "Price Model"
 	Given Menu Cycle "Meda" is selected
-    And planning for Tuesday is opened
-    And Meal Period "DANGELO" is expanded
+        And planning for Tuesday is opened
+        And Meal Period "DANGELO" is expanded
     When data for items is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|TariffType|PriceModel|Target|TaxPercentage|
         |DANGELO          |BUFFET|Aneliya Buffet|              1| TariffOne|        GP|     5|           20|
@@ -42,8 +42,8 @@ Scenario: Calculations for "Total Cost" and "Revenue" should be correct for GP "
 @TC27795
 Scenario: Calculations for "Total Cost" and "Revenue" and "Actual GP" should be correct for Fixed "Price Model" (Buffet Menu)
     Given Menu Cycle "Meda" is selected
-    And planning for Tuesday is opened
-    And Meal Period "DANGELO" is expanded
+        And planning for Tuesday is opened
+        And Meal Period "DANGELO" is expanded
     When data for items is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|TariffType|PriceModel   |TaxPercentage|SellPrice|
         |DANGELO          |BUFFET|Aneliya Buffet|              1| TariffOne|        Fixed|            5|      100|
@@ -69,12 +69,15 @@ Scenario: Calculations for "Total Cost" and "Revenue" and "Actual GP" should be 
         |004Fresh Lemon Curd          |             10|
         |004Blueberry Muffin (Wrapped)|             12|
         |004Baked Beans_1             |             14|
+    And Verify data for items is
+        |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
+        |DANGELO          |BUFFET|Aneliya Buffet|     48.42|    41.54|  69.24|     30%|
 
 @TC27796
 Scenario: Calculations for "Total Cost" and "Sell Price" and "Revenue" should be correct for Mark Up "Price Model" (Buffet Menu)
     Given Menu Cycle "Meda" is selected
-    And planning for Tuesday is opened
-    And Meal Period "DANGELO" is expanded
+        And planning for Tuesday is opened
+        And Meal Period "DANGELO" is expanded
     When data for items is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|TariffType|PriceModel|Target|TaxPercentage|
         |DANGELO          |BUFFET|Aneliya Buffet|              1| TariffOne|    Markup|     5|           20|
@@ -87,10 +90,13 @@ Scenario: Calculations for "Total Cost" and "Sell Price" and "Revenue" should be
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
         |DANGELO          |BUFFET|Aneliya Buffet|     24.21|     30.5|  25.42|      5%|
     And data for items is set
-        |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|
-        |DANGELO          |BUFFET|Aneliya Buffet|              2|
+        |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|Target|
+        |DANGELO          |BUFFET|Aneliya Buffet|              2|    43|
     Then Verify data for recipes in buffet "Aneliya Buffet" in meal period "DANGELO" is
         |RecipeTitle                  |PlannedQuantity|
         |004Bechamel Sauce            |              2|
         |004Fresh Lemon Curd          |              4|
         |004Blueberry Muffin (Wrapped)|              6|
+    And Verify data for items is
+        |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
+        |DANGELO          |BUFFET|Aneliya Buffet|     48.42|    41.54|  69.24|     30%|
