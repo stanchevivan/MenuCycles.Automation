@@ -326,6 +326,7 @@
       <DependentUpon>Buffet.feature</DependentUpon>
     </Compile>
     <Compile Include="Steps\BuffetSteps.cs" />
+    <Compile Include="Steps\ALaCarteSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

@@ -1,4 +1,5 @@
 ﻿using MenuCycle.Tests.Models;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
@@ -116,6 +117,94 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
                 ActualGP = this.ActualGP,
                 TariffType = this.TariffType
             };
+        }
+
+        public void SetData(RecipeModel dto)
+        {
+            if (!string.IsNullOrEmpty(dto.PlannedQuantity)) this.PlannedQuantity = dto.PlannedQuantity;
+
+            if (!string.IsNullOrEmpty(dto.TariffType)) this.TariffType = dto.TariffType;
+
+            if (!string.IsNullOrEmpty(dto.PriceModel)) this.PriceModel = dto.PriceModel;
+
+            if (!string.IsNullOrEmpty(dto.Target))
+            {
+                if (this.PriceModel == "GP" || this.PriceModel == "Markup")
+                {
+                    this.Target = dto.Target;
+                }
+                else
+                {
+                    throw new System.Exception($"Price model is {this.PriceModel} (Target field is not present)!");
+                }
+            }
+
+            if (!string.IsNullOrEmpty(dto.TaxPercentage)) this.TaxPercentage = dto.TaxPercentage;
+
+            if (!string.IsNullOrEmpty(dto.SellPrice))
+            {
+                if (this.PriceModel == "Fixed")
+                {
+                    this.SellPrice = dto.SellPrice;
+                }
+                else
+                {
+                    throw new System.Exception($"Price model is {this.PriceModel} (Sell Price field is not present)!");
+                }
+            }
+        }
+
+        public void VerifyData(RecipeModel dto)
+        {
+            if (!string.IsNullOrEmpty(dto.PlannedQuantity))
+            {
+                Assert.That(this.PlannedQuantity, Is.EqualTo(dto.PlannedQuantity));
+            }
+
+            if (!string.IsNullOrEmpty(dto.CostPerUnit))
+            {
+                Assert.That(this.CostPerUnit, Is.EqualTo(dto.CostPerUnit));
+            }
+
+            if (!string.IsNullOrEmpty(dto.TotalCosts))
+            {
+                Assert.That(this.TotalCosts, Is.EqualTo(dto.TotalCosts));
+            }
+
+            if (!string.IsNullOrEmpty(dto.TariffType))
+            {
+                Assert.That(this.TariffType, Is.EqualTo(dto.TariffType));
+            }
+
+            if (!string.IsNullOrEmpty(dto.PriceModel))
+            {
+                Assert.That(this.PriceModel, Is.EqualTo(dto.PriceModel));
+            }
+
+            if (!string.IsNullOrEmpty(dto.Target))
+            {
+                Assert.That(this.Target, Is.EqualTo(dto.Target));
+            }
+
+            if (!string.IsNullOrEmpty(dto.TaxPercentage))
+            {
+                Assert.That(this.TaxPercentage, Is.EqualTo(dto.TaxPercentage));
+            }
+
+            if (!string.IsNullOrEmpty(dto.SellPrice))
+            {
+                Assert.That(this.SellPrice, Is.EqualTo(dto.SellPrice));
+            }
+
+            if (!string.IsNullOrEmpty(dto.Revenue))
+            {
+                Assert.That(this.Revenue, Is.EqualTo(dto.Revenue));
+            }
+
+            if (!string.IsNullOrEmpty(dto.ActualGP))
+            {
+                Assert.That(this.ActualGP, Is.EqualTo(dto.ActualGP));
+            }
         }
 
         public void AddType()

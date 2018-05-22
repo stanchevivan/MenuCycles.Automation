@@ -427,6 +427,115 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Calculations for \"Total Cost\", \"Sell Price\", \"Revenue\" and \"Actual GP\" should be " +
+            "correct")]
+        public virtual void CalculationsForTotalCostSellPriceRevenueAndActualGPShouldBeCorrect()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculations for \"Total Cost\", \"Sell Price\", \"Revenue\" and \"Actual GP\" should be " +
+                    "correct", ((string[])(null)));
+#line 106
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 107
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 108
+    testRunner.And("planning for Wednesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RecipeTitle",
+                        "PlannedQuantity",
+                        "PriceModel",
+                        "Target",
+                        "TaxPercentage",
+                        "SellPrice"});
+            table2.AddRow(new string[] {
+                        "004Bread (fresh dough)",
+                        "2",
+                        "Fixed",
+                        "",
+                        "20",
+                        "55"});
+            table2.AddRow(new string[] {
+                        "724Pepper & Garlic Coated Beef",
+                        "3",
+                        "GP",
+                        "5",
+                        "5",
+                        ""});
+#line 109
+    testRunner.When("data for recipes in a la carte \"Holiday A La Carte\" in meal period \"LANCE\" is set" +
+                    "", ((string)(null)), table2, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "PlannedQuantity",
+                        "TariffType",
+                        "PriceModel",
+                        "Target",
+                        "TaxPercentage"});
+            table3.AddRow(new string[] {
+                        "LANCE",
+                        "RECIPE",
+                        "004Basic Sponge",
+                        "4",
+                        "TariffOne",
+                        "Markup",
+                        "15",
+                        "0"});
+#line 113
+    testRunner.And("data for items is set", ((string)(null)), table3, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RecipeTitle",
+                        "CostPerUnit",
+                        "TotalCosts",
+                        "SellPrice",
+                        "Revenue",
+                        "ActualGP"});
+            table4.AddRow(new string[] {
+                        "004Bread (fresh dough)",
+                        "0.04",
+                        "0.08",
+                        "",
+                        "91.67",
+                        "100%"});
+            table4.AddRow(new string[] {
+                        "724Pepper & Garlic Coated Beef",
+                        "2180.61",
+                        "6541.83",
+                        "2410.15",
+                        "6886.14",
+                        "5%"});
+#line 116
+    testRunner.Then("Verify data for recipes in a la carte \"Holiday A La Carte\" in meal period \"LANCE\"" +
+                    " is", ((string)(null)), table4, "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "TotalCosts",
+                        "SellPrice",
+                        "Revenue",
+                        "ActualGP"});
+            table5.AddRow(new string[] {
+                        "LANCE",
+                        "RECIPE",
+                        "004Basic Sponge",
+                        "2.12",
+                        "0.61",
+                        "2.44",
+                        "13%"});
+#line 120
+    testRunner.And("Verify data for items is", ((string)(null)), table5, "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

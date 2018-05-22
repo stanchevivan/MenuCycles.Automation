@@ -103,4 +103,20 @@ Scenario: Retrieve Recipe Price from the API (NO Min - Max)
     When planning for Monday is opened
     Then CostPerUnit for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to "1.68"
 
-
+Scenario: Calculations for "Total Cost", "Sell Price", "Revenue" and "Actual GP" should be correct
+    Given Menu Cycle "Meda" is selected
+    And planning for Wednesday is opened
+    When data for recipes in a la carte "Holiday A La Carte" in meal period "LANCE" is set
+        |RecipeTitle                   |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
+        |004Bread (fresh dough)        |              2|     Fixed|      |           20|       55|
+        |724Pepper & Garlic Coated Beef|              3|        GP|     5|            5|         |
+    And data for items is set
+        |MealPeriodName|TYPE  |RecipeTitle    |PlannedQuantity|TariffType|PriceModel|Target|TaxPercentage|
+        |LANCE         |RECIPE|004Basic Sponge|              4| TariffOne|    Markup|    15|            0|
+    Then Verify data for recipes in a la carte "Holiday A La Carte" in meal period "LANCE" is
+        |RecipeTitle                   |CostPerUnit|TotalCosts|SellPrice|Revenue|ActualGP|
+        |004Bread (fresh dough)        |       0.04|      0.08|         |  91.67|    100%|
+        |724Pepper & Garlic Coated Beef|    2180.61|   6541.83|  2410.15|6886.14|      5%|
+    And Verify data for items is
+        |MealPeriodName|TYPE  |RecipeTitle    |TotalCosts|SellPrice|Revenue|ActualGP|
+        |LANCE         |RECIPE|004Basic Sponge|      2.12|     0.61|   2.44|     13%|

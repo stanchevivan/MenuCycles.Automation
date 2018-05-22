@@ -59,12 +59,6 @@ namespace MenuCycle.Tests.Steps
                                                   .GetBuffet(data.RecipeTitle);
                             break;
                         }
-                    case "A LA CARTE":
-                        {
-                            item = planningTabDays.GetMealPeriod(data.MealPeriodName)
-                                                  .GetALaCarte(data.RecipeTitle);
-                            break;
-                        }
 
                     default:
                         {
@@ -74,37 +68,7 @@ namespace MenuCycle.Tests.Steps
                         }
                 }
 
-                if (data.PlannedQuantity != null) item.PlannedQuantity = data.PlannedQuantity;
-
-                if (data.TariffType != null) item.TariffType = data.TariffType;
-
-                if (data.PriceModel != null) item.PriceModel = data.PriceModel;
-
-                if (data.Target != null) 
-                {
-                    if (item.PriceModel == "GP" || item.PriceModel == "Markup")
-                    {
-                        item.Target = data.Target;
-                    }
-                    else
-                    {
-                        throw new System.Exception($"Price model is {item.PriceModel} (Target field is not present)!");
-                    }
-                }
-
-                if (data.SellPrice != null) 
-                {
-                    if (item.PriceModel == "Fixed")
-                    {
-                        item.SellPrice = data.SellPrice;
-                    }
-                    else
-                    {
-                        throw new System.Exception($"Price model is {item.PriceModel} (Sell Price field is not present)!");
-                    }
-                }
-
-                if (data.TaxPercentage != null) item.TaxPercentage = data.TaxPercentage;
+                item.SetData(data);
             }
 
             planningTabDays.FocusOut();
@@ -134,12 +98,6 @@ namespace MenuCycle.Tests.Steps
                                                   .GetBuffet(expectedItem.RecipeTitle);
                             break;
                         }
-                    case "A LA CARTE":
-                        {
-                            item = planningTabDays.GetMealPeriod(expectedItem.MealPeriodName)
-                                                  .GetALaCarte(expectedItem.RecipeTitle);
-                            break;
-                        }
 
                     default:
                         {
@@ -149,55 +107,7 @@ namespace MenuCycle.Tests.Steps
                         }
                 }
 
-                if (expectedItem.PlannedQuantity != null)
-                {
-                    Assert.That(item.PlannedQuantity, Is.EqualTo(expectedItem.PlannedQuantity));
-                }
-
-                if (expectedItem.CostPerUnit != null)
-                {
-                    Assert.That(item.CostPerUnit, Is.EqualTo(expectedItem.CostPerUnit));
-                }
-
-                if (expectedItem.TotalCosts != null)
-                {
-                    Assert.That(item.TotalCosts, Is.EqualTo(expectedItem.TotalCosts));
-                }
-
-                if (expectedItem.TariffType != null)
-                {
-                    Assert.That(item.TariffType, Is.EqualTo(expectedItem.TariffType));
-                }
-
-                if (expectedItem.PriceModel != null)
-                {
-                    Assert.That(item.PriceModel, Is.EqualTo(expectedItem.PriceModel));
-                }
-
-                if (expectedItem.Target != null)
-                {
-                    Assert.That(item.Target, Is.EqualTo(expectedItem.Target));
-                }
-
-                if (expectedItem.TaxPercentage != null)
-                {
-                    Assert.That(item.TaxPercentage, Is.EqualTo(expectedItem.TaxPercentage));
-                }
-
-                if (expectedItem.SellPrice != null)
-                {
-                    Assert.That(item.SellPrice, Is.EqualTo(expectedItem.SellPrice));
-                }
-
-                if (expectedItem.Revenue != null)
-                {
-                    Assert.That(item.Revenue, Is.EqualTo(expectedItem.Revenue));
-                }
-
-                if (expectedItem.ActualGP != null)
-                {
-                    Assert.That(item.ActualGP, Is.EqualTo(expectedItem.ActualGP));
-                }
+                item.VerifyData(expectedItem);
             }
         }
 
