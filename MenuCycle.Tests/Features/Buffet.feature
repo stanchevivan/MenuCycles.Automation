@@ -71,7 +71,7 @@ Scenario: Calculations for "Total Cost" and "Revenue" and "Actual GP" should be 
         |004Baked Beans_1             |             14|
 
 @TC27796
-Scenario: calculations for "Total Cost" and "Sell Price" and "Revenue" should be correct for Mark Up "Price Model" (Buffet Menu)
+Scenario: Calculations for "Total Cost" and "Sell Price" and "Revenue" should be correct for Mark Up "Price Model" (Buffet Menu)
     Given Menu Cycle "Meda" is selected
     And planning for Tuesday is opened
     And Meal Period "DANGELO" is expanded
