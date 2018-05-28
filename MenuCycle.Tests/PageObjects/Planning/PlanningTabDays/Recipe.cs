@@ -51,9 +51,9 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         public virtual string Title => this.title.Text;
         public virtual string Colour => this.type.GetCssValue("color");
 
-        public string PlannedQuantity 
-        { 
-            get => this.plannedQuantity.GetAttribute("value"); 
+        public string PlannedQuantity
+        {
+            get => this.plannedQuantity.GetAttribute("value");
             set => this.plannedQuantity.Do().ClearAndSendKeys(value);
         }
 
@@ -71,8 +71,8 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             get => new SelectElement(this.priceModel).SelectedOption.Text.Trim();
             set => new SelectElement(this.priceModel).SelectByText(value);
         }
-        public string Target 
-        { 
+        public string Target
+        {
             get => this.targetGP.TagName == "span" ? this.targetGP.Text : this.targetGP.GetAttribute("value");
             set => this.targetGP.Do().ClearAndSendKeys(value);
         }
@@ -85,7 +85,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         }
 
         public string SellPrice
-        { 
+        {
             get => this.sellPrice.TagName == "span" ? this.sellPrice.Text : this.sellPrice.GetAttribute("value");
             set => this.sellPrice.Do().ClearAndSendKeys(value);
         }
@@ -98,6 +98,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public bool IsPlannedQuantityWithRedBorder => plannedQuantity.Get().HasClass("border-error");
         public bool SellPriceHasRedBorder => sellPrice.Get().HasClass("border-error");
+        public bool IsTargetGPWithRedBorder => targetGP.Get().HasClass("border-error");
 
         public RecipeModel GetDTO()
         {

@@ -43,50 +43,65 @@ Scenario: Target Mark up % has format: float and type: 2 decimals
         And the user focus out
     Then TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to "2.33"
 
-@TC29035 @ignore
+@TC29035
 Scenario: Min selected Target GP % is -99.99
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "GP"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-10000"
+        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-100"
         And the user focus out
-    Then TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to "-99.99"
+    And red border is displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-99.99"
+        And the user focus out
+    Then red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
 
-@TC29036 @ignore
-Scenario: Min selected Target Markup % is -99.99
+@TC29036
+Scenario: Min selected Target Markup % is 0
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
         And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
         And the user focus out
-    Then TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to "0"
+    And red border is displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "0"
+        And the user focus out
+    Then red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
 
-@TC29037 @ignore
+@TC29037
 Scenario: Max selected Target GP % is 99.99
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "GP"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "1000"
+        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "100"
         And the user focus out
-    Then TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to "99.99"
+    And red border is displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "99.99"
+        And the user focus out
+    Then red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
 
-@TC29038 @ignore
+@TC29038
 Scenario: Max selected Target Markup % is 100
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
         And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "200"
         And the user focus out
-    Then TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to "100"
+    And red border is displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "100"
+        And the user focus out
+    Then red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
 
-@TC29039 @ignore
+@TC29039
 Scenario: Min selected Sell Price is 0 - Price model = "Fixed"
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
         And the user focus out
-    Then SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to "0"
+    And red border is displayed around Sell Price for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "0"
+        And the user focus out
+    Then red border is not displayed around Sell Price for recipe "004Baked Beans_3" in meal period "LUNCH"
 
 @TC29040
 Scenario: No max value for "Sell Price" - Price model = "Fixed"

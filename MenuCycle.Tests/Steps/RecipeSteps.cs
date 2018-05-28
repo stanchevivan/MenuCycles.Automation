@@ -64,7 +64,7 @@ namespace MenuCycle.Tests.Steps
             var actualRecipes = new List<RecipeModel>();
 
             expectedRecipes.ToList().ForEach(
-                recipe => 
+                recipe =>
                 actualRecipes.Add(
                     planningTabDays
                     .GetMealPeriod(recipe.MealPeriodName)
@@ -143,7 +143,7 @@ namespace MenuCycle.Tests.Steps
             Assert.That(planningTabDays
                         .GetMealPeriod(mealPeriod)
                         .GetRecipe(recipeName)
-                        .SellPrice, 
+                        .SellPrice,
                         Is.EqualTo(value));
         }
 
@@ -155,6 +155,41 @@ namespace MenuCycle.Tests.Steps
                         .GetRecipe(recipeName)
                         .CostPerUnit,
                         Is.EqualTo(price));
+        }
+
+        [When(@"red border is displayed around Target% for recipe ""(.*)"" in meal period ""(.*)""")]
+        [Then(@"red border is displayed around Target% for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void ThenRedBorderIsDisplayedAroundTargetForRecipeInMealPeriod(string recipeName, string mealPeriod)
+        {
+            Assert.IsTrue(planningTabDays
+                          .GetMealPeriod(mealPeriod)
+                          .GetRecipe(recipeName).IsTargetGPWithRedBorder);
+        }
+
+        [When(@"red border is not displayed around Target% for recipe ""(.*)"" in meal period ""(.*)""")]
+        [Then(@"red border is not displayed around Target% for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void ThenRedBorderIsNotDisplayedAroundTargetForRecipeInMealPeriod(string recipeName, string mealPeriod)
+        {
+            Assert.IsFalse(planningTabDays
+                           .GetMealPeriod(mealPeriod)
+                           .GetRecipe(recipeName).IsTargetGPWithRedBorder);
+        }
+
+        [Then(@"red border is not displayed around Sell Price for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void ThenRedBorderIsNotDisplayedAroundSellPriceForRecipeInMealPeriod(string recipeName, string mealPeriod)
+        {
+            Assert.IsFalse(planningTabDays
+                           .GetMealPeriod(mealPeriod)
+                           .GetRecipe(recipeName).SellPriceHasRedBorder);
+        }
+
+        [When(@"red border is displayed around Sell Price for recipe ""(.*)"" in meal period ""(.*)""")]
+        [Then(@"red border is displayed around Sell Price for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void ThenRedBorderIsDisplayedAroundSellPriceForRecipeInMealPeriod(string recipeName, string mealPeriod)
+        {
+            Assert.IsTrue(planningTabDays
+                          .GetMealPeriod(mealPeriod)
+                          .GetRecipe(recipeName).SellPriceHasRedBorder);
         }
     }
 }
