@@ -22,8 +22,6 @@ namespace MenuCycle.Tests.PageObjects
         IWebElement ExpandArrow { get; set; }
         [FindsBy(How = How.ClassName, Using = "mealperiod-header__name")]
         IWebElement MealPeriodName { get; set; }
-        [FindsBy(How = How.ClassName, Using = "mealperiod-main")]
-        IWebElement MealPeriodMain { get; set; }
         [FindsBy(How = How.ClassName, Using = "mealperiod-header__covers-input")]
         IWebElement Covers { get; set; }
         [FindsBy(How = How.ClassName, Using = "recipe-content")]
@@ -31,7 +29,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public string Name => MealPeriodName.Text;
         public string Colour => parent_MealPeriodWrapper.GetCssValue("background-color");
-        public bool IsExpanded => MealPeriodMain.Get().ElementPresent;
+        public bool IsExpanded => CollapseArrow.Get().ElementPresent;
         public string NumberOfCovers { get => Covers.GetAttribute("value"); set => Covers.Do().ClearAndSendKeys(value); }
 
         public IList<Recipe> Recipes => this.Items.Where(p => new Recipe(p, this.Name).Type == "RECIPE").Select(p => new Recipe(p, this.Name)).ToList();

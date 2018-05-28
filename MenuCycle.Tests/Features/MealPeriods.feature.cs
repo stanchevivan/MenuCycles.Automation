@@ -308,6 +308,35 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Open all meal periods in Planning screen")]
+        [NUnit.Framework.CategoryAttribute("TC27660")]
+        [NUnit.Framework.CategoryAttribute("TC27662")]
+        public virtual void OpenAllMealPeriodsInPlanningScreen()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open all meal periods in Planning screen", new string[] {
+                        "TC27660",
+                        "TC27662"});
+#line 83
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 84
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 85
+    testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 86
+        testRunner.And("Open all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 87
+    testRunner.And("all meal periods are expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 88
+        testRunner.And("Close all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 89
+    testRunner.Then("all meal periods are collapsed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

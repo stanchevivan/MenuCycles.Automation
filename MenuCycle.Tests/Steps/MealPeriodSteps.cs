@@ -172,5 +172,31 @@ namespace MenuCycle.Tests.Steps
             var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
             Assert.That(mealPeriod.NumberOfCovers, Is.EqualTo(numberOfCovers));
         }
+
+        [When(@"Open all is clicked")]
+        public void WhenOpenAllIsClicked()
+        {
+            planningTabDays.ExpandAllMealPeriods();
+        }
+
+        [When(@"Close all is clicked")]
+        public void WhenCloseAllIsClicked()
+        {
+            planningTabDays.CollapseAllMealPeriods();
+        }
+
+        [When(@"all meal periods are expanded")]
+        [Then(@"all meal periods are expanded")]
+        public void ThenAllMealPeriodsAreExpanded()
+        {
+            Assert.IsTrue(planningTabDays.AreAllMealPeriodsExpanded);
+        }
+
+        [When(@"all meal periods are collapsed")]
+        [Then(@"all meal periods are collapsed")]
+        public void ThenAllMealPeriodsAreCollapsed()
+        {
+            Assert.IsTrue(planningTabDays.AreAllMealPeriodsCollapsed);
+        }
     }
 }

@@ -13,18 +13,24 @@ namespace MenuCycle.Tests.PageObjects
         }
 
         [FindsBy(How = How.CssSelector, Using = ".main > div")]
-        IList<IWebElement> MealPeriodWrappers { get; set; }
+        private IList<IWebElement> MealPeriodWrappers { get; set; }
         [FindsBy(How = How.ClassName, Using = "main")]
-        IWebElement PageContent { get; set; }
+        private IWebElement PageContent { get; set; }
         [FindsBy(How = How.ClassName, Using = "mainheader")] //Investigate if more suitable element for the check is needed
-        IWebElement EngineCheck { get; set; }
+        private IWebElement EngineCheck { get; set; }
         [FindsBy(How = How.XPath, Using = "//button[text()='Weeks']")] // Engine
-        IWebElement WeeksButton { get; set; }
+        private IWebElement WeeksButton { get; set; }
+        [FindsBy(How = How.XPath, Using = "//button/span[text()='Open all']")]
+        private IWebElement OpenAllButton { get; set; }
+        [FindsBy(How = How.XPath, Using = "//button/span[text()='Close all']")]
+        private IWebElement CloseAllButton { get; set; }
 
         public IList<DailyMealPeriod> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriod(p)).ToList();
+        public IList<string> MealPeriodColours => MealPeriods.Select(x => x.Colour).ToList();
 
         public bool HasMealPeriods => MealPeriods.Any();
-        public IList<string> MealPeriodColours => MealPeriods.Select(x => x.Colour).ToList();
+        public bool AreAllMealPeriodsExpanded => MealPeriods.All(period => period.IsExpanded);
+        public bool AreAllMealPeriodsCollapsed => MealPeriods.All(period => !period.IsExpanded);
 
         public override void WaitForLoad()
         {
@@ -60,6 +66,16 @@ namespace MenuCycle.Tests.PageObjects
         public DailyMealPeriod GetMealPeriod(string name)
         {
             return MealPeriods.FirstOrDefault(x => x.Name == name.ToUpper());
+        }
+
+        public void ExpandAllMealPeriods()
+        {
+            OpenAllButton.Click();
+        }
+
+        public void CollapseAllMealPeriods()
+        {
+            CloseAllButton.Click();
         }
     }
 }

@@ -78,3 +78,12 @@ Scenario: Retrieve Number of covers for meal period from the API
     Given Menu Cycle "Test Reports" is selected
     When planning for Monday is opened
     Then number of covers for meal period "Dinner" is equal to "10"
+
+@TC27660 @TC27662
+Scenario: Open all meal periods in Planning screen
+    Given Menu Cycle "Meda" is selected
+    When planning for Tuesday is opened
+        And Open all is clicked
+    And all meal periods are expanded
+        And Close all is clicked
+    Then all meal periods are collapsed
