@@ -75,6 +75,7 @@ namespace MenuCycle.Tests.Steps
             table.CompareToSet(actualRecipes);
         }
 
+        [Given(@"Price model for recipe ""(.*)"" in meal period ""(.*)"" is set to ""(.*)""")]
         [When(@"Price model for recipe ""(.*)"" in meal period ""(.*)"" is set to ""(.*)""")]
         public void WhenPriceModelForRecipeInMealPeriodIsSetTo(string recipeName, string mealPeriod, string priceModel)
         {
@@ -102,6 +103,7 @@ namespace MenuCycle.Tests.Steps
                           .IsSellPriceEditable);
         }
 
+        [Given(@"TargetGP% for recipe named ""(.*)"" in meal period ""(.*)"" is set to ""(.*)""")]
         [When(@"TargetGP% for recipe named ""(.*)"" in meal period ""(.*)"" is set to ""(.*)""")]
         public void WhenTargetGPForRecipeNamedInMealPeriodIsSetTo(string recipeName, string mealPeriod, string value)
         {
@@ -190,6 +192,57 @@ namespace MenuCycle.Tests.Steps
             Assert.IsTrue(planningTabDays
                           .GetMealPeriod(mealPeriod)
                           .GetRecipe(recipeName).SellPriceHasRedBorder);
+        }
+
+        [Then(@"red border is not displayed around Planned Quantity for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void ThenRedBorderIsNotDisplayedAroundPlannedQuantityForRecipeInMealPeriod(string recipeName, string mealPeriod)
+        {
+            Assert.IsFalse(planningTabDays
+                           .GetMealPeriod(mealPeriod)
+                           .GetRecipe(recipeName).IsPlannedQuantityWithRedBorder);
+        }
+
+
+        [When(@"red border is displayed around Planned Quantity for recipe ""(.*)"" in meal period ""(.*)""")]
+        [Then(@"red border is displayed around Planned Quantity for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void ThenRedBorderIsDisplayedAroundPlannedQuantityForRecipeInMealPeriod(string recipeName, string mealperiod)
+        {
+            Assert.IsTrue(planningTabDays
+                          .GetMealPeriod(mealperiod)
+                          .GetRecipe(recipeName).IsPlannedQuantityWithRedBorder);
+        }
+
+        [Then(@"field ""(.*)"" for single recipe ""(.*)"" in meal period ""(.*)"" is empty")]
+        public void ThenTargetPercentageFieldForRecipeInMealPeriodIsEmpty(string field, string recipeName, string mealPeriod)
+        {
+            var recipe = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeName);
+            string fieldValue;
+
+
+            switch (field)
+            {
+                case "Target":
+                    {
+                        fieldValue = recipe.Target;
+                        break;
+                    }
+                case "Sell Price":
+                    {
+                        fieldValue = recipe.SellPrice;
+                        break;
+                    }
+                case "Planned Qty":
+                    {
+                        fieldValue = recipe.PlannedQuantity;
+                        break;
+                    }
+                default: 
+                    {
+                        throw new System.Exception($"Verification for field {field} is not implemented!");
+                    }
+            }
+
+            Assert.IsEmpty(fieldValue);
         }
     }
 }

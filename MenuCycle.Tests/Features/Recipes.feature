@@ -14,8 +14,8 @@ Scenario: Retrieve recipe information from the API
     Given Menu Cycle "Meda" is selected
     When planning for Thursday is opened
     Then verify the following recipes:
-    |MealPeriodName   |Type  |RecipeTitle       |PlannedQuantity|CostPerUnit|TotalCosts|TariffType|PriceModel|Target|TaxPercentage|SellPrice|Revenue|ActualGP|
-    |DANGELO          |RECIPE|Cheese            |              2|      20.27|     40.54| TariffTwo|    Markup|    12|           20|    27.24|   45.4|     11%|
+    |MealPeriodName   |Type  |RecipeTitle|PlannedQuantity|CostPerUnit|TotalCosts|TariffType|PriceModel|Target|TaxPercentage|SellPrice|Revenue|ActualGP|
+    |DANGELO          |RECIPE|Cheese     |              2|      20.27|     40.54| TariffTwo|    Markup|    12|           20|    27.24|   45.4|     11%|
 
 @TC28830
 Scenario: "Target %" field is not present and "Sell Price" can be edited if "Price model" = "Fixed"
@@ -135,3 +135,31 @@ Scenario: Calculations for "Total Cost", "Sell Price", "Revenue" and "Actual GP"
     And Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle    |TotalCosts|SellPrice|Revenue|ActualGP|
         |LANCE         |RECIPE|004Basic Sponge|      2.12|     0.61|   2.44|     13%|
+
+@TC29101 @D23785
+Scenario: Error message is displayed when planned quantity for recipe is set to number < 0
+    Given Menu Cycle "Meda" is selected
+    When planning for Monday is opened
+        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
+    And red border is displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "0"
+        And the user focus out
+    Then red border is not displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
+
+@TC29394 @D23825
+Scenario: Sell Price value is not transferred to Markup Target% field
+    Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
+        And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "50"
+    When Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
+    Then field "Target" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
+
+@TC29395 @D23825
+Scenario: Markup Target% value is not transferred to Sell Price field
+    Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
+        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "50"
+    When Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
+    Then field "Sell Price" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
