@@ -87,3 +87,14 @@ Scenario: Open all meal periods in Planning screen
     And all meal periods are expanded
         And Close all is clicked
     Then all meal periods are collapsed
+
+@TC29384 @ignore #Functionality not implemented yet
+Scenario: Calculate Meal period "Planned Quantity" and "Total Cost" - recipes only
+    Given Menu Cycle "Meda" is selected
+    When planning for Thursday is opened
+        And quantity for recipe named "703Coronation Chicken Sandwich Filling (50g)" in meal period "DANGELO" is set to "10"
+        And quantity for recipe named "703Reggae Raggae Mayonnaise" in meal period "DANGELO" is set to "10"
+        And quantity for recipe named "Cheese" in meal period "DANGELO" is set to "10"
+    Then Value for fields for meal period "DANGELO" is
+    |PlannedQty|TotalCost|
+    |        30|    655.5|

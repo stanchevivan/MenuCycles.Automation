@@ -111,9 +111,9 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
                 CostPerUnit = this.CostPerUnit,
                 TotalCosts = this.TotalCosts,
                 PriceModel = this.PriceModel,
-                Target = this.Target,
+                Target = PriceModel != "Fixed" ? this.Target : null,
                 TaxPercentage = this.TaxPercentage,
-                SellPrice = this.SellPrice,
+                SellPrice = PriceModel == "Fixed" ? this.SellPrice : null,
                 Revenue = this.Revenue,
                 ActualGP = this.ActualGP,
                 TariffType = this.TariffType

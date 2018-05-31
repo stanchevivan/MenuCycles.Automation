@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MenuCycle.Data.Models;
 using MenuCycle.Tests.PageObjects;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
-using MenuCycle.Tests.Models;
-using MenuCycle.Tests.PageObjects.Planning.PlanningTabDays;
 
 namespace MenuCycle.Tests.Steps
 {
@@ -22,9 +21,10 @@ namespace MenuCycle.Tests.Steps
         readonly RecipeSearch recipeSearch;
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
+        readonly ModalDialogPage modalDialogPage;
 
         public MealPeriodSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleCalendarView menuCycleCalendarView,
-            CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification)
+                               CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification, ModalDialogPage modalDialogPage)
         {
             this.dailyPlanningView = dailyPlanningView;
             this.planningTabDays = planningTabDays;
@@ -34,6 +34,7 @@ namespace MenuCycle.Tests.Steps
             this.createMealPeriod = createMealPeriod;
             this.recipeSearch = recipeSearch;
             this.notification = notification;
+            this.modalDialogPage = modalDialogPage;
 
             this.scenarioContext = scenarioContext;
         }
@@ -197,6 +198,40 @@ namespace MenuCycle.Tests.Steps
         public void ThenAllMealPeriodsAreCollapsed()
         {
             Assert.IsTrue(planningTabDays.AreAllMealPeriodsCollapsed);
+        }
+
+        [Then(@"Value for fields for meal period ""(.*)"" is")]
+        public void TotalPlannedQuantityforMealPeriodIs(string mealPeriodName, Table table)
+        {
+            dynamic values = table.CreateDynamicInstance();
+
+            var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
+
+            if (!string.IsNullOrEmpty(Convert.ToString(values.PlannedQty)))
+            {
+                Assert.That(mealPeriod.PlannedQuantity, Is.EqualTo(Convert.ToString(values.PlannedQty)));
+            }
+
+            if (!string.IsNullOrEmpty(Convert.ToString(values.TotalCost)))
+            {
+                Assert.That(mealPeriod.TotalCost, Is.EqualTo(Convert.ToString(values.TotalCost)));
+            }
+            if (!string.IsNullOrEmpty(Convert.ToString(values.Revenue)))
+            {
+                Assert.That(mealPeriod.Revenue, Is.EqualTo(Convert.ToString(values.Revenue)));
+            }
+            if (!string.IsNullOrEmpty(Convert.ToString(values.ActualGP)))
+            {
+                Assert.That(mealPeriod.ActualGP, Is.EqualTo(Convert.ToString(values.ActualGP)));
+            }
+        }
+
+        [Given(@"Modal dialog Yes is selected")]
+        [When(@"Modal dialog Yes is selected")]
+        public void ModalDialogYes()
+        {
+            modalDialogPage.UseYesButton();
+            menuCycleCalendarView.WaitPageLoad();
         }
     }
 }

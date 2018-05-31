@@ -31,7 +31,11 @@ namespace MenuCycle.Tests.Steps
         [Given(@"'(.*)' application is open")]
         public void GivenApplicationIsOpen(string application)
         {
-            GivenFourthEngageDashboarIsOpen();
+            if (!fourthAppMain.NotificationItemButton.Get().ElementPresent)
+            {
+                GivenFourthEngageDashboarIsOpen();
+            }
+
             GivenApplicationIsSelected(application);
         }
     }

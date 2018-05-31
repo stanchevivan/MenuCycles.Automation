@@ -65,7 +65,11 @@ namespace MenuCycle.Tests.PageObjects
 
         public DailyMealPeriod GetMealPeriod(string name)
         {
-            return MealPeriods.FirstOrDefault(x => x.Name == name.ToUpper());
+            if (!MealPeriods.Any(x => x.Name == name.ToUpper()))
+            {
+                throw new System.Exception($"Meal period {name} not found !");
+            }
+            return MealPeriods.First(x => x.Name == name.ToUpper());
         }
 
         public void ExpandAllMealPeriods()

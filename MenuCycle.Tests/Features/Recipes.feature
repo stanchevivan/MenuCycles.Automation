@@ -118,6 +118,7 @@ Scenario: Retrieve Recipe Price from the API (NO Min - Max)
     When planning for Monday is opened
     Then CostPerUnit for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to "1.68"
 
+@TC27705 @TC27721 @TC27724 @TC27726
 Scenario: Calculations for "Total Cost", "Sell Price", "Revenue" and "Actual GP" should be correct
     Given Menu Cycle "Meda" is selected
     And planning for Wednesday is opened

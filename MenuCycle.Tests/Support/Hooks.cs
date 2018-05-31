@@ -15,8 +15,6 @@ namespace MenuCycle.Tests.Support
             this.driver = driver;
 
             this.scenarioContext = scenarioContext;
-            // this.objectContainer.RegisterFactoryAs(d => 
-            //    d.Resolve<DefaultValuesService>().GetDefaults(36, 1, "SodexoUp"));
         }
 
 

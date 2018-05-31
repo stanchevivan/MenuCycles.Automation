@@ -70,13 +70,11 @@ namespace MenuCycle.Tests.PageObjects
         public void UseCrossButton()
         {
             HeaderCrossButton.Click();
-            Driver.WaitElementToExists(DailyWeekAddGroup);
         }
 
         public void UseCancelButton()
         {
             CancelButton.Click();
-            Driver.WaitElementToExists(DailyWeekAddGroup);
         }
     }
 }

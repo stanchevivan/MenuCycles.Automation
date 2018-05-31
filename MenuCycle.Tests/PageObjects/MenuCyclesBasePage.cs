@@ -1,4 +1,5 @@
-﻿using Fourth.Automation.Framework.Page;
+﻿using System.Linq;
+using Fourth.Automation.Framework.Page;
 using OpenQA.Selenium;
 
 namespace MenuCycle.Tests.PageObjects
@@ -17,6 +18,12 @@ namespace MenuCycle.Tests.PageObjects
         public bool IsVerticalScrollPresent()
         {
             return (bool)((IJavaScriptExecutor)Driver).ExecuteScript("return document.documentElement.scrollHeight>document.documentElement.clientHeight;");
+        }
+
+        public void CloseMenuCycles()
+        {
+            Driver.Close();
+            Driver.SwitchTo().Window(Driver.WindowHandles.Last());
         }
     }
 }

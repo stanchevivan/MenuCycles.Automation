@@ -337,6 +337,52 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Calculate Meal period \"Planned Quantity\" and \"Total Cost\" - recipes only")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.CategoryAttribute("TC29384")]
+        [NUnit.Framework.CategoryAttribute("#Functionality")]
+        [NUnit.Framework.CategoryAttribute("not")]
+        [NUnit.Framework.CategoryAttribute("implemented")]
+        [NUnit.Framework.CategoryAttribute("yet")]
+        public virtual void CalculateMealPeriodPlannedQuantityAndTotalCost_RecipesOnly()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculate Meal period \"Planned Quantity\" and \"Total Cost\" - recipes only", new string[] {
+                        "TC29384",
+                        "ignore",
+                        "#Functionality",
+                        "not",
+                        "implemented",
+                        "yet"});
+#line 92
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 93
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 94
+    testRunner.When("planning for Thursday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 95
+        testRunner.And("quantity for recipe named \"703Coronation Chicken Sandwich Filling (50g)\" in meal " +
+                    "period \"DANGELO\" is set to \"10\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 96
+        testRunner.And("quantity for recipe named \"703Reggae Raggae Mayonnaise\" in meal period \"DANGELO\" " +
+                    "is set to \"10\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 97
+        testRunner.And("quantity for recipe named \"Cheese\" in meal period \"DANGELO\" is set to \"10\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "PlannedQty",
+                        "TotalCost"});
+            table1.AddRow(new string[] {
+                        "30",
+                        "655.5"});
+#line 98
+    testRunner.Then("Value for fields for meal period \"DANGELO\" is", ((string)(null)), table1, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

@@ -72,12 +72,6 @@ namespace MenuCycle.Tests.Features
         public virtual void FeatureBackground()
         {
 #line 5
-#line 6
-testRunner.Given("1 Menu Cycles exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 7
-testRunner.And("1 Meal Period exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 8
-testRunner.And("3 recipes exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
 testRunner.And("\'Menu Cycles\' application is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10

@@ -461,17 +461,25 @@ this.FeatureBackground();
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Calculations for \"Total Cost\", \"Sell Price\", \"Revenue\" and \"Actual GP\" should be " +
             "correct")]
+        [NUnit.Framework.CategoryAttribute("TC27705")]
+        [NUnit.Framework.CategoryAttribute("TC27721")]
+        [NUnit.Framework.CategoryAttribute("TC27724")]
+        [NUnit.Framework.CategoryAttribute("TC27726")]
         public virtual void CalculationsForTotalCostSellPriceRevenueAndActualGPShouldBeCorrect()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculations for \"Total Cost\", \"Sell Price\", \"Revenue\" and \"Actual GP\" should be " +
-                    "correct", ((string[])(null)));
-#line 121
+                    "correct", new string[] {
+                        "TC27705",
+                        "TC27721",
+                        "TC27724",
+                        "TC27726"});
+#line 122
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 122
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 123
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 124
     testRunner.And("planning for Wednesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -495,7 +503,7 @@ this.FeatureBackground();
                         "5",
                         "5",
                         ""});
-#line 124
+#line 125
     testRunner.When("data for recipes in a la carte \"Holiday A La Carte\" in meal period \"LANCE\" is set" +
                     "", ((string)(null)), table2, "When ");
 #line hidden
@@ -517,7 +525,7 @@ this.FeatureBackground();
                         "Markup",
                         "15",
                         "0"});
-#line 128
+#line 129
     testRunner.And("data for items is set", ((string)(null)), table3, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -541,7 +549,7 @@ this.FeatureBackground();
                         "2410.15",
                         "6886.14",
                         "5%"});
-#line 131
+#line 132
     testRunner.Then("Verify data for recipes in a la carte \"Holiday A La Carte\" in meal period \"LANCE\"" +
                     " is", ((string)(null)), table4, "Then ");
 #line hidden
@@ -561,7 +569,7 @@ this.FeatureBackground();
                         "0.61",
                         "2.44",
                         "13%"});
-#line 135
+#line 136
     testRunner.And("Verify data for items is", ((string)(null)), table5, "And ");
 #line hidden
             this.ScenarioCleanup();

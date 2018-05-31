@@ -1,4 +1,4 @@
-﻿# @planningscreen
+# @planningscreen
 Feature: PlanningScreen
     Meal Peridos functionalities and validations
 
@@ -66,7 +66,7 @@ Scenario: Saved data is retrieved from the API
 Scenario: Successfully Update and Save number of covers
     Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
-    When Number of covers value for meal period "LUNCH" is set to random number
+    When Number of covers for meal period "LUNCH" is set to random number
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2"
@@ -88,4 +88,35 @@ Scenario: Open Monday planning screen, then go to Tuesday, back to Monday update
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2"
     Then Save button is clicked and the message 'Planning figures updated.' is displayed
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to the previous inputted number
-       
+
+@TC29101
+Scenario: Error message is displayed when planned quantity for recipe is set to number <= 0
+    Given Menu Cycle "Meda" is selected
+    When planning for Monday is opened
+        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "0"
+    Then red border is displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And Save button is clicked and the message 'Sorry, we could not proceed with your request' is displayed
+
+
+Scenario: Modal dialog for unsaved changes is shown
+    Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+        And values for recipe "004Baked Beans_3" in meal period "LUNCH" are stored
+        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
+        And Cancel button is clicked
+        And Modal dialog Yes is selected
+    When planning for Monday is opened
+    Then values for recipe "004Baked Beans_3" in meal period "LUNCH" are equal to the stored ones
+
+@D23865
+Scenario: Number of covers is saved after closing the app
+    Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+        And Number of covers for meal period "LUNCH" is set to random number
+        And Save button is clicked
+        And Menu Cycles app is closed
+        And 'Menu Cycles' application is open
+        And a central user is selected
+        And Menu Cycle "Meda" is selected
+    When planning for Monday is opened
+    Then number of covers for meal period "LUNCH" is equal to the previous inputted number

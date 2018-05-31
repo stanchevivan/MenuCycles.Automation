@@ -3,9 +3,9 @@ Feature: RecipeSearch
     Recipe search functionalities and validations
 
 Background: 
-Given 1 Menu Cycles exists
-And 1 Meal Period exists
-And 3 recipes exists
+# Given 1 Menu Cycles exists
+# And 1 Meal Period exists
+# And 3 recipes exists
 And 'Menu Cycles' application is open
 And a central user is selected
 
