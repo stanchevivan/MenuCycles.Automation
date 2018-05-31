@@ -137,7 +137,7 @@ Scenario: Calculations for "Total Cost", "Sell Price", "Revenue" and "Actual GP"
         |LANCE         |RECIPE|004Basic Sponge|      2.12|     0.61|   2.44|     13%|
 
 @TC29101 @D23785
-Scenario: Error message is displayed when planned quantity for recipe is set to number < 0
+Scenario: Min selected Planned Quantity is 0
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
@@ -146,7 +146,7 @@ Scenario: Error message is displayed when planned quantity for recipe is set to 
         And the user focus out
     Then red border is not displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
 
-@TC29394 @D23825
+@TC29394 @D23825 @ignore
 Scenario: Sell Price value is not transferred to Markup Target% field
     Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
@@ -155,7 +155,7 @@ Scenario: Sell Price value is not transferred to Markup Target% field
     When Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
     Then field "Target" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
 
-@TC29395 @D23825
+@TC29395 @D23825 @ignore
 Scenario: Markup Target% value is not transferred to Sell Price field
     Given Menu Cycle "Meda" is selected
         And planning for Monday is opened

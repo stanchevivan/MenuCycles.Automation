@@ -568,12 +568,12 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Error message is displayed when planned quantity for recipe is set to number < 0")]
+        [NUnit.Framework.DescriptionAttribute("Min selected Planned Quantity is 0")]
         [NUnit.Framework.CategoryAttribute("TC29101")]
         [NUnit.Framework.CategoryAttribute("D23785")]
-        public virtual void ErrorMessageIsDisplayedWhenPlannedQuantityForRecipeIsSetToNumber0()
+        public virtual void MinSelectedPlannedQuantityIs0()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Error message is displayed when planned quantity for recipe is set to number < 0", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Min selected Planned Quantity is 0", new string[] {
                         "TC29101",
                         "D23785"});
 #line 140
@@ -604,13 +604,15 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Sell Price value is not transferred to Markup Target% field")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.CategoryAttribute("TC29394")]
         [NUnit.Framework.CategoryAttribute("D23825")]
         public virtual void SellPriceValueIsNotTransferredToMarkupTargetField()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sell Price value is not transferred to Markup Target% field", new string[] {
                         "TC29394",
-                        "D23825"});
+                        "D23825",
+                        "ignore"});
 #line 150
 this.ScenarioSetup(scenarioInfo);
 #line 5
@@ -637,13 +639,15 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Markup Target% value is not transferred to Sell Price field")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.CategoryAttribute("TC29395")]
         [NUnit.Framework.CategoryAttribute("D23825")]
         public virtual void MarkupTargetValueIsNotTransferredToSellPriceField()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Markup Target% value is not transferred to Sell Price field", new string[] {
                         "TC29395",
-                        "D23825"});
+                        "D23825",
+                        "ignore"});
 #line 159
 this.ScenarioSetup(scenarioInfo);
 #line 5
