@@ -291,6 +291,9 @@
     <Reference Include="SpecFlow.Assist.Dynamic">
       <HintPath>..\packages\SpecFlow.Assist.Dynamic.1.3.1\lib\45\SpecFlow.Assist.Dynamic.dll</HintPath>
     </Reference>
+    <Reference Include="Fourth.Automation.Framework.Reporting">
+      <HintPath>..\packages\Fourth.Automation.Framework.Reporting.4.0.15\lib\net45\Fourth.Automation.Framework.Reporting.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Features\MenuCycles.feature.cs">

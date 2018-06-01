@@ -113,7 +113,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
                 PriceModel = this.PriceModel,
                 Target = PriceModel != "Fixed" ? this.Target : null,
                 TaxPercentage = this.TaxPercentage,
-                SellPrice = PriceModel == "Fixed" ? this.SellPrice : null,
+                SellPrice = this.SellPrice,
                 Revenue = this.Revenue,
                 ActualGP = this.ActualGP,
                 TariffType = this.TariffType
