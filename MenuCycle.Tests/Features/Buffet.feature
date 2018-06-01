@@ -13,7 +13,7 @@ Scenario: Calculations for "Total Cost" and "Revenue" should be correct for GP "
 	Given Menu Cycle "Meda" is selected
         And planning for Tuesday is opened
         And Meal Period "DANGELO" is expanded
-    When data for items is set
+    When data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|TariffType|PriceModel|Target|TaxPercentage|
         |DANGELO          |BUFFET|Aneliya Buffet|              1| TariffOne|        GP|     5|           20|
     And data for recipes in buffet "Aneliya Buffet" in meal period "DANGELO" is set
@@ -27,7 +27,7 @@ Scenario: Calculations for "Total Cost" and "Revenue" should be correct for GP "
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
         |DANGELO          |BUFFET|Aneliya Buffet|     86.88|   109.74|  91.45|      5%|
-    And data for items is set
+    And data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|
         |DANGELO          |BUFFET|Aneliya Buffet|              2|
     Then Verify data for recipes in buffet "Aneliya Buffet" in meal period "DANGELO" is
@@ -47,7 +47,7 @@ Scenario: Calculations for "Total Cost" and "Revenue" and "Actual GP" should be 
     Given Menu Cycle "Meda" is selected
         And planning for Tuesday is opened
         And Meal Period "DANGELO" is expanded
-    When data for items is set
+    When data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|TariffType|PriceModel   |TaxPercentage|SellPrice|
         |DANGELO          |BUFFET|Aneliya Buffet|              1| TariffOne|        Fixed|            5|      100|
     And data for recipes in buffet "Aneliya Buffet" in meal period "DANGELO" is set
@@ -61,7 +61,7 @@ Scenario: Calculations for "Total Cost" and "Revenue" and "Actual GP" should be 
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|Revenue|ActualGP|
         |DANGELO          |BUFFET|Aneliya Buffet|     86.88|  95.24|      9%|
-    And data for items is set
+    And data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|
         |DANGELO          |BUFFET|Aneliya Buffet|              2|
     Then Verify data for recipes in buffet "Aneliya Buffet" in meal period "DANGELO" is
@@ -81,7 +81,7 @@ Scenario: Calculations for "Total Cost" and "Sell Price" and "Revenue" should be
     Given Menu Cycle "Meda" is selected
         And planning for Tuesday is opened
         And Meal Period "DANGELO" is expanded
-    When data for items is set
+    When data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|TariffType|PriceModel|Target|TaxPercentage|
         |DANGELO          |BUFFET|Aneliya Buffet|              1| TariffOne|    Markup|     5|           20|
     And data for recipes in buffet "Aneliya Buffet" in meal period "DANGELO" is set
@@ -92,7 +92,7 @@ Scenario: Calculations for "Total Cost" and "Sell Price" and "Revenue" should be
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
         |DANGELO          |BUFFET|Aneliya Buffet|     24.21|     30.5|  25.42|      5%|
-    And data for items is set
+    And data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|Target|
         |DANGELO          |BUFFET|Aneliya Buffet|              2|    43|
     Then Verify data for recipes in buffet "Aneliya Buffet" in meal period "DANGELO" is

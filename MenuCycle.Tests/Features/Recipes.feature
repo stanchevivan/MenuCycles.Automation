@@ -126,7 +126,7 @@ Scenario: Calculations for "Total Cost", "Sell Price", "Revenue" and "Actual GP"
         |RecipeTitle                   |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
         |004Bread (fresh dough)        |              2|     Fixed|      |           20|       55|
         |724Pepper & Garlic Coated Beef|              3|        GP|     5|            5|         |
-    And data for items is set
+    And data for recipes is set
         |MealPeriodName|TYPE  |RecipeTitle    |PlannedQuantity|TariffType|PriceModel|Target|TaxPercentage|
         |LANCE         |RECIPE|004Basic Sponge|              4| TariffOne|    Markup|    15|            0|
     Then Verify data for recipes in a la carte "Holiday A La Carte" in meal period "LANCE" is
@@ -172,4 +172,3 @@ Scenario: Error message displayed if recipe values are empty
         And red border is displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
         And Save button is clicked
     Then red border is not displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
-    And 

@@ -112,7 +112,7 @@ this.FeatureBackground();
                         "5",
                         "20"});
 #line 16
-    testRunner.When("data for items is set", ((string)(null)), table1, "When ");
+    testRunner.When("data for buffets is set", ((string)(null)), table1, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "RecipeTitle",
@@ -168,7 +168,7 @@ this.FeatureBackground();
                         "Aneliya Buffet",
                         "2"});
 #line 30
-    testRunner.And("data for items is set", ((string)(null)), table4, "And ");
+    testRunner.And("data for buffets is set", ((string)(null)), table4, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "RecipeTitle",
@@ -255,7 +255,7 @@ this.FeatureBackground();
                         "5",
                         "100"});
 #line 50
-    testRunner.When("data for items is set", ((string)(null)), table7, "When ");
+    testRunner.When("data for buffets is set", ((string)(null)), table7, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                         "RecipeTitle",
@@ -309,7 +309,7 @@ this.FeatureBackground();
                         "Aneliya Buffet",
                         "2"});
 #line 64
-    testRunner.And("data for items is set", ((string)(null)), table10, "And ");
+    testRunner.And("data for buffets is set", ((string)(null)), table10, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
                         "RecipeTitle",
@@ -394,7 +394,7 @@ this.FeatureBackground();
                         "5",
                         "20"});
 #line 84
-    testRunner.When("data for items is set", ((string)(null)), table13, "When ");
+    testRunner.When("data for buffets is set", ((string)(null)), table13, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
                         "RecipeTitle",
@@ -443,7 +443,7 @@ this.FeatureBackground();
                         "2",
                         "43"});
 #line 95
-    testRunner.And("data for items is set", ((string)(null)), table16, "And ");
+    testRunner.And("data for buffets is set", ((string)(null)), table16, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
                         "RecipeTitle",

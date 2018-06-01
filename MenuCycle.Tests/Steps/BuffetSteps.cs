@@ -35,7 +35,8 @@ namespace MenuCycle.Tests.Steps
             this.scenarioContext = scenarioContext;
         }
 
-        [When(@"data for items is set")]
+        [When(@"data for buffets is set")]
+        [When(@"data for recipes is set")]
         public void WhenDataForItemsIsSet(Table table)
         {
             var itemData = table.CreateSet<RecipeModel>();

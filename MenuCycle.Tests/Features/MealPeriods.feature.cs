@@ -363,23 +363,58 @@ this.FeatureBackground();
     testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 94
     testRunner.When("planning for Thursday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 95
-        testRunner.And("quantity for recipe named \"703Coronation Chicken Sandwich Filling (50g)\" in meal " +
-                    "period \"DANGELO\" is set to \"10\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 96
-        testRunner.And("quantity for recipe named \"703Reggae Raggae Mayonnaise\" in meal period \"DANGELO\" " +
-                    "is set to \"10\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 97
-        testRunner.And("quantity for recipe named \"Cheese\" in meal period \"DANGELO\" is set to \"10\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "PlannedQty",
-                        "TotalCost"});
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "PlannedQuantity",
+                        "PriceModel",
+                        "Target",
+                        "TaxPercentage",
+                        "SellPrice"});
             table1.AddRow(new string[] {
+                        "DANGELO",
+                        "RECIPE",
+                        "703Coronation Chicken Sandwich Filling (50g)",
+                        "10",
+                        "GP",
+                        "14",
+                        "20",
+                        ""});
+            table1.AddRow(new string[] {
+                        "DANGELO",
+                        "RECIPE",
+                        "703Reggae Raggae Mayonnaise",
+                        "10",
+                        "Fixed",
+                        "",
+                        "20",
+                        "1"});
+            table1.AddRow(new string[] {
+                        "DANGELO",
+                        "RECIPE",
+                        "Cheese",
+                        "10",
+                        "Markup",
+                        "12",
+                        "20",
+                        ""});
+#line 95
+    testRunner.And("data for recipes is set", ((string)(null)), table1, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "PlannedQty",
+                        "TotalCost",
+                        "Revenue",
+                        "ActualGP"});
+            table2.AddRow(new string[] {
                         "30",
-                        "655.5"});
-#line 98
-    testRunner.Then("Value for fields for meal period \"DANGELO\" is", ((string)(null)), table1, "Then ");
+                        "218.50",
+                        "243.50",
+                        "10%"});
+#line 100
+    testRunner.Then("Value for fields for meal period \"DANGELO\" is", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

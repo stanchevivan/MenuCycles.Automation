@@ -526,7 +526,7 @@ this.FeatureBackground();
                         "15",
                         "0"});
 #line 129
-    testRunner.And("data for items is set", ((string)(null)), table3, "And ");
+    testRunner.And("data for recipes is set", ((string)(null)), table3, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "RecipeTitle",
@@ -703,8 +703,6 @@ this.FeatureBackground();
 #line 174
     testRunner.Then("red border is not displayed around Planned Quantity for recipe \"004Baked Beans_3\"" +
                     " in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 175
-    testRunner.And("", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

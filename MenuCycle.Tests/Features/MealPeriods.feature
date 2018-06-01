@@ -92,9 +92,11 @@ Scenario: Open all meal periods in Planning screen
 Scenario: Calculate Meal period "Planned Quantity" and "Total Cost" - recipes only
     Given Menu Cycle "Meda" is selected
     When planning for Thursday is opened
-        And quantity for recipe named "703Coronation Chicken Sandwich Filling (50g)" in meal period "DANGELO" is set to "10"
-        And quantity for recipe named "703Reggae Raggae Mayonnaise" in meal period "DANGELO" is set to "10"
-        And quantity for recipe named "Cheese" in meal period "DANGELO" is set to "10"
+    And data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle                                 |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
+        |DANGELO       |RECIPE|703Coronation Chicken Sandwich Filling (50g)|             10|        GP|    14|            20|        |
+        |DANGELO       |RECIPE|703Reggae Raggae Mayonnaise                 |             10|     Fixed|      |            20|       1|
+        |DANGELO       |RECIPE|Cheese                                      |             10|    Markup|    12|            20|        |
     Then Value for fields for meal period "DANGELO" is
-    |PlannedQty|TotalCost|
-    |        30|    655.5|
+    |PlannedQty|TotalCost|Revenue|ActualGP|
+    |        30|   218.50| 243.50|     10%|
