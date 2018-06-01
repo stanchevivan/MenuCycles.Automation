@@ -14,7 +14,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         }
 
         [FindsBy(How = How.ClassName, Using = "recipe-card")]
-        IList<IWebElement> Items { get; set; }
+        private IList<IWebElement> Items { get; set; }
 
         public IList<NestedRecipe> Recipes => this.Items.Select(p => new NestedRecipe(p, MealPeriodName)).ToList().GetRange(1, Items.Count - 1);
 

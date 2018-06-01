@@ -13,7 +13,7 @@ namespace MenuCycle.Tests.PageObjects
         }
 
         [FindsBy(How = How.CssSelector, Using = ".daily-item-container-div")]
-        public IList<IWebElement> MealPeriodCardContainer { get; set; }
+        private IList<IWebElement> MealPeriodCardContainer { get; set; }
 
         public IList<MealPeriodCard> MealPeriodCards => this.MealPeriodCardContainer.Select(p => new MealPeriodCard(p)).ToList();
     }

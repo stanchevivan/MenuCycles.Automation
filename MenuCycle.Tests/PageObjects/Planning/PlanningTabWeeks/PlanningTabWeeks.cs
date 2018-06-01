@@ -11,9 +11,9 @@ namespace MenuCycle.Tests.PageObjects
         }
 
         [FindsBy(How = How.ClassName, Using = "planning-switch-day")]
-        IWebElement DaysButton { get; set; }
+        private IWebElement DaysButton { get; set; }
         [FindsBy(How = How.ClassName, Using = "weekly-summary-content")]
-        IWebElement PageContent { get; set; }
+        private IWebElement PageContent { get; set; }
 
         public override void WaitForLoad()
         {

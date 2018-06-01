@@ -17,15 +17,15 @@ namespace MenuCycle.Tests.PageObjects
         }
 
         [FindsBy(How = How.ClassName, Using = "icon-chevron-up")]
-        IWebElement CollapseArrow { get; set; }
+        private IWebElement CollapseArrow { get; set; }
         [FindsBy(How = How.ClassName, Using = "icon-chevron-down")]
-        IWebElement ExpandArrow { get; set; }
+        private IWebElement ExpandArrow { get; set; }
         [FindsBy(How = How.ClassName, Using = "mealperiod-header__name")]
-        IWebElement MealPeriodName { get; set; }
+        private IWebElement MealPeriodName { get; set; }
         [FindsBy(How = How.ClassName, Using = "mealperiod-header__covers-input")]
-        IWebElement Covers { get; set; }
+        private IWebElement Covers { get; set; }
         [FindsBy(How = How.ClassName, Using = "recipe-content")]
-        IList<IWebElement> Items{ get; set; }
+        private IList<IWebElement> Items{ get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-footer__content > div:nth-of-type(1) > span:last-of-type")]
         private IWebElement PlannedQuantityText { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-footer__content > div:nth-of-type(2) > span:last-of-type")]

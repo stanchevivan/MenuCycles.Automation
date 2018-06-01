@@ -11,27 +11,27 @@ namespace MenuCycle.Tests.PageObjects
         }
 
         [FindsBy(How = How.CssSelector, Using = ".mainheader__period > span:first-of-type")]
-        IWebElement HeaderDayText { get; set; }
-        [FindsBy(How = How.XPath, Using = "//div[text()='Planning']")] // Old MC
+        private IWebElement HeaderDayText { get; set; }
+        [FindsBy(How = How.XPath, Using = "//div[text()='Nutrition']")] // Old MC
         [FindsBy(How = How.XPath, Using = "//button[text()='Nutrition']")] // Engine
-        IWebElement NutritionTabButton { get; set; }
+        private IWebElement NutritionTabButton { get; set; }
         [FindsBy(How = How.XPath, Using = "//div[text()='Planning']")] // Old Menu Cycles
         [FindsBy(How = How.XPath, Using = "//button[text()='Planning']")] // Engine
-        IWebElement PlanningTabButton { get; set; }
+        private IWebElement PlanningTabButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".footer__controls > button:last-of-type")]
-        IWebElement SaveButton { get; set; }
+        private IWebElement SaveButton { get; set; }
         [FindsBy(How = How.TagName, Using = "body")]
-        IWebElement Body { get; set; }
+        private IWebElement Body { get; set; }
         [FindsBy(How = How.ClassName, Using = "mainheader__close-icon")]
-        IWebElement HeaderCrossButton { get; set; }
+        private IWebElement HeaderCrossButton { get; set; }
         [FindsBy(How = How.ClassName, Using = "mealperiodLoader")]
-        IWebElement Loader { get; set; }
+        private IWebElement Loader { get; set; }
         [FindsBy(How = How.ClassName, Using = "daily-week-add-group")]
-        IWebElement DailyWeekAddGroup { get; set; }
+        private IWebElement DailyWeekAddGroup { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".footer__controls > button:first-of-type")]
-        IWebElement CancelButton { get; set; }
+        private IWebElement CancelButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = "div[id='toast-container'] div[class='toast-message']")]
-        public IWebElement ToastMessage { get; set; }
+        private  IWebElement ToastMessage { get; set; }
 
         public string HeaderText => HeaderDayText.Text;
 
