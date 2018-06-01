@@ -14,8 +14,8 @@ Scenario: Retrieve recipe information from the API
     Given Menu Cycle "Meda" is selected
     When planning for Thursday is opened
     Then verify the following recipes:
-    |MealPeriodName   |Type  |RecipeTitle|PlannedQuantity|CostPerUnit|TotalCosts|TariffType|PriceModel|Target|TaxPercentage|SellPrice|Revenue|ActualGP|
-    |DANGELO          |RECIPE|Cheese     |              2|      20.27|     40.54| TariffTwo|    Markup|    12|           20|    27.24|   45.4|     11%|
+        |MealPeriodName   |Type  |RecipeTitle|PlannedQuantity|CostPerUnit|TotalCosts|TariffType|PriceModel|Target|TaxPercentage|SellPrice|Revenue|ActualGP|
+        |DANGELO          |RECIPE|Cheese     |              2|      20.27|     40.54| TariffTwo|    Markup|    12|           20|    27.24|   45.4|     11%|
 
 @TC28830
 Scenario: "Target %" field is not present and "Sell Price" can be edited if "Price model" = "Fixed"
@@ -148,22 +148,37 @@ Scenario: Min selected Planned Quantity is 0
     Then red border is not displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
 
 @TC29394 @D23825 @ignore
-Scenario: Sell Price value is not transferred to Markup Target% field
+Scenario: Sell Price value is not transferred to Markup and GP Target% field
     Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
-        And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "50"
-    When Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
+    When SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "50"
+        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
+        And field "Target" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
+        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "GP"
     Then field "Target" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
 
 @TC29395 @D23825 @ignore
-Scenario: Markup Target% value is not transferred to Sell Price field
+Scenario: Markup Target% value is not transferred to Sell Price and GP target field
     Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "50"
-    When Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
-    Then field "Sell Price" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
+    When TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "50"
+        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
+        And field "Sell Price" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
+        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "GP"
+    Then field "Target" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
+
+@TC29469 @D23825 @ignore
+Scenario: GP Target% value is not transferred to Sell Price and Markup target field
+    Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "GP"
+    When TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "50"
+        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
+        And field "Sell Price" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
+        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
+    Then field "Target" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
 
 @TC29468 @D23967
 Scenario: Error message displayed if recipe values are empty

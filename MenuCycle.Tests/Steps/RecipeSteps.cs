@@ -113,6 +113,7 @@ namespace MenuCycle.Tests.Steps
                 .Target = value;
         }
 
+        [Given(@"the user focus out")]
         [When(@"the user focus out")]
         public void WhenTheUserFocusOut()
         {
@@ -212,6 +213,7 @@ namespace MenuCycle.Tests.Steps
                           .GetRecipe(recipeName).IsPlannedQuantityWithRedBorder);
         }
 
+        [When(@"field ""(.*)"" for single recipe ""(.*)"" in meal period ""(.*)"" is empty")]
         [Then(@"field ""(.*)"" for single recipe ""(.*)"" in meal period ""(.*)"" is empty")]
         public void ThenTargetPercentageFieldForRecipeInMealPeriodIsEmpty(string field, string recipeName, string mealPeriod)
         {

@@ -98,5 +98,5 @@ Scenario: Calculate Meal period "Planned Quantity" and "Total Cost" - recipes on
         |DANGELO       |RECIPE|703Reggae Raggae Mayonnaise                 |             10|     Fixed|      |            20|       1|
         |DANGELO       |RECIPE|Cheese                                      |             10|    Markup|    12|            20|        |
     Then Value for fields for meal period "DANGELO" is
-    |PlannedQty|TotalCost|Revenue|ActualGP|
-    |        30|   218.50| 243.50|     10%|
+        |PlannedQty|TotalCost|Revenue|ActualGP|
+        |        30|   218.50| 243.50|     10%|

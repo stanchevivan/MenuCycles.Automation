@@ -611,13 +611,13 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Sell Price value is not transferred to Markup Target% field")]
+        [NUnit.Framework.DescriptionAttribute("Sell Price value is not transferred to Markup and GP Target% field")]
         [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.CategoryAttribute("TC29394")]
         [NUnit.Framework.CategoryAttribute("D23825")]
-        public virtual void SellPriceValueIsNotTransferredToMarkupTargetField()
+        public virtual void SellPriceValueIsNotTransferredToMarkupAndGPTargetField()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sell Price value is not transferred to Markup Target% field", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sell Price value is not transferred to Markup and GP Target% field", new string[] {
                         "TC29394",
                         "D23825",
                         "ignore"});
@@ -633,12 +633,17 @@ this.FeatureBackground();
         testRunner.And("Price model for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"Fixed" +
                     "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 155
-        testRunner.And("SellPrice for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"5" +
-                    "0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("SellPrice for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"5" +
+                    "0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 156
-    testRunner.When("Price model for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"Marku" +
-                    "p\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And("Price model for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"Marku" +
+                    "p\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 157
+        testRunner.And("field \"Target\" for single recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is emp" +
+                    "ty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 158
+        testRunner.And("Price model for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"GP\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 159
     testRunner.Then("field \"Target\" for single recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is emp" +
                     "ty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -646,36 +651,81 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Markup Target% value is not transferred to Sell Price field")]
+        [NUnit.Framework.DescriptionAttribute("Markup Target% value is not transferred to Sell Price and GP target field")]
         [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.CategoryAttribute("TC29395")]
         [NUnit.Framework.CategoryAttribute("D23825")]
-        public virtual void MarkupTargetValueIsNotTransferredToSellPriceField()
+        public virtual void MarkupTargetValueIsNotTransferredToSellPriceAndGPTargetField()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Markup Target% value is not transferred to Sell Price field", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Markup Target% value is not transferred to Sell Price and GP target field", new string[] {
                         "TC29395",
                         "D23825",
                         "ignore"});
-#line 160
+#line 162
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 161
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 162
-        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 163
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 164
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 165
         testRunner.And("Price model for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"Marku" +
                     "p\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 164
-        testRunner.And("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"5" +
-                    "0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 165
-    testRunner.When("Price model for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"Fixed" +
-                    "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 166
-    testRunner.Then("field \"Sell Price\" for single recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is" +
-                    " empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.When("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"5" +
+                    "0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 167
+        testRunner.And("Price model for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"Fixed" +
+                    "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 168
+        testRunner.And("field \"Sell Price\" for single recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is" +
+                    " empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 169
+        testRunner.And("Price model for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"GP\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 170
+    testRunner.Then("field \"Target\" for single recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is emp" +
+                    "ty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("GP Target% value is not transferred to Sell Price and Markup target field")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.CategoryAttribute("TC29469")]
+        [NUnit.Framework.CategoryAttribute("D23825")]
+        public virtual void GPTargetValueIsNotTransferredToSellPriceAndMarkupTargetField()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GP Target% value is not transferred to Sell Price and Markup target field", new string[] {
+                        "TC29469",
+                        "D23825",
+                        "ignore"});
+#line 173
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 174
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 175
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 176
+        testRunner.And("Price model for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"GP\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 177
+    testRunner.When("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"5" +
+                    "0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 178
+        testRunner.And("Price model for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"Fixed" +
+                    "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 179
+        testRunner.And("field \"Sell Price\" for single recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is" +
+                    " empty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 180
+        testRunner.And("Price model for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"Marku" +
+                    "p\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 181
+    testRunner.Then("field \"Target\" for single recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is emp" +
+                    "ty", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -689,22 +739,22 @@ this.FeatureBackground();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Error message displayed if recipe values are empty", new string[] {
                         "TC29468",
                         "D23967"});
-#line 169
+#line 184
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 170
+#line 185
     testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 171
+#line 186
     testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 172
+#line 187
         testRunner.And("quantity for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 173
+#line 188
         testRunner.And("red border is displayed around Planned Quantity for recipe \"004Baked Beans_3\" in " +
                     "meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 174
+#line 189
         testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 175
+#line 190
     testRunner.Then("Notification message \"Sorry, we could not proceed with your request\" is displayed" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
