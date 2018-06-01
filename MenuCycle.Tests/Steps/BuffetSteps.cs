@@ -63,9 +63,7 @@ namespace MenuCycle.Tests.Steps
 
                     default:
                         {
-                            item = planningTabDays.GetMealPeriod(data.MealPeriodName)
-                                                  .GetRecipe(data.RecipeTitle);
-                            break;
+                            throw new System.Exception($"TYPE is {data.Type}. It should be RECIPE or BUFFET !");
                         }
                 }
 
