@@ -682,27 +682,31 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Error message displayed if recipe values are empty")]
+        [NUnit.Framework.CategoryAttribute("TC29468")]
+        [NUnit.Framework.CategoryAttribute("D23967")]
         public virtual void ErrorMessageDisplayedIfRecipeValuesAreEmpty()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Error message displayed if recipe values are empty", ((string[])(null)));
-#line 168
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Error message displayed if recipe values are empty", new string[] {
+                        "TC29468",
+                        "D23967"});
+#line 169
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 169
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 170
-    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 171
-        testRunner.And("quantity for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 172
+        testRunner.And("quantity for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 173
         testRunner.And("red border is displayed around Planned Quantity for recipe \"004Baked Beans_3\" in " +
                     "meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 173
-        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 174
-    testRunner.Then("red border is not displayed around Planned Quantity for recipe \"004Baked Beans_3\"" +
-                    " in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 175
+    testRunner.Then("Notification message \"Sorry, we could not proceed with your request\" is displayed" +
+                    "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

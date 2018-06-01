@@ -47,7 +47,7 @@ Scenario: Save all updated figures (fields)
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2"
         And Save button is clicked
-        Then Notification message 'Planning figures updated.' is displayed
+    Then Notification message "Planning figures updated." is displayed
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to the previous inputted number
     And the user stays on the planning page
 
@@ -58,8 +58,8 @@ Scenario: Saved data is retrieved from the API
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2"
-    When And Save button is clicked
-        And Notification message 'Planning figures updated.' is displayed
+    When Save button is clicked
+        And Notification message "Planning figures updated." is displayed
         And Cancel button is clicked
         And planning for Monday is opened
     Then quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to the previous inputted number
@@ -73,7 +73,7 @@ Scenario: Successfully Update and Save number of covers
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2"
         And Save button is clicked
-        And Notification message 'Planning figures updated.' is displayed
+        And Notification message "Planning figures updated." is displayed
         And Cross button is clicked
         And planning for Monday is opened
     Then number of covers for meal period "LUNCH" is equal to the previous inputted number
@@ -90,7 +90,7 @@ Scenario: Open Monday planning screen, then go to Tuesday, back to Monday update
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2"
         And Save button is clicked
-    Then Notification message 'Planning figures updated.' is displayed
+    Then Notification message "Planning figures updated." is displayed
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to the previous inputted number
 
 Scenario: Modal dialog for unsaved changes is shown
@@ -109,6 +109,7 @@ Scenario: Number of covers is saved after closing the app
         And planning for Monday is opened
         And Number of covers for meal period "LUNCH" is set to random number
         And Save button is clicked
+        And Notification message "Planning figures updated." is displayed
         And Menu Cycles app is closed
         And 'Menu Cycles' application is open
         And a central user is selected

@@ -200,7 +200,7 @@ this.FeatureBackground();
 #line 49
         testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 50
-        testRunner.Then("Notification message \'Planning figures updated.\' is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Notification message \"Planning figures updated.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 51
         testRunner.And("quantity for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is equal to t" +
                     "he previous inputted number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -235,9 +235,9 @@ this.FeatureBackground();
         testRunner.And("SellPrice for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"2" +
                     "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 61
-    testRunner.When("And Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 62
-        testRunner.And("Notification message \'Planning figures updated.\' is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Notification message \"Planning figures updated.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 63
         testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 64
@@ -278,7 +278,7 @@ this.FeatureBackground();
 #line 75
         testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 76
-        testRunner.And("Notification message \'Planning figures updated.\' is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Notification message \"Planning figures updated.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 77
         testRunner.And("Cross button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 78
@@ -329,7 +329,7 @@ this.FeatureBackground();
 #line 92
         testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 93
-    testRunner.Then("Notification message \'Planning figures updated.\' is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Notification message \"Planning figures updated.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 94
         testRunner.And("quantity for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is equal to t" +
                     "he previous inputted number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -388,16 +388,18 @@ this.FeatureBackground();
 #line 111
         testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 112
-        testRunner.And("Menu Cycles app is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Notification message \"Planning figures updated.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 113
-        testRunner.And("\'Menu Cycles\' application is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Menu Cycles app is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 114
-        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("\'Menu Cycles\' application is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 115
-        testRunner.And("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 116
-    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 117
+    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 118
     testRunner.Then("number of covers for meal period \"LUNCH\" is equal to the previous inputted number" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

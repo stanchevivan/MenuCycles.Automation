@@ -165,10 +165,11 @@ Scenario: Markup Target% value is not transferred to Sell Price field
     When Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
     Then field "Sell Price" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
 
+@TC29468 @D23967
 Scenario: Error message displayed if recipe values are empty
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
         And red border is displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
         And Save button is clicked
-    Then red border is not displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
+    Then Notification message "Sorry, we could not proceed with your request" is displayed
