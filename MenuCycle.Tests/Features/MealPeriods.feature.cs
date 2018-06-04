@@ -339,22 +339,14 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Calculate Meal period \"Planned Quantity\" and \"Total Cost\" - recipes only")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.DescriptionAttribute("Calculate Meal period \"Planned Quantity\", \"Total Cost\", \"Revenue\" and \"ActualGP\" " +
+            "- recipes only")]
         [NUnit.Framework.CategoryAttribute("TC29384")]
-        [NUnit.Framework.CategoryAttribute("#Functionality")]
-        [NUnit.Framework.CategoryAttribute("not")]
-        [NUnit.Framework.CategoryAttribute("implemented")]
-        [NUnit.Framework.CategoryAttribute("yet")]
-        public virtual void CalculateMealPeriodPlannedQuantityAndTotalCost_RecipesOnly()
+        public virtual void CalculateMealPeriodPlannedQuantityTotalCostRevenueAndActualGP_RecipesOnly()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculate Meal period \"Planned Quantity\" and \"Total Cost\" - recipes only", new string[] {
-                        "TC29384",
-                        "ignore",
-                        "#Functionality",
-                        "not",
-                        "implemented",
-                        "yet"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculate Meal period \"Planned Quantity\", \"Total Cost\", \"Revenue\" and \"ActualGP\" " +
+                    "- recipes only", new string[] {
+                        "TC29384"});
 #line 92
 this.ScenarioSetup(scenarioInfo);
 #line 5

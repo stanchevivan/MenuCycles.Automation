@@ -88,8 +88,8 @@ Scenario: Open all meal periods in Planning screen
         And Close all is clicked
     Then all meal periods are collapsed
 
-@TC29384 @ignore #Functionality not implemented yet
-Scenario: Calculate Meal period "Planned Quantity" and "Total Cost" - recipes only
+@TC29384
+Scenario: Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP" - recipes only
     Given Menu Cycle "Meda" is selected
     When planning for Thursday is opened
     And data for recipes is set
