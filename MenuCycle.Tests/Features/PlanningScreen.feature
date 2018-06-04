@@ -78,7 +78,7 @@ Scenario: Successfully Update and Save number of covers
         And planning for Monday is opened
     Then number of covers for meal period "LUNCH" is equal to the previous inputted number
 
-@TC29080 @D23144
+@TC29080 @D23144 @D24051
 Scenario: Open Monday planning screen, then go to Tuesday, back to Monday update total quantity and click Save
     Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
@@ -86,6 +86,7 @@ Scenario: Open Monday planning screen, then go to Tuesday, back to Monday update
         And planning for Tuesday is opened
         And Cancel button is clicked
     When planning for Monday is opened
+        And meal periods for the day are "LUNCH"
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2"
@@ -93,7 +94,8 @@ Scenario: Open Monday planning screen, then go to Tuesday, back to Monday update
     Then Notification message "Planning figures updated." is displayed
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to the previous inputted number
 
-Scenario: Modal dialog for unsaved changes is shown
+@TC29521
+Scenario: Modal dialog for unsaved changes is shown on cancel
     Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
         And values for recipe "004Baked Beans_3" in meal period "LUNCH" are stored
@@ -101,6 +103,39 @@ Scenario: Modal dialog for unsaved changes is shown
         And Cancel button is clicked
         And Modal dialog Yes is selected
     When planning for Monday is opened
+    Then values for recipe "004Baked Beans_3" in meal period "LUNCH" are equal to the stored ones
+
+@TC29521
+Scenario: Modal dialog for unsaved changes is shown on pressing X
+    Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+        And values for recipe "004Baked Beans_3" in meal period "LUNCH" are stored
+        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
+        And Cross button is clicked
+        And Modal dialog Yes is selected
+    When planning for Monday is opened
+    Then values for recipe "004Baked Beans_3" in meal period "LUNCH" are equal to the stored ones
+
+@TC29526
+Scenario: Modal dialog for unsaved changes is shown when going to nutrition
+    Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+        And values for recipe "004Baked Beans_3" in meal period "LUNCH" are stored
+        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
+        And daily nutrition tab is opened
+        And Modal dialog Yes is selected
+    When daily planning tab is opened
+    Then values for recipe "004Baked Beans_3" in meal period "LUNCH" are equal to the stored ones
+
+@TC29521
+Scenario: Modal dialog for unsaved changes is shown when going to weekly planning view
+    Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+        And values for recipe "004Baked Beans_3" in meal period "LUNCH" are stored
+        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
+        And switching to Weekly Planning view
+        And Modal dialog Yes is selected
+    When switching to Daily Planning view
     Then values for recipe "004Baked Beans_3" in meal period "LUNCH" are equal to the stored ones
 
 @D23865
