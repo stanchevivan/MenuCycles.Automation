@@ -122,7 +122,7 @@ Scenario: Modal dialog for unsaved changes is shown when going to nutrition
         And planning for Monday is opened
         And values for recipe "004Baked Beans_3" in meal period "LUNCH" are stored
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
-        And daily nutrition tab is opened
+        And daily nutrition tab is clicked
         And Modal dialog Yes is selected
     When daily planning tab is opened
     Then values for recipe "004Baked Beans_3" in meal period "LUNCH" are equal to the stored ones
@@ -133,12 +133,12 @@ Scenario: Modal dialog for unsaved changes is shown when going to weekly plannin
         And planning for Monday is opened
         And values for recipe "004Baked Beans_3" in meal period "LUNCH" are stored
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
-        And switching to Weekly Planning view
+        And weekly Planning view link is clicked
         And Modal dialog Yes is selected
     When switching to Daily Planning view
     Then values for recipe "004Baked Beans_3" in meal period "LUNCH" are equal to the stored ones
 
-@D23865
+@D23865 @TC29558
 Scenario: Number of covers is saved after closing the app
     Given Menu Cycle "Meda" is selected
         And planning for Monday is opened

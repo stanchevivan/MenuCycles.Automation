@@ -15,7 +15,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "mealperiodLoader")]
         private IWebElement Loader { get; set; }
 
-        public override void WaitForLoader()
+        public override void WaitForLoad()
         {
             Driver.WaitElementToExists(PageContent);
             base.WaitForLoader();

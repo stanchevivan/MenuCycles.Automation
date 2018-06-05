@@ -17,6 +17,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public override void WaitForLoad()
         {
+            Driver.WaitElementToExists(PageContent);
             base.WaitForLoader();
         }
 
