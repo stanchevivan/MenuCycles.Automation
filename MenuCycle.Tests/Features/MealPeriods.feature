@@ -89,7 +89,7 @@ Scenario: Open all meal periods in Planning screen
     Then all meal periods are collapsed
 
 @TC29384
-Scenario: Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP" - recipes only
+Scenario:Recipes onlyCalculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP" 
     Given Menu Cycle "Meda" is selected
     When planning for Thursday is opened
     And data for recipes is set
@@ -100,3 +100,56 @@ Scenario: Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and 
     Then Value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
         |        30|   218.50| 243.50|     10%|
+
+@TC29387
+Scenario:Buffets only - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
+    Given Menu Cycle "Meda" is selected
+    When planning for Friday is opened
+    And data for buffets is set
+        |MealPeriodName|TYPE  |RecipeTitle|PlannedQuantity|TariffType|PriceModel|TaxPercentage|SellPrice|
+        |DANGELO       |BUFFET|Maya Buffet|             10| TariffOne|     Fixed|           20|       23|
+    And data for recipes in buffet "Maya Buffet" in meal period "DANGELO" is set
+        |RecipeTitle              |PlannedQuantity|
+        |004Fish Stock (bouillon) |             10|
+        |004Basic Sponge          |             20|
+        |004Fresh Lemon Curd      |             30|
+    Then Value for fields for meal period "DANGELO" is
+        |PlannedQty|TotalCost|Revenue|ActualGP|
+        |        60|    108.3| 191.67|     43%|
+
+@TC29388
+Scenario:A la cares only - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
+    Given Menu Cycle "Meda" is selected
+    When planning for Friday is opened
+    And data for recipes in a la carte "Holiday A La Carte" in meal period "DANGELO" is set
+        |RecipeTitle                   |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
+        |004Bread (fresh dough)        |              2|        GP|    11|           20|         |
+        |724Pepper & Garlic Coated Beef|              3|     Fixed|      |           20|       55|
+    Then Value for fields for meal period "DANGELO" is
+        |PlannedQty|TotalCost  |Revenue|ActualGP|
+        |         5|    6541.91| 137.59|  -4655%|
+
+@TC29391
+Scenario:Combined for Buffet, A la cares and recipes - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
+    Given Menu Cycle "Meda" is selected
+    When planning for Friday is opened
+    And data for recipes in a la carte "Holiday A La Carte" in meal period "DANGELO" is set
+        |RecipeTitle                   |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
+        |004Bread (fresh dough)        |              2|        GP|    11|           20|         |
+        |724Pepper & Garlic Coated Beef|              3|     Fixed|      |           20|       55|
+    And data for buffets is set
+        |MealPeriodName|TYPE  |RecipeTitle|PlannedQuantity|TariffType|PriceModel|TaxPercentage|SellPrice|
+        |DANGELO       |BUFFET|Maya Buffet|             10| TariffOne|     Fixed|           20|       23|
+    And data for recipes in buffet "Maya Buffet" in meal period "DANGELO" is set
+        |RecipeTitle              |PlannedQuantity|
+        |004Fish Stock (bouillon) |             10|
+        |004Basic Sponge          |             20|
+        |004Fresh Lemon Curd      |             30|
+    And data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle      |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
+        |DANGELO       |RECIPE|004Bechamel Sauce|             10|        GP|    14|            20|        |
+        |DANGELO       |RECIPE|004Baked Beans_3 |             10|     Fixed|      |            20|       1|
+    Then Value for fields for meal period "DANGELO" is
+        |PlannedQty|TotalCost|Revenue|ActualGP|
+        |        85|  6668.41| 339.22|  -1866%|
+
