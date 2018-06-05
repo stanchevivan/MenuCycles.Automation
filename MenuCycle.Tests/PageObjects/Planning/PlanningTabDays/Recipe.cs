@@ -122,13 +122,13 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public void SetData(RecipeModel dto)
         {
-            if (!string.IsNullOrEmpty(dto.PlannedQuantity)) this.PlannedQuantity = dto.PlannedQuantity;
+            if (dto.PlannedQuantity != null && dto.PlannedQuantity != "^") this.PlannedQuantity = dto.PlannedQuantity;
 
-            if (!string.IsNullOrEmpty(dto.TariffType)) this.TariffType = dto.TariffType;
+            if (dto.TariffType != null && dto.TariffType != "^") this.TariffType = dto.TariffType;
 
-            if (!string.IsNullOrEmpty(dto.PriceModel)) this.PriceModel = dto.PriceModel;
+            if (dto.PriceModel != null && dto.PriceModel != "^") this.PriceModel = dto.PriceModel;
 
-            if (!string.IsNullOrEmpty(dto.Target))
+            if (dto.Target != null && dto.Target != "^")
             {
                 if (this.PriceModel == "GP" || this.PriceModel == "Markup")
                 {
@@ -140,9 +140,9 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
                 }
             }
 
-            if (!string.IsNullOrEmpty(dto.TaxPercentage)) this.TaxPercentage = dto.TaxPercentage;
+            if (dto.TaxPercentage != null && dto.TaxPercentage != "^") this.TaxPercentage = dto.TaxPercentage;
 
-            if (!string.IsNullOrEmpty(dto.SellPrice))
+            if (dto.SellPrice != null && dto.SellPrice != "^")
             {
                 if (this.PriceModel == "Fixed")
                 {
@@ -157,52 +157,52 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public void VerifyData(RecipeModel dto)
         {
-            if (!string.IsNullOrEmpty(dto.PlannedQuantity))
+            if (dto.PlannedQuantity != null && dto.PlannedQuantity != "^")
             {
                 Assert.That(this.PlannedQuantity, Is.EqualTo(dto.PlannedQuantity));
             }
 
-            if (!string.IsNullOrEmpty(dto.CostPerUnit))
+            if (dto.CostPerUnit != null && dto.CostPerUnit != "^")
             {
                 Assert.That(this.CostPerUnit, Is.EqualTo(dto.CostPerUnit));
             }
 
-            if (!string.IsNullOrEmpty(dto.TotalCosts))
+            if (dto.TotalCosts != null && dto.TotalCosts != "^")
             {
                 Assert.That(this.TotalCosts, Is.EqualTo(dto.TotalCosts));
             }
 
-            if (!string.IsNullOrEmpty(dto.TariffType))
+            if (dto.TariffType != null && dto.TariffType != "^")
             {
                 Assert.That(this.TariffType, Is.EqualTo(dto.TariffType));
             }
 
-            if (!string.IsNullOrEmpty(dto.PriceModel))
+            if (dto.PriceModel != null && dto.PriceModel != "^")
             {
                 Assert.That(this.PriceModel, Is.EqualTo(dto.PriceModel));
             }
 
-            if (!string.IsNullOrEmpty(dto.Target))
+            if (dto.Target != null && dto.Target != "^")
             {
                 Assert.That(this.Target, Is.EqualTo(dto.Target));
             }
 
-            if (!string.IsNullOrEmpty(dto.TaxPercentage))
+            if (dto.TaxPercentage != null && dto.TaxPercentage != "^")
             {
                 Assert.That(this.TaxPercentage, Is.EqualTo(dto.TaxPercentage));
             }
 
-            if (!string.IsNullOrEmpty(dto.SellPrice))
+            if (dto.SellPrice != null && dto.SellPrice != "^")
             {
                 Assert.That(this.SellPrice, Is.EqualTo(dto.SellPrice));
             }
 
-            if (!string.IsNullOrEmpty(dto.Revenue))
+            if (dto.Revenue != null && dto.Revenue != "^")
             {
                 Assert.That(this.Revenue, Is.EqualTo(dto.Revenue));
             }
 
-            if (!string.IsNullOrEmpty(dto.ActualGP))
+            if (dto.ActualGP != null && dto.ActualGP != "^")
             {
                 Assert.That(this.ActualGP, Is.EqualTo(dto.ActualGP));
             }

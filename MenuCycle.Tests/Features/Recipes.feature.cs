@@ -493,7 +493,7 @@ this.FeatureBackground();
                         "004Bread (fresh dough)",
                         "2",
                         "Fixed",
-                        "",
+                        "^",
                         "20",
                         "55"});
             table2.AddRow(new string[] {
@@ -502,7 +502,7 @@ this.FeatureBackground();
                         "GP",
                         "5",
                         "5",
-                        ""});
+                        "^"});
 #line 125
     testRunner.When("data for recipes in a la carte \"Holiday A La Carte\" in meal period \"LANCE\" is set" +
                     "", ((string)(null)), table2, "When ");
@@ -539,7 +539,7 @@ this.FeatureBackground();
                         "004Bread (fresh dough)",
                         "0.04",
                         "0.08",
-                        "",
+                        "^",
                         "91.67",
                         "100%"});
             table4.AddRow(new string[] {

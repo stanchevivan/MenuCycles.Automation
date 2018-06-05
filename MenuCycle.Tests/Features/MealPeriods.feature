@@ -94,9 +94,9 @@ Scenario:Recipes onlyCalculate Meal period "Planned Quantity", "Total Cost", "Re
     When planning for Thursday is opened
     And data for recipes is set
         |MealPeriodName|TYPE  |RecipeTitle                                 |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
-        |DANGELO       |RECIPE|703Coronation Chicken Sandwich Filling (50g)|             10|        GP|    14|            20|        |
-        |DANGELO       |RECIPE|703Reggae Raggae Mayonnaise                 |             10|     Fixed|      |            20|       1|
-        |DANGELO       |RECIPE|Cheese                                      |             10|    Markup|    12|            20|        |
+        |DANGELO       |RECIPE|703Coronation Chicken Sandwich Filling (50g)|             10|        GP|    14|            20|       ^|
+        |DANGELO       |RECIPE|703Reggae Raggae Mayonnaise                 |             10|     Fixed|     ^|            20|       1|
+        |DANGELO       |RECIPE|Cheese                                      |             10|    Markup|    12|            20|       ^|
     Then Value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
         |        30|   218.50| 243.50|     10%|
@@ -123,8 +123,8 @@ Scenario:A la cares only - Calculate Meal period "Planned Quantity", "Total Cost
     When planning for Friday is opened
     And data for recipes in a la carte "Holiday A La Carte" in meal period "DANGELO" is set
         |RecipeTitle                   |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
-        |004Bread (fresh dough)        |              2|        GP|    11|           20|         |
-        |724Pepper & Garlic Coated Beef|              3|     Fixed|      |           20|       55|
+        |004Bread (fresh dough)        |              2|        GP|    11|           20|        ^|
+        |724Pepper & Garlic Coated Beef|              3|     Fixed|     ^|           20|       55|
     Then Value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost  |Revenue|ActualGP|
         |         5|    6541.91| 137.59|  -4655%|
@@ -135,8 +135,8 @@ Scenario:Combined for Buffet, A la cares and recipes - Calculate Meal period "Pl
     When planning for Friday is opened
     And data for recipes in a la carte "Holiday A La Carte" in meal period "DANGELO" is set
         |RecipeTitle                   |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
-        |004Bread (fresh dough)        |              2|        GP|    11|           20|         |
-        |724Pepper & Garlic Coated Beef|              3|     Fixed|      |           20|       55|
+        |004Bread (fresh dough)        |              2|        GP|    11|           20|        ^|
+        |724Pepper & Garlic Coated Beef|              3|     Fixed|     ^|           20|       55|
     And data for buffets is set
         |MealPeriodName|TYPE  |RecipeTitle|PlannedQuantity|TariffType|PriceModel|TaxPercentage|SellPrice|
         |DANGELO       |BUFFET|Maya Buffet|             10| TariffOne|     Fixed|           20|       23|
@@ -147,9 +147,18 @@ Scenario:Combined for Buffet, A la cares and recipes - Calculate Meal period "Pl
         |004Fresh Lemon Curd      |             30|
     And data for recipes is set
         |MealPeriodName|TYPE  |RecipeTitle      |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
-        |DANGELO       |RECIPE|004Bechamel Sauce|             10|        GP|    14|            20|        |
-        |DANGELO       |RECIPE|004Baked Beans_3 |             10|     Fixed|      |            20|       1|
+        |DANGELO       |RECIPE|004Bechamel Sauce|             10|        GP|    14|            20|       ^|
+        |DANGELO       |RECIPE|004Baked Beans_3 |             10|     Fixed|     ^|            20|       1|
     Then Value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
         |        85|  6668.41| 339.22|  -1866%|
 
+@TC29560
+Scenario:Meal periods are collapsed after reopening planning screen
+    Given Menu Cycle "Meda" is selected
+    When planning for Tuesday is opened
+        And Open all is clicked
+    And all meal periods are expanded
+        And Cancel button is clicked
+        And planning for Tuesday is opened
+    Then all meal periods are collapsed

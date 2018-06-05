@@ -373,14 +373,14 @@ this.FeatureBackground();
                         "GP",
                         "14",
                         "20",
-                        ""});
+                        "^"});
             table1.AddRow(new string[] {
                         "DANGELO",
                         "RECIPE",
                         "703Reggae Raggae Mayonnaise",
                         "10",
                         "Fixed",
-                        "",
+                        "^",
                         "20",
                         "1"});
             table1.AddRow(new string[] {
@@ -391,7 +391,7 @@ this.FeatureBackground();
                         "Markup",
                         "12",
                         "20",
-                        ""});
+                        "^"});
 #line 95
     testRunner.And("data for recipes is set", ((string)(null)), table1, "And ");
 #line hidden
@@ -512,12 +512,12 @@ this.FeatureBackground();
                         "GP",
                         "11",
                         "20",
-                        ""});
+                        "^"});
             table6.AddRow(new string[] {
                         "724Pepper & Garlic Coated Beef",
                         "3",
                         "Fixed",
-                        "",
+                        "^",
                         "20",
                         "55"});
 #line 124
@@ -571,12 +571,12 @@ this.FeatureBackground();
                         "GP",
                         "11",
                         "20",
-                        ""});
+                        "^"});
             table8.AddRow(new string[] {
                         "724Pepper & Garlic Coated Beef",
                         "3",
                         "Fixed",
-                        "",
+                        "^",
                         "20",
                         "55"});
 #line 136
@@ -636,14 +636,14 @@ this.FeatureBackground();
                         "GP",
                         "14",
                         "20",
-                        ""});
+                        "^"});
             table11.AddRow(new string[] {
                         "DANGELO",
                         "RECIPE",
                         "004Baked Beans_3",
                         "10",
                         "Fixed",
-                        "",
+                        "^",
                         "20",
                         "1"});
 #line 148
@@ -661,6 +661,35 @@ this.FeatureBackground();
                         "-1866%"});
 #line 152
     testRunner.Then("Value for fields for meal period \"DANGELO\" is", ((string)(null)), table12, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Meal periods are collapsed after reopening planning screen")]
+        [NUnit.Framework.CategoryAttribute("TC29560")]
+        public virtual void MealPeriodsAreCollapsedAfterReopeningPlanningScreen()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Meal periods are collapsed after reopening planning screen", new string[] {
+                        "TC29560"});
+#line 157
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 158
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 159
+    testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 160
+        testRunner.And("Open all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 161
+    testRunner.And("all meal periods are expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 162
+        testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 163
+        testRunner.And("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 164
+    testRunner.Then("all meal periods are collapsed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
