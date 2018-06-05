@@ -46,7 +46,8 @@ namespace MenuCycle.Tests.Steps
 
             foreach (var recipeData in recipesData)
             {
-                alacarte.GetRecipe(recipeData.RecipeTitle).SetData(recipeData);
+                alacarte.GetRecipe(recipeData.RecipeTitle)
+                        .SetData(recipeData);
             }
 
             planningTabDays.FocusOut();

@@ -494,7 +494,7 @@ this.FeatureBackground();
                         "GP",
                         "5",
                         "5",
-                        ""});
+                        "^"});
 #line 122
     testRunner.When("data for recipes in a la carte \"Holiday A La Carte\" in meal period \"LANCE\" is set" +
                     "", ((string)(null)), table2, "When ");
