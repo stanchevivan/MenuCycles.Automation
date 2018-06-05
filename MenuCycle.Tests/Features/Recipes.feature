@@ -80,14 +80,11 @@ Scenario: Max selected Target GP % is 99.99
     Then red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
 
 @TC29038
-Scenario: Max selected Target Markup % is 100
+Scenario: No Max value for Target Markup % 
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "200"
-        And the user focus out
-    And red border is displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "100"
+        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2134"
         And the user focus out
     Then red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
 
