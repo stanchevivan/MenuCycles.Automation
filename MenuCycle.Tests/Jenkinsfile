@@ -58,7 +58,7 @@ node('IE1UIBLD03') {
 		if (jobName.contains("${it}"))
 		{
 				excludeTag("${it}")
-				jobName.Replace("${it}", "")
+				jobName.replace("${it}", "")
 		}
 	}
 
@@ -68,7 +68,7 @@ node('IE1UIBLD03') {
 		if (jobName.contains("${it}"))
 		{
 				includeTag("${it}")
-				jobName.Replace("${it}", "")
+				jobName.replace("${it}", "")
 		}
 	}
 
