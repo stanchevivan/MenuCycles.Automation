@@ -144,38 +144,65 @@ Scenario: Min selected Planned Quantity is 0
         And the user focus out
     Then red border is not displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
 
-@TC29394 @D23825 @ignore
-Scenario: Sell Price value is not transferred to Markup and GP Target% field
+@TC29394 @D23825
+Scenario: Transferring Sell Price value to Markup and GP Target% field does not happen
     Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
-    When SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "50"
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
-        And field "Target" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "GP"
-    Then field "Target" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
+    When data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|Target|SellPrice|
+        |LUNCH         |RECIPE|004Baked Beans_3|        GP|      |        ^|
+        |LUNCH         |RECIPE|004Baked Beans_3|    Markup|      |        ^|
+        |LUNCH         |RECIPE|004Baked Beans_3|     Fixed|     ^|       50|
+        |LUNCH         |RECIPE|004Baked Beans_3|        GP|     ^|        ^|
+    And Verify data for items is
+        |MealPeriodName|TYPE  |RecipeTitle     |Target|
+        |LUNCH         |RECIPE|004Baked Beans_3|      |
+    And data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|
+        |LUNCH         |RECIPE|004Baked Beans_3|    Markup|
+    Then Verify data for items is
+        |MealPeriodName|TYPE  |RecipeTitle     |Target|
+        |LUNCH         |RECIPE|004Baked Beans_3|      |
 
-@TC29395 @D23825 @ignore
-Scenario: Markup Target% value is not transferred to Sell Price and GP target field
+@TC29395 @D23825
+Scenario: Transferring Markup Target% value to Sell Price and GP target field does not happen
     Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
-    When TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "50"
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
-        And field "Sell Price" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "GP"
-    Then field "Target" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
+    When data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|Target|SellPrice|
+        |LUNCH         |RECIPE|004Baked Beans_3|        GP|      |        ^|
+        |LUNCH         |RECIPE|004Baked Beans_3|     Fixed|     ^|         |
+        |LUNCH         |RECIPE|004Baked Beans_3|    Markup|    50|        ^|
+        |LUNCH         |RECIPE|004Baked Beans_3|        GP|     ^|        ^|
+    And Verify data for items is
+        |MealPeriodName|TYPE  |RecipeTitle     |Target|
+        |LUNCH         |RECIPE|004Baked Beans_3|      |
+    And data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|
+        |LUNCH         |RECIPE|004Baked Beans_3|    Fixed|
+    Then Verify data for items is
+        |MealPeriodName|TYPE  |RecipeTitle     |SellPrice|
+        |LUNCH         |RECIPE|004Baked Beans_3|         |
 
-@TC29469 @D23825 @ignore
-Scenario: GP Target% value is not transferred to Sell Price and Markup target field
+@TC29469 @D23825
+Scenario: Transferring GP Target% value to Sell Price and Markup target field does not happen
     Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "GP"
-    When TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "50"
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
-        And field "Sell Price" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
-    Then field "Target" for single recipe "004Baked Beans_3" in meal period "LUNCH" is empty
+    When data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|Target|SellPrice|
+        |LUNCH         |RECIPE|004Baked Beans_3|     Fixed|     ^|         |
+        |LUNCH         |RECIPE|004Baked Beans_3|    Markup|      |        ^|
+        |LUNCH         |RECIPE|004Baked Beans_3|        GP|    50|        ^|
+        |LUNCH         |RECIPE|004Baked Beans_3|    Markup|     ^|        ^|
+    And Verify data for items is
+        |MealPeriodName|TYPE  |RecipeTitle     |Target|
+        |LUNCH         |RECIPE|004Baked Beans_3|      |
+    And data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|
+        |LUNCH         |RECIPE|004Baked Beans_3|    Fixed|
+    Then Verify data for items is
+        |MealPeriodName|TYPE  |RecipeTitle     |SellPrice|
+        |LUNCH         |RECIPE|004Baked Beans_3|         |
 
 @TC29468 @D23967
 Scenario: Error message displayed if recipe values are empty
