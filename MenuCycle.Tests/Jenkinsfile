@@ -51,12 +51,24 @@ node('IE1UIBLD03') {
 
 	def jobName = "${env.JOB_NAME}"
 
-	// Chech for environment tag in Job Name
+	// Checking for excluding tags first and removeing them, to avoid passing them as include tags
+	// Chech for exclude tags in Job Name
+	['-QAI', '-UAT', '-PRELIVE', '-EMEA', '-NA'].each
+	{
+		if (jobName.contains("${it}"))
+		{
+				excludeTag("${it}")
+				jobName.Replace("${it}", "")
+		}
+	}
+
+	// Chech for include tags in Job Name
 	['Smoke', 'QAI', 'UAT', 'PRELIVE', 'EMEA', 'NA'].each
 	{
 		if (jobName.contains("${it}"))
 		{
 				includeTag("${it}")
+				jobName.Replace("${it}", "")
 		}
 	}
 
@@ -130,16 +142,12 @@ def runTestsByFile(fileName)
 				}
 			}
 
-			//def includeTags = Include_Tags != '' ? " cat == ${Include_Tags}" : ''
-			//def excludeTags = Exclude_Tags != '' ? " cat != ${Exclude_Tags}" : ''
 			def and = Include_Tags != '' && Exclude_Tags != '' ? " && " : ''
 
       print "Including tags:  ${Include_Tags}"
 			print "Excluding tags:  ${Exclude_Tags}"
 
-			// --result:${resultsPath};format=nunit2
       bat "nunit @${fileName} -where \"${include}${and}${exclude}\""
-			//bat "nunit @${fileName} -where \"cat != ${Exclude_Tags}\""
     }
 }
 
@@ -152,5 +160,17 @@ def includeTag(tag)
 	else
 	{
 		Include_Tags = "${tag}"
+	}
+}
+
+def excludeTag(tag)
+{
+	if (Exclude_Tags != '')
+	{
+		Exclude_Tags += ",${tag}"
+	}
+	else
+	{
+		Exclude_Tags = "${tag}"
 	}
 }

@@ -43,6 +43,7 @@ Scenario: Save button is clicked without any changes applied
 Scenario: Save all updated figures (fields)
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
+        And Number of covers for meal period "LUNCH" is set to random number
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2"
