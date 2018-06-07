@@ -44,11 +44,11 @@ namespace MenuCycle.Tests.PageObjects
         public string Revenue => RevenueText.Text;
         public string ActualGP => ActualGPText.Text;
 
-        public IList<Recipe> Recipes => this.Items.Where(p => new Recipe(p, this.Name).Type == "RECIPE").Select(p => new Recipe(p, this.Name)).ToList();
+        public IList<Recipe2> Recipes => this.Items.Where(p => new Recipe2(p, this.Name).Type == "RECIPE").Select(p => new Recipe2(p, this.Name)).ToList();
         public IList<Buffet> Buffets => this.Items.Where(p => new Buffet(p, this.Name).Type == "BUFFET").Select(p => new Buffet(p, this.Name)).ToList();
         public IList<ALaCarte> ALaCartes => this.Items.Where(p => new ALaCarte(p, this.Name).Type == "A LA CARTE").Select(p => new ALaCarte(p, this.Name)).ToList();
 
-        public Recipe GetRecipe(string title)
+        public Recipe2 GetRecipe(string title)
         {
             if (!Recipes.Any(a => a.Title == title))
             {

@@ -103,3 +103,5 @@ Scenario: Calculations for "Total Cost" and "Sell Price" and "Revenue" should be
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
         |DANGELO          |BUFFET|Aneliya Buffet|     48.42|    41.54|  69.24|     30%|
+
+Scenario: Decimal quantities have red border on buffet scaling

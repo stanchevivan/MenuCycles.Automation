@@ -41,14 +41,14 @@ namespace MenuCycle.Tests.Steps
         {
             var recipe = planningTabDays.GetMealPeriod(mealPeriodName).GetRecipe(recipeName);
 
-            Assert.IsNotEmpty(recipe.PlannedQuantity);
-            Assert.IsNotEmpty(recipe.CostPerUnit);
-            Assert.IsNotEmpty(recipe.TotalCosts);
+            Assert.IsNotEmpty(recipe.GetLine().PlannedQuantity);
+            Assert.IsNotEmpty(recipe.GetLine().CostPerUnit);
+            Assert.IsNotEmpty(recipe.GetLine().TotalCosts);
             Assert.IsNotEmpty(recipe.Type);
-            Assert.IsNotEmpty(recipe.PriceModel);
-            Assert.IsNotEmpty(recipe.Target);
-            Assert.IsNotEmpty(recipe.TaxPercentage);
-            Assert.IsNotEmpty(recipe.SellPrice);
+            Assert.IsNotEmpty(recipe.GetLine().PriceModel);
+            Assert.IsNotEmpty(recipe.GetLine().Target);
+            Assert.IsNotEmpty(recipe.GetLine().TaxPercentage);
+            Assert.IsNotEmpty(recipe.GetLine().SellPrice);
         }
 
         [Then(@"verify the following recipes:")]
@@ -126,6 +126,7 @@ namespace MenuCycle.Tests.Steps
             Assert.That(planningTabDays
                         .GetMealPeriod(mealPeriod)
                         .GetRecipe(recipeName)
+                        .GetLine()
                         .Target,
                         Is.EqualTo(value));
         }
@@ -137,6 +138,18 @@ namespace MenuCycle.Tests.Steps
             planningTabDays
                 .GetMealPeriod(mealPeriod)
                 .GetRecipe(recipeName)
+                .GetLine()
+                .SellPrice = value;
+        }
+
+        [Given(@"SellPrice for recipe named ""(.*)"" with type ""(.*)"" in meal period ""(.*)"" is set to ""(.*)""")]
+        [When(@"SellPrice for recipe named ""(.*)"" with type ""(.*)"" in meal period ""(.*)"" is set to ""(.*)""")]
+        public void WhenSellPriceForRecipeNamedInMealPeriodIsSetToWithType(string recipeName, string type, string mealPeriod, string value)
+        {
+            planningTabDays
+                .GetMealPeriod(mealPeriod)
+                .GetRecipe(recipeName)
+                .GetLine(type)
                 .SellPrice = value;
         }
 

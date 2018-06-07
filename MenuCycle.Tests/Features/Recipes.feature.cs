@@ -930,6 +930,55 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Comma is a valid decimal separator")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.CategoryAttribute("#")]
+        [NUnit.Framework.CategoryAttribute("Functionality")]
+        [NUnit.Framework.CategoryAttribute("not")]
+        [NUnit.Framework.CategoryAttribute("implemented")]
+        [NUnit.Framework.CategoryAttribute("yet")]
+        public virtual void CommaIsAValidDecimalSeparator()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Comma is a valid decimal separator", new string[] {
+                        "ignore",
+                        "#",
+                        "Functionality",
+                        "not",
+                        "implemented",
+                        "yet"});
+#line 217
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 218
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 219
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "PriceModel",
+                        "SellPrice"});
+            table18.AddRow(new string[] {
+                        "LUNCH",
+                        "RECIPE",
+                        "004Baked Beans_3",
+                        "Fixed",
+                        "4,5"});
+#line 220
+    testRunner.When("data for recipes is set", ((string)(null)), table18, "When ");
+#line 223
+    testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 224
+    testRunner.Then("red border is not displayed around Sell Price for recipe \"004Baked Beans_3\" in me" +
+                    "al period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

@@ -39,7 +39,7 @@ namespace MenuCycle.Tests.Steps
         [When(@"data for recipes is set")]
         public void WhenDataForItemsIsSet(Table table)
         {
-            var itemData = table.CreateSet<RecipeModel>();
+            dynamic itemData = table.CreateDynamicInstance();
 
             Recipe item;
 
@@ -51,13 +51,7 @@ namespace MenuCycle.Tests.Steps
                     case "RECIPE":
                         {
                             item = planningTabDays.GetMealPeriod(data.MealPeriodName)
-                                                  .GetRecipe(data.RecipeTitle);
-                            break;
-                        }
-                    case "BUFFET":
-                        {
-                            item = planningTabDays.GetMealPeriod(data.MealPeriodName)
-                                                  .GetBuffet(data.RecipeTitle);
+                                                  .GetRecipe(data.RecipeTitle).GetLine();
                             break;
                         }
 
@@ -73,11 +67,49 @@ namespace MenuCycle.Tests.Steps
             planningTabDays.FocusOut();
         }
 
+        //[When(@"data for buffets is set")]
+        //[When(@"data for recipes is set")]
+        //public void WhenDataForItemsIsSet(Table table)
+        //{
+        //    var itemData = table.CreateSet<RecipeModel>();
+
+        //    Recipe item;
+
+        //    foreach (var data in itemData)
+        //    {
+
+        //        switch (data.Type)
+        //        {
+        //            case "RECIPE":
+        //                {
+        //                    item = planningTabDays.GetMealPeriod(data.MealPeriodName)
+        //                                          .GetRecipe(data.RecipeTitle);
+        //                    break;
+        //                }
+        //            case "BUFFET":
+        //                {
+        //                    item = planningTabDays.GetMealPeriod(data.MealPeriodName)
+        //                                          .GetBuffet(data.RecipeTitle);
+        //                    break;
+        //                }
+
+        //            default:
+        //                {
+        //                    throw new System.Exception($"TYPE is {data.Type}. It should be RECIPE or BUFFET !");
+        //                }
+        //        }
+
+        //        item.SetData(data);
+        //    }
+
+        //    planningTabDays.FocusOut();
+        //}
+
         [When(@"Verify data for items is")]
         [Then(@"Verify data for items is")]
         public void WhenVerifyDataForItemsIs(Table table)
         {
-            var expectedItems = table.CreateSet<RecipeModel>();
+            dynamic expectedItems = table.CreateDynamicInstance();
 
             Recipe item;
 
@@ -88,20 +120,16 @@ namespace MenuCycle.Tests.Steps
                     case "RECIPE":
                         {
                             item = planningTabDays.GetMealPeriod(expectedItem.MealPeriodName)
-                                                  .GetRecipe(expectedItem.RecipeTitle);
-                            break;
-                        }
-                    case "BUFFET":
-                        {
-                            item = planningTabDays.GetMealPeriod(expectedItem.MealPeriodName)
-                                                  .GetBuffet(expectedItem.RecipeTitle);
+                                                  .GetRecipe(expectedItem.RecipeTitle)
+                                                  .GetLine();
                             break;
                         }
 
                     default:
                         {
                             item = planningTabDays.GetMealPeriod(expectedItem.MealPeriodName)
-                                                  .GetRecipe(expectedItem.RecipeTitle);
+                                                  .GetRecipe(expectedItem.RecipeTitle)
+                                                  .GetLine();
                             break;
                         }
                 }
@@ -109,6 +137,43 @@ namespace MenuCycle.Tests.Steps
                 item.VerifyData(expectedItem);
             }
         }
+
+        //[When(@"Verify data for items is")]
+        //[Then(@"Verify data for items is")]
+        //public void WhenVerifyDataForItemsIs(Table table)
+        //{
+        //    var expectedItems = table.CreateSet<RecipeModel>();
+
+        //    Recipe item;
+
+        //    foreach (var expectedItem in expectedItems)
+        //    {
+        //        switch (expectedItem.Type)
+        //        {
+        //            case "RECIPE":
+        //                {
+        //                    item = planningTabDays.GetMealPeriod(expectedItem.MealPeriodName)
+        //                                          .GetRecipe(expectedItem.RecipeTitle);
+        //                    break;
+        //                }
+        //            case "BUFFET":
+        //                {
+        //                    item = planningTabDays.GetMealPeriod(expectedItem.MealPeriodName)
+        //                                          .GetBuffet(expectedItem.RecipeTitle);
+        //                    break;
+        //                }
+
+        //            default:
+        //                {
+        //                    item = planningTabDays.GetMealPeriod(expectedItem.MealPeriodName)
+        //                                          .GetRecipe(expectedItem.RecipeTitle);
+        //                    break;
+        //                }
+        //        }
+
+        //        item.VerifyData(expectedItem);
+        //    }
+        //}
 
         [When(@"data for recipes in buffet ""(.*)"" in meal period ""(.*)"" is set")]
         public void WhenDataForRecipesInBuffetInMealPeriodIsSet(string buffetName, string mealPeriod, Table table)

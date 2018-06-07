@@ -203,7 +203,7 @@ Scenario: Transferring GP Target% value to Sell Price and Markup target field do
     Then Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle     |SellPrice|
         |LUNCH         |RECIPE|004Baked Beans_3|         |
-
+       
 @TC29468 @D23967
 Scenario: Error message displayed if recipe values are empty
     Given Menu Cycle "Meda" is selected
@@ -212,3 +212,13 @@ Scenario: Error message displayed if recipe values are empty
         And red border is displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
         And Save button is clicked
     Then Notification message "Sorry, we could not proceed with your request" is displayed
+
+@ignore # Functionality not implemented yet
+Scenario: Comma is a valid decimal separator
+    Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+    When data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|SellPrice|
+        |LUNCH         |RECIPE|004Baked Beans_3|     Fixed|      4,5|
+    And the user focus out
+    Then red border is not displayed around Sell Price for recipe "004Baked Beans_3" in meal period "LUNCH"
