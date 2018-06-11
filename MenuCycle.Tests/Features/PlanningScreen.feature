@@ -152,3 +152,34 @@ Scenario: Number of covers is saved after closing the app
         And Menu Cycle "Meda" is selected
     When planning for Monday is opened
     Then number of covers for meal period "LUNCH" is equal to the previous inputted number
+
+@TC29753 @ignore
+Scenario: Calculate Daily Totals
+    Given Menu Cycle "Meda" is selected
+    When planning for Tuesday is opened
+        And Open all is clicked
+    And data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle                     |PlannedQuantity|PriceModel|TaxPercentage|SellPrice|
+        |LUNCH         |RECIPE|724Gourmet Beef Burger 6oz      |              3|     Fixed|            0|        3|
+        |LUNCH         |RECIPE|724Gourmet Chicken Burger       |              7|     Fixed|            0|        8|
+        |DINNER        |RECIPE|703Houmus Sandwich Filling (50g)|              5|     Fixed|            0|        8|
+    And data for buffets is set
+        |MealPeriodName|TYPE  |RecipeTitle   |PlannedQuantity|PriceModel|TaxPercentage|SellPrice|
+        |DANGELO       |BUFFET|Maya Buffet   |             10|     Fixed|           20|       23|
+        |DANGELO       |BUFFET|Aneliya Buffet|              1|     Fixed|            5|       20|
+    And data for recipes in buffet "Maya Buffet" in meal period "DANGELO" is set
+        |RecipeTitle              |PlannedQuantity|
+        |004Fish Stock (bouillon) |             10|
+        |004Basic Sponge          |             20|
+        |004Fresh Lemon Curd      |             30|
+    And data for recipes in buffet "Aneliya Buffet" in meal period "DANGELO" is set
+        |RecipeTitle                  |PlannedQuantity|
+        |004Bechamel Sauce            |              2|
+        |004Beef Stock (bouillon)     |              3|
+        |004Tartare Sauce (bulk)      |              4|
+        |004Fresh Lemon Curd          |              5|
+        |004Blueberry Muffin (Wrapped)|              6|
+        |004Baked Beans_1             |              7|
+    Then Daily Totals are equal to
+        |PlannedQty|TotalCost|Revenue|ActualGP|
+        |       102|   198.71| 315.71|     38%|

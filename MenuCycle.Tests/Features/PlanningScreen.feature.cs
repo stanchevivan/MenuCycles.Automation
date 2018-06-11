@@ -514,6 +514,143 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Calculate Daily Totals")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.CategoryAttribute("TC29753")]
+        public virtual void CalculateDailyTotals()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculate Daily Totals", new string[] {
+                        "TC29753",
+                        "ignore"});
+#line 157
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 158
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 159
+    testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 160
+        testRunner.And("Open all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "PlannedQuantity",
+                        "PriceModel",
+                        "TaxPercentage",
+                        "SellPrice"});
+            table1.AddRow(new string[] {
+                        "LUNCH",
+                        "RECIPE",
+                        "724Gourmet Beef Burger 6oz",
+                        "3",
+                        "Fixed",
+                        "0",
+                        "3"});
+            table1.AddRow(new string[] {
+                        "LUNCH",
+                        "RECIPE",
+                        "724Gourmet Chicken Burger",
+                        "7",
+                        "Fixed",
+                        "0",
+                        "8"});
+            table1.AddRow(new string[] {
+                        "DINNER",
+                        "RECIPE",
+                        "703Houmus Sandwich Filling (50g)",
+                        "5",
+                        "Fixed",
+                        "0",
+                        "8"});
+#line 161
+    testRunner.And("data for recipes is set", ((string)(null)), table1, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "PlannedQuantity",
+                        "PriceModel",
+                        "TaxPercentage",
+                        "SellPrice"});
+            table2.AddRow(new string[] {
+                        "DANGELO",
+                        "BUFFET",
+                        "Maya Buffet",
+                        "10",
+                        "Fixed",
+                        "20",
+                        "23"});
+            table2.AddRow(new string[] {
+                        "DANGELO",
+                        "BUFFET",
+                        "Aneliya Buffet",
+                        "1",
+                        "Fixed",
+                        "5",
+                        "20"});
+#line 166
+    testRunner.And("data for buffets is set", ((string)(null)), table2, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RecipeTitle",
+                        "PlannedQuantity"});
+            table3.AddRow(new string[] {
+                        "004Fish Stock (bouillon)",
+                        "10"});
+            table3.AddRow(new string[] {
+                        "004Basic Sponge",
+                        "20"});
+            table3.AddRow(new string[] {
+                        "004Fresh Lemon Curd",
+                        "30"});
+#line 170
+    testRunner.And("data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table3, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RecipeTitle",
+                        "PlannedQuantity"});
+            table4.AddRow(new string[] {
+                        "004Bechamel Sauce",
+                        "2"});
+            table4.AddRow(new string[] {
+                        "004Beef Stock (bouillon)",
+                        "3"});
+            table4.AddRow(new string[] {
+                        "004Tartare Sauce (bulk)",
+                        "4"});
+            table4.AddRow(new string[] {
+                        "004Fresh Lemon Curd",
+                        "5"});
+            table4.AddRow(new string[] {
+                        "004Blueberry Muffin (Wrapped)",
+                        "6"});
+            table4.AddRow(new string[] {
+                        "004Baked Beans_1",
+                        "7"});
+#line 175
+    testRunner.And("data for recipes in buffet \"Aneliya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table4, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "PlannedQty",
+                        "TotalCost",
+                        "Revenue",
+                        "ActualGP"});
+            table5.AddRow(new string[] {
+                        "102",
+                        "198.71",
+                        "315.71",
+                        "38%"});
+#line 183
+    testRunner.Then("Daily Totals are equal to", ((string)(null)), table5, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

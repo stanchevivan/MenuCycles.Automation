@@ -24,6 +24,14 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement OpenAllButton { get; set; }
         [FindsBy(How = How.XPath, Using = "//button/span[text()='Close all']")]
         private IWebElement CloseAllButton { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__content > div:nth-of-type(1) > span:last-of-type")]
+        private IWebElement DailyPlannedQuantity { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__content > div:nth-of-type(2) > span:last-of-type")]
+        private IWebElement DailyTotalCost { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__content > div:nth-of-type(3) > span:last-of-type")]
+        private IWebElement DailyRevenue { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__content > div:nth-of-type(4) > span:last-of-type")]
+        private IWebElement DailyActualGP { get; set; }
 
         public IList<DailyMealPeriod> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriod(p)).ToList();
         public IList<string> MealPeriodColours => MealPeriods.Select(x => x.Colour).ToList();
@@ -31,6 +39,11 @@ namespace MenuCycle.Tests.PageObjects
         public bool HasMealPeriods => MealPeriods.Any();
         public bool AreAllMealPeriodsExpanded => MealPeriods.All(period => period.IsExpanded);
         public bool AreAllMealPeriodsCollapsed => MealPeriods.All(period => !period.IsExpanded);
+
+        public string DailyPlanedQuanityText => DailyPlannedQuantity.Text;
+        public string DailyTotalCostText => DailyTotalCost.Text;
+        public string DailyRevenueText => DailyRevenue.Text;
+        public string DailyActualGPText => DailyActualGP.Text;
 
         public override void WaitForLoad()
         {
