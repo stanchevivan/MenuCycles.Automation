@@ -29,5 +29,14 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             }
             return Recipes.First(x => x.Title == title);
         }
+
+        public NestedRecipe GetRecipe(string title, string tariffType)
+        {
+            if (!Recipes.Any(x => x.Title == title && x.TariffType == tariffType))
+            {
+                throw new System.Exception($"No such recipe {title}, tariff {tariffType}");
+            }
+            return Recipes.First(x => x.Title == title && x.TariffType == tariffType);
+        }
     }
 }

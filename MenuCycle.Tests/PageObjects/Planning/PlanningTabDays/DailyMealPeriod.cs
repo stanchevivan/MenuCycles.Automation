@@ -58,6 +58,16 @@ namespace MenuCycle.Tests.PageObjects
             return this.Recipes.First(a => a.Title == title);
         }
 
+        public Recipe GetRecipe(string title, string tariffType)
+        {
+            if (!Recipes.Any(a => a.Title == title && a.TariffType == tariffType))
+            {
+                throw new System.Exception($"Recipe {title}, tariff {tariffType} not found !");
+            }
+
+            return this.Recipes.First(a => a.Title == title && a.TariffType == tariffType);
+        }
+
         public ALaCarte GetALaCarte(string name)
         {
             return this.ALaCartes.First(a => a.Title == name);
