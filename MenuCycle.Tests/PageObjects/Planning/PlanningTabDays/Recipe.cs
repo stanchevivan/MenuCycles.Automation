@@ -20,25 +20,26 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         protected IWebElement type { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-header__title > span:last-of-type")]
         private IWebElement title { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".quantity > .recipe-data__cell")]
+        [FindsBy(How = How.CssSelector, Using = ".quantity > div > .input-cell")]
         private IWebElement plannedQuantity { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".cost > .recipe-data__text-cell")]
+        [FindsBy(How = How.ClassName, Using = "cost")]
         private IWebElement costPerUnit { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".total-cost > .recipe-data__text-cell")]
+        [FindsBy(How = How.ClassName, Using = "total-cost")]
         private IWebElement totalCosts { get; set; }
         [FindsBy(How = How.ClassName, Using = "select-type")]
         private IWebElement tariffType { get; set; }
         [FindsBy(How = How.ClassName, Using = "select-price-model")]
         private IWebElement priceModel { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".target > *")]
+        [FindsBy(How = How.CssSelector, Using = ".target .input-cell")]
         private IWebElement targetGP { get; set; }
         [FindsBy(How = How.ClassName, Using = "select-tax")]
         private IWebElement taxPercentage { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".sell-price > *")]
+        [FindsBy(How = How.CssSelector, Using = ".sell-price > div > input")]
+        [FindsBy(How = How.CssSelector, Using = ".sell-price > span")]
         private IWebElement sellPrice { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".revenue > .recipe-data__text-cell")]
+        [FindsBy(How = How.ClassName, Using = "revenue")]
         private IWebElement revenue { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".actual-gp > .recipe-data__text-cell")]
+        [FindsBy(How = How.ClassName, Using = "actual-gp")]
         private IWebElement actualGP { get; set; }
         [FindsBy(How = How.ClassName, Using = "icon-bin")]
         private IWebElement deleteType { get; set; }
@@ -46,6 +47,12 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         private IWebElement updatePrices { get; set; }
         [FindsBy(How = How.ClassName, Using = "border-error")]
         private IWebElement BorderError { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".quantity .text-error")]
+        private IWebElement PlannedQtyContextualMessage { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".sell-price .text-error")]
+        private IWebElement SellPriceContextualMessage { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".target .text-error")]
+        private IWebElement TargetContextualMessage { get; set; }
 
         public virtual string Type => this.type.Text;
         public virtual string Title => this.title.Text;
@@ -95,6 +102,9 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public string Revenue => this.revenue.Text;
         public string ActualGP => this.actualGP.Text;
+        public string PlannedQtyContextualErrorMessage => PlannedQtyContextualMessage.Text;
+        public string SellPriceContextualErrorMessage => SellPriceContextualMessage.Text;
+        public string TargetPercentageContextualErrorMessage => TargetContextualMessage.Text;
 
         public bool IsPlannedQuantityWithRedBorder => plannedQuantity.Get().HasClass("border-error");
         public bool SellPriceHasRedBorder => sellPrice.Get().HasClass("border-error");

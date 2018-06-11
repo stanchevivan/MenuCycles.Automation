@@ -198,6 +198,7 @@ namespace MenuCycle.Tests.Steps
         public void ThenAllMealPeriodsAreCollapsed()
         {
             Assert.IsTrue(planningTabDays.AreAllMealPeriodsCollapsed);
+
         }
 
         [Then(@"Value for fields for meal period ""(.*)"" is")]

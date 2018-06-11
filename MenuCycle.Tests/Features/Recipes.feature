@@ -44,70 +44,67 @@ Scenario: Target Mark up % has format: float and type: 2 decimals
     Then TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to "2.33"
 
 @TC29035
-Scenario: Min selected Target GP % is -99.99
+Scenario: Target GP % validations
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "GP"
         And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-100"
         And the user focus out
-    And red border is displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And red border and contextual error message "Must be -99.99 to 99.99" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
+        And the user focus out
+        And red border and contextual error message "Value is required" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "7a7"
+        And the user focus out
+        And red border and contextual error message "Must be number" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
         And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-99.99"
+        And the user focus out
+        And red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "99.99"
         And the user focus out
     Then red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
 
 @TC29036
-Scenario: Min selected Target Markup % is 0
+Scenario: Target Markup % validations
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
         And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
         And the user focus out
-    And red border is displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And red border and contextual error message "Must be greater than 0" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
+        And the user focus out
+        And red border and contextual error message "Value is required" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "7a7"
+        And the user focus out
+        And red border and contextual error message "Must be number" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
         And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "0"
         And the user focus out
-    Then red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
-
-@TC29037
-Scenario: Max selected Target GP % is 99.99
-    Given Menu Cycle "Meda" is selected
-    When planning for Monday is opened
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "GP"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "100"
-        And the user focus out
-    And red border is displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "99.99"
-        And the user focus out
-    Then red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
-
-@TC29038
-Scenario: No Max value for Target Markup % 
-    Given Menu Cycle "Meda" is selected
-    When planning for Monday is opened
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
+        And red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
         And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2134"
         And the user focus out
     Then red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
 
 @TC29039
-Scenario: Min selected Sell Price is 0 - Price model = "Fixed"
+Scenario: Sell price validations
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
         And the user focus out
-    And red border is displayed around Sell Price for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And red border and contextual error message "Must be greater than 0" is displayed for Sell Price field for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
+        And the user focus out
+        And red border and contextual error message "Value is required" is displayed for Sell Price field for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "7a7"
+        And the user focus out
+        And red border and contextual error message "Must be number" is displayed for Sell Price field for recipe "004Baked Beans_3" in meal period "LUNCH"
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "0"
         And the user focus out
-    Then red border is not displayed around Sell Price for recipe "004Baked Beans_3" in meal period "LUNCH"
-
-@TC29040
-Scenario: No max value for "Sell Price" - Price model = "Fixed"
-    Given Menu Cycle "Meda" is selected
-    When planning for Monday is opened
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
-        And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "10000"
+        And red border is not displayed around Sell Price for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "4322"
         And the user focus out
-    Then SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to "10000"
+    Then red border is not displayed around Sell Price for recipe "004Baked Beans_3" in meal period "LUNCH"
 
 @TC28899
 Scenario: Retrieve Recipe Price from the API (NO Min - Max)
@@ -135,11 +132,18 @@ Scenario: Calculations for "Total Cost", "Sell Price", "Revenue" and "Actual GP"
         |LANCE         |RECIPE|004Basic Sponge|      2.12|     0.61|   2.44|     13%|
 
 @TC29101 @D23785
-Scenario: Min selected Planned Quantity is 0
+Scenario: Planned Quantity validations
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
-    And red border is displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And the user focus out
+        And red border and contextual error message "Must be greater than 0" is displayed for Planned Quantity field for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "7a7"
+        And the user focus out
+        And red border and contextual error message "Must be integer" is displayed for Planned Quantity field for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
+        And the user focus out
+        And red border and contextual error message "Value is required" is displayed for Planned Quantity field for recipe "004Baked Beans_3" in meal period "LUNCH"
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "0"
         And the user focus out
     Then red border is not displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"

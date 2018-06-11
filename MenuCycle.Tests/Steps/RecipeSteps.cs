@@ -178,6 +178,7 @@ namespace MenuCycle.Tests.Steps
                            .GetRecipe(recipeName).IsTargetGPWithRedBorder);
         }
 
+        [When(@"red border is not displayed around Sell Price for recipe ""(.*)"" in meal period ""(.*)""")]
         [Then(@"red border is not displayed around Sell Price for recipe ""(.*)"" in meal period ""(.*)""")]
         public void ThenRedBorderIsNotDisplayedAroundSellPriceForRecipeInMealPeriod(string recipeName, string mealPeriod)
         {
@@ -238,7 +239,7 @@ namespace MenuCycle.Tests.Steps
                         fieldValue = recipe.PlannedQuantity;
                         break;
                     }
-                default: 
+                default:
                     {
                         throw new System.Exception($"Verification for field {field} is not implemented!");
                     }
@@ -246,5 +247,57 @@ namespace MenuCycle.Tests.Steps
 
             Assert.IsEmpty(fieldValue);
         }
+
+        [When(@"contextual error message ""(.*)"" is displayed under planned quantity field for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void WhenContextualErrorMessageIsDisplayedUnderPlannedQuantityFieldForRecipeInMealPeriod(string errorMessage, string recipeName, string mealPeriod)
+        {
+            Assert.That(planningTabDays
+                        .GetMealPeriod(mealPeriod)
+                        .GetRecipe(recipeName)
+                        .PlannedQtyContextualErrorMessage, Is.EqualTo(errorMessage));
+        }
+
+        [Then(@"red border and contextual error message ""(.*)"" is displayed for TargetGP field for recipe ""(.*)"" in meal period ""(.*)""")]
+        [When(@"red border and contextual error message ""(.*)"" is displayed for TargetGP field for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void WhenRedBorderAndContextualErrorMessageIsDisplayedForTargetGPfieldForRecipeInMealPeriod(string errorMessage, string recipeName, string mealPeriod)
+        {
+            Assert.IsTrue(planningTabDays
+               .GetMealPeriod(mealPeriod)
+               .GetRecipe(recipeName).IsTargetGPWithRedBorder);
+            
+            Assert.That(planningTabDays
+                        .GetMealPeriod(mealPeriod)
+                        .GetRecipe(recipeName)
+                        .TargetPercentageContextualErrorMessage, Is.EqualTo(errorMessage));
+        }
+
+        [When(@"red border and contextual error message ""(.*)"" is displayed for Sell Price field for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void WhenRedBorderAndContextualErrorMessageIsDisplayedForSellPricefieldForRecipeInMealPeriod(string errorMessage, string recipeName, string mealPeriod)
+        {
+            Assert.IsTrue(planningTabDays
+                          .GetMealPeriod(mealPeriod)
+                          .GetRecipe(recipeName)
+                          .SellPriceHasRedBorder);
+
+            Assert.That(planningTabDays
+                        .GetMealPeriod(mealPeriod)
+                        .GetRecipe(recipeName)
+                        .SellPriceContextualErrorMessage, Is.EqualTo(errorMessage));
+        }
+
+        [When(@"red border and contextual error message ""(.*)"" is displayed for Planned Quantity field for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void WhenRedBorderAndContextualErrorMessageIsDisplayedForPlannedQuantityFieldForRecipeInMealPeriod(string errorMessage, string recipeName, string mealPeriod)
+        {
+            Assert.IsTrue(planningTabDays
+              .GetMealPeriod(mealPeriod)
+              .GetRecipe(recipeName)
+                          .IsPlannedQuantityWithRedBorder);
+
+            Assert.That(planningTabDays
+                        .GetMealPeriod(mealPeriod)
+                        .GetRecipe(recipeName)
+                        .PlannedQtyContextualErrorMessage, Is.EqualTo(errorMessage));
+        }
+
     }
 }
