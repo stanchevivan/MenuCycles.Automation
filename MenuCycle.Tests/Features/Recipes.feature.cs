@@ -975,6 +975,57 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Meal period totals are re-calculated when the data from the input field is cleare" +
+            "d")]
+        [NUnit.Framework.CategoryAttribute("TC29735")]
+        [NUnit.Framework.CategoryAttribute("D24183")]
+        public virtual void MealPeriodTotalsAreRe_CalculatedWhenTheDataFromTheInputFieldIsCleared()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Meal period totals are re-calculated when the data from the input field is cleare" +
+                    "d", new string[] {
+                        "TC29735",
+                        "D24183"});
+#line 234
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 235
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 236
+    testRunner.When("planning for Thursday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "TargetGP",
+                        "PlannedQuantity"});
+            table20.AddRow(new string[] {
+                        "DANGELO",
+                        "RECIPE",
+                        "Cheese",
+                        "33",
+                        ""});
+#line 237
+        testRunner.And("data for recipes is set", ((string)(null)), table20, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+                        "PlannedQty",
+                        "TotalCost",
+                        "Revenue",
+                        "ActualGP"});
+            table21.AddRow(new string[] {
+                        "14",
+                        "10.16",
+                        "8.4",
+                        "-21%"});
+#line 240
+    testRunner.Then("Value for fields for meal period \"DANGELO\" is", ((string)(null)), table21, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

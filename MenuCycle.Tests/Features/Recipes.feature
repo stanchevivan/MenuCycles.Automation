@@ -229,3 +229,14 @@ Scenario: Collapsing meal period does no return previous value if field
     Then Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle                |PlannedQuantity|
         |DANGELO       |RECIPE|703Reggae Raggae Mayonnaise|               |
+
+@TC29735 @D24183
+Scenario: Meal period totals are re-calculated when the data from the input field is cleared
+    Given Menu Cycle "Meda" is selected
+    When planning for Thursday is opened
+        And data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle|TargetGP|PlannedQuantity|
+        |DANGELO       |RECIPE|Cheese     |      33|               |
+    Then Value for fields for meal period "DANGELO" is
+        |PlannedQty|TotalCost|Revenue|ActualGP|
+        |        14|    10.16|    8.4|    -21%|
