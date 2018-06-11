@@ -203,12 +203,12 @@ Scenario: Transferring GP Target% value to Sell Price and Markup target field do
         |LUNCH         |RECIPE|004Baked Beans_3|      |
     And data for recipes is set
         |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|
-        |LUNCH         |RECIPE|004Baked Beans_3|    Fixed|
+        |LUNCH         |RECIPE|004Baked Beans_3|     Fixed|
     Then Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle     |SellPrice|
         |LUNCH         |RECIPE|004Baked Beans_3|         |
 
-@TC29468 @D23967
+@TC29468 @D23967 @D24183
 Scenario: Error message displayed if recipe values are empty
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
@@ -216,3 +216,16 @@ Scenario: Error message displayed if recipe values are empty
         And red border is displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
         And Save button is clicked
     Then Notification message "Sorry, we could not proceed with your request" is displayed
+
+@TC29716 @D24183
+Scenario: Collapsing meal period does no return previous value if field
+    Given Menu Cycle "Meda" is selected
+    When planning for Thursday is opened
+        And data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle                |PlannedQuantity|
+        |DANGELO       |RECIPE|703Reggae Raggae Mayonnaise|               |
+        And Meal Period "DANGELO" is collapsed
+        And Meal Period "DANGELO" is expanded
+    Then Verify data for items is
+        |MealPeriodName|TYPE  |RecipeTitle                |PlannedQuantity|
+        |DANGELO       |RECIPE|703Reggae Raggae Mayonnaise|               |

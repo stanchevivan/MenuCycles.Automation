@@ -896,11 +896,13 @@ this.FeatureBackground();
         [NUnit.Framework.DescriptionAttribute("Error message displayed if recipe values are empty")]
         [NUnit.Framework.CategoryAttribute("TC29468")]
         [NUnit.Framework.CategoryAttribute("D23967")]
+        [NUnit.Framework.CategoryAttribute("D24183")]
         public virtual void ErrorMessageDisplayedIfRecipeValuesAreEmpty()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Error message displayed if recipe values are empty", new string[] {
                         "TC29468",
-                        "D23967"});
+                        "D23967",
+                        "D24183"});
 #line 212
 this.ScenarioSetup(scenarioInfo);
 #line 5
@@ -919,6 +921,57 @@ this.FeatureBackground();
 #line 218
     testRunner.Then("Notification message \"Sorry, we could not proceed with your request\" is displayed" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Collapsing meal period does no return previous value if field")]
+        [NUnit.Framework.CategoryAttribute("TC29716")]
+        [NUnit.Framework.CategoryAttribute("D24183")]
+        public virtual void CollapsingMealPeriodDoesNoReturnPreviousValueIfField()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Collapsing meal period does no return previous value if field", new string[] {
+                        "TC29716",
+                        "D24183"});
+#line 221
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 222
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 223
+    testRunner.When("planning for Thursday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "PlannedQuantity"});
+            table18.AddRow(new string[] {
+                        "DANGELO",
+                        "RECIPE",
+                        "703Reggae Raggae Mayonnaise",
+                        ""});
+#line 224
+        testRunner.And("data for recipes is set", ((string)(null)), table18, "And ");
+#line 227
+        testRunner.And("Meal Period \"DANGELO\" is collapsed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 228
+        testRunner.And("Meal Period \"DANGELO\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "PlannedQuantity"});
+            table19.AddRow(new string[] {
+                        "DANGELO",
+                        "RECIPE",
+                        "703Reggae Raggae Mayonnaise",
+                        ""});
+#line 229
+    testRunner.Then("Verify data for items is", ((string)(null)), table19, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
