@@ -24,13 +24,13 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement OpenAllButton { get; set; }
         [FindsBy(How = How.XPath, Using = "//button/span[text()='Close all']")]
         private IWebElement CloseAllButton { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__content > div:nth-of-type(1) > span:last-of-type")]
+        [FindsBy(How = How.CssSelector, Using = ".wrapper > div .mealperiod-total__content:last-of-type > div:nth-of-type(1) > span:last-of-type")]
         private IWebElement DailyPlannedQuantity { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__content > div:nth-of-type(2) > span:last-of-type")]
+        [FindsBy(How = How.CssSelector, Using = ".wrapper > div .mealperiod-total__content:last-of-type > div:nth-of-type(2) > span:last-of-type")]
         private IWebElement DailyTotalCost { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__content > div:nth-of-type(3) > span:last-of-type")]
+        [FindsBy(How = How.CssSelector, Using = ".wrapper > div .mealperiod-total__content:last-of-type > div:nth-of-type(3) > span:last-of-type")]
         private IWebElement DailyRevenue { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__content > div:nth-of-type(4) > span:last-of-type")]
+        [FindsBy(How = How.CssSelector, Using = ".wrapper > div .mealperiod-total__content:last-of-type > div:nth-of-type(4) > span:last-of-type")]
         private IWebElement DailyActualGP { get; set; }
 
         public IList<DailyMealPeriod> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriod(p)).ToList();

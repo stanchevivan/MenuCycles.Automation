@@ -7,7 +7,8 @@ Background:
 # And 1 Meal Period exists
 # And 3 recipes exists
 And 'Menu Cycles' application is open
-And a central user is selected
+#And a central user is selected
+And a nouser user is selected
 
 @TC28547
 Scenario: Open daily planning with one meal period

@@ -22,6 +22,9 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = "div[id='toast-container'] button[class='toast-close-button']")]
         public IWebElement ToastMessageCloseButton { get; set; }
 
+        [FindsBy(How = How.ClassName, Using = "home-screen-table")]
+        public IWebElement HomePage { get; set; }
+
         public void LogAs(string userType)
         {
             switch (userType.ToLower())
@@ -31,6 +34,9 @@ namespace MenuCycle.Tests.PageObjects
                     break;
                 case "local":
                     LogAsLocal();
+                    break;
+                case "nouser":
+                    LogAsNoUser();
                     break;
                 default:
                     throw new Exception("User type " + userType + " does not exist");
@@ -46,6 +52,11 @@ namespace MenuCycle.Tests.PageObjects
         {
             WaitPageToLoad();
             Driver.WaitElementAndClick(Local);
+        }
+
+        public void LogAsNoUser()
+        {
+            Driver.WaitElementToExists(HomePage);
         }
 
         public void WaitPageToLoad()

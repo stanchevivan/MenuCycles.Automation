@@ -26,13 +26,13 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement Covers { get; set; }
         [FindsBy(How = How.ClassName, Using = "recipe-content")]
         private IList<IWebElement> Items{ get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".mealperiod-footer__content > div:nth-of-type(1) > span:last-of-type")]
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__content > div:nth-of-type(1) > span:last-of-type")]
         private IWebElement PlannedQuantityText { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".mealperiod-footer__content > div:nth-of-type(2) > span:last-of-type")]
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__content > div:nth-of-type(2) > span:last-of-type")]
         private IWebElement TotalCostText { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".mealperiod-footer__content > div:nth-of-type(3) > span:last-of-type")]
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__content > div:nth-of-type(3) > span:last-of-type")]
         private IWebElement RevenueText { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".mealperiod-footer__content > div:nth-of-type(4) > span:last-of-type")]
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__content > div:nth-of-type(4) > span:last-of-type")]
         private IWebElement ActualGPText { get; set; }
 
         public string Name => MealPeriodName.Text;

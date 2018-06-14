@@ -7,7 +7,8 @@ Background:
 # And 1 Meal Period exists
 # And 3 recipes exists
 And 'Menu Cycles' application is open
-And a central user is selected
+#And a central user is selected
+And a nouser user is selected
 
 @TC28829 @Smoke
 Scenario: Retrieve recipe information from the API
@@ -71,7 +72,7 @@ Scenario: Target Markup % validations
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
         And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
         And the user focus out
-        And red border and contextual error message "Must be greater than 0" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And red border and contextual error message "Must be 0 or greater" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
         And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
         And the user focus out
         And red border and contextual error message "Value is required" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
@@ -92,7 +93,7 @@ Scenario: Sell price validations
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
         And the user focus out
-        And red border and contextual error message "Must be greater than 0" is displayed for Sell Price field for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And red border and contextual error message "Must be 0 or greater" is displayed for Sell Price field for recipe "004Baked Beans_3" in meal period "LUNCH"
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
         And the user focus out
         And red border and contextual error message "Value is required" is displayed for Sell Price field for recipe "004Baked Beans_3" in meal period "LUNCH"
@@ -137,7 +138,7 @@ Scenario: Planned Quantity validations
     When planning for Monday is opened
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
         And the user focus out
-        And red border and contextual error message "Must be greater than 0" is displayed for Planned Quantity field for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And red border and contextual error message "Must be 0 or greater" is displayed for Planned Quantity field for recipe "004Baked Beans_3" in meal period "LUNCH"
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "7a7"
         And the user focus out
         And red border and contextual error message "Must be integer" is displayed for Planned Quantity field for recipe "004Baked Beans_3" in meal period "LUNCH"

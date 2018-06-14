@@ -7,7 +7,7 @@ Background:
 # And 1 Meal Period exists
 # And 3 recipes exists
 And 'Menu Cycles' application is open
-And a central user is selected
+And a nouser user is selected
 
 @TC28526
 Scenario: Open Planning Screen, go to Nutritions, go back to Planning screen (Central User)
@@ -148,12 +148,13 @@ Scenario: Number of covers is saved after closing the app
         And Notification message "Planning figures updated." is displayed
         And Menu Cycles app is closed
         And 'Menu Cycles' application is open
-        And a central user is selected
+        #And a central user is selected
+        And a nouser user is selected
         And Menu Cycle "Meda" is selected
     When planning for Monday is opened
     Then number of covers for meal period "LUNCH" is equal to the previous inputted number
 
-@TC29753 @ignore
+@TC29753
 Scenario: Calculate Daily Totals
     Given Menu Cycle "Meda" is selected
     When planning for Tuesday is opened
@@ -182,4 +183,4 @@ Scenario: Calculate Daily Totals
         |004Baked Beans_1             |              7|
     Then Daily Totals are equal to
         |PlannedQty|TotalCost|Revenue|ActualGP|
-        |       102|   198.71| 315.71|     38%|
+        |       102|   198.48| 315.71|     37%|
