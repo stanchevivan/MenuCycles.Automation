@@ -80,12 +80,17 @@ Scenario: Successfully Update and Save number of covers
         And planning for Monday is opened
     Then number of covers for meal period "LUNCH" is equal to the previous inputted number
 
-@TC29080 @D23144 @D24051
+@TC29080 @D23144 @D24051 @D24410
 Scenario: Open Monday planning screen, then go to Tuesday, back to Monday update total quantity and click Save
     Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
         And Cancel button is clicked
         And planning for Tuesday is opened
+        And Meal Period "LUNCH" is expanded
+        And Verify items for meal period "Lunch" are (check count "yes")
+            |MealPeriodName|TYPE  |RecipeTitle               |
+            |LUNCH         |RECIPE|724Gourmet Beef Burger 6oz|
+            |LUNCH         |RECIPE|724Gourmet Chicken Burger |
         And Cancel button is clicked
     When planning for Monday is opened
         And meal periods for the day are "LUNCH"

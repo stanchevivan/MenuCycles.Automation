@@ -897,12 +897,14 @@ this.FeatureBackground();
         [NUnit.Framework.CategoryAttribute("TC29468")]
         [NUnit.Framework.CategoryAttribute("D23967")]
         [NUnit.Framework.CategoryAttribute("D24183")]
+        [NUnit.Framework.CategoryAttribute("D23194")]
         public virtual void ErrorMessageDisplayedIfRecipeValuesAreEmpty()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Error message displayed if recipe values are empty", new string[] {
                         "TC29468",
                         "D23967",
-                        "D24183"});
+                        "D24183",
+                        "D23194"});
 #line 213
 this.ScenarioSetup(scenarioInfo);
 #line 5

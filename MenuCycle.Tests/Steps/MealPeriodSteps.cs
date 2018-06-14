@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MenuCycle.Data.Models;
+using MenuCycle.Tests.Models;
 using MenuCycle.Tests.PageObjects;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
@@ -233,6 +234,28 @@ namespace MenuCycle.Tests.Steps
         {
             modalDialogPage.UseYesButton();
             menuCycleCalendarView.WaitPageLoad();
+        }
+
+        [Given(@"Verify items for meal period ""(.*)"" are \(check count ""(.*)""\)")]
+        public void VerifyMealPeriodItems(string mealPeriodName, string checkRecipeCount, Table table)
+        {
+            var expectedRecipes = table.CreateSet<RecipeModel>();
+
+            var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
+
+            if (checkRecipeCount.ToUpper() == "YES")
+            {
+                Assert.AreEqual(expectedRecipes.Count(), mealPeriod.Recipes.Count);
+            }
+            else if (checkRecipeCount.ToUpper() != "NO")
+            {
+                throw new Exception("Accepted values are Yes/No!");
+            }
+
+            foreach (var expectedRecipe in expectedRecipes)
+            {
+                mealPeriod.GetRecipe(expectedRecipe.RecipeTitle).VerifyData(expectedRecipe);
+            }
         }
     }
 }

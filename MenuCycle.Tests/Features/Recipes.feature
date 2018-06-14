@@ -209,7 +209,7 @@ Scenario: Transferring GP Target% value to Sell Price and Markup target field do
         |MealPeriodName|TYPE  |RecipeTitle     |SellPrice|
         |LUNCH         |RECIPE|004Baked Beans_3|         |
 
-@TC29468 @D23967 @D24183
+@TC29468 @D23967 @D24183 @D23194
 Scenario: Error message displayed if recipe values are empty
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
