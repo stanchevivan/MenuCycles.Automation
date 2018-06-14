@@ -116,29 +116,29 @@ def runTestsByFile(fileName)
 
 			def include = ''
 			def includeTags = Include_Tags.split(',')
-			def firstTag = true
+			def isFirstTag = true
 
 			if (Include_Tags != '')
 			{
 				includeTags.each
 				{
-					def and = firstTag ? '' : " && "
+					def and = isFirstTag ? '' : " && "
 					include += "${and}cat == ${it}"
-					firstTag = false
+					isFirstTag = false
 				}
 			}
 
 			def exclude = ''
 			def excludeTags = Exclude_Tags.split(',')
-		 	firstTag = true
+		 	isFirstTag = true
 
 			if (Exclude_Tags != '')
 			{
 				excludeTags.each
 				{
-					def and = firstTag ? '' : " && "
-					exclude += "${and}cat != ${it}"
-					firstTag = false
+					def or = isFirstTag ? '' : " || "
+					exclude += "${or}cat != ${it}"
+					isFirstTag = false
 				}
 			}
 
