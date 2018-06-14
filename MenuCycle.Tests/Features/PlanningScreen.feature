@@ -7,7 +7,8 @@ Background:
 # And 1 Meal Period exists
 # And 3 recipes exists
 And 'Menu Cycles' application is open
-And a nouser user is selected
+And a central user is selected
+#And a nouser user is selected
 
 @TC28526
 Scenario: Open Planning Screen, go to Nutritions, go back to Planning screen (Central User)
@@ -148,8 +149,8 @@ Scenario: Number of covers is saved after closing the app
         And Notification message "Planning figures updated." is displayed
         And Menu Cycles app is closed
         And 'Menu Cycles' application is open
-        #And a central user is selected
-        And a nouser user is selected
+        And a central user is selected
+        #And a nouser user is selected
         And Menu Cycle "Meda" is selected
     When planning for Monday is opened
     Then number of covers for meal period "LUNCH" is equal to the previous inputted number
