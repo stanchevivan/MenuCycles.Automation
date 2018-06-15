@@ -38,17 +38,6 @@ node('IE1UIBLD03') {
 	solutionPath = "$env.WORKSPACE/$solutionName"
 	msbuild = tool 'v15'
 
-	stage('Initialize') {
-	 script { currentBuild.description = "Including: ${Include_Tags} Excluding: ${Exclude_Tags}" }
-
-		echo 'Restore nuget packages for solution'
-		bat "\"$env.WORKSPACE/Tools/nuget.exe\" restore \"$solutionPath\" -configFile Tools/NugetSources.Config"
-		bat "dotnet restore \"$solutionPath\""
-
-		echo 'Build Release Configuration'
-		bat "\"$msbuild\" ./$projectPath/$projectName /p:OutDir=\"$env.WORKSPACE\" $commonReleaseBuildParams /p:Configuration=Release"
-	}
-
 	def jobName = "${env.JOB_NAME}"
 
 	// Checking for excluding tags first and removeing them, to avoid passing them as include tags
@@ -70,6 +59,17 @@ node('IE1UIBLD03') {
 				includeTag("${it}")
 				jobName.replace("${it}", "")
 		}
+	}
+
+	stage('Initialize') {
+	 script { currentBuild.description = "Including: ${Include_Tags} Excluding: ${Exclude_Tags}" }
+
+		echo 'Restore nuget packages for solution'
+		bat "\"$env.WORKSPACE/Tools/nuget.exe\" restore \"$solutionPath\" -configFile Tools/NugetSources.Config"
+		bat "dotnet restore \"$solutionPath\""
+
+		echo 'Build Release Configuration'
+		bat "\"$msbuild\" ./$projectPath/$projectName /p:OutDir=\"$env.WORKSPACE\" $commonReleaseBuildParams /p:Configuration=Release"
 	}
 
 	try {
