@@ -351,7 +351,7 @@ namespace MenuCycle.Tests.Steps
 
             var actualValues = recipe.Rows.Select(x => x.TariffType).ToList();
 
-            Assert.That(actualValues, Is.EquivalentTo(expectedValues));
+            Assert.That(actualValues, Is.EqualTo(expectedValues));
         }
 
         [Given(@"Add type is clicked for recipe ""(.*)"" in meal period ""(.*)""")]
