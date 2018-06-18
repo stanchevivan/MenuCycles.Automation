@@ -1043,8 +1043,8 @@ this.FeatureBackground();
 #line 247
         testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 248
-    testRunner.When("SellPrice for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"1" +
-                    "3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("SellPrice for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to ra" +
+                    "ndom number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 249
         testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 250
@@ -1054,8 +1054,8 @@ this.FeatureBackground();
 #line 252
         testRunner.And("planning for Friday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 253
-      testRunner.Then("SellPrice for recipe named \"004Baked Beans_3\" in meal period \"DANGELO\" is equal t" +
-                    "o \"13\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("SellPrice for recipe named \"004Baked Beans_3\" in meal period \"DANGELO\" is equal t" +
+                    "o the previous inputted number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

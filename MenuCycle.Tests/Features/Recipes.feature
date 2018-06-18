@@ -245,9 +245,9 @@ Scenario: Meal period totals are re-calculated when the data from the input fiel
 Scenario: Mass recipe update
     Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
-    When SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "13"
+    When SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
         And Save button is clicked
         And Price is updated for recipe "004Baked Beans_3" in meal period "LUNCH"
         And Cancel button is clicked
         And planning for Friday is opened
-      Then SellPrice for recipe named "004Baked Beans_3" in meal period "DANGELO" is equal to "13"
+    Then SellPrice for recipe named "004Baked Beans_3" in meal period "DANGELO" is equal to the previous inputted number
