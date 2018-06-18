@@ -205,3 +205,10 @@ Scenario: Error message is displayed when changes are made and Update Price butt
     When quantity for recipe named "004Baked Beans_3" in meal period "DANGELO" is set to random number
         And Update prices button is clicked for recipe "004Baked Beans_3" in meal period "DANGELO"
     Then Notification message "You have some unsaved changes. Please save them before continuing." is displayed
+
+@TC29885 @D24506
+Scenario: No modal dialog is shown if there are no changes and Cancel button is clicked
+        Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+        When Cancel button is clicked
+        Then Calendar view is opened

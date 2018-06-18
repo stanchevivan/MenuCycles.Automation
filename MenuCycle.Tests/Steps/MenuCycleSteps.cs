@@ -2,6 +2,7 @@
 using System.Linq;
 using MenuCycle.Data.Models;
 using MenuCycle.Tests.PageObjects;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace MenuCycle.Tests.Steps
@@ -92,5 +93,12 @@ namespace MenuCycle.Tests.Steps
             menuCycleCalendarView.OpenDailyPlanningForDay(weekDay);
             planningView.WaitForLoad();
         }
+       
+        [Then(@"Calendar view is opened")]
+        public void CalendardViewIsOpened()
+        {
+            Assert.IsTrue(menuCycleCalendarView.IsCalendarViewOpen);
+        }
+
     }
 }

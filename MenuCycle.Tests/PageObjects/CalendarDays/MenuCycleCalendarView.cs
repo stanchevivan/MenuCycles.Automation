@@ -55,9 +55,14 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "modal-backdrop")]
         IWebElement Backdrop { get; set; }
 
+        [FindsBy(How = How.ClassName, Using = " daily-header-container")]
+        IWebElement DaysContainer { get; set; }
+
         public List<WeekDays> CalendarHeaders => this.CalendarHeaderContainer.Select(p => new WeekDays(p)).ToList();
 
         public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p)).ToList();
+
+        public bool IsCalendarViewOpen => DaysContainer.Get().ElementPresent;
 
         public void ValidateWindow(string ExpectedTitle)
         {
@@ -115,23 +120,23 @@ namespace MenuCycle.Tests.PageObjects
 
             switch (weekDay.ToUpper())
             {
-                case "MONDAY": 
+                case "MONDAY":
                     { dayIndex = 0; break; }
-                case "TUESDAY": 
+                case "TUESDAY":
                     { dayIndex = 1; break; }
-                case "WEDNESDAY": 
+                case "WEDNESDAY":
                     { dayIndex = 2; break; }
-                case "THURSDAY": 
+                case "THURSDAY":
                     { dayIndex = 3; break; }
-                case "FRIDAY": 
+                case "FRIDAY":
                     { dayIndex = 4; break; }
-                case "SATURDAY": 
+                case "SATURDAY":
                     { dayIndex = 5; break; }
-                case "SUNDAY": 
+                case "SUNDAY":
                     { dayIndex = 6; break; }
                 default:
                     {
-                        throw new System.Exception($"Could match day {weekDay}");   
+                        throw new System.Exception($"Could match day {weekDay}");
                     }
             }
 
