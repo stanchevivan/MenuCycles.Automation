@@ -241,3 +241,13 @@ Scenario: Meal period totals are re-calculated when the data from the input fiel
     Then Value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
         |        14|    10.16|    8.4|    -21%|
+
+Scenario: Mass recipe update
+    Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+    When SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "13"
+        And Save button is clicked
+        And Price is updated for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And Cancel button is clicked
+        And planning for Friday is opened
+      Then SellPrice for recipe named "004Baked Beans_3" in meal period "DANGELO" is equal to "13"

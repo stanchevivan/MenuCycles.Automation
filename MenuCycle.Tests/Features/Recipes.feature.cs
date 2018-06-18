@@ -1028,6 +1028,37 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Mass recipe update")]
+        public virtual void MassRecipeUpdate()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mass recipe update", ((string[])(null)));
+#line 245
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 246
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 247
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 248
+    testRunner.When("SellPrice for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"1" +
+                    "3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 249
+        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 250
+        testRunner.And("Price is updated for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 251
+        testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 252
+        testRunner.And("planning for Friday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 253
+      testRunner.Then("SellPrice for recipe named \"004Baked Beans_3\" in meal period \"DANGELO\" is equal t" +
+                    "o \"13\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

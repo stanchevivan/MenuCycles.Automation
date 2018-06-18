@@ -299,5 +299,24 @@ namespace MenuCycle.Tests.Steps
                         .PlannedQtyContextualErrorMessage, Is.EqualTo(errorMessage));
         }
 
+        [When(@"Price is updated for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void WhenPriceIsUpdatedForRecipe(string recipe, string mealPeriod)
+        {
+            planningTabDays
+                .GetMealPeriod(mealPeriod)
+                .GetRecipe(recipe)
+                .UseUpdatePricesButton();
+            
+            planningTabDays.ConfirmDialog();
+        }
+
+        [When(@"Update prices button is clicked for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void WhenUpdatePricesButtonIsClickedForRecipe(string recipe, string mealPeriod)
+        {
+            planningTabDays
+                .GetMealPeriod(mealPeriod)
+                .GetRecipe(recipe)
+                .UseUpdatePricesButton();
+        }
     }
 }

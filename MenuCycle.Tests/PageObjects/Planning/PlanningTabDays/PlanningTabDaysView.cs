@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
 using OpenQA.Selenium;
@@ -32,8 +32,10 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement DailyRevenue { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".wrapper > div .mealperiod-total__content:last-of-type > div:nth-of-type(4) > span:last-of-type")]
         private IWebElement DailyActualGP { get; set; }
-        [FindsBy(How = How.ClassName, Using = "update-prices")]
-        private IWebElement UpdatePrice { get; set; }
+        [FindsBy(How = How.ClassName, Using = "btn-confirm")]
+        private IWebElement ConfirmButton { get; set; }
+        [FindsBy(How = How.ClassName, Using = "modal-dialog-engine__content")]
+        private IWebElement ModalDialog { get; set; }
 
         public IList<DailyMealPeriod> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriod(p)).ToList();
         public IList<string> MealPeriodColours => MealPeriods.Select(x => x.Colour).ToList();
@@ -97,9 +99,10 @@ namespace MenuCycle.Tests.PageObjects
             CloseAllButton.Click();
         }
 
-        public void UseUpdatePriceButton()
+        public void ConfirmDialog()
         {
-            UpdatePrice.Click();
+            ConfirmButton.Click();
+            Driver.WaitElementToDisappear(ModalDialog);
         }
     }
 }

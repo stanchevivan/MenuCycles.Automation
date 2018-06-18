@@ -202,6 +202,6 @@ Scenario: No planning data available message
 Scenario: Error message is displayed when changes are made and Update Price button is clicked
     Given Menu Cycle "Meda" is selected
         And planning for Friday is opened
-    When quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
-        And Update Price button is clicked
+    When quantity for recipe named "004Baked Beans_3" in meal period "DANGELO" is set to random number
+        And Update prices button is clicked for recipe "004Baked Beans_3" in meal period "DANGELO"
     Then Notification message "You have some unsaved changes. Please save them before continuing." is displayed

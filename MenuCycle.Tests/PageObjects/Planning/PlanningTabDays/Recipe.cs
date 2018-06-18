@@ -43,7 +43,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         private IWebElement actualGP { get; set; }
         [FindsBy(How = How.ClassName, Using = "icon-bin")]
         private IWebElement deleteType { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".update-prices > span:nth-of-type(2)")]
+        [FindsBy(How = How.CssSelector, Using = ".update-prices > .recipe-header__button-title")]
         private IWebElement updatePrices { get; set; }
         [FindsBy(How = How.ClassName, Using = "border-error")]
         private IWebElement BorderError { get; set; }
@@ -229,9 +229,11 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             this.deleteType.Click();
         }
 
-        public void UpdatePrices()
+        public Recipe UseUpdatePricesButton()
         {
             this.updatePrices.Click();
+
+            return this;
         }
     }
 }
