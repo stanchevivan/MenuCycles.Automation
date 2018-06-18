@@ -32,10 +32,14 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement CancelButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = "div[id='toast-container'] div[class='toast-message']")]
         private  IWebElement ToastMessage { get; set; }
+        [FindsBy(How = How.ClassName, Using = "no-mealperiods-error")]
+        private IWebElement MealPeriodMessage { get; set; }
+
 
         public string HeaderText => HeaderDayText.Text;
+        public string MealPeriodErrorMessage => MealPeriodMessage.Text;
 
-        public bool IsPlanningTabOpen => PlanningTabButton.Get().HasAttribute("subheader__tab-btn-active");
+        public bool IsPlanningTabOpen => PlanningTabButton.Get().HasClass("subheader__tab-btn-active");
 
         public void FocusOut()
         {
@@ -75,6 +79,11 @@ namespace MenuCycle.Tests.PageObjects
         public void UseCancelButton()
         {
             CancelButton.Click();
+        }
+
+        public bool IsSaveButtonDisabled()
+        {
+            return SaveButton.Get().HasAttribute("disabled");
         }
     }
 }

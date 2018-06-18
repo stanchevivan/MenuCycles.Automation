@@ -32,6 +32,8 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement DailyRevenue { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".wrapper > div .mealperiod-total__content:last-of-type > div:nth-of-type(4) > span:last-of-type")]
         private IWebElement DailyActualGP { get; set; }
+        [FindsBy(How = How.ClassName, Using = "update-prices")]
+        private IWebElement UpdatePrice { get; set; }
 
         public IList<DailyMealPeriod> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriod(p)).ToList();
         public IList<string> MealPeriodColours => MealPeriods.Select(x => x.Colour).ToList();
@@ -93,6 +95,11 @@ namespace MenuCycle.Tests.PageObjects
         public void CollapseAllMealPeriods()
         {
             CloseAllButton.Click();
+        }
+
+        public void UseUpdatePriceButton()
+        {
+            UpdatePrice.Click();
         }
     }
 }

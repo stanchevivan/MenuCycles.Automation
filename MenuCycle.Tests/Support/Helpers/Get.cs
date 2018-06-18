@@ -49,7 +49,7 @@ namespace MenuCycle.Tests
 
         public bool HasAttribute(string attributeName)
         {
-            return string.IsNullOrEmpty(webElement.GetAttribute(attributeName));
+            return !string.IsNullOrEmpty(webElement.GetAttribute(attributeName));
         }
     }
 }

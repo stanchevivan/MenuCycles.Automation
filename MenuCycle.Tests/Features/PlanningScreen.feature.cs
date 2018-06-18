@@ -668,6 +668,58 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("No planning data available message")]
+        [NUnit.Framework.CategoryAttribute("TC29844")]
+        public virtual void NoPlanningDataAvailableMessage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("No planning data available message", new string[] {
+                        "TC29844"});
+#line 190
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 191
+    testRunner.Given("Menu Cycle \"Testing Copying Meal Periods\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 192
+    testRunner.When("planning for Wednesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 193
+    testRunner.Then("\"No planning data available. Please add a meal period.\" message is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 194
+        testRunner.And("Save button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Error message is displayed when changes are made and Update Price button is click" +
+            "ed")]
+        [NUnit.Framework.CategoryAttribute("TC29845")]
+        public virtual void ErrorMessageIsDisplayedWhenChangesAreMadeAndUpdatePriceButtonIsClicked()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Error message is displayed when changes are made and Update Price button is click" +
+                    "ed", new string[] {
+                        "TC29845"});
+#line 197
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 198
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 199
+        testRunner.And("planning for Friday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 200
+    testRunner.When("quantity for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to ran" +
+                    "dom number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 201
+        testRunner.And("Update Price button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 202
+    testRunner.Then("Notification message \"You have some unsaved changes. Please save them before cont" +
+                    "inuing.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

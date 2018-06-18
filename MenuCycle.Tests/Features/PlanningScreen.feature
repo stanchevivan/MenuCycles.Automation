@@ -190,3 +190,18 @@ Scenario: Calculate Daily Totals
     Then Daily Totals are equal to
         |PlannedQty|TotalCost|Revenue|ActualGP|
         |       102|   198.48| 315.71|     37%|
+
+@TC29844
+Scenario: No planning data available message
+    Given Menu Cycle "Testing Copying Meal Periods" is selected
+    When planning for Wednesday is opened
+    Then "No planning data available. Please add a meal period." message is displayed
+        And Save button is disabled
+
+@TC29845
+Scenario: Error message is displayed when changes are made and Update Price button is clicked
+    Given Menu Cycle "Meda" is selected
+        And planning for Friday is opened
+    When quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
+        And Update Price button is clicked
+    Then Notification message "You have some unsaved changes. Please save them before continuing." is displayed
