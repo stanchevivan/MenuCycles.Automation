@@ -51,31 +51,6 @@ namespace MenuCycle.Tests.Steps
             Assert.IsNotEmpty(recipe.GetRow().SellPrice);
         }
 
-        [Then(@"verify the following recipes:")]
-        public void CheckAllDataForRecipe(Table table)
-        {
-            if (!planningTabDays.HasMealPeriods)
-            {
-                throw new System.Exception($"ERROR: No meal periods for the day ! {planningTabDays.HeaderText}");
-            }
-
-            var expectedRecipes = table.CreateSet<RecipeModel>();
-
-            var actualRecipes = new List<RecipeModel>();
-
-            expectedRecipes.ToList().ForEach(
-                recipe =>
-                actualRecipes.Add(
-                    planningTabDays
-                    .GetMealPeriod(recipe.MealPeriodName)
-                    .GetRecipe(recipe.RecipeTitle)
-                    .GetRow()
-                    .GetDTO()
-            ));
-
-            table.CompareToSet(actualRecipes);
-        }
-
         [Given(@"Price model for recipe ""(.*)"" in meal period ""(.*)"" is set to ""(.*)""")]
         [When(@"Price model for recipe ""(.*)"" in meal period ""(.*)"" is set to ""(.*)""")]
         public void WhenPriceModelForRecipeInMealPeriodIsSetTo(string recipeName, string mealPeriod, string priceModel)

@@ -93,7 +93,7 @@ this.FeatureBackground();
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
-                        "Type",
+                        "TYPE",
                         "RecipeTitle",
                         "PlannedQuantity",
                         "CostPerUnit",
@@ -120,7 +120,7 @@ this.FeatureBackground();
                         "45.4",
                         "11%"});
 #line 17
-    testRunner.Then("verify the following recipes:", ((string)(null)), table1, "Then ");
+    testRunner.Then("Verify data for items is", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
