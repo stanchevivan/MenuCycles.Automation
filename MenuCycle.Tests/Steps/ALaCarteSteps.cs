@@ -47,6 +47,7 @@ namespace MenuCycle.Tests.Steps
             foreach (var recipeData in recipesData)
             {
                 alacarte.GetRecipe(recipeData.RecipeTitle)
+                        .GetRow()
                         .SetData(recipeData);
             }
 
@@ -65,6 +66,7 @@ namespace MenuCycle.Tests.Steps
                 .GetMealPeriod(mealPeriod)
                         .GetALaCarte(alacarteName)
                         .GetRecipe(recipeData.RecipeTitle)
+                        .GetRow()
                         .VerifyData(recipeData)
             );
         }

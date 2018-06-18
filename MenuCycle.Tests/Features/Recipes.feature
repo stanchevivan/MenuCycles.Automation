@@ -251,3 +251,15 @@ Scenario: Mass recipe update
         And Cancel button is clicked
         And planning for Friday is opened
     Then SellPrice for recipe named "004Baked Beans_3" in meal period "DANGELO" is equal to the previous inputted number
+
+@TC29933 @D24491
+Scenario: Tariff types are discarded when cancel button is clicked
+    Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+        And Add type is clicked for recipe "004Baked Beans_3" in meal period "LUNCH"
+    When Cancel button is clicked
+        And Confirm is selected on unsaved changes dialog
+        And planning for Monday is opened
+    Then Existing types for recipe "004Baked Beans_3" in meal period "LUNCH" are
+        |TariffType|
+        |TariffOne|

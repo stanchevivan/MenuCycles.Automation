@@ -360,6 +360,7 @@
     <Compile Include="Steps\ALaCarteSteps.cs" />
     <Compile Include="PageObjects\ModalDialogPage.cs" />
     <Compile Include="Support\Helpers\CommonHelpers.cs" />
+    <Compile Include="PageObjects\Planning\PlanningTabDays\RecipeRow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

@@ -254,7 +254,7 @@ namespace MenuCycle.Tests.Steps
 
             foreach (var expectedRecipe in expectedRecipes)
             {
-                mealPeriod.GetRecipe(expectedRecipe.RecipeTitle).VerifyData(expectedRecipe);
+                mealPeriod.GetRecipe(expectedRecipe.RecipeTitle).GetRow().VerifyData(expectedRecipe);
             }
         }
     }

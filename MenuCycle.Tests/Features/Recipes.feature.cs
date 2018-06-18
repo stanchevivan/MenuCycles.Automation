@@ -1059,6 +1059,42 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Tariff types are discarded when cancel button is clicked")]
+        [NUnit.Framework.CategoryAttribute("TC29933")]
+        [NUnit.Framework.CategoryAttribute("D24491")]
+        public virtual void TariffTypesAreDiscardedWhenCancelButtonIsClicked()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Tariff types are discarded when cancel button is clicked", new string[] {
+                        "TC29933",
+                        "D24491"});
+#line 256
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 257
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 258
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 259
+        testRunner.And("Add type is clicked for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 260
+    testRunner.When("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 261
+        testRunner.And("Confirm is selected on unsaved changes dialog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 262
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TariffType"});
+            table22.AddRow(new string[] {
+                        "TariffOne"});
+#line 263
+    testRunner.Then("Existing types for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" are", ((string)(null)), table22, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

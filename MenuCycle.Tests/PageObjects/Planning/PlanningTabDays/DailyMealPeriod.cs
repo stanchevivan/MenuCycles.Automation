@@ -58,14 +58,9 @@ namespace MenuCycle.Tests.PageObjects
             return this.Recipes.First(a => a.Title == title);
         }
 
-        public Recipe GetRecipe(string title, string tariffType)
+        public RecipeRow GetRecipeRow(string recipeTitle, string tariffType)
         {
-            if (!Recipes.Any(a => a.Title == title && a.TariffType == tariffType))
-            {
-                throw new System.Exception($"Recipe {title}, tariff {tariffType} not found !");
-            }
-
-            return this.Recipes.First(a => a.Title == title && a.TariffType == tariffType);
+            return GetRecipe(recipeTitle).GetRow(tariffType);
         }
 
         public ALaCarte GetALaCarte(string name)
