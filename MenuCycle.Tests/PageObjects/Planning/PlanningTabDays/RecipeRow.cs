@@ -136,7 +136,11 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
             if (dto.TaxPercentage != null && dto.TaxPercentage != "^") this.TaxPercentage = dto.TaxPercentage;
 
-            if (dto.SellPrice != null && dto.SellPrice != "^")
+            if (dto.SellPrice == "#")
+            {
+                this.SellPrice = CommonHerlpers.GetRandomDecimalValue();
+            }
+            else if (dto.SellPrice != null && dto.SellPrice != "^")
             {
                 if (this.PriceModel == "Fixed")
                 {

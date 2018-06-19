@@ -242,15 +242,19 @@ Scenario: Meal period totals are re-calculated when the data from the input fiel
         |PlannedQty|TotalCost|Revenue|ActualGP|
         |        14|    10.16|    8.4|    -21%|
 
+@TC29853
 Scenario: Mass recipe update
     Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
-    When SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
+    When data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|TariffType|SellPrice|
+        |LUNCH         |RECIPE|004Baked Beans_3|Fixed     |TariffOne |        #|
+    And "SellPrice" is saved in context for recipe "004Baked Beans_3" in meal period "LUNCH"
         And Save button is clicked
         And Price is updated for recipe "004Baked Beans_3" in meal period "LUNCH"
         And Cancel button is clicked
         And planning for Friday is opened
-    Then SellPrice for recipe named "004Baked Beans_3" in meal period "DANGELO" is equal to the previous inputted number
+    Then "SellPrice" is equal to the value saved in context for recipe "004Baked Beans_3" in meal period "DANGELO"
 
 @TC29933 @D24491
 Scenario: Tariff types are discarded when cancel button is clicked
@@ -281,7 +285,6 @@ Scenario: Opening planning screen multiple times does not add data to unsaved it
     When Meal Period "DINNER" is expanded
         And types are saved in context for recipe "703Houmus Sandwich Filling (50g)" in meal period "DINNER"
         And Cancel button is clicked
-        And Confirm is selected on unsaved changes dialog
         And planning for Tuesday is opened
         And Meal Period "DINNER" is expanded
     Then existing types are same as from the context for recipe "703Houmus Sandwich Filling (50g)" in meal period "DINNER"

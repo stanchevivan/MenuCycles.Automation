@@ -1,4 +1,6 @@
 ﻿using System;
+using MenuCycle.Tests.PageObjects.Planning.PlanningTabDays;
+
 namespace MenuCycle.Tests
 {
     public static class CommonHerlpers
@@ -12,7 +14,7 @@ namespace MenuCycle.Tests
 
             do
             {
-                randomNumber = rnd.Next(1, 101).ToString();
+                randomNumber = rnd.Next(0, 99).ToString();
 
                 if (randomNumber != previousValue)
                 {
@@ -23,6 +25,82 @@ namespace MenuCycle.Tests
             while (counter < 100);
 
             throw new Exception("Sorry, you are very unlucky. Terminating endless loop!");
+        }
+
+        internal static string GetRandomDecimalValue()
+        {
+            Random rnd = new Random();
+            string randomNumber;
+            string fractional;
+
+            randomNumber = rnd.Next(0, 99).ToString();
+            fractional = rnd.Next(100, 999).ToString();
+
+            return randomNumber + '.' + fractional;
+        }
+
+        public static string GetValueForFieldInRecipeRow(string field, RecipeRow row)
+        {
+            string value;
+
+            switch (field)
+            {
+                case "PlannedQuantity":
+                    {
+                        value = row.PlannedQuantity;
+                        break;
+                    }
+                case "CostPerUnit":
+                    {
+                        value = row.CostPerUnit;
+                        break;
+                    }
+                case "TotalCosts":
+                    {
+                        value = row.TotalCosts;
+                        break;
+                    }
+                case "TariffType":
+                    {
+                        value = row.TariffType;
+                        break;
+                    }
+                case "PriceModel":
+                    {
+                        value = row.PriceModel;
+                        break;
+                    }
+                case "Target":
+                    {
+                        value = row.Target;
+                        break;
+                    }
+                case "TaxPercentage":
+                    {
+                        value = row.TaxPercentage;
+                        break;
+                    }
+                case "SellPrice":
+                    {
+                        value = row.SellPrice;
+                        break;
+                    }
+                case "Revenue":
+                    {
+                        value = row.Revenue;
+                        break;
+                    }
+                case "ActualGP":
+                    {
+                        value = row.ActualGP;
+                        break;
+                    }
+                default:
+                    value = null;
+                    break;
+            }
+
+            return value;
         }
     }
 }

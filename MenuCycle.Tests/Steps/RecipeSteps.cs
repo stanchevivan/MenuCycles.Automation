@@ -2,6 +2,7 @@
 using System.Linq;
 using MenuCycle.Tests.Models;
 using MenuCycle.Tests.PageObjects;
+using MenuCycle.Tests.PageObjects.Planning.PlanningTabDays;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -359,6 +360,24 @@ namespace MenuCycle.Tests.Steps
                 .Rows.Select(x => x.TariffType).ToList();
 
             scenarioContext.Add("tariffTypes", tariffTypes);
+        }
+
+        [When(@"""(.*)"" is saved in context for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void WhenFieldAreSavedInContextForRecipeInMealPeriod(string field, string recipeTitle, string mealPeriod)
+        {
+            var defaultRecipeRow = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeTitle).GetRow();
+            var value = CommonHerlpers.GetValueForFieldInRecipeRow(field, defaultRecipeRow);
+
+            scenarioContext.Add(field, value);
+        }
+
+        [Then(@"""(.*)"" is equal to the value saved in context for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void WhenFieldIsEqualToContextForRecipeInMealPeriod(string field, string recipeTitle, string mealPeriod)
+        {
+            var defaultRecipeRow = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeTitle).GetRow();
+            var value = CommonHerlpers.GetValueForFieldInRecipeRow(field, defaultRecipeRow);
+
+            Assert.AreEqual(value, scenarioContext.Get<string>(field));
         }
 
         [Then(@"existing types are same as from the context for recipe ""(.*)"" in meal period ""(.*)""")]
