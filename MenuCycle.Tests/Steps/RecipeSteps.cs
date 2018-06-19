@@ -377,7 +377,7 @@ namespace MenuCycle.Tests.Steps
             var defaultRecipeRow = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeTitle).GetRow();
             var value = CommonHerlpers.GetValueForFieldInRecipeRow(field, defaultRecipeRow);
 
-            Assert.AreEqual(value, scenarioContext.Get<string>(field));
+            Assert.That(value, Is.EqualTo(scenarioContext.Get<string>(field)));
         }
 
         [Then(@"existing types are same as from the context for recipe ""(.*)"" in meal period ""(.*)""")]

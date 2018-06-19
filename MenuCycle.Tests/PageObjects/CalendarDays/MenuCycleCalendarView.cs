@@ -55,7 +55,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "modal-backdrop")]
         IWebElement Backdrop { get; set; }
 
-        [FindsBy(How = How.ClassName, Using = " daily-header-container")]
+        [FindsBy(How = How.ClassName, Using = "daily-header-container")]
         IWebElement DaysContainer { get; set; }
 
         public List<WeekDays> CalendarHeaders => this.CalendarHeaderContainer.Select(p => new WeekDays(p)).ToList();
