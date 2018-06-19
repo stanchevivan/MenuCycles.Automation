@@ -1188,6 +1188,56 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Saving decimal values")]
+        [NUnit.Framework.CategoryAttribute("TC29954")]
+        [NUnit.Framework.CategoryAttribute("D24588")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("critical")]
+        public virtual void SavingDecimalValues()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Saving decimal values", new string[] {
+                        "TC29954",
+                        "D24588",
+                        "Smoke",
+                        "critical"});
+#line 293
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 294
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 295
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "SellPrice"});
+            table25.AddRow(new string[] {
+                        "LUNCH",
+                        "RECIPE",
+                        "004Baked Beans_3",
+                        "#"});
+#line 296
+    testRunner.When("data for recipes is set", ((string)(null)), table25, "When ");
+#line 299
+        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 300
+        testRunner.And("\"SellPrice\" is saved in context for recipe \"004Baked Beans_3\" in meal period \"LUN" +
+                    "CH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 301
+        testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 302
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 303
+    testRunner.Then("\"SellPrice\" is equal to the value saved in context for recipe \"004Baked Beans_3\" " +
+                    "in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

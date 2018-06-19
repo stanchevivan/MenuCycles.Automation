@@ -288,3 +288,17 @@ Scenario: Opening planning screen multiple times does not add data to unsaved it
         And planning for Tuesday is opened
         And Meal Period "DINNER" is expanded
     Then existing types are same as from the context for recipe "703Houmus Sandwich Filling (50g)" in meal period "DINNER"
+
+@TC29954 @D24588 @Smoke @critical
+Scenario: Saving decimal values
+    Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+    When data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle     |SellPrice|
+        |LUNCH         |RECIPE|004Baked Beans_3|        #|
+        And Save button is clicked
+        And "SellPrice" is saved in context for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And Cancel button is clicked
+        And planning for Monday is opened
+    Then "SellPrice" is equal to the value saved in context for recipe "004Baked Beans_3" in meal period "LUNCH"
+
