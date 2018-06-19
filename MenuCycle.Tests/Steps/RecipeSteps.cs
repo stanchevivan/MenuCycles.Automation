@@ -330,12 +330,24 @@ namespace MenuCycle.Tests.Steps
         }
 
         [Given(@"Add type is clicked for recipe ""(.*)"" in meal period ""(.*)""")]
+        [When(@"Add type is clicked for recipe ""(.*)"" in meal period ""(.*)""")]
         public void GivenAddTypeIsClickedForRecipeInMealPeriod(string recipeTitle, string mealPeriod)
         {
             planningTabDays
                 .GetMealPeriod(mealPeriod)
                 .GetRecipe(recipeTitle)
                 .AddType();
+        }
+
+        [Then(@"delete icon is present for recipe ""(.*)"" in meal period ""(.*)"" tariff type ""(.*)""")]
+        public void DeleteIconIsPresentForRecipeInMealPeriodTariffType(string recipeTitle, string mealPeriod, string tariffType)
+        {
+            var recipeRow = planningTabDays
+                .GetMealPeriod(mealPeriod)
+                .GetRecipe(recipeTitle)
+                .GetRow(tariffType);
+
+            Assert.IsTrue(recipeRow.IsDeleteIconPresent);
         }
     }
 }

@@ -263,3 +263,13 @@ Scenario: Tariff types are discarded when cancel button is clicked
     Then Existing types for recipe "004Baked Beans_3" in meal period "LUNCH" are
         |TariffType|
         |TariffOne|
+
+@TC29942 @D24490
+Scenario: Delete icon appears when adding type
+    Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+    When data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle     |TariffType|
+        |LUNCH         |RECIPE|004Baked Beans_3|TariffTwo |
+        And Add type is clicked for recipe "004Baked Beans_3" in meal period "LUNCH"
+    Then delete icon is present for recipe "004Baked Beans_3" in meal period "LUNCH" tariff type "TariffOne"

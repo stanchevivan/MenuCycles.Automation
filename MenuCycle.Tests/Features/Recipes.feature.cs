@@ -1095,6 +1095,45 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Delete icon appears when adding type")]
+        [NUnit.Framework.CategoryAttribute("TC29942")]
+        [NUnit.Framework.CategoryAttribute("D24490")]
+        public virtual void DeleteIconAppearsWhenAddingType()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete icon appears when adding type", new string[] {
+                        "TC29942",
+                        "D24490"});
+#line 268
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 269
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 270
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "TariffType"});
+            table23.AddRow(new string[] {
+                        "LUNCH",
+                        "RECIPE",
+                        "004Baked Beans_3",
+                        "TariffTwo"});
+#line 271
+    testRunner.When("data for recipes is set", ((string)(null)), table23, "When ");
+#line 274
+        testRunner.And("Add type is clicked for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 275
+    testRunner.Then("delete icon is present for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" tarif" +
+                    "f type \"TariffOne\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

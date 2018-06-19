@@ -84,18 +84,18 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             set => this.sellPrice.Do().ClearAndSendKeys(value);
         }
 
-        // May need another check
-        public bool IsSellPriceEditable => sellPrice.Enabled;
-
         public string Revenue => this.revenue.Text;
         public string ActualGP => this.actualGP.Text;
         public string PlannedQtyContextualErrorMessage => PlannedQtyContextualMessage.Text;
         public string SellPriceContextualErrorMessage => SellPriceContextualMessage.Text;
         public string TargetPercentageContextualErrorMessage => TargetContextualMessage.Text;
 
+        // May need another check
+        public bool IsSellPriceEditable => sellPrice.Enabled;
         public bool IsPlannedQuantityWithRedBorder => plannedQuantity.Get().HasClass("border-error");
         public bool SellPriceHasRedBorder => sellPrice.Get().HasClass("border-error");
         public bool IsTargetGPWithRedBorder => targetGP.Get().HasClass("border-error");
+        public bool IsDeleteIconPresent => deleteType.Get().ElementPresent;
 
         public RecipeModel GetDTO()
         {
