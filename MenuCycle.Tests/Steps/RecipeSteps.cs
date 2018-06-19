@@ -349,5 +349,29 @@ namespace MenuCycle.Tests.Steps
 
             Assert.IsTrue(recipeRow.IsDeleteIconPresent);
         }
+
+        [When(@"types are saved in context for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void WhenTypesAreSavedInContextForRecipeInMealPeriod(string recipeTitle, string mealPeriod)
+        {
+            var tariffTypes = planningTabDays
+                .GetMealPeriod(mealPeriod)
+                .GetRecipe(recipeTitle)
+                .Rows.Select(x => x.TariffType).ToList();
+
+            scenarioContext.Add("tariffTypes", tariffTypes);
+        }
+
+        [Then(@"existing types are same as from the context for recipe ""(.*)"" in meal period ""(.*)""")]
+        public void ThenExistingTypesAreSameAsFromTheContextForRecipeInMealPeriod(string recipeTitle, string mealPeriod)
+        {
+            var expectedTariffTypes = scenarioContext.Get<IList<string>>("tariffTypes");
+
+            var actualTariffTypes = planningTabDays
+                .GetMealPeriod(mealPeriod)
+                .GetRecipe(recipeTitle)
+                .Rows.Select(x => x.TariffType).ToList();
+            
+            Assert.That(actualTariffTypes, Is.EqualTo(expectedTariffTypes));
+        }
     }
 }

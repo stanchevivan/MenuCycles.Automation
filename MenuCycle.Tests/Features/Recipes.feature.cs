@@ -1134,6 +1134,43 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Opening planning screen multiple times does not add data to unsaved items")]
+        [NUnit.Framework.CategoryAttribute("TC29950")]
+        [NUnit.Framework.CategoryAttribute("D24575")]
+        public virtual void OpeningPlanningScreenMultipleTimesDoesNotAddDataToUnsavedItems()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Opening planning screen multiple times does not add data to unsaved items", new string[] {
+                        "TC29950",
+                        "D24575"});
+#line 278
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 279
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 280
+        testRunner.And("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 281
+    testRunner.When("Meal Period \"DINNER\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 282
+        testRunner.And("types are saved in context for recipe \"703Houmus Sandwich Filling (50g)\" in meal " +
+                    "period \"DINNER\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 283
+        testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 284
+        testRunner.And("Confirm is selected on unsaved changes dialog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 285
+        testRunner.And("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 286
+        testRunner.And("Meal Period \"DINNER\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 287
+    testRunner.Then("existing types are same as from the context for recipe \"703Houmus Sandwich Fillin" +
+                    "g (50g)\" in meal period \"DINNER\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

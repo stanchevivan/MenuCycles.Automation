@@ -273,3 +273,15 @@ Scenario: Delete icon appears when adding type
         |LUNCH         |RECIPE|004Baked Beans_3|TariffTwo |
         And Add type is clicked for recipe "004Baked Beans_3" in meal period "LUNCH"
     Then delete icon is present for recipe "004Baked Beans_3" in meal period "LUNCH" tariff type "TariffOne"
+
+@TC29950 @D24575
+Scenario: Opening planning screen multiple times does not add data to unsaved items
+    Given Menu Cycle "Meda" is selected
+        And planning for Tuesday is opened
+    When Meal Period "DINNER" is expanded
+        And types are saved in context for recipe "703Houmus Sandwich Filling (50g)" in meal period "DINNER"
+        And Cancel button is clicked
+        And Confirm is selected on unsaved changes dialog
+        And planning for Tuesday is opened
+        And Meal Period "DINNER" is expanded
+    Then existing types are same as from the context for recipe "703Houmus Sandwich Filling (50g)" in meal period "DINNER"
