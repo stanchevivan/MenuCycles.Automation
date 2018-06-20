@@ -27,7 +27,7 @@ namespace MenuCycle.Tests
             throw new Exception("Sorry, you are very unlucky. Terminating endless loop!");
         }
 
-        internal static string GetRandomDecimalValue()
+        public static string GetRandomDecimalValue()
         {
             Random rnd = new Random();
             string randomNumber;
