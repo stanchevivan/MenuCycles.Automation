@@ -215,3 +215,21 @@ Scenario: No modal dialog is shown if there are no changes and Cancel button is 
         And planning for Monday is opened
         When Cancel button is clicked
         Then Calendar view is opened
+
+@TC29874
+Scenario: Notification is shown when user is trying to save planning with the same price type selected several times
+    Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+    When Add type is clicked for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And TariffType is set to "TariffOne" for recipe "004Baked Beans_3" with current TariffType "TariffTwo" in meal period "LUNCH"
+        And Save button is clicked
+    Then Notification message "Please make sure that you have not selected the same price type several times for the same item" is displayed
+
+@TC29875
+Scenario: Notification is shown when user has selected all available price types
+    Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+    When Add type is clicked for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And Add type is clicked for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And Add type is clicked for recipe "004Baked Beans_3" in meal period "LUNCH"
+    Then Notification message "There are 3 price types available. You cannot add more." is displayed

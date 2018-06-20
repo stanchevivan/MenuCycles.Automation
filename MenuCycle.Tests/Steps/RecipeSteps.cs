@@ -389,8 +389,14 @@ namespace MenuCycle.Tests.Steps
                 .GetMealPeriod(mealPeriod)
                 .GetRecipe(recipeTitle)
                 .Rows.Select(x => x.TariffType).ToList();
-            
+
             Assert.That(actualTariffTypes, Is.EqualTo(expectedTariffTypes));
+        }
+
+        [When(@"TariffType is set to ""(.*)"" for recipe ""(.*)"" with current TariffType ""(.*)"" in meal period ""(.*)""")]
+        public void ChangeTariffTypeForSingleRecipe(string newTariffType, string recipeTitle, string currentTariffType, string mealPeriod)
+        {
+            planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeTitle).GetRow(currentTariffType).TariffType = newTariffType;
         }
     }
 }

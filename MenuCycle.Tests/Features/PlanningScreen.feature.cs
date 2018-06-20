@@ -759,6 +759,65 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Notification is shown when user is trying to save planning with the same price ty" +
+            "pe selected several times")]
+        [NUnit.Framework.CategoryAttribute("TC29874")]
+        public virtual void NotificationIsShownWhenUserIsTryingToSavePlanningWithTheSamePriceTypeSelectedSeveralTimes()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Notification is shown when user is trying to save planning with the same price ty" +
+                    "pe selected several times", new string[] {
+                        "TC29874"});
+#line 220
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 221
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 222
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 223
+    testRunner.When("Add type is clicked for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 224
+        testRunner.And("TariffType is set to \"TariffOne\" for recipe \"004Baked Beans_3\" with current Tarif" +
+                    "fType \"TariffTwo\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 225
+        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 226
+    testRunner.Then("Notification message \"Please make sure that you have not selected the same price " +
+                    "type several times for the same item\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Notification is shown when user has selected all available price types")]
+        [NUnit.Framework.CategoryAttribute("TC29875")]
+        public virtual void NotificationIsShownWhenUserHasSelectedAllAvailablePriceTypes()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Notification is shown when user has selected all available price types", new string[] {
+                        "TC29875"});
+#line 229
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 230
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 231
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 232
+    testRunner.When("Add type is clicked for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 233
+        testRunner.And("Add type is clicked for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 234
+        testRunner.And("Add type is clicked for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 235
+    testRunner.Then("Notification message \"There are 3 price types available. You cannot add more.\" is" +
+                    " displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
