@@ -398,5 +398,46 @@ namespace MenuCycle.Tests.Steps
         {
             planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeTitle).GetRow(currentTariffType).TariffType = newTariffType;
         }
+
+        [Then(@"delete icon is clicked for recipe ""(.*)"" in meal period ""(.*)"" with tariff type ""(.*)""")]
+        public void ThenDeleteIconIsClickedForRecipeInMealPeriodWithTariffType(string recipeName, string mealPeriod, string tariffType)
+        {
+            planningTabDays
+                .GetMealPeriod(mealPeriod)
+                .GetRecipe(recipeName)
+                .GetRow(tariffType).DeleteType();
+        }
+
+        [When(@"""(.*)"" for recipe with name ""(.*)"" with TariffType ""(.*)"" in meal period ""(.*)"" is set to ""(.*)""")]
+        public void WhenPlannedQuantityForRecipeWithNameWithTariffTypeInMealPeriodIsSetTo(string field, string recipeName, string tariffType, string mealPeriod, string value)
+        {
+            var recipe = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeName).GetRow(tariffType);
+            string fieldValue;
+
+            switch (field)
+            {
+                case "Target":
+                    {
+                        fieldValue = recipe.Target = value;
+                        break;
+                    }
+                case "Sell Price":
+                    {
+                        fieldValue = recipe.SellPrice = value;
+                        break;
+                    }
+                case "Planned Qty":
+                    {
+                        fieldValue = recipe.PlannedQuantity = value;
+                        break;
+                    }
+                default:
+                    {
+                        throw new System.Exception($"Field {field} not found!");
+                    }
+            }
+
+            planningTabDays.FocusOut();
+        }
     }
 }

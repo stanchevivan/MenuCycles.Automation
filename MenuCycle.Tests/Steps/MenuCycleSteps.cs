@@ -87,6 +87,7 @@ namespace MenuCycle.Tests.Steps
 
         [Given(@"planning for (.*) is opened")]
         [When(@"planning for (.*) is opened")]
+        [Then(@"planning for (.*) is opened")]
         public void WhenPlanningForADayIsOpened(string weekDay)
         {
             menuCycleCalendarView.WaitPageLoad();

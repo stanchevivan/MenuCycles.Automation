@@ -302,3 +302,19 @@ Scenario: Saving decimal values
         And planning for Monday is opened
     Then "SellPrice" is equal to the value saved in context for recipe "004Baked Beans_3" in meal period "LUNCH"
 
+@TC29987
+Scenario: Confirm dialog is not shown after save with added TariffTypes
+    Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+        And Add type is clicked for recipe "004Baked Beans_3" in meal period "LUNCH"
+    When "Planned Qty" for recipe with name "004Baked Beans_3" with TariffType "TariffTwo" in meal period "LUNCH" is set to "32"
+        And "Sell Price" for recipe with name "004Baked Beans_3" with TariffType "TariffTwo" in meal period "LUNCH" is set to "32"
+        And Save button is clicked
+        And Notification message "Planning figures updated." is displayed
+        And Cancel button is clicked
+    Then Calendar view is opened
+        And planning for Monday is opened
+        And delete icon is clicked for recipe "004Baked Beans_3" in meal period "LUNCH" with tariff type "TariffTwo"
+        And Save button is clicked
+        And Notification message "Planning figures updated." is displayed
+
