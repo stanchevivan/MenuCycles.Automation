@@ -42,7 +42,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             return Rows.First();
         }
 
-        public RecipeRow GetRow(string tariffType)
+        public RecipeRow GetTariffTypeRow(string tariffType)
         {
             return Rows.First(x => x.TariffType == tariffType);
         }

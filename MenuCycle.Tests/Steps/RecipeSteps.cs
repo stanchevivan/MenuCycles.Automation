@@ -346,7 +346,7 @@ namespace MenuCycle.Tests.Steps
             var recipeRow = planningTabDays
                 .GetMealPeriod(mealPeriod)
                 .GetRecipe(recipeTitle)
-                .GetRow(tariffType);
+                .GetTariffTypeRow(tariffType);
 
             Assert.IsTrue(recipeRow.IsDeleteIconPresent);
         }
@@ -396,7 +396,7 @@ namespace MenuCycle.Tests.Steps
         [When(@"TariffType is set to ""(.*)"" for recipe ""(.*)"" with current TariffType ""(.*)"" in meal period ""(.*)""")]
         public void ChangeTariffTypeForSingleRecipe(string newTariffType, string recipeTitle, string currentTariffType, string mealPeriod)
         {
-            planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeTitle).GetRow(currentTariffType).TariffType = newTariffType;
+            planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeTitle).GetTariffTypeRow(currentTariffType).TariffType = newTariffType;
         }
 
         [Then(@"delete icon is clicked for recipe ""(.*)"" in meal period ""(.*)"" with tariff type ""(.*)""")]
@@ -405,13 +405,13 @@ namespace MenuCycle.Tests.Steps
             planningTabDays
                 .GetMealPeriod(mealPeriod)
                 .GetRecipe(recipeName)
-                .GetRow(tariffType).DeleteType();
+                .GetTariffTypeRow(tariffType).DeleteType();
         }
 
         [When(@"""(.*)"" for recipe with name ""(.*)"" with TariffType ""(.*)"" in meal period ""(.*)"" is set to ""(.*)""")]
         public void WhenPlannedQuantityForRecipeWithNameWithTariffTypeInMealPeriodIsSetTo(string field, string recipeName, string tariffType, string mealPeriod, string value)
         {
-            var recipe = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeName).GetRow(tariffType);
+            var recipe = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeName).GetTariffTypeRow(tariffType);
             string fieldValue;
 
             switch (field)

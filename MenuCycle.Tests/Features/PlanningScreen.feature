@@ -233,3 +233,14 @@ Scenario: Notification is shown when user has selected all available price types
         And Add type is clicked for recipe "004Baked Beans_3" in meal period "LUNCH"
         And Add type is clicked for recipe "004Baked Beans_3" in meal period "LUNCH"
     Then Notification message "There are 3 price types available. You cannot add more." is displayed
+
+@TC30010 @D24750
+Scenario: Modal dialog is closed on cancel when only PriceModel is changed for an unsaved recipe
+        Given Menu Cycle "Meda" is selected
+            And planning for Friday is opened
+        When data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle      |PriceModel|
+        |DANGELO       |RECIPE|004Bechamel Sauce|        GP|
+        When Cancel button is clicked
+            And Modal dialog Yes is selected
+        Then Calendar view is opened

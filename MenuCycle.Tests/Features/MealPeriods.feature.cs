@@ -693,6 +693,27 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("More than one hundred recipies are shown in a meal period")]
+        [NUnit.Framework.CategoryAttribute("TC30011")]
+        public virtual void MoreThanOneHundredRecipiesAreShownInAMealPeriod()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("More than one hundred recipies are shown in a meal period", new string[] {
+                        "TC30011"});
+#line 168
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 169
+    testRunner.Given("Menu Cycle \"Testing Copying Meal Periods\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 170
+    testRunner.When("planning for Wednesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 171
+    testRunner.Then("\"132\" recipies are present in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

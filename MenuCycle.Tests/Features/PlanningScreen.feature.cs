@@ -818,6 +818,48 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Modal dialog is closed on cancel when only PriceModel is changed for an unsaved r" +
+            "ecipe")]
+        [NUnit.Framework.CategoryAttribute("TC30010")]
+        [NUnit.Framework.CategoryAttribute("D24750")]
+        public virtual void ModalDialogIsClosedOnCancelWhenOnlyPriceModelIsChangedForAnUnsavedRecipe()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modal dialog is closed on cancel when only PriceModel is changed for an unsaved r" +
+                    "ecipe", new string[] {
+                        "TC30010",
+                        "D24750"});
+#line 238
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 239
+        testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 240
+            testRunner.And("planning for Friday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "PriceModel"});
+            table8.AddRow(new string[] {
+                        "DANGELO",
+                        "RECIPE",
+                        "004Bechamel Sauce",
+                        "GP"});
+#line 241
+        testRunner.When("data for recipes is set", ((string)(null)), table8, "When ");
+#line 244
+        testRunner.When("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 245
+            testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 246
+        testRunner.Then("Calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

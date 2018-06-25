@@ -257,5 +257,15 @@ namespace MenuCycle.Tests.Steps
                 mealPeriod.GetRecipe(expectedRecipe.RecipeTitle).GetRow().VerifyData(expectedRecipe);
             }
         }
+
+        [Then(@"""(.*)"" recipies are present in meal period ""(.*)""")]
+        public void ThenRecipiesArePresentInMealPeriod(int expectedNumberOfRecipes, string mealPeriodName)
+        {
+            var actualNumberOfRecipes = planningTabDays
+                .GetMealPeriod(mealPeriodName)
+                .Recipes.Count;
+
+            Assert.That(actualNumberOfRecipes, Is.EqualTo(expectedNumberOfRecipes));
+        }
     }
 }

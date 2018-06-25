@@ -90,7 +90,7 @@ Scenario: Open all meal periods in Planning screen
     Then all meal periods are collapsed
 
 @TC29384
-Scenario:Recipes onlyCalculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP" 
+Scenario: Recipes onlyCalculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP" 
     Given Menu Cycle "Meda" is selected
     When planning for Thursday is opened
     And data for recipes is set
@@ -103,7 +103,7 @@ Scenario:Recipes onlyCalculate Meal period "Planned Quantity", "Total Cost", "Re
         |        30|   218.50| 243.50|     10%|
 
 @TC29387
-Scenario:Buffets only - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
+Scenario: Buffets only - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
     Given Menu Cycle "Meda" is selected
     When planning for Friday is opened
     And data for buffets is set
@@ -119,7 +119,7 @@ Scenario:Buffets only - Calculate Meal period "Planned Quantity", "Total Cost", 
         |        60|    108.3| 191.67|     43%|
 
 @TC29388
-Scenario:A la cares only - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
+Scenario: A la cares only - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
     Given Menu Cycle "Meda" is selected
     When planning for Friday is opened
     And data for recipes in a la carte "Holiday A La Carte" in meal period "DANGELO" is set
@@ -131,7 +131,7 @@ Scenario:A la cares only - Calculate Meal period "Planned Quantity", "Total Cost
         |         5|    6541.91| 137.59|  -4655%|
 
 @TC29391
-Scenario:Combined for Buffet, A la cares and recipes - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
+Scenario: Combined for Buffet, A la cares and recipes - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
     Given Menu Cycle "Meda" is selected
     When planning for Friday is opened
     And data for recipes in a la carte "Holiday A La Carte" in meal period "DANGELO" is set
@@ -155,7 +155,7 @@ Scenario:Combined for Buffet, A la cares and recipes - Calculate Meal period "Pl
         |        85|  6668.41| 339.22|  -1866%|
 
 @TC29560
-Scenario:Meal periods are collapsed after reopening planning screen
+Scenario: Meal periods are collapsed after reopening planning screen
     Given Menu Cycle "Meda" is selected
     When planning for Tuesday is opened
         And Open all is clicked
@@ -163,3 +163,9 @@ Scenario:Meal periods are collapsed after reopening planning screen
         And Cancel button is clicked
         And planning for Tuesday is opened
     Then all meal periods are collapsed
+
+@TC30011
+Scenario: More than one hundred recipies are shown in a meal period
+    Given Menu Cycle "Testing Copying Meal Periods" is selected
+    When planning for Wednesday is opened
+    Then "132" recipies are present in meal period "LUNCH"
