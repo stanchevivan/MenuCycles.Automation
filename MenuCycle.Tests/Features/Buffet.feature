@@ -104,3 +104,21 @@ Scenario: Calculations for "Total Cost" and "Sell Price" and "Revenue" should be
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
         |DANGELO          |BUFFET|Aneliya Buffet|     48.42|    41.54|  69.24|     30%|
+
+Scenario: Planned Quantity Values are rounded after scaling
+    Given Menu Cycle "Meda" is selected
+        And planning for Friday is opened
+    When data for buffets is set
+        |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|
+        |DANGELO          |BUFFET|Maya Buffet|              5|
+    And data for recipes in buffet "Maya Buffet" in meal period "DANGELO" is set
+        |RecipeTitle                  |PlannedQuantity|
+        |004Basic Sponge              |              6|
+        |004Fresh Lemon Curd          |              7|
+   And data for buffets is set
+        |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|
+        |DANGELO          |BUFFET|Maya Buffet|              6|
+    Then Verify data for recipes in buffet "Maya Buffet" in meal period "DANGELO" is
+        |RecipeTitle                  |PlannedQuantity|
+        |004Basic Sponge              |              7|
+        |004Fresh Lemon Curd          |              8|
