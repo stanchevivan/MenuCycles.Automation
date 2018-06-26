@@ -68,8 +68,8 @@ node('IE1UIBLD03') {
 		bat "\"$env.WORKSPACE/Tools/nuget.exe\" restore \"$solutionPath\" -configFile Tools/NugetSources.Config"
 		bat "dotnet restore \"$solutionPath\""
 
-		echo 'Build Release Configuration'
-		bat "\"$msbuild\" ./$projectPath/$projectName /p:OutDir=\"$env.WORKSPACE\" $commonReleaseBuildParams /p:Configuration=Release"
+		//echo 'Build Release Configuration'
+		//bat "\"$msbuild\" ./$projectPath/$projectName /p:OutDir=\"$env.WORKSPACE\" $commonReleaseBuildParams /p:Configuration=Release"
 	}
 
 	try {
