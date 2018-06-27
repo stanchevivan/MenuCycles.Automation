@@ -15,6 +15,9 @@ Global
 		iOS|Any CPU = iOS|Any CPU
 		Release|Any CPU = Release|Any CPU
 		Firefox|Any CPU = Firefox|Any CPU
+		RemoteS8Plus|Any CPU = RemoteS8Plus|Any CPU
+		iPadAir2|Any CPU = iPadAir2|Any CPU
+		SamsungS8Plus|Any CPU = SamsungS8Plus|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.Android|Any CPU.ActiveCfg = Debug|Any CPU
@@ -31,6 +34,12 @@ Global
 		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.Firefox|Any CPU.ActiveCfg = Firefox|Any CPU
 		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.Firefox|Any CPU.Build.0 = Firefox|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.RemoteS8Plus|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.RemoteS8Plus|Any CPU.Build.0 = Debug|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.iPadAir2|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.iPadAir2|Any CPU.Build.0 = Debug|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.SamsungS8Plus|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.SamsungS8Plus|Any CPU.Build.0 = Debug|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Android|Any CPU.ActiveCfg = Android|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Android|Any CPU.Build.0 = Android|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Chrome|Any CPU.ActiveCfg = Chrome|Any CPU
@@ -45,6 +54,12 @@ Global
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Firefox|Any CPU.ActiveCfg = Firefox|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Firefox|Any CPU.Build.0 = Firefox|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.RemoteS8Plus|Any CPU.ActiveCfg = RemoteS8Plus|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.RemoteS8Plus|Any CPU.Build.0 = RemoteS8Plus|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPadAir2|Any CPU.ActiveCfg = iPadAir2|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPadAir2|Any CPU.Build.0 = iPadAir2|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungS8Plus|Any CPU.ActiveCfg = SamsungS8Plus|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungS8Plus|Any CPU.Build.0 = SamsungS8Plus|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

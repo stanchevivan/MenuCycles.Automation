@@ -62,6 +62,21 @@
     <OutputPath>bin\Firefox</OutputPath>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'RemoteS8Plus|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\RemoteS8Plus</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPadAir2|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPadAir2</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'SamsungS8Plus|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\SamsungS8Plus</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="appium-dotnet-driver, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Appium.WebDriver.3.0.0.2\lib\net45\appium-dotnet-driver.dll</HintPath>
@@ -404,6 +419,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Buffet.feature.cs</LastGenOutput>
     </None>
+    <None Include="App.iPadAir2.config" />
+    <None Include="App.SamsungS8Plus.config" />
+    <None Include="App.RemoteS8Plus.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MenuCycle.Data\MenuCycle.Data.csproj">
