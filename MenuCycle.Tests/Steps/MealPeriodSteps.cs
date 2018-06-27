@@ -87,6 +87,21 @@ namespace MenuCycle.Tests.Steps
             Assert.That(planningTabDays.MealPeriodColours, Is.EqualTo(scenarioContext.Get<IList<string>>("MealPeriodColours")));
         }
 
+        [Given(@"Meal Period names for ""(.*)"" are saved")]
+        public void GivenMealPeriodNamesForAreSaved(string weekDay)
+        {
+            scenarioContext.Add("MealPeriodNames", menuCycleCalendarView.GetMealPeriodNames(weekDay));
+        }
+
+        /// <summary>
+        /// Must be used with the step "Meal Period colours for ""(.*)"" are saved"
+        /// </summary>
+        [Then(@"Meal Period names match the calendar view names")]
+        public void ThenMealPeriodNamessMatchTheCalendarViewNames()
+        {
+            Assert.That(planningTabDays.MealPeriods.Select(x => x.Name).ToList(), Is.EqualTo(scenarioContext.Get<IList<string>>("MealPeriodNames")));
+        }
+
         /// <summary>
         /// Checks that meal period has recipe with certain name.
         /// </summary>

@@ -169,3 +169,10 @@ Scenario: More than one hundred recipies are shown in a meal period
     Given Menu Cycle "Testing Copying Meal Periods" is selected
     When planning for Wednesday is opened
     Then "132" recipies are present in meal period "LUNCH"
+
+@TC30087 @D24839
+Scenario: The order of meal periods from the planning screen is the same as in the calendar view
+    Given Menu Cycle "Meda" is selected
+        And Meal Period names for "Tuesday" are saved
+    When planning for Tuesday is opened
+    Then Meal Period names match the calendar view names

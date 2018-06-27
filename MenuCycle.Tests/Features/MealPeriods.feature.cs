@@ -714,6 +714,33 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("The order of meal periods from the planning screen is the same as in the calendar" +
+            " view")]
+        [NUnit.Framework.CategoryAttribute("TC30087")]
+        [NUnit.Framework.CategoryAttribute("D24839")]
+        public virtual void TheOrderOfMealPeriodsFromThePlanningScreenIsTheSameAsInTheCalendarView()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The order of meal periods from the planning screen is the same as in the calendar" +
+                    " view", new string[] {
+                        "TC30087",
+                        "D24839"});
+#line 174
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 175
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 176
+        testRunner.And("Meal Period names for \"Tuesday\" are saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 177
+    testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 178
+    testRunner.Then("Meal Period names match the calendar view names", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
