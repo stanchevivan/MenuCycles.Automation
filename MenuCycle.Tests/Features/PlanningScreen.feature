@@ -197,7 +197,7 @@ Scenario: Calculate Daily Totals
 @TC29844
 Scenario: No planning data available message
     Given Menu Cycle "Testing Copying Meal Periods" is selected
-    When planning for Wednesday is opened
+    When planning for Tuesday is opened
     Then "No planning data available. Please add a meal period." message is displayed
         And Save button is disabled
 

@@ -1282,6 +1282,35 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Saving Planning screen with empty fields displays red border and contextual messa" +
+            "ge")]
+        [NUnit.Framework.CategoryAttribute("TC30090")]
+        public virtual void SavingPlanningScreenWithEmptyFieldsDisplaysRedBorderAndContextualMessage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Saving Planning screen with empty fields displays red border and contextual messa" +
+                    "ge", new string[] {
+                        "TC30090"});
+#line 322
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 323
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 324
+        testRunner.And("planning for Wednesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 325
+    testRunner.When("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 326
+    testRunner.Then("red border and contextual error message \"Value is required\" is displayed for Plan" +
+                    "ned Quantity field for recipe \"004Basic Sponge\" in meal period \"LANCE\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 327
+    testRunner.And("red border and contextual error message \"Value is required\" is displayed for Sell" +
+                    " Price field for recipe \"004Basic Sponge\" in meal period \"LANCE\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

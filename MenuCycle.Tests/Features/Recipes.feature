@@ -318,3 +318,10 @@ Scenario: Confirm dialog is not shown after save with added TariffTypes
         And Save button is clicked
         And Notification message "Planning figures updated." is displayed
 
+@TC30090
+Scenario: Saving Planning screen with empty fields displays red border and contextual message
+    Given Menu Cycle "Meda" is selected
+        And planning for Wednesday is opened
+    When Save button is clicked
+    Then red border and contextual error message "Value is required" is displayed for Planned Quantity field for recipe "004Basic Sponge" in meal period "LANCE"
+    And red border and contextual error message "Value is required" is displayed for Sell Price field for recipe "004Basic Sponge" in meal period "LANCE"

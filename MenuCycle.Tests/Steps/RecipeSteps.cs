@@ -258,6 +258,7 @@ namespace MenuCycle.Tests.Steps
                         .TargetPercentageContextualErrorMessage, Is.EqualTo(errorMessage));
         }
 
+        [Then(@"red border and contextual error message ""(.*)"" is displayed for Sell Price field for recipe ""(.*)"" in meal period ""(.*)""")]
         [When(@"red border and contextual error message ""(.*)"" is displayed for Sell Price field for recipe ""(.*)"" in meal period ""(.*)""")]
         public void WhenRedBorderAndContextualErrorMessageIsDisplayedForSellPricefieldForRecipeInMealPeriod(string errorMessage, string recipeName, string mealPeriod)
         {
@@ -274,6 +275,7 @@ namespace MenuCycle.Tests.Steps
                         .SellPriceContextualErrorMessage, Is.EqualTo(errorMessage));
         }
 
+        [Then(@"red border and contextual error message ""(.*)"" is displayed for Planned Quantity field for recipe ""(.*)"" in meal period ""(.*)""")]
         [When(@"red border and contextual error message ""(.*)"" is displayed for Planned Quantity field for recipe ""(.*)"" in meal period ""(.*)""")]
         public void WhenRedBorderAndContextualErrorMessageIsDisplayedForPlannedQuantityFieldForRecipeInMealPeriod(string errorMessage, string recipeName, string mealPeriod)
         {

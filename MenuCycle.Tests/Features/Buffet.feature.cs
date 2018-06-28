@@ -484,16 +484,18 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Planned Quantity Values are rounded after scaling")]
+        [NUnit.Framework.CategoryAttribute("TC30088")]
         public virtual void PlannedQuantityValuesAreRoundedAfterScaling()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Planned Quantity Values are rounded after scaling", ((string[])(null)));
-#line 108
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Planned Quantity Values are rounded after scaling", new string[] {
+                        "TC30088"});
+#line 109
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 109
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 110
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 111
         testRunner.And("planning for Friday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
@@ -506,7 +508,7 @@ this.FeatureBackground();
                         "BUFFET",
                         "Maya Buffet",
                         "5"});
-#line 111
+#line 112
     testRunner.When("data for buffets is set", ((string)(null)), table19, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
@@ -518,7 +520,7 @@ this.FeatureBackground();
             table20.AddRow(new string[] {
                         "004Fresh Lemon Curd",
                         "7"});
-#line 114
+#line 115
     testRunner.And("data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table20, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
@@ -531,7 +533,7 @@ this.FeatureBackground();
                         "BUFFET",
                         "Maya Buffet",
                         "6"});
-#line 118
+#line 119
    testRunner.And("data for buffets is set", ((string)(null)), table21, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
@@ -543,7 +545,7 @@ this.FeatureBackground();
             table22.AddRow(new string[] {
                         "004Fresh Lemon Curd",
                         "8"});
-#line 121
+#line 122
     testRunner.Then("Verify data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is", ((string)(null)), table22, "Then ");
 #line hidden
             this.ScenarioCleanup();

@@ -105,6 +105,7 @@ Scenario: Calculations for "Total Cost" and "Sell Price" and "Revenue" should be
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
         |DANGELO          |BUFFET|Aneliya Buffet|     48.42|    41.54|  69.24|     30%|
 
+@TC30088
 Scenario: Planned Quantity Values are rounded after scaling
     Given Menu Cycle "Meda" is selected
         And planning for Friday is opened
