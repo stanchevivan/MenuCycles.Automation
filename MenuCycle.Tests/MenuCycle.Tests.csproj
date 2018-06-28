@@ -67,14 +67,39 @@
     <OutputPath>bin\RemoteS8Plus</OutputPath>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPadAir2|AnyCPU' ">
-    <Optimize>false</Optimize>
-    <OutputPath>bin\iPadAir2</OutputPath>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'SamsungS8Plus|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\SamsungS8Plus</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPadPro9|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPadPro9</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nexus7|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Nexus7</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPadAir|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPadAir</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPadMini4|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPadMini4</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPhone6|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone6</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPhone7|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone7</OutputPath>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
@@ -419,9 +444,16 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Buffet.feature.cs</LastGenOutput>
     </None>
-    <None Include="App.iPadAir2.config" />
+    <None Include="App.iPadAir.config" />
     <None Include="App.SamsungS8Plus.config" />
     <None Include="App.RemoteS8Plus.config" />
+    <None Include="App.iPadPro9.config" />
+    <None Include="App.Nexus7.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App.iPadMini4.config" />
+    <None Include="App.iPhone6.config" />
+    <None Include="App.iPhone7.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MenuCycle.Data\MenuCycle.Data.csproj">

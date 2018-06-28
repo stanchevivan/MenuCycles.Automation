@@ -19,6 +19,18 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".menuCycleTableBody .home-div-row")]
         public IList<IWebElement> MenuCyclesContainer { get; set; }
 
+        [FindsBy(How = How.ClassName, Using = "search-icon")]
+        private IWebElement SearchIcon { get; set; }
+
+        [FindsBy(How = How.ClassName, Using = "menucycle-search-input")]
+        private IWebElement SearchInput { get; set; }
+
+        [FindsBy(How = How.ClassName, Using = "home-search-button")]
+        private IWebElement SearchButton { get; set; }
+
+        [FindsBy(How = How.Id, Using = "BlueLoaderShowHide")]
+        IWebElement SpinningWheel { get; set; }
+
         public IList<MenuCycleItem> MenuCycles => this.MenuCyclesContainer.Select(p => new MenuCycleItem(p)).ToList();
 
         public void CreateMenuCycleClick()
@@ -28,8 +40,20 @@ namespace MenuCycle.Tests.PageObjects
 
         public void SelectMenuCycleByName(string menuCycleName)
         {
-            Driver.WaitListItemsLoad(MenuCyclesContainer);
             MenuCycles.First(v => v.Name.Text == menuCycleName).Name.Click();
+        }
+
+        public void SearchMenuCycle(string text)
+        {
+            SearchIcon.Click();
+            SearchInput.ClearAndSendKeys(text);
+            SearchButton.Click();
+            Driver.WaitElementToDisappear(SpinningWheel);
+        }
+
+        public void WaitPageLoad()
+        {
+            Driver.WaitListItemsLoad(MenuCyclesContainer);
         }
     }
 }

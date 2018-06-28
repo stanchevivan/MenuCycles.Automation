@@ -53,6 +53,8 @@ namespace MenuCycle.Tests.Steps
         [Given(@"Menu Cycle ""(.*)"" is selected")]
         public void GivenMenuCycleIsSelected(string menuCycleName)
         {
+            menuCycleDashboard.WaitPageLoad();
+            menuCycleDashboard.SearchMenuCycle(menuCycleName);
             menuCycleDashboard.SelectMenuCycleByName(menuCycleName);
             menuCycleCalendarView.WaitPageLoad();
         }
