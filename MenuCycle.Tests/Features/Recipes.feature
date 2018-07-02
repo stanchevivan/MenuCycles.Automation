@@ -248,7 +248,7 @@ Scenario: Mass recipe update
         And planning for Monday is opened
     When data for recipes is set
         |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|TariffType|SellPrice|
-        |LUNCH         |RECIPE|004Baked Beans_3|Fixed     |TariffOne |        #|
+        |LUNCH         |RECIPE|004Baked Beans_3|Fixed     |TariffOne |     0#99|
     And "SellPrice" is saved in context for recipe "004Baked Beans_3" in meal period "LUNCH"
         And Save button is clicked
         And Price is updated for recipe "004Baked Beans_3" in meal period "LUNCH"
@@ -295,7 +295,7 @@ Scenario: Saving decimal values
         And planning for Monday is opened
     When data for recipes is set
         |MealPeriodName|TYPE  |RecipeTitle     |SellPrice|
-        |LUNCH         |RECIPE|004Baked Beans_3|        #|
+        |LUNCH         |RECIPE|004Baked Beans_3|     0#99|
         And Save button is clicked
         And "SellPrice" is saved in context for recipe "004Baked Beans_3" in meal period "LUNCH"
         And Cancel button is clicked
@@ -321,7 +321,10 @@ Scenario: Confirm dialog is not shown after save with added TariffTypes
 @TC30090
 Scenario: Saving Planning screen with empty fields displays red border and contextual message
     Given Menu Cycle "Meda" is selected
-        And planning for Wednesday is opened
-    When Save button is clicked
-    Then red border and contextual error message "Value is required" is displayed for Planned Quantity field for recipe "004Basic Sponge" in meal period "LANCE"
-    And red border and contextual error message "Value is required" is displayed for Sell Price field for recipe "004Basic Sponge" in meal period "LANCE"
+        And planning for Monday is opened
+    When data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle     |SellPrice   |PlannedQuantity|
+        |LUNCH         |RECIPE|004Baked Beans_3|invalidinput|               |
+    And Save button is clicked
+    Then red border and contextual error message "Value is required" is displayed for Planned Quantity field for recipe "004Baked Beans_3" in meal period "LUNCH"
+    And red border and contextual error message "Must be number" is displayed for Sell Price field for recipe "004Baked Beans_3" in meal period "LUNCH"

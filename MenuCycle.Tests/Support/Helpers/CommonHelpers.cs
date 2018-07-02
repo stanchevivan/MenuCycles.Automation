@@ -27,13 +27,14 @@ namespace MenuCycle.Tests
             throw new Exception("Sorry, you are very unlucky. Terminating endless loop!");
         }
 
-        internal static string GetRandomDecimalValue()
+        internal static string GetRandomDecimalValue(int min, int max)
         {
             Random rnd = new Random();
             string randomNumber;
             string fractional;
 
-            randomNumber = rnd.Next(0, 99).ToString();
+            // Substract '1' from {max}, because of the addition of fractional part
+            randomNumber = rnd.Next(min, max - 1).ToString();
             fractional = rnd.Next(100, 999).ToString();
 
             return randomNumber + '.' + fractional;

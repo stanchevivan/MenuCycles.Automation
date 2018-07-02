@@ -1058,7 +1058,7 @@ this.FeatureBackground();
                         "004Baked Beans_3",
                         "Fixed",
                         "TariffOne",
-                        "#"});
+                        "0#99"});
 #line 249
     testRunner.When("data for recipes is set", ((string)(null)), table22, "When ");
 #line 252
@@ -1220,7 +1220,7 @@ this.FeatureBackground();
                         "LUNCH",
                         "RECIPE",
                         "004Baked Beans_3",
-                        "#"});
+                        "0#99"});
 #line 296
     testRunner.When("data for recipes is set", ((string)(null)), table25, "When ");
 #line 299
@@ -1299,15 +1299,30 @@ this.FeatureBackground();
 #line 323
     testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 324
-        testRunner.And("planning for Wednesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "SellPrice",
+                        "PlannedQuantity"});
+            table26.AddRow(new string[] {
+                        "LUNCH",
+                        "RECIPE",
+                        "004Baked Beans_3",
+                        "invalidinput",
+                        ""});
 #line 325
-    testRunner.When("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 326
+    testRunner.When("data for recipes is set", ((string)(null)), table26, "When ");
+#line 328
+    testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 329
     testRunner.Then("red border and contextual error message \"Value is required\" is displayed for Plan" +
-                    "ned Quantity field for recipe \"004Basic Sponge\" in meal period \"LANCE\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 327
-    testRunner.And("red border and contextual error message \"Value is required\" is displayed for Sell" +
-                    " Price field for recipe \"004Basic Sponge\" in meal period \"LANCE\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                    "ned Quantity field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 330
+    testRunner.And("red border and contextual error message \"Must be number\" is displayed for Sell Pr" +
+                    "ice field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

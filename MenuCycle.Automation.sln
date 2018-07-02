@@ -24,6 +24,8 @@ Global
 		iPadMini4|Any CPU = iPadMini4|Any CPU
 		iPhone6|Any CPU = iPhone6|Any CPU
 		iPhone7|Any CPU = iPhone7|Any CPU
+		SamsungS9|Any CPU = SamsungS9|Any CPU
+		iPhone8|Any CPU = iPhone8|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.Android|Any CPU.ActiveCfg = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.iPhone6|Any CPU.Build.0 = Debug|Any CPU
 		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.iPhone7|Any CPU.ActiveCfg = Debug|Any CPU
 		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.iPhone7|Any CPU.Build.0 = Debug|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.SamsungS9|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.SamsungS9|Any CPU.Build.0 = Debug|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.iPhone8|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.iPhone8|Any CPU.Build.0 = Debug|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Android|Any CPU.ActiveCfg = Android|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Android|Any CPU.Build.0 = Android|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Chrome|Any CPU.ActiveCfg = Chrome|Any CPU
@@ -86,6 +92,10 @@ Global
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone6|Any CPU.Build.0 = iPhone6|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone7|Any CPU.ActiveCfg = iPhone7|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone7|Any CPU.Build.0 = iPhone7|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungS9|Any CPU.ActiveCfg = SamsungS9|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungS9|Any CPU.Build.0 = SamsungS9|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone8|Any CPU.ActiveCfg = iPhone8|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone8|Any CPU.Build.0 = iPhone8|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

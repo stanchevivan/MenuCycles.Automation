@@ -1,4 +1,6 @@
-﻿using MenuCycle.Tests.Models;
+﻿using System;
+using System.Text.RegularExpressions;
+using MenuCycle.Tests.Models;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -136,9 +138,11 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
             if (dto.TaxPercentage != null && dto.TaxPercentage != "^") this.TaxPercentage = dto.TaxPercentage;
 
-            if (dto.SellPrice == "#")
+            // Check if value is in format {int min}#{int max} and return a random decimal
+            if (new Regex(@"^\d+\#\d+$").Match(dto.SellPrice).Success)
             {
-                this.SellPrice = CommonHerlpers.GetRandomDecimalValue();
+                var minMax = dto.SellPrice.Split('#');
+                this.SellPrice = CommonHerlpers.GetRandomDecimalValue(int.Parse(minMax[0]), int.Parse(minMax[1]));
             }
             else if (dto.SellPrice != null && dto.SellPrice != "^")
             {

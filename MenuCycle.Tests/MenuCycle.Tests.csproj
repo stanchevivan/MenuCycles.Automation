@@ -102,6 +102,16 @@
     <OutputPath>bin\iPhone7</OutputPath>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'SamsungS9|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\SamsungS9</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPhone8|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone8</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="appium-dotnet-driver, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Appium.WebDriver.3.0.0.2\lib\net45\appium-dotnet-driver.dll</HintPath>
@@ -454,6 +464,14 @@
     <None Include="App.iPadMini4.config" />
     <None Include="App.iPhone6.config" />
     <None Include="App.iPhone7.config" />
+    <None Include="App.SamsungS9.config" />
+    <None Include="App.iPhone8.config" />
+    <None Include="App.SamsungTabS.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App.SamsungTabA.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MenuCycle.Data\MenuCycle.Data.csproj">

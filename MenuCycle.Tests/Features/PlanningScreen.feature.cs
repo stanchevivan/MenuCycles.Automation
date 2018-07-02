@@ -200,7 +200,7 @@ this.FeatureBackground();
                         "LUNCH",
                         "RECIPE",
                         "004Baked Beans_3",
-                        "#"});
+                        "0#99"});
 #line 48
         testRunner.And("data for recipes is set", ((string)(null)), table1, "And ");
 #line 51
