@@ -138,17 +138,21 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
             if (dto.TaxPercentage != null && dto.TaxPercentage != "^") this.TaxPercentage = dto.TaxPercentage;
 
-            // Check if value is in format {int min}#{int max} and return a random decimal
-            if (new Regex(@"^\d+\#\d+$").Match(dto.SellPrice).Success)
-            {
-                var minMax = dto.SellPrice.Split('#');
-                this.SellPrice = CommonHerlpers.GetRandomDecimalValue(int.Parse(minMax[0]), int.Parse(minMax[1]));
-            }
-            else if (dto.SellPrice != null && dto.SellPrice != "^")
+
+            if (dto.SellPrice != null && dto.SellPrice != "^")
             {
                 if (this.PriceModel == "Fixed")
                 {
-                    this.SellPrice = dto.SellPrice;
+                    // Check if value is in format {int min}#{int max} and return a random decimal
+                    if (new Regex(@"^\d+\#\d+$").Match(dto.SellPrice).Success)
+                    {
+                        var minMax = dto.SellPrice.Split('#');
+                        this.SellPrice = CommonHerlpers.GetRandomDecimalValue(int.Parse(minMax[0]), int.Parse(minMax[1]));
+                    }
+                    else
+                    {
+                        this.SellPrice = dto.SellPrice;
+                    }
                 }
                 else
                 {
