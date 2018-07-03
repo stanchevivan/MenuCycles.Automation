@@ -14,9 +14,6 @@ msbuild = ''
 //List of App.config mobile transformations to be run by Jenkins
 //appsList = ['AndroidApp', 'iOsApp']
 
-//List of App.config browser transformations to be run by Jenkins
-browsersList = ['Chrome']
-
 solutionName = "MenuCycle.Automation.sln"
 projectPath = "MenuCycle.Tests"
 projectName = "MenuCycle.Tests.csproj"
@@ -39,6 +36,15 @@ node('IE1UIBLD03') {
 	msbuild = tool 'v15'
 
 	def jobName = "${env.JOB_NAME}"
+
+	//List of App.config browser transformations to be run by Jenkins
+	def device = ''
+
+	// Chech for configuration in Job Name
+	device = ['Chrome', 'Firefox', 'iPadAir', 'iPadMini4', 'iPadPro9', 'SamsungTabA', 'SamsungTabS'].find
+	{
+		jobName.contains("${it}")
+	}
 
 	// Checking for excluding tags first and removeing them, to avoid passing them as include tags
 	// Chech for exclude tags in Job Name
@@ -73,12 +79,17 @@ node('IE1UIBLD03') {
 	}
 
 	try {
-			stage ('Browser Tests') {
-					//Builds all configurations in order to generate a test dll
-					buildConfigurations(browsersList)
+			stage ('Build assemblies') {
+					buildConfigurations(device)
+			}
+	} catch (e) {
+			echo e.message
+			currentBuild.result = "FAILED"
+	}
 
-					//Run the tests specified in the text file using nunit
-					runTestsByFile("$projectPath/BrowserTests.txt")
+	try {
+			stage ('Run Tests') {
+					runTests(device)
 			}
 	} catch (e) {
 			echo e.message
@@ -98,18 +109,17 @@ node('IE1UIBLD03') {
     }
 }
 
-def buildConfigurations(list){
-    for (int i = 0; i < list.size(); ++i) {
-        echo "Building ${list[i]}"
-        bat "\"$msbuild\" \"${solutionPath}\" /t:Rebuild $commonReleaseBuildParams /p:Configuration=\"${list[i]}\""
-    }
+def buildConfigurations(device)
+{
+        echo "Building ${device}"
+        bat "\"$msbuild\" \"${solutionPath}\" /t:Rebuild $commonReleaseBuildParams /p:Configuration=\"${device}\""
 }
 
-def runTestsByFile(fileName)
+def runTests(device)
 {
     if (Include_Tags == '' && Exclude_Tags == ''){
         print "Not tag to include or exclude. Running all tests"
-        bat "nunit @${fileName}"
+        bat "nunit /MenuCycle.Tests/bin/${device}MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5"
     }
     else
     {
@@ -147,7 +157,7 @@ def runTestsByFile(fileName)
       print "Including tags:  ${Include_Tags}"
 			print "Excluding tags:  ${Exclude_Tags}"
 
-      bat "nunit @${fileName} -where \"${include}${and}${exclude}\""
+      bat "nunit /MenuCycle.Tests/bin/${device}MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 -where \"${include}${and}${exclude}\""
     }
 }
 
