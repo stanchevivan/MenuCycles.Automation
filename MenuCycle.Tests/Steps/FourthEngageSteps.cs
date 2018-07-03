@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using MenuCycle.Tests.PageObjects;
 using TechTalk.SpecFlow;
 
 namespace MenuCycle.Tests.Steps
@@ -9,23 +10,39 @@ namespace MenuCycle.Tests.Steps
     {
         FourthApp.Pages.Login fourthAppLogin;
         FourthApp.Pages.MainPage fourthAppMain;
+        FourthAppLocalPage fourthAppLocalPage;
 
-        public FourthEngageSteps(FourthApp.Pages.Login fourthAppLogin, FourthApp.Pages.MainPage fourthAppMain)
+        public FourthEngageSteps(FourthApp.Pages.Login fourthAppLogin, FourthApp.Pages.MainPage fourthAppMain,
+                                 FourthAppLocalPage fourthAppLocalPage)
         {
             this.fourthAppLogin = fourthAppLogin;
             this.fourthAppMain = fourthAppMain;
+            this.fourthAppLocalPage = fourthAppLocalPage;
         }
 
         [Given(@"Fourth Engage Dashboard is open")]
         public void GivenFourthEngageDashboarIsOpen()
         {
-            fourthAppLogin.PerformLogin(ConfigurationManager.AppSettings["Engage.User"], ConfigurationManager.AppSettings["Engage.Password"], new Uri(ConfigurationManager.AppSettings["Engage.Url"]));
+            if (fourthAppLocalPage.IsMobile)
+            {
+                fourthAppLogin.PerformLogin(ConfigurationManager.AppSettings["Engage.User"], ConfigurationManager.AppSettings["Engage.Password"]);
+                fourthAppLocalPage.SwitchToNativeContext();
+                fourthAppLocalPage.ClickNoButton();
+                fourthAppLocalPage.SwitchToWebViewContext();
+                fourthAppMain.WaitFeedsToLoad();
+            }
+            else
+            {
+                fourthAppLogin.PerformLogin(ConfigurationManager.AppSettings["Engage.User"], ConfigurationManager.AppSettings["Engage.Password"], new Uri(ConfigurationManager.AppSettings["Engage.Url"]));
+            }
         }
 
         [Given(@"'(.*)' application is selected")]
         public void GivenApplicationIsSelected(string application)
         {
+//            fourthAppMain.LeftMenu.OpenMenu();
             fourthAppMain.OpenApp(application);
+            fourthAppLocalPage.SwitchToNativeContext();
         }
 
         [Given(@"'(.*)' application is open")]

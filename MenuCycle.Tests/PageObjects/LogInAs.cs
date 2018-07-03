@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
+using Fourth.Automation.Framework.Mobile;
 using Fourth.Automation.Framework.Page;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
@@ -61,8 +62,8 @@ namespace MenuCycle.Tests.PageObjects
 
         public void WaitPageToLoad()
         {
-            Driver.SwitchTo().Window(Driver.WindowHandles.Last());
-            ResumeToastNotification();
+            Driver.AsMobile().SwitchToWebViewContext();
+            //ResumeToastNotification();
             Driver.WaitIsClickable(Central);
             Driver.WaitIsClickable(Local);
         }

@@ -110,14 +110,14 @@ Scenario: Planned Quantity Values are rounded after scaling
     Given Menu Cycle "Meda" is selected
         And planning for Friday is opened
     When data for buffets is set
-        |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|
+        |MealPeriodName   |TYPE  |RecipeTitle|PlannedQuantity|
         |DANGELO          |BUFFET|Maya Buffet|              5|
     And data for recipes in buffet "Maya Buffet" in meal period "DANGELO" is set
         |RecipeTitle                  |PlannedQuantity|
         |004Basic Sponge              |              6|
         |004Fresh Lemon Curd          |              7|
    And data for buffets is set
-        |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|
+        |MealPeriodName   |TYPE  |RecipeTitle|PlannedQuantity|
         |DANGELO          |BUFFET|Maya Buffet|              6|
     Then Verify data for recipes in buffet "Maya Buffet" in meal period "DANGELO" is
         |RecipeTitle                  |PlannedQuantity|

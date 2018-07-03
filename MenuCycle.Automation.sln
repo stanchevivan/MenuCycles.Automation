@@ -26,6 +26,12 @@ Global
 		iPhone7|Any CPU = iPhone7|Any CPU
 		SamsungS9|Any CPU = SamsungS9|Any CPU
 		iPhone8|Any CPU = iPhone8|Any CPU
+		SamsungTabA|Any CPU = SamsungTabA|Any CPU
+		SamsungTabS|Any CPU = SamsungTabS|Any CPU
+		Nexus6|Any CPU = Nexus6|Any CPU
+		iPhone6 Plus|Any CPU = iPhone6 Plus|Any CPU
+		Safari|Any CPU = Safari|Any CPU
+		RemoteSafari|Any CPU = RemoteSafari|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.Android|Any CPU.ActiveCfg = Debug|Any CPU
@@ -62,6 +68,16 @@ Global
 		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.SamsungS9|Any CPU.Build.0 = Debug|Any CPU
 		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.iPhone8|Any CPU.ActiveCfg = Debug|Any CPU
 		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.iPhone8|Any CPU.Build.0 = Debug|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.SamsungTabA|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.SamsungTabA|Any CPU.Build.0 = Debug|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.SamsungTabS|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.SamsungTabS|Any CPU.Build.0 = Debug|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.Nexus6|Any CPU.ActiveCfg = Nexus6|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.Nexus6|Any CPU.Build.0 = Nexus6|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.iPhone6 Plus|Any CPU.ActiveCfg = iPhone6 Plus|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.iPhone6 Plus|Any CPU.Build.0 = iPhone6 Plus|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.RemoteSafari|Any CPU.ActiveCfg = RemoteSafari|Any CPU
+		{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}.RemoteSafari|Any CPU.Build.0 = RemoteSafari|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Android|Any CPU.ActiveCfg = Android|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Android|Any CPU.Build.0 = Android|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Chrome|Any CPU.ActiveCfg = Chrome|Any CPU
@@ -96,6 +112,16 @@ Global
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungS9|Any CPU.Build.0 = SamsungS9|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone8|Any CPU.ActiveCfg = iPhone8|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone8|Any CPU.Build.0 = iPhone8|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungTabA|Any CPU.ActiveCfg = SamsungTabA|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungTabA|Any CPU.Build.0 = SamsungTabA|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungTabS|Any CPU.ActiveCfg = SamsungTabS|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungTabS|Any CPU.Build.0 = SamsungTabS|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Nexus6|Any CPU.ActiveCfg = Nexus6|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Nexus6|Any CPU.Build.0 = Nexus6|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone6 Plus|Any CPU.ActiveCfg = iPhone6 Plus|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone6 Plus|Any CPU.Build.0 = iPhone6 Plus|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.RemoteSafari|Any CPU.ActiveCfg = RemoteSafari|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.RemoteSafari|Any CPU.Build.0 = RemoteSafari|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
