@@ -119,7 +119,7 @@ def runTests(device)
 {
     if (Include_Tags == '' && Exclude_Tags == ''){
         print "Not tag to include or exclude. Running all tests"
-        bat "nunit @MenuCycle.Tests/MenuCycle.Tests/bin/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5"
+        bat "nunit @/MenuCycle.Tests/bin/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5"
     }
     else
     {
@@ -157,7 +157,7 @@ def runTests(device)
       print "Including tags:  ${Include_Tags}"
 			print "Excluding tags:  ${Exclude_Tags}"
 
-      bat "nunit @MenuCycle.Tests/MenuCycle.Tests/bin/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 -where \"${include}${and}${exclude}\""
+      bat "nunit @/MenuCycle.Tests/bin/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 -where \"${include}${and}${exclude}\""
     }
 }
 
