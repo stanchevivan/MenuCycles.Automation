@@ -74,7 +74,7 @@ namespace MenuCycle.Tests.Steps
         }
 
         [When(@"Verify data for items is")]
-        [Then(@"Verify data for items is")]
+        [StepDefinition(@"Verify data for items is")]
         public void WhenVerifyDataForItemsIs(Table table)
         {
             var expectedItems = table.CreateSet<RecipeModel>();

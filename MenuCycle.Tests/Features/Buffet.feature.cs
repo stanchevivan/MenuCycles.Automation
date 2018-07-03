@@ -540,11 +540,11 @@ this.FeatureBackground();
                         "RecipeTitle",
                         "PlannedQuantity"});
             table22.AddRow(new string[] {
-                        "004Basic Sponge",
-                        "7"});
-            table22.AddRow(new string[] {
                         "004Fresh Lemon Curd",
                         "8"});
+            table22.AddRow(new string[] {
+                        "004Basic Sponge",
+                        "7"});
 #line 122
     testRunner.Then("Verify data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is", ((string)(null)), table22, "Then ");
 #line hidden

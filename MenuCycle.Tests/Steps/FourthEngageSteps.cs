@@ -25,10 +25,13 @@ namespace MenuCycle.Tests.Steps
         {
             if (fourthAppLocalPage.IsMobile)
             {
-                fourthAppLogin.PerformLogin(ConfigurationManager.AppSettings["Engage.User"], ConfigurationManager.AppSettings["Engage.Password"]);
-                fourthAppLocalPage.SwitchToNativeContext();
-                fourthAppLocalPage.ClickNoButton();
-                fourthAppLocalPage.SwitchToWebViewContext();
+                if (!fourthAppLocalPage.IsiOS)
+                {
+                    fourthAppLogin.PerformLogin(ConfigurationManager.AppSettings["Engage.User"], ConfigurationManager.AppSettings["Engage.Password"]);
+                    fourthAppLocalPage.SwitchToNativeContext();
+                    fourthAppLocalPage.ClickNoButton();
+                    fourthAppLocalPage.SwitchToWebViewContext();
+                }
                 fourthAppMain.WaitFeedsToLoad();
             }
             else

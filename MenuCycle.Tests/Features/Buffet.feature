@@ -121,5 +121,5 @@ Scenario: Planned Quantity Values are rounded after scaling
         |DANGELO          |BUFFET|Maya Buffet|              6|
     Then Verify data for recipes in buffet "Maya Buffet" in meal period "DANGELO" is
         |RecipeTitle                  |PlannedQuantity|
-        |004Basic Sponge              |              7|
         |004Fresh Lemon Curd          |              8|
+        |004Basic Sponge              |              7|

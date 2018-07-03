@@ -26,6 +26,8 @@ namespace MenuCycle.Tests.PageObjects
 
         public bool IsMobile => Driver.IsMobile();
 
+        public bool IsiOS => Driver.IsIos();
+
         public void SwitchToNativeContext()
         {
             //Driver.AsMobile().SwitchToContext("NATIVE_APP");
