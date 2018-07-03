@@ -40,7 +40,10 @@ namespace MenuCycle.Tests.Steps
         [Given(@"'(.*)' application is selected")]
         public void GivenApplicationIsSelected(string application)
         {
-//            fourthAppMain.LeftMenu.OpenMenu();
+            if (fourthAppLocalPage.IsMobile)
+            {
+                fourthAppMain.LeftMenu.OpenMenu();
+            }
             fourthAppMain.OpenApp(application);
             fourthAppLocalPage.SwitchToNativeContext();
         }
