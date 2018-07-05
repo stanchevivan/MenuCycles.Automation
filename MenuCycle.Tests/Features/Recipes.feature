@@ -239,11 +239,16 @@ Scenario: Meal period totals are re-calculated when the data from the input fiel
     Given Menu Cycle "Meda" is selected
     When planning for Thursday is opened
         And data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle|TargetGP|PlannedQuantity|
-        |DANGELO       |RECIPE|Cheese     |      33|               |
+        |MealPeriodName|TYPE  |RecipeTitle                                 |PriceModel|Target|SellPrice|TaxPercentage|PlannedQuantity|
+        |DANGELO       |RECIPE|703Coronation Chicken Sandwich Filling (50g)|GP        |    10|        ^|20           |              3|
+        |DANGELO       |RECIPE|703Reggae Raggae Mayonnaise                 |Fixed     |     ^|        2|20           |              4|
+        |DANGELO       |RECIPE|Cheese                                      |Markup    |    33|        ^|20           |              1|
+    And data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle|PlannedQuantity|
+        |DANGELO       |RECIPE|Cheese     |               |
     Then Value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
-        |        14|    10.16|    8.4|    -21%|
+        |         7|     5.62|      9|     38%|
 
 @TC29853
 Scenario: Mass recipe update
