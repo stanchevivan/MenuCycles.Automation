@@ -70,12 +70,13 @@ Scenario: Target Markup % validations
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
-        And the user focus out
-        And red border and contextual error message "Must be 0 or greater" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "5"
         And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
         And the user focus out
         And red border and contextual error message "Value is required" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
+        And the user focus out
+        And red border and contextual error message "Must be 0 or greater" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
         And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "7a7"
         And the user focus out
         And red border and contextual error message "Must be number" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
@@ -91,12 +92,13 @@ Scenario: Sell price validations
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
         And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
-        And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
-        And the user focus out
-        And red border and contextual error message "Must be 0 or greater" is displayed for Sell Price field for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "5"
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
         And the user focus out
         And red border and contextual error message "Value is required" is displayed for Sell Price field for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
+        And the user focus out
+        And red border and contextual error message "Must be 0 or greater" is displayed for Sell Price field for recipe "004Baked Beans_3" in meal period "LUNCH"
         And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "7a7"
         And the user focus out
         And red border and contextual error message "Must be number" is displayed for Sell Price field for recipe "004Baked Beans_3" in meal period "LUNCH"
@@ -136,15 +138,16 @@ Scenario: Calculations for "Total Cost", "Sell Price", "Revenue" and "Actual GP"
 Scenario: Planned Quantity validations
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
+        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "5"
+        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
+        And the user focus out
+        And red border and contextual error message "Value is required" is displayed for Planned Quantity field for recipe "004Baked Beans_3" in meal period "LUNCH"
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
         And the user focus out
         And red border and contextual error message "Must be 0 or greater" is displayed for Planned Quantity field for recipe "004Baked Beans_3" in meal period "LUNCH"
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "7a7"
         And the user focus out
         And red border and contextual error message "Must be integer" is displayed for Planned Quantity field for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
-        And the user focus out
-        And red border and contextual error message "Value is required" is displayed for Planned Quantity field for recipe "004Baked Beans_3" in meal period "LUNCH"
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "0"
         And the user focus out
     Then red border is not displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
