@@ -6,11 +6,11 @@ using SeleniumExtras.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class DailyMealPeriod
+    public class DailyMealPeriod :MenuCyclesBasePage
     {
         IWebElement parent_MealPeriodWrapper;
 
-        public DailyMealPeriod(IWebElement parent)
+        public DailyMealPeriod(IWebElement parent, IWebDriver webDriver) : base(webDriver)
         {
             this.parent_MealPeriodWrapper = parent;
             PageFactory.InitElements(parent, this);
@@ -38,15 +38,15 @@ namespace MenuCycle.Tests.PageObjects
         public string Name => MealPeriodName.Text;
         public string Colour => parent_MealPeriodWrapper.GetCssValue("background-color");
         public bool IsExpanded => CollapseArrow.Get().ElementPresent;
-        public string NumberOfCovers { get => Covers.GetAttribute("value"); set => Covers.Do().ClearAndSendKeys(value); }
+        public string NumberOfCovers { get => Covers.GetAttribute("value"); set => Covers.Do(Driver).ClearAndSendKeys(value); }
         public string PlannedQuantity => PlannedQuantityText.Text;
         public string TotalCost => TotalCostText.Text;
         public string Revenue => RevenueText.Text;
         public string ActualGP => ActualGPText.Text;
 
-        public IList<Recipe> Recipes => this.Items.Where(p => new Recipe(p, this.Name).Type == "RECIPE").Select(p => new Recipe(p, this.Name)).ToList();
-        public IList<Buffet> Buffets => this.Items.Where(p => new Buffet(p, this.Name).Type == "BUFFET").Select(p => new Buffet(p, this.Name)).ToList();
-        public IList<ALaCarte> ALaCartes => this.Items.Where(p => new ALaCarte(p, this.Name).Type == "A LA CARTE").Select(p => new ALaCarte(p, this.Name)).ToList();
+        public IList<Recipe> Recipes => this.Items.Where(p => new Recipe(p, this.Name, Driver).Type == "RECIPE").Select(p => new Recipe(p, this.Name, Driver)).ToList();
+        public IList<Buffet> Buffets => this.Items.Where(p => new Buffet(p, this.Name, Driver).Type == "BUFFET").Select(p => new Buffet(p, this.Name, Driver)).ToList();
+        public IList<ALaCarte> ALaCartes => this.Items.Where(p => new ALaCarte(p, this.Name, Driver).Type == "A LA CARTE").Select(p => new ALaCarte(p, this.Name, Driver)).ToList();
 
         public Recipe GetRecipe(string title)
         {

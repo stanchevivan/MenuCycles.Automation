@@ -8,7 +8,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
     /// </summary>
     public class NestedRecipe : Recipe
     {
-        public NestedRecipe(IWebElement parent, string mealPeriodName) : base(parent, mealPeriodName)
+        public NestedRecipe(IWebElement parent, string mealPeriodName, IWebDriver webDriver) : base(parent, mealPeriodName, webDriver)
         {
             PageFactory.InitElements(parent, this);
             MealPeriodName = mealPeriodName;

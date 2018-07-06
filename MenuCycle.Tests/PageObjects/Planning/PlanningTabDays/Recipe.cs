@@ -5,11 +5,11 @@ using SeleniumExtras.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 {
-    public class Recipe
+    public class Recipe : MenuCyclesBasePage
     {
         public string MealPeriodName { get; set; }
 
-        public Recipe(IWebElement parent, string mealPeriodName)
+        public Recipe(IWebElement parent, string mealPeriodName, IWebDriver webDriver) : base(webDriver)
         {
             PageFactory.InitElements(parent, this);
             this.MealPeriodName = mealPeriodName;
@@ -26,7 +26,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         [FindsBy(How = How.ClassName, Using = "recipe-data__row")]
         private IList<IWebElement> RecipeRows { get; set; }
 
-        public IList<RecipeRow> Rows => RecipeRows.Select(p => new RecipeRow(p)).ToList();
+        public IList<RecipeRow> Rows => RecipeRows.Select(p => new RecipeRow(p, Driver)).ToList();
 
         public virtual string Type => this.type.Text;
         public virtual string Title => this.title.Text;

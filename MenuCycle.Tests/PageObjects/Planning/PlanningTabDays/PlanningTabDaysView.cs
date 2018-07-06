@@ -37,7 +37,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "modal-dialog-engine__content")]
         private IWebElement ModalDialog { get; set; }
 
-        public IList<DailyMealPeriod> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriod(p)).ToList();
+        public IList<DailyMealPeriod> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriod(p, Driver)).ToList();
         public IList<string> MealPeriodColours => MealPeriods.Select(x => x.Colour).ToList();
 
         public bool HasMealPeriods => MealPeriods.Any();

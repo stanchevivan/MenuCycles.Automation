@@ -1,20 +1,21 @@
-﻿using OpenQA.Selenium;
+﻿using Fourth.Automation.Framework.Page;
+using OpenQA.Selenium;
 
 namespace MenuCycle.Tests
 {
     public static class Do_Extension
     {
-        public static Do Do(this IWebElement element)
+        public static Do Do(this IWebElement element, IWebDriver driver)
         {
-            return new Do(element);
+            return new Do(element, driver);
         }
     }
 
-    public class Do
+    public class Do : BasePage
     {
         readonly IWebElement webElement;
 
-        public Do(IWebElement element)
+        public Do(IWebElement element, IWebDriver webDriver) : base(webDriver)
         {
             webElement = element;
         }
@@ -24,32 +25,37 @@ namespace MenuCycle.Tests
             webElement.Click();
         }
 
-        public void JavaClick(IWebDriver driver)
+        public void JavaClick()
         {
-            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click();", webElement);
+            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].click();", webElement);
         }
 
-        public void HighlightAndClick(IWebDriver driver)
+        public void HighlightAndClick()
         {
-            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].style.border='3px solid lightgreen'", webElement);
+            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].style.border='3px solid lightgreen'", webElement);
             System.Threading.Thread.Sleep(200);
             webElement.Click();
         }
 
-        public void FocusOut(IWebDriver driver)
+        public void FocusOut()
         {
-            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].blur(); return true", webElement);
+            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].blur(); return true", webElement);
         }
 
         public void ClearAndSendKeys(string text)
         {
-            webElement.Clear();
+            Clear();
+            webElement.SendKeys(text);
+        }
+
+        public void SendKeys(string text)
+        {
             webElement.SendKeys(text);
         }
 
         public void Clear()
         {
-            webElement.Clear();
+            ((IJavaScriptExecutor)Driver).ExecuteScript($"arguments[0].value= ''; return true", webElement);
         }
     }
 }

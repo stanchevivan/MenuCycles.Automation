@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using Fourth.Automation.Framework.Page;
 using MenuCycle.Tests.Models;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -8,9 +9,9 @@ using SeleniumExtras.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 {
-    public class RecipeRow
+    public class RecipeRow : MenuCyclesBasePage
     {
-        public RecipeRow(IWebElement parent)
+        public RecipeRow(IWebElement parent, IWebDriver webDriver) : base(webDriver)
         {
             PageFactory.InitElements(parent, this);
         }
@@ -50,7 +51,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         public string PlannedQuantity
         {
             get => this.plannedQuantity.GetAttribute("value");
-            set => this.plannedQuantity.Do().ClearAndSendKeys(value);
+            set => this.plannedQuantity.Do(Driver).ClearAndSendKeys(value);
         }
 
         public string CostPerUnit => this.costPerUnit.Text;
@@ -70,7 +71,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         public string Target
         {
             get => this.targetGP.TagName == "span" ? this.targetGP.Text : this.targetGP.GetAttribute("value");
-            set => this.targetGP.Do().ClearAndSendKeys(value);
+            set => this.targetGP.Do(Driver).ClearAndSendKeys(value);
         }
         public bool IsTargetGPPresent => targetGP.Get().ElementPresent;
 
@@ -83,7 +84,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         public string SellPrice
         {
             get => this.sellPrice.TagName == "span" ? this.sellPrice.Text : this.sellPrice.GetAttribute("value");
-            set => this.sellPrice.Do().ClearAndSendKeys(value);
+            set => this.sellPrice.Do(Driver).ClearAndSendKeys(value);
         }
 
         public string Revenue => this.revenue.Text;
