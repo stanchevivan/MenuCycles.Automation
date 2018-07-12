@@ -36,6 +36,8 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement ConfirmButton { get; set; }
         [FindsBy(How = How.ClassName, Using = "modal-dialog-engine__content")]
         private IWebElement ModalDialog { get; set; }
+        [FindsBy(How = How.ClassName, Using = "mainheader__period")]
+        private IWebElement PlanningTitle { get; set; }
 
         public IList<DailyMealPeriod> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriod(p, Driver)).ToList();
         public IList<string> MealPeriodColours => MealPeriods.Select(x => x.Colour).ToList();
@@ -48,6 +50,7 @@ namespace MenuCycle.Tests.PageObjects
         public string DailyTotalCostText => DailyTotalCost.Text;
         public string DailyRevenueText => DailyRevenue.Text;
         public string DailyActualGPText => DailyActualGP.Text;
+        public string DailyPlanningTitleText => PlanningTitle.Text;
 
         public override void WaitForLoad()
         {

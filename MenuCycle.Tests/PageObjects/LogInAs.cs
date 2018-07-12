@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Mobile;
@@ -26,6 +27,27 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "home-screen-table")]
         public IWebElement HomePage { get; set; }
 
+        [FindsBy(How = How.ClassName, Using = "location-name-container")]
+        public IList<IWebElement> Locations { get; set; }
+
+        [FindsBy(How = How.ClassName, Using = "location-name-text")]
+        public IWebElement LocationName { get; set; }
+
+        [FindsBy(How = How.ClassName, Using = "location-search-box")]
+        public IWebElement LocationSearchBox { get; set; }
+
+        public void SearchLocation(string text)
+        {
+            LocationSearchBox.Click();
+            LocationSearchBox.ClearAndSendKeys(text);
+            Driver.WaitIsClickable(LocationName);
+        }
+
+        public void SelectLocation(string locationName)
+        {
+            Locations.First(x => x.Text == locationName).Click();
+        }
+
         public void LogAs(string userType)
         {
             switch (userType.ToLower())
@@ -43,6 +65,7 @@ namespace MenuCycle.Tests.PageObjects
                     throw new Exception("User type " + userType + " does not exist");
             }
         }
+
         public void LogAsCentral()
         {
             WaitPageToLoad();
@@ -53,6 +76,7 @@ namespace MenuCycle.Tests.PageObjects
         {
             WaitPageToLoad();
             Driver.WaitElementAndClick(Local);
+            Driver.WaitIsClickable(LocationSearchBox);
         }
 
         public void LogAsNoUser()

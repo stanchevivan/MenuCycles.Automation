@@ -12,8 +12,6 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.ClassName, Using = "nutrition-meal-period-content")]
         private IWebElement PageContent { get; set; }
-        [FindsBy(How = How.ClassName, Using = "mealperiodLoader")]
-        private IWebElement Loader { get; set; }
 
         public override void WaitForLoad()
         {

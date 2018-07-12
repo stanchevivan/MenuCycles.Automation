@@ -404,8 +404,8 @@
     <Compile Include="Features\MealPeriods.feature.cs">
       <DependentUpon>MealPeriods.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\PlanningScreen.feature.cs">
-      <DependentUpon>PlanningScreen.feature</DependentUpon>
+    <Compile Include="Features\LocalUserPlanningScreen.feature.cs">
+      <DependentUpon>LocalUserPlanningScreen.feature</DependentUpon>
     </Compile>
     <Compile Include="PageObjects\Planning\PlanningTabDays\DailyMealPeriod.cs" />
     <Compile Include="PageObjects\Planning\PlanningTabDays\PlanningTabDaysView.cs" />
@@ -437,6 +437,11 @@
     <Compile Include="Support\Helpers\CommonHelpers.cs" />
     <Compile Include="PageObjects\Planning\PlanningTabDays\RecipeRow.cs" />
     <Compile Include="PageObjects\FourthAppLocalPage.cs" />
+    <Compile Include="Steps\LocalUserPlanningSteps.cs" />
+    <Compile Include="Features\PlanningScreen.feature.cs">
+      <DependentUpon>PlanningScreen.feature</DependentUpon>
+    </Compile>
+    <Compile Include="PageObjects\Planning\PostProductionTabDays\PostProductionTabDays.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -498,6 +503,10 @@
     <None Include="App.RemoteSafari.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Features\LocalUserPlanningScreen.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>LocalUserPlanningScreen.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MenuCycle.Data\MenuCycle.Data.csproj">
@@ -514,6 +523,7 @@
     <Folder Include="PageObjects\Planning\NutritionTabWeeks\" />
     <Folder Include="PageObjects\Planning\PlanningTabWeeks\" />
     <Folder Include="Models\" />
+    <Folder Include="PageObjects\Planning\PostProductionTabDays\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterCompile" Condition="Exists('App.$(Configuration).config')">
