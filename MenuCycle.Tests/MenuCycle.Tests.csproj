@@ -1,4 +1,4 @@
-﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -386,13 +386,10 @@
     <Compile Include="PageObjects\LogInAs.cs" />
     <Compile Include="PageObjects\ToastNotification.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn.cs" />
-    <Compile Include="PageObjects\CalendarDays\MealPeriodCard.cs" />
     <Compile Include="PageObjects\CalendarDays\MenuCycleCalendarView.cs" />
     <Compile Include="PageObjects\CalendarDays\WeekDays.cs" />
     <Compile Include="PageObjects\Dashboard\MenuCycleItem.cs" />
     <Compile Include="PageObjects\Dashboard\MenuCyclesDashboard.cs" />
-    <Compile Include="PageObjects\Recipe\RecipeItem.cs" />
-    <Compile Include="PageObjects\Recipe\RecipeSearch.cs" />
     <Compile Include="Steps\FourthEngageSteps.cs" />
     <Compile Include="Steps\MenuCycleSteps.cs" />
     <Compile Include="Steps\SearchRecipeSteps.cs" />
@@ -438,10 +435,18 @@
     <Compile Include="PageObjects\Planning\PlanningTabDays\RecipeRow.cs" />
     <Compile Include="PageObjects\FourthAppLocalPage.cs" />
     <Compile Include="Steps\LocalUserPlanningSteps.cs" />
-    <Compile Include="Features\PlanningScreen.feature.cs">
-      <DependentUpon>PlanningScreen.feature</DependentUpon>
+    <Compile Include="Features\MealPeriodDetails.feature.cs">
+      <DependentUpon>MealPeriodDetails.feature</DependentUpon>
     </Compile>
+    <Compile Include="Steps\MealMeriodDetailSteps.cs" />
     <Compile Include="PageObjects\Planning\PostProductionTabDays\PostProductionTabDays.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodCard.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeItem.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\ALaCarteCard.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeCard.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\ExpandedRecipe.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -503,9 +508,9 @@
     <None Include="App.RemoteSafari.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Features\LocalUserPlanningScreen.feature">
+    <None Include="Features\MealPeriodDetails.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>LocalUserPlanningScreen.feature.cs</LastGenOutput>
+      <LastGenOutput>MealPeriodDetails.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -523,6 +528,9 @@
     <Folder Include="PageObjects\Planning\NutritionTabWeeks\" />
     <Folder Include="PageObjects\Planning\PlanningTabWeeks\" />
     <Folder Include="Models\" />
+    <Folder Include="PageObjects\Recipe\" />
+    <Folder Include="PageObjects\CalendarDays\DayColumn\" />
+    <Folder Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\" />
     <Folder Include="PageObjects\Planning\PostProductionTabDays\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

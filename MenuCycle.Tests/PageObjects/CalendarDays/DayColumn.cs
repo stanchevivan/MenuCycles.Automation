@@ -16,5 +16,10 @@ namespace MenuCycle.Tests.PageObjects
         private IList<IWebElement> MealPeriodCardContainer { get; set; }
 
         public IList<MealPeriodCard> MealPeriodCards => this.MealPeriodCardContainer.Select(p => new MealPeriodCard(p)).ToList();
+
+        public MealPeriodCard GetMealPeriodCard(string mealPeriodName)
+        {
+            return MealPeriodCards.First(x => x.Name.Text == mealPeriodName);
+        }
     }
 }

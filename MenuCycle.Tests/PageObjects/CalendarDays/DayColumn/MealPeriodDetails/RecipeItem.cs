@@ -22,5 +22,10 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".add-item-button-text")]
         [FindsBy(How = How.CssSelector, Using = ".recipe-bin")]
         public IWebElement ActionButton { get; set; }
+
+        public void Add()
+        {
+            ActionButton.Click();
+        }
     }
 }

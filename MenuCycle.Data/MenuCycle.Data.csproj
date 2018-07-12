@@ -131,7 +131,6 @@
     <DefineConstants></DefineConstants>
     <NoWarn></NoWarn>
     <NoStdLib>false</NoStdLib>
-    <SignAssembly></SignAssembly>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPhone6 Plus|AnyCPU' ">
     <IntermediateOutputPath>obj\iPhone6 Plus</IntermediateOutputPath>

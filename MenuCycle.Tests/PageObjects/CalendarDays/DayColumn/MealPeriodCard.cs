@@ -4,10 +4,14 @@ using SeleniumExtras.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
+    // TODO: public IWebElements => private
     public class MealPeriodCard
     {
+        IWebElement parent;
+
         public MealPeriodCard(IWebElement parent)
         {
+            this.parent = parent;
             PageFactory.InitElements(parent, this);
         }
 
@@ -16,5 +20,12 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = ".daily-item-item-contain > div > div")]
         public IList<IWebElement> Recipes { get; set; }
+
+        public void OpenMealPeriodDetails()
+        {
+            Name.Click();
+        }
+
+        public string Colour => parent.GetCssValue("background-color");
     }
 }

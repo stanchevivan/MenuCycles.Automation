@@ -64,6 +64,35 @@ namespace MenuCycle.Tests.PageObjects
 
         public bool IsCalendarViewOpen => DaysContainer.Get().ElementPresent;
 
+        public DayColumn GetDay(string weekDay)
+        {
+            int dayIndex;
+
+            switch (weekDay.ToUpper())
+            {
+                case "MONDAY":
+                    { dayIndex = 0; break; }
+                case "TUESDAY":
+                    { dayIndex = 1; break; }
+                case "WEDNESDAY":
+                    { dayIndex = 2; break; }
+                case "THURSDAY":
+                    { dayIndex = 3; break; }
+                case "FRIDAY":
+                    { dayIndex = 4; break; }
+                case "SATURDAY":
+                    { dayIndex = 5; break; }
+                case "SUNDAY":
+                    { dayIndex = 6; break; }
+                default:
+                    {
+                        throw new System.Exception($"Could match day {weekDay}");
+                    }
+            }
+
+            return CalendarColumns[dayIndex];
+        }
+
         public void ValidateWindow(string ExpectedTitle)
         {
             Assert.IsTrue(Name.Exist());
@@ -116,69 +145,17 @@ namespace MenuCycle.Tests.PageObjects
 
         public IList<string> GetMealPeriodColours(string weekDay)
         {
-            int dayIndex;
-
-            switch (weekDay.ToUpper())
-            {
-                case "MONDAY":
-                    { dayIndex = 0; break; }
-                case "TUESDAY":
-                    { dayIndex = 1; break; }
-                case "WEDNESDAY":
-                    { dayIndex = 2; break; }
-                case "THURSDAY":
-                    { dayIndex = 3; break; }
-                case "FRIDAY":
-                    { dayIndex = 4; break; }
-                case "SATURDAY":
-                    { dayIndex = 5; break; }
-                case "SUNDAY":
-                    { dayIndex = 6; break; }
-                default:
-                    {
-                        throw new System.Exception($"Could match day {weekDay}");
-                    }
-            }
-
-            // Get all meal period containers for a day
-            var mealPeriods = DaysColumnContainer[dayIndex].FindElements(By.ClassName("daily-item-container-div"));
-
-            // Return the background colours for the meal periods
-            return mealPeriods.Select(x => x.GetCssValue("background-color")).ToList();
+            return GetDay(weekDay).MealPeriodCards.Select(x => x.Colour).ToList();
         }
 
         public IList<string> GetMealPeriodNames(string weekDay)
         {
-            var order = new Dictionary<string, string>();
-            int dayIndex;
+            return GetDay(weekDay).MealPeriodCards.Select(x => x.Name.Text).ToList();
+        }
 
-            switch (weekDay.ToUpper())
-            {
-                case "MONDAY":
-                    { dayIndex = 0; break; }
-                case "TUESDAY":
-                    { dayIndex = 1; break; }
-                case "WEDNESDAY":
-                    { dayIndex = 2; break; }
-                case "THURSDAY":
-                    { dayIndex = 3; break; }
-                case "FRIDAY":
-                    { dayIndex = 4; break; }
-                case "SATURDAY":
-                    { dayIndex = 5; break; }
-                case "SUNDAY":
-                    { dayIndex = 6; break; }
-                default:
-                    {
-                        throw new System.Exception($"Could match day {weekDay}");
-                    }
-            }
-
-            // Get all meal period containers for a day
-            var mealPeriodNames = DaysColumnContainer[dayIndex].FindElements(By.CssSelector(".daily-item-container-div > .daily-item-title"))
-                                                               .Select(x => x.Text).ToList();
-
-            return mealPeriodNames;
+        public void OpenMealPeriodDetails(string weekDay, string mealPeriodName)
+        {
+            GetDay(weekDay).GetMealPeriodCard(mealPeriodName).OpenMealPeriodDetails();
         }
     }
 }
