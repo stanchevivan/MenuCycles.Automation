@@ -1,4 +1,4 @@
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -376,6 +376,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MenuCycles.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\LocalUserPlanningScreen.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalUserPlanningScreen.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\Recipes.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -400,9 +405,6 @@
     <Compile Include="PageObjects\Planning\PlanningView.cs" />
     <Compile Include="Features\MealPeriods.feature.cs">
       <DependentUpon>MealPeriods.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\LocalUserPlanningScreen.feature.cs">
-      <DependentUpon>LocalUserPlanningScreen.feature</DependentUpon>
     </Compile>
     <Compile Include="PageObjects\Planning\PlanningTabDays\DailyMealPeriod.cs" />
     <Compile Include="PageObjects\Planning\PlanningTabDays\PlanningTabDaysView.cs" />
@@ -447,6 +449,9 @@
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\ALaCarteCard.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeCard.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\ExpandedRecipe.cs" />
+    <Compile Include="Features\PlanningScreen.feature.cs">
+      <DependentUpon>PlanningScreen.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -512,6 +517,7 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MealPeriodDetails.feature.cs</LastGenOutput>
     </None>
+    <None Include="Features\LocalUserPlanningScreen.feature" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MenuCycle.Data\MenuCycle.Data.csproj">
