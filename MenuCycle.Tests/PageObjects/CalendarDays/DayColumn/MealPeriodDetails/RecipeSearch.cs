@@ -40,7 +40,12 @@ namespace MenuCycle.Tests.PageObjects
 
         public void AddRecipe(string recipeName)
         {
-            Recipes.First(c => c.Title.Text == recipeName).Add();
+            Recipes.First(c => c.Title == recipeName).Add();
+        }
+
+        public RecipeItem GetRecipe(string recipeName)
+        {
+            return Recipes.First(x => x.Title == recipeName);
         }
     }
 }

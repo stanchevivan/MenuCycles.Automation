@@ -25,7 +25,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public string Name => this.name.Text;
         public string Type => this.type.Text;
-        public string Cost => this.cost.Text;
+        public string Cost => this.cost.Text.Replace('•', ' ').Trim();
 
         public void Delete()
         {

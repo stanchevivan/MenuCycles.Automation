@@ -452,6 +452,7 @@
     <Compile Include="Features\PlanningScreen.feature.cs">
       <DependentUpon>PlanningScreen.feature</DependentUpon>
     </Compile>
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\BuffetCard.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

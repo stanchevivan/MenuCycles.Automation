@@ -17,6 +17,6 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement cost { get; set; }
 
         public string Name => this.name.Text;
-        public string Cost => this.cost.Text;
+        public string Cost => this.cost.Text.Replace('•', ' ').Trim();
     }
 }

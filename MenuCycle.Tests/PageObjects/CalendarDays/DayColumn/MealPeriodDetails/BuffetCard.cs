@@ -5,16 +5,16 @@ using SeleniumExtras.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class ALaCarteCard : RecipeCard
+    public class BuffetCard : RecipeCard
     {
-        public ALaCarteCard(IWebElement parent) : base(parent)
+        public BuffetCard(IWebElement parent) : base(parent)
         {
             PageFactory.InitElements(parent, this);
         }
 
         [FindsBy(How = How.CssSelector, Using = ".expandMenu")]
         private IWebElement expandArrow { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".menu-recipe-expand")]
+        [FindsBy(How = How.CssSelector, Using = ":root .menu-expand:not([style='display: none;']) .menu-recipe-expand")]
         private IList<IWebElement> expandedRecipes { get; set; }
 
         public IList<ExpandedRecipe> ExpandedRecipes => this.expandedRecipes.Select(x => new ExpandedRecipe(x)).ToList();
