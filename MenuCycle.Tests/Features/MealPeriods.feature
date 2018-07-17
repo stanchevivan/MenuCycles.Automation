@@ -176,3 +176,14 @@ Scenario: The order of meal periods from the planning screen is the same as in t
         And Meal Period names for "Tuesday" are saved
     When planning for Tuesday is opened
     Then Meal Period names match the calendar view names
+
+@TC27713
+Scenario: Search Menu Cycles by name or description
+    When Menu Cycle "FOR AUTOMATION TESTS - DO NOT TOUCH" is searched
+        And Verify search results contain the following menu cycles
+        |Name|Description                        |
+        |Meda|FOR AUTOMATION TESTS - DO NOT TOUCH|
+    When Menu Cycle "MC with recipes" is searched
+        And Verify search results contain the following menu cycles
+        |Name           |Description                                |
+        |MC with recipes|Testing the publishing of a MC with recipes|

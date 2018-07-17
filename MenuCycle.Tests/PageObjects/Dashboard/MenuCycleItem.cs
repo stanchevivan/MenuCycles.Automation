@@ -11,12 +11,20 @@ namespace MenuCycle.Tests.PageObjects
         }
 
         [FindsBy(How = How.CssSelector, Using = ".name_title a")]
-        public IWebElement Name { get; set; }
+        private IWebElement name { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".name_sub")]
-        public IWebElement Description { get; set; }
+        private IWebElement description { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".home-button-expand")]
-        public IWebElement ActionButton { get; set; }
+        private IWebElement actionButton { get; set; }
+
+        public string Name => name.Text;
+        public string Description => description.Text;
+
+        public void Select()
+        {
+            name.Click();
+        }
     }
 }

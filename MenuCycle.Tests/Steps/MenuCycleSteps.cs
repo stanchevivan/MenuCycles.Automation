@@ -4,6 +4,7 @@ using MenuCycle.Data.Models;
 using MenuCycle.Tests.PageObjects;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace MenuCycle.Tests.Steps
 {
@@ -58,6 +59,24 @@ namespace MenuCycle.Tests.Steps
             menuCycleDashboard.SearchMenuCycle(menuCycleName);
             menuCycleDashboard.SelectMenuCycleByName(menuCycleName);
             menuCycleCalendarView.WaitPageLoad();
+        }
+
+        [Given(@"Menu Cycle ""(.*)"" is searched")]
+        [When(@"Menu Cycle ""(.*)"" is searched")]
+        public void MenuCycleIsSearched(string menuCycleName)
+        {
+            menuCycleDashboard.WaitPageLoad();
+            menuCycleDashboard.SearchMenuCycle(menuCycleName);
+        }
+
+        [When(@"Verify search results contain the following menu cycles")]
+        public void VerifySearchResultsContainMenuCycles(Table table)
+        {
+            for (int i = 0; i < table.RowCount; i++)
+            {
+                Assert.That(menuCycleDashboard.MenuCycles[i].Name == table.Rows[i]["Name"]);
+                Assert.That(menuCycleDashboard.MenuCycles[i].Description == table.Rows[i]["Description"]);
+            }
         }
 
         [When(@"a Menu Cycle with the following criteria is create")]

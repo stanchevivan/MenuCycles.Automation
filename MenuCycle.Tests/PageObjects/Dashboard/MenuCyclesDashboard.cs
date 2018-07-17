@@ -40,12 +40,16 @@ namespace MenuCycle.Tests.PageObjects
 
         public void SelectMenuCycleByName(string menuCycleName)
         {
-            MenuCycles.First(v => v.Name.Text == menuCycleName).Name.Click();
+            MenuCycles.First(v => v.Name == menuCycleName).Select();
         }
 
         public void SearchMenuCycle(string text)
         {
-            SearchIcon.Click();
+            if (SearchIcon.Displayed)
+            {
+                SearchIcon.Click();
+            }
+
             SearchInput.ClearAndSendKeys(text);
             SearchButton.Click();
             Driver.WaitElementToDisappear(SpinningWheel);
