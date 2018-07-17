@@ -19,7 +19,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public MealPeriodCard GetMealPeriodCard(string mealPeriodName)
         {
-            return MealPeriodCards.First(x => x.Name.Text == mealPeriodName);
+            return MealPeriodCards.First(x => x.Name == mealPeriodName);
         }
     }
 }

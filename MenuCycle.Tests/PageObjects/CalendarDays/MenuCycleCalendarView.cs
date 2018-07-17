@@ -120,16 +120,16 @@ namespace MenuCycle.Tests.PageObjects
 
         public void AddMealPeriod(string weekDayName)
         {
-            CalendarHeaders.First(c => c.Name.Text.StartsWith(weekDayName, System.StringComparison.CurrentCultureIgnoreCase)).MealPeriodButton.Click();
+            CalendarHeaders.First(c => c.Name.StartsWith(weekDayName, System.StringComparison.CurrentCultureIgnoreCase)).UseMealPeriodButton();
         }
 
         public void ValidateMealPeriod(string weekDay, MealPeriods expectedMealPeriod, Recipes expectedRecipes)
         {
             //Gets index for column of specified week day
-            var columnIndex = CalendarHeaders.FindIndex(c => c.Name.Text.StartsWith(weekDay, System.StringComparison.CurrentCultureIgnoreCase));
+            var columnIndex = CalendarHeaders.FindIndex(c => c.Name.StartsWith(weekDay, System.StringComparison.CurrentCultureIgnoreCase));
 
             //Gets the meal period
-            var mealPeriodCard = CalendarColumns[columnIndex].MealPeriodCards.First(m => m.Name.Text == expectedMealPeriod.Name.ToUpper());
+            var mealPeriodCard = CalendarColumns[columnIndex].MealPeriodCards.First(m => m.Name == expectedMealPeriod.Name.ToUpper());
 
             Assert.AreEqual(1, mealPeriodCard.Recipes.Count);
             Assert.AreEqual(expectedRecipes.Name, mealPeriodCard.Recipes[0].Text);
@@ -153,7 +153,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public IList<string> GetMealPeriodNames(string weekDay)
         {
-            return GetDay(weekDay).MealPeriodCards.Select(x => x.Name.Text).ToList();
+            return GetDay(weekDay).MealPeriodCards.Select(x => x.Name).ToList();
         }
 
         public void OpenMealPeriodDetails(string weekDay, string mealPeriodName)

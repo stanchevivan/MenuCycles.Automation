@@ -11,12 +11,19 @@ namespace MenuCycle.Tests.PageObjects
         }
 
         [FindsBy(How = How.CssSelector, Using = ".daily-calendar-heading")]
-        public IWebElement Name { get; set; }
+        private IWebElement name { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".mealPeriodButtons")]
-        public IWebElement MealPeriodButton { get; set; }
+        private IWebElement MealPeriodButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".Planning")]
-        public IWebElement DailyPlanningButton { get; set; }
+        private IWebElement DailyPlanningButton { get; set; }
+
+        public string Name => name.Text;
+
+        public void UseMealPeriodButton()
+        {
+            MealPeriodButton.Click();
+        }
     }
 }

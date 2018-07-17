@@ -16,16 +16,17 @@ namespace MenuCycle.Tests.PageObjects
         }
 
         [FindsBy(How = How.CssSelector, Using = ".daily-item-title")]
-        public IWebElement Name { get; set; }
+        private IWebElement name { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".daily-item-item-contain > div > div")]
         public IList<IWebElement> Recipes { get; set; }
 
+        public string Colour => parent.GetCssValue("background-color");
+        public string Name => name.Text;
+
         public void OpenMealPeriodDetails()
         {
-            Name.Click();
+            name.Click();
         }
-
-        public string Colour => parent.GetCssValue("background-color");
     }
 }

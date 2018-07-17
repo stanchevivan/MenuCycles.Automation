@@ -19,9 +19,6 @@ namespace MenuCycle.Tests.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("RecipeSearch")]
-    [NUnit.Framework.IgnoreAttribute("Ignored feature")]
-    [NUnit.Framework.CategoryAttribute("menucycle")]
-    [NUnit.Framework.CategoryAttribute("recipe")]
     public partial class RecipeSearchFeature
     {
         
@@ -34,10 +31,7 @@ namespace MenuCycle.Tests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "RecipeSearch", "    Recipe search functionalities and validations", ProgrammingLanguage.CSharp, new string[] {
-                        "menucycle",
-                        "recipe",
-                        "ignore"});
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "RecipeSearch", "    Recipe search functionalities and validations", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -71,35 +65,75 @@ namespace MenuCycle.Tests.Features
         
         public virtual void FeatureBackground()
         {
-#line 5
-#line 9
+#line 4
+#line 8
 testRunner.And("\'Menu Cycles\' application is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 10
+#line 9
 testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add Recipe Searching By Name")]
-        public virtual void AddRecipeSearchingByName()
+        [NUnit.Framework.DescriptionAttribute("Recipe search by keyword in Meal period")]
+        [NUnit.Framework.CategoryAttribute("TC27633")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        public virtual void RecipeSearchByKeywordInMealPeriod()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Recipe Searching By Name", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Recipe search by keyword in Meal period", new string[] {
+                        "TC27633",
+                        "Smoke"});
 #line 12
 this.ScenarioSetup(scenarioInfo);
-#line 5
+#line 4
 this.FeatureBackground();
 #line 13
-    testRunner.Given("a Menu Cycle is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 14
-        testRunner.And("a Meal Period for MONDAY is added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("Details for meal period \"LUNCH\" in \"MONDAY\" are opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 15
-    testRunner.When("the first recipe is searched by name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And("Recipe search is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
-        testRunner.And("recipe is added to a meal period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Recipe \"Fried\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Type",
+                        "Cost"});
+            table1.AddRow(new string[] {
+                        "724Fried Onions",
+                        "Recipe",
+                        "£0"});
+            table1.AddRow(new string[] {
+                        "724Fried Egg",
+                        "Recipe",
+                        "£0.4"});
+            table1.AddRow(new string[] {
+                        "724Stir Fried Vegetables",
+                        "Recipe",
+                        "£0"});
+            table1.AddRow(new string[] {
+                        "724Fried Button Mushrooms",
+                        "Recipe",
+                        "£0.59"});
 #line 17
-    testRunner.Then("the message \'Meal Period Saved successfully\' is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 18
-        testRunner.And("recipe is displayed under MONDAY column inside the correct Meal Period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Verify items present in the search results are", ((string)(null)), table1, "And ");
+#line 23
+        testRunner.And("Recipe \"Boiled\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Type",
+                        "Cost"});
+            table2.AddRow(new string[] {
+                        "004Boiled Rice",
+                        "Recipe",
+                        "£0"});
+            table2.AddRow(new string[] {
+                        "724Boiled Brown Rice",
+                        "Recipe",
+                        "£0"});
+#line 24
+    testRunner.Then("Verify items present in the search results are", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

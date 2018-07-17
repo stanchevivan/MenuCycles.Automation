@@ -1,5 +1,4 @@
-﻿@menucycle @recipe @ignore
-Feature: RecipeSearch
+﻿Feature: RecipeSearch
     Recipe search functionalities and validations
 
 Background: 
@@ -9,10 +8,20 @@ Background:
 And 'Menu Cycles' application is open
 And a central user is selected
 
-Scenario: Add Recipe Searching By Name
-    Given a Menu Cycle is selected
-        And a Meal Period for MONDAY is added
-    When the first recipe is searched by name 
-        And recipe is added to a meal period
-    Then the message 'Meal Period Saved successfully' is displayed
-        And recipe is displayed under MONDAY column inside the correct Meal Period 
+@TC27633 @Smoke
+Scenario: Recipe search by keyword in Meal period
+    Given Menu Cycle "Meda" is selected
+    When Details for meal period "LUNCH" in "MONDAY" are opened
+        And Recipe search is opened
+        And Recipe "Fried" is searched
+        And Verify items present in the search results are
+            |Name                     |Type  |Cost |
+            |724Fried Onions          |Recipe|£0   |
+            |724Fried Egg             |Recipe|£0.4 |
+            |724Stir Fried Vegetables |Recipe|£0   |
+            |724Fried Button Mushrooms|Recipe|£0.59|
+        And Recipe "Boiled" is searched
+    Then Verify items present in the search results are
+        |Name                |Type  |Cost|
+        |004Boiled Rice      |Recipe|£0  |
+        |724Boiled Brown Rice|Recipe|£0  |

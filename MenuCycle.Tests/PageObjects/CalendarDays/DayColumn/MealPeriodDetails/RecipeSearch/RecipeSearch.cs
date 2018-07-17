@@ -17,22 +17,27 @@ namespace MenuCycle.Tests.PageObjects
             Artefacts = artefacts;
         }
 
-        [FindsBy(How = How.CssSelector, Using = ".recipe-search input")]
-        public IWebElement SearchBox { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".recipe-search .ui-autocomplete-input")]
+        private IWebElement SearchBox { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".search-btn-text")]
-        public IWebElement SearchButton { get; set; }
+        private IWebElement SearchButton { get; set; }
 
         [FindsBy(How = How.Id, Using = "BlueLoaderShowHideSearch")]
-        public IWebElement SpinningWheel { get; set; }
+        private IWebElement SpinningWheel { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".strip-pad .colorstrip-Recipe")]
-        public IList<IWebElement> RecipesContainer { get; set; }
+        private IList<IWebElement> RecipesContainer { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".tagit-choice")]
+        private IList<IWebElement> searchTags { get; set; }
 
         public IList<RecipeItem> Recipes => this.RecipesContainer.Select(p => new RecipeItem(p)).ToList();
+        public IList<SearchTag> SearchTags => this.searchTags.Select(p => new SearchTag(p)).ToList();
 
         public void SearchRecipeByName(string recipeName)
         {
+            ClearAllSearchTags();
             SearchBox.SendKeys(recipeName);
             SearchButton.Click();
             Driver.WaitElementToDisappear(SpinningWheel);
@@ -46,6 +51,14 @@ namespace MenuCycle.Tests.PageObjects
         public RecipeItem GetRecipe(string recipeName)
         {
             return Recipes.First(x => x.Title == recipeName);
+        }
+
+        public void ClearAllSearchTags()
+        {
+            foreach (var searchTag in SearchTags)
+            {
+                searchTag.Close();
+            }
         }
     }
 }

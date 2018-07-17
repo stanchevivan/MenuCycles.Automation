@@ -79,6 +79,7 @@ namespace MenuCycle.Tests.Steps
             }
         }
 
+        [When(@"Verify items present in the search results are")]
         [Then(@"Verify items present in the search results are")]
         public void VerifyItemsReturnedFromSearchAre(Table table)
         {

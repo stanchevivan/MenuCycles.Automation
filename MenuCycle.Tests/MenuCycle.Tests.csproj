@@ -439,8 +439,6 @@
     <Compile Include="PageObjects\Planning\PostProductionTabDays\PostProductionTabDays.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodCard.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails.cs" />
-    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeItem.cs" />
-    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\ALaCarteCard.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeCard.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\ExpandedRecipe.cs" />
@@ -451,6 +449,9 @@
     <Compile Include="Features\LocalUserPlanningScreen.feature.cs">
       <DependentUpon>LocalUserPlanningScreen.feature</DependentUpon>
     </Compile>
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\RecipeItem.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\RecipeSearch.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\SearchTag.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -540,6 +541,7 @@
     <Folder Include="PageObjects\CalendarDays\DayColumn\" />
     <Folder Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\" />
     <Folder Include="PageObjects\Planning\PostProductionTabDays\" />
+    <Folder Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterCompile" Condition="Exists('App.$(Configuration).config')">
