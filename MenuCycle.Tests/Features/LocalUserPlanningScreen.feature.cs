@@ -234,6 +234,52 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Load engine when Planning screen is opened (Local User)")]
+        [NUnit.Framework.CategoryAttribute("TC28558")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        public virtual void LoadEngineWhenPlanningScreenIsOpenedLocalUser()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load engine when Planning screen is opened (Local User)", new string[] {
+                        "TC28558",
+                        "Smoke"});
+#line 64
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 65
+    testRunner.Given("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 66
+        testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 67
+    testRunner.When("planning for TUE 10 JUL is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 68
+    testRunner.Then("planning screen engine is loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Create menu cycle button is not present - local user")]
+        [NUnit.Framework.CategoryAttribute("TC27776")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        public virtual void CreateMenuCycleButtonIsNotPresent_LocalUser()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create menu cycle button is not present - local user", new string[] {
+                        "TC27776",
+                        "Smoke"});
+#line 71
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 72
+    testRunner.Given("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 73
+    testRunner.Then("Create menu cycle button is not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

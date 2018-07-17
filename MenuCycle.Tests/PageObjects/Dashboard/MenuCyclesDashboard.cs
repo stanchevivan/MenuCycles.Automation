@@ -59,5 +59,10 @@ namespace MenuCycle.Tests.PageObjects
         {
             Driver.WaitListItemsLoad(MenuCyclesContainer);
         }
+
+        public bool IsCreateMenuCycleButtonPresent()
+        {
+            return CreateMenuCycleButton.Get().ElementPresent;
+        }
     }
 }
