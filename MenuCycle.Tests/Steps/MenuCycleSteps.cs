@@ -51,6 +51,7 @@ namespace MenuCycle.Tests.Steps
         }
 
         [Given(@"Menu Cycle ""(.*)"" is selected")]
+        [When(@"Menu Cycle ""(.*)"" is selected")]
         public void GivenMenuCycleIsSelected(string menuCycleName)
         {
             menuCycleDashboard.WaitPageLoad();

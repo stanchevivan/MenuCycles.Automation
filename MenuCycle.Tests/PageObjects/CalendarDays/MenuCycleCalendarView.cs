@@ -58,6 +58,9 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "daily-header-container")]
         IWebElement DaysContainer { get; set; }
 
+        [FindsBy(How = How.Id, Using = "dashboard-icon")]
+        IWebElement HomeButton { get; set; }
+
         public List<WeekDays> CalendarHeaders => this.CalendarHeaderContainer.Select(p => new WeekDays(p)).ToList();
 
         public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p)).ToList();
@@ -156,6 +159,11 @@ namespace MenuCycle.Tests.PageObjects
         public void OpenMealPeriodDetails(string weekDay, string mealPeriodName)
         {
             GetDay(weekDay).GetMealPeriodCard(mealPeriodName).OpenMealPeriodDetails();
+        }
+
+        public void UseHomeButton()
+        {
+            HomeButton.Click();
         }
     }
 }

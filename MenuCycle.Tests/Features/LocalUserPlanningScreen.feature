@@ -1,4 +1,4 @@
-﻿# @planningscreen
+# @planningscreen
 Feature: LocalUserPlanningScreen
     Meal Peridos functionalities and validations
 
@@ -47,3 +47,15 @@ Scenario: Open Planning Screen, go to Weekly planning
     When planning for WED 11 JUL is opened
         And switching to Weekly Planning view
     Then Verify Weekly Planning view is open
+
+@TC30313 @D25310
+Scenario: User should not be redirected to the planning screen after navigating to post-production and back
+    Given location "SE001" is selected
+        And Menu Cycle "Local User Testing" is selected
+    When planning for TUE 10 JUL is opened
+        And daily post-production tab is opened
+        And daily planning tab is opened
+        And Cross button is clicked
+        And Home button is clicked
+        And Menu Cycle "Local User Testing" is selected
+    Then Calendar view is opened
