@@ -15,6 +15,8 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "weekly-summary-content")]
         private IWebElement PageContent { get; set; }
 
+        public bool IsPageLoaded => PageContent.Exist();
+
         public override void WaitForLoad()
         {
             Driver.WaitElementToExists(PageContent);

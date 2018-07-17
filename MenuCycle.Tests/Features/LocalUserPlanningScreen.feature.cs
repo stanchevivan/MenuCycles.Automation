@@ -170,6 +170,33 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Open Planning Screen, go to Weekly planning")]
+        [NUnit.Framework.CategoryAttribute("TC30366")]
+        [NUnit.Framework.CategoryAttribute("D25410")]
+        public virtual void OpenPlanningScreenGoToWeeklyPlanning()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open Planning Screen, go to Weekly planning", new string[] {
+                        "TC30366",
+                        "D25410"});
+#line 44
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 45
+    testRunner.Given("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 46
+        testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 47
+    testRunner.When("planning for WED 11 JUL is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 48
+        testRunner.And("switching to Weekly Planning view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 49
+    testRunner.Then("Verify Weekly Planning view is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

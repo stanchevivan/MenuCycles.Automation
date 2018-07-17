@@ -1,4 +1,4 @@
-# @planningscreen
+﻿# @planningscreen
 Feature: LocalUserPlanningScreen
     Meal Peridos functionalities and validations
 
@@ -39,3 +39,11 @@ Scenario: Open Planning Screen, go to Post-Production, go back to Planning scree
         And daily post-production tab is opened
         And daily planning tab is opened
     Then planning screen engine is loaded
+
+@TC30366 @D25410
+Scenario: Open Planning Screen, go to Weekly planning
+    Given location "SE001" is selected
+        And Menu Cycle "Local User Testing" is selected
+    When planning for WED 11 JUL is opened
+        And switching to Weekly Planning view
+    Then Verify Weekly Planning view is open

@@ -376,11 +376,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MenuCycles.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\LocalUserPlanningScreen.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LocalUserPlanningScreen.feature</DependentUpon>
-    </Compile>
     <Compile Include="Features\Recipes.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -453,6 +448,9 @@
       <DependentUpon>PlanningScreen.feature</DependentUpon>
     </Compile>
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\BuffetCard.cs" />
+    <Compile Include="Features\LocalUserPlanningScreen.feature.cs">
+      <DependentUpon>LocalUserPlanningScreen.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -518,7 +516,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MealPeriodDetails.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\LocalUserPlanningScreen.feature" />
+    <None Include="Features\LocalUserPlanningScreen.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>LocalUserPlanningScreen.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MenuCycle.Data\MenuCycle.Data.csproj">
