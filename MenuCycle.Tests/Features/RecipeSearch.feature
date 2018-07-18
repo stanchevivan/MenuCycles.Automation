@@ -1,4 +1,5 @@
-﻿Feature: RecipeSearch
+﻿@QAI
+Feature: RecipeSearch
     Recipe search functionalities and validations
 
 Background: 

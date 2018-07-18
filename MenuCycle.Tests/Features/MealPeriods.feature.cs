@@ -19,6 +19,10 @@ namespace MenuCycle.Tests.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("MealPeriods")]
+    [NUnit.Framework.CategoryAttribute("QAI")]
+    [NUnit.Framework.CategoryAttribute("#@menucycle")]
+    [NUnit.Framework.CategoryAttribute("mealperiod")]
+    [NUnit.Framework.CategoryAttribute("recipe")]
     public partial class MealPeriodsFeature
     {
         
@@ -31,7 +35,11 @@ namespace MenuCycle.Tests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "MealPeriods", "\tMeal Periods functionalities and validations", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "MealPeriods", "\tMeal Periods functionalities and validations", ProgrammingLanguage.CSharp, new string[] {
+                        "QAI",
+                        "#@menucycle",
+                        "mealperiod",
+                        "recipe"});
             testRunner.OnFeatureStart(featureInfo);
         }
         

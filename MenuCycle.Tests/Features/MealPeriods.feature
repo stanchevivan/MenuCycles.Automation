@@ -1,4 +1,4 @@
-﻿#@menucycle @mealperiod @recipe
+﻿@QAI #@menucycle @mealperiod @recipe
 Feature: MealPeriods
 	Meal Periods functionalities and validations
 

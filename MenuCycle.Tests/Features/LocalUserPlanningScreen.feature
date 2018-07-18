@@ -1,4 +1,4 @@
-# @planningscreen
+@QAI # @planningscreen
 Feature: LocalUserPlanningScreen
     Meal Peridos functionalities and validations
 
@@ -59,15 +59,3 @@ Scenario: User should not be redirected to the planning screen after navigating 
         And Home button is clicked
         And Menu Cycle "Local User Testing" is selected
     Then Calendar view is opened
-
-@TC28558 @Smoke
-Scenario: Load engine when Planning screen is opened (Local User)
-    Given location "SE001" is selected
-        And Menu Cycle "Local User Testing" is selected
-    When planning for TUE 10 JUL is opened
-    Then planning screen engine is loaded
-
-@TC27776 @Smoke
-Scenario: Create menu cycle button is not present - local user
-    Given location "SE001" is selected
-    Then Create menu cycle button is not displayed

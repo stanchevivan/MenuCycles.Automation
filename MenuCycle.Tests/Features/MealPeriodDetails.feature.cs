@@ -19,6 +19,7 @@ namespace MenuCycle.Tests.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Meal Period Details")]
+    [NUnit.Framework.CategoryAttribute("QAI")]
     public partial class MealPeriodDetailsFeature
     {
         
@@ -31,7 +32,8 @@ namespace MenuCycle.Tests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Meal Period Details", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Meal Period Details", null, ProgrammingLanguage.CSharp, new string[] {
+                        "QAI"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,10 +67,10 @@ namespace MenuCycle.Tests.Features
         
         public virtual void FeatureBackground()
         {
-#line 3
 #line 4
-    testRunner.Given("\'Menu Cycles\' application is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 5
+    testRunner.Given("\'Menu Cycles\' application is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 6
     testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
@@ -80,13 +82,13 @@ namespace MenuCycle.Tests.Features
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Only one cost is presented for single recipe in the meal period detailed view", new string[] {
                         "TC30229"});
-#line 8
-this.ScenarioSetup(scenarioInfo);
-#line 3
-this.FeatureBackground();
 #line 9
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
+#line 4
+this.FeatureBackground();
 #line 10
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 11
     testRunner.When("Details for meal period \"LUNCH\" in \"TUESDAY\" are opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -101,7 +103,7 @@ this.FeatureBackground();
                         "724Gourmet Chicken Burger",
                         "Recipe",
                         "£0.36"});
-#line 11
+#line 12
     testRunner.Then("Verify items in the meal period are", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -116,15 +118,15 @@ this.FeatureBackground();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Only one cost is presented for recipes in Buffet in the meal period detailed view" +
                     "", new string[] {
                         "TC30230"});
-#line 17
-this.ScenarioSetup(scenarioInfo);
-#line 3
-this.FeatureBackground();
 #line 18
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
+#line 4
+this.FeatureBackground();
 #line 19
-    testRunner.When("Details for meal period \"DANGELO\" in \"TUESDAY\" are opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 20
+    testRunner.When("Details for meal period \"DANGELO\" in \"TUESDAY\" are opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 21
         testRunner.And("Buffet \"Maya Buffet\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -148,7 +150,7 @@ this.FeatureBackground();
             table2.AddRow(new string[] {
                         "724Custard Sauce (powder, fresh milk)",
                         "£0.11"});
-#line 21
+#line 22
     testRunner.Then("Verify recipes in meal period details for buffet \"Maya Buffet\" are", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -159,17 +161,17 @@ this.FeatureBackground();
         public virtual void OnlySingleCostIsPresentedForRecipesInRecipeSearch()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Only single cost is presented for recipes in recipe search", ((string[])(null)));
-#line 30
-this.ScenarioSetup(scenarioInfo);
-#line 3
-this.FeatureBackground();
 #line 31
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
+#line 4
+this.FeatureBackground();
 #line 32
-    testRunner.When("Details for meal period \"LUNCH\" in \"MONDAY\" are opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 33
-        testRunner.And("Recipe search is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("Details for meal period \"LUNCH\" in \"MONDAY\" are opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 34
+        testRunner.And("Recipe search is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
         testRunner.And("Recipe \"724Apple Sauce\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -180,7 +182,7 @@ this.FeatureBackground();
                         "724Apple Sauce",
                         "Recipe",
                         "£2.1"});
-#line 35
+#line 36
     testRunner.Then("Verify items present in the search results are", ((string)(null)), table3, "Then ");
 #line hidden
             this.ScenarioCleanup();

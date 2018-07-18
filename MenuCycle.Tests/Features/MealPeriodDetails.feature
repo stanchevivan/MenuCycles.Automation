@@ -1,4 +1,5 @@
-﻿Feature: Meal Period Details
+﻿@QAI
+Feature: Meal Period Details
 
 Background:
     Given 'Menu Cycles' application is open

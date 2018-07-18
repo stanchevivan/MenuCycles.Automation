@@ -19,6 +19,9 @@ namespace MenuCycle.Tests.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("PlanningScreen")]
+    [NUnit.Framework.CategoryAttribute("QAI")]
+    [NUnit.Framework.CategoryAttribute("#")]
+    [NUnit.Framework.CategoryAttribute("planningscreen")]
     public partial class PlanningScreenFeature
     {
         
@@ -31,7 +34,10 @@ namespace MenuCycle.Tests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "PlanningScreen", "    Meal Peridos functionalities and validations", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "PlanningScreen", "    Meal Peridos functionalities and validations", ProgrammingLanguage.CSharp, new string[] {
+                        "QAI",
+                        "#",
+                        "planningscreen"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -739,13 +745,11 @@ this.FeatureBackground();
         [NUnit.Framework.DescriptionAttribute("No modal dialog is shown if there are no changes and Cancel button is clicked")]
         [NUnit.Framework.CategoryAttribute("TC29885")]
         [NUnit.Framework.CategoryAttribute("D24506")]
-        [NUnit.Framework.CategoryAttribute("Smoke")]
         public virtual void NoModalDialogIsShownIfThereAreNoChangesAndCancelButtonIsClicked()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("No modal dialog is shown if there are no changes and Cancel button is clicked", new string[] {
                         "TC29885",
-                        "D24506",
-                        "Smoke"});
+                        "D24506"});
 #line 213
 this.ScenarioSetup(scenarioInfo);
 #line 5
@@ -858,58 +862,6 @@ this.FeatureBackground();
 #line 245
             testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 246
-        testRunner.Then("Calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Load engine when Planning screen is opened (Central User)")]
-        [NUnit.Framework.CategoryAttribute("TC28500")]
-        [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void LoadEngineWhenPlanningScreenIsOpenedCentralUser()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load engine when Planning screen is opened (Central User)", new string[] {
-                        "TC28500",
-                        "Smoke"});
-#line 249
-this.ScenarioSetup(scenarioInfo);
-#line 5
-this.FeatureBackground();
-#line 250
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 251
-    testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 252
-        testRunner.And("daily nutrition tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 253
-        testRunner.And("daily planning tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 254
-    testRunner.Then("planning screen engine is loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Close planning screen with \"X\" button without any changes")]
-        [NUnit.Framework.CategoryAttribute("TC27677")]
-        [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void ClosePlanningScreenWithXButtonWithoutAnyChanges()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Close planning screen with \"X\" button without any changes", new string[] {
-                        "TC27677",
-                        "Smoke"});
-#line 257
-this.ScenarioSetup(scenarioInfo);
-#line 5
-this.FeatureBackground();
-#line 258
-        testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 259
-        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 260
-        testRunner.When("Cross button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 261
         testRunner.Then("Calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

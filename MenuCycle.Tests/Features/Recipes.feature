@@ -1,4 +1,4 @@
-﻿#@menucycle @mealperiod @recipe
+﻿@QAI #@menucycle @mealperiod @recipe
 Feature: Recipes
     Recipes feature
 

@@ -1,4 +1,5 @@
-﻿Feature: Buffet
+﻿@QAI
+Feature: Buffet
     Buffet feature
 
 Background: 
