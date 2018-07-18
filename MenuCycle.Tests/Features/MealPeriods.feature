@@ -177,7 +177,7 @@ Scenario: The order of meal periods from the planning screen is the same as in t
     When planning for Tuesday is opened
     Then Meal Period names match the calendar view names
 
-@TC27713
+@TC27713 @Smoke
 Scenario: Search Menu Cycles by name or description
     When Menu Cycle "FOR AUTOMATION TESTS - DO NOT TOUCH" is searched
         And Verify search results contain the following menu cycles

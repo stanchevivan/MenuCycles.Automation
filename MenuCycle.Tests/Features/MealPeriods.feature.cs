@@ -753,10 +753,12 @@ this.FeatureBackground();
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Search Menu Cycles by name or description")]
         [NUnit.Framework.CategoryAttribute("TC27713")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
         public virtual void SearchMenuCyclesByNameOrDescription()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search Menu Cycles by name or description", new string[] {
-                        "TC27713"});
+                        "TC27713",
+                        "Smoke"});
 #line 181
 this.ScenarioSetup(scenarioInfo);
 #line 5
