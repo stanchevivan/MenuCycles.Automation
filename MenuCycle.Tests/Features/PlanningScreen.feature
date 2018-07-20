@@ -245,3 +245,18 @@ Scenario: Modal dialog is closed on cancel when only PriceModel is changed for a
         When Cancel button is clicked
             And Modal dialog Yes is selected
         Then Calendar view is opened
+
+@TC28500 @Smoke
+Scenario: Load engine when Planning screen is opened (Central User)
+    Given Menu Cycle "Meda" is selected
+    When planning for Tuesday is opened
+        And daily nutrition tab is opened
+        And daily planning tab is opened
+    Then planning screen engine is loaded
+
+@TC27677 @Smoke
+Scenario: Close planning screen with "X" button without any changes
+        Given Menu Cycle "Meda" is selected
+        And planning for Monday is opened
+        When Cross button is clicked
+        Then Calendar view is opened
