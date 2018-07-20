@@ -6,7 +6,7 @@ using MenuCycle.Data.Models;
 
 namespace MenuCycle.Tests.Support
 {
-    [Binding]
+    //[Binding]
     public sealed class SeedHooks
     {
         readonly ScenarioContext scenarioContext;

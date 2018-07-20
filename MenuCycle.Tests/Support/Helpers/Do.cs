@@ -25,7 +25,7 @@ namespace MenuCycle.Tests
             webElement.Click();
         }
 
-        public void JavaClick()
+        public void JavaScriptClick()
         {
             ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].click();", webElement);
         }
@@ -39,12 +39,17 @@ namespace MenuCycle.Tests
 
         public void FocusOut()
         {
-            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].blur(); return true", webElement);
+            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].blur();", webElement);
+        }
+
+        public void FocusIn()
+        {
+            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].focus();", webElement);
         }
 
         public void ClearAndSendKeys(string text)
         {
-            Clear();
+            webElement.Clear();
             webElement.SendKeys(text);
         }
 
@@ -53,9 +58,9 @@ namespace MenuCycle.Tests
             webElement.SendKeys(text);
         }
 
-        public void Clear()
+        public void JavaScriptClear()
         {
-            ((IJavaScriptExecutor)Driver).ExecuteScript($"arguments[0].value= ''; return true", webElement);
+            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].value= '';", webElement);
         }
     }
 }
