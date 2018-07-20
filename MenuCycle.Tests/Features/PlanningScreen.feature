@@ -182,6 +182,7 @@ Scenario: Calculate Daily Totals
         |004Fish Stock (bouillon) |             10|
         |004Basic Sponge          |             20|
         |004Fresh Lemon Curd      |             30|
+        |004Beef Stock (bouillon) |              7|
     And data for recipes in buffet "Aneliya Buffet" in meal period "DANGELO" is set
         |RecipeTitle                  |PlannedQuantity|
         |004Bechamel Sauce            |              2|
@@ -192,7 +193,7 @@ Scenario: Calculate Daily Totals
         |004Baked Beans_1             |              7|
     Then Daily Totals are equal to
         |PlannedQty|TotalCost|Revenue|ActualGP|
-        |       102|   198.48| 315.71|     37%|
+        |       109|   198.48| 315.71|     37%|
 
 @TC29844
 Scenario: No planning data available message
