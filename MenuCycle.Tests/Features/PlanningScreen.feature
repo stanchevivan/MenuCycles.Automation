@@ -148,7 +148,7 @@ Scenario: Modal dialog for unsaved changes is shown when going to weekly plannin
     When switching to Daily Planning view
     Then values for recipe "004Baked Beans_3" in meal period "LUNCH" are equal to the stored ones
 
-@D23865 @TC29558
+@TC29558 @D23865
 Scenario: Number of covers is saved after closing the app
     Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
@@ -246,6 +246,17 @@ Scenario: Modal dialog is closed on cancel when only PriceModel is changed for a
             And Modal dialog Yes is selected
         Then Calendar view is opened
 
+@TC30592 @D25310
+Scenario: User should not be redirected to the planning screen after navigating to Nutrition view and back
+    Given Menu Cycle "Meda" is selected
+            And planning for Monday is opened
+    When daily nutrition tab is opened
+        And daily planning tab is opened
+        And Cross button is clicked
+        And Home button is clicked
+        And Menu Cycle "Meda" is selected
+    Then Calendar view is opened
+
 @TC28500 @Smoke
 Scenario: Load engine when Planning screen is opened (Central User)
     Given Menu Cycle "Meda" is selected
@@ -256,7 +267,7 @@ Scenario: Load engine when Planning screen is opened (Central User)
 
 @TC27677 @Smoke
 Scenario: Close planning screen with "X" button without any changes
-        Given Menu Cycle "Meda" is selected
+    Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
-        When Cross button is clicked
-        Then Calendar view is opened
+    When Cross button is clicked
+    Then Calendar view is opened
