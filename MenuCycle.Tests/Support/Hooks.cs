@@ -13,7 +13,6 @@ namespace MenuCycle.Tests.Support
         public Hooks(IWebDriver driver, ScenarioContext scenarioContext)
         {
             this.driver = driver;
-
             this.scenarioContext = scenarioContext;
         }
 
