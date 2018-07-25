@@ -27,12 +27,16 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement SpinningWheel { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".strip-pad .colorstrip-Recipe")]
-        private IList<IWebElement> RecipesContainer { get; set; }
+        private IList<IWebElement> RecipeSearchContainer { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-scroll .colorstrip-Recipe")]
+        private IList<IWebElement> RecipeDetailedViewContainer { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".tagit-choice")]
         private IList<IWebElement> searchTags { get; set; }
 
-        public IList<RecipeItem> Recipes => this.RecipesContainer.Select(p => new RecipeItem(p)).ToList();
+        public IList<RecipeItem> Recipes => this.RecipeSearchContainer.Select(p => new RecipeItem(p)).ToList();
+        public IList<RecipeItem> DetailedViewRecipes => this.RecipeDetailedViewContainer.Select(p => new RecipeItem(p)).ToList();
         public IList<SearchTag> SearchTags => this.searchTags.Select(p => new SearchTag(p)).ToList();
 
         public void SearchRecipeByName(string recipeName)
@@ -48,9 +52,14 @@ namespace MenuCycle.Tests.PageObjects
             Recipes.First(c => c.Title == recipeName).Add();
         }
 
-        public RecipeItem GetRecipe(string recipeName)
+        public RecipeItem GetRecipeFromSearch(string recipeName)
         {
             return Recipes.First(x => x.Title == recipeName);
+        }
+
+        public RecipeItem GetRecipeFromDetailedView(string recipeName)
+        {
+            return DetailedViewRecipes.First(x => x.Title == recipeName);
         }
 
         public void ClearAllSearchTags()

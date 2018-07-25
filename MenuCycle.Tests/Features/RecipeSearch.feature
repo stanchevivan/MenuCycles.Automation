@@ -26,3 +26,21 @@ Scenario: Recipe search by keyword in Meal period
         |Name                |Type  |Cost|
         |004Boiled Rice      |Recipe|£0  |
         |724Boiled Brown Rice|Recipe|£0  |
+
+@TC30803
+Scenario: Recipe price should be the same for meal period detailed view and the planning screen
+    Given Menu Cycle "Meda" is selected
+    When Details for meal period "LUNCH" in "MONDAY" are opened
+        And Recipe search is opened
+        And Recipe "004Baked Beans_3" is searched
+        And Verify items present in the search results are
+            |Name            |Type  |Cost |
+            |004Baked Beans_3|Recipe|£1.88|
+        And Verify items in meal period detailed view
+            |Name            |Type  |Cost |
+            |004Baked Beans_3|Recipe|£1.88|
+        And meal period detailed view is closed
+        And planning for Monday is opened
+    Then Verify data for items is
+        |MealPeriodName|TYPE  |RecipeTitle     |CostPerUnit|
+        |LUNCH         |RECIPE|004Baked Beans_3|       1.88|

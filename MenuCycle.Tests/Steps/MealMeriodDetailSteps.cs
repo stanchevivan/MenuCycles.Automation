@@ -85,8 +85,24 @@ namespace MenuCycle.Tests.Steps
         {
             for (int i = 0; i < table.RowCount; i++)
             {
-                Assert.That(recipeSearch.GetRecipe(table.Rows[i]["Name"]).Cost, Is.EqualTo(table.Rows[i]["Cost"]));
+                Assert.That(recipeSearch.GetRecipeFromSearch(table.Rows[i]["Name"]).Cost, Is.EqualTo(table.Rows[i]["Cost"]));
             }
+        }
+
+        [When(@"Verify items in meal period detailed view")]
+        [Then(@"Verify items in meal period detailed view")]
+        public void VerifyItemsInMealPriodDetailedView(Table table)
+        {
+            for (int i = 0; i < table.RowCount; i++)
+            {
+                Assert.That(recipeSearch.GetRecipeFromDetailedView(table.Rows[i]["Name"]).Cost, Is.EqualTo(table.Rows[i]["Cost"]));
+            }
+        }
+
+        [When(@"meal period detailed view is closed")]
+        public void WhenMealPeriodDetailedViewIsClosed()
+        {
+            mealPeriodDetails.UseCrossButton();
         }
     }
 }

@@ -139,6 +139,70 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Recipe price should be the same for meal period detailed view and the planning sc" +
+            "reen")]
+        [NUnit.Framework.CategoryAttribute("TC30803")]
+        public virtual void RecipePriceShouldBeTheSameForMealPeriodDetailedViewAndThePlanningScreen()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Recipe price should be the same for meal period detailed view and the planning sc" +
+                    "reen", new string[] {
+                        "TC30803"});
+#line 31
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 32
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 33
+    testRunner.When("Details for meal period \"LUNCH\" in \"MONDAY\" are opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 34
+        testRunner.And("Recipe search is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
+        testRunner.And("Recipe \"004Baked Beans_3\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Type",
+                        "Cost"});
+            table3.AddRow(new string[] {
+                        "004Baked Beans_3",
+                        "Recipe",
+                        "£1.88"});
+#line 36
+        testRunner.And("Verify items present in the search results are", ((string)(null)), table3, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Type",
+                        "Cost"});
+            table4.AddRow(new string[] {
+                        "004Baked Beans_3",
+                        "Recipe",
+                        "£1.88"});
+#line 39
+        testRunner.And("Verify items in meal period detailed view", ((string)(null)), table4, "And ");
+#line 42
+        testRunner.And("meal period detailed view is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 43
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "CostPerUnit"});
+            table5.AddRow(new string[] {
+                        "LUNCH",
+                        "RECIPE",
+                        "004Baked Beans_3",
+                        "1.88"});
+#line 44
+    testRunner.Then("Verify data for items is", ((string)(null)), table5, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

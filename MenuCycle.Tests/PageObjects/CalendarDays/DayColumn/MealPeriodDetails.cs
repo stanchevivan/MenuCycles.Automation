@@ -26,6 +26,13 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement copyButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = "#saveBtn")]
         private IWebElement saveButton { get; set; }
+        [FindsBy(How = How.ClassName, Using = "colorstrip-Recipe")]
+        private IWebElement RecipeCard { get; set; }
+        [FindsBy(How = How.CssSelector, Using = "#slidingDiv .recipes-box-head-text .closeSlider.clickable")]
+        private IWebElement CrossButton { get; set; }
+
+
+
 
         //TODO: Remove ExpandedRecipes from this class and use BuffetCard/ALaCarteCart ExpandedRecipes
         [FindsBy(How = How.CssSelector, Using = ".menu-expand[style=\"display: block;\"] .menu-recipe-expand")]
@@ -78,6 +85,11 @@ namespace MenuCycle.Tests.PageObjects
         public BuffetCard GetBuffetCard(string buffetName)
         {
             return BuffetCards.First(x => x.Name == buffetName);
+        }
+
+        public void UseCrossButton()
+        {
+            CrossButton.Click();
         }
     }
 }
