@@ -49,8 +49,8 @@ namespace MenuCycle.Tests
 
         public void ClearAndSendKeys(string text)
         {
-            // webElement.Clear();
-            JavaScriptClear();
+             webElement.Clear();
+            //JavaScriptClear();
             webElement.SendKeys(text);
             //JavaScriptSendKeys(text);
         }
