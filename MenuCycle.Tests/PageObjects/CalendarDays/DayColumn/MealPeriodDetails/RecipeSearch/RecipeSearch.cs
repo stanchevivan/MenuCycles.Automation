@@ -29,14 +29,10 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".strip-pad .colorstrip-Recipe")]
         private IList<IWebElement> RecipeSearchContainer { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".mealperiod-scroll .colorstrip-Recipe")]
-        private IList<IWebElement> RecipeDetailedViewContainer { get; set; }
-
         [FindsBy(How = How.CssSelector, Using = ".tagit-choice")]
         private IList<IWebElement> searchTags { get; set; }
 
         public IList<RecipeItem> Recipes => this.RecipeSearchContainer.Select(p => new RecipeItem(p)).ToList();
-        public IList<RecipeItem> DetailedViewRecipes => this.RecipeDetailedViewContainer.Select(p => new RecipeItem(p)).ToList();
         public IList<SearchTag> SearchTags => this.searchTags.Select(p => new SearchTag(p)).ToList();
 
         public void SearchRecipeByName(string recipeName)
@@ -55,11 +51,6 @@ namespace MenuCycle.Tests.PageObjects
         public RecipeItem GetRecipeFromSearch(string recipeName)
         {
             return Recipes.First(x => x.Title == recipeName);
-        }
-
-        public RecipeItem GetRecipeFromDetailedView(string recipeName)
-        {
-            return DetailedViewRecipes.First(x => x.Title == recipeName);
         }
 
         public void ClearAllSearchTags()

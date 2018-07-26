@@ -98,11 +98,11 @@ this.FeatureBackground();
             table1.AddRow(new string[] {
                         "724Gourmet Beef Burger 6oz",
                         "Recipe",
-                        "£0.36"});
+                        "£0.41"});
             table1.AddRow(new string[] {
                         "724Gourmet Chicken Burger",
                         "Recipe",
-                        "£0.36"});
+                        "£0.41"});
 #line 12
     testRunner.Then("Verify items in the meal period are", ((string)(null)), table1, "Then ");
 #line hidden
@@ -134,22 +134,22 @@ this.FeatureBackground();
                         "Cost"});
             table2.AddRow(new string[] {
                         "004Basic Sponge",
-                        "£0.58"});
+                        "£0.63"});
             table2.AddRow(new string[] {
                         "004Beef Stock (bouillon)",
                         "£0"});
             table2.AddRow(new string[] {
                         "004Fish Stock (bouillon)",
-                        "£0.48"});
+                        "£0.53"});
             table2.AddRow(new string[] {
                         "004Fresh Lemon Curd",
-                        "£3.39"});
+                        "£3.44"});
             table2.AddRow(new string[] {
                         "004German Shortcrust Pastry (fresh)007",
-                        "£4.82"});
+                        "£4.87"});
             table2.AddRow(new string[] {
                         "724Custard Sauce (powder, fresh milk)",
-                        "£0.11"});
+                        "£0.16"});
 #line 22
     testRunner.Then("Verify recipes in meal period details for buffet \"Maya Buffet\" are", ((string)(null)), table2, "Then ");
 #line hidden
@@ -181,7 +181,7 @@ this.FeatureBackground();
             table3.AddRow(new string[] {
                         "724Apple Sauce",
                         "Recipe",
-                        "£2.1"});
+                        "£2.15"});
 #line 36
     testRunner.Then("Verify items present in the search results are", ((string)(null)), table3, "Then ");
 #line hidden

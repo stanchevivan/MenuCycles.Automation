@@ -108,7 +108,7 @@ this.FeatureBackground();
             table1.AddRow(new string[] {
                         "724Fried Egg",
                         "Recipe",
-                        "£0.4"});
+                        "£0.45"});
             table1.AddRow(new string[] {
                         "724Stir Fried Vegetables",
                         "Recipe",
@@ -116,7 +116,7 @@ this.FeatureBackground();
             table1.AddRow(new string[] {
                         "724Fried Button Mushrooms",
                         "Recipe",
-                        "£0.59"});
+                        "£0.64"});
 #line 18
         testRunner.And("Verify items present in the search results are", ((string)(null)), table1, "And ");
 #line 24

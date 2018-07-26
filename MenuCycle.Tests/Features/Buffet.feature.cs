@@ -113,6 +113,15 @@ this.FeatureBackground();
                         "GP",
                         "5",
                         "20"});
+            table1.AddRow(new string[] {
+                        "DANGELO",
+                        "BUFFET",
+                        "Maya Buffet",
+                        "",
+                        "^",
+                        "^",
+                        "^",
+                        "^"});
 #line 18
     testRunner.When("data for buffets is set", ((string)(null)), table1, "When ");
 #line hidden
@@ -137,66 +146,84 @@ this.FeatureBackground();
             table2.AddRow(new string[] {
                         "004Baked Beans_1",
                         "7"});
-#line 21
+#line 22
     testRunner.And("data for recipes in buffet \"Aneliya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table2, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "MealPeriodName",
-                        "TYPE",
                         "RecipeTitle",
-                        "TotalCosts",
-                        "SellPrice",
-                        "Revenue",
-                        "ActualGP"});
+                        "PlannedQuantity"});
             table3.AddRow(new string[] {
-                        "DANGELO",
-                        "BUFFET",
-                        "Aneliya Buffet",
-                        "86.88",
-                        "109.74",
-                        "91.45",
-                        "5%"});
-#line 29
-    testRunner.And("Verify data for items is", ((string)(null)), table3, "And ");
+                        "004Basic Sponge",
+                        ""});
+            table3.AddRow(new string[] {
+                        "004Fresh Lemon Curd",
+                        ""});
+            table3.AddRow(new string[] {
+                        "004Fish Stock (bouillon)",
+                        ""});
+            table3.AddRow(new string[] {
+                        "004Beef Stock (bouillon)",
+                        ""});
+#line 30
+    testRunner.And("data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table3, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
-                        "PlannedQuantity"});
+                        "TotalCosts",
+                        "SellPrice",
+                        "Revenue",
+                        "ActualGP"});
             table4.AddRow(new string[] {
                         "DANGELO",
                         "BUFFET",
                         "Aneliya Buffet",
-                        "2"});
-#line 32
-    testRunner.And("data for buffets is set", ((string)(null)), table4, "And ");
+                        "95.84",
+                        "121.06",
+                        "100.88",
+                        "5%"});
+#line 36
+    testRunner.And("Verify data for items is", ((string)(null)), table4, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
                         "RecipeTitle",
                         "PlannedQuantity"});
             table5.AddRow(new string[] {
-                        "004Bechamel Sauce",
-                        "4"});
-            table5.AddRow(new string[] {
-                        "004Beef Stock (bouillon)",
-                        "6"});
-            table5.AddRow(new string[] {
-                        "004Tartare Sauce (bulk)",
-                        "8"});
-            table5.AddRow(new string[] {
-                        "004Fresh Lemon Curd",
-                        "10"});
-            table5.AddRow(new string[] {
-                        "004Blueberry Muffin (Wrapped)",
-                        "12"});
-            table5.AddRow(new string[] {
-                        "004Baked Beans_1",
-                        "14"});
-#line 35
-    testRunner.Then("Verify data for recipes in buffet \"Aneliya Buffet\" in meal period \"DANGELO\" is", ((string)(null)), table5, "Then ");
+                        "DANGELO",
+                        "BUFFET",
+                        "Aneliya Buffet",
+                        "2"});
+#line 39
+    testRunner.And("data for buffets is set", ((string)(null)), table5, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RecipeTitle",
+                        "PlannedQuantity"});
+            table6.AddRow(new string[] {
+                        "004Bechamel Sauce",
+                        "4"});
+            table6.AddRow(new string[] {
+                        "004Beef Stock (bouillon)",
+                        "6"});
+            table6.AddRow(new string[] {
+                        "004Tartare Sauce (bulk)",
+                        "8"});
+            table6.AddRow(new string[] {
+                        "004Fresh Lemon Curd",
+                        "10"});
+            table6.AddRow(new string[] {
+                        "004Blueberry Muffin (Wrapped)",
+                        "12"});
+            table6.AddRow(new string[] {
+                        "004Baked Beans_1",
+                        "14"});
+#line 42
+    testRunner.Then("Verify data for recipes in buffet \"Aneliya Buffet\" in meal period \"DANGELO\" is", ((string)(null)), table6, "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
@@ -204,16 +231,16 @@ this.FeatureBackground();
                         "SellPrice",
                         "Revenue",
                         "ActualGP"});
-            table6.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "DANGELO",
                         "BUFFET",
                         "Aneliya Buffet",
-                        "173.76",
-                        "109.74",
-                        "182.91",
+                        "191.68",
+                        "121.06",
+                        "201.77",
                         "5%"});
-#line 43
-    testRunner.And("Verify data for items is", ((string)(null)), table6, "And ");
+#line 50
+    testRunner.And("Verify data for items is", ((string)(null)), table7, "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -227,18 +254,18 @@ this.FeatureBackground();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculations for \"Total Cost\" and \"Revenue\" and \"Actual GP\" should be correct for" +
                     " Fixed \"Price Model\" (Buffet Menu)", new string[] {
                         "TC27795"});
-#line 48
+#line 55
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 49
+#line 56
     testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 50
+#line 57
         testRunner.And("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 51
+#line 58
         testRunner.And("Meal Period \"DANGELO\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
@@ -247,7 +274,7 @@ this.FeatureBackground();
                         "PriceModel",
                         "TaxPercentage",
                         "SellPrice"});
-            table7.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "DANGELO",
                         "BUFFET",
                         "Aneliya Buffet",
@@ -256,103 +283,130 @@ this.FeatureBackground();
                         "Fixed",
                         "5",
                         "100"});
-#line 52
-    testRunner.When("data for buffets is set", ((string)(null)), table7, "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
-                        "RecipeTitle",
-                        "PlannedQuantity"});
             table8.AddRow(new string[] {
-                        "004Bechamel Sauce",
-                        "2"});
-            table8.AddRow(new string[] {
-                        "004Beef Stock (bouillon)",
-                        "3"});
-            table8.AddRow(new string[] {
-                        "004Tartare Sauce (bulk)",
-                        "4"});
-            table8.AddRow(new string[] {
-                        "004Fresh Lemon Curd",
-                        "5"});
-            table8.AddRow(new string[] {
-                        "004Blueberry Muffin (Wrapped)",
-                        "6"});
-            table8.AddRow(new string[] {
-                        "004Baked Beans_1",
-                        "7"});
-#line 55
-    testRunner.And("data for recipes in buffet \"Aneliya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table8, "And ");
+                        "DANGELO",
+                        "BUFFET",
+                        "Maya Buffet",
+                        "",
+                        "^",
+                        "^",
+                        "^",
+                        "^"});
+#line 59
+    testRunner.When("data for buffets is set", ((string)(null)), table8, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RecipeTitle",
+                        "PlannedQuantity"});
+            table9.AddRow(new string[] {
+                        "004Bechamel Sauce",
+                        "2"});
+            table9.AddRow(new string[] {
+                        "004Beef Stock (bouillon)",
+                        "3"});
+            table9.AddRow(new string[] {
+                        "004Tartare Sauce (bulk)",
+                        "4"});
+            table9.AddRow(new string[] {
+                        "004Fresh Lemon Curd",
+                        "5"});
+            table9.AddRow(new string[] {
+                        "004Blueberry Muffin (Wrapped)",
+                        "6"});
+            table9.AddRow(new string[] {
+                        "004Baked Beans_1",
+                        "7"});
+#line 63
+    testRunner.And("data for recipes in buffet \"Aneliya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table9, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RecipeTitle",
+                        "PlannedQuantity"});
+            table10.AddRow(new string[] {
+                        "004Basic Sponge",
+                        ""});
+            table10.AddRow(new string[] {
+                        "004Fresh Lemon Curd",
+                        ""});
+            table10.AddRow(new string[] {
+                        "004Fish Stock (bouillon)",
+                        ""});
+            table10.AddRow(new string[] {
+                        "004Beef Stock (bouillon)",
+                        ""});
+#line 71
+    testRunner.And("data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table10, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
                         "TotalCosts",
                         "Revenue",
                         "ActualGP"});
-            table9.AddRow(new string[] {
+            table11.AddRow(new string[] {
                         "DANGELO",
                         "BUFFET",
                         "Aneliya Buffet",
-                        "86.88",
+                        "65.14",
                         "95.24",
-                        "9%"});
-#line 63
-    testRunner.And("Verify data for items is", ((string)(null)), table9, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
-                        "MealPeriodName",
-                        "TYPE",
-                        "RecipeTitle",
-                        "PlannedQuantity"});
-            table10.AddRow(new string[] {
-                        "DANGELO",
-                        "BUFFET",
-                        "Aneliya Buffet",
-                        "2"});
-#line 66
-    testRunner.And("data for buffets is set", ((string)(null)), table10, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
-                        "RecipeTitle",
-                        "PlannedQuantity"});
-            table11.AddRow(new string[] {
-                        "004Bechamel Sauce",
-                        "4"});
-            table11.AddRow(new string[] {
-                        "004Beef Stock (bouillon)",
-                        "6"});
-            table11.AddRow(new string[] {
-                        "004Tartare Sauce (bulk)",
-                        "8"});
-            table11.AddRow(new string[] {
-                        "004Fresh Lemon Curd",
-                        "10"});
-            table11.AddRow(new string[] {
-                        "004Blueberry Muffin (Wrapped)",
-                        "12"});
-            table11.AddRow(new string[] {
-                        "004Baked Beans_1",
-                        "14"});
-#line 69
-    testRunner.Then("Verify data for recipes in buffet \"Aneliya Buffet\" in meal period \"DANGELO\" is", ((string)(null)), table11, "Then ");
+                        "32%"});
+#line 77
+    testRunner.And("Verify data for items is", ((string)(null)), table11, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
-                        "TotalCosts",
-                        "Revenue",
-                        "ActualGP"});
+                        "PlannedQuantity"});
             table12.AddRow(new string[] {
                         "DANGELO",
                         "BUFFET",
                         "Aneliya Buffet",
-                        "173.76",
+                        "2"});
+#line 80
+    testRunner.And("data for buffets is set", ((string)(null)), table12, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RecipeTitle",
+                        "PlannedQuantity"});
+            table13.AddRow(new string[] {
+                        "004Bechamel Sauce",
+                        "4"});
+            table13.AddRow(new string[] {
+                        "004Beef Stock (bouillon)",
+                        "6"});
+            table13.AddRow(new string[] {
+                        "004Tartare Sauce (bulk)",
+                        "8"});
+            table13.AddRow(new string[] {
+                        "004Fresh Lemon Curd",
+                        "10"});
+            table13.AddRow(new string[] {
+                        "004Blueberry Muffin (Wrapped)",
+                        "12"});
+            table13.AddRow(new string[] {
+                        "004Baked Beans_1",
+                        "14"});
+#line 83
+    testRunner.Then("Verify data for recipes in buffet \"Aneliya Buffet\" in meal period \"DANGELO\" is", ((string)(null)), table13, "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "TotalCosts",
+                        "Revenue",
+                        "ActualGP"});
+            table14.AddRow(new string[] {
+                        "DANGELO",
+                        "BUFFET",
+                        "Aneliya Buffet",
+                        "130.28",
                         "190.48",
-                        "9%"});
-#line 77
-    testRunner.And("Verify data for items is", ((string)(null)), table12, "And ");
+                        "32%"});
+#line 91
+    testRunner.And("Verify data for items is", ((string)(null)), table14, "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -366,18 +420,18 @@ this.FeatureBackground();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculations for \"Total Cost\" and \"Sell Price\" and \"Revenue\" should be correct fo" +
                     "r Mark Up \"Price Model\" (Buffet Menu)", new string[] {
                         "TC27796"});
-#line 82
+#line 96
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 83
+#line 97
     testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 84
+#line 98
         testRunner.And("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 85
+#line 99
         testRunner.And("Meal Period \"DANGELO\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
@@ -386,7 +440,7 @@ this.FeatureBackground();
                         "PriceModel",
                         "Target",
                         "TaxPercentage"});
-            table13.AddRow(new string[] {
+            table15.AddRow(new string[] {
                         "DANGELO",
                         "BUFFET",
                         "Aneliya Buffet",
@@ -395,25 +449,25 @@ this.FeatureBackground();
                         "Markup",
                         "5",
                         "20"});
-#line 86
-    testRunner.When("data for buffets is set", ((string)(null)), table13, "When ");
+#line 100
+    testRunner.When("data for buffets is set", ((string)(null)), table15, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
                         "RecipeTitle",
                         "PlannedQuantity"});
-            table14.AddRow(new string[] {
+            table16.AddRow(new string[] {
                         "004Bechamel Sauce",
                         "1"});
-            table14.AddRow(new string[] {
+            table16.AddRow(new string[] {
                         "004Fresh Lemon Curd",
                         "2"});
-            table14.AddRow(new string[] {
+            table16.AddRow(new string[] {
                         "004Blueberry Muffin (Wrapped)",
                         "3"});
-#line 89
-    testRunner.And("data for recipes in buffet \"Aneliya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table14, "And ");
+#line 103
+    testRunner.And("data for recipes in buffet \"Aneliya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table16, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
@@ -421,7 +475,7 @@ this.FeatureBackground();
                         "SellPrice",
                         "Revenue",
                         "ActualGP"});
-            table15.AddRow(new string[] {
+            table17.AddRow(new string[] {
                         "DANGELO",
                         "BUFFET",
                         "Aneliya Buffet",
@@ -429,40 +483,40 @@ this.FeatureBackground();
                         "30.5",
                         "25.42",
                         "5%"});
-#line 94
-    testRunner.And("Verify data for items is", ((string)(null)), table15, "And ");
+#line 108
+    testRunner.And("Verify data for items is", ((string)(null)), table17, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
                         "PlannedQuantity",
                         "Target"});
-            table16.AddRow(new string[] {
+            table18.AddRow(new string[] {
                         "DANGELO",
                         "BUFFET",
                         "Aneliya Buffet",
                         "2",
                         "43"});
-#line 97
-    testRunner.And("data for buffets is set", ((string)(null)), table16, "And ");
+#line 111
+    testRunner.And("data for buffets is set", ((string)(null)), table18, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
                         "RecipeTitle",
                         "PlannedQuantity"});
-            table17.AddRow(new string[] {
+            table19.AddRow(new string[] {
                         "004Bechamel Sauce",
                         "2"});
-            table17.AddRow(new string[] {
+            table19.AddRow(new string[] {
                         "004Fresh Lemon Curd",
                         "4"});
-            table17.AddRow(new string[] {
+            table19.AddRow(new string[] {
                         "004Blueberry Muffin (Wrapped)",
                         "6"});
-#line 100
-    testRunner.Then("Verify data for recipes in buffet \"Aneliya Buffet\" in meal period \"DANGELO\" is", ((string)(null)), table17, "Then ");
+#line 114
+    testRunner.Then("Verify data for recipes in buffet \"Aneliya Buffet\" in meal period \"DANGELO\" is", ((string)(null)), table19, "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
@@ -470,7 +524,7 @@ this.FeatureBackground();
                         "SellPrice",
                         "Revenue",
                         "ActualGP"});
-            table18.AddRow(new string[] {
+            table20.AddRow(new string[] {
                         "DANGELO",
                         "BUFFET",
                         "Aneliya Buffet",
@@ -478,8 +532,8 @@ this.FeatureBackground();
                         "41.54",
                         "69.24",
                         "30%"});
-#line 105
-    testRunner.And("Verify data for items is", ((string)(null)), table18, "And ");
+#line 119
+    testRunner.And("Verify data for items is", ((string)(null)), table20, "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -491,39 +545,14 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Planned Quantity Values are rounded after scaling", new string[] {
                         "TC30088"});
-#line 110
+#line 124
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 111
+#line 125
     testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 112
+#line 126
         testRunner.And("planning for Friday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
-                        "MealPeriodName",
-                        "TYPE",
-                        "RecipeTitle",
-                        "PlannedQuantity"});
-            table19.AddRow(new string[] {
-                        "DANGELO",
-                        "BUFFET",
-                        "Maya Buffet",
-                        "5"});
-#line 113
-    testRunner.When("data for buffets is set", ((string)(null)), table19, "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
-                        "RecipeTitle",
-                        "PlannedQuantity"});
-            table20.AddRow(new string[] {
-                        "004Basic Sponge",
-                        "6"});
-            table20.AddRow(new string[] {
-                        "004Fresh Lemon Curd",
-                        "7"});
-#line 116
-    testRunner.And("data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table20, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
@@ -534,21 +563,46 @@ this.FeatureBackground();
                         "DANGELO",
                         "BUFFET",
                         "Maya Buffet",
-                        "6"});
-#line 120
-   testRunner.And("data for buffets is set", ((string)(null)), table21, "And ");
+                        "5"});
+#line 127
+    testRunner.When("data for buffets is set", ((string)(null)), table21, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
                         "RecipeTitle",
                         "PlannedQuantity"});
             table22.AddRow(new string[] {
+                        "004Basic Sponge",
+                        "6"});
+            table22.AddRow(new string[] {
+                        "004Fresh Lemon Curd",
+                        "7"});
+#line 130
+    testRunner.And("data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table22, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "PlannedQuantity"});
+            table23.AddRow(new string[] {
+                        "DANGELO",
+                        "BUFFET",
+                        "Maya Buffet",
+                        "6"});
+#line 134
+   testRunner.And("data for buffets is set", ((string)(null)), table23, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RecipeTitle",
+                        "PlannedQuantity"});
+            table24.AddRow(new string[] {
                         "004Fresh Lemon Curd",
                         "8"});
-            table22.AddRow(new string[] {
+            table24.AddRow(new string[] {
                         "004Basic Sponge",
                         "7"});
-#line 123
-    testRunner.Then("Verify data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is", ((string)(null)), table22, "Then ");
+#line 137
+    testRunner.Then("Verify data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is", ((string)(null)), table24, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

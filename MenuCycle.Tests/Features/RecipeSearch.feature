@@ -18,9 +18,9 @@ Scenario: Recipe search by keyword in Meal period
         And Verify items present in the search results are
             |Name                     |Type  |Cost |
             |724Fried Onions          |Recipe|£0   |
-            |724Fried Egg             |Recipe|£0.4 |
+            |724Fried Egg             |Recipe|£0.45|
             |724Stir Fried Vegetables |Recipe|£0   |
-            |724Fried Button Mushrooms|Recipe|£0.59|
+            |724Fried Button Mushrooms|Recipe|£0.64|
         And Recipe "Boiled" is searched
     Then Verify items present in the search results are
         |Name                |Type  |Cost|

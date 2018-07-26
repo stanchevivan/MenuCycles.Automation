@@ -30,9 +30,10 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement RecipeCard { get; set; }
         [FindsBy(How = How.CssSelector, Using = "#slidingDiv .recipes-box-head-text .closeSlider.clickable")]
         private IWebElement CrossButton { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-scroll .colorstrip-Recipe")]
+        private IList<IWebElement> RecipeDetailedViewContainer { get; set; }
 
-
-
+        public IList<RecipeItem> Recipes => this.RecipeDetailedViewContainer.Select(p => new RecipeItem(p)).ToList();
 
         //TODO: Remove ExpandedRecipes from this class and use BuffetCard/ALaCarteCart ExpandedRecipes
         [FindsBy(How = How.CssSelector, Using = ".menu-expand[style=\"display: block;\"] .menu-recipe-expand")]
@@ -90,6 +91,11 @@ namespace MenuCycle.Tests.PageObjects
         public void UseCrossButton()
         {
             CrossButton.Click();
+        }
+
+        public RecipeItem GetRecipeFromDetailedView(string recipeName)
+        {
+            return Recipes.First(x => x.Title == recipeName);
         }
     }
 }

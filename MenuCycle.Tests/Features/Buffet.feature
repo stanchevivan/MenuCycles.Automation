@@ -18,6 +18,7 @@ Scenario: Calculations for "Total Cost" and "Revenue" should be correct for GP "
     When data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|TariffType|PriceModel|Target|TaxPercentage|
         |DANGELO          |BUFFET|Aneliya Buffet|              1| TariffOne|        GP|     5|           20|
+        |DANGELO          |BUFFET|Maya Buffet   |               |         ^|         ^|     ^|            ^|
     And data for recipes in buffet "Aneliya Buffet" in meal period "DANGELO" is set
         |RecipeTitle                  |PlannedQuantity|
         |004Bechamel Sauce            |              2|
@@ -26,9 +27,15 @@ Scenario: Calculations for "Total Cost" and "Revenue" should be correct for GP "
         |004Fresh Lemon Curd          |              5|
         |004Blueberry Muffin (Wrapped)|              6|
         |004Baked Beans_1             |              7|
+    And data for recipes in buffet "Maya Buffet" in meal period "DANGELO" is set
+        |RecipeTitle             |PlannedQuantity|
+        |004Basic Sponge         |               |
+        |004Fresh Lemon Curd     |               |
+        |004Fish Stock (bouillon)|               |
+        |004Beef Stock (bouillon)|               |
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
-        |DANGELO          |BUFFET|Aneliya Buffet|     86.88|   109.74|  91.45|      5%|
+        |DANGELO          |BUFFET|Aneliya Buffet|     95.84|   121.06| 100.88|      5%|
     And data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|
         |DANGELO          |BUFFET|Aneliya Buffet|              2|
@@ -42,7 +49,7 @@ Scenario: Calculations for "Total Cost" and "Revenue" should be correct for GP "
         |004Baked Beans_1             |             14|
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
-        |DANGELO          |BUFFET|Aneliya Buffet|    173.76|   109.74| 182.91|      5%|
+        |DANGELO          |BUFFET|Aneliya Buffet|    191.68|   121.06| 201.77|      5%|
 
 @TC27795
 Scenario: Calculations for "Total Cost" and "Revenue" and "Actual GP" should be correct for Fixed "Price Model" (Buffet Menu)
@@ -52,6 +59,7 @@ Scenario: Calculations for "Total Cost" and "Revenue" and "Actual GP" should be 
     When data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|TariffType|PriceModel   |TaxPercentage|SellPrice|
         |DANGELO          |BUFFET|Aneliya Buffet|              1| TariffOne|        Fixed|            5|      100|
+        |DANGELO          |BUFFET|Maya Buffet   |               |         ^|            ^|            ^|        ^|
     And data for recipes in buffet "Aneliya Buffet" in meal period "DANGELO" is set
         |RecipeTitle                  |PlannedQuantity|
         |004Bechamel Sauce            |              2|
@@ -60,9 +68,15 @@ Scenario: Calculations for "Total Cost" and "Revenue" and "Actual GP" should be 
         |004Fresh Lemon Curd          |              5|
         |004Blueberry Muffin (Wrapped)|              6|
         |004Baked Beans_1             |              7|
+    And data for recipes in buffet "Maya Buffet" in meal period "DANGELO" is set
+        |RecipeTitle             |PlannedQuantity|
+        |004Basic Sponge         |               |
+        |004Fresh Lemon Curd     |               |
+        |004Fish Stock (bouillon)|               |
+        |004Beef Stock (bouillon)|               |
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|Revenue|ActualGP|
-        |DANGELO          |BUFFET|Aneliya Buffet|     86.88|  95.24|      9%|
+        |DANGELO          |BUFFET|Aneliya Buffet|     65.14|  95.24|     32%|
     And data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|
         |DANGELO          |BUFFET|Aneliya Buffet|              2|
@@ -76,7 +90,7 @@ Scenario: Calculations for "Total Cost" and "Revenue" and "Actual GP" should be 
         |004Baked Beans_1             |             14|
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|Revenue|ActualGP|
-        |DANGELO          |BUFFET|Aneliya Buffet|    173.76| 190.48|      9%|
+        |DANGELO          |BUFFET|Aneliya Buffet|    130.28| 190.48|     32%|
 
 @TC27796
 Scenario: Calculations for "Total Cost" and "Sell Price" and "Revenue" should be correct for Mark Up "Price Model" (Buffet Menu)

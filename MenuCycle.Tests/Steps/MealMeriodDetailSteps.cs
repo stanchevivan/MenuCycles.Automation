@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Linq;
 using MenuCycle.Tests.PageObjects;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
@@ -83,20 +84,14 @@ namespace MenuCycle.Tests.Steps
         [Then(@"Verify items present in the search results are")]
         public void VerifyItemsReturnedFromSearchAre(Table table)
         {
-            for (int i = 0; i < table.RowCount; i++)
-            {
-                Assert.That(recipeSearch.GetRecipeFromSearch(table.Rows[i]["Name"]).Cost, Is.EqualTo(table.Rows[i]["Cost"]));
-            }
+            Assert.That(recipeSearch.Recipes.Select(x => x.Cost).ToList(), Is.EqualTo(table.Rows.Select(x => x["Cost"]).ToList()));
         }
 
         [When(@"Verify items in meal period detailed view")]
         [Then(@"Verify items in meal period detailed view")]
         public void VerifyItemsInMealPriodDetailedView(Table table)
         {
-            for (int i = 0; i < table.RowCount; i++)
-            {
-                Assert.That(recipeSearch.GetRecipeFromDetailedView(table.Rows[i]["Name"]).Cost, Is.EqualTo(table.Rows[i]["Cost"]));
-            }
+            Assert.That(mealPeriodDetails.Recipes.Select(x => x.Cost).ToList(), Is.EqualTo(table.Rows.Select(x => x["Cost"]).ToList()));
         }
 
         [When(@"meal period detailed view is closed")]
