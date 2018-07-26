@@ -21,9 +21,11 @@ namespace MenuCycle.Tests.Steps
         readonly RecipeSearch recipeSearch;
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
+        readonly ModalDialogPage modalDialogPage;
 
         public RecipeSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleCalendarView menuCycleCalendarView,
-            CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification)
+            CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification,
+                           ModalDialogPage modalDialogPage)
         {
             this.dailyPlanningView = dailyPlanningView;
             this.planningTabDays = planningTabDays;
@@ -33,6 +35,7 @@ namespace MenuCycle.Tests.Steps
             this.createMealPeriod = createMealPeriod;
             this.recipeSearch = recipeSearch;
             this.notification = notification;
+            this.modalDialogPage = modalDialogPage;
 
             this.scenarioContext = scenarioContext;
         }
@@ -310,12 +313,22 @@ namespace MenuCycle.Tests.Steps
                 .GetMealPeriod(mealPeriod)
                 .GetRecipe(recipe)
                 .UseUpdatePricesButton();
+
+            modalDialogPage.WaitToAppear();
         }
 
+        [When(@"Confirm is selected on the Update Prices dialog")]
         [When(@"Confirm is selected on unsaved changes dialog")]
         public void ConfirmIsSelectedOnUnsavedChangesDialog()
         {
-            planningTabDays.ConfirmDialog();
+            modalDialogPage.UseApplyButton();
+            planningTabDays.WaitForLoader();
+        }
+
+        [When(@"Future recipe instances count is (.*)")]
+        public void FutureRecipeInstancesCountIs(string count)
+        {
+            Assert.That(count, Is.EqualTo(modalDialogPage.RecipeCount));
         }
 
         [Then(@"Existing types for recipe ""(.*)"" in meal period ""(.*)"" are")]

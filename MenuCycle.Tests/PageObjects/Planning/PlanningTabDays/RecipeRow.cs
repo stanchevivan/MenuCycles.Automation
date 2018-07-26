@@ -215,7 +215,6 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             }
         }
 
-        // TODO: Need to handle multiple types
         public void DeleteType()
         {
             this.deleteType.Click();

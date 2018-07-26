@@ -259,7 +259,9 @@ Scenario: Mass recipe update
         |LUNCH         |RECIPE|004Baked Beans_3|Fixed     |TariffOne |     0#99|
     And "SellPrice" is saved in context for recipe "004Baked Beans_3" in meal period "LUNCH"
         And Save button is clicked
-        And Price is updated for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And Update prices button is clicked for recipe "004Baked Beans_3" in meal period "LUNCH"
+    And Future recipe instances count is 2
+        And Confirm is selected on the Update Prices dialog
         And Cancel button is clicked
         And planning for Friday is opened
     Then "SellPrice" is equal to the value saved in context for recipe "004Baked Beans_3" in meal period "DANGELO"

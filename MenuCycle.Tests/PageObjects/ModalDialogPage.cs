@@ -3,6 +3,7 @@ using Fourth.Automation.Framework.Page;
 using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using System.Text.RegularExpressions;
 
 namespace MenuCycle.Tests.PageObjects
 {
@@ -14,16 +15,26 @@ namespace MenuCycle.Tests.PageObjects
             Artefacts = artefacts;
         }
 
-        [FindsBy(How = How.ClassName, Using = "modal-dialog-engine__description > p")]
+        [FindsBy(How = How.CssSelector, Using = "modal-dialog-engine__description > p")]
         private IWebElement Message { get; set; }
-        [FindsBy(How = How.ClassName, Using = "modal-dialog-engine__title > span")]
+        [FindsBy(How = How.CssSelector, Using = "modal-dialog-engine__title > span")]
         private IWebElement Title { get; set; }
         [FindsBy(How = How.XPath, Using = "//*[@class='btn-default__text' and text()='Yes']")]
+        [FindsBy(How = How.XPath, Using = "//*[@class='btn-default__text' and text()='Apply']")]
         private IWebElement YesButton { get; set; }
         [FindsBy(How = How.XPath, Using = "//*[@class='btn-default__text' and text()='No']")]
         private IWebElement NoButton { get; set; }
+        [FindsBy(How = How.ClassName, Using = "displayed-count")]
+        private IWebElement recipeCountMessage { get; set; }
+
+        public string RecipeCount => Regex.Match(recipeCountMessage.Text, "\\d+").Value;
 
         public void UseYesButton()
+        {
+            YesButton.Click();
+        }
+
+        public void UseApplyButton()
         {
             YesButton.Click();
         }
@@ -40,7 +51,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public void WaitToAppear()
         {
-            Driver.WaitElementToExists(Message);
+            Driver.WaitElementToExists(recipeCountMessage);
         }
     }
 }

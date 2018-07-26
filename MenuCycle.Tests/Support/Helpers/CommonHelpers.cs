@@ -35,7 +35,7 @@ namespace MenuCycle.Tests
 
             // Substract '1' from {max}, because of the addition of fractional part
             randomNumber = rnd.Next(min, max - 1).ToString();
-            fractional = rnd.Next(100, 999).ToString();
+            fractional = rnd.Next(10, 99).ToString();
 
             return randomNumber + '.' + fractional;
         }

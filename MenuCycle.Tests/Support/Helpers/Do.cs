@@ -52,6 +52,7 @@ namespace MenuCycle.Tests
             // webElement.Clear();
             JavaScriptClear();
             webElement.SendKeys(text);
+            //JavaScriptSendKeys(text);
         }
 
         public void SendKeys(string text)
@@ -59,10 +60,23 @@ namespace MenuCycle.Tests
             webElement.SendKeys(text);
         }
 
+        public void JavaScriptSendKeys(string text)
+        {
+            ((IJavaScriptExecutor)Driver).ExecuteScript(@"arguments[0].value='" + text + "';", webElement, text);
+        }
+
         public void JavaScriptClear()
         {
             ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].value='';", webElement);
             ((IJavaScriptExecutor)Driver).ExecuteScript("$(arguments[0]).change();", webElement);
+        }
+
+        public void ClearWithBackSpace()
+        {
+            foreach (var character in webElement.Text)
+            {
+                SendKeys(Keys.Backspace);
+            }
         }
     }
 }
