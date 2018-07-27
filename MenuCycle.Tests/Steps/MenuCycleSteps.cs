@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MenuCycle.Data.Models;
 using MenuCycle.Tests.PageObjects;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
 
 namespace MenuCycle.Tests.Steps
 {
@@ -43,14 +41,6 @@ namespace MenuCycle.Tests.Steps
             logInAs.LogAs(userType);
         }
 
-        [Given(@"a Menu Cycle is selected")]
-        public void GivenAMenuCycleIsSelected()
-        {
-            var menuCycle = scenarioContext.Get<IList<MenuCycles>>().First();
-            menuCycleDashboard.SelectMenuCycleByName(menuCycle.Name);
-            menuCycleCalendarView.WaitPageLoad();
-        }
-
         [Given(@"Menu Cycle ""(.*)"" is selected")]
         [When(@"Menu Cycle ""(.*)"" is selected")]
         public void GivenMenuCycleIsSelected(string menuCycleName)
@@ -79,32 +69,12 @@ namespace MenuCycle.Tests.Steps
             }
         }
 
-        [When(@"a Menu Cycle with the following criteria is create")]
-        public void WhenAMenuCycleWithTheFollowingDataIsCreated()
-        {
-            menuCycleDashboard.CreateMenuCycleClick();
-
-            var group = scenarioContext.Get<IList<Groups>>().First();
-            var menuCycle = scenarioContext.Get<IList<MenuCycles>>().First();
-
-            createMenuCycle.Create(menuCycle, group);
-
-            menuCycleCalendarView.WaitPageLoad();
-        }
-
         [Given(@"the message '(.*)' is displayed")]
         [When(@"the message '(.*)' is displayed")]
         [Then(@"the message '(.*)' is displayed")]
         public void ThenAMessageIsDisplayed(string message)
         {
             notification.ValidateToastMessage(message);
-        }
-
-        [Then(@"the calendar view is opened")]
-        public void ThenTheCalendardViewIsOpened()
-        {
-            var menuCycle = scenarioContext.Get<IList<MenuCycles>>().First();
-            menuCycleCalendarView.ValidateWindow(menuCycle.Name);
         }
 
         [Given(@"planning for (.*) is opened")]

@@ -3,7 +3,6 @@ using System.Linq;
 using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Page;
 using Fourth.Automation.Framework.Reporting;
-using MenuCycle.Data.Models;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
@@ -121,18 +120,6 @@ namespace MenuCycle.Tests.PageObjects
         public void AddMealPeriod(string weekDayName)
         {
             CalendarHeaders.First(c => c.Name.StartsWith(weekDayName, System.StringComparison.CurrentCultureIgnoreCase)).UseMealPeriodButton();
-        }
-
-        public void ValidateMealPeriod(string weekDay, MealPeriods expectedMealPeriod, Recipes expectedRecipes)
-        {
-            //Gets index for column of specified week day
-            var columnIndex = CalendarHeaders.FindIndex(c => c.Name.StartsWith(weekDay, System.StringComparison.CurrentCultureIgnoreCase));
-
-            //Gets the meal period
-            var mealPeriodCard = CalendarColumns[columnIndex].MealPeriodCards.First(m => m.Name == expectedMealPeriod.Name.ToUpper());
-
-            Assert.AreEqual(1, mealPeriodCard.Recipes.Count);
-            Assert.AreEqual(expectedRecipes.Name, mealPeriodCard.Recipes[0].Text);
         }
 
         public void OpenDailyPlanningForDay(string weekDay)

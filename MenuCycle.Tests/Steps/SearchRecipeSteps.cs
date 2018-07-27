@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MenuCycle.Data.Models;
 using MenuCycle.Tests.PageObjects;
 using TechTalk.SpecFlow;
 
@@ -32,26 +31,6 @@ namespace MenuCycle.Tests.Steps
             this.notification = notification;
 
             this.scenarioContext = scenarioContext;
-        }
-
-        [When(@"the first recipe is searched by name")]
-        public void WhenTheFirstRecipeIsSearchedByName()
-        {
-            createMealPeriod.AddRecipe();
-            recipeSearch.SearchRecipeByName(scenarioContext.Get<IList<Recipes>>().First().Name);
-        }
-
-        [When(@"recipe is added to a meal period")]
-        public void WhenRecipeIsAddedToAMealPeriod()
-        {
-            recipeSearch.AddRecipe(scenarioContext.Get<IList<Recipes>>().First().Name);
-            createMealPeriod.SaveAndCloseMealPeriod();
-        }
-
-        [Then(@"recipe is displayed under (.*) column inside the correct Meal Period")]
-        public void ThenRecipeIsDiplayedUnderColumnInsideTheCorrectMealPeriod(string weekDayName)
-        {
-            menuCycleCalendarView.ValidateMealPeriod(weekDayName, scenarioContext.Get<IList<MealPeriods>>().First(), scenarioContext.Get<IList<Recipes>>().First());
         }
     }
 }

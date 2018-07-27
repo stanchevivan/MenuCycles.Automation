@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MenuCycle.Data.Models;
 using MenuCycle.Tests.Models;
 using MenuCycle.Tests.PageObjects;
 using NUnit.Framework;
@@ -38,13 +37,6 @@ namespace MenuCycle.Tests.Steps
             this.modalDialogPage = modalDialogPage;
 
             this.scenarioContext = scenarioContext;
-        }
-
-        [Given(@"a Meal Period for (.*) is added")]
-        public void GivenAMealPeriodForIsAddedToAMenuCycle(string weekDayName)
-        {
-            menuCycleCalendarView.AddMealPeriod(weekDayName);
-            createMealPeriod.SelectMealPeriod(scenarioContext.Get<IList<MealPeriods>>().First().Name);
         }
 
         [Given(@"Meal Period ""(.*)"" is expanded")]

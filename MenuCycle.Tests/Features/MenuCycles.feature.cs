@@ -87,19 +87,6 @@ this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Group",
-                        "NonServingDays"});
-            table1.AddRow(new string[] {
-                        "SodexoUp",
-                        "32"});
-#line 12
-    testRunner.When("a Menu Cycle with the following criteria is create", ((string)(null)), table1, "When ");
-#line 15
-    testRunner.Then("the message \'Menu Cycle has been created.\' is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 16
-    testRunner.And("the calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
             this.ScenarioCleanup();
         }
     }

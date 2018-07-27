@@ -396,7 +396,6 @@
     <Compile Include="Steps\SeedSteps.cs" />
     <Compile Include="Support\Hooks.cs" />
     <Compile Include="Support\SeedHooks.cs" />
-    <Compile Include="Support\Transform.cs" />
     <Compile Include="PageObjects\Planning\PlanningView.cs" />
     <Compile Include="Features\MealPeriods.feature.cs">
       <DependentUpon>MealPeriods.feature</DependentUpon>
@@ -521,12 +520,6 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LocalUserPlanningScreen.feature.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MenuCycle.Data\MenuCycle.Data.csproj">
-      <Project>{1A8FA9B2-8A98-424C-B39E-429BCB6C9708}</Project>
-      <Name>MenuCycle.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
