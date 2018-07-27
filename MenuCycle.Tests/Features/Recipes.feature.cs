@@ -105,28 +105,22 @@ this.FeatureBackground();
                         "RecipeTitle",
                         "PlannedQuantity",
                         "CostPerUnit",
-                        "TotalCosts",
                         "TariffType",
                         "PriceModel",
                         "Target",
                         "TaxPercentage",
-                        "SellPrice",
-                        "Revenue",
-                        "ActualGP"});
+                        "SellPrice"});
             table1.AddRow(new string[] {
                         "DANGELO",
                         "RECIPE",
-                        "Cheese",
-                        "2",
-                        "20.27",
-                        "40.54",
-                        "TariffTwo",
-                        "Markup",
+                        "703Coronation Chicken Sandwich Filling (50g)",
                         "12",
+                        "0.81",
+                        "TariffOne",
+                        "GP",
+                        "5",
                         "20",
-                        "27.24",
-                        "45.4",
-                        "11%"});
+                        "1.02"});
 #line 17
     testRunner.Then("Verify data for items is", ((string)(null)), table1, "Then ");
 #line hidden

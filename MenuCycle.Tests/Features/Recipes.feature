@@ -15,8 +15,8 @@ Scenario: Retrieve recipe information from the API
     Given Menu Cycle "Meda" is selected
     When planning for Thursday is opened
     Then Verify data for items is
-        |MealPeriodName|TYPE  |RecipeTitle|PlannedQuantity|CostPerUnit|TotalCosts|TariffType|PriceModel|Target|TaxPercentage|SellPrice|Revenue|ActualGP|
-        |DANGELO       |RECIPE|Cheese     |              2|      20.27|     40.54| TariffTwo|    Markup|    12|           20|    27.24|   45.4|     11%|
+        |MealPeriodName|TYPE  |RecipeTitle                                 |PlannedQuantity|CostPerUnit|TariffType|PriceModel|Target|TaxPercentage|SellPrice|
+        |DANGELO       |RECIPE|703Coronation Chicken Sandwich Filling (50g)|             12|       0.81| TariffOne|        GP|     5|           20|     1.02|
 
 @TC28830
 Scenario: "Target %" field is not present and "Sell Price" can be edited if "Price model" = "Fixed"
