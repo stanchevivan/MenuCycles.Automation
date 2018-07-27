@@ -119,7 +119,18 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public void SetData(RecipeModel dto)
         {
-            if (dto.PlannedQuantity != null && dto.PlannedQuantity != "^") this.PlannedQuantity = dto.PlannedQuantity;
+            if (dto.PlannedQuantity != null && dto.PlannedQuantity != "^") 
+            {
+                if (dto.Type == "BUFFET")
+                {
+                    this.plannedQuantity.Do(Driver).ClearWithoutFocusOut();
+                    this.plannedQuantity.Do(Driver).SendKeys(dto.PlannedQuantity);
+                }
+                else
+                {
+                    this.PlannedQuantity = dto.PlannedQuantity;
+                }
+            }
 
             if (dto.TariffType != null && dto.TariffType != "^") this.TariffType = dto.TariffType;
 
