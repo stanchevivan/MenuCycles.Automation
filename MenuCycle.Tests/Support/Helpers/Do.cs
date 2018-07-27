@@ -49,10 +49,8 @@ namespace MenuCycle.Tests
 
         public void ClearAndSendKeys(string text)
         {
-             webElement.Clear();
-            //JavaScriptClear();
+            JavaScriptClear();
             webElement.SendKeys(text);
-            //JavaScriptSendKeys(text);
         }
 
         public void SendKeys(string text)
@@ -67,16 +65,9 @@ namespace MenuCycle.Tests
 
         public void JavaScriptClear()
         {
+            FocusIn();
             ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].value='';", webElement);
-            ((IJavaScriptExecutor)Driver).ExecuteScript("$(arguments[0]).change();", webElement);
-        }
-
-        public void ClearWithBackSpace()
-        {
-            foreach (var character in webElement.Text)
-            {
-                SendKeys(Keys.Backspace);
-            }
+            FocusOut();
         }
     }
 }
