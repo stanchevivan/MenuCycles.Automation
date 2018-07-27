@@ -347,13 +347,13 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Recipes onlyCalculate Meal period \"Planned Quantity\", \"Total Cost\", \"Revenue\" and" +
-            " \"ActualGP\"")]
+        [NUnit.Framework.DescriptionAttribute("Recipes only - Calculate Meal period \"Planned Quantity\", \"Total Cost\", \"Revenue\" " +
+            "and \"ActualGP\"")]
         [NUnit.Framework.CategoryAttribute("TC29384")]
-        public virtual void RecipesOnlyCalculateMealPeriodPlannedQuantityTotalCostRevenueAndActualGP()
+        public virtual void RecipesOnly_CalculateMealPeriodPlannedQuantityTotalCostRevenueAndActualGP()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Recipes onlyCalculate Meal period \"Planned Quantity\", \"Total Cost\", \"Revenue\" and" +
-                    " \"ActualGP\"", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Recipes only - Calculate Meal period \"Planned Quantity\", \"Total Cost\", \"Revenue\" " +
+                    "and \"ActualGP\"", new string[] {
                         "TC29384"});
 #line 93
 this.ScenarioSetup(scenarioInfo);
@@ -410,9 +410,9 @@ this.FeatureBackground();
                         "ActualGP"});
             table2.AddRow(new string[] {
                         "30",
-                        "218.50",
-                        "243.50",
-                        "10%"});
+                        "18.2",
+                        "17.75",
+                        "-3%"});
 #line 101
     testRunner.Then("Value for fields for meal period \"DANGELO\" is", ((string)(null)), table2, "Then ");
 #line hidden
@@ -462,14 +462,23 @@ this.FeatureBackground();
                         "RecipeTitle",
                         "PlannedQuantity"});
             table4.AddRow(new string[] {
-                        "004Fish Stock (bouillon)",
+                        "004Basic Sponge",
                         "10"});
             table4.AddRow(new string[] {
-                        "004Basic Sponge",
+                        "004Fresh Lemon Curd",
                         "20"});
             table4.AddRow(new string[] {
-                        "004Fresh Lemon Curd",
+                        "004Fish Stock (bouillon)",
                         "30"});
+            table4.AddRow(new string[] {
+                        "004Beef Stock (bouillon)",
+                        "40"});
+            table4.AddRow(new string[] {
+                        "724Custard Sauce (powder, fresh milk)",
+                        "50"});
+            table4.AddRow(new string[] {
+                        "004German Shortcrust Pastry (fresh)007",
+                        "60"});
 #line 112
     testRunner.And("data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table4, "And ");
 #line hidden
@@ -479,11 +488,11 @@ this.FeatureBackground();
                         "Revenue",
                         "ActualGP"});
             table5.AddRow(new string[] {
-                        "60",
-                        "108.3",
+                        "210",
+                        "391.2",
                         "191.67",
-                        "43%"});
-#line 117
+                        "-104%"});
+#line 120
     testRunner.Then("Value for fields for meal period \"DANGELO\" is", ((string)(null)), table5, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -498,13 +507,13 @@ this.FeatureBackground();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A la cares only - Calculate Meal period \"Planned Quantity\", \"Total Cost\", \"Revenu" +
                     "e\" and \"ActualGP\"", new string[] {
                         "TC29388"});
-#line 122
+#line 125
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 123
+#line 126
     testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 124
+#line 127
     testRunner.When("planning for Friday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
@@ -528,7 +537,7 @@ this.FeatureBackground();
                         "^",
                         "20",
                         "55"});
-#line 125
+#line 128
     testRunner.And("data for recipes in a la carte \"Holiday A La Carte\" in meal period \"DANGELO\" is s" +
                     "et", ((string)(null)), table6, "And ");
 #line hidden
@@ -539,10 +548,10 @@ this.FeatureBackground();
                         "ActualGP"});
             table7.AddRow(new string[] {
                         "5",
-                        "6541.91",
-                        "137.59",
-                        "-4655%"});
-#line 129
+                        "7136.9",
+                        "137.72",
+                        "-5082%"});
+#line 132
     testRunner.Then("Value for fields for meal period \"DANGELO\" is", ((string)(null)), table7, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -557,13 +566,13 @@ this.FeatureBackground();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Combined for Buffet, A la cares and recipes - Calculate Meal period \"Planned Quan" +
                     "tity\", \"Total Cost\", \"Revenue\" and \"ActualGP\"", new string[] {
                         "TC29391"});
-#line 134
+#line 137
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 135
+#line 138
     testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 136
+#line 139
     testRunner.When("planning for Friday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
@@ -587,7 +596,7 @@ this.FeatureBackground();
                         "^",
                         "20",
                         "55"});
-#line 137
+#line 140
     testRunner.And("data for recipes in a la carte \"Holiday A La Carte\" in meal period \"DANGELO\" is s" +
                     "et", ((string)(null)), table8, "And ");
 #line hidden
@@ -609,22 +618,31 @@ this.FeatureBackground();
                         "Fixed",
                         "20",
                         "23"});
-#line 141
+#line 144
     testRunner.And("data for buffets is set", ((string)(null)), table9, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                         "RecipeTitle",
                         "PlannedQuantity"});
             table10.AddRow(new string[] {
-                        "004Fish Stock (bouillon)",
+                        "004Basic Sponge",
                         "10"});
             table10.AddRow(new string[] {
-                        "004Basic Sponge",
+                        "004Fresh Lemon Curd",
                         "20"});
             table10.AddRow(new string[] {
-                        "004Fresh Lemon Curd",
+                        "004Fish Stock (bouillon)",
                         "30"});
-#line 144
+            table10.AddRow(new string[] {
+                        "004Beef Stock (bouillon)",
+                        "40"});
+            table10.AddRow(new string[] {
+                        "724Custard Sauce (powder, fresh milk)",
+                        "50"});
+            table10.AddRow(new string[] {
+                        "004German Shortcrust Pastry (fresh)007",
+                        "60"});
+#line 147
     testRunner.And("data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table10, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
@@ -654,7 +672,7 @@ this.FeatureBackground();
                         "^",
                         "20",
                         "1"});
-#line 149
+#line 155
     testRunner.And("data for recipes is set", ((string)(null)), table11, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
@@ -663,11 +681,11 @@ this.FeatureBackground();
                         "Revenue",
                         "ActualGP"});
             table12.AddRow(new string[] {
-                        "85",
-                        "6668.41",
-                        "339.22",
-                        "-1866%"});
-#line 153
+                        "235",
+                        "7549",
+                        "340.17",
+                        "-2119%"});
+#line 159
     testRunner.Then("Value for fields for meal period \"DANGELO\" is", ((string)(null)), table12, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -680,23 +698,23 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Meal periods are collapsed after reopening planning screen", new string[] {
                         "TC29560"});
-#line 158
+#line 164
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 159
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 160
-    testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 161
-        testRunner.And("Open all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 162
-    testRunner.And("all meal periods are expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 163
-        testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 164
-        testRunner.And("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 165
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 166
+    testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 167
+        testRunner.And("Open all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 168
+    testRunner.And("all meal periods are expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 169
+        testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 170
+        testRunner.And("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 171
     testRunner.Then("all meal periods are collapsed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -709,15 +727,15 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("More than one hundred recipies are shown in a meal period", new string[] {
                         "TC30011"});
-#line 168
+#line 174
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 169
+#line 175
     testRunner.Given("Menu Cycle \"Testing Copying Meal Periods\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 170
+#line 176
     testRunner.When("planning for Wednesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 171
+#line 177
     testRunner.Then("\"132\" recipies are present in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -734,17 +752,17 @@ this.FeatureBackground();
                     " view", new string[] {
                         "TC30087",
                         "D24839"});
-#line 174
+#line 180
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 175
+#line 181
     testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 176
+#line 182
         testRunner.And("Meal Period names for \"Tuesday\" are saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 177
+#line 183
     testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 178
+#line 184
     testRunner.Then("Meal Period names match the calendar view names", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -759,11 +777,11 @@ this.FeatureBackground();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search Menu Cycles by name or description", new string[] {
                         "TC27713",
                         "Smoke"});
-#line 181
+#line 187
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 182
+#line 188
     testRunner.When("Menu Cycle \"FOR AUTOMATION TESTS - DO NOT TOUCH\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
@@ -772,9 +790,9 @@ this.FeatureBackground();
             table13.AddRow(new string[] {
                         "Meda",
                         "FOR AUTOMATION TESTS - DO NOT TOUCH"});
-#line 183
+#line 189
         testRunner.And("Verify search results contain the following menu cycles", ((string)(null)), table13, "And ");
-#line 186
+#line 192
     testRunner.When("Menu Cycle \"MC with recipes\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
@@ -783,7 +801,7 @@ this.FeatureBackground();
             table14.AddRow(new string[] {
                         "MC with recipes",
                         "Testing the publishing of a MC with recipes"});
-#line 187
+#line 193
         testRunner.And("Verify search results contain the following menu cycles", ((string)(null)), table14, "And ");
 #line hidden
             this.ScenarioCleanup();

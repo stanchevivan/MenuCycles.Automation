@@ -90,7 +90,7 @@ Scenario: Open all meal periods in Planning screen
     Then all meal periods are collapsed
 
 @TC29384
-Scenario: Recipes onlyCalculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP" 
+Scenario: Recipes only - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP" 
     Given Menu Cycle "Meda" is selected
     When planning for Thursday is opened
     And data for recipes is set
@@ -100,7 +100,7 @@ Scenario: Recipes onlyCalculate Meal period "Planned Quantity", "Total Cost", "R
         |DANGELO       |RECIPE|Cheese                                      |             10|    Markup|    12|            20|       ^|
     Then Value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
-        |        30|   218.50| 243.50|     10%|
+        |        30|     18.2|  17.75|     -3%|
 
 @TC29387
 Scenario: Buffets only - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
@@ -110,13 +110,16 @@ Scenario: Buffets only - Calculate Meal period "Planned Quantity", "Total Cost",
         |MealPeriodName|TYPE  |RecipeTitle|PlannedQuantity|TariffType|PriceModel|TaxPercentage|SellPrice|
         |DANGELO       |BUFFET|Maya Buffet|             10| TariffOne|     Fixed|           20|       23|
     And data for recipes in buffet "Maya Buffet" in meal period "DANGELO" is set
-        |RecipeTitle              |PlannedQuantity|
-        |004Fish Stock (bouillon) |             10|
-        |004Basic Sponge          |             20|
-        |004Fresh Lemon Curd      |             30|
+        |RecipeTitle                           |PlannedQuantity|
+        |004Basic Sponge                       |             10|
+        |004Fresh Lemon Curd                   |             20|
+        |004Fish Stock (bouillon)              |             30|
+        |004Beef Stock (bouillon)              |             40|
+        |724Custard Sauce (powder, fresh milk) |             50|
+        |004German Shortcrust Pastry (fresh)007|             60|
     Then Value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
-        |        60|    108.3| 191.67|     43%|
+        |       210|    391.2| 191.67|   -104%|
 
 @TC29388
 Scenario: A la cares only - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
@@ -128,7 +131,7 @@ Scenario: A la cares only - Calculate Meal period "Planned Quantity", "Total Cos
         |724Pepper & Garlic Coated Beef|              3|     Fixed|     ^|           20|       55|
     Then Value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost  |Revenue|ActualGP|
-        |         5|    6541.91| 137.59|  -4655%|
+        |         5|     7136.9| 137.72|  -5082%|
 
 @TC29391
 Scenario: Combined for Buffet, A la cares and recipes - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
@@ -142,17 +145,20 @@ Scenario: Combined for Buffet, A la cares and recipes - Calculate Meal period "P
         |MealPeriodName|TYPE  |RecipeTitle|PlannedQuantity|TariffType|PriceModel|TaxPercentage|SellPrice|
         |DANGELO       |BUFFET|Maya Buffet|             10| TariffOne|     Fixed|           20|       23|
     And data for recipes in buffet "Maya Buffet" in meal period "DANGELO" is set
-        |RecipeTitle              |PlannedQuantity|
-        |004Fish Stock (bouillon) |             10|
-        |004Basic Sponge          |             20|
-        |004Fresh Lemon Curd      |             30|
+        |RecipeTitle                           |PlannedQuantity|
+        |004Basic Sponge                       |             10|
+        |004Fresh Lemon Curd                   |             20|
+        |004Fish Stock (bouillon)              |             30|
+        |004Beef Stock (bouillon)              |             40|
+        |724Custard Sauce (powder, fresh milk) |             50|
+        |004German Shortcrust Pastry (fresh)007|             60|
     And data for recipes is set
         |MealPeriodName|TYPE  |RecipeTitle      |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
         |DANGELO       |RECIPE|004Bechamel Sauce|             10|        GP|    14|            20|       ^|
         |DANGELO       |RECIPE|004Baked Beans_3 |             10|     Fixed|     ^|            20|       1|
     Then Value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
-        |        85|  6668.41| 339.22|  -1866%|
+        |       235|     7549| 340.17|  -2119%|
 
 @TC29560
 Scenario: Meal periods are collapsed after reopening planning screen

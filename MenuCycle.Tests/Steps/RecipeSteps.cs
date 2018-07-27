@@ -313,8 +313,6 @@ namespace MenuCycle.Tests.Steps
                 .GetMealPeriod(mealPeriod)
                 .GetRecipe(recipe)
                 .UseUpdatePricesButton();
-
-            modalDialogPage.WaitToAppear();
         }
 
         [When(@"Confirm is selected on the Update Prices dialog")]
@@ -328,6 +326,7 @@ namespace MenuCycle.Tests.Steps
         [When(@"Future recipe instances count is (.*)")]
         public void FutureRecipeInstancesCountIs(string count)
         {
+            modalDialogPage.WaitToAppear();
             Assert.That(count, Is.EqualTo(modalDialogPage.RecipeCount));
         }
 
