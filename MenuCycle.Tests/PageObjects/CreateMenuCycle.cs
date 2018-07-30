@@ -43,11 +43,6 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.Id, Using = "cancel")]
         public IWebElement CancelButton { get; set; }
 
-<<<<<<< HEAD
-        public void Create()
-        {
-
-=======
         [FindsBy(How = How.ClassName, Using = "radio")]
         public IList<IWebElement> NonServingDaysCheckBox { get; set; }
 
@@ -67,7 +62,6 @@ namespace MenuCycle.Tests.PageObjects
         public void InputMenuCycleDescription(string description)
         {
             Description.ClearAndSendKeys(description);
->>>>>>> PageObjects for creation of menu cycle
         }
 
         public void WaitPageLoad()

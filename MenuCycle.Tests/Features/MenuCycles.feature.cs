@@ -85,8 +85,6 @@ this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-<<<<<<< HEAD
-=======
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "MenuCycleName",
                         "Description",
@@ -100,7 +98,6 @@ this.FeatureBackground();
 #line 11
     testRunner.Given("Menu Cycle is created with following data", ((string)(null)), table1, "Given ");
 #line hidden
->>>>>>> PageObjects for creation of menu cycle
             this.ScenarioCleanup();
         }
     }
