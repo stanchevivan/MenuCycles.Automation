@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Page;
 using Fourth.Automation.Framework.Reporting;
@@ -42,24 +43,13 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.Id, Using = "cancel")]
         public IWebElement CancelButton { get; set; }
 
+<<<<<<< HEAD
         public void Create()
         {
 
-        }
-
-        internal void SelectNonServingDays(int daysOfWeekList)
-        {
-            if (daysOfWeekList == 0)
-            {
-                return;
-            }
-
-            if (daysOfWeekList < 64)
-            {
-                DaysOfWeek.ElementByText(((NonServingDays)daysOfWeekList).ToString()).FindElement(By.CssSelector("label")).Click();
-            }
-            //TODO: Implement logic to when more than one day of the week is selected.
-        }
+=======
+        [FindsBy(How = How.ClassName, Using = "radio")]
+        public IList<IWebElement> NonServingDaysCheckBox { get; set; }
 
         internal void SearchAndSelectOffer(string offer)
         {
@@ -68,16 +58,31 @@ namespace MenuCycle.Tests.PageObjects
             SearchGroupButton.Click();
             OffersList.ElementByText(offer).FindElement(By.CssSelector("label")).Click();
         }
-        public enum NonServingDays
+
+        public void InputMenuCycleName(string name)
         {
-            None = 0,
-            Monday = 1,
-            Tuesday = 2,
-            Wednesday = 4,
-            Thursday = 8,
-            Friday = 16,
-            Saturday = 32,
-            Sunday = 64
+            MenuName.ClearAndSendKeys(name);
+        }
+
+        public void InputMenuCycleDescription(string description)
+        {
+            Description.ClearAndSendKeys(description);
+>>>>>>> PageObjects for creation of menu cycle
+        }
+
+        public void WaitPageLoad()
+        {
+            Driver.WaitElementToExists(MenuName);
+        }
+
+        public void UseNextButton()
+        {
+            NextButton.Click();
+        }
+
+        public void UseCancelButton()
+        {
+            CancelButton.Click();
         }
     }
 }

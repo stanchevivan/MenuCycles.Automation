@@ -76,17 +76,31 @@ testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFl
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create Menu Cycle")]
-        [NUnit.Framework.CategoryAttribute("menucycle")]
-        public virtual void CreateMenuCycle()
+        [NUnit.Framework.DescriptionAttribute("Test")]
+        public virtual void Test()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Menu Cycle", new string[] {
-                        "menucycle"});
-#line 11
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test", ((string[])(null)));
+#line 10
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
+<<<<<<< HEAD
+=======
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MenuCycleName",
+                        "Description",
+                        "GapDays",
+                        "Usergroup"});
+            table1.AddRow(new string[] {
+                        "Menu Cycle",
+                        "Description",
+                        "Saturday,Sunday",
+                        "SodexoUK"});
+#line 11
+    testRunner.Given("Menu Cycle is created with following data", ((string)(null)), table1, "Given ");
+#line hidden
+>>>>>>> PageObjects for creation of menu cycle
             this.ScenarioCleanup();
         }
     }

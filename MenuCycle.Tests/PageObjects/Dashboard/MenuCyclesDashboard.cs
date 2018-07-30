@@ -64,5 +64,11 @@ namespace MenuCycle.Tests.PageObjects
         {
             return CreateMenuCycleButton.Get().ElementPresent;
         }
+
+        public void UseCreateMenuCycleButton()
+        {
+            Driver.WaitIsClickable(CreateMenuCycleButton);
+            CreateMenuCycleButton.Click();
+        }
     }
 }

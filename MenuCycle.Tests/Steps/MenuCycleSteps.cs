@@ -93,5 +93,20 @@ namespace MenuCycle.Tests.Steps
             Assert.IsTrue(menuCycleCalendarView.IsCalendarViewOpen);
         }
 
+        [Given(@"Menu Cycle is created with following data")]
+        public void GivenMenuCycleIsCreatedWithFollowingData(Table table)
+        {
+            string Name = table.Rows[0]["MenuCycleName"];
+            string Description = table.Rows[0]["Description"];
+            List<string> GapDays = table.Rows[0]["GapDays"].Split(',').ToList();
+            string Usergroup = table.Rows[0]["Usergroup"];
+
+            menuCycleDashboard.UseCreateMenuCycleButton();
+            createMenuCycle.WaitPageLoad();
+            createMenuCycle.InputMenuCycleName(Name);
+            createMenuCycle.InputMenuCycleDescription(Description);
+            createMenuCycle.UseNextButton();
+        }
+
     }
 }
