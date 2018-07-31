@@ -682,9 +682,9 @@ this.FeatureBackground();
                         "ActualGP"});
             table7.AddRow(new string[] {
                         "109",
-                        "198.48",
+                        "221.04",
                         "315.71",
-                        "37%"});
+                        "30%"});
 #line 194
     testRunner.Then("Daily Totals are equal to", ((string)(null)), table7, "Then ");
 #line hidden

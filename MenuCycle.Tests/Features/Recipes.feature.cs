@@ -246,35 +246,38 @@ this.FeatureBackground();
         testRunner.And("red border and contextual error message \"Must be -99.99 to 99.99\" is displayed fo" +
                     "r TargetGP field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 55
+        testRunner.And("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"1" +
+                    "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 56
         testRunner.And("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"\"" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 56
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 57
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 58
         testRunner.And("red border and contextual error message \"Value is required\" is displayed for Targ" +
                     "etGP field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 58
+#line 59
         testRunner.And("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"7" +
                     "a7\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 59
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 60
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 61
         testRunner.And("red border and contextual error message \"Must be number\" is displayed for TargetG" +
                     "P field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 61
+#line 62
         testRunner.And("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"-" +
                     "99.99\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 62
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 63
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 64
         testRunner.And("red border is not displayed around Target% for recipe \"004Baked Beans_3\" in meal " +
                     "period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 64
+#line 65
         testRunner.And("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"9" +
                     "9.99\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 65
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 66
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 67
     testRunner.Then("red border is not displayed around Target% for recipe \"004Baked Beans_3\" in meal " +
                     "period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -288,58 +291,58 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Target Markup % validations", new string[] {
                         "TC29036"});
-#line 69
+#line 70
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 70
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 71
-    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 72
+    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 73
         testRunner.And("Price model for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"Marku" +
                     "p\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 73
+#line 74
         testRunner.And("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"5" +
                     "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 74
+#line 75
         testRunner.And("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"\"" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 75
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 76
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 77
         testRunner.And("red border and contextual error message \"Value is required\" is displayed for Targ" +
                     "etGP field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 77
+#line 78
         testRunner.And("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"-" +
                     "1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 78
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 79
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 80
         testRunner.And("red border and contextual error message \"Must be 0 or greater\" is displayed for T" +
                     "argetGP field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 80
+#line 81
         testRunner.And("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"7" +
                     "a7\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 81
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 82
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 83
         testRunner.And("red border and contextual error message \"Must be number\" is displayed for TargetG" +
                     "P field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 83
+#line 84
         testRunner.And("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"0" +
                     "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 84
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 85
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 86
         testRunner.And("red border is not displayed around Target% for recipe \"004Baked Beans_3\" in meal " +
                     "period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 86
+#line 87
         testRunner.And("TargetGP% for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"2" +
                     "134\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 87
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 88
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 89
     testRunner.Then("red border is not displayed around Target% for recipe \"004Baked Beans_3\" in meal " +
                     "period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -353,58 +356,58 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sell price validations", new string[] {
                         "TC29039"});
-#line 91
+#line 92
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 92
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 93
-    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 94
+    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 95
         testRunner.And("Price model for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"Fixed" +
                     "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 95
+#line 96
         testRunner.And("SellPrice for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"5" +
                     "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 96
+#line 97
         testRunner.And("SellPrice for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"\"" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 97
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 98
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 99
         testRunner.And("red border and contextual error message \"Value is required\" is displayed for Sell" +
                     " Price field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 99
+#line 100
         testRunner.And("SellPrice for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"-" +
                     "1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 100
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 101
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 102
         testRunner.And("red border and contextual error message \"Must be 0 or greater\" is displayed for S" +
                     "ell Price field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 102
+#line 103
         testRunner.And("SellPrice for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"7" +
                     "a7\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 103
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 104
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 105
         testRunner.And("red border and contextual error message \"Must be number\" is displayed for Sell Pr" +
                     "ice field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 105
+#line 106
         testRunner.And("SellPrice for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"0" +
                     "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 106
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 107
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 108
         testRunner.And("red border is not displayed around Sell Price for recipe \"004Baked Beans_3\" in me" +
                     "al period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 108
+#line 109
         testRunner.And("SellPrice for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"4" +
                     "322\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 109
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 110
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 111
     testRunner.Then("red border is not displayed around Sell Price for recipe \"004Baked Beans_3\" in me" +
                     "al period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -418,17 +421,17 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Retrieve Recipe Price from the API (NO Min - Max)", new string[] {
                         "TC28899"});
-#line 113
+#line 114
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 114
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 115
-    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 116
+    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 117
     testRunner.Then("CostPerUnit for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is equal t" +
-                    "o \"1.68\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                    "o \"1.88\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -448,13 +451,13 @@ this.FeatureBackground();
                         "TC27721",
                         "TC27724",
                         "TC27726"});
-#line 119
+#line 120
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 120
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 121
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 122
     testRunner.And("planning for Wednesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -478,7 +481,7 @@ this.FeatureBackground();
                         "5",
                         "5",
                         "^"});
-#line 122
+#line 123
     testRunner.When("data for recipes in a la carte \"Holiday A La Carte\" in meal period \"LANCE\" is set" +
                     "", ((string)(null)), table2, "When ");
 #line hidden
@@ -500,7 +503,7 @@ this.FeatureBackground();
                         "Markup",
                         "15",
                         "0"});
-#line 126
+#line 127
     testRunner.And("data for recipes is set", ((string)(null)), table3, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -512,19 +515,19 @@ this.FeatureBackground();
                         "ActualGP"});
             table4.AddRow(new string[] {
                         "004Bread (fresh dough)",
-                        "0.04",
-                        "0.08",
+                        "0.1",
+                        "0.2",
                         "^",
                         "91.67",
                         "100%"});
             table4.AddRow(new string[] {
                         "724Pepper & Garlic Coated Beef",
-                        "2180.61",
-                        "6541.83",
-                        "2410.15",
-                        "6886.14",
+                        "2378.9",
+                        "7136.7",
+                        "2629.31",
+                        "7512.32",
                         "5%"});
-#line 129
+#line 130
     testRunner.Then("Verify data for recipes in a la carte \"Holiday A La Carte\" in meal period \"LANCE\"" +
                     " is", ((string)(null)), table4, "Then ");
 #line hidden
@@ -540,11 +543,11 @@ this.FeatureBackground();
                         "LANCE",
                         "RECIPE",
                         "004Basic Sponge",
-                        "2.12",
-                        "0.61",
-                        "2.44",
+                        "2.52",
+                        "0.72",
+                        "2.9",
                         "13%"});
-#line 133
+#line 134
     testRunner.And("Verify data for items is", ((string)(null)), table5, "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -559,46 +562,46 @@ this.FeatureBackground();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Planned Quantity validations", new string[] {
                         "TC29101",
                         "D23785"});
-#line 138
+#line 139
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 139
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 140
-    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 141
+    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 142
         testRunner.And("quantity for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"5\"" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 142
-        testRunner.And("quantity for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 143
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("quantity for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 144
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 145
         testRunner.And("red border and contextual error message \"Value is required\" is displayed for Plan" +
                     "ned Quantity field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 145
+#line 146
         testRunner.And("quantity for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"-1" +
                     "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 146
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 147
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 148
         testRunner.And("red border and contextual error message \"Must be 0 or greater\" is displayed for P" +
                     "lanned Quantity field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 148
+#line 149
         testRunner.And("quantity for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"7a" +
                     "7\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 149
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 150
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 151
         testRunner.And("red border and contextual error message \"Must be integer\" is displayed for Planne" +
                     "d Quantity field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 151
+#line 152
         testRunner.And("quantity for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"0\"" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 152
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 153
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 154
     testRunner.Then("red border is not displayed around Planned Quantity for recipe \"004Baked Beans_3\"" +
                     " in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -614,13 +617,13 @@ this.FeatureBackground();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Transferring Sell Price value to Markup and GP Target% field does not happen", new string[] {
                         "TC29394",
                         "D23825"});
-#line 156
+#line 157
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 157
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 158
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 159
         testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
@@ -658,7 +661,7 @@ this.FeatureBackground();
                         "GP",
                         "^",
                         "^"});
-#line 159
+#line 160
     testRunner.When("data for recipes is set", ((string)(null)), table6, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
@@ -671,7 +674,7 @@ this.FeatureBackground();
                         "RECIPE",
                         "004Baked Beans_3",
                         ""});
-#line 165
+#line 166
     testRunner.And("Verify data for items is", ((string)(null)), table7, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
@@ -684,7 +687,7 @@ this.FeatureBackground();
                         "RECIPE",
                         "004Baked Beans_3",
                         "Markup"});
-#line 168
+#line 169
     testRunner.And("data for recipes is set", ((string)(null)), table8, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
@@ -697,7 +700,7 @@ this.FeatureBackground();
                         "RECIPE",
                         "004Baked Beans_3",
                         ""});
-#line 171
+#line 172
     testRunner.Then("Verify data for items is", ((string)(null)), table9, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -714,13 +717,13 @@ this.FeatureBackground();
                     "en", new string[] {
                         "TC29395",
                         "D23825"});
-#line 176
+#line 177
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 177
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 178
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 179
         testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
@@ -758,7 +761,7 @@ this.FeatureBackground();
                         "GP",
                         "^",
                         "^"});
-#line 179
+#line 180
     testRunner.When("data for recipes is set", ((string)(null)), table10, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
@@ -771,7 +774,7 @@ this.FeatureBackground();
                         "RECIPE",
                         "004Baked Beans_3",
                         ""});
-#line 185
+#line 186
     testRunner.And("Verify data for items is", ((string)(null)), table11, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
@@ -784,7 +787,7 @@ this.FeatureBackground();
                         "RECIPE",
                         "004Baked Beans_3",
                         "Fixed"});
-#line 188
+#line 189
     testRunner.And("data for recipes is set", ((string)(null)), table12, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
@@ -797,7 +800,7 @@ this.FeatureBackground();
                         "RECIPE",
                         "004Baked Beans_3",
                         ""});
-#line 191
+#line 192
     testRunner.Then("Verify data for items is", ((string)(null)), table13, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -814,13 +817,13 @@ this.FeatureBackground();
                     "en", new string[] {
                         "TC29469",
                         "D23825"});
-#line 196
+#line 197
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 197
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 198
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 199
         testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
@@ -858,7 +861,7 @@ this.FeatureBackground();
                         "Markup",
                         "^",
                         "^"});
-#line 199
+#line 200
     testRunner.When("data for recipes is set", ((string)(null)), table14, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
@@ -871,7 +874,7 @@ this.FeatureBackground();
                         "RECIPE",
                         "004Baked Beans_3",
                         ""});
-#line 205
+#line 206
     testRunner.And("Verify data for items is", ((string)(null)), table15, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
@@ -884,7 +887,7 @@ this.FeatureBackground();
                         "RECIPE",
                         "004Baked Beans_3",
                         "Fixed"});
-#line 208
+#line 209
     testRunner.And("data for recipes is set", ((string)(null)), table16, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
@@ -897,7 +900,7 @@ this.FeatureBackground();
                         "RECIPE",
                         "004Baked Beans_3",
                         ""});
-#line 211
+#line 212
     testRunner.Then("Verify data for items is", ((string)(null)), table17, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -916,22 +919,22 @@ this.FeatureBackground();
                         "D23967",
                         "D24183",
                         "D23194"});
-#line 216
+#line 217
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 217
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 218
-    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 219
-        testRunner.And("quantity for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 220
+        testRunner.And("quantity for recipe named \"004Baked Beans_3\" in meal period \"LUNCH\" is set to \"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 221
         testRunner.And("red border is displayed around Planned Quantity for recipe \"004Baked Beans_3\" in " +
                     "meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 221
-        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 222
+        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 223
     testRunner.Then("Notification message \"Sorry, we could not proceed with your request\" is displayed" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -947,13 +950,13 @@ this.FeatureBackground();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Collapsing meal period does no return previous value if field", new string[] {
                         "TC29716",
                         "D24183"});
-#line 225
+#line 226
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 226
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 227
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 228
     testRunner.When("planning for Thursday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
@@ -966,11 +969,11 @@ this.FeatureBackground();
                         "RECIPE",
                         "703Reggae Raggae Mayonnaise",
                         ""});
-#line 228
+#line 229
         testRunner.And("data for recipes is set", ((string)(null)), table18, "And ");
-#line 231
-        testRunner.And("Meal Period \"DANGELO\" is collapsed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 232
+        testRunner.And("Meal Period \"DANGELO\" is collapsed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 233
         testRunner.And("Meal Period \"DANGELO\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
@@ -983,7 +986,7 @@ this.FeatureBackground();
                         "RECIPE",
                         "703Reggae Raggae Mayonnaise",
                         ""});
-#line 233
+#line 234
     testRunner.Then("Verify data for items is", ((string)(null)), table19, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1000,13 +1003,13 @@ this.FeatureBackground();
                     "d", new string[] {
                         "TC29735",
                         "D24183"});
-#line 238
+#line 239
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 239
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 240
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 241
     testRunner.When("planning for Thursday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1045,7 +1048,7 @@ this.FeatureBackground();
                         "^",
                         "20",
                         "1"});
-#line 241
+#line 242
         testRunner.And("data for recipes is set", ((string)(null)), table20, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1058,7 +1061,7 @@ this.FeatureBackground();
                         "RECIPE",
                         "Cheese",
                         ""});
-#line 246
+#line 247
     testRunner.And("data for recipes is set", ((string)(null)), table21, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1068,10 +1071,10 @@ this.FeatureBackground();
                         "ActualGP"});
             table22.AddRow(new string[] {
                         "7",
-                        "5.62",
-                        "9",
-                        "38%"});
-#line 249
+                        "6.47",
+                        "9.37",
+                        "31%"});
+#line 250
     testRunner.Then("Value for fields for meal period \"DANGELO\" is", ((string)(null)), table22, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1084,13 +1087,13 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Mass recipe update", new string[] {
                         "TC29853"});
-#line 254
+#line 255
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 255
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 256
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 257
         testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1107,25 +1110,25 @@ this.FeatureBackground();
                         "Fixed",
                         "TariffOne",
                         "0#99"});
-#line 257
+#line 258
     testRunner.When("data for recipes is set", ((string)(null)), table23, "When ");
-#line 260
+#line 261
     testRunner.And("\"SellPrice\" is saved in context for recipe \"004Baked Beans_3\" in meal period \"LUN" +
                     "CH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 261
-        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 262
+        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 263
         testRunner.And("Update prices button is clicked for recipe \"004Baked Beans_3\" in meal period \"LUN" +
                     "CH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 263
-    testRunner.And("Future recipe instances count is 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 264
-        testRunner.And("Confirm is selected on the Update Prices dialog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("Future recipe instances count is 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 265
-        testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Confirm is selected on the Update Prices dialog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 266
-        testRunner.And("planning for Friday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 267
+        testRunner.And("planning for Friday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 268
     testRunner.Then("\"SellPrice\" is equal to the value saved in context for recipe \"004Baked Beans_3\" " +
                     "in meal period \"DANGELO\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1141,28 +1144,28 @@ this.FeatureBackground();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Tariff types are discarded when cancel button is clicked", new string[] {
                         "TC29933",
                         "D24491"});
-#line 270
+#line 271
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 271
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 272
-        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 273
-        testRunner.And("Add type is clicked for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 274
-    testRunner.When("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And("Add type is clicked for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 275
-        testRunner.And("Confirm is selected on unsaved changes dialog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 276
+        testRunner.And("Confirm is selected on unsaved changes dialog", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 277
         testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
                         "TariffType"});
             table24.AddRow(new string[] {
                         "TariffOne"});
-#line 277
+#line 278
     testRunner.Then("Existing types for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" are", ((string)(null)), table24, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1177,13 +1180,13 @@ this.FeatureBackground();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete icon appears when adding type", new string[] {
                         "TC29942",
                         "D24490"});
-#line 282
+#line 283
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 283
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 284
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 285
         testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1196,11 +1199,11 @@ this.FeatureBackground();
                         "RECIPE",
                         "004Baked Beans_3",
                         "TariffTwo"});
-#line 285
+#line 286
     testRunner.When("data for recipes is set", ((string)(null)), table25, "When ");
-#line 288
-        testRunner.And("Add type is clicked for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 289
+        testRunner.And("Add type is clicked for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 290
     testRunner.Then("delete icon is present for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" tarif" +
                     "f type \"TariffOne\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1216,26 +1219,26 @@ this.FeatureBackground();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Opening planning screen multiple times does not add data to unsaved items", new string[] {
                         "TC29950",
                         "D24575"});
-#line 292
+#line 293
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 293
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 294
-        testRunner.And("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 295
-    testRunner.When("Meal Period \"DINNER\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 296
+    testRunner.When("Meal Period \"DINNER\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 297
         testRunner.And("types are saved in context for recipe \"703Houmus Sandwich Filling (50g)\" in meal " +
                     "period \"DINNER\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 297
-        testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 298
-        testRunner.And("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 299
-        testRunner.And("Meal Period \"DINNER\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 300
+        testRunner.And("Meal Period \"DINNER\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 301
     testRunner.Then("existing types are same as from the context for recipe \"703Houmus Sandwich Fillin" +
                     "g (50g)\" in meal period \"DINNER\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1255,13 +1258,13 @@ this.FeatureBackground();
                         "D24588",
                         "Smoke",
                         "critical"});
-#line 303
+#line 304
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 304
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 305
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 306
         testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1274,18 +1277,18 @@ this.FeatureBackground();
                         "RECIPE",
                         "004Baked Beans_3",
                         "0#99"});
-#line 306
+#line 307
     testRunner.When("data for recipes is set", ((string)(null)), table26, "When ");
-#line 309
-        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 310
+        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 311
         testRunner.And("\"SellPrice\" is saved in context for recipe \"004Baked Beans_3\" in meal period \"LUN" +
                     "CH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 311
-        testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 312
-        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 313
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 314
     testRunner.Then("\"SellPrice\" is equal to the value saved in context for recipe \"004Baked Beans_3\" " +
                     "in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1299,38 +1302,38 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Confirm dialog is not shown after save with added TariffTypes", new string[] {
                         "TC29987"});
-#line 316
+#line 317
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 317
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 318
-        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 319
-        testRunner.And("Add type is clicked for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 320
+        testRunner.And("Add type is clicked for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 321
     testRunner.When("\"Planned Qty\" for recipe with name \"004Baked Beans_3\" with TariffType \"TariffTwo\"" +
                     " in meal period \"LUNCH\" is set to \"32\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 321
+#line 322
         testRunner.And("\"Sell Price\" for recipe with name \"004Baked Beans_3\" with TariffType \"TariffTwo\" " +
                     "in meal period \"LUNCH\" is set to \"32\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 322
-        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 323
-        testRunner.And("Notification message \"Planning figures updated.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 324
-        testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Notification message \"Planning figures updated.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 325
-    testRunner.Then("Calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 326
-        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Then("Calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 327
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 328
         testRunner.And("delete icon is clicked for recipe \"004Baked Beans_3\" in meal period \"LUNCH\" with " +
                     "tariff type \"TariffTwo\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 328
-        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 329
+        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 330
         testRunner.And("Notification message \"Planning figures updated.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1345,13 +1348,13 @@ this.FeatureBackground();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Saving Planning screen with empty fields displays red border and contextual messa" +
                     "ge", new string[] {
                         "TC30090"});
-#line 332
+#line 333
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 333
-    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 334
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 335
         testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1366,14 +1369,14 @@ this.FeatureBackground();
                         "004Baked Beans_3",
                         "invalidinput",
                         ""});
-#line 335
+#line 336
     testRunner.When("data for recipes is set", ((string)(null)), table27, "When ");
-#line 338
-    testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 339
+    testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 340
     testRunner.Then("red border and contextual error message \"Value is required\" is displayed for Plan" +
                     "ned Quantity field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 340
+#line 341
     testRunner.And("red border and contextual error message \"Must be number\" is displayed for Sell Pr" +
                     "ice field for recipe \"004Baked Beans_3\" in meal period \"LUNCH\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

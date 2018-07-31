@@ -52,6 +52,7 @@ Scenario: Target GP % validations
         And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-100"
         And the user focus out
         And red border and contextual error message "Must be -99.99 to 99.99" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "1"
         And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
         And the user focus out
         And red border and contextual error message "Value is required" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
@@ -113,7 +114,7 @@ Scenario: Sell price validations
 Scenario: Retrieve Recipe Price from the API (NO Min - Max)
     Given Menu Cycle "Meda" is selected
     When planning for Monday is opened
-    Then CostPerUnit for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to "1.68"
+    Then CostPerUnit for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to "1.88"
 
 @TC27705 @TC27721 @TC27724 @TC27726
 Scenario: Calculations for "Total Cost", "Sell Price", "Revenue" and "Actual GP" should be correct
@@ -128,11 +129,11 @@ Scenario: Calculations for "Total Cost", "Sell Price", "Revenue" and "Actual GP"
         |LANCE         |RECIPE|004Basic Sponge|              4| TariffOne|    Markup|    15|            0|
     Then Verify data for recipes in a la carte "Holiday A La Carte" in meal period "LANCE" is
         |RecipeTitle                   |CostPerUnit|TotalCosts|SellPrice|Revenue|ActualGP|
-        |004Bread (fresh dough)        |       0.04|      0.08|        ^|  91.67|    100%|
-        |724Pepper & Garlic Coated Beef|    2180.61|   6541.83|  2410.15|6886.14|      5%|
+        |004Bread (fresh dough)        |        0.1|       0.2|        ^|  91.67|    100%|
+        |724Pepper & Garlic Coated Beef|     2378.9|    7136.7|  2629.31|7512.32|      5%|
     And Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle    |TotalCosts|SellPrice|Revenue|ActualGP|
-        |LANCE         |RECIPE|004Basic Sponge|      2.12|     0.61|   2.44|     13%|
+        |LANCE         |RECIPE|004Basic Sponge|      2.52|     0.72|    2.9|     13%|
 
 @TC29101 @D23785
 Scenario: Planned Quantity validations
@@ -248,7 +249,7 @@ Scenario: Meal period totals are re-calculated when the data from the input fiel
         |DANGELO       |RECIPE|Cheese     |               |
     Then Value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
-        |         7|     5.62|      9|     38%|
+        |         7|     6.47|   9.37|     31%|
 
 @TC29853
 Scenario: Mass recipe update

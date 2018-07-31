@@ -84,7 +84,7 @@ namespace MenuCycle.Tests.Steps
         [Then(@"Verify items present in the search results are")]
         public void VerifyItemsReturnedFromSearchAre(Table table)
         {
-            Assert.That(recipeSearch.Recipes.Select(x => x.Cost).ToList(), Is.EqualTo(table.Rows.Select(x => x["Cost"]).ToList()));
+            Assert.That(recipeSearch.Recipes.Select(x => x.Cost).ToList(), Is.EquivalentTo(table.Rows.Select(x => x["Cost"]).ToList()));
         }
 
         [When(@"Verify items in meal period detailed view")]
