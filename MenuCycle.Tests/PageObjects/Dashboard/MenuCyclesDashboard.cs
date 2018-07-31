@@ -70,5 +70,10 @@ namespace MenuCycle.Tests.PageObjects
             Driver.WaitIsClickable(CreateMenuCycleButton);
             CreateMenuCycleButton.Click();
         }
+
+        public MenuCycleItem GetMenuCycle(string name)
+        {
+            return MenuCycles.First(x => x.Name == name);
+        }
     }
 }

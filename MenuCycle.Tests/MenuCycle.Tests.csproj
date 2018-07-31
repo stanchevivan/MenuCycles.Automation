@@ -352,8 +352,8 @@
       <DependentUpon>PlanningScreen.feature</DependentUpon>
     </Compile>
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\BuffetCard.cs" />
-    <Compile Include="Features\LocalUserPlanningScreen.feature.cs">
-      <DependentUpon>LocalUserPlanningScreen.feature</DependentUpon>
+    <Compile Include="Features\LocalUser.feature.cs">
+      <DependentUpon>LocalUser.feature</DependentUpon>
     </Compile>
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\RecipeItem.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\RecipeSearch.cs" />
@@ -426,6 +426,10 @@
     <None Include="Features\LocalUserPlanningScreen.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LocalUserPlanningScreen.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\LocalUser.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>LocalUser.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
