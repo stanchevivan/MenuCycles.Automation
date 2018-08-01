@@ -1,4 +1,5 @@
-﻿using Fourth.Automation.Framework.Extension;
+﻿using System;
+using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Page;
 using Fourth.Automation.Framework.Reporting;
 using NUnit.Framework;
@@ -35,6 +36,11 @@ namespace MenuCycle.Tests.PageObjects
         public void CloseNotification()
         {
             CloseButton.Click();
+        }
+
+        public void WaitToAppear()
+        {
+            Driver.WaitElementToExists(Message);
         }
     }
 }

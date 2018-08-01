@@ -358,6 +358,9 @@
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\RecipeItem.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\RecipeSearch.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\SearchTag.cs" />
+    <Compile Include="Features\LocalUserPlanningScreen.feature.cs">
+      <DependentUpon>LocalUserPlanningScreen.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

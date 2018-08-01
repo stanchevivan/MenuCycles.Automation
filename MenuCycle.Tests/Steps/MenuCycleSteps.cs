@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MenuCycle.Tests.PageObjects;
 using NUnit.Framework;
@@ -18,10 +19,12 @@ namespace MenuCycle.Tests.Steps
         readonly RecipeSearch recipeSearch;
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
+        readonly ModalDialogPage modalDialogPage;
 
         public MenuCycleSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, LogInAs logInAs,
             MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleCalendarView menuCycleCalendarView,
-            CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification)
+            CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification,
+                              ModalDialogPage modalDialogPage)
         {
             this.logInAs = logInAs;
             this.menuCycleDashboard = menuCycleDashboard;
@@ -31,6 +34,7 @@ namespace MenuCycle.Tests.Steps
             this.recipeSearch = recipeSearch;
             this.notification = notification;
             this.planningView = dailyPlanningView;
+            this.modalDialogPage = modalDialogPage;
 
             this.scenarioContext = scenarioContext;
         }
@@ -53,6 +57,7 @@ namespace MenuCycle.Tests.Steps
 
         [Given(@"Menu Cycle ""(.*)"" is searched")]
         [When(@"Menu Cycle ""(.*)"" is searched")]
+        [Then(@"Menu Cycle ""(.*)"" is searched")]
         public void MenuCycleIsSearched(string menuCycleName)
         {
             menuCycleDashboard.WaitPageLoad();
@@ -94,19 +99,92 @@ namespace MenuCycle.Tests.Steps
         }
 
         [Given(@"Menu Cycle is created with following data")]
+        [When(@"Menu Cycle is created with following data")]
         public void GivenMenuCycleIsCreatedWithFollowingData(Table table)
         {
-            string Name = table.Rows[0]["MenuCycleName"];
-            string Description = table.Rows[0]["Description"];
-            List<string> GapDays = table.Rows[0]["GapDays"].Split(',').ToList();
-            string Usergroup = table.Rows[0]["Usergroup"];
+            string name = table.Rows[0]["MenuCycleName"];
+            string description = table.Rows[0]["Description"];
+            List<string> gapDays = table.Rows[0]["GapDays"].Split(',').ToList();
+            string usergroup = table.Rows[0]["Usergroup"];
 
             menuCycleDashboard.UseCreateMenuCycleButton();
             createMenuCycle.WaitPageLoad();
-            createMenuCycle.InputMenuCycleName(Name);
-            createMenuCycle.InputMenuCycleDescription(Description);
+            createMenuCycle.InputMenuCycleName(name);
+            createMenuCycle.InputMenuCycleDescription(description);
             createMenuCycle.UseNextButton();
+            createMenuCycle.WaitGAPDaysToAppear();
+            createMenuCycle.SelectGAPDays(gapDays);
+            createMenuCycle.UseNextButton();
+            createMenuCycle.SearchAndSelectOffer(usergroup);
+            createMenuCycle.UseCreateButton();
+
+            menuCycleCalendarView.WaitPageLoad();
         }
 
+        [When(@"Menu Cycle ""(.*)"" is edited to")]
+        public void GivenMenuCycleIsEditedToTheFollowingData(string oldName, Table table)
+        {
+            string newName = table.Rows[0]["MenuCycleName"];
+            string description = table.Rows[0]["Description"];
+            //List<string> gapDays = table.Rows[0]["GapDays"].Split(',').ToList(); // Not editing GAP days. Checkboxes state can't be read. Need more investigation
+
+            menuCycleDashboard.GetMenuCycle(oldName)
+                              .UseActionButton()
+                              .UseEditbutton();
+            createMenuCycle.WaitPageLoad();
+            createMenuCycle.InputMenuCycleName(newName);
+            createMenuCycle.InputMenuCycleDescription(description);
+            createMenuCycle.UseNextButton();
+            createMenuCycle.WaitGAPDaysToAppear();
+            //createMenuCycle.SelectGAPDays(gapDays);
+            createMenuCycle.UseNextButton();
+
+            menuCycleCalendarView.WaitPageLoad();
+        }
+
+        [When(@"Menu Cycle ""(.*)"" is copied")]
+        public void CopyMenuCycle(string menuCycleName)
+        {
+            menuCycleDashboard.GetMenuCycle(menuCycleName)
+                              .UseActionButton()
+                              .UseCopyButton();
+
+            menuCycleDashboard.WaitPageLoad();
+            notification.CloseNotification();
+        }
+
+        [When(@"Menu Cycle ""(.*)"" is deleted")]
+        public void DeleteMenuCycle(string menuCycleName)
+        {
+            var mc = menuCycleDashboard.GetMenuCycle(menuCycleName);
+            mc
+                .UseActionButton()
+                .UseDeleteButton();
+
+            modalDialogPage.WaitToAppear();
+            modalDialogPage.UseYesButton();
+
+            menuCycleDashboard.WaitPageLoad();
+
+            notification.WaitToAppear();
+            notification.CloseNotification();
+            notification.WaitToDisappear();
+        }
+
+        [Then(@"Verify search results contain no menu cycles")]
+        public void VerifySearchResultsContainNoMenuCycles()
+        {
+            Assert.IsEmpty(menuCycleDashboard.MenuCycles);
+        }
+
+        [When(@"Verify GAP days in calendar view are")]
+        [Then(@"Verify GAP days in calendar view are")]
+        public void VerifyGapDaysInCalendarViewAre(Table table)
+        {
+            var expectedGapDays = table.Rows.Select(x => x[0].ToUpper());
+            var actualGapDays = menuCycleCalendarView.CalendarColumns.Where(x => x.IsGapDay).Select(x => x.DayName);
+
+            Assert.That(actualGapDays, Is.EqualTo(expectedGapDays));
+        }
     }
 }

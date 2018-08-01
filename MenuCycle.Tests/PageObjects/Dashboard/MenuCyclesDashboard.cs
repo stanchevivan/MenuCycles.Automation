@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
-using Fourth.Automation.Framework.Page;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class MenuCyclesDashboard : BasePage
+    public class MenuCyclesDashboard : MenuCyclesBasePage
     {
         public MenuCyclesDashboard(IWebDriver webDriver) : base(webDriver)
         {
@@ -17,9 +16,16 @@ namespace MenuCycle.Tests.PageObjects
         public IWebElement CreateMenuCycleButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".menuCycleTableBody .home-div-row")]
-        public IList<IWebElement> MenuCyclesContainer { get; set; }
+        public IList<IWebElement> menuCycleRows { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".menuCycleTableBody")]
+        public IWebElement searchResultsBody { get; set; }
+
+        [FindsBy(How = How.ClassName, Using = "no-result-text")]
+        private IWebElement NoResultsText { get; set; }
 
         [FindsBy(How = How.ClassName, Using = "search-icon")]
+        [FindsBy(How = How.ClassName, Using = "home-search-button")]
         private IWebElement SearchIcon { get; set; }
 
         [FindsBy(How = How.ClassName, Using = "menucycle-search-input")]
@@ -31,7 +37,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.Id, Using = "BlueLoaderShowHide")]
         IWebElement SpinningWheel { get; set; }
 
-        public IList<MenuCycleItem> MenuCycles => this.MenuCyclesContainer.Select(p => new MenuCycleItem(p)).ToList();
+        public IList<MenuCycleItem> MenuCycles => this.menuCycleRows.Select(p => new MenuCycleItem(Driver, p)).ToList();
 
         public void CreateMenuCycleClick()
         {
@@ -57,7 +63,13 @@ namespace MenuCycle.Tests.PageObjects
 
         public void WaitPageLoad()
         {
-            Driver.WaitListItemsLoad(MenuCyclesContainer);
+            Driver.WaitElementToDisappear(SpinningWheel);
+            Driver.WaitElementToExists(searchResultsBody);
+
+            if (!NoResultsText.Exist())
+            {
+                Driver.WaitListItemsLoad(menuCycleRows);
+            }
         }
 
         public bool IsCreateMenuCycleButtonPresent()

@@ -15,12 +15,14 @@ namespace MenuCycle.Tests.PageObjects
             Artefacts = artefacts;
         }
 
+        [FindsBy(How = How.CssSelector, Using = ".modal-dialog-body")]
         [FindsBy(How = How.CssSelector, Using = "modal-dialog-engine__description > p")]
         private IWebElement Message { get; set; }
         [FindsBy(How = How.CssSelector, Using = "modal-dialog-engine__title > span")]
         private IWebElement Title { get; set; }
         [FindsBy(How = How.XPath, Using = "//*[@class='btn-default__text' and text()='Yes']")]
         [FindsBy(How = How.XPath, Using = "//*[@class='btn-default__text' and text()='Apply']")]
+        [FindsBy(How = How.CssSelector, Using = ".modal-button.yes")]
         private IWebElement YesButton { get; set; }
         [FindsBy(How = How.XPath, Using = "//*[@class='btn-default__text' and text()='No']")]
         private IWebElement NoButton { get; set; }
@@ -50,6 +52,11 @@ namespace MenuCycle.Tests.PageObjects
         }
 
         public void WaitToAppear()
+        {
+            Driver.WaitElementToExists(Message);
+        }
+
+        public void WaitRecipeCountToAppear()
         {
             Driver.WaitElementToExists(recipeCountMessage);
         }

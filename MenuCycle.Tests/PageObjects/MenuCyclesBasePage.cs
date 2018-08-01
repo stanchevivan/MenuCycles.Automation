@@ -20,7 +20,7 @@ namespace MenuCycle.Tests.PageObjects
             return (bool)((IJavaScriptExecutor)Driver).ExecuteScript("return document.documentElement.scrollHeight>document.documentElement.clientHeight;");
         }
 
-        public void CloseMenuCycles()
+        public void CloseMenuCyclesApp()
         {
             Driver.Close();
             Driver.SwitchTo().Window(Driver.WindowHandles.Last());

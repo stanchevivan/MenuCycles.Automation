@@ -1,11 +1,12 @@
-﻿using OpenQA.Selenium;
+﻿using Fourth.Automation.Framework.Extension;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class MenuCycleItem
+    public class MenuCycleItem : MenuCyclesBasePage
     {
-        public MenuCycleItem(IWebElement parent)
+        public MenuCycleItem(IWebDriver driver, IWebElement parent) : base(driver)
         {
             PageFactory.InitElements(parent, this);
         }
@@ -18,6 +19,9 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = ".home-button-expand")]
         private IWebElement actionButton { get; set; }
+
+        [FindsBy(How = How.ClassName, Using = "home-button-dropDown")]
+        private IWebElement actionMenu { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".item-settings")]
         private IWebElement editButton { get; set; }
@@ -35,9 +39,30 @@ namespace MenuCycle.Tests.PageObjects
             name.Click();
         }
 
-        public void UseActionButton()
+        public MenuCycleItem UseActionButton()
         {
             actionButton.Click();
+
+            Driver.WaitElementToExists(actionMenu);
+            return this;
+        }
+
+        public void UseEditbutton()
+        {
+            editButton.Click();
+        }
+        public void UseCopyButton()
+        {
+            copyButton.Click();
+        }
+        public void UseDeleteButton()
+        {
+            deleteButton.Click();
+        }
+
+        public void WaitToDisappear()
+        {
+            Driver.WaitElementToDisappear(actionButton);
         }
     }
 }

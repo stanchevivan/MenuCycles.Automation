@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Page;
@@ -43,7 +44,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.Id, Using = "cancel")]
         public IWebElement CancelButton { get; set; }
 
-        [FindsBy(How = How.ClassName, Using = "radio")]
+        [FindsBy(How = How.CssSelector, Using = ".radio")]
         public IList<IWebElement> NonServingDaysCheckBox { get; set; }
 
         internal void SearchAndSelectOffer(string offer)
@@ -74,9 +75,72 @@ namespace MenuCycle.Tests.PageObjects
             NextButton.Click();
         }
 
+        public void UseCreateButton()
+        {
+            NextButton.Click();
+        }
+
         public void UseCancelButton()
         {
             CancelButton.Click();
+        }
+
+        public void SelectGAPDays(IList<string> days)
+        {
+            foreach (var item in NonServingDaysCheckBox)
+            {
+                if (item.Selected)
+                {
+                    item.Click();
+                }
+            }
+
+            foreach (var day in days)
+            {
+                ChooseGAPDay(day);
+            }
+        }
+
+        private void ChooseGAPDay(string day)
+        {
+            int dayIndex = 99;
+
+            switch (day.ToUpper())
+            {
+                case "MONDAY":
+                    dayIndex = 0;
+                    break;
+                case "TUESDAY":
+                    dayIndex = 1;
+                    break;
+                case "WEDNESDAY":
+                    dayIndex = 2;
+                    break;
+                case "THURSDAY":
+                    dayIndex = 3;
+                    break;
+                case "FRIDAY":
+                    dayIndex = 4;
+                    break;
+                case "SATURDAY":
+                    dayIndex = 5;
+                    break;
+                case "SUNDAY":
+                    dayIndex = 6;
+                    break;
+                default:
+                    throw new Exception($"Invalid day {day} !");
+            }
+
+            if (!NonServingDaysCheckBox[dayIndex].Selected)
+            {
+                NonServingDaysCheckBox[dayIndex].Click();
+            }
+        }
+
+        public void WaitGAPDaysToAppear()
+        {
+            Driver.WaitListItemsLoad(NonServingDaysCheckBox);
         }
     }
 }

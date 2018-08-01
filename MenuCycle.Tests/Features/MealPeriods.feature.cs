@@ -767,45 +767,6 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Search Menu Cycles by name or description")]
-        [NUnit.Framework.CategoryAttribute("TC27713")]
-        [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void SearchMenuCyclesByNameOrDescription()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search Menu Cycles by name or description", new string[] {
-                        "TC27713",
-                        "Smoke"});
-#line 187
-this.ScenarioSetup(scenarioInfo);
-#line 5
-this.FeatureBackground();
-#line 188
-    testRunner.When("Menu Cycle \"FOR AUTOMATION TESTS - DO NOT TOUCH\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Description"});
-            table13.AddRow(new string[] {
-                        "Meda",
-                        "FOR AUTOMATION TESTS - DO NOT TOUCH"});
-#line 189
-        testRunner.And("Verify search results contain the following menu cycles", ((string)(null)), table13, "And ");
-#line 192
-    testRunner.When("Menu Cycle \"MC with recipes\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Description"});
-            table14.AddRow(new string[] {
-                        "MC with recipes",
-                        "Testing the publishing of a MC with recipes"});
-#line 193
-        testRunner.And("Verify search results contain the following menu cycles", ((string)(null)), table14, "And ");
-#line hidden
-            this.ScenarioCleanup();
-        }
     }
 }
 #pragma warning restore

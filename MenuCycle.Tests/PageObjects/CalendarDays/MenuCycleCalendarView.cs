@@ -1,21 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
-using Fourth.Automation.Framework.Page;
-using Fourth.Automation.Framework.Reporting;
-using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
+using SeleniumExtras.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class MenuCycleCalendarView : BasePage
+    public class MenuCycleCalendarView : MenuCyclesBasePage
     {
-        readonly IArtefacts Artefacts;
-
-        public MenuCycleCalendarView(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver)
+        public MenuCycleCalendarView(IWebDriver webDriver) : base(webDriver)
         {
-            Artefacts = artefacts;
+            PageFactory.InitElements(Driver, this);
         }
 
         [FindsBy(How = How.Id, Using = "menucycleName")]
@@ -48,9 +43,6 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".Planning-engine")]
         IList<IWebElement> PlanningLinks { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".daily-view-screen > div")]
-        IList<IWebElement> DaysColumnContainer { get; set; }
-
         [FindsBy(How = How.ClassName, Using = "modal-backdrop")]
         IWebElement Backdrop { get; set; }
 
@@ -62,7 +54,9 @@ namespace MenuCycle.Tests.PageObjects
 
         public List<WeekDays> CalendarHeaders => this.CalendarHeaderContainer.Select(p => new WeekDays(p)).ToList();
 
-        public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p)).ToList();
+        public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p, CalendarHeaders[CalendarColumnContainer.IndexOf(p)].Name)).ToList();
+        //public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p)).ToList();
+
 
         public bool IsCalendarViewOpen => DaysContainer.Get().ElementPresent;
 
@@ -93,21 +87,6 @@ namespace MenuCycle.Tests.PageObjects
             }
 
             return CalendarColumns[dayIndex];
-        }
-
-        public void ValidateWindow(string ExpectedTitle)
-        {
-            Assert.IsTrue(Name.Exist());
-            Assert.IsTrue(DaysViewButton.Exist());
-            Assert.IsTrue(WeeksViewButton.Exist());
-            Assert.IsTrue(AddWeekButton.Exist());
-            Assert.IsTrue(DeleteWeekButton.Exist());
-
-            Assert.AreEqual(ExpectedTitle, Name.Text);
-            Assert.AreEqual("DAYS", DaysViewButton.Text);
-            Assert.AreEqual("WEEKS", WeeksViewButton.Text);
-
-            Artefacts.TakeScreenshot();
         }
 
         public void WaitPageLoad()

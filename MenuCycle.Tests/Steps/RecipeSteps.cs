@@ -326,7 +326,7 @@ namespace MenuCycle.Tests.Steps
         [When(@"Future recipe instances count is (.*)")]
         public void FutureRecipeInstancesCountIs(string count)
         {
-            modalDialogPage.WaitToAppear();
+            modalDialogPage.WaitRecipeCountToAppear();
             Assert.That(count, Is.EqualTo(modalDialogPage.RecipeCount));
         }
 
