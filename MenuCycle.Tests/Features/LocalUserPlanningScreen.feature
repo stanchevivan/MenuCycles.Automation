@@ -10,8 +10,8 @@ And 'Menu Cycles' application is open
 And a local user is selected
 #And a nouser user is selected
 
-@TC30228
-Scenario: Engine is loaded when planning screen for local user is opened
+@TC28558 @Smoke
+Scenario: Load engine when Planning screen is opened (Local User)
     Given location "SE001" is selected
         And Menu Cycle "Local User Testing" is selected
     When planning for TUE 10 JUL is opened
@@ -60,14 +60,16 @@ Scenario: User should not be redirected to the planning screen after navigating 
         And Menu Cycle "Local User Testing" is selected
     Then Calendar view is opened
 
-@TC28558 @Smoke
-Scenario: Load engine when Planning screen is opened (Local User)
-    Given location "SE001" is selected
-        And Menu Cycle "Local User Testing" is selected
-    When planning for TUE 10 JUL is opened
-    Then planning screen engine is loaded
-
 @TC27776 @Smoke
 Scenario: Create menu cycle button is not present - local user
     Given location "SE001" is selected
     Then Create menu cycle button is not displayed
+
+#TODO: Needs seeded data
+@TC30910 @ForDataSeeding
+Scenario: Save button is clicked without any changes applied (Local user)
+    Given location "SE001" is selected
+        And Menu Cycle "Menu Cycle for Local user" is selected
+    When planning for THUR 2 AUG is opened
+        And Save button is clicked
+    Then Notification message "Planning figures updated." is displayed

@@ -80,12 +80,14 @@ testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Engine is loaded when planning screen for local user is opened")]
-        [NUnit.Framework.CategoryAttribute("TC30228")]
-        public virtual void EngineIsLoadedWhenPlanningScreenForLocalUserIsOpened()
+        [NUnit.Framework.DescriptionAttribute("Load engine when Planning screen is opened (Local User)")]
+        [NUnit.Framework.CategoryAttribute("TC28558")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        public virtual void LoadEngineWhenPlanningScreenIsOpenedLocalUser()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Engine is loaded when planning screen for local user is opened", new string[] {
-                        "TC30228"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load engine when Planning screen is opened (Local User)", new string[] {
+                        "TC28558",
+                        "Smoke"});
 #line 14
 this.ScenarioSetup(scenarioInfo);
 #line 5
@@ -242,31 +244,6 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Load engine when Planning screen is opened (Local User)")]
-        [NUnit.Framework.CategoryAttribute("TC28558")]
-        [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void LoadEngineWhenPlanningScreenIsOpenedLocalUser()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load engine when Planning screen is opened (Local User)", new string[] {
-                        "TC28558",
-                        "Smoke"});
-#line 64
-this.ScenarioSetup(scenarioInfo);
-#line 5
-this.FeatureBackground();
-#line 65
-    testRunner.Given("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 66
-        testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 67
-    testRunner.When("planning for TUE 10 JUL is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 68
-    testRunner.Then("planning screen engine is loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create menu cycle button is not present - local user")]
         [NUnit.Framework.CategoryAttribute("TC27776")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
@@ -275,14 +252,41 @@ this.FeatureBackground();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create menu cycle button is not present - local user", new string[] {
                         "TC27776",
                         "Smoke"});
-#line 71
+#line 64
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 72
+#line 65
     testRunner.Given("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 73
+#line 66
     testRunner.Then("Create menu cycle button is not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Save button is clicked without any changes applied (Local user)")]
+        [NUnit.Framework.CategoryAttribute("TC30910")]
+        [NUnit.Framework.CategoryAttribute("ForDataSeeding")]
+        public virtual void SaveButtonIsClickedWithoutAnyChangesAppliedLocalUser()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save button is clicked without any changes applied (Local user)", new string[] {
+                        "TC30910",
+                        "ForDataSeeding"});
+#line 70
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 71
+    testRunner.Given("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 72
+        testRunner.And("Menu Cycle \"Menu Cycle for Local user\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 73
+    testRunner.When("planning for THUR 2 AUG is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 74
+        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 75
+    testRunner.Then("Notification message \"Planning figures updated.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
