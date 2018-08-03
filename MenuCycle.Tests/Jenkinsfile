@@ -41,7 +41,7 @@ node('IE1UIBLD03') {
 	def device = ''
 
 	// Chech for configuration in Job Name
-	device = ['Chrome', 'Firefox', 'iPadAir', 'iPadMini4', 'iPadPro9', 'SamsungTabA', 'SamsungTabS'].find
+	device = ['Chrome', 'Firefox', 'IE', 'iPadAir', 'iPadMini4', 'iPadPro9', 'SamsungTabA', 'SamsungTabS'].find
 	{
 		jobName.contains("${it}")
 	}
