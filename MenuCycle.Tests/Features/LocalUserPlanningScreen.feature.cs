@@ -266,13 +266,15 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Save button is clicked without any changes applied (Local user)")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.CategoryAttribute("TC30910")]
         [NUnit.Framework.CategoryAttribute("ForDataSeeding")]
         public virtual void SaveButtonIsClickedWithoutAnyChangesAppliedLocalUser()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save button is clicked without any changes applied (Local user)", new string[] {
                         "TC30910",
-                        "ForDataSeeding"});
+                        "ForDataSeeding",
+                        "ignore"});
 #line 70
 this.ScenarioSetup(scenarioInfo);
 #line 5

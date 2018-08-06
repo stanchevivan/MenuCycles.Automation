@@ -66,7 +66,7 @@ Scenario: Create menu cycle button is not present - local user
     Then Create menu cycle button is not displayed
 
 #TODO: Needs seeded data
-@TC30910 @ForDataSeeding
+@TC30910 @ForDataSeeding @ignore
 Scenario: Save button is clicked without any changes applied (Local user)
     Given location "SE001" is selected
         And Menu Cycle "Menu Cycle for Local user" is selected

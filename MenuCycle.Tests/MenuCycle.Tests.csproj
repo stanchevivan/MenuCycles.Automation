@@ -359,7 +359,7 @@
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\RecipeSearch.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\SearchTag.cs" />
     <Compile Include="Features\LocalUserPlanningScreen.feature.cs">
-      <DependentUpon>LocalUser.feature</DependentUpon>
+      <DependentUpon>LocalUserPlanningScreen.feature</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
