@@ -19,10 +19,10 @@ Scenario: Search Menu Cycles by name or description
         |MC with recipes|Testing the publishing of a MC with recipes|
 
 @TC27706 @TC27653 @TC27658 @Smoke
-Scenario: Create Edit Delete menu cycle
+Scenario: Create Edit Copy Delete menu cycle
     When Menu Cycle is created with following data
-    |MenuCycleName                   |Description   |GapDays           |Usergroup|
-    |Automatically created menu cycle|no description|Wednesday,Thursday|SodexoUK |
+    |MenuCycleName                   |Description   |GapDays           |Usergroup      |
+    |Automatically created menu cycle|no description|Wednesday,Thursday|TestGroupPrice2|
         And Verify GAP days in calendar view are
             |Day      |
             |Wednesday|

@@ -970,6 +970,27 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Save button is disabled if menu cycle is published")]
+        [NUnit.Framework.CategoryAttribute("TC31037")]
+        public virtual void SaveButtonIsDisabledIfMenuCycleIsPublished()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save button is disabled if menu cycle is published", new string[] {
+                        "TC31037"});
+#line 283
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 284
+    testRunner.Given("Menu Cycle \"Menu Cycle for Local user\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 285
+    testRunner.When("planning for Thursday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 286
+    testRunner.Then("Save button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

@@ -32,7 +32,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = "div[class='group-serach-button']")]
         public IWebElement SearchGroupButton { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "div[class*='offers-list']")]
+        [FindsBy(How = How.CssSelector, Using = ".radio:not([style='display: none;'])")]
         public IList<IWebElement> OffersList { get; set; }
 
         [FindsBy(How = How.Id, Using = "next")]
@@ -50,7 +50,7 @@ namespace MenuCycle.Tests.PageObjects
         internal void SearchAndSelectOffer(string offer)
         {
             Driver.WaitIsClickable(SearchGroup);
-            SearchGroup.SendKeys(offer);
+            SearchGroup.ClearAndSendKeys(offer);
             SearchGroupButton.Click();
             OffersList.ElementByText(offer).FindElement(By.CssSelector("label")).Click();
         }

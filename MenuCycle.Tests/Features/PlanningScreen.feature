@@ -278,3 +278,9 @@ Scenario: Close planning screen with "X" button without any changes
         And planning for Monday is opened
     When Cross button is clicked
     Then Calendar view is opened
+
+@TC31037
+Scenario: Save button is disabled if menu cycle is published
+    Given Menu Cycle "Menu Cycle for Local user" is selected
+    When planning for Thursday is opened
+    Then Save button is disabled
