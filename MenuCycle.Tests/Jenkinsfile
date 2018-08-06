@@ -93,9 +93,9 @@ node('IE1UIBLD03') {
 		try {
 				stage ('Copy build artifacts to Mac Mini')
 				 {
-					  ssh UIMCM@10.0.70.8 rm -rf /FromJenkins/${projectPath}/${device}/
-						ssh UIMCM@10.0.70.8 mkdir -p /FromJenkins/${projectPath}/${device}/
-						scp -r ${projectPath}/bin UIMCM@10.0.70.8:/FromJenkins/${projectPath}/${device}/
+					  sh "ssh UIMCM@10.0.70.8 rm -rf /FromJenkins/${projectPath}/${device}/"
+						sh "ssh UIMCM@10.0.70.8 mkdir -p /FromJenkins/${projectPath}/${device}/"
+						sh "scp -r ${projectPath}/bin UIMCM@10.0.70.8:/FromJenkins/${projectPath}/${device}/"
 				}
 		} catch (e) {
 				echo e.message
@@ -189,7 +189,7 @@ def runTestsRemote(device)
 {
     if (Include_Tags == '' && Exclude_Tags == ''){
         print "Not tag to include or exclude. Running all tests"
-        ssh UIMCM@10.0.70.8 nunit /FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5
+        sh "ssh UIMCM@10.0.70.8 nunit /FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5"
     }
     else
     {
@@ -227,7 +227,7 @@ def runTestsRemote(device)
       print "Including tags:  ${Include_Tags}"
 			print "Excluding tags:  ${Exclude_Tags}"
 
-			ssh UIMCM@10.0.70.8 nunit /FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 -where \"${include}${and}${exclude}\"
+			sh "ssh UIMCM@10.0.70.8 nunit /FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 -where \"${include}${and}${exclude}\""
     }
 }
 
