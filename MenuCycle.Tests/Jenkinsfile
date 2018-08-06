@@ -58,7 +58,7 @@ node('IE1UIBLD03') {
 	}
 
 	// Chech for include tags in Job Name
-	['Smoke', 'QAI', 'UAT', 'PRELIVE', 'EMEA', 'NA'].each
+	['Remote', 'Smoke', 'QAI', 'UAT', 'PRELIVE', 'EMEA', 'NA'].each
 	{
 		if (jobName.contains("${it}"))
 		{
@@ -69,6 +69,7 @@ node('IE1UIBLD03') {
 
 	stage('Initialize') {
 	 script { currentBuild.description = "Including: ${Include_Tags} Excluding: ${Exclude_Tags}" }
+
 
 		echo 'Restore nuget packages for solution'
 		bat "\"$env.WORKSPACE/Tools/nuget.exe\" restore \"$solutionPath\" -configFile Tools/NugetSources.Config"
@@ -87,9 +88,32 @@ node('IE1UIBLD03') {
 			currentBuild.result = "FAILED"
 	}
 
+	if (Include_Tags.contains("Remote"))
+	{
+		try {
+				stage ('Copy build artifacts to Mac Mini')
+				 {
+					  bat "ssh UIMCM@10.0.70.8 rm -rf /FromJenkins/${projectPath}/${device}/"
+						bat "ssh UIMCM@10.0.70.8 mkdir -p /FromJenkins/${projectPath}/${device}/"
+						bat "scp -r ${projectPath}/bin UIMCM@10.0.70.8:/FromJenkins/${projectPath}/${device}/"
+				}
+		} catch (e) {
+				echo e.message
+				currentBuild.result = "FAILED"
+		}
+	}
+
 	try {
-			stage ('Run Tests') {
+			stage ('Run Tests')
+			{
+				if (Include_Tags.contains("Remote"))
+				{
+					runTestsRemote(device)
+				}
+				else
+				{
 					runTests(device)
+				}
 			}
 	} catch (e) {
 			echo e.message
@@ -158,6 +182,52 @@ def runTests(device)
 			print "Excluding tags:  ${Exclude_Tags}"
 
       bat "nunit ${projectPath}/bin/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 -where \"${include}${and}${exclude}\""
+    }
+}
+
+def runTestsRemote(device)
+{
+    if (Include_Tags == '' && Exclude_Tags == ''){
+        print "Not tag to include or exclude. Running all tests"
+        bat "ssh UIMCM@10.0.70.8 nunit /FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5"
+    }
+    else
+    {
+
+			def include = ''
+			def includeTags = Include_Tags.split(',')
+			def isFirstTag = true
+
+			if (Include_Tags != '')
+			{
+				includeTags.each
+				{
+					def and = isFirstTag ? '' : " && "
+					include += "${and}cat == ${it}"
+					isFirstTag = false
+				}
+			}
+
+			def exclude = ''
+			def excludeTags = Exclude_Tags.split(',')
+		 	isFirstTag = true
+
+			if (Exclude_Tags != '')
+			{
+				excludeTags.each
+				{
+					def or = isFirstTag ? '' : " || "
+					exclude += "${or}cat != ${it}"
+					isFirstTag = false
+				}
+			}
+
+			def and = Include_Tags != '' && Exclude_Tags != '' ? " && " : ''
+
+      print "Including tags:  ${Include_Tags}"
+			print "Excluding tags:  ${Exclude_Tags}"
+
+			bat "ssh UIMCM@10.0.70.8 nunit /FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 -where \"${include}${and}${exclude}\""
     }
 }
 
