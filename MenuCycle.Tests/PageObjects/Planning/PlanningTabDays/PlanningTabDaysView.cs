@@ -20,9 +20,9 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement EngineCheck { get; set; }
         [FindsBy(How = How.XPath, Using = "//button[text()='Weeks']")] // Engine
         private IWebElement WeeksButton { get; set; }
-        [FindsBy(How = How.XPath, Using = "//button/span[text()='Open all']")]
+        [FindsBy(How = How.XPath, Using = "//button/span[text()='Expand all']")]
         private IWebElement OpenAllButton { get; set; }
-        [FindsBy(How = How.XPath, Using = "//button/span[text()='Close all']")]
+        [FindsBy(How = How.XPath, Using = "//button/span[text()='Collapse all']")]
         private IWebElement CloseAllButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".wrapper > div .mealperiod-total__content:last-of-type > div:nth-of-type(1) > span:last-of-type")]
         private IWebElement DailyPlannedQuantity { get; set; }
