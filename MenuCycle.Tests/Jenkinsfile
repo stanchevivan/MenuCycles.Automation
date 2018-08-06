@@ -93,8 +93,8 @@ node('IE1UIBLD03') {
 		try {
 				stage ('Copy build artifacts to Mac Mini')
 				 {
-					  bat "C:/Windows/System32/OpenSSH/ssh.exe UIMCM@10.0.70.8 rm -rf /FromJenkins/${projectPath}/${device}/"
-						bat "C:/Windows/System32/OpenSSH/ssh.exe UIMCM@10.0.70.8 mkdir -p /FromJenkins/${projectPath}/${device}/"
+					  bat "C:/Users/Jenkins/ssh.exe UIMCM@10.0.70.8 rm -rf /FromJenkins/${projectPath}/${device}/"
+						bat "C:/Users/Jenkins/ssh.exe UIMCM@10.0.70.8 mkdir -p /FromJenkins/${projectPath}/${device}/"
 						bat "scp -r ${projectPath}/bin UIMCM@10.0.70.8:/FromJenkins/${projectPath}/${device}/"
 				}
 		} catch (e) {
@@ -189,7 +189,7 @@ def runTestsRemote(device)
 {
     if (Include_Tags == '' && Exclude_Tags == ''){
         print "Not tag to include or exclude. Running all tests"
-        bat "C:/Windows/System32/OpenSSH/ssh.exe UIMCM@10.0.70.8 nunit /FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5"
+        bat "C:/Users/Jenkins/ssh.exe UIMCM@10.0.70.8 nunit /FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5"
     }
     else
     {
@@ -227,7 +227,7 @@ def runTestsRemote(device)
       print "Including tags:  ${Include_Tags}"
 			print "Excluding tags:  ${Exclude_Tags}"
 
-			bat "C:/Windows/System32/OpenSSH/ssh.exe UIMCM@10.0.70.8 nunit /FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 -where \"${include}${and}${exclude}\""
+			bat "C:/Users/Jenkins/ssh.exe UIMCM@10.0.70.8 nunit /FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 -where \"${include}${and}${exclude}\""
     }
 }
 
