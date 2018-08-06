@@ -113,14 +113,14 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create Edit Delete menu cycle")]
+        [NUnit.Framework.DescriptionAttribute("Create Edit Copy Delete menu cycle")]
         [NUnit.Framework.CategoryAttribute("TC27706")]
         [NUnit.Framework.CategoryAttribute("TC27653")]
         [NUnit.Framework.CategoryAttribute("TC27658")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void CreateEditDeleteMenuCycle()
+        public virtual void CreateEditCopyDeleteMenuCycle()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Edit Delete menu cycle", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Edit Copy Delete menu cycle", new string[] {
                         "TC27706",
                         "TC27653",
                         "TC27658",
@@ -139,7 +139,7 @@ this.FeatureBackground();
                         "Automatically created menu cycle",
                         "no description",
                         "Wednesday,Thursday",
-                        "SodexoUK"});
+                        "TestGroupPrice2"});
 #line 23
     testRunner.When("Menu Cycle is created with following data", ((string)(null)), table3, "When ");
 #line hidden
