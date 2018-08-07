@@ -95,7 +95,7 @@ node('IE1UIBLD03') {
 				 {
 					  //bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 rm -rf /FromJenkins/${projectPath}/${device}/"
 						bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 mkdir -p ~/FromJenkins/${projectPath}/${device}/"
-						bat "C:/Windows/System32/OpenSSH/scp -r -P 10556 $env.WORKSPACE/${projectPath}/bin/${device} UIMCM@0.tcp.ngrok.io:~/FromJenkins/${projectPath}/${device}/"
+						bat "C:/Windows/System32/OpenSSH/scp -r -P 10556 \"$env.WORKSPACE/${projectPath}/bin/${device}\" UIMCM@0.tcp.ngrok.io:~/FromJenkins/${projectPath}/${device}/"
 				}
 		} catch (e) {
 				echo e.message
