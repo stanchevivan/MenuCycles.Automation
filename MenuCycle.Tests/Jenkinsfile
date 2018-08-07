@@ -94,8 +94,8 @@ node('IE1UIBLD03') {
 				stage ('Copy build artifacts to Mac Mini')
 				 {
 					  //bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 rm -rf /FromJenkins/${projectPath}/${device}/"
-						//bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 mkdir -p /FromJenkins/${projectPath}/${device}/"
-						bat "C:/Windows/System32/OpenSSH/scp -r ${solutionPath}/${projectPath}/bin UIMCM@0.tcp.ngrok.io -p10556:/FromJenkins/${projectPath}/${device}/"
+						bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 mkdir -p /FromJenkins/${projectPath}/${device}/"
+						bat "C:/Windows/System32/OpenSSH/scp -r -P 10556 /${projectPath}/bin/${device} UIMCM@0.tcp.ngrok.io:/FromJenkins/${projectPath}/${device}/"
 				}
 		} catch (e) {
 				echo e.message
