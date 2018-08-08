@@ -6,9 +6,9 @@ using SeleniumExtras.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class MenuCycleCalendarView : MenuCyclesBasePage
+    public class MenuCycleDailyCalendarView : MenuCyclesBasePage
     {
-        public MenuCycleCalendarView(IWebDriver webDriver) : base(webDriver)
+        public MenuCycleDailyCalendarView(IWebDriver webDriver) : base(webDriver)
         {
             PageFactory.InitElements(Driver, this);
         }
@@ -57,6 +57,9 @@ namespace MenuCycle.Tests.PageObjects
         public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p, CalendarHeaders[CalendarColumnContainer.IndexOf(p)].Name)).ToList();
         //public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p)).ToList();
 
+        public bool AreAllMealPeriodsExpanded => CalendarColumns.SelectMany(day => day.MealPeriodCards).Where(mp => mp.IsExpandable).All(mp => mp.IsExpanded);
+
+              
 
         public bool IsCalendarViewOpen => DaysContainer.Get().ElementPresent;
 

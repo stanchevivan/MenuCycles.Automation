@@ -335,13 +335,13 @@ this.FeatureBackground();
 #line 86
     testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 87
-        testRunner.And("Open all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Expand all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 88
-    testRunner.And("all meal periods are expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("all meal periods are expanded in Daily Planning", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 89
-        testRunner.And("Close all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Collapse all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 90
-    testRunner.Then("all meal periods are collapsed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("all meal periods are collapsed in Daily Planning", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -707,15 +707,15 @@ this.FeatureBackground();
 #line 166
     testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 167
-        testRunner.And("Open all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Expand all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 168
-    testRunner.And("all meal periods are expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("all meal periods are expanded in Daily Planning", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 169
         testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 170
         testRunner.And("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 171
-    testRunner.Then("all meal periods are collapsed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("all meal periods are collapsed in Daily Planning", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -764,6 +764,77 @@ this.FeatureBackground();
     testRunner.When("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 184
     testRunner.Then("Meal Period names match the calendar view names", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Expand all meal periods in the Calendar view")]
+        [NUnit.Framework.CategoryAttribute("TC31018")]
+        public virtual void ExpandAllMealPeriodsInTheCalendarView()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Expand all meal periods in the Calendar view", new string[] {
+                        "TC31018"});
+#line 187
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 188
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 189
+    testRunner.When("Calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 190
+        testRunner.And("Expand all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 191
+    testRunner.Then("Verify all meal periods are expanded in Daily Calendar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Collapse all meal periods in the Calendar view")]
+        [NUnit.Framework.CategoryAttribute("TC31019")]
+        public virtual void CollapseAllMealPeriodsInTheCalendarView()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Collapse all meal periods in the Calendar view", new string[] {
+                        "TC31019"});
+#line 194
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 195
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 196
+    testRunner.When("Calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 197
+        testRunner.And("Expand all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 198
+        testRunner.And("Verify all meal periods are expanded in Daily Calendar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 199
+        testRunner.And("Collapse all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 200
+    testRunner.Then("Verify all meal periods are collapsed in Daily Calendar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("All meal periods in Calendar view are collapsed by default")]
+        [NUnit.Framework.CategoryAttribute("TC31021")]
+        public virtual void AllMealPeriodsInCalendarViewAreCollapsedByDefault()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("All meal periods in Calendar view are collapsed by default", new string[] {
+                        "TC31021"});
+#line 203
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 204
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 205
+    testRunner.When("Calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 206
+    testRunner.Then("Verify all meal periods are collapsed in Daily Calendar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

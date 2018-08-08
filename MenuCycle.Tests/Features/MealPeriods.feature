@@ -84,10 +84,10 @@ Scenario: Retrieve Number of covers for meal period from the API
 Scenario: Open all meal periods in Planning screen
     Given Menu Cycle "Meda" is selected
     When planning for Tuesday is opened
-        And Open all is clicked
-    And all meal periods are expanded
-        And Close all is clicked
-    Then all meal periods are collapsed
+        And Expand all is clicked
+    And all meal periods are expanded in Daily Planning
+        And Collapse all is clicked
+    Then all meal periods are collapsed in Daily Planning
 
 @TC29384
 Scenario: Recipes only - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP" 
@@ -164,11 +164,11 @@ Scenario: Combined for Buffet, A la cares and recipes - Calculate Meal period "P
 Scenario: Meal periods are collapsed after reopening planning screen
     Given Menu Cycle "Meda" is selected
     When planning for Tuesday is opened
-        And Open all is clicked
-    And all meal periods are expanded
+        And Expand all is clicked
+    And all meal periods are expanded in Daily Planning
         And Cancel button is clicked
         And planning for Tuesday is opened
-    Then all meal periods are collapsed
+    Then all meal periods are collapsed in Daily Planning
 
 @TC30011
 Scenario: More than one hundred recipies are shown in a meal period
@@ -182,3 +182,25 @@ Scenario: The order of meal periods from the planning screen is the same as in t
         And Meal Period names for "Tuesday" are saved
     When planning for Tuesday is opened
     Then Meal Period names match the calendar view names
+
+@TC31018
+Scenario: Expand all meal periods in the Calendar view 
+    Given Menu Cycle "Meda" is selected
+    When Calendar view is opened
+        And Expand all is clicked
+    Then Verify all meal periods are expanded in Daily Calendar
+
+@TC31019
+Scenario: Collapse all meal periods in the Calendar view  
+    Given Menu Cycle "Meda" is selected
+    When Calendar view is opened
+        And Expand all is clicked
+        And Verify all meal periods are expanded in Daily Calendar
+        And Collapse all is clicked
+    Then Verify all meal periods are collapsed in Daily Calendar
+
+@TC31021
+Scenario: All meal periods in Calendar view are collapsed by default
+    Given Menu Cycle "Meda" is selected
+    When Calendar view is opened
+    Then Verify all meal periods are collapsed in Daily Calendar

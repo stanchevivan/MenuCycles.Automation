@@ -10,18 +10,18 @@ namespace MenuCycle.Tests.Steps
     [Binding]
     public class MealMeriodDetailSteps
     {
-        readonly MenuCycleCalendarView menuCycleCalendarView;
+        readonly MenuCycleDailyCalendarView menuCycleDailyCalendarView;
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
         readonly MealPeriodDetails mealPeriodDetails;
         readonly RecipeSearch recipeSearch;
 
-        public MealMeriodDetailSteps(ScenarioContext scenarioContext, MenuCycleCalendarView menuCycleCalendarView,
+        public MealMeriodDetailSteps(ScenarioContext scenarioContext, MenuCycleDailyCalendarView menuCycleDailyCalendarView,
                                      ToastNotification notification, MealPeriodDetails mealPeriodDetails,
                                      RecipeSearch recipeSearch)
         {
             this.scenarioContext = scenarioContext;
-            this.menuCycleCalendarView = menuCycleCalendarView;
+            this.menuCycleDailyCalendarView = menuCycleDailyCalendarView;
             this.notification = notification;
             this.mealPeriodDetails = mealPeriodDetails;
             this.recipeSearch = recipeSearch;
@@ -30,7 +30,7 @@ namespace MenuCycle.Tests.Steps
         [When(@"Details for meal period ""(.*)"" in ""(.*)"" are opened")]
         public void WhenDetailsForMealPeriodInAreOpened(string mealPeriod, string weekDay)
         {
-            menuCycleCalendarView.GetDay(weekDay).GetMealPeriodCard(mealPeriod).OpenMealPeriodDetails();
+            menuCycleDailyCalendarView.GetDay(weekDay).GetMealPeriodCard(mealPeriod).OpenMealPeriodDetails();
             mealPeriodDetails.WaitForLoad();
         }
 

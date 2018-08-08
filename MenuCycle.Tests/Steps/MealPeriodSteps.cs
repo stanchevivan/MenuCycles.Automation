@@ -16,25 +16,27 @@ namespace MenuCycle.Tests.Steps
         readonly PlanningTabDays planningTabDays;
         readonly PlanningTabWeeks planningTabWeeks;
         readonly NutritionTabDays nutritionTabDays;
-        readonly MenuCycleCalendarView menuCycleCalendarView;
+        readonly MenuCycleDailyCalendarView menuCycleDailyCalendarView;
         readonly CreateMealPeriod createMealPeriod;
         readonly RecipeSearch recipeSearch;
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
         readonly ModalDialogPage modalDialogPage;
+        readonly CommonElements commonElements;
 
-        public MealPeriodSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleCalendarView menuCycleCalendarView,
-                               CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification, ModalDialogPage modalDialogPage)
+        public MealPeriodSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleDailyCalendarView menuCycleDailyCalendarView,
+                               CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification, ModalDialogPage modalDialogPage, CommonElements commonElements)
         {
             this.dailyPlanningView = dailyPlanningView;
             this.planningTabDays = planningTabDays;
             this.planningTabWeeks = planningTabWeeks;
             this.nutritionTabDays = nutritionTabDays;
-            this.menuCycleCalendarView = menuCycleCalendarView;
+            this.menuCycleDailyCalendarView = menuCycleDailyCalendarView;
             this.createMealPeriod = createMealPeriod;
             this.recipeSearch = recipeSearch;
             this.notification = notification;
             this.modalDialogPage = modalDialogPage;
+            this.commonElements = commonElements;
 
             this.scenarioContext = scenarioContext;
         }
@@ -67,7 +69,7 @@ namespace MenuCycle.Tests.Steps
         [Given(@"Meal Period colours for ""(.*)"" are saved")]
         public void GivenMealPeriodColoursForAreSaved(string weekDay)
         {
-            scenarioContext.Add("MealPeriodColours", menuCycleCalendarView.GetMealPeriodColours(weekDay));
+            scenarioContext.Add("MealPeriodColours", menuCycleDailyCalendarView.GetMealPeriodColours(weekDay));
         }
 
         /// <summary>
@@ -82,7 +84,7 @@ namespace MenuCycle.Tests.Steps
         [Given(@"Meal Period names for ""(.*)"" are saved")]
         public void GivenMealPeriodNamesForAreSaved(string weekDay)
         {
-            scenarioContext.Add("MealPeriodNames", menuCycleCalendarView.GetMealPeriodNames(weekDay));
+            scenarioContext.Add("MealPeriodNames", menuCycleDailyCalendarView.GetMealPeriodNames(weekDay));
         }
 
         /// <summary>
@@ -182,31 +184,45 @@ namespace MenuCycle.Tests.Steps
             Assert.That(mealPeriod.NumberOfCovers, Is.EqualTo(numberOfCovers));
         }
 
-        [When(@"Open all is clicked")]
+        [When(@"Expand all is clicked")]
         public void WhenOpenAllIsClicked()
         {
-            planningTabDays.ExpandAllMealPeriods();
+            commonElements.UseExpandAllButton();
         }
 
-        [When(@"Close all is clicked")]
+        [When(@"Collapse all is clicked")]
         public void WhenCloseAllIsClicked()
         {
-            planningTabDays.CollapseAllMealPeriods();
+            commonElements.UseCollapseAllButton();
         }
 
-        [When(@"all meal periods are expanded")]
-        [Then(@"all meal periods are expanded")]
-        public void ThenAllMealPeriodsAreExpanded()
+        [When(@"all meal periods are expanded in Daily Planning")]
+        [Then(@"all meal periods are expanded in Daily Planning")]
+        public void AllMealPeriodsAreExpandedInDailyPlanning()
         {
             Assert.IsTrue(planningTabDays.AreAllMealPeriodsExpanded);
         }
 
-        [When(@"all meal periods are collapsed")]
-        [Then(@"all meal periods are collapsed")]
-        public void ThenAllMealPeriodsAreCollapsed()
+        [When(@"all meal periods are collapsed in Daily Planning")]
+        [Then(@"all meal periods are collapsed in Daily Planning")]
+        public void AllMealPeriodsAreCollapsedInDailyPlanning()
         {
             Assert.IsTrue(planningTabDays.AreAllMealPeriodsCollapsed);
 
+        }
+
+        [When(@"Verify all meal periods are expanded in Daily Calendar")]
+        [Then(@"Verify all meal periods are expanded in Daily Calendar")]
+        public void AllMealPeriodsAreExpandedInDailyCalendar()
+        {
+            Assert.IsTrue(menuCycleDailyCalendarView.AreAllMealPeriodsExpanded);
+        }
+
+        [When(@"Verify all meal periods are collapsed in Daily Calendar")]
+        [Then(@"Verify all meal periods are collapsed in Daily Calendar")]
+        public void AllMealPeriodsAreCollapsedInDailyCalendar()
+        {
+            Assert.IsFalse(menuCycleDailyCalendarView.AreAllMealPeriodsExpanded);
         }
 
         [Then(@"Value for fields for meal period ""(.*)"" is")]
@@ -240,7 +256,7 @@ namespace MenuCycle.Tests.Steps
         public void ModalDialogYes()
         {
             modalDialogPage.UseYesButton();
-            menuCycleCalendarView.WaitPageLoad();
+            menuCycleDailyCalendarView.WaitPageLoad();
         }
 
         [Given(@"Verify items for meal period ""(.*)"" are \(check count ""(.*)""\)")]

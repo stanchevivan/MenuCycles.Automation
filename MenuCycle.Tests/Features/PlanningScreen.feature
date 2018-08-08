@@ -1,4 +1,4 @@
-@QAI # @planningscreen
+﻿@QAI # @planningscreen
 Feature: PlanningScreen
     Meal Peridos functionalities and validations
 
@@ -25,13 +25,6 @@ Scenario: Open Planning Screen, go to Weeks, go back to Planning screen (Central
         And switching to Weekly Planning view
         And switching to Daily Planning view
     Then planning screen engine is loaded
-
-#TODO Post-Production tab not present yet
-@TC28557 @ignore
-Scenario: Open Planning Screen, go to Post-Production, go back to Planning screen (Local User)
-    Given a Menu Cycle is selected
-    When planning for Tuesday is opened
-    Then the planning screen for Tuesday is open
 
 @TC29023
 Scenario: Save button is clicked without any changes applied
@@ -167,7 +160,7 @@ Scenario: Number of covers is saved after closing the app
 Scenario: Calculate Daily Totals
     Given Menu Cycle "Meda" is selected
     When planning for Tuesday is opened
-        And Open all is clicked
+        And Expand all is clicked
     And data for recipes is set
         |MealPeriodName|TYPE  |RecipeTitle                     |PlannedQuantity|PriceModel|TaxPercentage|SellPrice|
         |LUNCH         |RECIPE|724Gourmet Beef Burger 6oz      |              3|     Fixed|            0|        3|

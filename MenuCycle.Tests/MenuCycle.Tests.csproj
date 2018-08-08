@@ -293,7 +293,7 @@
     <Compile Include="PageObjects\LogInAs.cs" />
     <Compile Include="PageObjects\ToastNotification.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn.cs" />
-    <Compile Include="PageObjects\CalendarDays\MenuCycleCalendarView.cs" />
+    <Compile Include="PageObjects\CalendarDays\MenuCycleDailyCalendarView.cs" />
     <Compile Include="PageObjects\CalendarDays\WeekDays.cs" />
     <Compile Include="PageObjects\Dashboard\MenuCycleItem.cs" />
     <Compile Include="PageObjects\Dashboard\MenuCyclesDashboard.cs" />
@@ -361,6 +361,7 @@
     <Compile Include="Features\LocalUserPlanningScreen.feature.cs">
       <DependentUpon>LocalUserPlanningScreen.feature</DependentUpon>
     </Compile>
+    <Compile Include="PageObjects\CommonElements.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

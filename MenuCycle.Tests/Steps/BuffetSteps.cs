@@ -14,20 +14,20 @@ namespace MenuCycle.Tests.Steps
         readonly PlanningTabDays planningTabDays;
         readonly PlanningTabWeeks planningTabWeeks;
         readonly NutritionTabDays nutritionTabDays;
-        readonly MenuCycleCalendarView menuCycleCalendarView;
+        readonly MenuCycleDailyCalendarView menuCycleDailyCalendarView;
         readonly CreateMealPeriod createMealPeriod;
         readonly RecipeSearch recipeSearch;
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
 
-        public BuffetSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleCalendarView menuCycleCalendarView,
+        public BuffetSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleDailyCalendarView menuCycleDailyCalendarView,
             CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification)
         {
             this.dailyPlanningView = dailyPlanningView;
             this.planningTabDays = planningTabDays;
             this.planningTabWeeks = planningTabWeeks;
             this.nutritionTabDays = nutritionTabDays;
-            this.menuCycleCalendarView = menuCycleCalendarView;
+            this.menuCycleDailyCalendarView = menuCycleDailyCalendarView;
             this.createMealPeriod = createMealPeriod;
             this.recipeSearch = recipeSearch;
             this.notification = notification;
