@@ -14,7 +14,7 @@ namespace MenuCycle.Tests.Steps
         readonly PlanningView planningView;
         readonly MenuCyclesDashboard menuCycleDashboard;
         readonly CreateMenuCycle createMenuCycle;
-        readonly MenuCycleCalendarView menuCycleCalendarView;
+        readonly MenuCycleDailyCalendarView menuCycleDailyCalendarView;
         readonly CreateMealPeriod createMealPeriod;
         readonly RecipeSearch recipeSearch;
         readonly ToastNotification notification;
@@ -22,14 +22,14 @@ namespace MenuCycle.Tests.Steps
         readonly ModalDialogPage modalDialogPage;
 
         public MenuCycleSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, LogInAs logInAs,
-            MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleCalendarView menuCycleCalendarView,
+            MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleDailyCalendarView menuCycleDailyCalendarView,
             CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification,
                               ModalDialogPage modalDialogPage)
         {
             this.logInAs = logInAs;
             this.menuCycleDashboard = menuCycleDashboard;
             this.createMenuCycle = createMenuCycle;
-            this.menuCycleCalendarView = menuCycleCalendarView;
+            this.menuCycleDailyCalendarView = menuCycleDailyCalendarView;
             this.createMealPeriod = createMealPeriod;
             this.recipeSearch = recipeSearch;
             this.notification = notification;
@@ -52,7 +52,7 @@ namespace MenuCycle.Tests.Steps
             menuCycleDashboard.WaitPageLoad();
             menuCycleDashboard.SearchMenuCycle(menuCycleName);
             menuCycleDashboard.SelectMenuCycleByName(menuCycleName);
-            menuCycleCalendarView.WaitPageLoad();
+            menuCycleDailyCalendarView.WaitPageLoad();
         }
 
         [Given(@"Menu Cycle ""(.*)"" is searched")]
@@ -87,15 +87,16 @@ namespace MenuCycle.Tests.Steps
         [Then(@"planning for (.*) is opened")]
         public void WhenPlanningForADayIsOpened(string weekDay)
         {
-            menuCycleCalendarView.WaitPageLoad();
-            menuCycleCalendarView.OpenDailyPlanningForDay(weekDay);
+            menuCycleDailyCalendarView.WaitPageLoad();
+            menuCycleDailyCalendarView.OpenDailyPlanningForDay(weekDay);
             planningView.WaitForLoad();
         }
        
+        [When(@"Calendar view is opened")]
         [Then(@"Calendar view is opened")]
         public void CalendardViewIsOpened()
         {
-            Assert.IsTrue(menuCycleCalendarView.IsCalendarViewOpen);
+            Assert.IsTrue(menuCycleDailyCalendarView.IsCalendarViewOpen);
         }
 
         [Given(@"Menu Cycle is created with following data")]
@@ -118,7 +119,7 @@ namespace MenuCycle.Tests.Steps
             createMenuCycle.SearchAndSelectOffer(usergroup);
             createMenuCycle.UseCreateButton();
 
-            menuCycleCalendarView.WaitPageLoad();
+            menuCycleDailyCalendarView.WaitPageLoad();
         }
 
         [When(@"Menu Cycle ""(.*)"" is edited to")]
@@ -139,7 +140,7 @@ namespace MenuCycle.Tests.Steps
             //createMenuCycle.SelectGAPDays(gapDays);
             createMenuCycle.UseNextButton();
 
-            menuCycleCalendarView.WaitPageLoad();
+            menuCycleDailyCalendarView.WaitPageLoad();
         }
 
         [When(@"Menu Cycle ""(.*)"" is copied")]
@@ -182,7 +183,7 @@ namespace MenuCycle.Tests.Steps
         public void VerifyGapDaysInCalendarViewAre(Table table)
         {
             var expectedGapDays = table.Rows.Select(x => x[0].ToUpper());
-            var actualGapDays = menuCycleCalendarView.CalendarColumns.Where(x => x.IsGapDay).Select(x => x.DayName);
+            var actualGapDays = menuCycleDailyCalendarView.CalendarColumns.Where(x => x.IsGapDay).Select(x => x.DayName);
 
             Assert.That(actualGapDays, Is.EqualTo(expectedGapDays));
         }

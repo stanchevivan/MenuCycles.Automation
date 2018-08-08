@@ -20,10 +20,6 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement EngineCheck { get; set; }
         [FindsBy(How = How.XPath, Using = "//button[text()='Weeks']")] // Engine
         private IWebElement WeeksButton { get; set; }
-        [FindsBy(How = How.XPath, Using = "//button/span[text()='Expand all']")]
-        private IWebElement OpenAllButton { get; set; }
-        [FindsBy(How = How.XPath, Using = "//button/span[text()='Collapse all']")]
-        private IWebElement CloseAllButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".wrapper > div .mealperiod-total__content:last-of-type > div:nth-of-type(1) > span:last-of-type")]
         private IWebElement DailyPlannedQuantity { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".wrapper > div .mealperiod-total__content:last-of-type > div:nth-of-type(2) > span:last-of-type")]
@@ -90,16 +86,6 @@ namespace MenuCycle.Tests.PageObjects
                 throw new System.Exception($"Meal period {name} not found !");
             }
             return MealPeriods.First(x => x.Name == name.ToUpper());
-        }
-
-        public void ExpandAllMealPeriods()
-        {
-            OpenAllButton.Click();
-        }
-
-        public void CollapseAllMealPeriods()
-        {
-            CloseAllButton.Click();
         }
 
         public void ConfirmDialog()
