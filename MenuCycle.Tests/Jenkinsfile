@@ -93,8 +93,8 @@ node('IE1UIBLD03') {
 		try {
 				stage ('Copy build artifacts to Mac Mini')
 				 {
-					  //bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 rm -rf /FromJenkins/${projectPath}/${device}/"
-						bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 mkdir -p ~/FromJenkins/${projectPath}/${device}/"
+					  bat "ssh.exe UIMCM@0.tcp.ngrok.io -p10556 rm -rf /FromJenkins/${projectPath}/${device}/"
+						bat "ssh.exe UIMCM@0.tcp.ngrok.io -p10556 mkdir -p ~/FromJenkins/${projectPath}/${device}/"
 						bat "C:/Windows/System32/OpenSSH/scp -r -P 10556 \"$env.WORKSPACE/${projectPath}/bin/${device}/\" UIMCM@0.tcp.ngrok.io:~/FromJenkins/${projectPath}/${device}/"
 				}
 		} catch (e) {
@@ -189,9 +189,7 @@ def runTestsRemote(device)
 {
     if (Include_Tags == '' && Exclude_Tags == ''){
         print "Not tag to include or exclude. Running all tests"
-        // bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 /Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2"
-				bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556"
-				bat "/Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2"
+        bat "ssh.exe UIMCM@0.tcp.ngrok.io -p10556 /Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2"
     }
     else
     {
@@ -229,10 +227,7 @@ def runTestsRemote(device)
       print "Including tags:  ${Include_Tags}"
 			print "Excluding tags:  ${Exclude_Tags}"
 
-			//bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 /Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll -where \"${include}${and}${exclude}\" --result:${device}TestResults.xml;format=nunit2"
-			bat "C:/Users/Jenkins/ssh.exe -tt UIMCM@0.tcp.ngrok.io -p10556"
-			bat "/Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll -where \"${include}${and}${exclude}\" --result:${device}TestResults.xml;format=nunit2"
-			bat "exit"
+			bat "ssh.exe UIMCM@0.tcp.ngrok.io -p10556 /Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll -where \"${include}${and}${exclude}\" --result:${device}TestResults.xml;format=nunit2"
 		}
 }
 
