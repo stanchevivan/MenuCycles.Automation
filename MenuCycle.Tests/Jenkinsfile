@@ -230,8 +230,9 @@ def runTestsRemote(device)
 			print "Excluding tags:  ${Exclude_Tags}"
 
 			//bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 /Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll -where \"${include}${and}${exclude}\" --result:${device}TestResults.xml;format=nunit2"
-			bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556"
+			bat "C:/Users/Jenkins/ssh.exe -tt UIMCM@0.tcp.ngrok.io -p10556"
 			bat "/Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll -where \"${include}${and}${exclude}\" --result:${device}TestResults.xml;format=nunit2"
+			bat "exit"
 		}
 }
 
