@@ -125,7 +125,7 @@ node('IE1UIBLD03') {
         stage('Test Results Archive') {
 					echo "Copying test results to workspace.."
 					bat "mkdir \"$env.WORKSPACE/${projectPath}/bin/${device}/Reports/\""
-					bat "C:/Users/Jenkins/scp.exe -v -P 13137 UIMCM@0.tcp.ngrok.io:~/FromJenkins/${projectPath}/${device}/Reports/Reports_${device}.json" \"$env.WORKSPACE/${projectPath}/bin/${device}/Reports/\"
+					bat "C:/Users/Jenkins/scp.exe -v -P 13137 UIMCM@0.tcp.ngrok.io:~/FromJenkins/${projectPath}/${device}/Reports/Reports_${device}.json \"$env.WORKSPACE/${projectPath}/bin/${device}/Reports/\""
             archiveArtifacts artifacts: '*TestResults.xml'
             nunit testResultsPattern: '*TestResults.xml'
             cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: "$projectPath/bin"
