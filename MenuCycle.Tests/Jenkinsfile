@@ -93,9 +93,9 @@ node('IE1UIBLD03') {
 		try {
 				stage ('Copy build artifacts to Mac Mini')
 				 {
-					  bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 rm -rf /FromJenkins/${projectPath}/${device}/"
-						bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 mkdir -p ~/FromJenkins/${projectPath}/${device}/"
-						bat "C:/Users/Jenkins/scp.exe -v -r -P 10556 \"$env.WORKSPACE/${projectPath}/bin/${device}/\" UIMCM@0.tcp.ngrok.io:~/FromJenkins/${projectPath}/"
+					  bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p18958 rm -rf /FromJenkins/${projectPath}/${device}/"
+						bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p18958 mkdir -p ~/FromJenkins/${projectPath}/${device}/"
+						bat "C:/Users/Jenkins/scp.exe -v -r -P 18958 \"$env.WORKSPACE/${projectPath}/bin/${device}/\" UIMCM@0.tcp.ngrok.io:~/FromJenkins/${projectPath}/"
 				}
 		} catch (e) {
 				echo e.message
@@ -187,13 +187,6 @@ def runTests(device)
 
 def runTestsRemote(device)
 {
-    if (Include_Tags == '' && Exclude_Tags == ''){
-        print "Not tag to include or exclude. Running all tests"
-        bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 /Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2"
-    }
-    else
-    {
-
 			def include = ''
 			def includeTags = Include_Tags.split(',')
 			def isFirstTag = true
@@ -228,8 +221,7 @@ def runTestsRemote(device)
       print "Including tags:  ${Include_Tags}"
 			print "Excluding tags:  ${Exclude_Tags}"
 
-			bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 \"/Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll ${where} \'${include}${and}${exclude}\' --result:${device}TestResults.xml;format=nunit2\""
-		}
+			bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p18958 \"/Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll ${where} \'${include}${and}${exclude}\' --result:${device}TestResults.xml;format=nunit2\""
 }
 
 def includeTag(tag)
