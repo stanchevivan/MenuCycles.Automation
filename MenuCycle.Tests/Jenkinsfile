@@ -95,7 +95,7 @@ node('IE1UIBLD03') {
 				 {
 					  bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 rm -rf /FromJenkins/${projectPath}/${device}/"
 						bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 mkdir -p ~/FromJenkins/${projectPath}/${device}/"
-						bat "C:/Users/Jenkins/scp.exe -r -P 10556 \"$env.WORKSPACE/${projectPath}/bin/${device}/\" UIMCM@0.tcp.ngrok.io:~/FromJenkins/${projectPath}/"
+						bat "C:/Users/Jenkins/scp.exe -v -r -P 10556 \"$env.WORKSPACE/${projectPath}/bin/${device}/\" UIMCM@0.tcp.ngrok.io:~/FromJenkins/${projectPath}/"
 				}
 		} catch (e) {
 				echo e.message
@@ -223,11 +223,12 @@ def runTestsRemote(device)
 			}
 
 			def and = Include_Tags != '' && Exclude_Tags != '' ? " && " : ''
+			def where = Include_Tags != '' || Exclude_Tags != '' ? "-where" : ''
 
       print "Including tags:  ${Include_Tags}"
 			print "Excluding tags:  ${Exclude_Tags}"
 
-			bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 \"/Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll -where \'${include}${and}${exclude}\' --result:${device}TestResults.xml;format=nunit2\""
+			bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p10556 \"/Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll ${where} \'${include}${and}${exclude}\' --result:${device}TestResults.xml;format=nunit2\""
 		}
 }
 
