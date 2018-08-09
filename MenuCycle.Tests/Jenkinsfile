@@ -221,7 +221,7 @@ def runTestsRemote(device)
       print "Including tags:  ${Include_Tags}"
 			print "Excluding tags:  ${Exclude_Tags}"
 
-			bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p18958 \"/Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll ${where} \'${include}${and}${exclude}\' --result:${device}TestResults.xml;format=nunit2\""
+			bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p13137 \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll ${where} \'${include}${and}${exclude}\' --result:${device}TestResults.xml;format=nunit2\""
 }
 
 def includeTag(tag)
