@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Page;
-using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -11,10 +9,8 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class CreateMenuCycle : BasePage
     {
-        readonly IArtefacts Artefacts;
-        public CreateMenuCycle(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver)
+        public CreateMenuCycle(IWebDriver webDriver) : base(webDriver)
         {
-            Artefacts = artefacts;
         }
 
         [FindsBy(How = How.CssSelector, Using = "div[class*='name-form_name'] textarea")]

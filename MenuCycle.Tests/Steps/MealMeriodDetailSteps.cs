@@ -25,6 +25,8 @@ namespace MenuCycle.Tests.Steps
             this.notification = notification;
             this.mealPeriodDetails = mealPeriodDetails;
             this.recipeSearch = recipeSearch;
+
+            this.scenarioContext = scenarioContext;
         }
 
         [When(@"Details for meal period ""(.*)"" in ""(.*)"" are opened")]

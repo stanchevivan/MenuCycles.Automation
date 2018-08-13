@@ -203,6 +203,60 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Single cost is present for Recipe and Ingredients in recipe detailed view")]
+        [NUnit.Framework.CategoryAttribute("TC30233")]
+        public virtual void SingleCostIsPresentForRecipeAndIngredientsInRecipeDetailedView()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Single cost is present for Recipe and Ingredients in recipe detailed view", new string[] {
+                        "TC30233"});
+#line 49
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 50
+    testRunner.Given("Menu Cycle \"Meda\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 51
+    testRunner.When("Details for meal period \"LUNCH\" in \"Tuesday\" are opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 52
+        testRunner.And("detailed view for recipe with name \"724Gourmet Chicken Burger\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 53
+    testRunner.Then("meal period recipe name is \"724Gourmet Chicken Burger\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 54
+        testRunner.And("recipe price is \"£0.41\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "IngredientName",
+                        "IngredientCost"});
+            table6.AddRow(new string[] {
+                        "Chicken Breast Diced",
+                        "0.00"});
+            table6.AddRow(new string[] {
+                        "004Fresh White Breadcrumbs (frz) 10g",
+                        "0.00"});
+            table6.AddRow(new string[] {
+                        "ONION FRESH",
+                        "0.00"});
+            table6.AddRow(new string[] {
+                        "Parsley Curley",
+                        "0.00"});
+            table6.AddRow(new string[] {
+                        "Aryzta - Sausage Roll",
+                        "0.00"});
+            table6.AddRow(new string[] {
+                        "Lea & Perrins - Worcestershire Sauce",
+                        "0.00"});
+            table6.AddRow(new string[] {
+                        "EGGS WHOLE PASTEURISED",
+                        "0.00"});
+#line 55
+        testRunner.And("Verify ingredients in the detailed view", ((string)(null)), table6, "And ");
+#line 64
+        testRunner.And("Verify ingredients total cost is \"0.00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
