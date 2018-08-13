@@ -16,7 +16,8 @@ solutionName = "MenuCycle.Automation.sln"
 projectPath = "MenuCycle.Tests"
 projectName = "MenuCycle.Tests.csproj"
 remotePort = "$Remote_Port";
-remotePath = "~/FromJenkins/${env.JOB_NAME.split('/').last().replaceAll("\\s","")}"
+jobNameFormatted = "${env.JOB_NAME.split('/').last().replaceAll("\\s","")}"
+remotePath = "~/FromJenkins/${jobNameFormatted}"
 isRemote = false // Don't change manually
 
 node('IE1UIBLD03') {
@@ -137,7 +138,7 @@ node('IE1UIBLD03') {
 						echo "Copying test results from remote machine to workspace.."
 						bat "mkdir -p \"$env.WORKSPACE/${projectPath}/bin/${device}/Reports/\""
 						bat "C:/Users/Jenkins/scp.exe -v -P $remotePort UIMCM@0.tcp.ngrok.io:~/NUnit.Console-3.8.0/${device}TestResults.xml \"$env.WORKSPACE/\""
-						bat "C:/Users/Jenkins/scp.exe -v -P $remotePort UIMCM@0.tcp.ngrok.io:${remotePath}/Reports/Reports_${device}.json \"$env.WORKSPACE/${projectPath}/bin/\""
+						bat "C:/Users/Jenkins/scp.exe -v -P $remotePort UIMCM@0.tcp.ngrok.io:${remotePath}/Reports/Reports_${jobNameFormatted}.json \"$env.WORKSPACE/${projectPath}/bin/\""
 					}
 						archiveArtifacts artifacts: '*TestResults.xml'
             nunit testResultsPattern: '*TestResults.xml'
