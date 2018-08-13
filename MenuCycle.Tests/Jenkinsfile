@@ -17,7 +17,10 @@ msbuild = ''
 solutionName = "MenuCycle.Automation.sln"
 projectPath = "MenuCycle.Tests"
 projectName = "MenuCycle.Tests.csproj"
-isRemote = false
+remotePort = 11864
+remotePath = "~/FromJenkins/${env.JOB_NAME}/${projectPath}"
+isRemote = false // Don't change manually
+
 
 node('IE1UIBLD03') {
 	stage ('Get Source Code') {
@@ -102,9 +105,9 @@ node('IE1UIBLD03') {
 		{
 				stage ('Copy build artifacts to remote machine')
 				 {
-					  bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p13137 rm -rf ~/FromJenkins/${projectPath}/${device}/"
-						bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p13137 mkdir -p ~/FromJenkins/${projectPath}/${device}/"
-						bat "C:/Users/Jenkins/scp.exe -v -r -P 13137 \"$env.WORKSPACE/${projectPath}/bin/${device}/\" UIMCM@0.tcp.ngrok.io:~/FromJenkins/${projectPath}/"
+					  bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p$remotePort rm -rf ${remotePath}/${device}/"
+						bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p$remotePort mkdir -p ${remotePath}/${device}/"
+						bat "C:/Users/Jenkins/scp.exe -v -r -P $remotePort \"$env.WORKSPACE/${projectPath}/bin/${device}/\" UIMCM@0.tcp.ngrok.io:${remotePath}/"
 				 }
 		}
 		catch (e)
@@ -136,8 +139,8 @@ node('IE1UIBLD03') {
 					{
 						echo "Copying test results from remote machine to workspace.."
 						bat "mkdir -p \"$env.WORKSPACE/${projectPath}/bin/${device}/Reports/\""
-						bat "C:/Users/Jenkins/scp.exe -v -P 13137 UIMCM@0.tcp.ngrok.io:~/NUnit.Console-3.8.0/${device}TestResults.xml \"$env.WORKSPACE/\""
-						bat "C:/Users/Jenkins/scp.exe -v -P 13137 UIMCM@0.tcp.ngrok.io:~/FromJenkins/${projectPath}/${device}/Reports/Reports_${device}.json \"$env.WORKSPACE/${projectPath}/bin/\""
+						bat "C:/Users/Jenkins/scp.exe -v -P $remotePort UIMCM@0.tcp.ngrok.io:~/NUnit.Console-3.8.0/${device}TestResults.xml \"$env.WORKSPACE/\""
+						bat "C:/Users/Jenkins/scp.exe -v -P $remotePort UIMCM@0.tcp.ngrok.io:${remotePath}/${device}/Reports/Reports_${device}.json \"$env.WORKSPACE/${projectPath}/bin/\""
 					}
 						archiveArtifacts artifacts: '*TestResults.xml'
             nunit testResultsPattern: '*TestResults.xml'
@@ -196,7 +199,7 @@ def runTests(device)
 			if (isRemote)
 			{
 					print "Running tests remotely.."
-					bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p13137 \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll ${where} \'${include}${and}${exclude}\' --result:${device}TestResults.xml;format=nunit2\""
+					bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p$remotePort \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit ${remotePath}/${device}/MenuCycle.Tests.dll ${where} \'${include}${and}${exclude}\' --result:${device}TestResults.xml;format=nunit2\""
 			}
 			else
 			{
