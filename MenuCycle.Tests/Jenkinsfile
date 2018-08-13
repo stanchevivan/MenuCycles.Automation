@@ -47,8 +47,8 @@ node('IE1UIBLD03') {
 	//List of App.config browser transformations to be run by Jenkins
 	def device = ''
 
-	// Chech for configuration in Job Name
-	device = ['Chrome', 'Firefox', 'IE', 'iPadAir', 'iPadMini4', 'iPadPro9', 'SamsungTabA', 'SamsungTabS'].find
+	// Add all devices, which will be used in jobs
+	device = ['Nexus7', 'Chrome', 'Firefox', 'IE', 'iPadAir', 'iPadMini4', 'iPadPro9', 'SamsungTabA', 'SamsungTabS'].find
 	{
 		jobName.contains("${it}")
 	}
