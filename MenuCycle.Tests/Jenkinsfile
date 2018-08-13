@@ -11,14 +11,11 @@ commonReleaseBuildParams = ''
 solutionPath = ''
 msbuild = ''
 
-//List of App.config mobile transformations to be run by Jenkins
-//appsList = ['AndroidApp', 'iOsApp']
-
 solutionName = "MenuCycle.Automation.sln"
 projectPath = "MenuCycle.Tests"
 projectName = "MenuCycle.Tests.csproj"
 remotePort = 11864
-remotePath = "~/FromJenkins/${env.JOB_NAME}/${projectPath}"
+remotePath = "~/FromJenkins/${env.JOB_NAME}.split('/').last()/${projectPath}"
 isRemote = false // Don't change manually
 
 
