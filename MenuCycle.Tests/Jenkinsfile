@@ -97,7 +97,7 @@ node('IE1UIBLD03') {
 		{
 				stage ('Copy build artifacts to remote machine')
 				 {
-					  bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p13137 rm -rf /FromJenkins/${projectPath}/${device}/"
+					  bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p13137 rm -rf ~/FromJenkins/${projectPath}/${device}/"
 						bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p13137 mkdir -p ~/FromJenkins/${projectPath}/${device}/"
 						bat "C:/Users/Jenkins/scp.exe -v -r -P 13137 \"$env.WORKSPACE/${projectPath}/bin/${device}/\" UIMCM@0.tcp.ngrok.io:~/FromJenkins/${projectPath}/"
 				 }
