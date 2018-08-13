@@ -255,26 +255,26 @@
     <Reference Include="Autofac">
       <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="Fourth.Automation.Framework.Core">
-      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.0.16\lib\net45\Fourth.Automation.Framework.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Fourth.Automation.SpecFlow.Extensions">
-      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.0.16\lib\net45\Fourth.Automation.SpecFlow.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="SpecFlow.Autofac.SpecFlowPlugin">
-      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.0.16\lib\net45\SpecFlow.Autofac.SpecFlowPlugin.dll</HintPath>
-    </Reference>
-    <Reference Include="Fourth.Automation.Framework.Mobile">
-      <HintPath>..\packages\Fourth.Automation.Framework.Mobile.4.0.16\lib\net45\Fourth.Automation.Framework.Mobile.dll</HintPath>
-    </Reference>
     <Reference Include="Fourth.Automation.Framework.Reporting">
       <HintPath>..\packages\Fourth.Automation.Framework.Reporting.4.0.16\lib\net45\Fourth.Automation.Framework.Reporting.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver.Support">
-      <HintPath>..\packages\Selenium.Support.3.12.1\lib\net45\WebDriver.Support.dll</HintPath>
-    </Reference>
     <Reference Include="WebDriver">
-      <HintPath>..\packages\Selenium.WebDriver.3.12.1\lib\net45\WebDriver.dll</HintPath>
+      <HintPath>..\packages\Selenium.WebDriver.3.11.2\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support">
+      <HintPath>..\packages\Selenium.Support.3.11.2\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="Fourth.Automation.Framework.Core">
+      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.0.5\lib\net45\Fourth.Automation.Framework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Fourth.Automation.SpecFlow.Extensions">
+      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.0.5\lib\net45\Fourth.Automation.SpecFlow.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlow.Autofac.SpecFlowPlugin">
+      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.0.5\lib\net45\SpecFlow.Autofac.SpecFlowPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Fourth.Automation.Framework.Mobile">
+      <HintPath>..\packages\Fourth.Automation.Framework.Mobile.4.0.5\lib\net45\Fourth.Automation.Framework.Mobile.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
