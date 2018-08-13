@@ -1,8 +1,9 @@
 #!groovy
 properties([
 	parameters([
-		string(name: 'Include_Tags', defaultValue: '', description: 'The test tags to run. Empty if all. This only applies to the master execution. Smoke tests are dealt separately'),
-		string(name: 'Exclude_Tags', defaultValue: '', description: 'The test tags to exclude. This only applies to the master execution. Smoke tests are dealt separately'),
+		string(name: 'Include_Tags', defaultValue: '', description: 'The test tags to run. Empty if all.'),
+		string(name: 'Exclude_Tags', defaultValue: '', description: 'The test tags to exclude.'),
+		string(name: 'Remote_Port', defaultValue: '', description: 'Only needed for Remote jobs.'),
 	])
 ])
 
@@ -14,10 +15,13 @@ msbuild = ''
 solutionName = "MenuCycle.Automation.sln"
 projectPath = "MenuCycle.Tests"
 projectName = "MenuCycle.Tests.csproj"
-remotePort = 11864
+remotePort = "$Remote_Port";
 remotePath = "~/FromJenkins/${env.JOB_NAME.split('/').last().replaceAll("\\s","")}/${projectPath}"
 isRemote = false // Don't change manually
 
+if () {
+
+}
 
 node('IE1UIBLD03') {
 	stage ('Get Source Code') {
@@ -41,7 +45,7 @@ node('IE1UIBLD03') {
 	if (jobName.contains("Remote"))
  	{
 		isRemote = true
-		print "Remote\" keyword found. Tests will execute on remote machine.."
+		print "\"Remote\" keyword found. Tests will execute on remote machine.."
 	}
 
 	//List of App.config browser transformations to be run by Jenkins
