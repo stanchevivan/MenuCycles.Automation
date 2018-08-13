@@ -18,6 +18,8 @@ solutionName = "MenuCycle.Automation.sln"
 projectPath = "MenuCycle.Tests"
 projectName = "MenuCycle.Tests.csproj"
 
+def isRemote
+
 node('IE1UIBLD03') {
 	stage ('Get Source Code') {
 
@@ -36,7 +38,7 @@ node('IE1UIBLD03') {
 	msbuild = tool 'v15'
 
 	def jobName = "${env.JOB_NAME}"
-  def isRemote = jobName.contains("Remote")
+  isRemote = jobName.contains("Remote")
 	//List of App.config browser transformations to be run by Jenkins
 	def device = ''
 
