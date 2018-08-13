@@ -36,7 +36,7 @@ node('IE1UIBLD03') {
 	msbuild = tool 'v15'
 
 	def jobName = "${env.JOB_NAME}"
-
+  def isRemote = jobName.contains("Remote")
 	//List of App.config browser transformations to be run by Jenkins
 	def device = ''
 
@@ -67,71 +67,78 @@ node('IE1UIBLD03') {
 		}
 	}
 
-	stage('Initialize') {
+	stage('Initialize')
+	{
 	 script { currentBuild.description = "Including: ${Include_Tags} Excluding: ${Exclude_Tags}" }
-
 
 		echo 'Restore nuget packages for solution'
 		bat "\"$env.WORKSPACE/Tools/nuget.exe\" restore \"$solutionPath\" -configFile Tools/NugetSources.Config"
 		bat "dotnet restore \"$solutionPath\""
-
-		//echo 'Build Release Configuration'
-		//bat "\"$msbuild\" ./$projectPath/$projectName /p:OutDir=\"$env.WORKSPACE\" $commonReleaseBuildParams /p:Configuration=Release"
 	}
 
-	try {
-			stage ('Build assemblies') {
+	try
+	{
+			stage ('Build assemblies')
+			{
 					buildConfigurations(device)
 			}
-	} catch (e) {
+	}
+	catch (e)
+	{
 			echo e.message
 			currentBuild.result = "FAILED"
 	}
 
-	if (jobName.contains("Remote"))
+	if (isRemote)
 	{
-		try {
-				stage ('Copy build artifacts to Mac Mini')
+		try
+		{
+				stage ('Copy build artifacts to remote machine')
 				 {
 					  bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p13137 rm -rf /FromJenkins/${projectPath}/${device}/"
 						bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p13137 mkdir -p ~/FromJenkins/${projectPath}/${device}/"
 						bat "C:/Users/Jenkins/scp.exe -v -r -P 13137 \"$env.WORKSPACE/${projectPath}/bin/${device}/\" UIMCM@0.tcp.ngrok.io:~/FromJenkins/${projectPath}/"
-				}
-		} catch (e) {
+				 }
+		}
+		catch (e)
+		{
 				echo e.message
 				currentBuild.result = "FAILED"
 		}
 	}
 
-	try {
+	try
+	{
 			stage ('Run Tests')
 			{
-				if (jobName.contains("Remote"))
-				{
-					runTestsRemote(device)
-				}
-				else
-				{
 					runTests(device)
-				}
 			}
-	} catch (e) {
+	}
+	catch (e)
+	{
 			echo e.message
 			currentBuild.result = "FAILED"
 	}
 
 
-    try {
-        stage('Test Results Archive') {
-					echo "Copying test results to workspace.."
-					bat "mkdir \"$env.WORKSPACE/${projectPath}/bin/${device}/Reports/\""
-					bat "C:/Users/Jenkins/scp.exe -v -P 13137 UIMCM@0.tcp.ngrok.io:~/FromJenkins/${projectPath}/${device}/${device}TestResults.xml \"$env.WORKSPACE/\""
-					bat "C:/Users/Jenkins/scp.exe -v -P 13137 UIMCM@0.tcp.ngrok.io:~/FromJenkins/${projectPath}/${device}/Reports/Reports_${device}.json \"$env.WORKSPACE/${projectPath}/bin/\""
-            archiveArtifacts artifacts: '*TestResults.xml'
+    try
+		{
+        stage('Test Results Archive')
+				{
+					if (isRemote)
+					{
+						echo "Copying test results from remote machine to workspace.."
+						bat "mkdir -p \"$env.WORKSPACE/${projectPath}/bin/${device}/Reports/\""
+						bat "C:/Users/Jenkins/scp.exe -v -P 13137 UIMCM@0.tcp.ngrok.io:~/Users/uimcm/NUnit.Console-3.8.0/${device}TestResults.xml \"$env.WORKSPACE/\""
+						bat "C:/Users/Jenkins/scp.exe -v -P 13137 UIMCM@0.tcp.ngrok.io:~/FromJenkins/${projectPath}/${device}/Reports/Reports_${device}.json \"$env.WORKSPACE/${projectPath}/bin/\""
+					}
+						archiveArtifacts artifacts: '*TestResults.xml'
             nunit testResultsPattern: '*TestResults.xml'
             cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: "$projectPath/bin"
         }
-    } catch (e) {
+    }
+		catch (e)
+		{
         echo e
         currentBuild.result = "FAILED"
     }
@@ -144,52 +151,6 @@ def buildConfigurations(device)
 }
 
 def runTests(device)
-{
-    if (Include_Tags == '' && Exclude_Tags == ''){
-        print "Not tag to include or exclude. Running all tests"
-        bat "nunit ${projectPath}/bin/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5"
-    }
-    else
-    {
-
-			def include = ''
-			def includeTags = Include_Tags.split(',')
-			def isFirstTag = true
-
-			if (Include_Tags != '')
-			{
-				includeTags.each
-				{
-					def and = isFirstTag ? '' : " && "
-					include += "${and}cat == ${it}"
-					isFirstTag = false
-				}
-			}
-
-			def exclude = ''
-			def excludeTags = Exclude_Tags.split(',')
-		 	isFirstTag = true
-
-			if (Exclude_Tags != '')
-			{
-				excludeTags.each
-				{
-					def or = isFirstTag ? '' : " || "
-					exclude += "${or}cat != ${it}"
-					isFirstTag = false
-				}
-			}
-
-			def and = Include_Tags != '' && Exclude_Tags != '' ? " && " : ''
-
-      print "Including tags:  ${Include_Tags}"
-			print "Excluding tags:  ${Exclude_Tags}"
-
-      bat "nunit ${projectPath}/bin/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 -where \"${include}${and}${exclude}\""
-    }
-}
-
-def runTestsRemote(device)
 {
 			def include = ''
 			def includeTags = Include_Tags.split(',')
@@ -225,7 +186,16 @@ def runTestsRemote(device)
       print "Including tags:  ${Include_Tags}"
 			print "Excluding tags:  ${Exclude_Tags}"
 
-			bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p13137 \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll ${where} \'${include}${and}${exclude}\' --result:${device}TestResults.xml;format=nunit2\""
+			if (isRemote)
+			{
+					print "Running tests remotely.."
+					bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p13137 \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit /Users/uimcm/FromJenkins/${projectPath}/${device}/MenuCycle.Tests.dll ${where} \'${include}${and}${exclude}\' --result:${device}TestResults.xml;format=nunit2\""
+			}
+			else
+			{
+					print "Running tests locally.."
+					bat "nunit ${projectPath}/bin/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 ${where} \"${include}${and}${exclude}\""
+			}
 }
 
 def includeTag(tag)
