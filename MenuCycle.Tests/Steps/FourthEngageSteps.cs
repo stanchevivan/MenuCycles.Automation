@@ -47,6 +47,7 @@ namespace MenuCycle.Tests.Steps
             {
                 fourthAppMain.LeftMenu.OpenMenu();
             }
+            fourthAppLocalPage.ScrollToAllApplications();
             fourthAppMain.OpenApp(application);
             fourthAppLocalPage.SwitchToNativeContext();
         }
