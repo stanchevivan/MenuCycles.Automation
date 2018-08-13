@@ -68,5 +68,10 @@ namespace MenuCycle.Tests
             FocusIn();
             ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].value='';", webElement);
         }
+
+        public void ScrollIntoView()
+        {
+            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].scrollIntoView(true);", webElement);
+        }
     }
 }
