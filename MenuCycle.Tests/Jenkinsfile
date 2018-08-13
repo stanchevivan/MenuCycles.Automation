@@ -1,9 +1,9 @@
 #!groovy
 properties([
 	parameters([
-		string(name: 'Include_Tags', defaultValue: '', description: 'The test tags to run. Empty if all.'),
-		string(name: 'Exclude_Tags', defaultValue: '', description: 'The test tags to exclude.'),
-		string(name: 'Remote_Port', defaultValue: '11864', description: 'Only needed for Remote jobs.'),
+		string(name: 'Include_Tags', defaultValue: '', description: 'Tests containing these tags will be executed. Empty for all tests.(comma separated/no whitespaces/)'),
+		string(name: 'Exclude_Tags', defaultValue: '', description: 'Tests containing these tags will NOT be executed.'),
+		string(name: 'Remote_Port', defaultValue: '11864', description: 'Port for tunnel to remote machine.(only needed for Remote jobs)'),
 	])
 ])
 
