@@ -22,13 +22,10 @@ namespace MenuCycle.Tests.Steps
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
         readonly ModalDialogPage modalDialogPage;
-        readonly RecipeOverview recipeOverview;
-        readonly RecipeCard recipeCard;
-        readonly MealPeriodDetails mealPeriodDetails;
 
         public RecipeSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleDailyCalendarView menuCycleDailyCalendarView,
             CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification,
-                           ModalDialogPage modalDialogPage, RecipeOverview recipeOverview, RecipeCard recipeCard, MealPeriodDetails mealPeriodDetails)
+                           ModalDialogPage modalDialogPage)
         {
             this.dailyPlanningView = dailyPlanningView;
             this.planningTabDays = planningTabDays;
@@ -39,9 +36,6 @@ namespace MenuCycle.Tests.Steps
             this.recipeSearch = recipeSearch;
             this.notification = notification;
             this.modalDialogPage = modalDialogPage;
-            this.recipeOverview = recipeOverview;
-            this.recipeCard = recipeCard;
-            this.mealPeriodDetails = mealPeriodDetails;
 
             this.scenarioContext = scenarioContext;
         }

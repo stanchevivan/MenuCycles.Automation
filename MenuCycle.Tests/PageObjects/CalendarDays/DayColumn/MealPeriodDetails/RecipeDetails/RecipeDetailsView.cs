@@ -53,5 +53,10 @@ namespace MenuCycle.Tests.PageObjects
         {
             IntoleranceButton.Click();
         }
+
+        public void UseCrossButton()
+        {
+            CrossButton.Click();
+        }
     }
 }
