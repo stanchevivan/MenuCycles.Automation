@@ -19,10 +19,6 @@ remotePort = "$Remote_Port";
 remotePath = "~/FromJenkins/${env.JOB_NAME.split('/').last().replaceAll("\\s","")}/${projectPath}"
 isRemote = false // Don't change manually
 
-if () {
-
-}
-
 node('IE1UIBLD03') {
 	stage ('Get Source Code') {
 
