@@ -104,7 +104,7 @@ node('IE1UIBLD03') {
 				 {
 					  bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p$remotePort rm -rf ${remotePath}/"
 						bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p$remotePort mkdir -p ${remotePath}/"
-						bat "C:/Users/Jenkins/scp.exe -v -r -P $remotePort \"$env.WORKSPACE/${projectPath}/bin/${device}/\" UIMCM@0.tcp.ngrok.io:${remotePath}/"
+						bat "C:/Users/Jenkins/scp.exe -v -r -P $remotePort \"$env.WORKSPACE/${projectPath}/bin/${device}/.\" UIMCM@0.tcp.ngrok.io:${remotePath}/"
 				 }
 		}
 		catch (e)
