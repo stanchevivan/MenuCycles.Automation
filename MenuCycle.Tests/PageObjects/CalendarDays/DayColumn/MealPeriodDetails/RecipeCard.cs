@@ -10,7 +10,8 @@ namespace MenuCycle.Tests.PageObjects
             PageFactory.InitElements(parent, this);
         }
 
-        [FindsBy(How = How.CssSelector, Using = ".item-name")]
+        [FindsBy(How = How.ClassName, Using = "recipe-name-underline")]
+        [FindsBy(How = How.ClassName, Using = "item-name")]
         private IWebElement name { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".item-type")]
         private IWebElement type { get; set; }
@@ -40,6 +41,11 @@ namespace MenuCycle.Tests.PageObjects
         public void MoveDown()
         {
             downArrow.Click();
+        }
+
+        public void OpenRecipeDetailedView()
+        {
+            name.Click();
         }
     }
 }

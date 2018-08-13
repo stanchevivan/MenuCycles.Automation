@@ -31,5 +31,10 @@ namespace MenuCycle.Tests.PageObjects
         {
             ActionButton.Click();
         }
+
+        public void OpenRecipeDetailedView()
+        {
+            title.Click();
+        }
     }
 }

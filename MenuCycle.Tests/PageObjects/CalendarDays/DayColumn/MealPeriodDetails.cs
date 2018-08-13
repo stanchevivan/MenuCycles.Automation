@@ -97,5 +97,10 @@ namespace MenuCycle.Tests.PageObjects
         {
             return Recipes.First(x => x.Title == recipeName);
         }
+
+        public void OpenRecipeDetailedView(string recipeName)
+        {
+            GetRecipeFromDetailedView(recipeName).OpenRecipeDetailedView();
+        }
     }
 }

@@ -44,3 +44,21 @@ Scenario: Recipe price should be the same for meal period detailed view and the 
     Then Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle     |CostPerUnit|
         |LUNCH         |RECIPE|004Baked Beans_3|       1.88|
+
+@TC30233
+Scenario: Single cost is present for Recipe and Ingredients in recipe detailed view
+    Given Menu Cycle "Meda" is selected
+    When Details for meal period "LUNCH" in "Tuesday" are opened
+        And detailed view for recipe with name "724Gourmet Chicken Burger" is opened
+    Then meal period recipe name is "724Gourmet Chicken Burger"
+        And recipe price is "£0.41"
+        And Verify ingredients in the detailed view
+        |IngredientName                      |IngredientCost|
+        |Chicken Breast Diced                |          0.00|
+        |004Fresh White Breadcrumbs (frz) 10g|          0.00|
+        |ONION FRESH                         |          0.00|
+        |Parsley Curley                      |          0.00|
+        |Aryzta - Sausage Roll               |          0.00|
+        |Lea & Perrins - Worcestershire Sauce|          0.00|
+        |EGGS WHOLE PASTEURISED              |          0.00|
+        And Verify ingredients total cost is "0.00"

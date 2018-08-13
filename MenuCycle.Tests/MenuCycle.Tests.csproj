@@ -362,6 +362,12 @@
       <DependentUpon>LocalUserPlanningScreen.feature</DependentUpon>
     </Compile>
     <Compile Include="PageObjects\CommonElements.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\RecipeDetailsView.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\RecipeMethod.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\RecipeNutrition.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\RecipeOverview.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\RecipeIntolerance.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\Ingredient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -450,6 +456,7 @@
     <Folder Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\" />
     <Folder Include="PageObjects\Planning\PostProductionTabDays\" />
     <Folder Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\" />
+    <Folder Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterCompile" Condition="Exists('App.$(Configuration).config')">
