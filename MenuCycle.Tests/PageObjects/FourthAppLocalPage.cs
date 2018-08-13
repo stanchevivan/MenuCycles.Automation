@@ -23,6 +23,8 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.XPath, Using = "//android.widget.Button[2]")]
         [FindsBy(How = How.Id, Using = "No")]
         private IWebElement MessageNoButton { get; set; }
+        [FindsBy(How = How.Id, Using = "applications-all-apps")]
+        private IWebElement AllApplications { get; set; }
 
         public bool IsMobile => Driver.IsMobile();
 
@@ -54,6 +56,11 @@ namespace MenuCycle.Tests.PageObjects
         {
             Driver.WaitElementAndClick(MessageNoButton);
             Driver.WaitElementToDisappear(MessageNoButton);
+        }
+
+        public void ScrollToAllApplications()
+        {
+            AllApplications.Do(Driver).ScrollIntoView();
         }
     }
 }
