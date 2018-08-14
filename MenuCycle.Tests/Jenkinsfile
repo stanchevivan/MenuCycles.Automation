@@ -7,6 +7,10 @@ if (cronSchedule.count > 0)
 	cronSchedule = cronSchedule[0].replaceAll("(?<=\\D)(?=\\d)"," ");
 	cronSchedule += " * * *"
 }
+else
+{
+	cronSchedule = ''
+}
 
 properties([
 	parameters([
