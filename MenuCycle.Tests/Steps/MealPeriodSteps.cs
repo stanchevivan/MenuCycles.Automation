@@ -17,26 +17,25 @@ namespace MenuCycle.Tests.Steps
         readonly PlanningTabWeeks planningTabWeeks;
         readonly NutritionTabDays nutritionTabDays;
         readonly MenuCycleDailyCalendarView menuCycleDailyCalendarView;
-        readonly CreateMealPeriod createMealPeriod;
         readonly RecipeSearch recipeSearch;
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
         readonly ModalDialogPage modalDialogPage;
         readonly CommonElements commonElements;
+        readonly MealPeriodDetails mealPeriodDetails;
 
-        public MealPeriodSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleDailyCalendarView menuCycleDailyCalendarView,
-                               CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification, ModalDialogPage modalDialogPage, CommonElements commonElements)
+        public MealPeriodSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleDailyCalendarView menuCycleDailyCalendarView, RecipeSearch recipeSearch, ToastNotification notification, ModalDialogPage modalDialogPage, CommonElements commonElements, MealPeriodDetails mealPeriodDetails)
         {
             this.dailyPlanningView = dailyPlanningView;
             this.planningTabDays = planningTabDays;
             this.planningTabWeeks = planningTabWeeks;
             this.nutritionTabDays = nutritionTabDays;
             this.menuCycleDailyCalendarView = menuCycleDailyCalendarView;
-            this.createMealPeriod = createMealPeriod;
             this.recipeSearch = recipeSearch;
             this.notification = notification;
             this.modalDialogPage = modalDialogPage;
             this.commonElements = commonElements;
+            this.mealPeriodDetails = mealPeriodDetails;
 
             this.scenarioContext = scenarioContext;
         }
@@ -289,6 +288,32 @@ namespace MenuCycle.Tests.Steps
                 .Recipes.Count;
 
             Assert.That(actualNumberOfRecipes, Is.EqualTo(expectedNumberOfRecipes));
+        }
+
+        [When(@"Meal period ""(.*)"" is created for ""(.*)""")]
+        public void WhenMealPeriodIsCreatedFor(string mealPeriod, string day)
+        {
+            menuCycleDailyCalendarView.AddMealPeriod(day);
+            mealPeriodDetails.SelectMealPeriod(mealPeriod);
+        }
+
+        [When(@"Meal period is saved")]
+        public void WhenMealPeriodIsSaved()
+        {
+            mealPeriodDetails.Save();
+        }
+
+        [When(@"Meal period delete button is clicked")]
+        public void WhenMealPeriodIsDeleted()
+        {
+            mealPeriodDetails.Delete();
+            modalDialogPage.WaitToAppear();
+        }
+
+        [Then(@"Meal period ""(.*)"" is not present for ""(.*)""")]
+        public void ThenMealPeriodIsNotPresentFor(string mealPeriod, string day)
+        {
+            Assert.That(menuCycleDailyCalendarView.GetDay(day).MealPeriodCards.Select(x => x.Name).ToList(), Has.No.Member(mealPeriod));
         }
     }
 }

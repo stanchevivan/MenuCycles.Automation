@@ -32,7 +32,11 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".tagit-choice")]
         private IList<IWebElement> searchTags { get; set; }
 
+        [FindsBy(How = How.ClassName, Using = "colorstrip-Buffet")]
+        private IList<IWebElement> BuffetSearchContainer { get; set; }
+
         public IList<RecipeItem> Recipes => this.RecipeSearchContainer.Select(p => new RecipeItem(p)).ToList();
+        public IList<BuffetItem> Buffets => this.BuffetSearchContainer.Select(p => new BuffetItem(p)).ToList();
         public IList<SearchTag> SearchTags => this.searchTags.Select(p => new SearchTag(p)).ToList();
 
         public void SearchRecipeByName(string recipeName)
@@ -46,6 +50,12 @@ namespace MenuCycle.Tests.PageObjects
         public void AddRecipe(string recipeName)
         {
             Recipes.First(c => c.Title == recipeName).Add();
+        }
+
+        public void AddBuffet(string buffetName)
+        {
+            Buffets.First(c => c.Title == buffetName).Add();
+
         }
 
         public RecipeItem GetRecipeFromSearch(string recipeName)

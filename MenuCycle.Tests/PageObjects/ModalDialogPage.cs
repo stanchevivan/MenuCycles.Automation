@@ -15,11 +15,13 @@ namespace MenuCycle.Tests.PageObjects
             Artefacts = artefacts;
         }
 
+        [FindsBy(How = How.CssSelector, Using = "#calendarModalDialog .modal-dialog-body")]
         [FindsBy(How = How.CssSelector, Using = ".modal-dialog-body")]
         [FindsBy(How = How.CssSelector, Using = "modal-dialog-engine__description > p")]
         private IWebElement Message { get; set; }
         [FindsBy(How = How.CssSelector, Using = "modal-dialog-engine__title > span")]
         private IWebElement Title { get; set; }
+        [FindsBy(How = How.CssSelector, Using = "#calendarModalDialog .modal-button.yes")]
         [FindsBy(How = How.XPath, Using = "//*[@class='btn-default__text' and text()='Yes']")]
         [FindsBy(How = How.XPath, Using = "//*[@class='btn-default__text' and text()='Apply']")]
         [FindsBy(How = How.CssSelector, Using = ".modal-button.yes")]

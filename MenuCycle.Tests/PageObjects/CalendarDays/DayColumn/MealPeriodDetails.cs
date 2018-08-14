@@ -24,7 +24,7 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement deleteButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".copyMP")]
         private IWebElement copyButton { get; set; }
-        [FindsBy(How = How.CssSelector, Using = "#saveBtn")]
+        [FindsBy(How = How.ClassName, Using = "mealperiod-save-btn")]
         private IWebElement saveButton { get; set; }
         [FindsBy(How = How.ClassName, Using = "colorstrip-Recipe")]
         private IWebElement RecipeCard { get; set; }
@@ -32,8 +32,15 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement CrossButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-scroll .colorstrip-Recipe")]
         private IList<IWebElement> RecipeDetailedViewContainer { get; set; }
+        [FindsBy(How = How.ClassName, Using = "modal-backdrop-mp")]
+        private IWebElement Backdrop { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".select-meal-box .custom-searchbox > div")]
+        public IWebElement MealPeriodDropDown { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".custom-searchbox-options .clickable")]
+        public IList<IWebElement> MealPeriods { get; set; }
 
         public IList<RecipeItem> Recipes => this.RecipeDetailedViewContainer.Select(p => new RecipeItem(p)).ToList();
+
 
         //TODO: Remove ExpandedRecipes from this class and use BuffetCard/ALaCarteCart ExpandedRecipes
         [FindsBy(How = How.CssSelector, Using = ".menu-expand[style=\"display: block;\"] .menu-recipe-expand")]
@@ -66,6 +73,12 @@ namespace MenuCycle.Tests.PageObjects
         public void Save()
         {
             saveButton.Click();
+            Driver.WaitElementToDisappear(Backdrop);
+        }
+
+        public void WaitForSaveButtonToBeEnabled()
+        {
+            Driver.WaitElementToExists(saveButton);
         }
 
         public void Copy()
@@ -101,6 +114,12 @@ namespace MenuCycle.Tests.PageObjects
         public void OpenRecipeDetailedView(string recipeName)
         {
             GetRecipeFromDetailedView(recipeName).OpenRecipeDetailedView();
+        }
+
+        public void SelectMealPeriod(string mealPeriodName)
+        {
+            MealPeriodDropDown.Click();
+            MealPeriods.ElementByText(mealPeriodName.ToUpper()).Click();
         }
     }
 }

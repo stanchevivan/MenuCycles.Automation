@@ -17,20 +17,18 @@ namespace MenuCycle.Tests.Steps
         readonly PlanningTabWeeks planningTabWeeks;
         readonly NutritionTabDays nutritionTabDays;
         readonly MenuCycleDailyCalendarView menuCycleDailyCalendarView;
-        readonly CreateMealPeriod createMealPeriod;
         readonly RecipeSearch recipeSearch;
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
 
         public ALaCarteSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleDailyCalendarView menuCycleDailyCalendarView,
-            CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification)
+            RecipeSearch recipeSearch, ToastNotification notification)
         {
             this.dailyPlanningView = dailyPlanningView;
             this.planningTabDays = planningTabDays;
             this.planningTabWeeks = planningTabWeeks;
             this.nutritionTabDays = nutritionTabDays;
             this.menuCycleDailyCalendarView = menuCycleDailyCalendarView;
-            this.createMealPeriod = createMealPeriod;
             this.recipeSearch = recipeSearch;
             this.notification = notification;
 
