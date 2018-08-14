@@ -1,9 +1,19 @@
 #!groovy
+def jobName = "${env.JOB_NAME}"
+
+def cronSchedule = (jobName =~ /H\d{2}/)
+if (cronSchedule instanceof boolean)
+{
+	cronSchedule = cronSchedule.replaceAll("(?<=\\D)(?=\\d)"," "));
+	cronSchedule += " * * *"
+}
+
 properties([
 	parameters([
 		string(name: 'Include_Tags', defaultValue: '', description: 'Tests containing these tags will be executed. Empty for all tests.(comma separated/no whitespaces/)'),
 		string(name: 'Exclude_Tags', defaultValue: '', description: 'Tests containing these tags will NOT be executed.'),
 		string(name: 'Remote_Port', defaultValue: '14871', description: 'Port for tunnel to remote machine.(only needed for Remote jobs)'),
+		pipelineTriggers([cron(cronSchedule)]),
 	])
 ])
 
@@ -37,7 +47,11 @@ node('IE1UIBLD03') {
 	solutionPath = "$env.WORKSPACE/$solutionName"
 	msbuild = tool 'v15'
 
-	def jobName = "${env.JOB_NAME}"
+	if (jobName.contains("Remote"))
+ 	{
+		isRemote = true
+		print "\"Remote\" keyword found. Tests will execute on remote machine.."
+	}
 
 	if (jobName.contains("Remote"))
  	{
@@ -45,10 +59,8 @@ node('IE1UIBLD03') {
 		print "\"Remote\" keyword found. Tests will execute on remote machine.."
 	}
 
-	//List of App.config browser transformations to be run by Jenkins
+	// Get device from the job name
 	def device = ''
-
-	// Add all devices, which will be used in jobs
 	device = ['Nexus7', 'Chrome', 'Firefox', 'IE', 'iPadAir', 'iPadMini4', 'iPadPro9', 'SamsungTabA', 'SamsungTabS'].find
 	{
 		jobName.contains("${it}")
