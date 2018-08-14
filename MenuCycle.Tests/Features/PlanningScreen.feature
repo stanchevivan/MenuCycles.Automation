@@ -273,6 +273,7 @@ Scenario: Close planning screen with "X" button without any changes
     Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
     When Cross button is clicked
+        And Wait for Calendar view
     Then Calendar view is opened
 
 @TC31037
