@@ -16,7 +16,7 @@ solutionName = "MenuCycle.Automation.sln"
 projectPath = "MenuCycle.Tests"
 projectName = "MenuCycle.Tests.csproj"
 remotePort = "$Remote_Port";
-jobNameFormatted = "${env.JOB_NAME.split('/').last().replaceAll("\\s","")}"
+jobNameFormatted = "${env.JOB_NAME.split('/').last().replaceAll("\\s","_")}"
 remotePath = "~/FromJenkins/${jobNameFormatted}"
 isRemote = false // Don't change manually
 
