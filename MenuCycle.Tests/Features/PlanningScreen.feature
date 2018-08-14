@@ -105,6 +105,7 @@ Scenario: Modal dialog for unsaved changes is shown on cancel
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
         And Cancel button is clicked
         And Modal dialog Yes is selected
+        And Wait for Calendar view
     When planning for Monday is opened
     Then values for recipe "004Baked Beans_3" in meal period "LUNCH" are equal to the stored ones
 
@@ -116,6 +117,7 @@ Scenario: Modal dialog for unsaved changes is shown on pressing X
         And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to random number
         And Cross button is clicked
         And Modal dialog Yes is selected
+        And Wait for Calendar view
     When planning for Monday is opened
     Then values for recipe "004Baked Beans_3" in meal period "LUNCH" are equal to the stored ones
 
@@ -244,6 +246,7 @@ Scenario: Modal dialog is closed on cancel when only PriceModel is changed for a
         |DANGELO       |RECIPE|004Bechamel Sauce|        GP|
         When Cancel button is clicked
             And Modal dialog Yes is selected
+            And Wait for Calendar view
         Then Calendar view is opened
 
 @TC30592 @D25310

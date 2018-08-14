@@ -255,7 +255,6 @@ namespace MenuCycle.Tests.Steps
         public void ModalDialogYes()
         {
             modalDialogPage.UseYesButton();
-            menuCycleDailyCalendarView.WaitPageLoad();
         }
 
         [Given(@"Verify items for meal period ""(.*)"" are \(check count ""(.*)""\)")]
