@@ -42,6 +42,7 @@ namespace MenuCycle.Tests.Steps
             mealPeriodDetails.AddRecipe();
         }
 
+        [When(@"Buffet ""(.*)"" is searched")]
         [When(@"Recipe ""(.*)"" is searched")]
         public void RecipeIsSearched(string text)
         {
@@ -52,6 +53,14 @@ namespace MenuCycle.Tests.Steps
         public void RecipeIsAdded(string text)
         {
             recipeSearch.AddRecipe(text);
+            mealPeriodDetails.WaitForSaveButtonToBeEnabled();
+        }
+
+        [When(@"Buffet ""(.*)"" is added")]
+        public void BuffetIsAdded(string buffetName)
+        {
+            recipeSearch.AddBuffet(buffetName);
+            mealPeriodDetails.WaitForSaveButtonToBeEnabled();
         }
 
         [Then(@"Verify items in the meal period are")]

@@ -15,22 +15,19 @@ namespace MenuCycle.Tests.Steps
         readonly MenuCyclesDashboard menuCycleDashboard;
         readonly CreateMenuCycle createMenuCycle;
         readonly MenuCycleDailyCalendarView menuCycleDailyCalendarView;
-        readonly CreateMealPeriod createMealPeriod;
         readonly RecipeSearch recipeSearch;
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
         readonly ModalDialogPage modalDialogPage;
 
         public MenuCycleSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, LogInAs logInAs,
-            MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleDailyCalendarView menuCycleDailyCalendarView,
-            CreateMealPeriod createMealPeriod, RecipeSearch recipeSearch, ToastNotification notification,
+            MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleDailyCalendarView menuCycleDailyCalendarView, RecipeSearch recipeSearch, ToastNotification notification,
                               ModalDialogPage modalDialogPage)
         {
             this.logInAs = logInAs;
             this.menuCycleDashboard = menuCycleDashboard;
             this.createMenuCycle = createMenuCycle;
             this.menuCycleDailyCalendarView = menuCycleDailyCalendarView;
-            this.createMealPeriod = createMealPeriod;
             this.recipeSearch = recipeSearch;
             this.notification = notification;
             this.planningView = dailyPlanningView;

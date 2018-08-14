@@ -288,7 +288,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Recipes.feature</DependentUpon>
     </Compile>
-    <Compile Include="PageObjects\CreateMealPeriod.cs" />
     <Compile Include="PageObjects\CreateMenuCycle.cs" />
     <Compile Include="PageObjects\LogInAs.cs" />
     <Compile Include="PageObjects\ToastNotification.cs" />
@@ -368,6 +367,7 @@
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\RecipeOverview.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\RecipeIntolerance.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\Ingredient.cs" />
+    <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\BuffetItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

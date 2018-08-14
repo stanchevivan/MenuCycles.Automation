@@ -204,3 +204,18 @@ Scenario: All meal periods in Calendar view are collapsed by default
     Given Menu Cycle "Meda" is selected
     When Calendar view is opened
     Then Verify all meal periods are collapsed in Daily Calendar
+
+@TC31191 @D21720
+Scenario: Deleting meal period deletes it from calendar view
+    Given Menu Cycle "Automation Testing" is selected
+    When Calendar view is opened
+        And Meal period "LUNCH" is created for "Monday"
+        And Recipe search is opened
+        And Buffet "Maya Buffet" is searched
+        And Buffet "Maya Buffet" is added
+        And Meal period is saved
+        And Notification message "Meal Period Saved successfully" is displayed
+    When Meal period delete button is clicked
+        And Modal dialog Yes is selected
+        And Notification message "Meal Period Deleted Successfully." is displayed
+    Then Meal period "LUNCH" is not present for "Monday"

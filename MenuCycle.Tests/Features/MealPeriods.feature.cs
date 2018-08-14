@@ -838,6 +838,47 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Deleting meal period deletes it from calendar view")]
+        [NUnit.Framework.CategoryAttribute("TC31191")]
+        [NUnit.Framework.CategoryAttribute("D21720")]
+        public virtual void DeletingMealPeriodDeletesItFromCalendarView()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deleting meal period deletes it from calendar view", new string[] {
+                        "TC31191",
+                        "D21720"});
+#line 209
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 210
+    testRunner.Given("Menu Cycle \"Automation Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 211
+    testRunner.When("Calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 212
+        testRunner.And("Meal period \"LUNCH\" is created for \"Monday\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 213
+        testRunner.And("Recipe search is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 214
+        testRunner.And("Buffet \"Maya Buffet\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 215
+        testRunner.And("Buffet \"Maya Buffet\" is added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 216
+        testRunner.And("Meal period is saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 217
+        testRunner.And("Notification message \"Meal Period Saved successfully\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 218
+    testRunner.When("Meal period delete button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 219
+        testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 220
+        testRunner.And("Notification message \"Meal Period Deleted Successfully.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 221
+    testRunner.Then("Meal period \"LUNCH\" is not present for \"Monday\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
