@@ -53,12 +53,6 @@ node('IE1UIBLD03') {
 		print "\"Remote\" keyword found. Tests will execute on remote machine.."
 	}
 
-	if (jobName.contains("Remote"))
- 	{
-		isRemote = true
-		print "\"Remote\" keyword found. Tests will execute on remote machine.."
-	}
-
 	// Get device from the job name
 	def device = ''
 	device = ['Nexus7', 'Chrome', 'Firefox', 'IE', 'iPadAir', 'iPadMini4', 'iPadPro9', 'SamsungTabA', 'SamsungTabS'].find
