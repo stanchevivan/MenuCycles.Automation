@@ -323,6 +323,7 @@ Scenario: Confirm dialog is not shown after save with added TariffTypes
         And Save button is clicked
         And Notification message "Planning figures updated." is displayed
         And Cancel button is clicked
+        And Wait for Calendar view
     Then Calendar view is opened
         And planning for Monday is opened
         And delete icon is clicked for recipe "004Baked Beans_3" in meal period "LUNCH" with tariff type "TariffTwo"
