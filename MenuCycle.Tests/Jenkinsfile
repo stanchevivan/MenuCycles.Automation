@@ -200,6 +200,7 @@ def runTests(device)
 
 			def and = Include_Tags != '' && Exclude_Tags != '' ? " && " : ''
 			def where = Include_Tags != '' || Exclude_Tags != '' ? "-where" : ''
+			def quote = Include_Tags != '' || Exclude_Tags != '' ? "'" : ''
 
       print "Including tags:  ${Include_Tags}"
 			print "Excluding tags:  ${Exclude_Tags}"
@@ -207,12 +208,12 @@ def runTests(device)
 			if (isRemote)
 			{
 					print "Running tests remotely.."
-					bat "C:/Users/Jenkins/ssh.exe -o ServerAliveInterval=30 UIMCM@0.tcp.ngrok.io -p$remotePort \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit ${remotePath}/MenuCycle.Tests.dll ${where} ${include}${and}${exclude} --result:${device}TestResults.xml;format=nunit2\""
+					bat "C:/Users/Jenkins/ssh.exe -o ServerAliveInterval=30 UIMCM@0.tcp.ngrok.io -p$remotePort \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit ${remotePath}/MenuCycle.Tests.dll ${where} ${quote}${include}${and}${exclude}${quote} --result:${device}TestResults.xml;format=nunit2\""
 			}
 			else
 			{
 					print "Running tests locally.."
-					bat "nunit ${projectPath}/bin/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 ${where} ${include}${and}${exclude}"
+					bat "nunit ${projectPath}/bin/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 ${where} ${quote}${include}${and}${exclude}${quote}"
 			}
 }
 
