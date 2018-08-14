@@ -2,9 +2,9 @@
 def jobName = "${env.JOB_NAME}"
 
 def cronSchedule = (jobName =~ /H\d{2}/)
-if (cronSchedule instanceof boolean)
+if (cronSchedule.count > 0)
 {
-	cronSchedule = cronSchedule.replaceAll("(?<=\\D)(?=\\d)"," ");
+	cronSchedule = cronSchedule[0].replaceAll("(?<=\\D)(?=\\d)"," ");
 	cronSchedule += " * * *"
 }
 
