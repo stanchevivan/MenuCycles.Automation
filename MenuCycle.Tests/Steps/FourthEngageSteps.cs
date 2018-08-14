@@ -32,12 +32,13 @@ namespace MenuCycle.Tests.Steps
                     fourthAppLocalPage.ClickNoButton();
                     fourthAppLocalPage.SwitchToWebViewContext();
                 }
-                fourthAppMain.WaitToBeReady();
             }
             else
             {
                 fourthAppLogin.PerformLogin(ConfigurationManager.AppSettings["Engage.User"], ConfigurationManager.AppSettings["Engage.Password"], new Uri(ConfigurationManager.AppSettings["Engage.Url"]));
             }
+
+            fourthAppMain.WaitToBeReady();
         }
 
         [Given(@"'(.*)' application is selected")]
