@@ -13,7 +13,7 @@ properties([
 		string(name: 'Include_Tags', defaultValue: '', description: 'Tests containing these tags will be executed. Empty for all tests.(comma separated/no whitespaces/)'),
 		string(name: 'Exclude_Tags', defaultValue: '', description: 'Tests containing these tags will NOT be executed.'),
 		string(name: 'Remote_Port', defaultValue: '14871', description: 'Port for tunnel to remote machine.(only needed for Remote jobs)'),
-		pipelineTriggers([cron(cronSchedule)]),
+		pipelineTriggers([parameterizedCron("${cronSchedule}")]),
 	])
 ])
 
