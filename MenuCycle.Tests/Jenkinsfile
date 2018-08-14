@@ -197,7 +197,7 @@ def runTests(device)
 			if (isRemote)
 			{
 					print "Running tests remotely.."
-					bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p$remotePort \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit ${remotePath}/MenuCycle.Tests.dll ${where} \'${include}${and}${exclude}\' --result:${device}TestResults.xml;format=nunit2\""
+					bat "C:/Users/Jenkins/ssh.exe -o ServerAliveInterval=30 UIMCM@0.tcp.ngrok.io -p$remotePort \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit ${remotePath}/MenuCycle.Tests.dll ${where} \'${include}${and}${exclude}\' --result:${device}TestResults.xml;format=nunit2\""
 			}
 			else
 			{
