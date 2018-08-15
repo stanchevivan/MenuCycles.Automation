@@ -59,6 +59,7 @@ Scenario: Saved data is retrieved from the API
     When Save button is clicked
         And Notification message "Planning figures updated." is displayed
         And Cancel button is clicked
+        And Wait for Calendar view
         And planning for Monday is opened
     Then quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to the previous inputted number
 
@@ -73,6 +74,7 @@ Scenario: Successfully Update and Save number of covers
         And Save button is clicked
         And Notification message "Planning figures updated." is displayed
         And Cross button is clicked
+        And Wait for Calendar view
         And planning for Monday is opened
     Then number of covers for meal period "LUNCH" is equal to the previous inputted number
 

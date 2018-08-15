@@ -208,7 +208,7 @@ this.FeatureBackground();
 #line 50
     testRunner.Then("Verify search results contain no menu cycles", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 51
-        testRunner.And("Menu Cycle \"Automatically created menu cycle\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Menu Cycle \"Automatically edited menu cycle\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 52
     testRunner.Then("Verify search results contain no menu cycles", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
