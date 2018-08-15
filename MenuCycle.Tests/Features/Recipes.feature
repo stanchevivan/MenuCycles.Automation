@@ -274,6 +274,7 @@ Scenario: Tariff types are discarded when cancel button is clicked
         And Add type is clicked for recipe "004Baked Beans_3" in meal period "LUNCH"
     When Cancel button is clicked
         And Confirm is selected on unsaved changes dialog
+        And Wait for Calendar view
         And planning for Monday is opened
     Then Existing types for recipe "004Baked Beans_3" in meal period "LUNCH" are
         |TariffType|

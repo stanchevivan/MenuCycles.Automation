@@ -17,7 +17,7 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = "#calendarModalDialog .modal-dialog-body")]
         [FindsBy(How = How.CssSelector, Using = ".modal-dialog-body")]
-        [FindsBy(How = How.ClassName, Using = ".modal-dialog-engine__description")]
+        [FindsBy(How = How.ClassName, Using = ".modal-dialog-engine__description > p")]
         private IWebElement Message { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "modal-dialog-engine__title > span")]

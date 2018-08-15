@@ -255,6 +255,8 @@ namespace MenuCycle.Tests.Steps
         public void ModalDialogYes()
         {
             modalDialogPage.UseYesButton();
+            modalDialogPage.WaitToDisappear();
+            planningTabDays.WaitForLoader();
         }
 
         [Given(@"Verify items for meal period ""(.*)"" are \(check count ""(.*)""\)")]

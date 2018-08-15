@@ -153,7 +153,6 @@ Scenario: Number of covers is saved after closing the app
         And Menu Cycles app is closed
         And 'Menu Cycles' application is open
         And a central user is selected
-        #And a nouser user is selected
         And Menu Cycle "Meda" is selected
     When planning for Monday is opened
     Then number of covers for meal period "LUNCH" is equal to the previous inputted number
@@ -207,10 +206,11 @@ Scenario: Error message is displayed when changes are made and Update Price butt
 
 @TC29885 @D24506
 Scenario: No modal dialog is shown if there are no changes and Cancel button is clicked
-        Given Menu Cycle "Meda" is selected
+    Given Menu Cycle "Meda" is selected
         And planning for Monday is opened
-        When Cancel button is clicked
-        Then Calendar view is opened
+    When Cancel button is clicked
+        And Wait for Calendar view
+    Then Calendar view is opened
 
 @TC29874
 Scenario: Notification is shown when user is trying to save planning with the same price type selected several times
