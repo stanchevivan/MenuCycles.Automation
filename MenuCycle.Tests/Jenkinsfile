@@ -201,7 +201,8 @@ def runTests(device)
 
 			def and = Include_Tags != '' && Exclude_Tags != '' ? " && " : ''
 			def where = Include_Tags != '' || Exclude_Tags != '' ? "-where" : ''
-			def quote = Include_Tags != '' || Exclude_Tags != '' ? "\"" : ''
+			def quote = Include_Tags != '' || Exclude_Tags != '' ? "'" : ''
+			def doubleQuote = Include_Tags != '' || Exclude_Tags != '' ? "\"" : ''
 
       print "Including tags:  ${Include_Tags}"
 			print "Excluding tags:  ${Exclude_Tags}"
@@ -214,7 +215,7 @@ def runTests(device)
 			else
 			{
 					print "Running tests locally.."
-					bat "nunit ${projectPath}/bin/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 ${where} ${quote}${include}${and}${exclude}${quote}"
+					bat "nunit ${projectPath}/bin/${device}/MenuCycle.Tests.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 ${where} ${doubleQuote}${include}${and}${exclude}${doubleQuote}"
 			}
 }
 
