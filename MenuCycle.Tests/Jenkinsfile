@@ -6,6 +6,7 @@ if (cronSchedule.count > 0)
 {
 	cronSchedule = cronSchedule[0].replaceAll("(?<=\\D)(?=\\d)"," ");
 	cronSchedule += " * * *"
+	cronSchedule = "TZ=Europe/Sofia\n" + cronSchedule
 }
 else
 {
