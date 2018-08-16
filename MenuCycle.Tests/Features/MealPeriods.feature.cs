@@ -879,6 +879,71 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Deleting a meal period does not delete other meal periods")]
+        [NUnit.Framework.CategoryAttribute("TC31252")]
+        [NUnit.Framework.CategoryAttribute("D26540")]
+        public virtual void DeletingAMealPeriodDoesNotDeleteOtherMealPeriods()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deleting a meal period does not delete other meal periods", new string[] {
+                        "TC31252",
+                        "D26540"});
+#line 224
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 225
+    testRunner.Given("Menu Cycle \"Automation Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 226
+    testRunner.When("Calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 227
+        testRunner.And("Meal period \"LUNCH\" is created for \"Wednesday\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 228
+        testRunner.And("Recipe search is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 229
+        testRunner.And("Buffet \"Maya Buffet\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 230
+        testRunner.And("Buffet \"Maya Buffet\" is added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 231
+        testRunner.And("Meal period is saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 232
+        testRunner.And("Notification message \"Meal Period Saved successfully\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 233
+        testRunner.And("Meal period Cross button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 234
+        testRunner.And("Meal period \"LUNCH\" is created for \"Tuesday\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 235
+        testRunner.And("Recipe search is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 236
+        testRunner.And("Buffet \"Maya Buffet\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 237
+        testRunner.And("Buffet \"Maya Buffet\" is added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 238
+        testRunner.And("Meal period is saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 239
+        testRunner.And("Notification message \"Meal Period Saved successfully\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 240
+    testRunner.When("Meal period delete button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 241
+        testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 242
+        testRunner.And("Notification message \"Meal Period Deleted Successfully.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 243
+        testRunner.And("Meal period \"LUNCH\" is not present for \"Tuesday\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 244
+    testRunner.Then("Meal period \"LUNCH\" is present for \"Wednesday\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 245
+        testRunner.And("Details for meal period \"LUNCH\" in \"Wednesday\" are opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 246
+        testRunner.And("Meal period delete button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 247
+        testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 248
+        testRunner.And("Notification message \"Meal Period Deleted Successfully.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

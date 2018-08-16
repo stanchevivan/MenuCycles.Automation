@@ -30,6 +30,7 @@ namespace MenuCycle.Tests.Steps
         }
 
         [When(@"Details for meal period ""(.*)"" in ""(.*)"" are opened")]
+        [Then(@"Details for meal period ""(.*)"" in ""(.*)"" are opened")]
         public void WhenDetailsForMealPeriodInAreOpened(string mealPeriod, string weekDay)
         {
             menuCycleDailyCalendarView.GetDay(weekDay).GetMealPeriodCard(mealPeriod).OpenMealPeriodDetails();
