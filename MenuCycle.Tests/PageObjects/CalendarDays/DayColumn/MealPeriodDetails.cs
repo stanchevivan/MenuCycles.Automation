@@ -38,6 +38,8 @@ namespace MenuCycle.Tests.PageObjects
         public IWebElement MealPeriodDropDown { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".custom-searchbox-options .clickable")]
         public IList<IWebElement> MealPeriods { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".custom-searchbox-placeholder")]
+        private IWebElement SelectedMealPeriodInDropDown{ get; set; }
 
         public IList<RecipeItem> Recipes => this.RecipeDetailedViewContainer.Select(p => new RecipeItem(p)).ToList();
 
@@ -64,6 +66,8 @@ namespace MenuCycle.Tests.PageObjects
         public IList<BuffetCard> BuffetCards => this.cards
                                                     .Where(p => new BuffetCard(p).Type == "Buffet")
                                                     .Select(p => new BuffetCard(p)).ToList();
+
+        public string SelectedMealPeriod => SelectedMealPeriodInDropDown.Text;
 
         public void AddRecipe()
         {

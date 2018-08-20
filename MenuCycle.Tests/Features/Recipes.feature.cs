@@ -942,12 +942,12 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Collapsing meal period does no return previous value if field")]
+        [NUnit.Framework.DescriptionAttribute("Collapsing meal period does no return previous value")]
         [NUnit.Framework.CategoryAttribute("TC29716")]
         [NUnit.Framework.CategoryAttribute("D24183")]
-        public virtual void CollapsingMealPeriodDoesNoReturnPreviousValueIfField()
+        public virtual void CollapsingMealPeriodDoesNoReturnPreviousValue()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Collapsing meal period does no return previous value if field", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Collapsing meal period does no return previous value", new string[] {
                         "TC29716",
                         "D24183"});
 #line 226

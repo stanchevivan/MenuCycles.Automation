@@ -223,7 +223,7 @@ Scenario: Error message displayed if recipe values are empty
     Then Notification message "Sorry, we could not proceed with your request" is displayed
 
 @TC29716 @D24183
-Scenario: Collapsing meal period does no return previous value if field
+Scenario: Collapsing meal period does no return previous value
     Given Menu Cycle "Meda" is selected
     When planning for Thursday is opened
         And data for recipes is set
@@ -278,7 +278,7 @@ Scenario: Tariff types are discarded when cancel button is clicked
         And planning for Monday is opened
     Then Existing types for recipe "004Baked Beans_3" in meal period "LUNCH" are
         |TariffType|
-        |TariffOne|
+        |TariffOne |
 
 @TC29942 @D24490
 Scenario: Delete icon appears when adding type

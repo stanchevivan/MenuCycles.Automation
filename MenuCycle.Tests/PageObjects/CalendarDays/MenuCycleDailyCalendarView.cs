@@ -14,43 +14,46 @@ namespace MenuCycle.Tests.PageObjects
         }
 
         [FindsBy(How = How.Id, Using = "menucycleName")]
-        IWebElement Name { get; set; }
+        private IWebElement Name { get; set; }
 
         [FindsBy(How = How.Id, Using = "daysTab")]
-        IWebElement DaysViewButton { get; set; }
+        private IWebElement DaysViewButton { get; set; }
 
         [FindsBy(How = How.Id, Using = "weeksTab")]
-        IWebElement WeeksViewButton { get; set; }
+        private IWebElement WeeksViewButton { get; set; }
 
         [FindsBy(How = How.Id, Using = "daily-view-add-week-button")]
-        IWebElement AddWeekButton { get; set; }
+        private IWebElement AddWeekButton { get; set; }
 
         [FindsBy(How = How.Id, Using = "delWeekbtn")]
-        IWebElement DeleteWeekButton { get; set; }
+        private IWebElement DeleteWeekButton { get; set; }
 
         [FindsBy(How = How.Id, Using = "BlueLoaderShowHide")]
-        IWebElement SpinningWheel { get; set; }
+        private IWebElement SpinningWheel { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#dailyCalendarTableHolder .daily-header-container > div")]
-        IList<IWebElement> CalendarHeaderContainer { get; set; }
+        private IList<IWebElement> CalendarHeaderContainer { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#dailyCalendarTableHolder .daily-view-screen > div")]
-        IList<IWebElement> CalendarColumnContainer { get; set; }
+        private IList<IWebElement> CalendarColumnContainer { get; set; }
 
         [FindsBy(How = How.ClassName, Using = "daily-calendar-heading")]
-        IList<IWebElement> DaysLinks { get; set; }
+        private IList<IWebElement> DaysLinks { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".Planning-engine")]
-        IList<IWebElement> PlanningLinks { get; set; }
+        private IList<IWebElement> PlanningLinks { get; set; }
 
         [FindsBy(How = How.ClassName, Using = "modal-backdrop")]
-        IWebElement Backdrop { get; set; }
+        private IWebElement Backdrop { get; set; }
 
         [FindsBy(How = How.ClassName, Using = "daily-header-container")]
-        IWebElement DaysContainer { get; set; }
+        private IWebElement DaysContainer { get; set; }
 
         [FindsBy(How = How.Id, Using = "dashboard-icon")]
-        IWebElement HomeButton { get; set; }
+        private IWebElement HomeButton { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".NewMealPeriod .clickable")]
+        private IWebElement NewMealPeriodHeader { get; set; }
 
         public List<WeekDays> CalendarHeaders => this.CalendarHeaderContainer.Select(p => new WeekDays(p)).ToList();
 
@@ -99,9 +102,9 @@ namespace MenuCycle.Tests.PageObjects
             Driver.WaitElementToDisappear(SpinningWheel);
         }
 
-        public void AddMealPeriod(string weekDayName)
+        public void UseNewMealPeriodButton(string day)
         {
-            CalendarHeaders.First(c => c.Name.StartsWith(weekDayName, System.StringComparison.CurrentCultureIgnoreCase)).UseMealPeriodButton();
+            CalendarHeaders.First(c => c.Name.StartsWith(day, System.StringComparison.CurrentCultureIgnoreCase)).UseMealPeriodButton();
         }
 
         public void OpenDailyPlanningForDay(string weekDay)
@@ -133,6 +136,11 @@ namespace MenuCycle.Tests.PageObjects
         public void UseHomeButton()
         {
             HomeButton.Click();
+        }
+
+        public void ClickNewMealPeriodHeader()
+        {
+            NewMealPeriodHeader.Click();
         }
     }
 }

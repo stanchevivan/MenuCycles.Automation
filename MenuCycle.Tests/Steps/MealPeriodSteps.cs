@@ -252,7 +252,6 @@ namespace MenuCycle.Tests.Steps
 
         [Given(@"Modal dialog Yes is selected")]
         [When(@"Modal dialog Yes is selected")]
-        [Then(@"Modal dialog Yes is selected")]
         public void ModalDialogYes()
         {
             modalDialogPage.UseYesButton();
@@ -295,8 +294,14 @@ namespace MenuCycle.Tests.Steps
         [When(@"Meal period ""(.*)"" is created for ""(.*)""")]
         public void WhenMealPeriodIsCreatedFor(string mealPeriod, string day)
         {
-            menuCycleDailyCalendarView.AddMealPeriod(day);
+            menuCycleDailyCalendarView.UseNewMealPeriodButton(day);
             mealPeriodDetails.SelectMealPeriod(mealPeriod);
+        }
+
+        [When(@"New meal period button is clicked for ""(.*)""")]
+        public void NewMealPeriodButtonIsClicked(string day)
+        {
+            menuCycleDailyCalendarView.UseNewMealPeriodButton(day);
         }
 
         [When(@"Meal period is saved")]
@@ -306,31 +311,34 @@ namespace MenuCycle.Tests.Steps
         }
 
         [When(@"Meal period delete button is clicked")]
-        [Then(@"Meal period delete button is clicked")]
         public void WhenMealPeriodIsDeleted()
         {
             mealPeriodDetails.Delete();
             modalDialogPage.WaitToAppear();
         }
 
-        [When(@"Meal period ""(.*)"" is not present for ""(.*)""")]
         [Then(@"Meal period ""(.*)"" is not present for ""(.*)""")]
         public void ThenMealPeriodIsNotPresentFor(string mealPeriod, string day)
         {
             Assert.That(menuCycleDailyCalendarView.GetDay(day).MealPeriodCards.Select(x => x.Name).ToList(), Has.No.Member(mealPeriod));
         }
 
-        [When(@"Meal period ""(.*)"" is present for ""(.*)""")]
-        [Then(@"Meal period ""(.*)"" is present for ""(.*)""")]
-        public void ThenMealPeriodIsPresentFor(string mealPeriod, string day)
+        [When(@"the header for the new meal period is clicked")]
+        public void TheHeaderForNewMealPeriodIsClicked()
         {
-            Assert.That(menuCycleDailyCalendarView.GetDay(day).MealPeriodCards.Select(x => x.Name).ToList(), Has.Member(mealPeriod));
+            menuCycleDailyCalendarView.ClickNewMealPeriodHeader();
         }
 
-        [When(@"Meal period Cross button is clicked")]
-        public void MealPeriodCrossButtonIsClicked()
+        [When(@"meal period ""(.*)"" is selected in drop-down")]
+        public void MealPeriodIsSelectedInDropDown(string mealPeriodName)
         {
-            mealPeriodDetails.UseCrossButton();
+            mealPeriodDetails.SelectMealPeriod(mealPeriodName);
+        }
+
+        [Then(@"Verify drop down for meal period has ""(.*)"" selected")]
+        public void VerifyDropDownForMealPeriodHasSelected(string mealPeriodName)
+        {
+            Assert.That(mealPeriodDetails.SelectedMealPeriod, Is.EqualTo(mealPeriodName));
         }
     }
 }

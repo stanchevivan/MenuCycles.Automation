@@ -220,29 +220,10 @@ Scenario: Deleting meal period deletes it from calendar view
         And Notification message "Meal Period Deleted Successfully." is displayed
     Then Meal period "LUNCH" is not present for "Monday"
 
-@TC31252 @D26540
-Scenario: Deleting a meal period does not delete other meal periods
+@TC31310 @D21324
+Scenario: Clicking on the "NEW MEAL PERIOD" box while selecting a meal period should not disable the "Select meal period" drop-down
     Given Menu Cycle "Automation Testing" is selected
-    When Calendar view is opened
-        And Meal period "LUNCH" is created for "Wednesday"
-        And Recipe search is opened
-        And Buffet "Maya Buffet" is searched
-        And Buffet "Maya Buffet" is added
-        And Meal period is saved
-        And Notification message "Meal Period Saved successfully" is displayed
-        And Meal period Cross button is clicked
-        And Meal period "LUNCH" is created for "Tuesday"
-        And Recipe search is opened
-        And Buffet "Maya Buffet" is searched
-        And Buffet "Maya Buffet" is added
-        And Meal period is saved
-        And Notification message "Meal Period Saved successfully" is displayed
-    When Meal period delete button is clicked
-        And Modal dialog Yes is selected
-        And Notification message "Meal Period Deleted Successfully." is displayed
-        And Meal period "LUNCH" is not present for "Tuesday"
-    Then Meal period "LUNCH" is present for "Wednesday"
-        And Details for meal period "LUNCH" in "Wednesday" are opened
-        And Meal period delete button is clicked
-        And Modal dialog Yes is selected
-        And Notification message "Meal Period Deleted Successfully." is displayed
+    When New meal period button is clicked for "Monday"
+        And the header for the new meal period is clicked
+        And meal period "LUNCH" is selected in drop-down
+    Then Verify drop down for meal period has "LUNCH" selected
