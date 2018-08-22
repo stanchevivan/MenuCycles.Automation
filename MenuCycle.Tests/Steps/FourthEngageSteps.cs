@@ -44,10 +44,7 @@ namespace MenuCycle.Tests.Steps
         [Given(@"'(.*)' application is selected")]
         public void GivenApplicationIsSelected(string application)
         {
-            if (fourthAppLocalPage.IsMobile)
-            {
-                fourthAppMain.LeftMenu.OpenMenu();
-            }
+            fourthAppMain.LeftMenu.OpenMenu();
             fourthAppLocalPage.ScrollToAllApplications();
             fourthAppMain.OpenApp(application);
             fourthAppLocalPage.SwitchToNativeContext();
