@@ -368,6 +368,7 @@
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\RecipeIntolerance.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\Ingredient.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\BuffetItem.cs" />
+    <Compile Include="Support\Helpers\DisposeDriverervice.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
