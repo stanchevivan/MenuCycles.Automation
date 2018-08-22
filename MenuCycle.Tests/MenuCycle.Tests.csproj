@@ -240,9 +240,6 @@
     <Reference Include="System.ValueTuple">
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
-    <Reference Include="TechTalk.SpecFlow">
-      <HintPath>..\packages\SpecFlow.2.3.2\lib\net45\TechTalk.SpecFlow.dll</HintPath>
-    </Reference>
     <Reference Include="FourthApp">
       <HintPath>..\packages\FourthApp.Pages.1.0.2\lib\net46\FourthApp.dll</HintPath>
     </Reference>
@@ -252,29 +249,32 @@
     <Reference Include="Autofac">
       <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="Fourth.Automation.Framework.Reporting">
-      <HintPath>..\packages\Fourth.Automation.Framework.Reporting.4.0.16\lib\net45\Fourth.Automation.Framework.Reporting.dll</HintPath>
-    </Reference>
-    <Reference Include="Fourth.Automation.Framework.Core">
-      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.0.5\lib\net45\Fourth.Automation.Framework.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Fourth.Automation.SpecFlow.Extensions">
-      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.0.5\lib\net45\Fourth.Automation.SpecFlow.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="SpecFlow.Autofac.SpecFlowPlugin">
-      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.0.5\lib\net45\SpecFlow.Autofac.SpecFlowPlugin.dll</HintPath>
-    </Reference>
-    <Reference Include="Fourth.Automation.Framework.Mobile">
-      <HintPath>..\packages\Fourth.Automation.Framework.Mobile.4.0.5\lib\net45\Fourth.Automation.Framework.Mobile.dll</HintPath>
-    </Reference>
-    <Reference Include="WebDriver.Support">
-      <HintPath>..\packages\Selenium.Support.3.11.0\lib\net45\WebDriver.Support.dll</HintPath>
-    </Reference>
     <Reference Include="appium-dotnet-driver">
       <HintPath>..\packages\Appium.WebDriver.3.0.0.2\lib\net45\appium-dotnet-driver.dll</HintPath>
     </Reference>
     <Reference Include="WebDriver">
-      <HintPath>..\packages\Selenium.WebDriver.3.11.2\lib\net45\WebDriver.dll</HintPath>
+      <HintPath>..\packages\Selenium.WebDriver.3.12.0\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support">
+      <HintPath>..\packages\Selenium.Support.3.12.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="Fourth.Automation.Framework.Core">
+      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.0.32\lib\net45\Fourth.Automation.Framework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Fourth.Automation.SpecFlow.Extensions">
+      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.0.32\lib\net45\Fourth.Automation.SpecFlow.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlow.Autofac.SpecFlowPlugin">
+      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.0.32\lib\net45\SpecFlow.Autofac.SpecFlowPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Fourth.Automation.Framework.Mobile">
+      <HintPath>..\packages\Fourth.Automation.Framework.Mobile.4.0.32\lib\net45\Fourth.Automation.Framework.Mobile.dll</HintPath>
+    </Reference>
+    <Reference Include="Fourth.Automation.Framework.Reporting">
+      <HintPath>..\packages\Fourth.Automation.Framework.Reporting.4.0.32\lib\net45\Fourth.Automation.Framework.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\packages\SpecFlow.2.3.2\lib\net45\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -481,8 +481,8 @@
   </Target>
   <Import Project="..\packages\SlowMonkey.1.1.1\build\SlowMonkey.targets" Condition="Exists('..\packages\SlowMonkey.1.1.1\build\SlowMonkey.targets')" />
   <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
-  <Import Project="..\packages\SpecFlow.2.3.2\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.3.2\build\SpecFlow.targets')" />
   <Import Project="..\packages\Selenium.Chrome.WebDriver.2.40\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.40\build\Selenium.Chrome.WebDriver.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.IEDriver.3.14.0\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.3.14.0\build\Selenium.WebDriver.IEDriver.targets')" />
   <Import Project="..\packages\Selenium.Firefox.WebDriver.0.21.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.21.0\build\Selenium.Firefox.WebDriver.targets')" />
+  <Import Project="..\packages\SpecFlow.2.3.2\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.3.2\build\SpecFlow.targets')" />
 </Project>
