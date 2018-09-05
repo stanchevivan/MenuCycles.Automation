@@ -105,17 +105,17 @@ node('IE1UIBLD03') {
 			}
 
 			// Check if device is connected to the machine
-			echo "Looking for device ${currentDeviceName} ..."
+			echo "Looking for device with id ${currentDeviceId} ..."
 			connectedDevices = bat (returnStdout:true, script: "@C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p$remotePort ioreg -p IOUSB -w0")
 
-			if (!connectedDevices.contains(currentDeviceName))
+			if (!connectedDevices.contains(currentDeviceId))
 		  {
 				currentBuild.result = 'NOT_BUILT'
-				error("${currentDeviceName} is not connected !\nStopping job...")
+				error("${device} is not connected !\nStopping job...")
 			}
 			else
 			{
-				echo "${currentDeviceName} is connected...\nJob continues..."
+				echo "${device} is connected...\nJob continues..."
 			}
 		}
 
