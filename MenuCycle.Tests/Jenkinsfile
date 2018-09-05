@@ -90,27 +90,34 @@ node('IE1UIBLD03') {
 
 	stage('Initialize')
 	{
-		// Disable cheking for now. (device name check is wrong)
-		// if(isRemote && device in mobileDevices)
-		// {
-		// 	// Get the current device name
-		// 	currentDeviceName = bat(returnStdout:true, script: "more \"$env.WORKSPACE/${projectPath}/App.${device}.config\"")
-		// 	currentDeviceName = (currentDeviceName =~ '(?<=deviceName" value=")[^"]*')[0]
-		//
-		// 	// Check device is connected to the machine
-		// 	echo "Looking for device ${currentDeviceName} ..."
-		// 	connectedDevices = bat (returnStdout:true, script: "@C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p$remotePort ioreg -p IOUSB -w0")
-		//
-		// 	if (!connectedDevices.contains(currentDeviceName))
-		//   {
-		// 		currentBuild.result = 'NOT_BUILT'
-		// 		error("${currentDeviceName} is not connected !\nStopping job...")
-		// 	}
-		// 	else
-		// 	{
-		// 		echo "${currentDeviceName} is connected...\nJob continues..."
-		// 	}
-		// }
+		if(isRemote && device in mobileDevices)
+		{
+			// Get the current device id
+			currentDeviceConfig = bat(returnStdout:true, script: "type \"$env.WORKSPACE/${projectPath}/App.${device}.config\"")
+			currentDeviceId = ""
+			if (device.startsWith("iP"))
+			{
+				currentDeviceId = (currentDeviceConfig =~ '(?<=udid" value=")[^"]*')[0]
+			}
+			else
+			{
+				currentDeviceId = "_Android"
+			}
+
+			// Check if device is connected to the machine
+			echo "Looking for device ${currentDeviceName} ..."
+			connectedDevices = bat (returnStdout:true, script: "@C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p$remotePort ioreg -p IOUSB -w0")
+
+			if (!connectedDevices.contains(currentDeviceName))
+		  {
+				currentBuild.result = 'NOT_BUILT'
+				error("${currentDeviceName} is not connected !\nStopping job...")
+			}
+			else
+			{
+				echo "${currentDeviceName} is connected...\nJob continues..."
+			}
+		}
 
 	  script { currentBuild.description = "Including: ${Include_Tags} Excluding: ${Exclude_Tags}" }
 
