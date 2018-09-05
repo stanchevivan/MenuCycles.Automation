@@ -93,7 +93,7 @@ node('IE1UIBLD03') {
 		if(isRemote && device in mobileDevices)
 		{
 			// Get the current device id
-			currentDeviceConfig = bat(returnStdout:true, script: "type \"$env.WORKSPACE/${projectPath}/App.${device}.config\"")
+			currentDeviceConfig = bat(returnStdout:true, script: "more \"$env.WORKSPACE/${projectPath}/App.${device}.config\"")
 			currentDeviceId = ""
 			if (device.startsWith("iP"))
 			{
