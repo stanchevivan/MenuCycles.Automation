@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using Fourth.Automation.Framework.Extension;
 using MenuCycle.Tests.PageObjects;
 using TechTalk.SpecFlow;
 
@@ -35,7 +36,12 @@ namespace MenuCycle.Tests.Steps
             }
             else
             {
-                fourthAppLogin.PerformLogin(ConfigurationManager.AppSettings["Engage.User"], ConfigurationManager.AppSettings["Engage.Password"], new Uri(ConfigurationManager.AppSettings["Engage.Url"]));
+                fourthAppLocalPage.OpenUrl();
+                fourthAppLogin.WaitForPageToLoad();
+                fourthAppLogin.UserNameInput.ClearAndSendKeys(ConfigurationManager.AppSettings["Engage.User"]);
+                fourthAppLogin.PasswordInput.ClearAndSendKeys(ConfigurationManager.AppSettings["Engage.Password"]);
+                fourthAppLogin.SignInButton.Click();
+                //fourthAppLogin.PerformLogin(ConfigurationManager.AppSettings["Engage.User"], ConfigurationManager.AppSettings["Engage.Password"], new Uri(ConfigurationManager.AppSettings["Engage.Url"]));
             }
 
             fourthAppMain.WaitToBeReady();

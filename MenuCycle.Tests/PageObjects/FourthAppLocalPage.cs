@@ -62,5 +62,10 @@ namespace MenuCycle.Tests.PageObjects
         {
             AllApplications.Do(Driver).ScrollIntoView();
         }
+
+        public void OpenUrl()
+        {
+            Driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["Engage.Url"]);
+        }
     }
 }
