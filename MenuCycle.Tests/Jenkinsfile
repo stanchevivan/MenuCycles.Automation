@@ -5,7 +5,7 @@ def browsers = ['Chrome', 'Firefox', 'IE', 'Safari']
 def jobName = "${env.JOB_NAME}"
 def cronSchedule = (jobName =~ /H\d{2}/)
 
-if (cronSchedule.count > 0)
+if (cronSchedule.count)
 {
 	cronSchedule = cronSchedule[0].replaceAll("(?<=\\D)(?=\\d)"," ");
 	cronSchedule += " * * *"
@@ -36,7 +36,7 @@ projectName = "MenuCycle.Tests.csproj"
 remotePort = "$Remote_Port";
 jobNameFormatted = "${env.JOB_NAME.split('/').last().replaceAll("\\s","_")}"
 remotePath = "~/FromJenkins/${jobNameFormatted}"
-isRemote = false // Don't change manually
+isRemote = jobName.contains("Remote")
 
 node('IE1UIBLD03') {
 	stage ('Get Source Code') {
@@ -55,9 +55,8 @@ node('IE1UIBLD03') {
 	solutionPath = "$env.WORKSPACE/$solutionName"
 	msbuild = tool 'v15'
 
-	if (jobName.contains("Remote"))
+	if (isRemote)
  	{
-		isRemote = true
 		print "\"Remote\" keyword found. Tests will execute on remote machine.."
 	}
 
@@ -94,7 +93,7 @@ node('IE1UIBLD03') {
 		if(isRemote && device in mobileDevices)
 		{
 			// Get the current device name
-			currentDeviceName = bat(returnStdout:true, script: "more \"$env.WORKSPACE/${projectPath}/App.${device}.config\"")
+			currentDeviceName = bat(returnStdout:true, script: "type \"$env.WORKSPACE/${projectPath}/App.${device}.config\"")
 			currentDeviceName = (currentDeviceName =~ '(?<=deviceName" value=")[^"]*')[0]
 
 			// Check device is connected to the machine
