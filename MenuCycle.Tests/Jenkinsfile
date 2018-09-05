@@ -93,7 +93,7 @@ node('IE1UIBLD03') {
 		if(isRemote && device in mobileDevices)
 		{
 			// Get the current device name
-			currentDeviceName = bat(returnStdout:true, script: "type \"$env.WORKSPACE/${projectPath}/App.${device}.config\"")
+			currentDeviceName = bat(returnStdout:true, script: "more \"$env.WORKSPACE/${projectPath}/App.${device}.config\"")
 			currentDeviceName = (currentDeviceName =~ '(?<=deviceName" value=")[^"]*')[0]
 
 			// Check device is connected to the machine
