@@ -1,5 +1,7 @@
 #!groovy
-def mobileDevices = ['Nexus7','iPadAir', 'iPadMini4', 'iPadPro9', 'SamsungTabA', 'SamsungTabS']
+def androidDevices = ['Nexus7', 'SamsungTabA', 'SamsungTabS']
+def appleDevices = ['iPadAir', 'iPadMini4', 'iPadPro9']
+def mobileDevices = androidDevices + appleDevices
 def browsers = ['Chrome', 'Firefox', 'IE', 'Safari']
 
 def jobName = "${env.JOB_NAME}"
@@ -95,7 +97,7 @@ node('IE1UIBLD03') {
 			// Get the current device id
 			currentDeviceConfig = bat(returnStdout:true, script: "more \"$env.WORKSPACE/${projectPath}/App.${device}.config\"")
 			currentDeviceId = ""
-			if (device.startsWith("iP"))
+			if (device in appleDevices)
 			{
 				currentDeviceId = (currentDeviceConfig =~ '(?<=udid" value=")[^"]*')[0]
 			}
