@@ -49,7 +49,7 @@ namespace MenuCycle.Tests.Support
         [AfterFeature]
         public static void AfterTestRun()
         {
-            DisposeDriverService.DisposeAllDrivers();
+            //DisposeDriverService.DisposeAllDrivers();
         }
     }
 }
