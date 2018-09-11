@@ -794,10 +794,12 @@ this.FeatureBackground();
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Collapse all meal periods in the Calendar view")]
         [NUnit.Framework.CategoryAttribute("TC31019")]
+        [NUnit.Framework.CategoryAttribute("D27173")]
         public virtual void CollapseAllMealPeriodsInTheCalendarView()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Collapse all meal periods in the Calendar view", new string[] {
-                        "TC31019"});
+                        "TC31019",
+                        "D27173"});
 #line 194
 this.ScenarioSetup(scenarioInfo);
 #line 5

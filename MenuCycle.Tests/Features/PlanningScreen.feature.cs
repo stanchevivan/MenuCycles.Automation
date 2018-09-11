@@ -539,10 +539,12 @@ this.FeatureBackground();
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Calculate Daily Totals")]
         [NUnit.Framework.CategoryAttribute("TC29753")]
+        [NUnit.Framework.CategoryAttribute("D26939")]
         public virtual void CalculateDailyTotals()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculate Daily Totals", new string[] {
-                        "TC29753"});
+                        "TC29753",
+                        "D26939"});
 #line 163
 this.ScenarioSetup(scenarioInfo);
 #line 5
@@ -977,6 +979,45 @@ this.FeatureBackground();
     testRunner.When("planning for Thursday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 285
     testRunner.Then("Save button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Planning screen is loaded after searching for recipe which is not found")]
+        [NUnit.Framework.CategoryAttribute("TC31887")]
+        [NUnit.Framework.CategoryAttribute("D26963")]
+        public virtual void PlanningScreenIsLoadedAfterSearchingForRecipeWhichIsNotFound()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Planning screen is loaded after searching for recipe which is not found", new string[] {
+                        "TC31887",
+                        "D26963"});
+#line 288
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 289
+    testRunner.Given("Menu Cycle \"Automation Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 290
+    testRunner.When("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 291
+        testRunner.And("Cross button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 292
+        testRunner.And("Wait for Calendar view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 293
+        testRunner.And("Meal period \"LUNCH\" is created for \"Monday\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 294
+        testRunner.And("Recipe search is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 295
+        testRunner.And("Recipe \"Magdanoz\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 296
+        testRunner.And("\"Sorry, we could not find any match for your search.\" message is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 297
+        testRunner.And("meal period detailed view is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 298
+        testRunner.And("planning for Monday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 299
+    testRunner.Then("planning screen engine is loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

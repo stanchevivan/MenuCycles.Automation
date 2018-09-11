@@ -35,9 +35,14 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "colorstrip-Buffet")]
         private IList<IWebElement> BuffetSearchContainer { get; set; }
 
+        [FindsBy(How = How.ClassName, Using = "no-search-results")]
+        private IWebElement NoResult { get; set; }
+
         public IList<RecipeItem> Recipes => this.RecipeSearchContainer.Select(p => new RecipeItem(p)).ToList();
         public IList<BuffetItem> Buffets => this.BuffetSearchContainer.Select(p => new BuffetItem(p)).ToList();
         public IList<SearchTag> SearchTags => this.searchTags.Select(p => new SearchTag(p)).ToList();
+
+        public string NoResultText => NoResult.Text;
 
         public void SearchRecipeByName(string recipeName)
         {

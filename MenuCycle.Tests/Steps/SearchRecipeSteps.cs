@@ -69,5 +69,11 @@ namespace MenuCycle.Tests.Steps
         {
             Assert.AreEqual(recipeOverview.TotalCostText, totalCost);
         }
+
+        [When(@"""(.*)"" message is displayed")]
+        public void NoResultsFound(string message)
+        {
+            Assert.AreEqual(recipeSearch.NoResultText, message);
+        }
     }
 }

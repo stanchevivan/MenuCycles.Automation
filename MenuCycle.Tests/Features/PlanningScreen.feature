@@ -159,7 +159,7 @@ Scenario: Number of covers is saved after closing the app
     When planning for Monday is opened
     Then number of covers for meal period "LUNCH" is equal to the previous inputted number
 
-@TC29753
+@TC29753 @D26939
 Scenario: Calculate Daily Totals
     Given Menu Cycle "Meda" is selected
     When planning for Tuesday is opened
@@ -283,3 +283,18 @@ Scenario: Save button is disabled if menu cycle is published
     Given Menu Cycle "Menu Cycle for Local user" is selected
     When planning for Thursday is opened
     Then Save button is disabled
+
+@TC31887 @D26963
+Scenario: Planning screen is loaded after searching for recipe which is not found
+    Given Menu Cycle "Automation Testing" is selected
+    When planning for Monday is opened
+        And Cross button is clicked
+        And Wait for Calendar view
+        And Meal period "LUNCH" is created for "Monday"
+        And Recipe search is opened
+        And Recipe "Magdanoz" is searched
+        And "Sorry, we could not find any match for your search." message is displayed
+        And meal period detailed view is closed
+        And planning for Monday is opened
+    Then planning screen engine is loaded
+       

@@ -190,7 +190,7 @@ Scenario: Expand all meal periods in the Calendar view
         And Expand all is clicked
     Then Verify all meal periods are expanded in Daily Calendar
 
-@TC31019
+@TC31019 @D27173
 Scenario: Collapse all meal periods in the Calendar view  
     Given Menu Cycle "Meda" is selected
     When Calendar view is opened
