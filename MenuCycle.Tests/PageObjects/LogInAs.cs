@@ -68,13 +68,11 @@ namespace MenuCycle.Tests.PageObjects
 
         public void LogAsCentral()
         {
-            WaitPageToLoad();
             Driver.WaitElementAndClick(Central);
         }
 
         public void LogAsLocal()
         {
-            WaitPageToLoad();
             Driver.WaitElementAndClick(Local);
             Driver.WaitIsClickable(LocationSearchBox);
         }

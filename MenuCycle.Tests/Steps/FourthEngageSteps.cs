@@ -12,13 +12,15 @@ namespace MenuCycle.Tests.Steps
         FourthApp.Pages.Login fourthAppLogin;
         FourthApp.Pages.MainPage fourthAppMain;
         FourthAppLocalPage fourthAppLocalPage;
+        LogInAs logInAs;
 
         public FourthEngageSteps(FourthApp.Pages.Login fourthAppLogin, FourthApp.Pages.MainPage fourthAppMain,
-                                 FourthAppLocalPage fourthAppLocalPage)
+                                 FourthAppLocalPage fourthAppLocalPage, LogInAs logInAs)
         {
             this.fourthAppLogin = fourthAppLogin;
             this.fourthAppMain = fourthAppMain;
             this.fourthAppLocalPage = fourthAppLocalPage;
+            this.logInAs = logInAs;
         }
 
         [Given(@"Fourth Engage Dashboard is open")]
@@ -65,6 +67,7 @@ namespace MenuCycle.Tests.Steps
             }
 
             GivenApplicationIsSelected(application);
+            logInAs.WaitPageToLoad();
         }
     }
 }
