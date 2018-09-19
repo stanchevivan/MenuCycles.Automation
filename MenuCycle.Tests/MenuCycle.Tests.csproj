@@ -243,9 +243,6 @@
     <Reference Include="System.ValueTuple">
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
-    <Reference Include="FourthApp">
-      <HintPath>..\packages\FourthApp.Pages.1.0.2\lib\net46\FourthApp.dll</HintPath>
-    </Reference>
     <Reference Include="SpecFlow.Assist.Dynamic">
       <HintPath>..\packages\SpecFlow.Assist.Dynamic.1.3.1\lib\45\SpecFlow.Assist.Dynamic.dll</HintPath>
     </Reference>
@@ -261,9 +258,6 @@
     <Reference Include="SpecFlow.Autofac.SpecFlowPlugin">
       <HintPath>..\packages\Fourth.Automation.Framework.Core.4.0.32\lib\net45\SpecFlow.Autofac.SpecFlowPlugin.dll</HintPath>
     </Reference>
-    <Reference Include="Fourth.Automation.Framework.Mobile">
-      <HintPath>..\packages\Fourth.Automation.Framework.Mobile.4.0.32\lib\net45\Fourth.Automation.Framework.Mobile.dll</HintPath>
-    </Reference>
     <Reference Include="Fourth.Automation.Framework.Reporting">
       <HintPath>..\packages\Fourth.Automation.Framework.Reporting.4.0.32\lib\net45\Fourth.Automation.Framework.Reporting.dll</HintPath>
     </Reference>
@@ -278,7 +272,12 @@
     </Reference>
     <Reference Include="appium-dotnet-driver">
       <HintPath>..\packages\Appium.WebDriver.3.0.0.2\lib\net45\appium-dotnet-driver.dll</HintPath>
-      <Private>False</Private>
+    </Reference>
+    <Reference Include="Fourth.Automation.Framework.Mobile">
+      <HintPath>..\packages\Fourth.Automation.Framework.Mobile.4.0.32\lib\net45\Fourth.Automation.Framework.Mobile.dll</HintPath>
+    </Reference>
+    <Reference Include="FourthApp">
+      <HintPath>..\packages\FourthApp.Pages.1.0.2\lib\net46\FourthApp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
