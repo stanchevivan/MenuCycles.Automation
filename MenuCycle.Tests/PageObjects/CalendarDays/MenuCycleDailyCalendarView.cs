@@ -85,7 +85,7 @@ namespace MenuCycle.Tests.PageObjects
                     { dayIndex = 6; break; }
                 default:
                     {
-                        throw new System.Exception($"Could match day {weekDay}");
+                        throw new System.Exception($"Could not match day {weekDay}");
                     }
             }
 
