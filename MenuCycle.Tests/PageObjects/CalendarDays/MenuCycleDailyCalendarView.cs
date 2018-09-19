@@ -108,8 +108,9 @@ namespace MenuCycle.Tests.PageObjects
         {
             Driver.WaitElementToDisappear(Backdrop);
             var dayLink = DaysLinks.First(x => x.Text.Contains(weekDay.ToUpper()));
-            dayLink.Click();
             var indexOfDay = DaysLinks.IndexOf(dayLink);
+
+            dayLink.Click();
 
             var planningLink = PlanningLinks[indexOfDay];
             Driver.WaitElementAndClick(planningLink);
