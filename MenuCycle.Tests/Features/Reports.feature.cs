@@ -76,12 +76,12 @@ testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFl
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Open report page for menu cycle with specific group")]
+        [NUnit.Framework.DescriptionAttribute("Open report page for menu cycle without items")]
         [NUnit.Framework.CategoryAttribute("TC32573")]
         [NUnit.Framework.CategoryAttribute("D28281")]
-        public virtual void OpenReportPageForMenuCycleWithSpecificGroup()
+        public virtual void OpenReportPageForMenuCycleWithoutItems()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open report page for menu cycle with specific group", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open report page for menu cycle without items", new string[] {
                         "TC32573",
                         "D28281"});
 #line 11
@@ -89,7 +89,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line 12
- testRunner.Given("Menu Cycle \"MC for group test\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("Menu Cycle \"MC without items\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 13
  testRunner.When("Reports page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 14
