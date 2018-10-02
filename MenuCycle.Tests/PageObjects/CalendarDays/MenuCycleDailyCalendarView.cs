@@ -55,6 +55,9 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".NewMealPeriod .clickable")]
         private IWebElement NewMealPeriodHeader { get; set; }
 
+        [FindsBy(How = How.Id, Using = "dailyReportBtn")]
+        private IWebElement DailyReportButton { get; set; }
+
         public List<WeekDays> CalendarHeaders => this.CalendarHeaderContainer.Select(p => new WeekDays(p)).ToList();
 
         public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p, CalendarHeaders[CalendarColumnContainer.IndexOf(p)].Name)).ToList();
@@ -139,6 +142,11 @@ namespace MenuCycle.Tests.PageObjects
         public void ClickNewMealPeriodHeader()
         {
             NewMealPeriodHeader.Click();
+        }
+
+        public void UseDailyReportButton()
+        {
+            DailyReportButton.Click();
         }
     }
 }

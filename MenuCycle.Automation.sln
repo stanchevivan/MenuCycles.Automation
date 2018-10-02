@@ -74,8 +74,8 @@ Global
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Nexus6|Any CPU.Build.0 = Nexus6|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone6 Plus|Any CPU.ActiveCfg = iPhone6 Plus|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone6 Plus|Any CPU.Build.0 = iPhone6 Plus|Any CPU
-		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.RemoteSafari|Any CPU.ActiveCfg = RemoteSafari|Any CPU
-		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.RemoteSafari|Any CPU.Build.0 = RemoteSafari|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Safari|Any CPU.ActiveCfg = Safari|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Safari|Any CPU.Build.0 = Safari|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

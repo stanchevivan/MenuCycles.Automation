@@ -66,6 +66,10 @@ namespace MenuCycle.Tests.PageObjects
         public void OpenUrl()
         {
             Driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["Engage.Url"]);
+            if (Driver is OpenQA.Selenium.Safari.SafariDriver)
+            {
+                ((OpenQA.Selenium.Safari.SafariDriver)Driver).Manage().Window.Maximize();
+            }
         }
     }
 }

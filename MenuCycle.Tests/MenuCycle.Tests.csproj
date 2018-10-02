@@ -135,9 +135,9 @@
     <OutputPath>bin\iPhone6 Plus</OutputPath>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'RemoteSafari|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Safari|AnyCPU' ">
     <Optimize>false</Optimize>
-    <OutputPath>bin\RemoteSafari</OutputPath>
+    <OutputPath>bin\Safari</OutputPath>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
@@ -264,9 +264,6 @@
     <Reference Include="TechTalk.SpecFlow">
       <HintPath>..\packages\SpecFlow.2.3.2\lib\net45\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver">
-      <HintPath>..\packages\Selenium.WebDriver.3.12.0\lib\net45\WebDriver.dll</HintPath>
-    </Reference>
     <Reference Include="WebDriver.Support">
       <HintPath>..\packages\Selenium.Support.3.12.0\lib\net45\WebDriver.Support.dll</HintPath>
     </Reference>
@@ -278,6 +275,9 @@
     </Reference>
     <Reference Include="FourthApp">
       <HintPath>..\packages\FourthApp.Pages.1.0.2\lib\net46\FourthApp.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver">
+      <HintPath>..\packages\Selenium.WebDriver.3.12.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -373,6 +373,10 @@
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\BuffetItem.cs" />
     <Compile Include="Support\Helpers\DisposeDriverervice.cs" />
     <Compile Include="Support\AppiumHooks.cs" />
+    <Compile Include="PageObjects\Reports\ReportsView.cs" />
+    <Compile Include="Features\Reports.feature.cs">
+      <DependentUpon>Reports.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -431,7 +435,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="App.iPhone6 Plus.config" />
-    <None Include="App.RemoteSafari.config">
+    <None Include="App.Safari.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="Features\MealPeriodDetails.feature">
@@ -445,6 +449,10 @@
     <None Include="Features\LocalUser.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LocalUser.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Reports.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Reports.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -462,6 +470,7 @@
     <Folder Include="PageObjects\Planning\PostProductionTabDays\" />
     <Folder Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\" />
     <Folder Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\" />
+    <Folder Include="PageObjects\Reports\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterCompile" Condition="Exists('App.$(Configuration).config')">

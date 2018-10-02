@@ -19,10 +19,11 @@ namespace MenuCycle.Tests.Steps
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
         readonly ModalDialogPage modalDialogPage;
+        readonly ReportsView reportsView;
 
         public MenuCycleSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, LogInAs logInAs,
             MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleDailyCalendarView menuCycleDailyCalendarView, RecipeSearch recipeSearch, ToastNotification notification,
-                              ModalDialogPage modalDialogPage)
+                              ModalDialogPage modalDialogPage, ReportsView reportsView)
         {
             this.logInAs = logInAs;
             this.menuCycleDashboard = menuCycleDashboard;
@@ -32,6 +33,7 @@ namespace MenuCycle.Tests.Steps
             this.notification = notification;
             this.planningView = dailyPlanningView;
             this.modalDialogPage = modalDialogPage;
+            this.reportsView = reportsView;
 
             this.scenarioContext = scenarioContext;
         }
@@ -183,6 +185,21 @@ namespace MenuCycle.Tests.Steps
             var actualGapDays = menuCycleDailyCalendarView.CalendarColumns.Where(x => x.IsGapDay).Select(x => x.DayName);
 
             Assert.That(actualGapDays, Is.EqualTo(expectedGapDays));
+        }
+
+        [When(@"Reports page is opened")]
+        public void WhenReportPageIsOpened()
+        {
+            menuCycleDailyCalendarView.WaitPageLoad();
+            menuCycleDailyCalendarView.UseDailyReportButton();
+            reportsView.WaitForLoad();
+            planningView.WaitForBackdropToDisappear();
+        }
+
+        [Then(@"Reports page is correctly loaded")]
+        public void ReportsPageIsCorrectlyLoaded()
+        {
+            Assert.IsTrue(reportsView.IsPageLoaded);
         }
     }
 }
