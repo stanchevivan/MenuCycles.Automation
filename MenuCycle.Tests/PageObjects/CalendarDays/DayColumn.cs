@@ -7,11 +7,8 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class DayColumn
     {
-        public string DayName;
-
-        public DayColumn(IWebElement parent, string dayName)
+        public DayColumn(IWebElement parent)
         {
-            this.DayName = dayName;
             PageFactory.InitElements(parent, this);
         }
 
@@ -21,8 +18,30 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "gap-day-text-in-dailyview-width-manager-text")]
         private IWebElement GapDayText { get; set; }
 
+        [FindsBy(How = How.TagName, Using = "table")]
+        private IWebElement DailyCalendarTable { get; set; }
+
         public IList<MealPeriodCard> MealPeriodCards => this.MealPeriodCardContainer.Select(p => new MealPeriodCard(p)).ToList();
         public bool IsGapDay => GapDayText.Displayed;
+        public string DayName
+        {
+            get
+            {
+                var classes = DailyCalendarTable.Get().Classes;
+
+                return new Dictionary<string, string>
+                {
+                    { "calanderDay0","MONDAY" },
+                    { "calanderDay1","TUESDAY"},
+                    { "calanderDay2","WEDNESDAY"},
+                    { "calanderDay3", "THURSDAY"},
+                    { "calanderDay4","FRIDAY" },
+                    { "calanderDay5","SATURDAY"},
+                    { "calanderDay6","SUNDAY" }
+                }
+                .First(x => classes.Contains(x.Key)).Value;
+            }
+        }
 
         public MealPeriodCard GetMealPeriodCard(string mealPeriodName)
         {

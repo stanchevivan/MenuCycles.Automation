@@ -60,7 +60,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public List<WeekDays> CalendarHeaders => this.CalendarHeaderContainer.Select(p => new WeekDays(p)).ToList();
 
-        public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p, CalendarHeaders[CalendarColumnContainer.IndexOf(p)].Name)).ToList();
+        public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p)).ToList();
 
         public bool AreAllMealPeriodsExpanded => CalendarColumns.SelectMany(day => day.MealPeriodCards).Where(mp => mp.IsExpandable).All(mp => mp.IsExpanded);
 
@@ -111,11 +111,10 @@ namespace MenuCycle.Tests.PageObjects
         {
             Driver.WaitElementToDisappear(Backdrop);
             var dayLink = DaysLinks.First(x => x.Text.Contains(weekDay.ToUpper()));
-            var indexOfDay = DaysLinks.IndexOf(dayLink);
 
             dayLink.Click();
 
-            var planningLink = PlanningLinks[indexOfDay];
+            var planningLink = PlanningLinks.First(x => x.Displayed);
             Driver.WaitElementAndClick(planningLink);
         }
 

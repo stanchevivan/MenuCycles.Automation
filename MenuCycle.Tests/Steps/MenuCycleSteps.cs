@@ -150,7 +150,9 @@ namespace MenuCycle.Tests.Steps
                               .UseCopyButton();
 
             menuCycleDashboard.WaitPageLoad();
-            notification.CloseNotification();
+            notification.WaitToAppear();
+            //notification.CloseNotification();
+            notification.WaitToDisappear();
         }
 
         [When(@"Menu Cycle ""(.*)"" is deleted")]
@@ -167,7 +169,7 @@ namespace MenuCycle.Tests.Steps
             menuCycleDashboard.WaitPageLoad();
 
             notification.WaitToAppear();
-            notification.CloseNotification();
+            //notification.CloseNotification();
             notification.WaitToDisappear();
         }
 

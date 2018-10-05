@@ -97,11 +97,13 @@ node('IE1UIBLD03') {
 			// Get the current device id
 			currentDeviceConfig = bat(returnStdout:true, script: "more \"$env.WORKSPACE/${projectPath}/App.${device}.config\"")
 			currentDeviceId = ""
+
 			if (device in appleDevices)
 			{
 				currentDeviceId = (currentDeviceConfig =~ '(?<=udid" value=")[^"]*')[0]
 			}
-			else
+			
+			if (device in androidDevices)
 			{
 				currentDeviceId = "_Android"
 			}
