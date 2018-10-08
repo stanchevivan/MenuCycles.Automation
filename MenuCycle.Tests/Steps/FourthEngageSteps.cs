@@ -36,7 +36,8 @@ namespace MenuCycle.Tests.Steps
                     fourthAppLocalPage.SwitchToWebViewContext();
                 }
             }
-            else
+
+            if (!fourthAppLocalPage.IsMobile)
             {
                 fourthAppLocalPage.OpenUrl();
                 fourthAppLogin.WaitForPageToLoad();
@@ -52,7 +53,11 @@ namespace MenuCycle.Tests.Steps
         [Given(@"'(.*)' application is selected")]
         public void GivenApplicationIsSelected(string application)
         {
-            fourthAppMain.LeftMenu.OpenMenu();
+            //if (fourthAppMain.LeftMenu.HamburguerMenu.Location.X <= 50)
+            //{
+            //    fourthAppMain.LeftMenu.HamburguerMenu.Click();
+            //}
+
             fourthAppLocalPage.ScrollToAllApplications();
             fourthAppMain.OpenApp(application);
             fourthAppLocalPage.SwitchToNativeContext();
