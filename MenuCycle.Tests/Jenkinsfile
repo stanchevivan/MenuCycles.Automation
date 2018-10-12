@@ -221,8 +221,6 @@ def runTests(device)
 				includeTags.each
 				{
 					def and = isFirstTag ? '' : " && "
-
-					"R9 || Adaco"
 					include += "${and}cat == ${it}"
 					isFirstTag = false
 				}
