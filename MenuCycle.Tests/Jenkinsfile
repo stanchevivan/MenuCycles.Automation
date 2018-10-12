@@ -71,7 +71,7 @@ node('IE1UIBLD03') {
 
 	if (!device)
 	{
-		currentBuild.result = 'NOT_BUILT'
+		currentBuild.result = 'ABORTED'
 		error("${device} is not supported !\nStopping job...")
 	}
 
@@ -120,7 +120,7 @@ node('IE1UIBLD03') {
 
 			if (!connectedDevices.contains(currentDeviceId))
 		  {
-				currentBuild.result = 'NOT_BUILT'
+				currentBuild.result = 'ABORTED'
 				error("${device} is not connected !\nStopping job...")
 			}
 			else
