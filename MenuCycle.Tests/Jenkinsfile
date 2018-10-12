@@ -22,7 +22,7 @@ properties([
 	parameters([
 		string(name: 'Include_Tags', defaultValue: '', description: 'Tests containing these tags will be executed. Empty for all tests.(comma separated/no whitespaces/)'),
 		string(name: 'Exclude_Tags', defaultValue: '', description: 'Tests containing these tags will NOT be executed.'),
-		string(name: 'Remote_Port', defaultValue: '14871', description: 'Port for tunnel to remote machine.(only needed for Remote jobs)'),
+		string(name: 'Remote_Port', defaultValue: '12071', description: 'Port for tunnel to remote machine.(only needed for Remote jobs)'),
 	]),
 	pipelineTriggers([cron(cronSchedule)]),
 ])
@@ -69,6 +69,12 @@ node('IE1UIBLD03') {
 		jobName.contains("${it}")
 	}
 
+	if (!device)
+	{
+		currentBuild.result = 'NOT_BUILT'
+		error("${device} is not supported !\nStopping job...")
+	}
+
 	// Checking for excluding tags first and removeing them, to avoid passing them as include tags
 	// Chech for exclude tags in Job Name
 	['-QAI', '-UAT', '-PRELIVE', '-EMEA', '-NA'].each
@@ -102,7 +108,7 @@ node('IE1UIBLD03') {
 			{
 				currentDeviceId = (currentDeviceConfig =~ '(?<=udid" value=")[^"]*')[0]
 			}
-			
+
 			if (device in androidDevices)
 			{
 				currentDeviceId = "_Android"
@@ -215,6 +221,8 @@ def runTests(device)
 				includeTags.each
 				{
 					def and = isFirstTag ? '' : " && "
+
+					"R9 || Adaco"
 					include += "${and}cat == ${it}"
 					isFirstTag = false
 				}
