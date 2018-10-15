@@ -111,7 +111,7 @@ node('IE1UIBLD03') {
 
 			if (device in androidDevices)
 			{
-				currentDeviceId = "_Android"
+				currentDeviceId = (currentDeviceConfig =~ '(?<=serial" value=")[^"]*')[0]
 			}
 
 			// Check if device is connected to the machine
