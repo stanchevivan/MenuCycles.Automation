@@ -34,7 +34,7 @@ namespace MenuCycle.Tests.PageObjects
                     { "calanderDay0","MONDAY" },
                     { "calanderDay1","TUESDAY"},
                     { "calanderDay2","WEDNESDAY"},
-                    { "calanderDay3", "THURSDAY"},
+                    { "calanderDay3","THURSDAY"},
                     { "calanderDay4","FRIDAY" },
                     { "calanderDay5","SATURDAY"},
                     { "calanderDay6","SUNDAY" }

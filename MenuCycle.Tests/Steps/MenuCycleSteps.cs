@@ -20,10 +20,11 @@ namespace MenuCycle.Tests.Steps
         readonly ScenarioContext scenarioContext;
         readonly ModalDialogPage modalDialogPage;
         readonly ReportsView reportsView;
+        readonly WeeklyCalendarView weeklyCalendarView;
 
         public MenuCycleSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, LogInAs logInAs,
             MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleDailyCalendarView menuCycleDailyCalendarView, RecipeSearch recipeSearch, ToastNotification notification,
-                              ModalDialogPage modalDialogPage, ReportsView reportsView)
+                              ModalDialogPage modalDialogPage, ReportsView reportsView, WeeklyCalendarView weeklyCalendarView)
         {
             this.logInAs = logInAs;
             this.menuCycleDashboard = menuCycleDashboard;
@@ -34,6 +35,7 @@ namespace MenuCycle.Tests.Steps
             this.planningView = dailyPlanningView;
             this.modalDialogPage = modalDialogPage;
             this.reportsView = reportsView;
+            this.weeklyCalendarView = weeklyCalendarView;
 
             this.scenarioContext = scenarioContext;
         }
@@ -90,7 +92,7 @@ namespace MenuCycle.Tests.Steps
             menuCycleDailyCalendarView.OpenDailyPlanningForDay(weekDay);
             planningView.WaitForLoad();
         }
-       
+
         [When(@"Calendar view is opened")]
         [Then(@"Calendar view is opened")]
         public void CalendardViewIsOpened()
@@ -202,6 +204,15 @@ namespace MenuCycle.Tests.Steps
         public void ReportsPageIsCorrectlyLoaded()
         {
             Assert.IsTrue(reportsView.IsPageLoaded);
+        }
+
+        [When(@"Weekly Calendar is opened")]
+        public void WeeksTabIsOpened()
+        {
+            menuCycleDailyCalendarView.WaitPageLoad();
+            menuCycleDailyCalendarView.OpenWeeksTab();
+            weeklyCalendarView.WaitForLoad();
+            planningView.WaitForBackdropToDisappear();
         }
     }
 }

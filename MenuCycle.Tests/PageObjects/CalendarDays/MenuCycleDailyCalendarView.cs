@@ -147,5 +147,10 @@ namespace MenuCycle.Tests.PageObjects
         {
             DailyReportButton.Click();
         }
+
+        public void OpenWeeksTab()
+        {
+            Driver.WaitElementAndClick(WeeksViewButton);
+        }
     }
 }

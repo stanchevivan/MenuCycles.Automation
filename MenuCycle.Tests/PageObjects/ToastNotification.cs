@@ -42,5 +42,12 @@ namespace MenuCycle.Tests.PageObjects
         {
             Driver.WaitElementToExists(Message);
         }
+
+        public void WaitToAppearAndDisapear()
+        {
+            Driver.WaitElementToExists(Message);
+            CloseNotification();
+            Driver.WaitElementToDisappear(Message);
+        }
     }
 }
