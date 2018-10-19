@@ -33,8 +33,7 @@ solutionPath = ''
 msbuild = ''
 
 solutionName = "MenuCycle.Automation.sln"
-projectPath = "MenuCycle.Tests"
-projectName = "MenuCycle.Tests.csproj"
+projectName = "MenuCycle.Tests"
 remotePort = "$Remote_Port";
 jobNameFormatted = "${env.JOB_NAME.split('/').last().replaceAll("\\s","_")}"
 remotePath = "~/FromJenkins/${jobNameFormatted}"
@@ -77,7 +76,7 @@ node('IE1UIBLD03') {
 
 	// Checking for excluding tags first and removeing them, to avoid passing them as include tags
 	// Chech for exclude tags in Job Name
-	['-QAI', '-UAT', '-PRELIVE', '-EMEA', '-NA'].each
+	['-QAI', '-UAT', '-PRELIVE', '-EMEA', '-NA', '-Sanity'].each
 	{
 		if (jobName.contains("${it}"))
 		{
@@ -87,7 +86,7 @@ node('IE1UIBLD03') {
 	}
 
 	// Chech for include tags in Job Name
-	['Smoke', 'QAI', 'UAT', 'PRELIVE', 'EMEA', 'NA'].each
+	['Smoke', 'QAI', 'UAT', 'PRELIVE', 'EMEA', 'NA', 'Sanity'].each
 	{
 		if (jobName.contains("${it}"))
 		{
@@ -101,7 +100,7 @@ node('IE1UIBLD03') {
 		if(isRemote && device in mobileDevices)
 		{
 			// Get the current device id
-			currentDeviceConfig = bat(returnStdout:true, script: "more \"$env.WORKSPACE/${projectPath}/App.${device}.config\"")
+			currentDeviceConfig = bat(returnStdout:true, script: "more \"$env.WORKSPACE/${projectName}/App.${device}.config\"")
 			currentDeviceId = ""
 
 			if (device in appleDevices)
@@ -157,7 +156,7 @@ node('IE1UIBLD03') {
 				 {
 					  bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p$remotePort rm -rf ${remotePath}/"
 						bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p$remotePort mkdir ${remotePath}/"
-						bat "C:/Users/Jenkins/scp.exe -v -r -P $remotePort \"$env.WORKSPACE/${projectPath}/bin/${device}/.\" UIMCM@0.tcp.ngrok.io:${remotePath}/"
+						bat "C:/Users/Jenkins/scp.exe -v -r -P $remotePort \"$env.WORKSPACE/${projectName}/bin/${device}/.\" UIMCM@0.tcp.ngrok.io:${remotePath}/"
 				 }
 		}
 		catch (e)
@@ -188,13 +187,13 @@ node('IE1UIBLD03') {
 					if (isRemote)
 					{
 						echo "Copying test results from remote machine to workspace.."
-						bat "mkdir \"$env.WORKSPACE/${projectPath}/bin/${device}/Reports/\""
+						bat "mkdir \"$env.WORKSPACE/${projectName}/bin/${device}/Reports/\""
 						bat "C:/Users/Jenkins/scp.exe -v -P $remotePort UIMCM@0.tcp.ngrok.io:~/NUnit.Console-3.8.0/${device}TestResults.xml \"$env.WORKSPACE/\""
-						bat "C:/Users/Jenkins/scp.exe -v -P $remotePort UIMCM@0.tcp.ngrok.io:${remotePath}/Reports/Reports_${jobNameFormatted}.json \"$env.WORKSPACE/${projectPath}/bin/\""
+						bat "C:/Users/Jenkins/scp.exe -v -P $remotePort UIMCM@0.tcp.ngrok.io:${remotePath}/Reports/Reports_${jobNameFormatted}.json \"$env.WORKSPACE/${projectName}/bin/\""
 					}
 						archiveArtifacts artifacts: '*TestResults.xml'
             nunit testResultsPattern: '*TestResults.xml'
-            cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: "$projectPath/bin"
+            cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: "$projectName/bin"
         }
     }
 		catch (e)
@@ -251,12 +250,12 @@ def runTests(device)
 			if (isRemote)
 			{
 					print "Running tests remotely.."
-					bat "C:/Users/Jenkins/ssh.exe -o ServerAliveInterval=30 UIMCM@0.tcp.ngrok.io -p$remotePort \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit ${remotePath}/${projectPath}.dll ${where} ${quote}${include}${and}${exclude}${quote} --result:${device}TestResults.xml;format=nunit2\""
+					bat "C:/Users/Jenkins/ssh.exe -o ServerAliveInterval=30 UIMCM@0.tcp.ngrok.io -p$remotePort \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit ${remotePath}/${projectName}.dll ${where} ${quote}${include}${and}${exclude}${quote} --result:${device}TestResults.xml;format=nunit2\""
 			}
 			else
 			{
 					print "Running tests locally.."
-					bat "nunit ${projectPath}/bin/${device}/${projectPath}.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 ${where} ${doubleQuote}${include}${and}${exclude}${doubleQuote}"
+					bat "nunit ${projectName}/bin/${device}/${projectName}.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 ${where} ${doubleQuote}${include}${and}${exclude}${doubleQuote}"
 			}
 }
 
