@@ -9,14 +9,11 @@ using TechTalk.SpecFlow;
 namespace MenuCycle.Tests.Support
 {
     [Binding]
-    public sealed class AppiumHooks
+    public static class AppiumHooks
     {
-        [Binding]
-        public sealed class AppiumServerForTestRun
-        {
             private static readonly AppiumDebugServers appiumServers;
 
-            static AppiumServerForTestRun()
+            static AppiumHooks()
             {
                 appiumServers = new AppiumDebugServers(
                     new TerminalCommand[] {
@@ -37,6 +34,5 @@ namespace MenuCycle.Tests.Support
             {
                 appiumServers.Stop();
             }
-        }
     }
 }

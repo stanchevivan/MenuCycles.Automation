@@ -96,6 +96,7 @@ namespace MenuCycle.Tests.Steps
         [Then(@"Verify items present in the search results are")]
         public void VerifyItemsReturnedFromSearchAre(Table table)
         {
+            Assert.That(recipeSearch.Recipes.Select(x => x.Title).ToList(), Is.EquivalentTo(table.Rows.Select(x => x["Name"]).ToList()));
             Assert.That(recipeSearch.Recipes.Select(x => x.Cost).ToList(), Is.EquivalentTo(table.Rows.Select(x => x["Cost"]).ToList()));
         }
 
@@ -103,6 +104,7 @@ namespace MenuCycle.Tests.Steps
         [Then(@"Verify items in meal period detailed view")]
         public void VerifyItemsInMealPriodDetailedView(Table table)
         {
+            Assert.That(mealPeriodDetails.Recipes.Select(x => x.Title).ToList(), Is.EqualTo(table.Rows.Select(x => x["Name"]).ToList()));
             Assert.That(mealPeriodDetails.Recipes.Select(x => x.Cost).ToList(), Is.EqualTo(table.Rows.Select(x => x["Cost"]).ToList()));
         }
 
