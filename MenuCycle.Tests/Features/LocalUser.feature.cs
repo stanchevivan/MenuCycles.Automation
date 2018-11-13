@@ -20,8 +20,6 @@ namespace MenuCycle.Tests.Features
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("LocalUser")]
     [NUnit.Framework.CategoryAttribute("QAI")]
-    [NUnit.Framework.CategoryAttribute("#")]
-    [NUnit.Framework.CategoryAttribute("planningscreen")]
     public partial class LocalUserFeature
     {
         
@@ -35,9 +33,7 @@ namespace MenuCycle.Tests.Features
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "LocalUser", "    Meal Peridos functionalities and validations", ProgrammingLanguage.CSharp, new string[] {
-                        "QAI",
-                        "#",
-                        "planningscreen"});
+                        "QAI"});
             testRunner.OnFeatureStart(featureInfo);
         }
         

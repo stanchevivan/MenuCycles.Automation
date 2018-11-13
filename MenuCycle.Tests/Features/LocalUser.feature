@@ -1,4 +1,4 @@
-@QAI # @planningscreen
+@QAI
 Feature: LocalUser
     Meal Peridos functionalities and validations
 
