@@ -43,14 +43,14 @@ namespace MenuCycle.Tests.Steps
         {
             var recipe = planningTabDays.GetMealPeriod(mealPeriodName).GetRecipe(recipeName);
 
-            Assert.IsNotEmpty(recipe.GetRow().PlannedQuantity);
-            Assert.IsNotEmpty(recipe.GetRow().CostPerUnit);
-            Assert.IsNotEmpty(recipe.GetRow().TotalCosts);
+            Assert.IsNotEmpty(recipe.GetFirstRow().PlannedQuantity);
+            Assert.IsNotEmpty(recipe.GetFirstRow().CostPerUnit);
+            Assert.IsNotEmpty(recipe.GetFirstRow().TotalCosts);
             Assert.IsNotEmpty(recipe.Type);
-            Assert.IsNotEmpty(recipe.GetRow().PriceModel);
-            Assert.IsNotEmpty(recipe.GetRow().Target);
-            Assert.IsNotEmpty(recipe.GetRow().TaxPercentage);
-            Assert.IsNotEmpty(recipe.GetRow().SellPrice);
+            Assert.IsNotEmpty(recipe.GetFirstRow().PriceModel);
+            Assert.IsNotEmpty(recipe.GetFirstRow().Target);
+            Assert.IsNotEmpty(recipe.GetFirstRow().TaxPercentage);
+            Assert.IsNotEmpty(recipe.GetFirstRow().SellPrice);
         }
 
         [Given(@"Price model for recipe ""(.*)"" in meal period ""(.*)"" is set to ""(.*)""")]
@@ -60,7 +60,7 @@ namespace MenuCycle.Tests.Steps
             planningTabDays
                 .GetMealPeriod(mealPeriod)
                 .GetRecipe(recipeName)
-                .GetRow()
+                .GetFirstRow()
                 .PriceModel = priceModel;
         }
 
@@ -70,7 +70,7 @@ namespace MenuCycle.Tests.Steps
             Assert.IsFalse(planningTabDays
                            .GetMealPeriod(mealPeriod)
                            .GetRecipe(recipeName)
-                           .GetRow()
+                           .GetFirstRow()
                            .IsTargetGPPresent);
         }
 
@@ -80,7 +80,7 @@ namespace MenuCycle.Tests.Steps
             Assert.IsTrue(planningTabDays
                           .GetMealPeriod(mealPeriod)
                           .GetRecipe(recipeName)
-                          .GetRow()
+                          .GetFirstRow()
                           .IsSellPriceEditable);
         }
 
@@ -91,7 +91,7 @@ namespace MenuCycle.Tests.Steps
             planningTabDays
                 .GetMealPeriod(mealPeriod)
                 .GetRecipe(recipeName)
-                .GetRow()
+                .GetFirstRow()
                 .Target = value;
         }
 
@@ -108,7 +108,7 @@ namespace MenuCycle.Tests.Steps
             Assert.That(planningTabDays
                         .GetMealPeriod(mealPeriod)
                         .GetRecipe(recipeName)
-                        .GetRow()
+                        .GetFirstRow()
                         .Target,
                         Is.EqualTo(value));
         }
@@ -120,7 +120,7 @@ namespace MenuCycle.Tests.Steps
             planningTabDays
                 .GetMealPeriod(mealPeriod)
                 .GetRecipe(recipeName)
-                .GetRow()
+                .GetFirstRow()
                 .SellPrice = value;
         }
 
@@ -130,7 +130,7 @@ namespace MenuCycle.Tests.Steps
             Assert.That(planningTabDays
                         .GetMealPeriod(mealPeriod)
                         .GetRecipe(recipeName)
-                        .GetRow()
+                        .GetFirstRow()
                         .SellPrice,
                         Is.EqualTo(value));
         }
@@ -141,7 +141,7 @@ namespace MenuCycle.Tests.Steps
             Assert.That(planningTabDays
                         .GetMealPeriod(mealPeriod)
                         .GetRecipe(recipeName)
-                        .GetRow()
+                        .GetFirstRow()
                         .CostPerUnit,
                         Is.EqualTo(price));
         }
@@ -152,7 +152,7 @@ namespace MenuCycle.Tests.Steps
         {
             Assert.IsTrue(planningTabDays
                           .GetMealPeriod(mealPeriod)
-                          .GetRecipe(recipeName).GetRow().IsTargetGPWithRedBorder);
+                          .GetRecipe(recipeName).GetFirstRow().IsTargetGPWithRedBorder);
         }
 
         [When(@"red border is not displayed around Target% for recipe ""(.*)"" in meal period ""(.*)""")]
@@ -161,7 +161,7 @@ namespace MenuCycle.Tests.Steps
         {
             Assert.IsFalse(planningTabDays
                            .GetMealPeriod(mealPeriod)
-                           .GetRecipe(recipeName).GetRow().IsTargetGPWithRedBorder);
+                           .GetRecipe(recipeName).GetFirstRow().IsTargetGPWithRedBorder);
         }
 
         [When(@"red border is not displayed around Sell Price for recipe ""(.*)"" in meal period ""(.*)""")]
@@ -170,7 +170,7 @@ namespace MenuCycle.Tests.Steps
         {
             Assert.IsFalse(planningTabDays
                            .GetMealPeriod(mealPeriod)
-                           .GetRecipe(recipeName).GetRow().SellPriceHasRedBorder);
+                           .GetRecipe(recipeName).GetFirstRow().SellPriceHasRedBorder);
         }
 
         [When(@"red border is displayed around Sell Price for recipe ""(.*)"" in meal period ""(.*)""")]
@@ -179,7 +179,7 @@ namespace MenuCycle.Tests.Steps
         {
             Assert.IsTrue(planningTabDays
                           .GetMealPeriod(mealPeriod)
-                          .GetRecipe(recipeName).GetRow().SellPriceHasRedBorder);
+                          .GetRecipe(recipeName).GetFirstRow().SellPriceHasRedBorder);
         }
 
         [Then(@"red border is not displayed around Planned Quantity for recipe ""(.*)"" in meal period ""(.*)""")]
@@ -187,7 +187,7 @@ namespace MenuCycle.Tests.Steps
         {
             Assert.IsFalse(planningTabDays
                            .GetMealPeriod(mealPeriod)
-                           .GetRecipe(recipeName).GetRow().IsPlannedQuantityWithRedBorder);
+                           .GetRecipe(recipeName).GetFirstRow().IsPlannedQuantityWithRedBorder);
         }
 
 
@@ -197,7 +197,7 @@ namespace MenuCycle.Tests.Steps
         {
             Assert.IsTrue(planningTabDays
                           .GetMealPeriod(mealperiod)
-                          .GetRecipe(recipeName).GetRow().IsPlannedQuantityWithRedBorder);
+                          .GetRecipe(recipeName).GetFirstRow().IsPlannedQuantityWithRedBorder);
         }
 
         [When(@"field ""(.*)"" for single recipe ""(.*)"" in meal period ""(.*)"" is empty")]
@@ -212,17 +212,17 @@ namespace MenuCycle.Tests.Steps
             {
                 case "Target":
                     {
-                        fieldValue = recipe.GetRow().Target;
+                        fieldValue = recipe.GetFirstRow().Target;
                         break;
                     }
                 case "Sell Price":
                     {
-                        fieldValue = recipe.GetRow().SellPrice;
+                        fieldValue = recipe.GetFirstRow().SellPrice;
                         break;
                     }
                 case "Planned Qty":
                     {
-                        fieldValue = recipe.GetRow().PlannedQuantity;
+                        fieldValue = recipe.GetFirstRow().PlannedQuantity;
                         break;
                     }
                 default:
@@ -240,7 +240,7 @@ namespace MenuCycle.Tests.Steps
             Assert.That(planningTabDays
                         .GetMealPeriod(mealPeriod)
                         .GetRecipe(recipeName)
-                        .GetRow()
+                        .GetFirstRow()
                         .PlannedQtyContextualErrorMessage, Is.EqualTo(errorMessage));
         }
 
@@ -250,12 +250,12 @@ namespace MenuCycle.Tests.Steps
         {
             Assert.IsTrue(planningTabDays
                .GetMealPeriod(mealPeriod)
-                          .GetRecipe(recipeName).GetRow().IsTargetGPWithRedBorder);
+                          .GetRecipe(recipeName).GetFirstRow().IsTargetGPWithRedBorder);
 
             Assert.That(planningTabDays
                         .GetMealPeriod(mealPeriod)
                         .GetRecipe(recipeName)
-                        .GetRow()
+                        .GetFirstRow()
                         .TargetPercentageContextualErrorMessage, Is.EqualTo(errorMessage));
         }
 
@@ -266,13 +266,13 @@ namespace MenuCycle.Tests.Steps
             Assert.IsTrue(planningTabDays
                           .GetMealPeriod(mealPeriod)
                           .GetRecipe(recipeName)
-                          .GetRow()
+                          .GetFirstRow()
                           .SellPriceHasRedBorder);
 
             Assert.That(planningTabDays
                         .GetMealPeriod(mealPeriod)
                         .GetRecipe(recipeName)
-                        .GetRow()
+                        .GetFirstRow()
                         .SellPriceContextualErrorMessage, Is.EqualTo(errorMessage));
         }
 
@@ -283,13 +283,13 @@ namespace MenuCycle.Tests.Steps
             Assert.IsTrue(planningTabDays
               .GetMealPeriod(mealPeriod)
               .GetRecipe(recipeName)
-                          .GetRow()
+                          .GetFirstRow()
                           .IsPlannedQuantityWithRedBorder);
 
             Assert.That(planningTabDays
                         .GetMealPeriod(mealPeriod)
                         .GetRecipe(recipeName)
-                        .GetRow()
+                        .GetFirstRow()
                         .PlannedQtyContextualErrorMessage, Is.EqualTo(errorMessage));
         }
 
@@ -377,7 +377,7 @@ namespace MenuCycle.Tests.Steps
         [When(@"""(.*)"" is saved in context for recipe ""(.*)"" in meal period ""(.*)""")]
         public void WhenFieldAreSavedInContextForRecipeInMealPeriod(string field, string recipeTitle, string mealPeriod)
         {
-            var defaultRecipeRow = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeTitle).GetRow();
+            var defaultRecipeRow = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeTitle).GetFirstRow();
             var value = CommonHerlpers.GetValueForFieldInRecipeRow(field, defaultRecipeRow);
 
             scenarioContext.Add(field, value);
@@ -386,7 +386,7 @@ namespace MenuCycle.Tests.Steps
         [Then(@"""(.*)"" is equal to the value saved in context for recipe ""(.*)"" in meal period ""(.*)""")]
         public void WhenFieldIsEqualToContextForRecipeInMealPeriod(string field, string recipeTitle, string mealPeriod)
         {
-            var defaultRecipeRow = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeTitle).GetRow();
+            var defaultRecipeRow = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeTitle).GetFirstRow();
             var value = CommonHerlpers.GetValueForFieldInRecipeRow(field, defaultRecipeRow);
 
             Assert.That(value, Is.EqualTo(scenarioContext.Get<string>(field)));

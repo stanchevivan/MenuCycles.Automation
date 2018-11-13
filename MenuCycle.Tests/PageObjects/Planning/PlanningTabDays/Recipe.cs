@@ -37,7 +37,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             this.addTypeButton.Click();
         }
 
-        public RecipeRow GetRow()
+        public RecipeRow GetFirstRow()
         {
             return Rows.First();
         }

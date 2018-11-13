@@ -41,6 +41,7 @@ namespace MenuCycle.Tests.Steps
         }
 
         [Given(@"a (.*) user is selected")]
+        [When(@"a (.*) user is selected")]
         public void GivenAUserIsSelected(string userType)
         {
             logInAs.LogAs(userType);
@@ -198,12 +199,6 @@ namespace MenuCycle.Tests.Steps
             menuCycleDailyCalendarView.UseDailyReportButton();
             reportsView.WaitForLoad();
             planningView.WaitForBackdropToDisappear();
-        }
-
-        [Then(@"Reports page is correctly loaded")]
-        public void ReportsPageIsCorrectlyLoaded()
-        {
-            Assert.IsTrue(reportsView.IsPageLoaded);
         }
 
         [When(@"Weekly Calendar is opened")]

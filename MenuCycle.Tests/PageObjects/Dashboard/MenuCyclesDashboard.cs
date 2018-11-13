@@ -37,6 +37,9 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.Id, Using = "BlueLoaderShowHide")]
         IWebElement SpinningWheel { get; set; }
 
+        [FindsBy(How = How.ClassName, Using = "current-location-name")]
+        private IWebElement LocationName { get; set; }
+
         public IList<MenuCycleItem> MenuCycles => this.menuCycleRows.Select(p => new MenuCycleItem(Driver, p)).ToList();
 
         public void CreateMenuCycleClick()
@@ -86,6 +89,11 @@ namespace MenuCycle.Tests.PageObjects
         public MenuCycleItem GetMenuCycle(string name)
         {
             return MenuCycles.First(x => x.Name == name);
+        }
+
+        public void ClickLocationName()
+        {
+            LocationName.Click();
         }
     }
 }

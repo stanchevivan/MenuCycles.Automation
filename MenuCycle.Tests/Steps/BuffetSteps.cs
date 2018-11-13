@@ -65,7 +65,7 @@ namespace MenuCycle.Tests.Steps
                         }
                 }
 
-                item.GetRow().SetData(data);
+                item.GetFirstRow().SetData(data);
             }
 
             planningTabDays.FocusOut();
@@ -104,7 +104,7 @@ namespace MenuCycle.Tests.Steps
                         }
                 }
 
-                item.GetRow().VerifyData(expectedItem);
+                item.GetFirstRow().VerifyData(expectedItem);
             }
         }
 
@@ -117,7 +117,7 @@ namespace MenuCycle.Tests.Steps
 
             foreach (var data in itemData)
             {
-                buffet.GetRecipe(data.RecipeTitle).GetRow().PlannedQuantity = data.PlannedQuantity;
+                buffet.GetRecipe(data.RecipeTitle).GetFirstRow().PlannedQuantity = data.PlannedQuantity;
             }
 
             planningTabDays.FocusOut();
@@ -132,7 +132,7 @@ namespace MenuCycle.Tests.Steps
 
             foreach (var data in itemData)
             {
-                Assert.That(buffet.GetRecipe(data.RecipeTitle).GetRow().PlannedQuantity, Is.EqualTo(data.PlannedQuantity));
+                Assert.That(buffet.GetRecipe(data.RecipeTitle).GetFirstRow().PlannedQuantity, Is.EqualTo(data.PlannedQuantity));
             }
         }
     }

@@ -32,11 +32,11 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public NestedRecipe GetRecipe(string title, string tariffType)
         {
-            if (!Recipes.Any(x => x.Title == title && x.GetRow().TariffType == tariffType))
+            if (!Recipes.Any(x => x.Title == title && x.GetFirstRow().TariffType == tariffType))
             {
                 throw new System.Exception($"No such recipe {title}, tariff {tariffType}");
             }
-            return Recipes.First(x => x.Title == title && x.GetRow().TariffType == tariffType);
+            return Recipes.First(x => x.Title == title && x.GetFirstRow().TariffType == tariffType);
         }
     }
 }

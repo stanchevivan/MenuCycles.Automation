@@ -1,0 +1,77 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuCycle.Tests", "MenuCycle.Tests.csproj", "{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Chrome|Any CPU = Chrome|Any CPU
+		Android|Any CPU = Android|Any CPU
+		iOS|Any CPU = iOS|Any CPU
+		IE|Any CPU = IE|Any CPU
+		Firefox|Any CPU = Firefox|Any CPU
+		RemoteS8Plus|Any CPU = RemoteS8Plus|Any CPU
+		SamsungS8Plus|Any CPU = SamsungS8Plus|Any CPU
+		iPadPro9|Any CPU = iPadPro9|Any CPU
+		Nexus7|Any CPU = Nexus7|Any CPU
+		iPadAir|Any CPU = iPadAir|Any CPU
+		iPadMini4|Any CPU = iPadMini4|Any CPU
+		iPhone6|Any CPU = iPhone6|Any CPU
+		iPhone7|Any CPU = iPhone7|Any CPU
+		SamsungS9|Any CPU = SamsungS9|Any CPU
+		iPhone8|Any CPU = iPhone8|Any CPU
+		SamsungTabA|Any CPU = SamsungTabA|Any CPU
+		SamsungTabS|Any CPU = SamsungTabS|Any CPU
+		Nexus6|Any CPU = Nexus6|Any CPU
+		iPhone6 Plus|Any CPU = iPhone6 Plus|Any CPU
+		Safari|Any CPU = Safari|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Chrome|Any CPU.ActiveCfg = Chrome|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Chrome|Any CPU.Build.0 = Chrome|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Android|Any CPU.ActiveCfg = Android|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Android|Any CPU.Build.0 = Android|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iOS|Any CPU.ActiveCfg = iOS|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iOS|Any CPU.Build.0 = iOS|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.IE|Any CPU.ActiveCfg = IE|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.IE|Any CPU.Build.0 = IE|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Firefox|Any CPU.ActiveCfg = Firefox|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Firefox|Any CPU.Build.0 = Firefox|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.RemoteS8Plus|Any CPU.ActiveCfg = RemoteS8Plus|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.RemoteS8Plus|Any CPU.Build.0 = RemoteS8Plus|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungS8Plus|Any CPU.ActiveCfg = SamsungS8Plus|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungS8Plus|Any CPU.Build.0 = SamsungS8Plus|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPadPro9|Any CPU.ActiveCfg = iPadPro9|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPadPro9|Any CPU.Build.0 = iPadPro9|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Nexus7|Any CPU.ActiveCfg = Nexus7|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Nexus7|Any CPU.Build.0 = Nexus7|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPadAir|Any CPU.ActiveCfg = iPadAir|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPadAir|Any CPU.Build.0 = iPadAir|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPadMini4|Any CPU.ActiveCfg = iPadMini4|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPadMini4|Any CPU.Build.0 = iPadMini4|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone6|Any CPU.ActiveCfg = iPhone6|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone6|Any CPU.Build.0 = iPhone6|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone7|Any CPU.ActiveCfg = iPhone7|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone7|Any CPU.Build.0 = iPhone7|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungS9|Any CPU.ActiveCfg = SamsungS9|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungS9|Any CPU.Build.0 = SamsungS9|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone8|Any CPU.ActiveCfg = iPhone8|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone8|Any CPU.Build.0 = iPhone8|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungTabA|Any CPU.ActiveCfg = SamsungTabA|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungTabA|Any CPU.Build.0 = SamsungTabA|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungTabS|Any CPU.ActiveCfg = SamsungTabS|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungTabS|Any CPU.Build.0 = SamsungTabS|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Nexus6|Any CPU.ActiveCfg = Nexus6|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Nexus6|Any CPU.Build.0 = Nexus6|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone6 Plus|Any CPU.ActiveCfg = iPhone6 Plus|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.iPhone6 Plus|Any CPU.Build.0 = iPhone6 Plus|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Safari|Any CPU.ActiveCfg = Safari|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Safari|Any CPU.Build.0 = Safari|Any CPU
+	EndGlobalSection
+EndGlobal

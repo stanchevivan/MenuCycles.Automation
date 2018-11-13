@@ -384,6 +384,9 @@
     <Compile Include="Features\WeeklyCalendar.feature.cs">
       <DependentUpon>WeeklyCalendar.feature</DependentUpon>
     </Compile>
+    <Compile Include="PageObjects\Reports\ConsumerFacingReportPage.cs" />
+    <Compile Include="PageObjects\Reports\MenuExtractReport.cs" />
+    <Compile Include="Steps\ReportSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
