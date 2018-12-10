@@ -78,10 +78,12 @@ testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFl
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Copy and Delete week in Weekly Calendar view")]
         [NUnit.Framework.CategoryAttribute("TC33038")]
+        [NUnit.Framework.CategoryAttribute("TC31075")]
         public virtual void CopyAndDeleteWeekInWeeklyCalendarView()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Copy and Delete week in Weekly Calendar view", new string[] {
-                        "TC33038"});
+                        "TC33038",
+                        "TC31075"});
 #line 11
 this.ScenarioSetup(scenarioInfo);
 #line 5
@@ -91,15 +93,25 @@ this.FeatureBackground();
 #line 13
     testRunner.When("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 14
-        testRunner.And("Week \"Week 2\" is copied", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Week \"Week 1\" is copied", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
         testRunner.And("Notification message \"Week Successfully Added.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
-        testRunner.And("Delete button is clicked for week \"Week 3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Week \"Week 2\" is copied", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
-        testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Notification message \"Week Successfully Added.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
+        testRunner.And("Delete button is clicked for week \"Week 2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 19
+        testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 20
     testRunner.Then("Notification message \"Week Successfully Removed.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 21
+        testRunner.And("Delete button is clicked for week \"Week 2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 22
+        testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 23
+        testRunner.And("Notification message \"Week Successfully Removed.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -71,7 +71,16 @@ namespace MenuCycle.Tests
 
         public void ScrollIntoView()
         {
-            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].scrollIntoView(true);", webElement);
+            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].scrollIntoView();", webElement);
+        }
+
+        public void InputDate(string text)
+        {
+            webElement.Click();
+            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].removeAttribute('readonly')", webElement);
+            webElement.Clear();
+            webElement.SendKeys(text);
+            webElement.SendKeys(Keys.Enter);
         }
     }
 }

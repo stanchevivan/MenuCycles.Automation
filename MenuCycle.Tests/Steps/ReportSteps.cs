@@ -1,12 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MenuCycle.Tests.Models;
-using MenuCycle.Tests.PageObjects;
-using MenuCycle.Tests.PageObjects.Planning.PlanningTabDays;
+﻿using MenuCycle.Tests.PageObjects;
 using NUnit.Framework;
-using OpenQA.Selenium;
 using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
+using static MenuCycle.Tests.PageObjects.ReportsView;
 
 namespace MenuCycle.Tests.Steps
 {
@@ -26,6 +21,7 @@ namespace MenuCycle.Tests.Steps
         readonly ConsumerFacingReportPage consumerFacingReportPage;
         readonly MenuCyclesDashboard menuCyclesDashboard;
         readonly LogInAs logInAs;
+
 
         public ReportSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleDailyCalendarView menuCycleDailyCalendarView,
             RecipeSearch recipeSearch, ToastNotification notification,
@@ -59,11 +55,11 @@ namespace MenuCycle.Tests.Steps
             Assert.IsTrue(consumerFacingReportPage.IsPriceDropDownVisible);
         }
 
-        [When(@"Consumer facing report is opened")]
-        public void ConsumerFacingReportIsOpened()
+        [When(@"Report ""(.*)"" is opened")]
+        public void ConsumerFacingReportIsOpened(Reports reportName)
         {
-            reportsView.OpenReport(ReportsView.Reports.ConsumerFacing);
-            consumerFacingReportPage.WaitPageToLoad();
+            reportsView.OpenReport(reportName);
+            reportsView.WaitReportToLoad();
         }
 
         [When(@"Location name is clicked")]
@@ -79,16 +75,96 @@ namespace MenuCycle.Tests.Steps
             consumerFacingReportPage.IncludeSellPrice();
         }
 
-        [Then(@"Verify Include sell price is checked")]
+        [Then(@"Verify Include sell price is not checked")]
         public void VerifyWhenIncludeSellPriceIsChecked()
         {
-            Assert.IsTrue(consumerFacingReportPage.IsSellPriceSelected);
+            Assert.IsFalse(consumerFacingReportPage.IsSellPriceSelected);
         }
 
         [Then(@"Verify Price type dropdown is disabled")]
         public void VerifyPriceTypeDropdownisDisabled()
         {
             Assert.IsFalse(consumerFacingReportPage.IsPriceDropDownEnabled);
+        }
+
+        [When(@"Report start date ""(.*)"" is selected")]
+        public void WhenDateFromIsSelectedRecipeCardReport(string startDate)
+        {
+            reportsView.SelectDateFrom(startDate);
+        }
+
+        [When(@"Report end date ""(.*)"" is selected")]
+        public void WhenDateToIsSelectedRecipeCardReport(string startDate)
+        {
+            reportsView.SelectDateTo(startDate);
+        }
+
+        [When(@"Calories checkbox is checked")]
+        public void WhenCaloriesCheckBoxIsChecked()
+        {
+            consumerFacingReportPage.IncludeCalories();
+        }
+
+        [When(@"Kilojoules checkbox is checked")]
+        public void WhenKilojoulesCheckBoxIsChecked()
+        {
+            consumerFacingReportPage.IncludeKilojoules();
+        }
+
+        [When(@"Meal periods are selected")]
+        public void MealPeriodIsSelected(Table table)
+        {
+            foreach (TableRow row in table.Rows)
+            {
+                reportsView.SelectMealPeriod(row["MealPeriod"]);
+            }
+        }
+
+        [When(@"Export CSV and Export PDF buttons are displayed")]
+        [Then(@"Export CSV and Export PDF buttons are displayed")]
+        public void ButtonsAreDisplayed()
+        {
+            Assert.IsTrue(consumerFacingReportPage.IsExportCSVButonVisible);
+            Assert.IsTrue(consumerFacingReportPage.IsExportPDFButonVisible);
+        }
+
+        [When(@"Export CSV and Export PDF buttons are not displayed")]
+        public void WhenExportCSVAndExportPDFButtonsAreNotDisplayed()
+        {
+            Assert.IsFalse(consumerFacingReportPage.IsExportCSVButonVisible);
+            Assert.IsFalse(consumerFacingReportPage.IsExportPDFButonVisible);
+        }
+
+        [When(@"Export PDF button is clicked")]
+        [Then(@"Export PDF button is clicked")]
+        public void ExportPdfButtonIsClicked()
+        {
+            consumerFacingReportPage.UseExportPdfButton();
+        }
+
+        [When(@"Export CSV button is clicked")]
+        [Then(@"Export CSV button is clicked")]
+        public void ExportCsvButtonIsClicked()
+        {
+            consumerFacingReportPage.UseExportCsvButton();
+        }
+
+        [When(@"Report is exported")]
+        public void ReportIsExported()
+        {
+            reportsView.UseExportButton();
+        }
+
+        [When(@"Export button is not displayed")]
+        public void ExportButtonIsNotDisplayed()
+        {
+            Assert.IsFalse(reportsView.IsExportButtonVisible);
+        }
+
+        [Then(@"Export button is displayed")]
+        public void ExportButtonIsDisplayed()
+        {
+            Assert.IsTrue(reportsView.IsExportButtonVisible);
         }
     }
 }

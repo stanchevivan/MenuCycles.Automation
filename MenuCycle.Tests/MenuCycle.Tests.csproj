@@ -387,7 +387,6 @@
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\BuffetItem.cs" />
     <Compile Include="Support\Helpers\DisposeDriverervice.cs" />
     <Compile Include="Support\AppiumHooks.cs" />
-    <Compile Include="PageObjects\Reports\ReportsView.cs" />
     <Compile Include="Steps\WeeklyCalendarSteps.cs" />
     <Compile Include="Features\Reports.feature.cs">
       <DependentUpon>Reports.feature</DependentUpon>
@@ -400,8 +399,8 @@
       <DependentUpon>WeeklyCalendar.feature</DependentUpon>
     </Compile>
     <Compile Include="PageObjects\Reports\ConsumerFacingReportPage.cs" />
-    <Compile Include="PageObjects\Reports\MenuExtractReport.cs" />
     <Compile Include="Steps\ReportSteps.cs" />
+    <Compile Include="PageObjects\Reports\ReportsView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

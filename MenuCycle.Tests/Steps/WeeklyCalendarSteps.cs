@@ -49,6 +49,7 @@ namespace MenuCycle.Tests.Steps
         }
 
         [When(@"Delete button is clicked for week ""(.*)""")]
+        [Then(@"Delete button is clicked for week ""(.*)""")]
         public void DeleteButtonIsClickedForWeek(string weekName)
         {
             weeklyCalendarView.GetWeek(weekName).UseDeleteButton();
