@@ -84,9 +84,7 @@ namespace MenuCycle.Tests.Steps
             notification.ValidateToastMessage(message);
         }
 
-        [Given(@"planning for (.*) is opened")]
-        [When(@"planning for (.*) is opened")]
-        [Then(@"planning for (.*) is opened")]
+        [StepDefinition(@"planning for ""(.*)"" is opened")]
         public void WhenPlanningForADayIsOpened(string weekDay)
         {
             menuCycleDailyCalendarView.WaitPageLoad();

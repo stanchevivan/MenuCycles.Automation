@@ -19,9 +19,6 @@ namespace MenuCycle.Tests.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("LocalUserPlanningScreen")]
-    [NUnit.Framework.CategoryAttribute("QAI")]
-    [NUnit.Framework.CategoryAttribute("#")]
-    [NUnit.Framework.CategoryAttribute("planningscreen")]
     public partial class LocalUserPlanningScreenFeature
     {
         
@@ -34,10 +31,7 @@ namespace MenuCycle.Tests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "LocalUserPlanningScreen", "    Meal Peridos functionalities and validations", ProgrammingLanguage.CSharp, new string[] {
-                        "QAI",
-                        "#",
-                        "planningscreen"});
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "LocalUserPlanningScreen", "    Meal Peridos functionalities and validations", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -69,36 +63,34 @@ namespace MenuCycle.Tests.Features
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void FeatureBackground()
-        {
-#line 5
-#line 9
-testRunner.And("\'Menu Cycles\' application is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 10
-testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-        }
-        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Load engine when Planning screen is opened (Local User)")]
         [NUnit.Framework.CategoryAttribute("TC28558")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void LoadEngineWhenPlanningScreenIsOpenedLocalUser()
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", null, Category="QAI")]
+        public virtual void LoadEngineWhenPlanningScreenIsOpenedLocalUser(string environment, string location, string menuCycle, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load engine when Planning screen is opened (Local User)", new string[] {
-                        "TC28558",
-                        "Smoke"});
-#line 14
-this.ScenarioSetup(scenarioInfo);
+            string[] @__tags = new string[] {
+                    "TC28558",
+                    "Smoke"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load engine when Planning screen is opened (Local User)", @__tags);
 #line 5
-this.FeatureBackground();
-#line 15
-    testRunner.Given("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 16
-        testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 17
+this.ScenarioSetup(scenarioInfo);
+#line 6
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 7
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 8
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 9
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
     testRunner.When("planning for TUE 10 JUL is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 18
+#line 11
     testRunner.Then("planning screen engine is loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -107,18 +99,26 @@ this.FeatureBackground();
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Save button is disabled for passed days")]
         [NUnit.Framework.CategoryAttribute("TC30226")]
-        public virtual void SaveButtonIsDisabledForPassedDays()
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", null, Category="QAI")]
+        public virtual void SaveButtonIsDisabledForPassedDays(string environment, string location, string menuCycle, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save button is disabled for passed days", new string[] {
-                        "TC30226"});
-#line 21
+            string[] @__tags = new string[] {
+                    "TC30226"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save button is disabled for passed days", @__tags);
+#line 19
 this.ScenarioSetup(scenarioInfo);
-#line 5
-this.FeatureBackground();
+#line 20
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 21
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 22
-    testRunner.Given("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 23
-    testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 24
     testRunner.When("planning for TUE 10 JUL is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 25
@@ -130,21 +130,29 @@ this.FeatureBackground();
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Real date is displayed on the top of the planning screen")]
         [NUnit.Framework.CategoryAttribute("TC30227")]
-        public virtual void RealDateIsDisplayedOnTheTopOfThePlanningScreen()
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", null, Category="QAI")]
+        public virtual void RealDateIsDisplayedOnTheTopOfThePlanningScreen(string environment, string location, string menuCycle, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Real date is displayed on the top of the planning screen", new string[] {
-                        "TC30227"});
-#line 28
+            string[] @__tags = new string[] {
+                    "TC30227"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Real date is displayed on the top of the planning screen", @__tags);
+#line 33
 this.ScenarioSetup(scenarioInfo);
-#line 5
-this.FeatureBackground();
-#line 29
-    testRunner.Given("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 30
-    testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 31
+#line 34
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 35
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 36
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 37
+    testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 38
     testRunner.When("planning for TUE 10 JUL is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 32
+#line 39
     testRunner.Then("location name \"TUESDAY - 10 July 2018\" is present on the top of the planning", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -154,26 +162,34 @@ this.FeatureBackground();
         [NUnit.Framework.DescriptionAttribute("Open Planning Screen, go to Post-Production, go back to Planning screen")]
         [NUnit.Framework.CategoryAttribute("TC30264")]
         [NUnit.Framework.CategoryAttribute("D25299")]
-        public virtual void OpenPlanningScreenGoToPost_ProductionGoBackToPlanningScreen()
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", null, Category="QAI")]
+        public virtual void OpenPlanningScreenGoToPost_ProductionGoBackToPlanningScreen(string environment, string location, string menuCycle, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open Planning Screen, go to Post-Production, go back to Planning screen", new string[] {
-                        "TC30264",
-                        "D25299"});
-#line 35
+            string[] @__tags = new string[] {
+                    "TC30264",
+                    "D25299"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open Planning Screen, go to Post-Production, go back to Planning screen", @__tags);
+#line 47
 this.ScenarioSetup(scenarioInfo);
-#line 5
-this.FeatureBackground();
-#line 36
-    testRunner.Given("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 37
-        testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 38
+#line 48
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 49
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 50
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 51
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 52
     testRunner.When("planning for TUE 10 JUL is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 39
+#line 53
         testRunner.And("daily post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 40
+#line 54
         testRunner.And("daily planning tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 41
+#line 55
     testRunner.Then("planning screen engine is loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -183,24 +199,32 @@ this.FeatureBackground();
         [NUnit.Framework.DescriptionAttribute("Open Planning Screen, go to Weekly planning")]
         [NUnit.Framework.CategoryAttribute("TC30366")]
         [NUnit.Framework.CategoryAttribute("D25410")]
-        public virtual void OpenPlanningScreenGoToWeeklyPlanning()
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", null, Category="QAI")]
+        public virtual void OpenPlanningScreenGoToWeeklyPlanning(string environment, string location, string menuCycle, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open Planning Screen, go to Weekly planning", new string[] {
-                        "TC30366",
-                        "D25410"});
-#line 44
+            string[] @__tags = new string[] {
+                    "TC30366",
+                    "D25410"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open Planning Screen, go to Weekly planning", @__tags);
+#line 63
 this.ScenarioSetup(scenarioInfo);
-#line 5
-this.FeatureBackground();
-#line 45
-    testRunner.Given("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 46
-        testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 47
+#line 64
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 65
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 66
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 67
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 68
     testRunner.When("planning for WED 11 JUL is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 48
+#line 69
         testRunner.And("switching to Weekly Planning view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 49
+#line 70
     testRunner.Then("Verify Weekly Planning view is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -211,33 +235,41 @@ this.FeatureBackground();
             "duction and back")]
         [NUnit.Framework.CategoryAttribute("TC30313")]
         [NUnit.Framework.CategoryAttribute("D25310")]
-        public virtual void UserShouldNotBeRedirectedToThePlanningScreenAfterNavigatingToPost_ProductionAndBack()
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", null, Category="QAI")]
+        public virtual void UserShouldNotBeRedirectedToThePlanningScreenAfterNavigatingToPost_ProductionAndBack(string environment, string location, string menuCycle, string[] exampleTags)
         {
+            string[] @__tags = new string[] {
+                    "TC30313",
+                    "D25310"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User should not be redirected to the planning screen after navigating to post-pro" +
-                    "duction and back", new string[] {
-                        "TC30313",
-                        "D25310"});
-#line 52
+                    "duction and back", @__tags);
+#line 78
 this.ScenarioSetup(scenarioInfo);
-#line 5
-this.FeatureBackground();
-#line 53
-    testRunner.Given("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 54
-        testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 55
+#line 79
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 80
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 81
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 82
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 83
     testRunner.When("planning for TUE 10 JUL is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 56
+#line 84
         testRunner.And("daily post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 57
+#line 85
         testRunner.And("daily planning tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 58
-        testRunner.And("Cross button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 59
+#line 86
+        testRunner.And("Cross button is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 87
         testRunner.And("Home button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 60
-        testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 61
+#line 88
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 89
     testRunner.Then("Calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -247,18 +279,26 @@ this.FeatureBackground();
         [NUnit.Framework.DescriptionAttribute("Create menu cycle button is not present - local user")]
         [NUnit.Framework.CategoryAttribute("TC27776")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        public virtual void CreateMenuCycleButtonIsNotPresent_LocalUser()
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", null, Category="QAI")]
+        public virtual void CreateMenuCycleButtonIsNotPresent_LocalUser(string environment, string location, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create menu cycle button is not present - local user", new string[] {
-                        "TC27776",
-                        "Smoke"});
-#line 64
+            string[] @__tags = new string[] {
+                    "TC27776",
+                    "Smoke"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create menu cycle button is not present - local user", @__tags);
+#line 97
 this.ScenarioSetup(scenarioInfo);
-#line 5
-this.FeatureBackground();
-#line 65
-    testRunner.Given("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 66
+#line 98
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 99
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 100
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 101
     testRunner.Then("Create menu cycle button is not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -269,25 +309,33 @@ this.FeatureBackground();
         [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.CategoryAttribute("TC30910")]
         [NUnit.Framework.CategoryAttribute("ForDataSeeding")]
-        public virtual void SaveButtonIsClickedWithoutAnyChangesAppliedLocalUser()
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", null, Category="QAI")]
+        public virtual void SaveButtonIsClickedWithoutAnyChangesAppliedLocalUser(string environment, string location, string menuCycle, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save button is clicked without any changes applied (Local user)", new string[] {
-                        "TC30910",
-                        "ForDataSeeding",
-                        "ignore"});
-#line 70
+            string[] @__tags = new string[] {
+                    "TC30910",
+                    "ForDataSeeding",
+                    "ignore"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save button is clicked without any changes applied (Local user)", @__tags);
+#line 110
 this.ScenarioSetup(scenarioInfo);
-#line 5
-this.FeatureBackground();
-#line 71
-    testRunner.Given("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 72
-        testRunner.And("Menu Cycle \"Menu Cycle for Local user\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 73
+#line 111
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 112
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 113
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 114
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 115
     testRunner.When("planning for THUR 2 AUG is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 74
+#line 116
         testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 75
+#line 117
     testRunner.Then("Notification message \"Planning figures updated.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

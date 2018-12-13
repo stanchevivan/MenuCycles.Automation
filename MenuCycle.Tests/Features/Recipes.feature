@@ -1,125 +1,177 @@
-﻿@QAI #@menucycle @mealperiod @recipe
-Feature: Recipes
+﻿Feature: Recipes
     Recipes feature
 
-Background: 
-# Given 1 Menu Cycles exists
-# And 1 Meal Period exists
-# And 3 recipes exists
-And 'Menu Cycles' application is open
-And a central user is selected
-#And a nouser user is selected
-
 @TC28829 @Smoke
-Scenario: Retrieve recipe information from the API
-    Given Menu Cycle "Meda" is selected
-    When planning for Thursday is opened
+Scenario Outline: Retrieve recipe information from the API
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
     Then Verify data for items is
-        |MealPeriodName|TYPE  |RecipeTitle                                 |PlannedQuantity|CostPerUnit|TariffType|PriceModel|Target|TaxPercentage|SellPrice|
-        |DANGELO       |RECIPE|703Coronation Chicken Sandwich Filling (50g)|             12|       0.81| TariffOne|        GP|     5|           20|     1.02|
-
+        |MealPeriodName|TYPE  |RecipeTitle |PlannedQuantity  |CostPerUnit  |TariffType  |PriceModel  |Target  |TaxPercentage  |SellPrice  |
+        |DANGELO       |RECIPE|<recipeName>|<plannedQuantity>|<costPerUnit>|<tariffType>|<priceModel>|<target>|<taxPercentage>|<sellPrice>|
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|day     |mealPeriod|type  |recipeName                                  |plannedQuantity|costPerUnit|tariffType|priceModel|target|taxPercentage|sellPrice|
+    |QAI        |Meda     |Thursday|DANGELO   |RECIPE|703Coronation Chicken Sandwich Filling (50g)|             12|       0.81| TariffOne|        GP|     5|           20|     1.02|
+    
+                                                    
+    
 @TC28830
-Scenario: "Target %" field is not present and "Sell Price" can be edited if "Price model" = "Fixed"
-    Given Menu Cycle "Meda" is selected
-    When planning for Monday is opened
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
-    Then Target % field for recipe "004Baked Beans_3" in meal period "LUNCH" is not present
-        And Sell Price for recipe "004Baked Beans_3" in meal period "LUNCH" is an editable field
-
+Scenario Outline: "Target %" field is not present and "Sell Price" can be edited if "Price model" = "Fixed"
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "Fixed"
+    Then Target % field for recipe "<recipeName>" in meal period "<mealPeriod>" is not present
+        And Sell Price for recipe "<recipeName>" in meal period "<mealPeriod>" is an editable field
+        
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    
 @TC29033 @ignore
-Scenario: Target GP % has format: float and type: 2 decimals
-    Given Menu Cycle "Meda" is selected
-    When planning for Monday is opened
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "GP"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2.333333"
+Scenario Outline: Target GP % has format: float and type: 2 decimals
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "GP"
+        And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2.333333"
         And the user focus out
-    Then TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to "2.33"
-
+    Then TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "2.33"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    
 @TC29034 @ignore    
-Scenario: Target Mark up % has format: float and type: 2 decimals
-    Given Menu Cycle "Meda" is selected
-    When planning for Monday is opened
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2.333333"
+Scenario Outline: Target Mark up % has format: float and type: 2 decimals
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "Markup"
+        And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2.333333"
         And the user focus out
-    Then TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to "2.33"
-
+    Then TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "2.33"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    
 @TC29035
-Scenario: Target GP % validations
-    Given Menu Cycle "Meda" is selected
-    When planning for Monday is opened
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "GP"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-100"
+Scenario Outline: Target GP % validations
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "GP"
+        And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "-100"
         And the user focus out
-        And red border and contextual error message "Must be -99.99 to 99.99" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "1"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
+        And red border and contextual error message "Must be -99.99 to 99.99" is displayed for TargetGP field for recipe "<recipeName>" in meal period "LUNCH"
+        And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "1"
+        And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to ""
         And the user focus out
-        And red border and contextual error message "Value is required" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "7a7"
+        And red border and contextual error message "Value is required" is displayed for TargetGP field for recipe "<recipeName>" in meal period "LUNCH"
+        And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "7a7"
         And the user focus out
-        And red border and contextual error message "Must be number" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-99.99"
+        And red border and contextual error message "Must be number" is displayed for TargetGP field for recipe "<recipeName>" in meal period "LUNCH"
+        And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "-99.99"
         And the user focus out
-        And red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "99.99"
+        And red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "<mealPeriod>"
+        And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "99.99"
         And the user focus out
-    Then red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
-
+    Then red border is not displayed around Target% for recipe "<recipeName>" in meal period "<mealPeriod>"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    
 @TC29036
-Scenario: Target Markup % validations
-    Given Menu Cycle "Meda" is selected
-    When planning for Monday is opened
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Markup"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "5"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
+Scenario Outline: Target Markup % validations
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "Markup"
+        And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "5"
+        And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to ""
         And the user focus out
-        And red border and contextual error message "Value is required" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
+        And red border and contextual error message "Value is required" is displayed for TargetGP field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "-1"
         And the user focus out
-        And red border and contextual error message "Must be 0 or greater" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "7a7"
+        And red border and contextual error message "Must be 0 or greater" is displayed for TargetGP field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "7a7"
         And the user focus out
-        And red border and contextual error message "Must be number" is displayed for TargetGP field for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "0"
+        And red border and contextual error message "Must be number" is displayed for TargetGP field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "0"
         And the user focus out
-        And red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And TargetGP% for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "2134"
+        And red border is not displayed around Target% for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2134"
         And the user focus out
-    Then red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "LUNCH"
-
+    Then red border is not displayed around Target% for recipe "<recipeName>" in meal period "<mealPeriod>"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    
 @TC29039
-Scenario: Sell price validations
-    Given Menu Cycle "Meda" is selected
-    When planning for Monday is opened
-        And Price model for recipe "004Baked Beans_3" in meal period "LUNCH" is set to "Fixed"
-        And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "5"
-        And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
+Scenario Outline: Sell price validations
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "Fixed"
+        And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "5"
+        And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to ""
         And the user focus out
-        And red border and contextual error message "Value is required" is displayed for Sell Price field for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
+        And red border and contextual error message "Value is required" is displayed for Sell Price field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "-1"
         And the user focus out
-        And red border and contextual error message "Must be 0 or greater" is displayed for Sell Price field for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "7a7"
+        And red border and contextual error message "Must be 0 or greater" is displayed for Sell Price field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "7a7"
         And the user focus out
-        And red border and contextual error message "Must be number" is displayed for Sell Price field for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "0"
+        And red border and contextual error message "Must be number" is displayed for Sell Price field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "0"
         And the user focus out
-        And red border is not displayed around Sell Price for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And SellPrice for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "4322"
+        And red border is not displayed around Sell Price for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "4322"
         And the user focus out
-    Then red border is not displayed around Sell Price for recipe "004Baked Beans_3" in meal period "LUNCH"
-
+    Then red border is not displayed around Sell Price for recipe "<recipeName>" in meal period "<mealPeriod>"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    
 @TC28899
-Scenario: Retrieve Recipe Price from the API (NO Min - Max)
-    Given Menu Cycle "Meda" is selected
-    When planning for Monday is opened
-    Then CostPerUnit for recipe named "004Baked Beans_3" in meal period "LUNCH" is equal to "1.88"
+Scenario Outline: Retrieve Recipe Price from the API (NO Min - Max)
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+    Then CostPerUnit for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "1.88"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
 
 @TC27705 @TC27721 @TC27724 @TC27726
-Scenario: Calculations for "Total Cost", "Sell Price", "Revenue" and "Actual GP" should be correct
-    Given Menu Cycle "Meda" is selected
-    And planning for Wednesday is opened
+Scenario Outline: Calculations for "Total Cost", "Sell Price", "Revenue" and "Actual GP" should be correct
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And planning for "<day>" is opened
     When data for recipes in a la carte "Holiday A La Carte" in meal period "LANCE" is set
         |RecipeTitle                   |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
         |004Bread (fresh dough)        |              2|     Fixed|     ^|           20|       55|
@@ -134,210 +186,314 @@ Scenario: Calculations for "Total Cost", "Sell Price", "Revenue" and "Actual GP"
     And Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle    |TotalCosts|SellPrice|Revenue|ActualGP|
         |LANCE         |RECIPE|004Basic Sponge|      2.52|     0.72|    2.9|     13%|
-
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|day      |
+    |QAI        |Meda     |WEDNESDAY|
+        
 @TC29101 @D23785
-Scenario: Planned Quantity validations
-    Given Menu Cycle "Meda" is selected
-    When planning for Monday is opened
-        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "5"
-        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
+Scenario Outline: Planned Quantity validations
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And planning for "<day>" is opened
+    When quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "5"
+        And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to ""
         And the user focus out
-        And red border and contextual error message "Value is required" is displayed for Planned Quantity field for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "-1"
+        And red border and contextual error message "Value is required" is displayed for Planned Quantity field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "-1"
         And the user focus out
-        And red border and contextual error message "Must be 0 or greater" is displayed for Planned Quantity field for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "7a7"
+        And red border and contextual error message "Must be 0 or greater" is displayed for Planned Quantity field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "7a7"
         And the user focus out
-        And red border and contextual error message "Must be integer" is displayed for Planned Quantity field for recipe "004Baked Beans_3" in meal period "LUNCH"
-        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to "0"
+        And red border and contextual error message "Must be integer" is displayed for Planned Quantity field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "0"
         And the user focus out
-    Then red border is not displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
-
+    Then red border is not displayed around Planned Quantity for recipe "<recipeName>" in meal period "<mealPeriod>"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    
 @TC29394 @D23825
-Scenario: Transferring Sell Price value to Markup and GP Target% field does not happen
-    Given Menu Cycle "Meda" is selected
-        And planning for Monday is opened
+Scenario Outline: Transferring Sell Price value to Markup and GP Target% field does not happen
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And planning for "<day>" is opened
     When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|Target|SellPrice|
-        |LUNCH         |RECIPE|004Baked Beans_3|        GP|      |        ^|
-        |LUNCH         |RECIPE|004Baked Beans_3|    Markup|      |        ^|
-        |LUNCH         |RECIPE|004Baked Beans_3|     Fixed|     ^|       50|
-        |LUNCH         |RECIPE|004Baked Beans_3|        GP|     ^|        ^|
+        |MealPeriodName|TYPE  |RecipeTitle |PriceModel|Target|SellPrice|
+        |<mealPeriod>  |RECIPE|<recipeName>|        GP|      |        ^|
+        |<mealPeriod>  |RECIPE|<recipeName>|    Markup|      |        ^|
+        |<mealPeriod>  |RECIPE|<recipeName>|     Fixed|     ^|       50|
+        |<mealPeriod>  |RECIPE|<recipeName>|        GP|     ^|        ^|
     And Verify data for items is
-        |MealPeriodName|TYPE  |RecipeTitle     |Target|
-        |LUNCH         |RECIPE|004Baked Beans_3|      |
+        |MealPeriodName|TYPE  |RecipeTitle |Target|
+        |<mealPeriod>  |RECIPE|<recipeName>|      |
     And data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|
-        |LUNCH         |RECIPE|004Baked Beans_3|    Markup|
+        |MealPeriodName|TYPE  |RecipeTitle |PriceModel|
+        |<mealPeriod>  |RECIPE|<recipeName>|    Markup|
     Then Verify data for items is
-        |MealPeriodName|TYPE  |RecipeTitle     |Target|
-        |LUNCH         |RECIPE|004Baked Beans_3|      |
+        |MealPeriodName|TYPE  |RecipeTitle |Target|
+        |<mealPeriod>  |RECIPE|<recipeName>|      |
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
 
 @TC29395 @D23825
-Scenario: Transferring Markup Target% value to Sell Price and GP target field does not happen
-    Given Menu Cycle "Meda" is selected
-        And planning for Monday is opened
+Scenario Outline: Transferring Markup Target% value to Sell Price and GP target field does not happen
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And planning for "<day>" is opened
     When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|Target|SellPrice|
-        |LUNCH         |RECIPE|004Baked Beans_3|        GP|      |        ^|
-        |LUNCH         |RECIPE|004Baked Beans_3|     Fixed|     ^|         |
-        |LUNCH         |RECIPE|004Baked Beans_3|    Markup|    50|        ^|
-        |LUNCH         |RECIPE|004Baked Beans_3|        GP|     ^|        ^|
+        |MealPeriodName|TYPE  |RecipeTitle |PriceModel|Target|SellPrice|
+        |<mealPeriod>  |RECIPE|<recipeName>|        GP|      |        ^|
+        |<mealPeriod>  |RECIPE|<recipeName>|     Fixed|     ^|         |
+        |<mealPeriod>  |RECIPE|<recipeName>|    Markup|    50|        ^|
+        |<mealPeriod>  |RECIPE|<recipeName>|        GP|     ^|        ^|
     And Verify data for items is
-        |MealPeriodName|TYPE  |RecipeTitle     |Target|
-        |LUNCH         |RECIPE|004Baked Beans_3|      |
+        |MealPeriodName|TYPE  |RecipeTitle |Target|
+        |<mealPeriod>  |RECIPE|<recipeName>|      |
     And data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|
-        |LUNCH         |RECIPE|004Baked Beans_3|    Fixed|
+        |MealPeriodName|TYPE  |RecipeTitle |PriceModel|
+        |<mealPeriod>  |RECIPE|<recipeName>|     Fixed|
     Then Verify data for items is
-        |MealPeriodName|TYPE  |RecipeTitle     |SellPrice|
-        |LUNCH         |RECIPE|004Baked Beans_3|         |
-
+        |MealPeriodName|TYPE  |RecipeTitle |SellPrice|
+        |<mealPeriod>  |RECIPE|<recipeName>|         |
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+        
 @TC29469 @D23825
-Scenario: Transferring GP Target% value to Sell Price and Markup target field does not happen
-    Given Menu Cycle "Meda" is selected
-        And planning for Monday is opened
+Scenario Outline: Transferring GP Target% value to Sell Price and Markup target field does not happen
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And planning for "<day>" is opened
     When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|Target|SellPrice|
-        |LUNCH         |RECIPE|004Baked Beans_3|     Fixed|     ^|         |
-        |LUNCH         |RECIPE|004Baked Beans_3|    Markup|      |        ^|
-        |LUNCH         |RECIPE|004Baked Beans_3|        GP|    50|        ^|
-        |LUNCH         |RECIPE|004Baked Beans_3|    Markup|     ^|        ^|
+        |MealPeriodName|TYPE  |RecipeTitle |PriceModel|Target|SellPrice|
+        |<mealPeriod>  |RECIPE|<recipeName>|     Fixed|     ^|         |
+        |<mealPeriod>  |RECIPE|<recipeName>|    Markup|      |        ^|
+        |<mealPeriod>  |RECIPE|<recipeName>|        GP|    50|        ^|
+        |<mealPeriod>  |RECIPE|<recipeName>|    Markup|     ^|        ^|
     And Verify data for items is
-        |MealPeriodName|TYPE  |RecipeTitle     |Target|
-        |LUNCH         |RECIPE|004Baked Beans_3|      |
+        |MealPeriodName|TYPE  |RecipeTitle |Target|
+        |<mealPeriod>  |RECIPE|<recipeName>|      |
     And data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|
-        |LUNCH         |RECIPE|004Baked Beans_3|     Fixed|
+        |MealPeriodName|TYPE  |RecipeTitle |PriceModel|
+        |<mealPeriod>  |RECIPE|<recipeName>|     Fixed|
     Then Verify data for items is
-        |MealPeriodName|TYPE  |RecipeTitle     |SellPrice|
-        |LUNCH         |RECIPE|004Baked Beans_3|         |
+        |MealPeriodName|TYPE  |RecipeTitle |SellPrice|
+        |<mealPeriod>  |RECIPE|<recipeName>|         |
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
 
 @TC29468 @D23967 @D24183 @D23194
-Scenario: Error message displayed if recipe values are empty
-    Given Menu Cycle "Meda" is selected
-    When planning for Monday is opened
-        And quantity for recipe named "004Baked Beans_3" in meal period "LUNCH" is set to ""
-        And red border is displayed around Planned Quantity for recipe "004Baked Beans_3" in meal period "LUNCH"
+Scenario Outline: Error message displayed if recipe values are empty
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And planning for "<day>" is opened
+    When quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to ""
+        And red border is displayed around Planned Quantity for recipe "<recipeName>" in meal period "<mealPeriod>"
         And Save button is clicked
     Then Notification message "Sorry, we could not proceed with your request" is displayed
-
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    
 @TC29716 @D24183
-Scenario: Collapsing meal period does no return previous value
-    Given Menu Cycle "Meda" is selected
-    When planning for Thursday is opened
-        And data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle                |PlannedQuantity|
-        |DANGELO       |RECIPE|703Reggae Raggae Mayonnaise|               |
-        And Meal Period "DANGELO" is collapsed
-        And Meal Period "DANGELO" is expanded
+Scenario Outline: Collapsing meal period does no return previous value
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And planning for "<day>" is opened
+    When data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle |PlannedQuantity|
+        |<mealPeriod>  |RECIPE|<recipeName>|               |
+        And Meal Period "<mealPeriod>" is collapsed
+        And Meal Period "<mealPeriod>" is expanded
     Then Verify data for items is
-        |MealPeriodName|TYPE  |RecipeTitle                |PlannedQuantity|
-        |DANGELO       |RECIPE|703Reggae Raggae Mayonnaise|               |
-
+        |MealPeriodName|TYPE  |RecipeTitle |PlannedQuantity|
+        |<mealPeriod>  |RECIPE|<recipeName>|               |
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|day     |recipeName                 |mealPeriod|
+    |QAI        |Meda     |Thursday|703Reggae Raggae Mayonnaise|DANGELO   |
+        
+        
 @TC29735 @D24183
-Scenario: Meal period totals are re-calculated when the data from the input field is cleared
-    Given Menu Cycle "Meda" is selected
-    When planning for Thursday is opened
-        And data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle                                 |PriceModel|Target|SellPrice|TaxPercentage|PlannedQuantity|
-        |DANGELO       |RECIPE|703Coronation Chicken Sandwich Filling (50g)|GP        |    10|        ^|20           |              3|
-        |DANGELO       |RECIPE|703Reggae Raggae Mayonnaise                 |Fixed     |     ^|        2|20           |              4|
-        |DANGELO       |RECIPE|Cheese                                      |Markup    |    33|        ^|20           |              1|
+Scenario Outline: Meal period totals are re-calculated when the data from the input field is cleared
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And planning for "<day>" is opened
+    When data for recipes is set
+        |MealPeriodName|TYPE  |RecipeTitle  |PriceModel|Target|SellPrice|TaxPercentage|PlannedQuantity|
+        |<mealPeriod>  |RECIPE|<recipeName1>|GP        |    10|        ^|20           |              3|
+        |<mealPeriod>  |RECIPE|<recipeName2>|Fixed     |     ^|        2|20           |              4|
+        |<mealPeriod>  |RECIPE|<recipeName3>|Markup    |    33|        ^|20           |              1|
     And data for recipes is set
         |MealPeriodName|TYPE  |RecipeTitle|PlannedQuantity|
-        |DANGELO       |RECIPE|Cheese     |               |
-    Then Value for fields for meal period "DANGELO" is
+        |<mealPeriod>  |RECIPE|Cheese     |               |
+    Then Value for fields for meal period "<mealPeriod>" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
         |         7|     6.47|   9.37|     31%|
-
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day     |recipeName1                                 |recipeName2                |recipeName3|
+    |QAI        |Meda     |DANGELO   |Thursday|703Coronation Chicken Sandwich Filling (50g)|703Reggae Raggae Mayonnaise|Cheese     |
+        
 @TC29853
-Scenario: Mass recipe update
-    Given Menu Cycle "Meda" is selected
-        And planning for Monday is opened
+Scenario Outline: Mass recipe update
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And planning for "<day1>" is opened
     When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle     |PriceModel|TariffType|SellPrice|
-        |LUNCH         |RECIPE|004Baked Beans_3|Fixed     |TariffOne |     0#99|
-    And "SellPrice" is saved in context for recipe "004Baked Beans_3" in meal period "LUNCH"
+        |MealPeriodName|TYPE  |RecipeTitle |PriceModel|TariffType|SellPrice|
+        |<mealPeriod1>  |RECIPE|<recipeName>|Fixed     |TariffOne |     0#99|
+    And "SellPrice" is saved in context for recipe "<recipeName>" in meal period "<mealPeriod1>"
         And Save button is clicked
-        And Update prices button is clicked for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And Update prices button is clicked for recipe "<recipeName>" in meal period "<mealPeriod1>"
     And Future recipe instances count is 2
         And Confirm is selected on the Update Prices dialog
         And Cancel button is clicked
-        And planning for Friday is opened
-    Then "SellPrice" is equal to the value saved in context for recipe "004Baked Beans_3" in meal period "DANGELO"
-
+        And planning for "<day2>" is opened
+    Then "SellPrice" is equal to the value saved in context for recipe "<recipeName>" in meal period "<mealPeriod2>"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|recipeName      |day1     |mealPeriod1|day2  |mealPeriod2|
+    |QAI        |Meda     |004Baked Beans_3|MONDAY   |LUNCH      |FRIDAY|DANGELO    |
+    
 @TC29933 @D24491
-Scenario: Tariff types are discarded when cancel button is clicked
-    Given Menu Cycle "Meda" is selected
-        And planning for Monday is opened
-        And Add type is clicked for recipe "004Baked Beans_3" in meal period "LUNCH"
-    When Cancel button is clicked
+Scenario Outline: Tariff types are discarded when cancel button is clicked
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And planning for "<day>" is opened
+    When Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
+    And Cancel button is clicked
         And Confirm is selected on unsaved changes dialog
         And Wait for Calendar view
-        And planning for Monday is opened
-    Then Existing types for recipe "004Baked Beans_3" in meal period "LUNCH" are
+        And planning for "<day>" is opened
+    Then Existing types for recipe "<recipeName>" in meal period "<mealPeriod>" are
         |TariffType|
         |TariffOne |
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
 
 @TC29942 @D24490
-Scenario: Delete icon appears when adding type
-    Given Menu Cycle "Meda" is selected
-        And planning for Monday is opened
+Scenario Outline: Delete icon appears when adding type
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And planning for "<day>" is opened
     When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle     |TariffType|
-        |LUNCH         |RECIPE|004Baked Beans_3|TariffTwo |
-        And Add type is clicked for recipe "004Baked Beans_3" in meal period "LUNCH"
-    Then delete icon is present for recipe "004Baked Beans_3" in meal period "LUNCH" tariff type "TariffOne"
-
+        |MealPeriodName|TYPE  |RecipeTitle |TariffType|
+        |<mealPeriod>  |RECIPE|<recipeName>|TariffTwo |
+        And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
+    Then delete icon is present for recipe "<recipeName>" in meal period "<mealPeriod>" tariff type "TariffOne"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    
 @TC29950 @D24575
-Scenario: Opening planning screen multiple times does not add data to unsaved items
-    Given Menu Cycle "Meda" is selected
-        And planning for Tuesday is opened
-    When Meal Period "DINNER" is expanded
-        And types are saved in context for recipe "703Houmus Sandwich Filling (50g)" in meal period "DINNER"
+Scenario Outline: Opening planning screen multiple times does not add data to unsaved items
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And planning for "<day>" is opened
+    When Meal Period "<mealPeriod>" is expanded
+        And types are saved in context for recipe "<recipeName>" in meal period "<mealPeriod>"
         And Cancel button is clicked
-        And planning for Tuesday is opened
-        And Meal Period "DINNER" is expanded
-    Then existing types are same as from the context for recipe "703Houmus Sandwich Filling (50g)" in meal period "DINNER"
-
+        And planning for "<day>" is opened
+        And Meal Period "<mealPeriod>" is expanded
+    Then existing types are same as from the context for recipe "<recipeName>" in meal period "<mealPeriod>"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|day    |recipeName                      |mealPeriod|
+    |QAI        |Meda     |TUESDAY|703Houmus Sandwich Filling (50g)|DINNER    |
+    
 @TC29954 @D24588 @Smoke @critical
-Scenario: Saving decimal values
-    Given Menu Cycle "Meda" is selected
-        And planning for Monday is opened
+Scenario Outline: Saving decimal values
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And planning for "<day>" is opened
     When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle     |SellPrice|
-        |LUNCH         |RECIPE|004Baked Beans_3|     0#99|
+        |MealPeriodName|TYPE  |RecipeTitle |SellPrice|
+        |<mealPeriod>  |RECIPE|<recipeName>|     0#99|
         And Save button is clicked
-        And "SellPrice" is saved in context for recipe "004Baked Beans_3" in meal period "LUNCH"
+        And "SellPrice" is saved in context for recipe "<recipeName>" in meal period "<mealPeriod>"
         And Cancel button is clicked
-        And planning for Monday is opened
-    Then "SellPrice" is equal to the value saved in context for recipe "004Baked Beans_3" in meal period "LUNCH"
-
+        And planning for "<day>" is opened
+    Then "SellPrice" is equal to the value saved in context for recipe "<recipeName>" in meal period "<mealPeriod>"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    
 @TC29987
-Scenario: Confirm dialog is not shown after save with added TariffTypes
-    Given Menu Cycle "Meda" is selected
-        And planning for Monday is opened
-        And Add type is clicked for recipe "004Baked Beans_3" in meal period "LUNCH"
-    When "Planned Qty" for recipe with name "004Baked Beans_3" with TariffType "TariffTwo" in meal period "LUNCH" is set to "32"
-        And "Sell Price" for recipe with name "004Baked Beans_3" with TariffType "TariffTwo" in meal period "LUNCH" is set to "32"
+Scenario Outline: Confirm dialog is not shown after save with added TariffTypes
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And planning for "<day>" is opened
+    When Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And "Planned Qty" for recipe with name "<recipeName>" with TariffType "TariffTwo" in meal period "<mealPeriod>" is set to "32"
+        And "Sell Price" for recipe with name "<recipeName>" with TariffType "TariffTwo" in meal period "<mealPeriod>" is set to "32"
         And Save button is clicked
         And Notification message "Planning figures updated." is displayed
         And Cancel button is clicked
         And Wait for Calendar view
     Then Calendar view is opened
-        And planning for Monday is opened
-        And delete icon is clicked for recipe "004Baked Beans_3" in meal period "LUNCH" with tariff type "TariffTwo"
+        And planning for "<day>" is opened
+        And delete icon is clicked for recipe "<recipeName>" in meal period "<mealPeriod>" with tariff type "TariffTwo"
         And Save button is clicked
         And Notification message "Planning figures updated." is displayed
-
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+        
 @TC30090
-Scenario: Saving Planning screen with empty fields displays red border and contextual message
-    Given Menu Cycle "Meda" is selected
-        And planning for Monday is opened
+Scenario Outline: Saving Planning screen with empty fields displays red border and contextual message
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And planning for "<day>" is opened
     When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle     |SellPrice   |PlannedQuantity|
-        |LUNCH         |RECIPE|004Baked Beans_3|invalidinput|               |
+        |MealPeriodName|TYPE  |RecipeTitle |SellPrice   |PlannedQuantity|
+        |<mealPeriod>  |RECIPE|<recipeName>|invalidinput|               |
     And Save button is clicked
-    Then red border and contextual error message "Value is required" is displayed for Planned Quantity field for recipe "004Baked Beans_3" in meal period "LUNCH"
-    And red border and contextual error message "Must be number" is displayed for Sell Price field for recipe "004Baked Beans_3" in meal period "LUNCH"
+    Then red border and contextual error message "Value is required" is displayed for Planned Quantity field for recipe "<recipeName>" in meal period "<mealPeriod>"
+    And red border and contextual error message "Must be number" is displayed for Sell Price field for recipe "<recipeName>" in meal period "<mealPeriod>"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |

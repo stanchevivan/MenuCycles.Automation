@@ -293,6 +293,9 @@
     <Reference Include="Polly">
       <HintPath>..\packages\Polly.5.9.0\lib\net45\Polly.dll</HintPath>
     </Reference>
+    <Reference Include="System.Json">
+      <HintPath>..\packages\System.Json.4.7.1\lib\netstandard2.0\System.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Features\MenuCycles.feature.cs">
@@ -401,6 +404,7 @@
     <Compile Include="PageObjects\Reports\ConsumerFacingReportPage.cs" />
     <Compile Include="Steps\ReportSteps.cs" />
     <Compile Include="PageObjects\Reports\ReportsView.cs" />
+    <Compile Include="Support\ConfigurationReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -499,6 +503,9 @@
     <Folder Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\" />
     <Folder Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\" />
     <Folder Include="PageObjects\Reports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Support\EnvironmentConfig.json" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterCompile" Condition="Exists('App.$(Configuration).config')">

@@ -1,23 +1,27 @@
-﻿@QAI
-Feature: Meal Period Details
-
-Background:
-    Given 'Menu Cycles' application is open
-    And a central user is selected	
+﻿Feature: Meal Period Details
 
 @TC30229
-Scenario: Only one cost is presented for single recipe in the meal period detailed view
-    Given Menu Cycle "Meda" is selected
-    When Details for meal period "LUNCH" in "TUESDAY" are opened
+Scenario Outline: Only one cost is presented for single recipe in the meal period detailed view
+    Given Menu Cycle app is open on "<environment>" 
+        And a cetral user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When Details for meal period "<mealPeriod>" in "<day>" are opened
     Then Verify items in the meal period are
-    |Name                      |Type  |Cost |
-    |724Gourmet Beef Burger 6oz|Recipe|£0.41|
-    |724Gourmet Chicken Burger |Recipe|£0.41|
+    |Name     |Type  |Cost   |
+    |<recipe1>|Recipe|<cost1>|
+    |<recipe2>|Recipe|<cost2>|
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day    |recipe1                   |cost1|recipe2                  |cost2|
+    |QAI        |Meda     |LUNCH     |TUESDAY|724Gourmet Beef Burger 6oz|£0.41|724Gourmet Chicken Burger|£0.41|
 
 @TC30230
-Scenario: Only one cost is presented for recipes in Buffet in the meal period detailed view
-    Given Menu Cycle "Meda" is selected
-    When Details for meal period "DANGELO" in "TUESDAY" are opened
+Scenario Outline: Only one cost is presented for recipes in Buffet in the meal period detailed view
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When Details for meal period "<mealPeriod>" in "<day>" are opened
         And Buffet "Maya Buffet" is expanded
     Then Verify recipes in meal period details for buffet "Maya Buffet" are
     |Name                                  |Cost |
@@ -27,12 +31,24 @@ Scenario: Only one cost is presented for recipes in Buffet in the meal period de
     |004Fresh Lemon Curd                   |£3.44|
     |004German Shortcrust Pastry (fresh)007|£4.87|
     |724Custard Sauce (powder, fresh milk) |£0.16|
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day    |
+    |QAI        |Meda     |DANGELO   |TUESDAY|
 
-Scenario: Only single cost is presented for recipes in recipe search
-    Given Menu Cycle "Meda" is selected
-    When Details for meal period "LUNCH" in "MONDAY" are opened
+Scenario Outline: Only single cost is presented for recipes in recipe search
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When Details for meal period "<mealPeriod>" in "<day>" are opened
         And Recipe search is opened
-        And Recipe "724Apple Sauce" is searched
+        And Recipe "<recipe>" is searched
     Then Verify items present in the search results are
-    |Name          |Type  |Cost |
-    |724Apple Sauce|Recipe|£2.15|
+    |Name    |Type  |Cost  |
+    |<recipe>|Recipe|<cost>|
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day    |recipe        |cost |
+    |QAI        |Meda     |LUNCH     |MONDAY |724Apple Sauce|£2.15|

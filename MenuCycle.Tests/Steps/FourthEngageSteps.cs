@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using Fourth.Automation.Framework.Extension;
 using MenuCycle.Tests.PageObjects;
+using MenuCycle.Tests.Support;
 using TechTalk.SpecFlow;
 
 namespace MenuCycle.Tests.Steps
@@ -14,15 +17,21 @@ namespace MenuCycle.Tests.Steps
         FourthAppLocalPage fourthAppLocalPage;
         LogInAs logInAs;
         ToastNotification toastNotification;
+        ScenarioContext scenarioContext;
 
-        public FourthEngageSteps(FourthApp.Pages.Login fourthAppLogin, FourthApp.Pages.MainPage fourthAppMain,
-                                 FourthAppLocalPage fourthAppLocalPage, LogInAs logInAs, ToastNotification toastNotification)
+        public FourthEngageSteps(FourthApp.Pages.Login fourthAppLogin,
+                                 FourthApp.Pages.MainPage fourthAppMain,
+                                 FourthAppLocalPage fourthAppLocalPage,
+                                 LogInAs logInAs,
+                                 ToastNotification toastNotification,
+                                 ScenarioContext scenarioContext)
         {
             this.fourthAppLogin = fourthAppLogin;
             this.fourthAppMain = fourthAppMain;
             this.fourthAppLocalPage = fourthAppLocalPage;
             this.logInAs = logInAs;
             this.toastNotification = toastNotification;
+            this.scenarioContext = scenarioContext;
         }
 
         [Given(@"Fourth Engage Dashboard is open")]
@@ -76,6 +85,30 @@ namespace MenuCycle.Tests.Steps
             GivenApplicationIsSelected(application);
             logInAs.WaitPageToLoad();
             toastNotification.WaitToAppearAndDisapear();
+        }
+
+        [Given(@"Menu Cycle app is open on ""(.*)""")]
+        public void MenuCyclesAppIsOpenOn(string environment)
+        {
+            if (!fourthAppMain.NotificationItemButton.Get().ElementPresent)
+            {
+                GivenFourthEngageDashboarIsOpenOn(environment);
+            }
+
+            GivenApplicationIsSelected("Menu Cycles");
+            logInAs.WaitPageToLoad();
+            toastNotification.WaitToAppearAndDisapear();
+        }
+
+        [Given(@"Fourth App is open on ""(.*)""")]
+        public void GivenFourthEngageDashboarIsOpenOn(string environment)
+        {
+            ConfigurationReader config = new ConfigurationReader(environment);
+
+            fourthAppLocalPage.OpenUrl(config.URL);
+            fourthAppLogin.WaitForPageToLoad();
+            fourthAppLogin.PerformLogin(config.User, config.Password);
+            fourthAppMain.WaitToBeReady();
         }
     }
 }

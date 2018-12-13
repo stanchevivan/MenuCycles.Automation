@@ -35,6 +35,7 @@ namespace MenuCycle.Tests.Steps
         {
             menuCycleDailyCalendarView.GetDay(weekDay).GetMealPeriodCard(mealPeriod).OpenMealPeriodDetails();
             mealPeriodDetails.WaitForLoad();
+            menuCycleDailyCalendarView.WaitPageLoad();
         }
 
         [When(@"Recipe search is opened")]

@@ -1,25 +1,28 @@
-﻿# Example feature
-# @ignore
-Feature: MenuCycles
+﻿Feature: MenuCycles
     Menu Cycles functionalities and validations
 
-Background: 
-Given 'Menu Cycles' application is open
-And a central user is selected
-
 @TC27713 @Smoke
-Scenario: Search Menu Cycles by name or description
-    When Menu Cycle "FOR AUTOMATION TESTS - DO NOT TOUCH" is searched
+Scenario Outline: Search Menu Cycles by name or description
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+    When Menu Cycle "<mc1Description>" is searched
         And Verify search results contain the following menu cycles
-        |Name|Description                        |
-        |Meda|FOR AUTOMATION TESTS - DO NOT TOUCH|
-    When Menu Cycle "MC with recipes" is searched
+        |Name     |Description     |
+        |<mc1Name>|<mc1Description>|
+    When Menu Cycle "<mc2Name>" is searched
         And Verify search results contain the following menu cycles
-        |Name           |Description                                |
-        |MC with recipes|Testing the publishing of a MC with recipes|
+        |Name     |Description     |
+        |<mc2Name>|<mc2Description>|
+        
+    @QAI
+    Examples:
+    |environment|mc1Name|mc1Description                     |mc2Name        |mc2Description                             |
+    |QAI        |Meda   |FOR AUTOMATION TESTS - DO NOT TOUCH|MC with recipes|Testing the publishing of a MC with recipes|
 
 @TC27706 @TC27653 @TC27658 @Smoke
-Scenario: Create Edit Copy Delete menu cycle
+Scenario Outline: Create Edit Copy Delete menu cycle
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
     When Menu Cycle is created with following data
     |MenuCycleName                   |Description   |GapDays           |Usergroup      |
     |Automatically created menu cycle|no description|Wednesday,Thursday|TestGroupPrice2|
@@ -50,3 +53,8 @@ Scenario: Create Edit Copy Delete menu cycle
     Then Verify search results contain no menu cycles
         And Menu Cycle "Automatically edited menu cycle" is searched
     Then Verify search results contain no menu cycles
+    
+    @QAI
+    Examples:
+    |environment|
+    |QAI        |

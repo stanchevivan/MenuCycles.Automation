@@ -1,20 +1,13 @@
-﻿@QAI
-Feature: Buffet
+﻿Feature: Buffet
     Buffet feature
 
-Background: 
-# Given 1 Menu Cycles exists
-# And 1 Meal Period exists
-# And 3 recipes exists
-And 'Menu Cycles' application is open
-And a central user is selected
-#And a nouser user is selected
-	
 @TC27790
-Scenario: Calculations for "Total Cost" and "Revenue" should be correct for GP "Price Model"
-	Given Menu Cycle "Meda" is selected
+Scenario Outline: Calculations for "Total Cost" and "Revenue" should be correct for GP "Price Model"
+	Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
         And planning for Tuesday is opened
-        And Meal Period "DANGELO" is expanded
+        And Meal Period "<mealPeriod>" is expanded
     When data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|TariffType|PriceModel|Target|TaxPercentage|
         |DANGELO          |BUFFET|Aneliya Buffet|              1| TariffOne|        GP|     5|           20|
@@ -43,12 +36,19 @@ Scenario: Calculations for "Total Cost" and "Revenue" should be correct for GP "
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
         |DANGELO          |BUFFET|Aneliya Buffet|    191.68|   121.06| 201.77|      5%|
-
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|
+    |QAI        |Meda     |DANGELO   |
+        
 @TC27795
-Scenario: Calculations for "Total Cost" and "Revenue" and "Actual GP" should be correct for Fixed "Price Model" (Buffet Menu)
-    Given Menu Cycle "Meda" is selected
+Scenario Outline: Calculations for "Total Cost" and "Revenue" and "Actual GP" should be correct for Fixed "Price Model" (Buffet Menu)
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
         And planning for Tuesday is opened
-        And Meal Period "DANGELO" is expanded
+        And Meal Period "<mealPeriod>" is expanded
     When data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|TariffType|PriceModel   |TaxPercentage|SellPrice|
         |DANGELO          |BUFFET|Aneliya Buffet|              1| TariffOne|        Fixed|            5|      100|
@@ -77,12 +77,19 @@ Scenario: Calculations for "Total Cost" and "Revenue" and "Actual GP" should be 
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|Revenue|ActualGP|
         |DANGELO          |BUFFET|Aneliya Buffet|    191.68| 190.48|     -1%|
-
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|
+    |QAI        |Meda     |DANGELO   |
+        
 @TC27796
-Scenario: Calculations for "Total Cost" and "Sell Price" and "Revenue" should be correct for Mark Up "Price Model" (Buffet Menu)
-    Given Menu Cycle "Meda" is selected
+Scenario Outline: Calculations for "Total Cost" and "Sell Price" and "Revenue" should be correct for Mark Up "Price Model" (Buffet Menu)
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
         And planning for Tuesday is opened
-        And Meal Period "DANGELO" is expanded
+        And Meal Period "<mealPeriod>" is expanded
     When data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|TariffType|PriceModel|Target|TaxPercentage|
         |DANGELO          |BUFFET|Aneliya Buffet|              1| TariffOne|    Markup|     5|           20|
@@ -111,10 +118,17 @@ Scenario: Calculations for "Total Cost" and "Sell Price" and "Revenue" should be
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
         |DANGELO          |BUFFET|Aneliya Buffet|    191.68|   164.46|  274.1|     30%|
-
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|
+    |QAI        |Meda     |DANGELO   |
+        
 @TC30088
-Scenario: Planned Quantity Values are rounded after scaling
-    Given Menu Cycle "Meda" is selected
+Scenario Outline: Planned Quantity Values are rounded after scaling
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
         And planning for Friday is opened
     When data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle|PlannedQuantity|
@@ -130,3 +144,8 @@ Scenario: Planned Quantity Values are rounded after scaling
         |RecipeTitle                  |PlannedQuantity|
         |004Fresh Lemon Curd          |              8|
         |004Basic Sponge              |              7|
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|
+    |QAI        |Meda     |

@@ -71,5 +71,14 @@ namespace MenuCycle.Tests.PageObjects
                 ((OpenQA.Selenium.Safari.SafariDriver)Driver).Manage().Window.Maximize();
             }
         }
+
+        public void OpenUrl(string URL)
+        {
+            Driver.Navigate().GoToUrl(URL);
+            if (Driver is OpenQA.Selenium.Safari.SafariDriver)
+            {
+                ((OpenQA.Selenium.Safari.SafariDriver)Driver).Manage().Window.Maximize();
+            }
+        }
     }
 }

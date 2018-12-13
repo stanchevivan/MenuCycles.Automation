@@ -1,111 +1,189 @@
-﻿@QAI #@menucycle @mealperiod @recipe
-Feature: MealPeriods
+﻿Feature: MealPeriods
 	Meal Periods functionalities and validations
 
-Background: 
-# Given 1 Menu Cycles exists
-# And 1 Meal Period exists
-# And 3 recipes exists
-And 'Menu Cycles' application is open
-And a central user is selected
-#And a nouser user is selected
-
 @TC28547
-Scenario: Open daily planning with one meal period
-    Given Menu Cycle "Meda" is selected
-    When planning for Monday is opened
-    Then main data for Meal Period "Lunch" is expanded
+Scenario Outline: Open daily planning with one meal period
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+    Then main data for Meal Period "<mealPeriod>" is expanded
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day   |
+    |QAI        |Meda     |LUNCH     |MONDAY|
 
 @TC27663
-Scenario: Open daily planning with multiple meal period
-    Given Menu Cycle "Meda" is selected
-    When planning for Tuesday is opened
-    Then main data for Meal Period "Dinner" is collapsed
-
-@TC28566
-Scenario: Display correct meal period name
-    Given Menu Cycle "Meda" is selected
-    When planning for Tuesday is opened
-    Then the planning screen for Tuesday is open
+Scenario Outline: Open daily planning with multiple meal period
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+    Then main data for Meal Period "<mealPeriod>" is collapsed
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day    |
+    |QAI        |Meda     |DINNER    |TUESDAY|
+    
+#TODO: Investigate what this test does
+# @TC28566  
+# Scenario Outline: Display correct meal period name
+    # Given Menu Cycle app is open on "<environment>" 
+    #     And a central user is selected
+    #     And Menu Cycle "<menuCycle>" is selected
+    # When planning for "<day>" is opened
+    # Then the planning screen for "<day>" is open
+    
+    # @QAI
+    # Examples:
+    # |environment|menuCycle|mealPeriod|day    |
+    # |QAI        |Meda     |DINNER    |TUESDAY|
 
 @TC28549
-Scenario: Collapse single meal period
-    Given Menu Cycle "Meda" is selected
-    When planning for Monday is opened
-        And Meal Period "Lunch" is collapsed
-    Then main data for Meal Period "Lunch" is collapsed
+Scenario Outline: Collapse single meal period
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And Meal Period "<mealPeriod>" is collapsed
+    Then main data for Meal Period "<mealPeriod>" is collapsed
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day   |
+    |QAI        |Meda     |LUNCH     |MONDAY|
 
 @TC28548
-Scenario: Expand single meal period
-    Given Menu Cycle "Meda" is selected
-    When planning for Tuesday is opened
-        And Meal Period "Lunch" is expanded
-    Then main data for Meal Period "Lunch" is expanded
+Scenario Outline: Expand single meal period
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And Meal Period "<mealPeriod>" is expanded
+    Then main data for Meal Period "<mealPeriod>" is expanded
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day    |
+    |QAI        |Meda     |LUNCH     |TUESDAY|
 
 @TC28546
-Scenario: The colour of every meal period in the Planning screen is the same as in the calendar page
-    Given Menu Cycle "Meda" is selected
-        And Meal Period colours for "Tuesday" are saved
-    When planning for Tuesday is opened
+Scenario Outline: The colour of every meal period in the Planning screen is the same as in the calendar page
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Meal Period colours for "<day>" are saved
+    When planning for "<day>" is opened
     Then Meal Period colours match the calendar view colours
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|day    |
+    |QAI        |Meda     |TUESDAY|
 
 @TC28800
-Scenario: Display recipes, added to a meal period in the planning screen
-    Given Menu Cycle "Meda" is selected
+Scenario Outline: Display recipes, added to a meal period in the planning screen
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
     When planning for Tuesday is opened
-        And Meal Period "LUNCH" is expanded
-    Then recipe named "724Gourmet Beef Burger 6oz" is present for meal period "LUNCH"
-        And recipe colour for "724Gourmet Beef Burger 6oz" match the colour for meal period "LUNCH"
+        And Meal Period "<mealPeriod>" is expanded
+    Then recipe named "<recipe>" is present for meal period "<mealPeriod>"
+        And recipe colour for "<recipe>" match the colour for meal period "<mealPeriod>"
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day    |recipe                    |
+    |QAI        |Meda     |LUNCH     |TUESDAY|724Gourmet Beef Burger 6oz|
 
 @TC28801
-Scenario: Display Buffet menus, added to a meal period in the planning screen
-    Given Menu Cycle "Meda" is selected
-    When planning for Tuesday is opened
-        And Meal Period "DANGELO" is expanded
-    Then buffet named "Aneliya Buffet" is present for meal period "DANGELO"
-        And buffet colour for "Aneliya Buffet" match the colour for meal period "DANGELO"
-        And in meal period "DANGELO" all recipe colours inside "Aneliya Buffet" match the buffet colour
-
+Scenario Outline: Display Buffet menus, added to a meal period in the planning screen
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And Meal Period "<mealPeriod>" is expanded
+    Then buffet named "<buffet>" is present for meal period "<mealPeriod>"
+        And buffet colour for "<buffet>" match the colour for meal period "<mealPeriod>"
+        And in meal period "<mealPeriod>" all recipe colours inside "<buffet>" match the buffet colour
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day    |buffet        |
+    |QAI        |Meda     |DANGELO   |TUESDAY|Aneliya Buffet|
+        
 @TC28802
-Scenario: Display A la carte menus, added to a meal period in the planning screen
-    Given Menu Cycle "Meda" is selected
-    When planning for Wednesday is opened
-    Then a la carte named "Holiday A La Carte" is present for meal period "LANCE"
-        And a la carte colour for "Holiday A La Carte" match the colour for meal period "LANCE"
-        And in meal period "LANCE" all recipe colours inside "Holiday A La Carte" match the A La Carte colour
-
+Scenario Outline: Display A la carte menus, added to a meal period in the planning screen
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+    Then a la carte named "<aLaCarte>" is present for meal period "<mealPeriod>"
+        And a la carte colour for "<aLaCarte>" match the colour for meal period "<mealPeriod>"
+        And in meal period "<mealPeriod>" all recipe colours inside "<aLaCarte>" match the A La Carte colour
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day      |aLaCarte          |
+    |QAI        |Meda     |LANCE     |Wednesday|Holiday A La Carte|
+        
 @TC28897
-Scenario: Retrieve Number of covers for meal period from the API
-    Given Menu Cycle "Meda" is selected
-    When planning for Thursday is opened
-    Then number of covers for meal period "DANGELO" is equal to "3"
+Scenario Outline: Retrieve Number of covers for meal period from the API
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+    Then number of covers for meal period "<mealPeriod>" is equal to "3"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day     |
+    |QAI        |Meda     |DANGELO   |Thursday|
 
 @TC27660 @TC27662
-Scenario: Open all meal periods in Planning screen
-    Given Menu Cycle "Meda" is selected
-    When planning for Tuesday is opened
+Scenario Outline: Open all meal periods in Planning screen
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
         And Expand all is clicked
     And all meal periods are expanded in Daily Planning
         And Collapse all is clicked
     Then all meal periods are collapsed in Daily Planning
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|day    |
+    |QAI        |Meda     |TUESDAY|
 
 @TC29384
-Scenario: Recipes only - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP" 
-    Given Menu Cycle "Meda" is selected
-    When planning for Thursday is opened
+Scenario Outline: Recipes only - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP" 
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
     And data for recipes is set
         |MealPeriodName|TYPE  |RecipeTitle                                 |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
         |DANGELO       |RECIPE|703Coronation Chicken Sandwich Filling (50g)|             10|        GP|    14|            20|       ^|
         |DANGELO       |RECIPE|703Reggae Raggae Mayonnaise                 |             10|     Fixed|     ^|            20|       1|
         |DANGELO       |RECIPE|Cheese                                      |             10|    Markup|    12|            20|       ^|
-    Then Value for fields for meal period "DANGELO" is
+    Then Value for fields for meal period "<mealPeriod>" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
         |        30|     18.2|  17.75|     -3%|
-
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day     |
+    |QAI        |Meda     |DANGELO   |Thursday|
+        
 @TC29387
-Scenario: Buffets only - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
-    Given Menu Cycle "Meda" is selected
-    When planning for Friday is opened
+Scenario Outline: Buffets only - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
     And data for buffets is set
         |MealPeriodName|TYPE  |RecipeTitle|PlannedQuantity|TariffType|PriceModel|TaxPercentage|SellPrice|
         |DANGELO       |BUFFET|Maya Buffet|             10| TariffOne|     Fixed|           20|       23|
@@ -120,11 +198,18 @@ Scenario: Buffets only - Calculate Meal period "Planned Quantity", "Total Cost",
     Then Value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
         |       210|    391.2| 191.67|   -104%|
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day   |
+    |QAI        |Meda     |DANGELO   |Friday|
 
 @TC29388
-Scenario: A la cares only - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
-    Given Menu Cycle "Meda" is selected
-    When planning for Friday is opened
+Scenario Outline: A la cartes only - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
     And data for recipes in a la carte "Holiday A La Carte" in meal period "DANGELO" is set
         |RecipeTitle                   |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
         |004Bread (fresh dough)        |              2|        GP|    11|           20|        ^|
@@ -132,10 +217,17 @@ Scenario: A la cares only - Calculate Meal period "Planned Quantity", "Total Cos
     Then Value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost  |Revenue|ActualGP|
         |         5|     7136.9| 137.72|  -5082%|
-
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day   |
+    |QAI        |Meda     |DANGELO   |Friday|
+        
 @TC29391
-Scenario: Combined for Buffet, A la cares and recipes - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
-    Given Menu Cycle "Meda" is selected
+Scenario Outline: Combined for Buffet, A la cares and recipes - Calculate Meal period "Planned Quantity", "Total Cost", "Revenue" and "ActualGP"
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
     When planning for Friday is opened
     And data for recipes in a la carte "Holiday A La Carte" in meal period "DANGELO" is set
         |RecipeTitle                   |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
@@ -159,57 +251,106 @@ Scenario: Combined for Buffet, A la cares and recipes - Calculate Meal period "P
     Then Value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
         |       235|     7549| 340.17|  -2119%|
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day   |
+    |QAI        |Meda     |DANGELO   |Friday|
 
 @TC29560
-Scenario: Meal periods are collapsed after reopening planning screen
-    Given Menu Cycle "Meda" is selected
-    When planning for Tuesday is opened
+Scenario Outline: Meal periods are collapsed after reopening planning screen
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
         And Expand all is clicked
     And all meal periods are expanded in Daily Planning
         And Cancel button is clicked
         And planning for Tuesday is opened
     Then all meal periods are collapsed in Daily Planning
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day    |
+    |QAI        |Meda     |DANGELO   |Tuesday|
 
 @TC30011
-Scenario: More than one hundred recipies are shown in a meal period
-    Given Menu Cycle "Testing Copying Meal Periods" is selected
+Scenario Outline: More than one hundred recipies are shown in a meal period
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<mealPeriod>" is selected
     When planning for Wednesday is opened
-    Then "132" recipies are present in meal period "LUNCH"
+    Then "132" recipies are present in meal period "<mealPeriod>"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle                   |mealPeriod|day      |
+    |QAI        |Testing Copying Meal Periods|LUNCH     |Wednesday|
 
 @TC30087 @D24839
-Scenario: The order of meal periods from the planning screen is the same as in the calendar view
-    Given Menu Cycle "Meda" is selected
-        And Meal Period names for "Tuesday" are saved
-    When planning for Tuesday is opened
+Scenario Outline: The order of meal periods from the planning screen is the same as in the calendar view
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Meal Period names for "<day>" are saved
+    When planning for "<day>" is opened
     Then Meal Period names match the calendar view names
-
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day    |
+    |QAI        |Meda     |LUNCH     |Tuesday|
+    
 @TC31018
-Scenario: Expand all meal periods in the Calendar view 
-    Given Menu Cycle "Meda" is selected
+Scenario Outline: Expand all meal periods in the Calendar view 
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
     When Calendar view is opened
         And Expand all is clicked
     Then Verify all meal periods are expanded in Daily Calendar
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day    |
+    |QAI        |Meda     |LUNCH     |Tuesday|
 
 @TC31019 @D27173
-Scenario: Collapse all meal periods in the Calendar view  
-    Given Menu Cycle "Meda" is selected
+Scenario Outline: Collapse all meal periods in the Calendar view  
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
     When Calendar view is opened
         And Expand all is clicked
         And Verify all meal periods are expanded in Daily Calendar
         And Collapse all is clicked
     Then Verify all meal periods are collapsed in Daily Calendar
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|
+    |QAI        |Meda     |
 
 @TC31021
-Scenario: All meal periods in Calendar view are collapsed by default
-    Given Menu Cycle "Meda" is selected
+Scenario Outline: All meal periods in Calendar view are collapsed by default
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
     When Calendar view is opened
     Then Verify all meal periods are collapsed in Daily Calendar
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|
+    |QAI        |Meda     |
 
 @TC31191 @D21720
-Scenario: Deleting meal period deletes it from calendar view
-    Given Menu Cycle "Automation Testing" is selected
+Scenario Outline: Deleting meal period deletes it from calendar view
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
     When Calendar view is opened
-        And Meal period "LUNCH" is created for "Monday"
+        And Meal period "<mealPeriod>" is created for "<day>"
         And Recipe search is opened
         And Buffet "Maya Buffet" is searched
         And Buffet "Maya Buffet" is added
@@ -218,12 +359,24 @@ Scenario: Deleting meal period deletes it from calendar view
     When Meal period delete button is clicked
         And Modal dialog Yes is selected
         And Notification message "Meal Period Deleted Successfully." is displayed
-    Then Meal period "LUNCH" is not present for "Monday"
+    Then Meal period "<mealPeriod>" is not present for "<day>"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle           |mealPeriod|day   |
+    |QAI        |Automation Testing  |LUNCH     |Monday|
 
 @TC31310 @D21324
-Scenario: Clicking on the "NEW MEAL PERIOD" box while selecting a meal period should not disable the "Select meal period" drop-down
-    Given Menu Cycle "Automation Testing" is selected
-    When New meal period button is clicked for "Monday"
+Scenario Outline: Clicking on the "NEW MEAL PERIOD" box while selecting a meal period should not disable the "Select meal period" drop-down
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When New meal period button is clicked for "<day>"
         And the header for the new meal period is clicked
-        And meal period "LUNCH" is selected in drop-down
-    Then Verify drop down for meal period has "LUNCH" selected
+        And meal period "<mealPeriod>" is selected in drop-down
+    Then Verify drop down for meal period has "<mealPeriod>" selected
+    
+    @QAI
+    Examples:
+    |environment|menuCycle           |mealPeriod|day   |
+    |QAI        |Automation Testing  |LUNCH     |Monday|

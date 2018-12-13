@@ -2,12 +2,16 @@
 Feature: LocalUser
     Meal Peridos functionalities and validations
 
-Background: 
-And 'Menu Cycles' application is open
-And a local user is selected
-
 @TC27777 @Sanity
-Scenario: Local user can not delete menu cycle
-    Given location "SE001" is selected
-    When action menu is opened for menu cycle "Local User Testing" 
-    Then Delete button is not present for menu cycle "Local User Testing"
+Scenario Outline: Local user can not delete menu cycle
+Given Menu Cycle app is open on "<environment>" 
+        And a local user is selected
+        And location "<location>" is selected
+    When Menu Cycle "<menuCycle>" is searched
+        And action menu is opened for menu cycle "<menuCycle>" 
+    Then Delete button is not present for menu cycle "<menuCycle>"
+    
+    @QAI
+    Examples:
+    |environment|location|menuCycle         |
+    |QAI        |SE001   |Local User Testing|

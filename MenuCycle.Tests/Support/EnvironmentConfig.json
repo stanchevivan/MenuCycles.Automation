@@ -1,0 +1,26 @@
+﻿{
+  "QAI": 
+  {
+    "URL": "http://qapartial-fourth-app.cs87.force.com/",
+    "User": "martin.petkov@fourth.com",
+    "Password": "Mypassword_003"
+  },
+  "EMEA":
+   {
+    "URL": "https://secure.fourth.com",
+    "User": "",
+    "Password": ""
+  },
+  "US": 
+  {
+    "URL": "https://secure.fourth.com",
+    "User": "",
+    "Password": ""
+  },
+  "UAT":
+   {
+    "URL": "https://uat-fourth-app.cs102.force.com",
+    "User": "",
+    "Password": ""
+  },
+}
