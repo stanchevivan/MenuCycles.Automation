@@ -88,7 +88,7 @@ Scenario Outline: Display recipes, added to a meal period in the planning screen
     Given Menu Cycle app is open on "<environment>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
-    When planning for Tuesday is opened
+    When planning for "<day>" is opened
         And Meal Period "<mealPeriod>" is expanded
     Then recipe named "<recipe>" is present for meal period "<mealPeriod>"
         And recipe colour for "<recipe>" match the colour for meal period "<mealPeriod>"
@@ -228,7 +228,7 @@ Scenario Outline: Combined for Buffet, A la cares and recipes - Calculate Meal p
     Given Menu Cycle app is open on "<environment>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
-    When planning for Friday is opened
+    When planning for "<day>" is opened
     And data for recipes in a la carte "Holiday A La Carte" in meal period "DANGELO" is set
         |RecipeTitle                   |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
         |004Bread (fresh dough)        |              2|        GP|    11|           20|        ^|
@@ -266,7 +266,7 @@ Scenario Outline: Meal periods are collapsed after reopening planning screen
         And Expand all is clicked
     And all meal periods are expanded in Daily Planning
         And Cancel button is clicked
-        And planning for Tuesday is opened
+        And planning for "<day>" is opened
     Then all meal periods are collapsed in Daily Planning
     
     @QAI
@@ -278,8 +278,8 @@ Scenario Outline: Meal periods are collapsed after reopening planning screen
 Scenario Outline: More than one hundred recipies are shown in a meal period
     Given Menu Cycle app is open on "<environment>" 
         And a central user is selected
-        And Menu Cycle "<mealPeriod>" is selected
-    When planning for Wednesday is opened
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
     Then "132" recipies are present in meal period "<mealPeriod>"
     
     @QAI

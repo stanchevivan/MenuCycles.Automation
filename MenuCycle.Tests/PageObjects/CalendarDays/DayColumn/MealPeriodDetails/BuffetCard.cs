@@ -21,7 +21,6 @@ namespace MenuCycle.Tests.PageObjects
 
         public void Expand()
         {
-            System.Threading.Thread.Sleep(9000);
             expandArrow.Click();
         }
     }

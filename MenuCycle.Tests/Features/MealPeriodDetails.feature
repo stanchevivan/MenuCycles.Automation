@@ -3,7 +3,7 @@
 @TC30229
 Scenario Outline: Only one cost is presented for single recipe in the meal period detailed view
     Given Menu Cycle app is open on "<environment>" 
-        And a cetral user is selected
+        And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When Details for meal period "<mealPeriod>" in "<day>" are opened
     Then Verify items in the meal period are

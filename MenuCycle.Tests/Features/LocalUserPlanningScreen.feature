@@ -7,13 +7,13 @@ Scenario Outline: Load engine when Planning screen is opened (Local User)
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
-    When planning for TUE 10 JUL is opened
+    When planning for "<day>" is opened
     Then planning screen engine is loaded
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |
-    |QAI        |SE001   |Local User Testing|
+    |environment|location|menuCycle         |day       |
+    |QAI        |SE001   |Local User Testing|TUE 10 JUL|
 
 @TC30226
 Scenario Outline: Save button is disabled for passed days
@@ -21,13 +21,13 @@ Scenario Outline: Save button is disabled for passed days
         And a local user is selected
         And location "<location>" is selected
     And Menu Cycle "<menuCycle>" is selected
-    When planning for TUE 10 JUL is opened
+    When planning for "<day>" is opened
     Then Save button is disabled
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |
-    |QAI        |SE001   |Local User Testing|
+    |environment|location|menuCycle         |day       |
+    |QAI        |SE001   |Local User Testing|TUE 10 JUL|
     
 @TC30227
 Scenario Outline: Real date is displayed on the top of the planning screen
@@ -35,13 +35,13 @@ Scenario Outline: Real date is displayed on the top of the planning screen
         And a local user is selected
         And location "<location>" is selected
     And Menu Cycle "<menuCycle>" is selected
-    When planning for TUE 10 JUL is opened
-    Then location name "TUESDAY - 10 July 2018" is present on the top of the planning
+    When planning for "<day>" is opened
+    Then location name "<date>" is present on the top of the planning
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |
-    |QAI        |SE001   |Local User Testing|
+    |environment|location|menuCycle         |day       |date                  |
+    |QAI        |SE001   |Local User Testing|TUE 10 JUL|TUESDAY - 10 July 2018|
     
 @TC30264 @D25299
 Scenario Outline: Open Planning Screen, go to Post-Production, go back to Planning screen
@@ -49,15 +49,15 @@ Scenario Outline: Open Planning Screen, go to Post-Production, go back to Planni
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
-    When planning for TUE 10 JUL is opened
+    When planning for "<day>" is opened
         And daily post-production tab is opened
         And daily planning tab is opened
     Then planning screen engine is loaded
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |
-    |QAI        |SE001   |Local User Testing|
+    |environment|location|menuCycle         |day       |
+    |QAI        |SE001   |Local User Testing|TUE 10 JUL|
 
 @TC30366 @D25410
 Scenario Outline: Open Planning Screen, go to Weekly planning
@@ -65,14 +65,14 @@ Scenario Outline: Open Planning Screen, go to Weekly planning
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
-    When planning for WED 11 JUL is opened
+    When planning for "<day>" is opened
         And switching to Weekly Planning view
     Then Verify Weekly Planning view is open
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |
-    |QAI        |SE001   |Local User Testing|
+    |environment|location|menuCycle         |day       |
+    |QAI        |SE001   |Local User Testing|WED 11 JUL|
 
 @TC30313 @D25310
 Scenario Outline: User should not be redirected to the planning screen after navigating to post-production and back
@@ -80,7 +80,7 @@ Scenario Outline: User should not be redirected to the planning screen after nav
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
-    When planning for TUE 10 JUL is opened
+    When planning for "<day>" is opened
         And daily post-production tab is opened
         And daily planning tab is opened
         And Cross button is clicked and calendar view has loaded
@@ -90,8 +90,8 @@ Scenario Outline: User should not be redirected to the planning screen after nav
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |
-    |QAI        |SE001   |Local User Testing|
+    |environment|location|menuCycle         |day       |
+    |QAI        |SE001   |Local User Testing|TUE 10 JUL|
 
 @TC27776 @Smoke
 Scenario Outline: Create menu cycle button is not present - local user
@@ -112,11 +112,11 @@ Scenario Outline: Save button is clicked without any changes applied (Local user
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
-    When planning for THUR 2 AUG is opened
+    When planning for "<day>" is opened
         And Save button is clicked
     Then Notification message "Planning figures updated." is displayed
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |
-    |QAI        |SE001   |Local User Testing|
+    |environment|location|menuCycle         |day       |
+    |QAI        |SE001   |Local User Testing|THUR 2 AUG|

@@ -67,8 +67,8 @@ namespace MenuCycle.Tests.Features
         [NUnit.Framework.DescriptionAttribute("Calculations for \"Total Cost\" and \"Revenue\" should be correct for GP \"Price Model" +
             "\"")]
         [NUnit.Framework.CategoryAttribute("TC27790")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "DANGELO", null, Category="QAI")]
-        public virtual void CalculationsForTotalCostAndRevenueShouldBeCorrectForGPPriceModel(string environment, string menuCycle, string mealPeriod, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "DANGELO", "TUESDAY", null, Category="QAI")]
+        public virtual void CalculationsForTotalCostAndRevenueShouldBeCorrectForGPPriceModel(string environment, string menuCycle, string mealPeriod, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC27790"};
@@ -87,7 +87,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
-        testRunner.And("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
         testRunner.And(string.Format("Meal Period \"{0}\" is expanded", mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -218,8 +218,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Calculations for \"Total Cost\" and \"Revenue\" and \"Actual GP\" should be correct for" +
             " Fixed \"Price Model\" (Buffet Menu)")]
         [NUnit.Framework.CategoryAttribute("TC27795")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "DANGELO", null, Category="QAI")]
-        public virtual void CalculationsForTotalCostAndRevenueAndActualGPShouldBeCorrectForFixedPriceModelBuffetMenu(string environment, string menuCycle, string mealPeriod, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "DANGELO", "TUESDAY", null, Category="QAI")]
+        public virtual void CalculationsForTotalCostAndRevenueAndActualGPShouldBeCorrectForFixedPriceModelBuffetMenu(string environment, string menuCycle, string mealPeriod, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC27795"};
@@ -238,7 +238,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 49
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 50
-        testRunner.And("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 51
         testRunner.And(string.Format("Meal Period \"{0}\" is expanded", mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -365,8 +365,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Calculations for \"Total Cost\" and \"Sell Price\" and \"Revenue\" should be correct fo" +
             "r Mark Up \"Price Model\" (Buffet Menu)")]
         [NUnit.Framework.CategoryAttribute("TC27796")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "DANGELO", null, Category="QAI")]
-        public virtual void CalculationsForTotalCostAndSellPriceAndRevenueShouldBeCorrectForMarkUpPriceModelBuffetMenu(string environment, string menuCycle, string mealPeriod, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "DANGELO", "TUESDAY", null, Category="QAI")]
+        public virtual void CalculationsForTotalCostAndSellPriceAndRevenueShouldBeCorrectForMarkUpPriceModelBuffetMenu(string environment, string menuCycle, string mealPeriod, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC27796"};
@@ -385,7 +385,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 90
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 91
-        testRunner.And("planning for Tuesday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 92
         testRunner.And(string.Format("Meal Period \"{0}\" is expanded", mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -517,8 +517,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Planned Quantity Values are rounded after scaling")]
         [NUnit.Framework.CategoryAttribute("TC30088")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", null, Category="QAI")]
-        public virtual void PlannedQuantityValuesAreRoundedAfterScaling(string environment, string menuCycle, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "FRIDAY", null, Category="QAI")]
+        public virtual void PlannedQuantityValuesAreRoundedAfterScaling(string environment, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC30088"};
@@ -536,7 +536,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 131
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 132
-        testRunner.And("planning for Friday is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",

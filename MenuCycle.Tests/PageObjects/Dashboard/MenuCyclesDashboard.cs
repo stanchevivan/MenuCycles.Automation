@@ -25,7 +25,6 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement NoResultsText { get; set; }
 
         [FindsBy(How = How.ClassName, Using = "search-icon")]
-        [FindsBy(How = How.ClassName, Using = "home-search-button")]
         private IWebElement SearchIcon { get; set; }
 
         [FindsBy(How = How.ClassName, Using = "menucycle-search-input")]
@@ -57,6 +56,7 @@ namespace MenuCycle.Tests.PageObjects
             if (SearchIcon.Displayed)
             {
                 SearchIcon.Click();
+                Driver.WaitElementToExists(SearchButton);
             }
 
             SearchInput.ClearAndSendKeys(text);
