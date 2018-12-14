@@ -132,7 +132,7 @@ node('IE1UIBLD03') {
 
 		echo 'Restore nuget packages for solution'
 		bat "\"$env.WORKSPACE/Tools/nuget.exe\" restore \"$solutionPath\" -configFile Tools/NugetSources.Config"
-		//bat "dotnet restore \"$solutionPath\""
+		bat "dotnet restore \"$solutionPath\""
 	}
 
 	try
