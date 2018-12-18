@@ -111,7 +111,7 @@ this.FeatureBackground();
 #line 22
         testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 23
-        testRunner.And("Notification message \"Week Successfully Removed.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Notification message \"Week Successfully Removed.\" is displayedayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

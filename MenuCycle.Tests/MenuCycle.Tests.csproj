@@ -405,6 +405,10 @@
     <Compile Include="Steps\ReportSteps.cs" />
     <Compile Include="PageObjects\Reports\ReportsView.cs" />
     <Compile Include="Support\ConfigurationReader.cs" />
+    <Compile Include="Features\DailyCalendar.feature.cs">
+      <DependentUpon>DailyCalendar.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Steps\DailyCalendarSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -485,6 +489,10 @@
     <None Include="Features\WeeklyCalendar.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>WeeklyCalendar.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\DailyCalendar.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>DailyCalendar.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

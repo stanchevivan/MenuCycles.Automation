@@ -58,33 +58,65 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.Id, Using = "dailyReportBtn")]
         private IWebElement DailyReportButton { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = ".mc-subheader__buttons > button:first-of-type")]
+        private IWebElement SwitchViewButton { get; set; }
+
+        /// <summary>
+        /// For checking if the calendar is in 5 or 7 day view
+        /// </summary>
+        /// <value>The table holder div.</value>
+        [FindsBy(How = How.CssSelector, Using = "#visibleFullView")]
+        private IWebElement tableHolderDiv { get; set; }
+
         public List<WeekDays> CalendarHeaders => this.CalendarHeaderContainer.Select(p => new WeekDays(p)).ToList();
 
-        public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p)).ToList();
+        public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p, Driver)).ToList();
 
         public bool AreAllMealPeriodsExpanded => CalendarColumns.SelectMany(day => day.MealPeriodCards).Where(mp => mp.IsExpandable).All(mp => mp.IsExpanded);
 
         public bool IsCalendarViewOpen => DaysContainer.Get().ElementPresent;
 
+        public bool IsInFullView => tableHolderDiv.Get().ElementPresent;
+
         public DayColumn GetDay(string weekDay)
         {
             int dayIndex;
 
+            List<string> dayAbbreviations = new List<string>
+            {
+                "MON",
+                "TUE",
+                "WED",
+                "THUR",
+                "FRI",
+                "SAT",
+                "SUN",
+            };
+
+            weekDay = dayAbbreviations.First(weekDay.ToUpper().Contains);
+
             switch (weekDay.ToUpper())
             {
                 case "MONDAY":
+                case "MON":
                     { dayIndex = 0; break; }
                 case "TUESDAY":
+                case "TUE":
                     { dayIndex = 1; break; }
                 case "WEDNESDAY":
+                case "WED":
                     { dayIndex = 2; break; }
                 case "THURSDAY":
+                case "THUR":
                     { dayIndex = 3; break; }
                 case "FRIDAY":
+                case "FRI":
                     { dayIndex = 4; break; }
                 case "SATURDAY":
+                case "SAT":
                     { dayIndex = 5; break; }
                 case "SUNDAY":
+                case "SUN":
                     { dayIndex = 6; break; }
                 default:
                     {
@@ -95,11 +127,21 @@ namespace MenuCycle.Tests.PageObjects
             return CalendarColumns[dayIndex];
         }
 
+        public DayColumn GetDay(int dayIndex)
+        {
+            return CalendarColumns[dayIndex];
+        }
+
         public void WaitPageLoad()
         {
             Driver.WaitListItemsLoad(CalendarHeaderContainer);
             Driver.WaitIsClickable(DaysViewButton);
             Driver.WaitElementToDisappear(SpinningWheel);
+        }
+
+        public void SwitchView()
+        {
+            SwitchViewButton.Click();
         }
 
         public void UseNewMealPeriodButton(string day)

@@ -57,6 +57,8 @@ namespace MenuCycle.Tests.PageObjects
             {
                 SearchIcon.Click();
                 Driver.WaitElementToExists(SearchButton);
+                // Waiting for 1 second animation
+                System.Threading.Thread.Sleep(1001);
             }
 
             SearchInput.ClearAndSendKeys(text);

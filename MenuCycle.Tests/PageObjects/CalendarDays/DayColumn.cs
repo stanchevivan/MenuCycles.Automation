@@ -5,9 +5,10 @@ using SeleniumExtras.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class DayColumn
+    public class DayColumn : MenuCyclesBasePage
     {
-        public DayColumn(IWebElement parent)
+
+        public DayColumn(IWebElement parent, IWebDriver webDriver) : base(webDriver)
         {
             PageFactory.InitElements(parent, this);
         }
@@ -23,6 +24,16 @@ namespace MenuCycle.Tests.PageObjects
 
         public IList<MealPeriodCard> MealPeriodCards => this.MealPeriodCardContainer.Select(p => new MealPeriodCard(p)).ToList();
         public bool IsGapDay => GapDayText.Displayed;
+       
+        public bool IsVisible
+        {
+            get
+            {
+                var windowSize = Driver.Manage().Window.Size;
+                return DailyCalendarTable.Location.X < windowSize.Width;
+            }
+        }
+
         public string DayName
         {
             get

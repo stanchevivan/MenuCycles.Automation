@@ -10,20 +10,20 @@ using TechTalk.SpecFlow.Assist;
 namespace MenuCycle.Tests.Steps
 {
     [Binding]
-    public class WeeklyCalendarSteps
+    public class DailyCalendarSteps
     {
         readonly PlanningView dailyPlanningView;
         readonly PlanningTabDays planningTabDays;
         readonly PlanningTabWeeks planningTabWeeks;
         readonly NutritionTabDays nutritionTabDays;
-        readonly MenuCycleDailyCalendarView menuCycleDailyCalendarView;
+        readonly MenuCycleDailyCalendarView dailyCalendarView;
         readonly RecipeSearch recipeSearch;
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
         readonly ModalDialogPage modalDialogPage;
         readonly WeeklyCalendarView weeklyCalendarView;
 
-        public WeeklyCalendarSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleDailyCalendarView menuCycleDailyCalendarView,
+        public DailyCalendarSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleDailyCalendarView menuCycleDailyCalendarView,
             RecipeSearch recipeSearch, ToastNotification notification,
                               ModalDialogPage modalDialogPage, WeeklyCalendarView weeklyCalendarView)
         {
@@ -31,7 +31,7 @@ namespace MenuCycle.Tests.Steps
             this.planningTabDays = planningTabDays;
             this.planningTabWeeks = planningTabWeeks;
             this.nutritionTabDays = nutritionTabDays;
-            this.menuCycleDailyCalendarView = menuCycleDailyCalendarView;
+            this.dailyCalendarView = menuCycleDailyCalendarView;
             this.recipeSearch = recipeSearch;
             this.notification = notification;
             this.modalDialogPage = modalDialogPage;
@@ -40,20 +40,24 @@ namespace MenuCycle.Tests.Steps
             this.scenarioContext = scenarioContext;
         }
 
-        [When(@"Week ""(.*)"" is copied")]
-        public void WeekIsCopied(string weekName)
+        [When(@"daily calendar view is switched")]
+        public void WhenDailyCalendarViewIsSwitched()
         {
-            
-            weeklyCalendarView.GetWeek(weekName).UseCopyButton();
-            dailyPlanningView.WaitForBackdropToDisappear();
+            dailyCalendarView.SwitchView();
         }
 
-        [When(@"Delete button is clicked for week ""(.*)""")]
-        [Then(@"Delete button is clicked for week ""(.*)""")]
-        public void DeleteButtonIsClickedForWeek(string weekName)
+        [When(@"Verify day ""(.*)"" is visible")]
+        [Then(@"Verify day ""(.*)"" is visible")]
+        public void VerifyDayByNameIsVisible(string dayName)
         {
-            weeklyCalendarView.GetWeek(weekName).UseDeleteButton();
-            dailyPlanningView.WaitForBackdropToDisappear();
+            Assert.IsTrue(dailyCalendarView.GetDay(dayName).IsVisible);
+        }
+
+        [When(@"Verify day ""(.*)"" is not visible")]
+        [Then(@"Verify day ""(.*)"" is not visible")]
+        public void VerifyDayByNameIsNotVisible(string dayName)
+        {
+            Assert.IsFalse(dailyCalendarView.GetDay(dayName).IsVisible);
         }
     }
 }

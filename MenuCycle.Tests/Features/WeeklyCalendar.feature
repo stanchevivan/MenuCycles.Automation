@@ -20,4 +20,4 @@ Scenario: Copy and Delete week in Weekly Calendar view
     Then Notification message "Week Successfully Removed." is displayed
         And Delete button is clicked for week "Week 2"
         And Modal dialog Yes is selected
-        And Notification message "Week Successfully Removed." is displayed
+        And Notification message "Week Successfully Removed." is displayedayed
