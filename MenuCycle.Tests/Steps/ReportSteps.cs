@@ -150,6 +150,7 @@ namespace MenuCycle.Tests.Steps
         }
 
         [When(@"Report is exported")]
+        [Then(@"Report is exported")]
         public void ReportIsExported()
         {
             reportsView.UseExportButton();

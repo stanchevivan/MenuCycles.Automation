@@ -209,7 +209,7 @@ Scenario: Recipe Card Report - Local > Error message is displayed if selected en
     Then Notification message "Please select a report end date that is before the menu cycle end date" is displayed
 
 @TC33985
-Scenario: Menu Extract Report - Central > Export button is displayed after meal period is specified
+Scenario: Menu Extract Report - Central > Export button is displayed and clicked after meal period is specified
     Given 'Menu Cycles' application is open
         And a central user is selected
         And Menu Cycle "Meda" is selected
@@ -218,9 +218,8 @@ Scenario: Menu Extract Report - Central > Export button is displayed after meal 
         And Export button is not displayed
         And Meal periods are selected
         |MealPeriod         |
-        |Lunch              |
-        |Dinner             |
+        |Chloe              |
     Then Export button is displayed
-        #And Report is exported
-        #And Notification message "Successfully Exported" is displayed
+        And Report is exported
+        And Notification message "Successfully Exported" is displayed
    

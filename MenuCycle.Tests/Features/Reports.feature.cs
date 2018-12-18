@@ -600,13 +600,13 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Menu Extract Report - Central > Export button is displayed after meal period is s" +
-            "pecified")]
+        [NUnit.Framework.DescriptionAttribute("Menu Extract Report - Central > Export button is displayed and clicked after meal" +
+            " period is specified")]
         [NUnit.Framework.CategoryAttribute("TC33985")]
-        public virtual void MenuExtractReport_CentralExportButtonIsDisplayedAfterMealPeriodIsSpecified()
+        public virtual void MenuExtractReport_CentralExportButtonIsDisplayedAndClickedAfterMealPeriodIsSpecified()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Menu Extract Report - Central > Export button is displayed after meal period is s" +
-                    "pecified", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Menu Extract Report - Central > Export button is displayed and clicked after meal" +
+                    " period is specified", new string[] {
                         "TC33985"});
 #line 212
 this.ScenarioSetup(scenarioInfo);
@@ -626,13 +626,15 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriod"});
             table5.AddRow(new string[] {
-                        "Lunch"});
-            table5.AddRow(new string[] {
-                        "Dinner"});
+                        "Chloe"});
 #line 219
         testRunner.And("Meal periods are selected", ((string)(null)), table5, "And ");
-#line 223
+#line 222
     testRunner.Then("Export button is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 223
+        testRunner.And("Report is exported", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 224
+        testRunner.And("Notification message \"Successfully Exported\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
