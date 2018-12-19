@@ -250,9 +250,7 @@ namespace MenuCycle.Tests.Steps
             }
         }
 
-        [Given(@"Modal dialog Yes is selected")]
-        [When(@"Modal dialog Yes is selected")]
-        [Then(@"Modal dialog Yes is selected")]
+        [StepDefinition(@"Modal dialog Yes is selected")]
         public void ModalDialogYes()
         {
             modalDialogPage.UseYesButton();

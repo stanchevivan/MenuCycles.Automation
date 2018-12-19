@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Page;
 using Fourth.Automation.Framework.Reporting;
@@ -18,13 +20,17 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = "div[id='toast-container'] div[class='toast-message']")]
         private IWebElement Message { get; set; }
+        [FindsBy(How = How.CssSelector, Using = "div[id='toast-container'] div[class='toast-message']")]
+        private IList<IWebElement> Messages { get; set; }
         [FindsBy(How = How.ClassName, Using = "toast-close-button")]
         private IWebElement CloseButton { get; set; }
 
-        public void ValidateToastMessage(string expected)
+        public void ValidateToastMessage(string expectedMessage)
         {
-            Driver.WaitElementToExists(Message);
-            Assert.AreEqual(expected, Message.Text);
+            WaitToAppear();
+
+            var notificationMessages = Messages.Select(x => x.Text).ToList();
+            Assert.That(notificationMessages, Has.Member(expectedMessage));
             Artefacts.TakeScreenshot();
         }
 
