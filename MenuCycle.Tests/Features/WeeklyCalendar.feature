@@ -12,12 +12,12 @@ Scenario: Copy and Delete week in Weekly Calendar view
     Given Menu Cycle "Automation Menu Cycle" is selected
     When Weekly Calendar is opened
         And Week "Week 1" is copied
-        And Notification message "Week Successfully Added." is displayed
+        And Verify notification message "Week Successfully Added." is displayed
         And Week "Week 2" is copied
-        And Notification message "Week Successfully Added." is displayed
+        And Verify notification message "Week Successfully Added." is displayed
         And Delete button is clicked for week "Week 2"
         And Modal dialog Yes is selected
-    Then Notification message "Week Successfully Removed." is displayed
+    Then Verify notification message "Week Successfully Removed." is displayed
         And Delete button is clicked for week "Week 2"
         And Modal dialog Yes is selected
-        And Notification message "Week Successfully Removed." is displayedayed
+        And Verify notification message "Week Successfully Removed." is displayed

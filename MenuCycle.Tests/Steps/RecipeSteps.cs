@@ -64,7 +64,7 @@ namespace MenuCycle.Tests.Steps
                 .PriceModel = priceModel;
         }
 
-        [Then(@"Target % field for recipe ""(.*)"" in meal period ""(.*)"" is not present")]
+        [Then(@"Verify Target % field for recipe ""(.*)"" in meal period ""(.*)"" is not present")]
         public void ThenTargetFieldIsNotPresent(string recipeName, string mealPeriod)
         {
             Assert.IsFalse(planningTabDays
@@ -74,7 +74,7 @@ namespace MenuCycle.Tests.Steps
                            .IsTargetGPPresent);
         }
 
-        [Then(@"Sell Price for recipe ""(.*)"" in meal period ""(.*)"" is an editable field")]
+        [Then(@"Verify Sell Price for recipe ""(.*)"" in meal period ""(.*)"" is an editable field")]
         public void ThenSellPriceIsChangedFromAuto_CalculatedToEditableField(string recipeName, string mealPeriod)
         {
             Assert.IsTrue(planningTabDays
@@ -102,7 +102,7 @@ namespace MenuCycle.Tests.Steps
             planningTabDays.FocusOut();
         }
 
-        [Then(@"TargetGP% for recipe named ""(.*)"" in meal period ""(.*)"" is equal to ""(.*)""")]
+        [Then(@"Verify TargetGP% for recipe named ""(.*)"" in meal period ""(.*)"" is equal to ""(.*)""")]
         public void ThenTargetGPIsAutomaticallyChangedToTwoDecimalNumber(string recipeName, string mealPeriod, string value)
         {
             Assert.That(planningTabDays
@@ -124,7 +124,7 @@ namespace MenuCycle.Tests.Steps
                 .SellPrice = value;
         }
 
-        [Then(@"SellPrice for recipe named ""(.*)"" in meal period ""(.*)"" is equal to ""(.*)""")]
+        [Then(@"Verify SellPrice for recipe named ""(.*)"" in meal period ""(.*)"" is equal to ""(.*)""")]
         public void ThenSellPriceForRecipeNamedInMealPeriodIs(string recipeName, string mealPeriod, string value)
         {
             Assert.That(planningTabDays
@@ -135,7 +135,7 @@ namespace MenuCycle.Tests.Steps
                         Is.EqualTo(value));
         }
 
-        [Then(@"CostPerUnit for recipe named ""(.*)"" in meal period ""(.*)"" is equal to ""(.*)""")]
+        [Then(@"Verify CostPerUnit for recipe named ""(.*)"" in meal period ""(.*)"" is equal to ""(.*)""")]
         public void ThenCostPerUnitForRecipeNamedInMealPeriodIs(string recipeName, string mealPeriod, string price)
         {
             Assert.That(planningTabDays
@@ -146,8 +146,8 @@ namespace MenuCycle.Tests.Steps
                         Is.EqualTo(price));
         }
 
-        [When(@"red border is displayed around Target% for recipe ""(.*)"" in meal period ""(.*)""")]
-        [Then(@"red border is displayed around Target% for recipe ""(.*)"" in meal period ""(.*)""")]
+        [When(@"Verify red border is displayed around Target% for recipe ""(.*)"" in meal period ""(.*)""")]
+        [Then(@"Verify red border is displayed around Target% for recipe ""(.*)"" in meal period ""(.*)""")]
         public void ThenRedBorderIsDisplayedAroundTargetForRecipeInMealPeriod(string recipeName, string mealPeriod)
         {
             Assert.IsTrue(planningTabDays
@@ -155,8 +155,8 @@ namespace MenuCycle.Tests.Steps
                           .GetRecipe(recipeName).GetFirstRow().IsTargetGPWithRedBorder);
         }
 
-        [When(@"red border is not displayed around Target% for recipe ""(.*)"" in meal period ""(.*)""")]
-        [Then(@"red border is not displayed around Target% for recipe ""(.*)"" in meal period ""(.*)""")]
+        [When(@"Verify red border is not displayed around Target% for recipe ""(.*)"" in meal period ""(.*)""")]
+        [Then(@"Verify red border is not displayed around Target% for recipe ""(.*)"" in meal period ""(.*)""")]
         public void ThenRedBorderIsNotDisplayedAroundTargetForRecipeInMealPeriod(string recipeName, string mealPeriod)
         {
             Assert.IsFalse(planningTabDays
@@ -164,8 +164,8 @@ namespace MenuCycle.Tests.Steps
                            .GetRecipe(recipeName).GetFirstRow().IsTargetGPWithRedBorder);
         }
 
-        [When(@"red border is not displayed around Sell Price for recipe ""(.*)"" in meal period ""(.*)""")]
-        [Then(@"red border is not displayed around Sell Price for recipe ""(.*)"" in meal period ""(.*)""")]
+        [When(@"Verify red border is not displayed around Sell Price for recipe ""(.*)"" in meal period ""(.*)""")]
+        [Then(@"Verify red border is not displayed around Sell Price for recipe ""(.*)"" in meal period ""(.*)""")]
         public void ThenRedBorderIsNotDisplayedAroundSellPriceForRecipeInMealPeriod(string recipeName, string mealPeriod)
         {
             Assert.IsFalse(planningTabDays
@@ -173,8 +173,8 @@ namespace MenuCycle.Tests.Steps
                            .GetRecipe(recipeName).GetFirstRow().SellPriceHasRedBorder);
         }
 
-        [When(@"red border is displayed around Sell Price for recipe ""(.*)"" in meal period ""(.*)""")]
-        [Then(@"red border is displayed around Sell Price for recipe ""(.*)"" in meal period ""(.*)""")]
+        [When(@"Verify red border is displayed around Sell Price for recipe ""(.*)"" in meal period ""(.*)""")]
+        [Then(@"Verify red border is displayed around Sell Price for recipe ""(.*)"" in meal period ""(.*)""")]
         public void ThenRedBorderIsDisplayedAroundSellPriceForRecipeInMealPeriod(string recipeName, string mealPeriod)
         {
             Assert.IsTrue(planningTabDays
@@ -182,7 +182,7 @@ namespace MenuCycle.Tests.Steps
                           .GetRecipe(recipeName).GetFirstRow().SellPriceHasRedBorder);
         }
 
-        [Then(@"red border is not displayed around Planned Quantity for recipe ""(.*)"" in meal period ""(.*)""")]
+        [Then(@"Verify red border is not displayed around Planned Quantity for recipe ""(.*)"" in meal period ""(.*)""")]
         public void ThenRedBorderIsNotDisplayedAroundPlannedQuantityForRecipeInMealPeriod(string recipeName, string mealPeriod)
         {
             Assert.IsFalse(planningTabDays
@@ -191,8 +191,8 @@ namespace MenuCycle.Tests.Steps
         }
 
 
-        [When(@"red border is displayed around Planned Quantity for recipe ""(.*)"" in meal period ""(.*)""")]
-        [Then(@"red border is displayed around Planned Quantity for recipe ""(.*)"" in meal period ""(.*)""")]
+        [When(@"Verify red border is displayed around Planned Quantity for recipe ""(.*)"" in meal period ""(.*)""")]
+        [Then(@"Verify red border is displayed around Planned Quantity for recipe ""(.*)"" in meal period ""(.*)""")]
         public void ThenRedBorderIsDisplayedAroundPlannedQuantityForRecipeInMealPeriod(string recipeName, string mealperiod)
         {
             Assert.IsTrue(planningTabDays
@@ -200,8 +200,8 @@ namespace MenuCycle.Tests.Steps
                           .GetRecipe(recipeName).GetFirstRow().IsPlannedQuantityWithRedBorder);
         }
 
-        [When(@"field ""(.*)"" for single recipe ""(.*)"" in meal period ""(.*)"" is empty")]
-        [Then(@"field ""(.*)"" for single recipe ""(.*)"" in meal period ""(.*)"" is empty")]
+        [When(@"Verify field ""(.*)"" for single recipe ""(.*)"" in meal period ""(.*)"" is empty")]
+        [Then(@"Verify field ""(.*)"" for single recipe ""(.*)"" in meal period ""(.*)"" is empty")]
         public void ThenTargetPercentageFieldForRecipeInMealPeriodIsEmpty(string field, string recipeName, string mealPeriod)
         {
             var recipe = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeName);
@@ -244,8 +244,8 @@ namespace MenuCycle.Tests.Steps
                         .PlannedQtyContextualErrorMessage, Is.EqualTo(errorMessage));
         }
 
-        [Then(@"red border and contextual error message ""(.*)"" is displayed for TargetGP field for recipe ""(.*)"" in meal period ""(.*)""")]
-        [When(@"red border and contextual error message ""(.*)"" is displayed for TargetGP field for recipe ""(.*)"" in meal period ""(.*)""")]
+        [Then(@"Verify red border and contextual error message ""(.*)"" is displayed for TargetGP field for recipe ""(.*)"" in meal period ""(.*)""")]
+        [When(@"Verify red border and contextual error message ""(.*)"" is displayed for TargetGP field for recipe ""(.*)"" in meal period ""(.*)""")]
         public void WhenRedBorderAndContextualErrorMessageIsDisplayedForTargetGPfieldForRecipeInMealPeriod(string errorMessage, string recipeName, string mealPeriod)
         {
             Assert.IsTrue(planningTabDays
@@ -259,8 +259,8 @@ namespace MenuCycle.Tests.Steps
                         .TargetPercentageContextualErrorMessage, Is.EqualTo(errorMessage));
         }
 
-        [Then(@"red border and contextual error message ""(.*)"" is displayed for Sell Price field for recipe ""(.*)"" in meal period ""(.*)""")]
-        [When(@"red border and contextual error message ""(.*)"" is displayed for Sell Price field for recipe ""(.*)"" in meal period ""(.*)""")]
+        [Then(@"Verify red border and contextual error message ""(.*)"" is displayed for Sell Price field for recipe ""(.*)"" in meal period ""(.*)""")]
+        [When(@"Verify red border and contextual error message ""(.*)"" is displayed for Sell Price field for recipe ""(.*)"" in meal period ""(.*)""")]
         public void WhenRedBorderAndContextualErrorMessageIsDisplayedForSellPricefieldForRecipeInMealPeriod(string errorMessage, string recipeName, string mealPeriod)
         {
             Assert.IsTrue(planningTabDays
@@ -276,8 +276,8 @@ namespace MenuCycle.Tests.Steps
                         .SellPriceContextualErrorMessage, Is.EqualTo(errorMessage));
         }
 
-        [Then(@"red border and contextual error message ""(.*)"" is displayed for Planned Quantity field for recipe ""(.*)"" in meal period ""(.*)""")]
-        [When(@"red border and contextual error message ""(.*)"" is displayed for Planned Quantity field for recipe ""(.*)"" in meal period ""(.*)""")]
+        [Then(@"Verify red border and contextual error message ""(.*)"" is displayed for Planned Quantity field for recipe ""(.*)"" in meal period ""(.*)""")]
+        [When(@"Verify red border and contextual error message ""(.*)"" is displayed for Planned Quantity field for recipe ""(.*)"" in meal period ""(.*)""")]
         public void WhenRedBorderAndContextualErrorMessageIsDisplayedForPlannedQuantityFieldForRecipeInMealPeriod(string errorMessage, string recipeName, string mealPeriod)
         {
             Assert.IsTrue(planningTabDays
@@ -321,14 +321,15 @@ namespace MenuCycle.Tests.Steps
             planningTabDays.WaitForLoader();
         }
 
-        [When(@"Future recipe instances count is (.*)")]
+        [When(@"Verify Future recipe instances count is (.*)")]
+        [Then(@"Verify Future recipe instances count is (.*)")]
         public void FutureRecipeInstancesCountIs(string count)
         {
             modalDialogPage.WaitRecipeCountToAppear();
             Assert.That(count, Is.EqualTo(modalDialogPage.RecipeCount));
         }
 
-        [Then(@"Existing types for recipe ""(.*)"" in meal period ""(.*)"" are")]
+        [Then(@"Verify existing types for recipe ""(.*)"" in meal period ""(.*)"" are")]
         public void ExistingTypesForRecipeInMealPeriodAre(string recipeTitle, string mealPeriod, Table table)
         {
             var expectedValues = table.Rows.Select(x => x["TariffType"]).ToList();
@@ -352,7 +353,7 @@ namespace MenuCycle.Tests.Steps
                 .AddType();
         }
 
-        [Then(@"delete icon is present for recipe ""(.*)"" in meal period ""(.*)"" tariff type ""(.*)""")]
+        [Then(@"Verify delete icon is present for recipe ""(.*)"" in meal period ""(.*)"" tariff type ""(.*)""")]
         public void DeleteIconIsPresentForRecipeInMealPeriodTariffType(string recipeTitle, string mealPeriod, string tariffType)
         {
             var recipeRow = planningTabDays
@@ -383,7 +384,7 @@ namespace MenuCycle.Tests.Steps
             scenarioContext.Add(field, value);
         }
 
-        [Then(@"""(.*)"" is equal to the value saved in context for recipe ""(.*)"" in meal period ""(.*)""")]
+        [Then(@"Verify ""(.*)"" is equal to the value saved in context for recipe ""(.*)"" in meal period ""(.*)""")]
         public void WhenFieldIsEqualToContextForRecipeInMealPeriod(string field, string recipeTitle, string mealPeriod)
         {
             var defaultRecipeRow = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeTitle).GetFirstRow();
@@ -392,7 +393,7 @@ namespace MenuCycle.Tests.Steps
             Assert.That(value, Is.EqualTo(scenarioContext.Get<string>(field)));
         }
 
-        [Then(@"existing types are same as from the context for recipe ""(.*)"" in meal period ""(.*)""")]
+        [Then(@"Verify existing types are same as from the context for recipe ""(.*)"" in meal period ""(.*)""")]
         public void ThenExistingTypesAreSameAsFromTheContextForRecipeInMealPeriod(string recipeTitle, string mealPeriod)
         {
             var expectedTariffTypes = scenarioContext.Get<IList<string>>("tariffTypes");
@@ -411,7 +412,7 @@ namespace MenuCycle.Tests.Steps
             planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeTitle).GetTariffTypeRow(currentTariffType).TariffType = newTariffType;
         }
 
-        [Then(@"delete icon is clicked for recipe ""(.*)"" in meal period ""(.*)"" with tariff type ""(.*)""")]
+        [Then(@"Verify delete icon is clicked for recipe ""(.*)"" in meal period ""(.*)"" with tariff type ""(.*)""")]
         public void ThenDeleteIconIsClickedForRecipeInMealPeriodWithTariffType(string recipeName, string mealPeriod, string tariffType)
         {
             planningTabDays

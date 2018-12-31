@@ -46,13 +46,13 @@ namespace MenuCycle.Tests.Steps
             recipeOverview.WaitForLoad();
         }
 
-        [Then(@"meal period recipe name is ""(.*)""")]
+        [Then(@"Verify meal period recipe name is ""(.*)""")]
         public void ThenMealPeriodRecipeNameIs(string recipeName)
         {
             Assert.That(recipeOverview.GetRecipeTitleText, Is.EqualTo(recipeName));
         }
 
-        [Then(@"recipe price is ""(.*)""")]
+        [Then(@"Verify recipe price is ""(.*)""")]
         public void ThenRecipePriceIs(string price)
         {
             Assert.That(recipeOverview.GetRecipePriceText, Is.EqualTo(price));

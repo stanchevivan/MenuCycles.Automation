@@ -10,7 +10,7 @@ Scenario Outline: Search Menu Cycles by name or description
         |Name     |Description     |
         |<mc1Name>|<mc1Description>|
     When Menu Cycle "<mc2Name>" is searched
-        And Verify search results contain the following menu cycles
+    Then Verify search results contain the following menu cycles
         |Name     |Description     |
         |<mc2Name>|<mc2Description>|
         

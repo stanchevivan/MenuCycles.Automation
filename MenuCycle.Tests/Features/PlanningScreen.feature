@@ -9,7 +9,7 @@ Scenario Outline: Open Planning Screen, go to Nutritions, go back to Planning sc
     When planning for "<day>" is opened
         And daily nutrition tab is opened
         And daily planning tab is opened
-    Then planning screen engine is loaded
+    Then Verify planning screen engine is loaded
     
     @QAI
     Examples:
@@ -24,7 +24,7 @@ Scenario Outline: Open Planning Screen, go to Weeks, go back to Planning screen 
     When planning for "<day>" is opened
         And switching to Weekly Planning view
         And switching to Daily Planning view
-    Then planning screen engine is loaded
+    Then Verify planning screen engine is loaded
     
     @QAI
     Examples:
@@ -38,7 +38,7 @@ Scenario Outline: Save button is clicked without any changes applied
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
         And Save button is clicked
-    Then the user stays on the planning page
+    Then Verify the user stays on the planning page
     
     @QAI
     Examples:
@@ -59,9 +59,9 @@ Scenario Outline: Save all updated figures (fields)
         And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "Fixed"
         And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2"
         And Save button is clicked
-    Then Notification message "Planning figures updated." is displayed
-        And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to the previous inputted number
-    And the user stays on the planning page
+    Then Verify notification message "Planning figures updated." is displayed
+        And Verify quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to the previous inputted number
+    And Verify the user stays on the planning page
     
     @QAI
     Examples:
@@ -82,7 +82,7 @@ Scenario Outline: Saved data is retrieved from the API
         And Cancel button is clicked
         And Wait for Calendar view
         And planning for "<day>" is opened
-    Then quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to the previous inputted number
+    Then Verify quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to the previous inputted number
     
     @QAI
     Examples:
@@ -101,10 +101,10 @@ Scenario Outline: Successfully Update and Save number of covers
         And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "Fixed"
         And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2"
         And Save button is clicked
-        And Notification message "Planning figures updated." is displayed
+        And Verify notification message "Planning figures updated." is displayed
         And Cross button is clicked and calendar view has loaded
         And planning for "<day>" is opened
-    Then number of covers for meal period "<mealPeriod>" is equal to the previous inputted number
+    Then Verify number of covers for meal period "<mealPeriod>" is equal to the previous inputted number
     
     @QAI
     Examples:
@@ -131,8 +131,8 @@ Scenario Outline: Open Monday planning screen, then go to Tuesday, back to Monda
         And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "Fixed"
         And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2"
         And Save button is clicked
-    Then Notification message "Planning figures updated." is displayed
-        And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to the previous inputted number
+    Then Verify notification message "Planning figures updated." is displayed
+        And Verify quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to the previous inputted number
         
     @QAI
     Examples:
@@ -151,7 +151,7 @@ Scenario Outline: Modal dialog for unsaved changes is shown on cancel
         And Modal dialog Yes is selected
         And Wait for Calendar view
     When planning for "<day>" is opened
-    Then values for recipe "<recipeName>" in meal period "<mealPeriod>" are equal to the stored ones
+    Then Verify values for recipe "<recipeName>" in meal period "<mealPeriod>" are equal to the stored ones
     
     @QAI
     Examples:
@@ -170,7 +170,7 @@ Scenario Outline: Modal dialog for unsaved changes is shown on pressing X
         And Modal dialog Yes is selected
         And Wait for Calendar view
     When planning for "<day>" is opened
-    Then values for recipe "<recipeName>" in meal period "<mealPeriod>" are equal to the stored ones
+    Then Verify values for recipe "<recipeName>" in meal period "<mealPeriod>" are equal to the stored ones
     
     @QAI
     Examples:
@@ -188,7 +188,7 @@ Scenario Outline: Modal dialog for unsaved changes is shown when going to nutrit
         And daily nutrition tab is clicked
         And Modal dialog Yes is selected
     When daily planning tab is opened
-    Then values for recipe "<recipeName>" in meal period "<mealPeriod>" are equal to the stored ones
+    Then Verify values for recipe "<recipeName>" in meal period "<mealPeriod>" are equal to the stored ones
     
     @QAI
     Examples:
@@ -206,7 +206,7 @@ Scenario Outline: Modal dialog for unsaved changes is shown when going to weekly
         And weekly Planning view link is clicked
         And Modal dialog Yes is selected
     When switching to Daily Planning view
-    Then values for recipe "<recipeName>" in meal period "<mealPeriod>" are equal to the stored ones
+    Then Verify values for recipe "<recipeName>" in meal period "<mealPeriod>" are equal to the stored ones
     
     @QAI
     Examples:
@@ -227,7 +227,7 @@ Scenario Outline: Number of covers is saved after closing the app
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-    Then number of covers for meal period "<mealPeriod>" is equal to the previous inputted number
+    Then Verify number of covers for meal period "<mealPeriod>" is equal to the previous inputted number
     
     @QAI
     Examples:
@@ -264,7 +264,7 @@ Scenario Outline: Calculate Daily Totals
         |004Fresh Lemon Curd          |              5|
         |004Blueberry Muffin (Wrapped)|              6|
         |004Baked Beans_1             |              7|
-    Then Daily Totals are equal to
+    Then Verify Daily Totals are equal to
         |PlannedQty|TotalCost|Revenue|ActualGP|
         |       109|   221.04| 315.71|     30%|
         
@@ -279,8 +279,8 @@ Given Menu Cycle app is open on "<environment>"
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-    Then "No planning data available. Please add a meal period." message is displayed
-        And Save button is disabled
+    Then Verify "No planning data available. Please add a meal period." message is displayed
+        And Verify save button is disabled
         
     @QAI
     Examples:
@@ -295,7 +295,7 @@ Scenario Outline: Error message is displayed when changes are made and Update Pr
         And planning for "<day>" is opened
     When quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to random number
         And Update prices button is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
-    Then Notification message "You have some unsaved changes. Please save them before continuing." is displayed
+    Then Verify notification message "You have some unsaved changes. Please save them before continuing." is displayed
     
     @QAI
     Examples:
@@ -310,7 +310,7 @@ Scenario Outline: No modal dialog is shown if there are no changes and Cancel bu
         And planning for "<day>" is opened
     When Cancel button is clicked
         And Wait for Calendar view
-    Then Calendar view is opened
+    Then Verify calendar view is opened
     
     @QAI
     Examples:
@@ -326,7 +326,7 @@ Scenario Outline: Notification is shown when user is trying to save planning wit
     When Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
         And TariffType is set to "TariffOne" for recipe "<recipeName>" with current TariffType "TariffTwo" in meal period "<mealPeriod>"
         And Save button is clicked
-    Then Notification message "Please make sure that you have not selected the same price type several times for the same item" is displayed
+    Then Verify notification message "Please make sure that you have not selected the same price type several times for the same item" is displayed
     
     @QAI
     Examples:
@@ -349,7 +349,7 @@ Scenario Outline: Notification is shown when user has selected all available pri
         And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
         And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
         And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
-    Then Notification message "There are 10 price types available. You cannot add more." is displayed
+    Then Verify notification message "There are 10 price types available. You cannot add more." is displayed
     
     @QAI
     Examples:
@@ -368,7 +368,7 @@ Scenario Outline: Modal dialog is closed on cancel when only PriceModel is chang
         When Cancel button is clicked
             And Modal dialog Yes is selected
             And Wait for Calendar view
-        Then Calendar view is opened
+        Then Verify calendar view is opened
         
     @QAI
     Examples:
@@ -386,7 +386,7 @@ Scenario Outline: User should not be redirected to the planning screen after nav
         And Cross button is clicked and calendar view has loaded
         And Home button is clicked
         And Menu Cycle "<menuCycle>" is selected
-    Then Calendar view is opened
+    Then Verify calendar view is opened
     
     @QAI
     Examples:
@@ -401,7 +401,7 @@ Scenario Outline: Load engine when Planning screen is opened (Central User)
     When planning for "<day>" is opened
         And daily nutrition tab is opened
         And daily planning tab is opened
-    Then planning screen engine is loaded
+    Then Verify planning screen engine is loaded
     
     @QAI
     Examples:
@@ -415,7 +415,7 @@ Scenario Outline: Close planning screen with "X" button without any changes
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
     When Cross button is clicked and calendar view has loaded
-    Then Calendar view is opened
+    Then Verify calendar view is opened
     
     @QAI
     Examples:
@@ -423,12 +423,12 @@ Scenario Outline: Close planning screen with "X" button without any changes
     |QAI        |Meda     |MONDAY|
     
 @TC31037
-Scenario Outline: Save button is disabled if menu cycle is published
+Scenario Outline: Verify save button is disabled if menu cycle is published
     Given Menu Cycle app is open on "<environment>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-    Then Save button is disabled
+    Then Verify save button is disabled
     
     @QAI
     Examples:
@@ -448,7 +448,7 @@ Scenario Outline: Planning screen is loaded after searching for recipe which is 
         And "Sorry, we could not find any match for your search." message is displayed
         And meal period detailed view is closed
         And planning for "<day>" is opened
-    Then planning screen engine is loaded
+    Then Verify planning screen engine is loaded
        
    @QAI
     Examples:

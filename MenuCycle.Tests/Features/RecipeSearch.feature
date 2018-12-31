@@ -50,8 +50,8 @@ Scenario: Single cost is present for Recipe and Ingredients in recipe detailed v
     Given Menu Cycle "Meda" is selected
     When Details for meal period "LUNCH" in "Tuesday" are opened
         And detailed view for recipe with name "724Gourmet Chicken Burger" is opened
-    Then meal period recipe name is "724Gourmet Chicken Burger"
-        And recipe price is "£0.41"
+    Then Verify meal period recipe name is "724Gourmet Chicken Burger"
+        And Verify recipe price is "£0.41"
         And Verify ingredients in the detailed view
         |IngredientName                      |IngredientCost|
         |Chicken Breast Diced                |          0.00|

@@ -53,13 +53,13 @@ namespace MenuCycle.Tests.Steps
             planningTabDays.CollapseMealPeriod(periodName);
         }
 
-        [Then(@"main data for Meal Period ""(.*)"" is collapsed")]
+        [Then(@"Verify main data for Meal Period ""(.*)"" is collapsed")]
         public void ThenMainDataForMealPeriodIsCollapsed(string periodName)
         {
             Assert.IsFalse(planningTabDays.IsMealPeriodExpanded(periodName));
         }
 
-        [Then(@"main data for Meal Period ""(.*)"" is expanded")]
+        [Then(@"Verify main data for Meal Period ""(.*)"" is expanded")]
         public void ThenMainDataForMealPeriodIsShown(string periodName)
         {
             Assert.IsTrue(planningTabDays.IsMealPeriodExpanded(periodName));
@@ -74,7 +74,7 @@ namespace MenuCycle.Tests.Steps
         /// <summary>
         /// Must be used with the step "Meal Period colours for ""(.*)"" are saved"
         /// </summary>
-        [Then(@"Meal Period colours match the calendar view colours")]
+        [Then(@"Verify Meal Period colours match the calendar view colours")]
         public void ThenMealPeriodColoursMatchTheCalendarViewColours()
         {
             Assert.That(planningTabDays.MealPeriodColours, Is.EqualTo(scenarioContext.Get<IList<string>>("MealPeriodColours")));
@@ -89,7 +89,7 @@ namespace MenuCycle.Tests.Steps
         /// <summary>
         /// Must be used with the step "Meal Period colours for ""(.*)"" are saved"
         /// </summary>
-        [Then(@"Meal Period names match the calendar view names")]
+        [Then(@"Verify Meal Period names match the calendar view names")]
         public void ThenMealPeriodNamessMatchTheCalendarViewNames()
         {
             Assert.That(planningTabDays.MealPeriods.Select(x => x.Name).ToList(), Is.EqualTo(scenarioContext.Get<IList<string>>("MealPeriodNames")));
@@ -100,7 +100,7 @@ namespace MenuCycle.Tests.Steps
         /// </summary>
         /// <param name="recipeTitle">Recipe name.</param>
         /// <param name="mealPeriodName">Meal period name.</param>
-        [Then(@"recipe named ""(.*)"" is present for meal period ""(.*)""")]
+        [Then(@"Verify recipe named ""(.*)"" is present for meal period ""(.*)""")]
         public void ThenRecipeNamedIsPresentForMealPeriod(string recipeTitle, string mealPeriodName)
         {
             var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
@@ -108,7 +108,7 @@ namespace MenuCycle.Tests.Steps
             Assert.IsTrue(mealPeriod.Recipes.Any(a => a.Title == recipeTitle));
         }
 
-        [Then(@"recipe colour for ""(.*)"" match the colour for meal period ""(.*)""")]
+        [Then(@"Verify recipe colour for ""(.*)"" match the colour for meal period ""(.*)""")]
         public void ThenRecipeColourForIsTheSameAsTheColourForMealPeriod(string recipeName, string mealPeriodName)
         {
             var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
@@ -142,7 +142,7 @@ namespace MenuCycle.Tests.Steps
         /// </summary>
         /// <param name="buffetTitle">Buffet name.</param>
         /// <param name="mealPeriodName">Meal period name.</param>
-        [Then(@"buffet named ""(.*)"" is present for meal period ""(.*)""")]
+        [Then(@"Verify buffet named ""(.*)"" is present for meal period ""(.*)""")]
         public void ThenBuffetNamedIsPresentForMealPeriod(string buffetTitle, string mealPeriodName)
         {
             var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
@@ -150,7 +150,7 @@ namespace MenuCycle.Tests.Steps
             Assert.IsTrue(mealPeriod.Buffets.Any(a => a.Title == buffetTitle));
         }
 
-        [Then(@"buffet colour for ""(.*)"" match the colour for meal period ""(.*)""")]
+        [Then(@"Verify buffet colour for ""(.*)"" match the colour for meal period ""(.*)""")]
         public void ThenBuffetColourForIsTheSameAsTheColourForMealPeriod(string buffetTitle, string mealPeriodName)
         {
             var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
@@ -158,7 +158,7 @@ namespace MenuCycle.Tests.Steps
             Assert.That(mealPeriod.Colour, Is.EqualTo(mealPeriod.GetBuffet(buffetTitle).Colour));
         }
 
-        [Then(@"in meal period ""(.*)"" all recipe colours inside ""(.*)"" match the A La Carte colour")]
+        [Then(@"Verify in meal period ""(.*)"" all recipe colours inside ""(.*)"" match the A La Carte colour")]
         public void AllRecipeColoursInsideAreTheSameAsTheALaCarteColour(string mealPeriodName, string aLaCarteTitle)
         {
             var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
@@ -167,7 +167,7 @@ namespace MenuCycle.Tests.Steps
             Assert.IsTrue(aLaCarte.Recipes.All(r => r.Colour == aLaCarte.Colour));
         }
 
-        [Then(@"in meal period ""(.*)"" all recipe colours inside ""(.*)"" match the buffet colour")]
+        [Then(@"Verify in meal period ""(.*)"" all recipe colours inside ""(.*)"" match the buffet colour")]
         public void AllRecipeColoursInsideAreTheSameAsBuffetColour(string mealPeriodName, string buffetTitle)
         {
             var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
@@ -176,7 +176,7 @@ namespace MenuCycle.Tests.Steps
             Assert.IsTrue(buffet.Recipes.All(r => r.Colour == buffet.Colour));
         }
 
-        [Then(@"number of covers for meal period ""(.*)"" is equal to ""(.*)""")]
+        [Then(@"Verify number of covers for meal period ""(.*)"" is equal to ""(.*)""")]
         public void NumberOfCoversForMealPeriodIs(string mealPeriodName, string numberOfCovers)
         {
             var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
@@ -195,15 +195,15 @@ namespace MenuCycle.Tests.Steps
             commonElements.UseCollapseAllButton();
         }
 
-        [When(@"all meal periods are expanded in Daily Planning")]
-        [Then(@"all meal periods are expanded in Daily Planning")]
+        [When(@"Verify all meal periods are expanded in Daily Planning")]
+        [Then(@"Verify all meal periods are expanded in Daily Planning")]
         public void AllMealPeriodsAreExpandedInDailyPlanning()
         {
             Assert.IsTrue(planningTabDays.AreAllMealPeriodsExpanded);
         }
 
-        [When(@"all meal periods are collapsed in Daily Planning")]
-        [Then(@"all meal periods are collapsed in Daily Planning")]
+        [When(@"Verify all meal periods are collapsed in Daily Planning")]
+        [Then(@"Verify all meal periods are collapsed in Daily Planning")]
         public void AllMealPeriodsAreCollapsedInDailyPlanning()
         {
             Assert.IsTrue(planningTabDays.AreAllMealPeriodsCollapsed);
@@ -224,7 +224,7 @@ namespace MenuCycle.Tests.Steps
             Assert.IsFalse(menuCycleDailyCalendarView.AreAllMealPeriodsExpanded);
         }
 
-        [Then(@"Value for fields for meal period ""(.*)"" is")]
+        [Then(@"Verify value for fields for meal period ""(.*)"" is")]
         public void TotalPlannedQuantityforMealPeriodIs(string mealPeriodName, Table table)
         {
             dynamic values = table.CreateDynamicInstance();
@@ -280,7 +280,7 @@ namespace MenuCycle.Tests.Steps
             }
         }
 
-        [Then(@"""(.*)"" recipies are present in meal period ""(.*)""")]
+        [Then(@"Verify ""(.*)"" recipies are present in meal period ""(.*)""")]
         public void ThenRecipiesArePresentInMealPeriod(int expectedNumberOfRecipes, string mealPeriodName)
         {
             var actualNumberOfRecipes = planningTabDays
@@ -316,7 +316,7 @@ namespace MenuCycle.Tests.Steps
             modalDialogPage.WaitToAppear();
         }
 
-        [Then(@"Meal period ""(.*)"" is not present for ""(.*)""")]
+        [Then(@"Verify Meal period ""(.*)"" is not present for ""(.*)""")]
         public void ThenMealPeriodIsNotPresentFor(string mealPeriod, string day)
         {
             Assert.That(menuCycleDailyCalendarView.GetDay(day).MealPeriodCards.Select(x => x.Name).ToList(), Has.No.Member(mealPeriod));

@@ -37,7 +37,7 @@ Scenario: Export Consumer Facing Report as PDF with Sell Price, Kilojoules and C
         And Calories checkbox is checked
         And Kilojoules checkbox is checked
         And Export PDF button is clicked
-    Then Notification message "Successfully Exported" is displayed
+    Then Verify notification message "Successfully Exported" is displayed
 
 @TC34203
 Scenario: Export Consumer Facing Report as CSV with Sell Price, Kilojoules and Calories
@@ -56,7 +56,7 @@ Scenario: Export Consumer Facing Report as CSV with Sell Price, Kilojoules and C
         And Calories checkbox is checked
         And Kilojoules checkbox is checked
         And Export CSV button is clicked
-    Then Notification message "Successfully Exported" is displayed
+    Then Verify notification message "Successfully Exported" is displayed
 
 @TC33983
 Scenario: Consumer Facing Report - Local > User is able to export Consumer Facing report as PDF without selecting Calories, kilojoules and Sell Price
@@ -72,7 +72,7 @@ Scenario: Consumer Facing Report - Local > User is able to export Consumer Facin
         And Report end date "25/07/2018" is selected
         And Export CSV and Export PDF buttons are displayed
         And Export PDF button is clicked
-    Then Notification message "Successfully Exported" is displayed
+    Then Verify notification message "Successfully Exported" is displayed
 
 @TC34205
 Scenario: Consumer Facing Report - Local > User is able to export Consumer Facing report as CSV without selecting Calories, kilojoules and Sell Price
@@ -88,7 +88,7 @@ Scenario: Consumer Facing Report - Local > User is able to export Consumer Facin
         And Report end date "25/07/2018" is selected
         And Export CSV and Export PDF buttons are displayed
         And Export CSV button is clicked
-    Then Notification message "Successfully Exported" is displayed
+    Then Verify notification message "Successfully Exported" is displayed
 
 @TC33981
 Scenario: Consumer Facing Report - Local > Error message is displayed if selected end date is after MC end date
@@ -103,9 +103,9 @@ Scenario: Consumer Facing Report - Local > Error message is displayed if selecte
         And Export CSV and Export PDF buttons are not displayed
         And Report end date "31/07/2018" is selected
         And Export CSV button is clicked
-    Then Notification message "Please select a report end date that is before the menu cycle end date" is displayed
+    Then Verify notification message "Please select a report end date that is before the menu cycle end date" is displayed
         And Export PDF button is clicked
-        And Notification message "Please select a report end date that is before the menu cycle end date" is displayed
+        And Verify notification message "Please select a report end date that is before the menu cycle end date" is displayed
 
 @TC33994
 Scenario: Consumer facing report - Local > Error message is displayed if selected start date is before MC start date
@@ -120,9 +120,9 @@ Scenario: Consumer facing report - Local > Error message is displayed if selecte
         And Export CSV and Export PDF buttons are not displayed
         And Report end date "11/07/2018" is selected
         And Export CSV button is clicked
-    Then Notification message "Please select a report start date that is after the menu cycle start date" is displayed
+    Then Verify notification message "Please select a report start date that is after the menu cycle start date" is displayed
         And Export PDF button is clicked
-        And Notification message "Please select a report start date that is after the menu cycle start date" is displayed
+        And Verify notification message "Please select a report start date that is after the menu cycle start date" is displayed
 
 @TC33999
 Scenario: Consumer Facing Report  - Local > Error message is displayed if selected end date is before selected start date
@@ -137,9 +137,9 @@ Scenario: Consumer Facing Report  - Local > Error message is displayed if select
         And Export CSV and Export PDF buttons are not displayed
         And Report end date "11/07/2018" is selected
         And Export CSV button is clicked
-    Then Notification message "Please select an end date that is not before the start date" is displayed
+    Then Verify notification message "Please select an end date that is not before the start date" is displayed
         And Export PDF button is clicked
-        And Notification message "Please select an end date that is not before the start date" is displayed
+        And Verify notification message "Please select an end date that is not before the start date" is displayed
 
 @TC33980
 Scenario: Recipe Card Report - Local > Error message is displayed if selected start date is before MC start date
@@ -156,7 +156,7 @@ Scenario: Recipe Card Report - Local > Error message is displayed if selected st
         |Lunch              |
         |Dinner             |
         And Report is exported
-    Then Notification message "Please select a report start date that is after the menu cycle start date" is displayed
+    Then Verify notification message "Please select a report start date that is after the menu cycle start date" is displayed
 
 @TC33982
 Scenario: Recipe Card Report - Local > Error message is displayed if selected end date is before selected start date
@@ -173,7 +173,7 @@ Scenario: Recipe Card Report - Local > Error message is displayed if selected en
         |Lunch              |
         |Dinner             |
         And Report is exported
-    Then Notification message "Please select an end date that is not before the start date" is displayed
+    Then Verify notification message "Please select an end date that is not before the start date" is displayed
 
 @TC33988
 Scenario: Recipe Card Report - Central > Export button is displayed after meal period is specified
@@ -187,7 +187,7 @@ Scenario: Recipe Card Report - Central > Export button is displayed after meal p
         |MealPeriod         |
         |Lunch              |
         |Dinner             |
-    Then Export button is displayed
+    Then Verify Export button is displayed
     #Then Report is exported
     #Then Notification message "Successfully Exported" is displayed
 
@@ -206,7 +206,7 @@ Scenario: Recipe Card Report - Local > Error message is displayed if selected en
         |Lunch              |
         |Dinner             |
         And Report is exported
-    Then Notification message "Please select a report end date that is before the menu cycle end date" is displayed
+    Then Verify notification message "Please select a report end date that is before the menu cycle end date" is displayed
 
 @TC33985
 Scenario: Menu Extract Report - Central > Export button is displayed and clicked after meal period is specified
@@ -219,7 +219,7 @@ Scenario: Menu Extract Report - Central > Export button is displayed and clicked
         And Meal periods are selected
         |MealPeriod         |
         |Chloe              |
-    Then Export button is displayed
+    Then Verify Export button is displayed
         And Report is exported
-        And Notification message "Successfully Exported" is displayed
+        And Verify notification message "Successfully Exported" is displayed
    

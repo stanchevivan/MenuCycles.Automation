@@ -25,8 +25,8 @@ Scenario Outline: "Target %" field is not present and "Sell Price" can be edited
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
         And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "Fixed"
-    Then Target % field for recipe "<recipeName>" in meal period "<mealPeriod>" is not present
-        And Sell Price for recipe "<recipeName>" in meal period "<mealPeriod>" is an editable field
+    Then Verify Target % field for recipe "<recipeName>" in meal period "<mealPeriod>" is not present
+        And Verify Sell Price for recipe "<recipeName>" in meal period "<mealPeriod>" is an editable field
         
         
     @QAI
@@ -43,7 +43,7 @@ Scenario Outline: Target GP % has format: float and type: 2 decimals
         And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "GP"
         And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2.333333"
         And the user focus out
-    Then TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "2.33"
+    Then Verify TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "2.33"
     
     @QAI
     Examples:
@@ -59,7 +59,7 @@ Scenario Outline: Target Mark up % has format: float and type: 2 decimals
         And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "Markup"
         And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2.333333"
         And the user focus out
-    Then TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "2.33"
+    Then Verify TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "2.33"
     
     @QAI
     Examples:
@@ -75,20 +75,20 @@ Scenario Outline: Target GP % validations
         And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "GP"
         And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "-100"
         And the user focus out
-        And red border and contextual error message "Must be -99.99 to 99.99" is displayed for TargetGP field for recipe "<recipeName>" in meal period "LUNCH"
+        And Verify red border and contextual error message "Must be -99.99 to 99.99" is displayed for TargetGP field for recipe "<recipeName>" in meal period "LUNCH"
         And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "1"
         And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to ""
         And the user focus out
-        And red border and contextual error message "Value is required" is displayed for TargetGP field for recipe "<recipeName>" in meal period "LUNCH"
+        And Verify red border and contextual error message "Value is required" is displayed for TargetGP field for recipe "<recipeName>" in meal period "LUNCH"
         And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "7a7"
         And the user focus out
-        And red border and contextual error message "Must be number" is displayed for TargetGP field for recipe "<recipeName>" in meal period "LUNCH"
+        And Verify red border and contextual error message "Must be number" is displayed for TargetGP field for recipe "<recipeName>" in meal period "LUNCH"
         And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "-99.99"
         And the user focus out
-        And red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "<mealPeriod>"
+        And Verify red border is not displayed around Target% for recipe "004Baked Beans_3" in meal period "<mealPeriod>"
         And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "99.99"
         And the user focus out
-    Then red border is not displayed around Target% for recipe "<recipeName>" in meal period "<mealPeriod>"
+    Then Verify red border is not displayed around Target% for recipe "<recipeName>" in meal period "<mealPeriod>"
     
     @QAI
     Examples:
@@ -105,19 +105,19 @@ Scenario Outline: Target Markup % validations
         And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "5"
         And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to ""
         And the user focus out
-        And red border and contextual error message "Value is required" is displayed for TargetGP field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And Verify red border and contextual error message "Value is required" is displayed for TargetGP field for recipe "<recipeName>" in meal period "<mealPeriod>"
         And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "-1"
         And the user focus out
-        And red border and contextual error message "Must be 0 or greater" is displayed for TargetGP field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And Verify red border and contextual error message "Must be 0 or greater" is displayed for TargetGP field for recipe "<recipeName>" in meal period "<mealPeriod>"
         And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "7a7"
         And the user focus out
-        And red border and contextual error message "Must be number" is displayed for TargetGP field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And Verify red border and contextual error message "Must be number" is displayed for TargetGP field for recipe "<recipeName>" in meal period "<mealPeriod>"
         And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "0"
         And the user focus out
-        And red border is not displayed around Target% for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And Verify red border is not displayed around Target% for recipe "<recipeName>" in meal period "<mealPeriod>"
         And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2134"
         And the user focus out
-    Then red border is not displayed around Target% for recipe "<recipeName>" in meal period "<mealPeriod>"
+    Then Verify red border is not displayed around Target% for recipe "<recipeName>" in meal period "<mealPeriod>"
     
     @QAI
     Examples:
@@ -134,19 +134,19 @@ Scenario Outline: Sell price validations
         And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "5"
         And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to ""
         And the user focus out
-        And red border and contextual error message "Value is required" is displayed for Sell Price field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And Verify red border and contextual error message "Value is required" is displayed for Sell Price field for recipe "<recipeName>" in meal period "<mealPeriod>"
         And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "-1"
         And the user focus out
-        And red border and contextual error message "Must be 0 or greater" is displayed for Sell Price field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And Verify red border and contextual error message "Must be 0 or greater" is displayed for Sell Price field for recipe "<recipeName>" in meal period "<mealPeriod>"
         And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "7a7"
         And the user focus out
-        And red border and contextual error message "Must be number" is displayed for Sell Price field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And Verify red border and contextual error message "Must be number" is displayed for Sell Price field for recipe "<recipeName>" in meal period "<mealPeriod>"
         And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "0"
         And the user focus out
-        And red border is not displayed around Sell Price for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And Verify red border is not displayed around Sell Price for recipe "<recipeName>" in meal period "<mealPeriod>"
         And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "4322"
         And the user focus out
-    Then red border is not displayed around Sell Price for recipe "<recipeName>" in meal period "<mealPeriod>"
+    Then Verify red border is not displayed around Sell Price for recipe "<recipeName>" in meal period "<mealPeriod>"
     
     @QAI
     Examples:
@@ -159,7 +159,7 @@ Scenario Outline: Retrieve Recipe Price from the API (NO Min - Max)
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-    Then CostPerUnit for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "1.88"
+    Then Verify CostPerUnit for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "1.88"
     
     @QAI
     Examples:
@@ -201,16 +201,16 @@ Scenario Outline: Planned Quantity validations
     When quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "5"
         And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to ""
         And the user focus out
-        And red border and contextual error message "Value is required" is displayed for Planned Quantity field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And Verify red border and contextual error message "Value is required" is displayed for Planned Quantity field for recipe "<recipeName>" in meal period "<mealPeriod>"
         And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "-1"
         And the user focus out
-        And red border and contextual error message "Must be 0 or greater" is displayed for Planned Quantity field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And Verify red border and contextual error message "Must be 0 or greater" is displayed for Planned Quantity field for recipe "<recipeName>" in meal period "<mealPeriod>"
         And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "7a7"
         And the user focus out
-        And red border and contextual error message "Must be integer" is displayed for Planned Quantity field for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And Verify red border and contextual error message "Must be integer" is displayed for Planned Quantity field for recipe "<recipeName>" in meal period "<mealPeriod>"
         And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "0"
         And the user focus out
-    Then red border is not displayed around Planned Quantity for recipe "<recipeName>" in meal period "<mealPeriod>"
+    Then Verify red border is not displayed around Planned Quantity for recipe "<recipeName>" in meal period "<mealPeriod>"
     
     @QAI
     Examples:
@@ -305,9 +305,9 @@ Scenario Outline: Error message displayed if recipe values are empty
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
     When quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to ""
-        And red border is displayed around Planned Quantity for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And Verify red border is displayed around Planned Quantity for recipe "<recipeName>" in meal period "<mealPeriod>"
         And Save button is clicked
-    Then Notification message "Sorry, we could not proceed with your request" is displayed
+    Then Verify notification message "Sorry, we could not proceed with your request" is displayed
     
     @QAI
     Examples:
@@ -349,7 +349,7 @@ Scenario Outline: Meal period totals are re-calculated when the data from the in
     And data for recipes is set
         |MealPeriodName|TYPE  |RecipeTitle|PlannedQuantity|
         |<mealPeriod>  |RECIPE|Cheese     |               |
-    Then Value for fields for meal period "<mealPeriod>" is
+    Then Verify value for fields for meal period "<mealPeriod>" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
         |         7|     6.47|   9.37|     31%|
         
@@ -370,11 +370,11 @@ Scenario Outline: Mass recipe update
     And "SellPrice" is saved in context for recipe "<recipeName>" in meal period "<mealPeriod1>"
         And Save button is clicked
         And Update prices button is clicked for recipe "<recipeName>" in meal period "<mealPeriod1>"
-    And Future recipe instances count is 2
+    And Verify Future recipe instances count is 2
         And Confirm is selected on the Update Prices dialog
         And Cancel button is clicked
         And planning for "<day2>" is opened
-    Then "SellPrice" is equal to the value saved in context for recipe "<recipeName>" in meal period "<mealPeriod2>"
+    Then Verify "SellPrice" is equal to the value saved in context for recipe "<recipeName>" in meal period "<mealPeriod2>"
     
     @QAI
     Examples:
@@ -392,7 +392,7 @@ Scenario Outline: Tariff types are discarded when cancel button is clicked
         And Confirm is selected on unsaved changes dialog
         And Wait for Calendar view
         And planning for "<day>" is opened
-    Then Existing types for recipe "<recipeName>" in meal period "<mealPeriod>" are
+    Then Verify existing types for recipe "<recipeName>" in meal period "<mealPeriod>" are
         |TariffType|
         |TariffOne |
         
@@ -411,7 +411,7 @@ Scenario Outline: Delete icon appears when adding type
         |MealPeriodName|TYPE  |RecipeTitle |TariffType|
         |<mealPeriod>  |RECIPE|<recipeName>|TariffTwo |
         And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
-    Then delete icon is present for recipe "<recipeName>" in meal period "<mealPeriod>" tariff type "TariffOne"
+    Then Verify delete icon is present for recipe "<recipeName>" in meal period "<mealPeriod>" tariff type "TariffOne"
     
     @QAI
     Examples:
@@ -429,7 +429,7 @@ Scenario Outline: Opening planning screen multiple times does not add data to un
         And Cancel button is clicked
         And planning for "<day>" is opened
         And Meal Period "<mealPeriod>" is expanded
-    Then existing types are same as from the context for recipe "<recipeName>" in meal period "<mealPeriod>"
+    Then Verify existing types are same as from the context for recipe "<recipeName>" in meal period "<mealPeriod>"
     
     @QAI
     Examples:
@@ -449,7 +449,7 @@ Scenario Outline: Saving decimal values
         And "SellPrice" is saved in context for recipe "<recipeName>" in meal period "<mealPeriod>"
         And Cancel button is clicked
         And planning for "<day>" is opened
-    Then "SellPrice" is equal to the value saved in context for recipe "<recipeName>" in meal period "<mealPeriod>"
+    Then Verify "SellPrice" is equal to the value saved in context for recipe "<recipeName>" in meal period "<mealPeriod>"
     
     @QAI
     Examples:
@@ -466,14 +466,14 @@ Scenario Outline: Confirm dialog is not shown after save with added TariffTypes
         And "Planned Qty" for recipe with name "<recipeName>" with TariffType "TariffTwo" in meal period "<mealPeriod>" is set to "32"
         And "Sell Price" for recipe with name "<recipeName>" with TariffType "TariffTwo" in meal period "<mealPeriod>" is set to "32"
         And Save button is clicked
-        And Notification message "Planning figures updated." is displayed
+        And Verify notification message "Planning figures updated." is displayed
         And Cancel button is clicked
         And Wait for Calendar view
-    Then Calendar view is opened
+    Then Verify calendar view is opened
         And planning for "<day>" is opened
         And delete icon is clicked for recipe "<recipeName>" in meal period "<mealPeriod>" with tariff type "TariffTwo"
         And Save button is clicked
-        And Notification message "Planning figures updated." is displayed
+        And Verify notification message "Planning figures updated." is displayed
         
     @QAI
     Examples:
@@ -490,8 +490,8 @@ Scenario Outline: Saving Planning screen with empty fields displays red border a
         |MealPeriodName|TYPE  |RecipeTitle |SellPrice   |PlannedQuantity|
         |<mealPeriod>  |RECIPE|<recipeName>|invalidinput|               |
     And Save button is clicked
-    Then red border and contextual error message "Value is required" is displayed for Planned Quantity field for recipe "<recipeName>" in meal period "<mealPeriod>"
-    And red border and contextual error message "Must be number" is displayed for Sell Price field for recipe "<recipeName>" in meal period "<mealPeriod>"
+    Then Verify red border and contextual error message "Value is required" is displayed for Planned Quantity field for recipe "<recipeName>" in meal period "<mealPeriod>"
+    And Verify red border and contextual error message "Must be number" is displayed for Sell Price field for recipe "<recipeName>" in meal period "<mealPeriod>"
     
     @QAI
     Examples:

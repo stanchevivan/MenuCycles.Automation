@@ -9,7 +9,7 @@ Given Menu Cycle app is open on "<environment>"
         And location "<location>" is selected
     When Menu Cycle "<menuCycle>" is searched
         And action menu is opened for menu cycle "<menuCycle>" 
-    Then Delete button is not present for menu cycle "<menuCycle>"
+    Then Verify delete button is not present for menu cycle "<menuCycle>"
     
     @QAI
     Examples:

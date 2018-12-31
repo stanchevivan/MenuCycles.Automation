@@ -7,7 +7,7 @@ Scenario Outline: Open daily planning with one meal period
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-    Then main data for Meal Period "<mealPeriod>" is expanded
+    Then Verify main data for Meal Period "<mealPeriod>" is expanded
     
     @QAI
     Examples:
@@ -20,7 +20,7 @@ Scenario Outline: Open daily planning with multiple meal period
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-    Then main data for Meal Period "<mealPeriod>" is collapsed
+    Then Verify main data for Meal Period "<mealPeriod>" is collapsed
     
     @QAI
     Examples:
@@ -48,7 +48,7 @@ Scenario Outline: Collapse single meal period
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
         And Meal Period "<mealPeriod>" is collapsed
-    Then main data for Meal Period "<mealPeriod>" is collapsed
+    Then Verify main data for Meal Period "<mealPeriod>" is collapsed
     
     @QAI
     Examples:
@@ -62,7 +62,7 @@ Scenario Outline: Expand single meal period
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
         And Meal Period "<mealPeriod>" is expanded
-    Then main data for Meal Period "<mealPeriod>" is expanded
+    Then Verify main data for Meal Period "<mealPeriod>" is expanded
     
     @QAI
     Examples:
@@ -76,7 +76,7 @@ Scenario Outline: The colour of every meal period in the Planning screen is the 
         And Menu Cycle "<menuCycle>" is selected
         And Meal Period colours for "<day>" are saved
     When planning for "<day>" is opened
-    Then Meal Period colours match the calendar view colours
+    Then Verify Meal Period colours match the calendar view colours
     
     @QAI
     Examples:
@@ -90,8 +90,8 @@ Scenario Outline: Display recipes, added to a meal period in the planning screen
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
         And Meal Period "<mealPeriod>" is expanded
-    Then recipe named "<recipe>" is present for meal period "<mealPeriod>"
-        And recipe colour for "<recipe>" match the colour for meal period "<mealPeriod>"
+    Then Verify recipe named "<recipe>" is present for meal period "<mealPeriod>"
+        And Verify recipe colour for "<recipe>" match the colour for meal period "<mealPeriod>"
         
     @QAI
     Examples:
@@ -105,9 +105,9 @@ Scenario Outline: Display Buffet menus, added to a meal period in the planning s
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
         And Meal Period "<mealPeriod>" is expanded
-    Then buffet named "<buffet>" is present for meal period "<mealPeriod>"
-        And buffet colour for "<buffet>" match the colour for meal period "<mealPeriod>"
-        And in meal period "<mealPeriod>" all recipe colours inside "<buffet>" match the buffet colour
+    Then Verify buffet named "<buffet>" is present for meal period "<mealPeriod>"
+        And Verify buffet colour for "<buffet>" match the colour for meal period "<mealPeriod>"
+        And Verify in meal period "<mealPeriod>" all recipe colours inside "<buffet>" match the buffet colour
         
     @QAI
     Examples:
@@ -120,9 +120,9 @@ Scenario Outline: Display A la carte menus, added to a meal period in the planni
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-    Then a la carte named "<aLaCarte>" is present for meal period "<mealPeriod>"
-        And a la carte colour for "<aLaCarte>" match the colour for meal period "<mealPeriod>"
-        And in meal period "<mealPeriod>" all recipe colours inside "<aLaCarte>" match the A La Carte colour
+    Then Verify a la carte named "<aLaCarte>" is present for meal period "<mealPeriod>"
+        And Verify a la carte colour for "<aLaCarte>" match the colour for meal period "<mealPeriod>"
+        And Verify in meal period "<mealPeriod>" all recipe colours inside "<aLaCarte>" match the A La Carte colour
         
     @QAI
     Examples:
@@ -135,7 +135,7 @@ Scenario Outline: Retrieve Number of covers for meal period from the API
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-    Then number of covers for meal period "<mealPeriod>" is equal to "3"
+    Then Verify number of covers for meal period "<mealPeriod>" is equal to "3"
     
     @QAI
     Examples:
@@ -149,9 +149,9 @@ Scenario Outline: Open all meal periods in Planning screen
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
         And Expand all is clicked
-    And all meal periods are expanded in Daily Planning
+    And Verify all meal periods are expanded in Daily Planning
         And Collapse all is clicked
-    Then all meal periods are collapsed in Daily Planning
+    Then Verify all meal periods are collapsed in Daily Planning
     
     @QAI
     Examples:
@@ -169,7 +169,7 @@ Scenario Outline: Recipes only - Calculate Meal period "Planned Quantity", "Tota
         |DANGELO       |RECIPE|703Coronation Chicken Sandwich Filling (50g)|             10|        GP|    14|            20|       ^|
         |DANGELO       |RECIPE|703Reggae Raggae Mayonnaise                 |             10|     Fixed|     ^|            20|       1|
         |DANGELO       |RECIPE|Cheese                                      |             10|    Markup|    12|            20|       ^|
-    Then Value for fields for meal period "<mealPeriod>" is
+    Then Verify value for fields for meal period "<mealPeriod>" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
         |        30|     18.2|  17.75|     -3%|
         
@@ -195,7 +195,7 @@ Scenario Outline: Buffets only - Calculate Meal period "Planned Quantity", "Tota
         |004Beef Stock (bouillon)              |             40|
         |724Custard Sauce (powder, fresh milk) |             50|
         |004German Shortcrust Pastry (fresh)007|             60|
-    Then Value for fields for meal period "DANGELO" is
+    Then Verify value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
         |       210|    391.2| 191.67|   -104%|
         
@@ -214,7 +214,7 @@ Scenario Outline: A la cartes only - Calculate Meal period "Planned Quantity", "
         |RecipeTitle                   |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
         |004Bread (fresh dough)        |              2|        GP|    11|           20|        ^|
         |724Pepper & Garlic Coated Beef|              3|     Fixed|     ^|           20|       55|
-    Then Value for fields for meal period "DANGELO" is
+    Then Verify value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost  |Revenue|ActualGP|
         |         5|     7136.9| 137.72|  -5082%|
         
@@ -248,7 +248,7 @@ Scenario Outline: Combined for Buffet, A la cares and recipes - Calculate Meal p
         |MealPeriodName|TYPE  |RecipeTitle      |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
         |DANGELO       |RECIPE|004Bechamel Sauce|             10|        GP|    14|            20|       ^|
         |DANGELO       |RECIPE|004Baked Beans_3 |             10|     Fixed|     ^|            20|       1|
-    Then Value for fields for meal period "DANGELO" is
+    Then Verify value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
         |       235|     7549| 340.17|  -2119%|
         
@@ -264,10 +264,10 @@ Scenario Outline: Meal periods are collapsed after reopening planning screen
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
         And Expand all is clicked
-    And all meal periods are expanded in Daily Planning
+    And Verify all meal periods are expanded in Daily Planning
         And Cancel button is clicked
         And planning for "<day>" is opened
-    Then all meal periods are collapsed in Daily Planning
+    Then Verify all meal periods are collapsed in Daily Planning
     
     @QAI
     Examples:
@@ -280,7 +280,7 @@ Scenario Outline: More than one hundred recipies are shown in a meal period
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-    Then "132" recipies are present in meal period "<mealPeriod>"
+    Then Verify "132" recipies are present in meal period "<mealPeriod>"
     
     @QAI
     Examples:
@@ -294,7 +294,7 @@ Scenario Outline: The order of meal periods from the planning screen is the same
         And Menu Cycle "<menuCycle>" is selected
         And Meal Period names for "<day>" are saved
     When planning for "<day>" is opened
-    Then Meal Period names match the calendar view names
+    Then Verify Meal Period names match the calendar view names
     
     @QAI
     Examples:
@@ -359,7 +359,7 @@ Scenario Outline: Deleting meal period deletes it from calendar view
     When Meal period delete button is clicked
         And Modal dialog Yes is selected
         And Notification message "Meal Period Deleted Successfully." is displayed
-    Then Meal period "<mealPeriod>" is not present for "<day>"
+    Then Verify Meal period "<mealPeriod>" is not present for "<day>"
     
     @QAI
     Examples:

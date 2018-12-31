@@ -162,7 +162,7 @@ namespace MenuCycle.Tests.Steps
             Assert.IsFalse(reportsView.IsExportButtonVisible);
         }
 
-        [Then(@"Export button is displayed")]
+        [Then(@"Verify Export button is displayed")]
         public void ExportButtonIsDisplayed()
         {
             Assert.IsTrue(reportsView.IsExportButtonVisible);

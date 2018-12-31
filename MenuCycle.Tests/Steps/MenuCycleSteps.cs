@@ -67,6 +67,7 @@ namespace MenuCycle.Tests.Steps
         }
 
         [When(@"Verify search results contain the following menu cycles")]
+        [Then(@"Verify search results contain the following menu cycles")]
         public void VerifySearchResultsContainMenuCycles(Table table)
         {
             for (int i = 0; i < table.RowCount; i++)
@@ -92,8 +93,8 @@ namespace MenuCycle.Tests.Steps
             planningView.WaitForLoad();
         }
 
-        [When(@"Calendar view is opened")]
-        [Then(@"Calendar view is opened")]
+        [When(@"Verify calendar view is opened")]
+        [Then(@"Verify calendar view is opened")]
         public void CalendardViewIsOpened()
         {
             Assert.IsTrue(menuCycleDailyCalendarView.IsCalendarViewOpen);

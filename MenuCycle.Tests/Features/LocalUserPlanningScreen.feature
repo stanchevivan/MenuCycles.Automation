@@ -8,7 +8,7 @@ Scenario Outline: Load engine when Planning screen is opened (Local User)
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-    Then planning screen engine is loaded
+    Then Verify planning screen engine is loaded
     
     @QAI
     Examples:
@@ -16,13 +16,13 @@ Scenario Outline: Load engine when Planning screen is opened (Local User)
     |QAI        |SE001   |Local User Testing|TUE 10 JUL|
 
 @TC30226
-Scenario Outline: Save button is disabled for passed days
+Scenario Outline: Verify save button is disabled for passed days
     Given Menu Cycle app is open on "<environment>" 
         And a local user is selected
         And location "<location>" is selected
     And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-    Then Save button is disabled
+    Then Verify save button is disabled
     
     @QAI
     Examples:
@@ -52,7 +52,7 @@ Scenario Outline: Open Planning Screen, go to Post-Production, go back to Planni
     When planning for "<day>" is opened
         And daily post-production tab is opened
         And daily planning tab is opened
-    Then planning screen engine is loaded
+    Then Verify planning screen engine is loaded
     
     @QAI
     Examples:
