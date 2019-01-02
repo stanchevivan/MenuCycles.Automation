@@ -14,7 +14,7 @@ Scenario Outline: Retrieve recipe information from the API
     @QAI
     Examples:
     |environment|menuCycle|day     |mealPeriod|type  |recipeName                                  |plannedQuantity|costPerUnit|tariffType|priceModel|target|taxPercentage|sellPrice|
-    |QAI        |Meda     |Thursday|DANGELO   |RECIPE|703Coronation Chicken Sandwich Filling (50g)|             12|       0.81| TariffOne|        GP|     5|           20|     1.02|
+    |QAI        |Meda     |Thursday|DANGELO   |RECIPE|703Coronation Chicken Sandwich Filling (50g)|             12|          0| TariffOne|        GP|     5|           20|        0|
     
                                                     
     
@@ -159,7 +159,7 @@ Scenario Outline: Retrieve Recipe Price from the API (NO Min - Max)
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-    Then Verify CostPerUnit for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "1.88"
+    Then Verify CostPerUnit for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "1.84"
     
     @QAI
     Examples:
