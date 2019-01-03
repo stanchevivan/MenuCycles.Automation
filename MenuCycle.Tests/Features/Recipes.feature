@@ -471,7 +471,7 @@ Scenario Outline: Confirm dialog is not shown after save with added TariffTypes
         And Wait for Calendar view
     Then Verify calendar view is opened
         And planning for "<day>" is opened
-        And delete icon is clicked for recipe "<recipeName>" in meal period "<mealPeriod>" with tariff type "TariffTwo"
+        And Verify delete icon is clicked for recipe "<recipeName>" in meal period "<mealPeriod>" with tariff type "TariffTwo"
         And Save button is clicked
         And Verify notification message "Planning figures updated." is displayed
         

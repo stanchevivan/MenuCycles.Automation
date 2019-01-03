@@ -78,7 +78,7 @@ Scenario Outline: Saved data is retrieved from the API
         And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "Fixed"
         And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2"
     When Save button is clicked
-        And Notification message "Planning figures updated." is displayed
+        And Verify notification message "Planning figures updated." is displayed
         And Cancel button is clicked
         And Wait for Calendar view
         And planning for "<day>" is opened
@@ -221,7 +221,7 @@ Scenario Outline: Number of covers is saved after closing the app
         And planning for "<day>" is opened
         And Number of covers for meal period "<mealPeriod>" is set to random number
         And Save button is clicked
-        And Notification message "Planning figures updated." is displayed
+        And Verify notification message "Planning figures updated." is displayed
         And Menu Cycles app is closed
         And Menu Cycle app is open on "<environment>"  
         And a central user is selected

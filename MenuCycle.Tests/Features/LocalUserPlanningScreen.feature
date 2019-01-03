@@ -86,7 +86,7 @@ Scenario Outline: User should not be redirected to the planning screen after nav
         And Cross button is clicked and calendar view has loaded
         And Home button is clicked
         And Menu Cycle "<menuCycle>" is selected
-    Then Calendar view is opened
+    Then Verify calendar view is opened
     
     @QAI
     Examples:
@@ -114,7 +114,7 @@ Scenario Outline: Save button is clicked without any changes applied (Local user
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
         And Save button is clicked
-    Then Notification message "Planning figures updated." is displayed
+    Then Verify notification message "Planning figures updated." is displayed
     
     @QAI
     Examples:

@@ -306,7 +306,7 @@ Scenario Outline: Expand all meal periods in the Calendar view
     Given Menu Cycle app is open on "<environment>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
-    When Calendar view is opened
+    When Verify calendar view is opened
         And Expand all is clicked
     Then Verify all meal periods are expanded in Daily Calendar
     
@@ -320,7 +320,7 @@ Scenario Outline: Collapse all meal periods in the Calendar view
     Given Menu Cycle app is open on "<environment>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
-    When Calendar view is opened
+    When Verify calendar view is opened
         And Expand all is clicked
         And Verify all meal periods are expanded in Daily Calendar
         And Collapse all is clicked
@@ -336,7 +336,7 @@ Scenario Outline: All meal periods in Calendar view are collapsed by default
     Given Menu Cycle app is open on "<environment>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
-    When Calendar view is opened
+    When Verify calendar view is opened
     Then Verify all meal periods are collapsed in Daily Calendar
     
     @QAI
@@ -349,16 +349,16 @@ Scenario Outline: Deleting meal period deletes it from calendar view
     Given Menu Cycle app is open on "<environment>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
-    When Calendar view is opened
+    When Verify calendar view is opened
         And Meal period "<mealPeriod>" is created for "<day>"
         And Recipe search is opened
         And Buffet "Maya Buffet" is searched
         And Buffet "Maya Buffet" is added
         And Meal period is saved
-        And Notification message "Meal Period Saved successfully" is displayed
+        And Verify notification message "Meal Period Saved successfully" is displayed
     When Meal period delete button is clicked
         And Modal dialog Yes is selected
-        And Notification message "Meal Period Deleted Successfully." is displayed
+        And Verify notification message "Meal Period Deleted Successfully." is displayed
     Then Verify Meal period "<mealPeriod>" is not present for "<day>"
     
     @QAI

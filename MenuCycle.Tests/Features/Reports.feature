@@ -189,7 +189,7 @@ Scenario: Recipe Card Report - Central > Export button is displayed after meal p
         |Dinner             |
     Then Verify Export button is displayed
     #Then Report is exported
-    #Then Notification message "Successfully Exported" is displayed
+    #Then Verify notification message "Successfully Exported" is displayed
 
 @TC33997
 Scenario: Recipe Card Report - Local > Error message is displayed if selected end date is after MC end date

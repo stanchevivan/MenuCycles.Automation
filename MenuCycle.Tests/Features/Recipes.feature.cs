@@ -1455,8 +1455,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 473
         testRunner.And(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 474
-        testRunner.And(string.Format("delete icon is clicked for recipe \"{0}\" in meal period \"{1}\" with tariff type \"Ta" +
-                        "riffTwo\"", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("Verify delete icon is clicked for recipe \"{0}\" in meal period \"{1}\" with tariff t" +
+                        "ype \"TariffTwo\"", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 475
         testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 476

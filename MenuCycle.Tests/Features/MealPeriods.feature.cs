@@ -885,7 +885,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 308
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 309
-    testRunner.When("Calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("Verify calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 310
         testRunner.And("Expand all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 311
@@ -918,7 +918,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 322
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 323
-    testRunner.When("Calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("Verify calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 324
         testRunner.And("Expand all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 325
@@ -953,7 +953,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 338
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 339
-    testRunner.When("Calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("Verify calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 340
     testRunner.Then("Verify all meal periods are collapsed in Daily Calendar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -984,7 +984,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 351
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 352
-    testRunner.When("Calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("Verify calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 353
         testRunner.And(string.Format("Meal period \"{0}\" is created for \"{1}\"", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 354
@@ -996,13 +996,13 @@ this.ScenarioSetup(scenarioInfo);
 #line 357
         testRunner.And("Meal period is saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 358
-        testRunner.And("Notification message \"Meal Period Saved successfully\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Verify notification message \"Meal Period Saved successfully\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 359
     testRunner.When("Meal period delete button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 360
         testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 361
-        testRunner.And("Notification message \"Meal Period Deleted Successfully.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Verify notification message \"Meal Period Deleted Successfully.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 362
     testRunner.Then(string.Format("Verify Meal period \"{0}\" is not present for \"{1}\"", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

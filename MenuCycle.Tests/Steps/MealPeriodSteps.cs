@@ -121,7 +121,7 @@ namespace MenuCycle.Tests.Steps
         /// </summary>
         /// <param name="aLaCarteTitle">A La Carte name.</param>
         /// <param name="mealPeriodName">Meal period name.</param>
-        [Then(@"a la carte named ""(.*)"" is present for meal period ""(.*)""")]
+        [Then(@"Verify a la carte named ""(.*)"" is present for meal period ""(.*)""")]
         public void ThenALaCarteNamedIsPresentForMealPeriod(string aLaCarteTitle, string mealPeriodName)
         {
             var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
@@ -129,7 +129,7 @@ namespace MenuCycle.Tests.Steps
             Assert.IsTrue(mealPeriod.ALaCartes.Any(a => a.Title == aLaCarteTitle));
         }
 
-        [Then(@"a la carte colour for ""(.*)"" match the colour for meal period ""(.*)""")]
+        [Then(@"Verify a la carte colour for ""(.*)"" match the colour for meal period ""(.*)""")]
         public void ThenALaCarteColourForIsTheSameAsTheColourForMealPeriod(string aLaCarteTitle, string mealPeriodName)
         {
             var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
