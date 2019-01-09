@@ -75,10 +75,17 @@ namespace MenuCycle.Tests.PageObjects
         public void OpenUrl(string URL)
         {
             Driver.Navigate().GoToUrl(URL);
+
+            if (Driver is OpenQA.Selenium.IE.InternetExplorerDriver || Driver is OpenQA.Selenium.Chrome.ChromeDriver)
+            {
+                Driver.Manage().Window.Maximize();
+            }
+
             if (Driver is OpenQA.Selenium.Safari.SafariDriver)
             {
                 ((OpenQA.Selenium.Safari.SafariDriver)Driver).Manage().Window.Maximize();
             }
+
         }
     }
 }
