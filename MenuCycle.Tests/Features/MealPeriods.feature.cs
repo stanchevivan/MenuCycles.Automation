@@ -459,7 +459,7 @@ this.ScenarioSetup(scenarioInfo);
                         "30",
                         "0",
                         "8.33",
-                        "100%"});
+                        "100"});
 #line 172
     testRunner.Then(string.Format("Verify value for fields for meal period \"{0}\" is", mealPeriod), ((string)(null)), table2, "Then ");
 #line hidden
@@ -546,7 +546,7 @@ this.ScenarioSetup(scenarioInfo);
                         "210",
                         "669.6",
                         "191.67",
-                        "-249%"});
+                        "-249"});
 #line 198
     testRunner.Then("Verify value for fields for meal period \"DANGELO\" is", ((string)(null)), table5, "Then ");
 #line hidden
@@ -613,7 +613,7 @@ this.ScenarioSetup(scenarioInfo);
                         "5",
                         "15067.27",
                         "137.5",
-                        "-10858%"});
+                        "-10858"});
 #line 217
     testRunner.Then("Verify value for fields for meal period \"DANGELO\" is", ((string)(null)), table7, "Then ");
 #line hidden
@@ -755,7 +755,7 @@ this.ScenarioSetup(scenarioInfo);
                         "235",
                         "15756.88",
                         "339.39",
-                        "-4543%"});
+                        "-4543"});
 #line 251
     testRunner.Then("Verify value for fields for meal period \"DANGELO\" is", ((string)(null)), table12, "Then ");
 #line hidden
