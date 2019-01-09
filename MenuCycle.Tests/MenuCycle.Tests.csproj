@@ -376,6 +376,11 @@
       <DependentUpon>DailyCalendar.feature</DependentUpon>
     </Compile>
     <Compile Include="Steps\DailyCalendarSteps.cs" />
+    <Compile Include="Features\PostProduction.feature.cs">
+      <DependentUpon>PostProduction.feature</DependentUpon>
+    </Compile>
+    <Compile Include="PageObjects\Planning\PostProductionTabDays\DailyMealPeriod.cs" />
+    <Compile Include="Steps\PostProductionSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -460,6 +465,10 @@
     <None Include="Features\DailyCalendar.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>DailyCalendar.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\PostProduction.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PostProduction.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
