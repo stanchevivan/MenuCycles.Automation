@@ -14,19 +14,19 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = ".subheader__tab-btn-active.disabled")]
         private IWebElement PostProductionNavTabs { get; set; }
-        [FindsBy(How = How.ClassName, Using = "daily-post-production-meal-period-summary_plannedqty_secondary")]
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(1) > span:last-of-type")]
         private IWebElement dailyTotal_PlannedQty { get; set; }
-        [FindsBy(How = How.ClassName, Using = "daily-post-production-meal-period-summary_qty_secondary")]
+        [FindsBy(How = How.ClassName, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(2) > span:last-of-type")]
         private IWebElement dailyTotal_QtyReqd { get; set; }
-        [FindsBy(How = How.ClassName, Using = "daily-post-production-meal-period-summary_prod_secondary")]
+        [FindsBy(How = How.ClassName, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(3) > span:last-of-typey")]
         private IWebElement dailyTotal_QtyProd { get; set; }
-        [FindsBy(How = How.ClassName, Using = "daily-post-production-meal-period-summary_sold_secondary")]
+        [FindsBy(How = How.ClassName, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(4) > span:last-of-type")]
         private IWebElement dailyTotal_QtySold { get; set; }
-        [FindsBy(How = How.ClassName, Using = "daily-post-production-meal-period-summary_no_charge_secondary")]
+        [FindsBy(How = How.ClassName, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(5) > span:last-of-type")]
         private IWebElement dailyTotal_NoChargeApplied { get; set; }
-        [FindsBy(How = How.ClassName, Using = "daily-post-production-meal-period-summary_return_secondary")]
+        [FindsBy(How = How.ClassName, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(6) > span:last-of-type")]
         private IWebElement dailyTotal_ReturnToStock { get; set; }
-        [FindsBy(How = How.ClassName, Using = "daily-post-production-meal-period-wastage_secondary")]
+        [FindsBy(How = How.ClassName, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(7) > span:last-of-type")]
         private IWebElement dailyTotal_Wastage { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".main > div")]
@@ -34,13 +34,13 @@ namespace MenuCycle.Tests.PageObjects
 
         public IList<DailyMealPeriodPostProduction> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriodPostProduction(p, Driver)).ToList();
 
-        public string DailyTotal_PlannedQty => dailyTotal_PlannedQty.Text;
-        public string DailyTotal_QtyReqd => dailyTotal_QtyReqd.Text;
-        public string DailyTotal_QtyProd => dailyTotal_QtyProd.Text;
-        public string DailyTotal_QtySold => dailyTotal_QtySold.Text;
-        public string DailyTotal_NoChargeApplied => dailyTotal_NoChargeApplied.Text;
-        public string DailyTotal_ReturnToStock => dailyTotal_ReturnToStock.Text;
-        public string DailyTotal_Wastage => dailyTotal_Wastage.Text;
+        public string PlannedQtyTotal => dailyTotal_PlannedQty.Text;
+        public string QtyReqdTotal => dailyTotal_QtyReqd.Text;
+        public string QtyProdTotal => dailyTotal_QtyProd.Text;
+        public string QtySoldTotal => dailyTotal_QtySold.Text;
+        public string NoChargeAppliedTotal => dailyTotal_NoChargeApplied.Text;
+        public string ReturnToStockTotal => dailyTotal_ReturnToStock.Text;
+        public string WastageTotal => dailyTotal_Wastage.Text;
 
         public bool AreAllMealPeriodsExpanded => MealPeriods.All(period => period.IsExpanded);
         public bool AreAllMealPeriodsCollapsed => MealPeriods.All(period => !period.IsExpanded);

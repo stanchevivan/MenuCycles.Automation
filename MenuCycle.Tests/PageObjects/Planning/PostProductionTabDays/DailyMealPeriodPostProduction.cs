@@ -22,11 +22,11 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement ExpandArrow { get; set; }
         [FindsBy(How = How.ClassName, Using = "mealperiod-header__name")]
         private IWebElement MealPeriodName { get; set; }
-        [FindsBy(How = How.ClassName, Using = "mealperiod-header__covers-input")]
+        [FindsBy(How = How.ClassName, Using = "mealperiod-header__covers__input")]
         private IWebElement Covers { get; set; }
         [FindsBy(How = How.ClassName, Using = "recipe-content")]
         private IList<IWebElement> Items{ get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".recipe-data__column quantity > span")]
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__column:nth-of-type(1) > span:last-of-type")]
         private IWebElement PlannedQuantityText { get; set; }
 
         public string Name => MealPeriodName.Text;
@@ -35,17 +35,14 @@ namespace MenuCycle.Tests.PageObjects
         public string NumberOfCovers { get => Covers.GetAttribute("value"); set => Covers.Do(Driver).ClearAndSendKeys(value); }
         public string PlannedQuantity => PlannedQuantityText.Text;
 
-        public IList<Recipe> Recipes => this.Items
-                                            .Where(p => new Recipe(p, this.Name, Driver).Type == "RECIPE")
-                                            .Select(p => new Recipe(p, this.Name, Driver)).ToList();
-        public IList<Buffet> Buffets => this.Items
-                                            .Where(p => new Buffet(p, this.Name, Driver).Type == "BUFFET")
-                                            .Select(p => new Buffet(p, this.Name, Driver)).ToList();
-        public IList<ALaCarte> ALaCartes => this.Items
-                                                .Where(p => new ALaCarte(p, this.Name, Driver).Type == "A LA CARTE")
-                                                .Select(p => new ALaCarte(p, this.Name, Driver)).ToList();
+        public IList<RecipePostProduction> Recipes => this.Items
+                                            .Where(p => !new RecipePostProduction(p, this.Name, Driver).IsBuffet)
+                                            .Select(p => new RecipePostProduction(p, this.Name, Driver)).ToList();
+        public IList<BuffetPostProduction> Buffets => this.Items
+                                            .Where(p => new BuffetPostProduction(p, this.Name, Driver).IsBuffet)
+                                            .Select(p => new BuffetPostProduction(p, this.Name, Driver)).ToList();
 
-        public Recipe GetRecipe(string title)
+        public RecipePostProduction GetRecipe(string title)
         {
             if (!Recipes.Any(a => a.Title == title))
             {
@@ -55,17 +52,7 @@ namespace MenuCycle.Tests.PageObjects
             return this.Recipes.First(a => a.Title == title);
         }
 
-        public RecipeRow GetRecipeWithTariffType(string recipeTitle, string tariffType)
-        {
-            return GetRecipe(recipeTitle).GetTariffTypeRow(tariffType);
-        }
-
-        public ALaCarte GetALaCarte(string name)
-        {
-            return this.ALaCartes.First(a => a.Title == name);
-        }
-
-        public Buffet GetBuffet(string name)
+        public BuffetPostProduction GetBuffet(string name)
         {
             return this.Buffets.First(a => a.Title == name);
         }

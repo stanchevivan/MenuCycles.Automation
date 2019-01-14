@@ -35,3 +35,17 @@ Scenario Outline: Expand/Collapse single meal period Post-production days
     Examples:
     |environment|location|menuCycle         |day       |mealPeriod|
     |QAI        |SE001   |Local User Testing|WED 11 JUL|DINNER    |
+    
+Scenario Outline: Post production validations
+    Given Menu Cycle app is open on "<environment>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And daily post-production tab is opened
+    Then Verify daily total equals the sum of all meal period totals
+    
+    @QAI
+    Examples:
+    |environment|location|menuCycle         |day       |
+    |QAI        |SE001   |Local User Testing|WED 11 JUL|
