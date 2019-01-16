@@ -34,6 +34,17 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         private IWebElement wastage { get; set; }
         [FindsBy(How = How.ClassName, Using = "border-error")]
         private IWebElement BorderError { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".required-quantity > div > .text-error")]
+        private IWebElement qtyReqdContextError { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".produced-quantity > div > .text-error")]
+        private IWebElement qtyProdContextError { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".sold-quantity > div > .text-error")]
+        private IWebElement qtySoldContextError { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".no-charge > div > .text-error")]
+        private IWebElement noChargeContextError { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".return-stock > div > .text-error")]
+        private IWebElement returnToStockContextError { get; set; }
+
 
         public string TariffName => this.tariffName.Text;
         public string PlannedQuantity => this.quantityProduced.Text;
@@ -46,9 +57,9 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
                 this.quantityRequired.Do(Driver).ClearAndSendKeys(value);
                 this.quantityProduced.Do(Driver).FocusOut();
             }
-    }
+        }
 
-    public string QuantityProduced
+        public string QuantityProduced
         {
             get => this.quantityProduced.GetAttribute("value");
             set
@@ -90,11 +101,17 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public string Wastage => this.wastage.Text;
 
+        public string QtyReqdContextError => qtyReqdContextError.Text;
+        public string QtyProdContextError => qtyProdContextError.Text;
+        public string QtySoldContextError => qtySoldContextError.Text;
+        public string NoChargeContextError => noChargeContextError.Text;
+        public string ReturnToStockContextError => returnToStockContextError.Text;
+
         // May need another check
         //public bool IsPlannedQuantityWithRedBorder => plannedQuantity.Get().HasClass("border-error");
         //public bool IsReturnToStockWithRedBorder => returnToStock.Get().HasClass("border-error");
 
-        public RecipeModelPostProducton GetDTO()
+    public RecipeModelPostProducton GetDTO()
         {
             return new RecipeModelPostProducton
             {
