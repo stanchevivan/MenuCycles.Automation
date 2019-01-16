@@ -41,31 +41,51 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         public string QuantityRequired
         {
             get => this.quantityRequired.GetAttribute("value");
-            set => this.quantityRequired.Do(Driver).ClearAndSendKeys(value);
-        }
+            set
+            {
+                this.quantityRequired.Do(Driver).ClearAndSendKeys(value);
+                this.quantityProduced.Do(Driver).FocusOut();
+            }
+    }
 
-        public string QuantityProduced
+    public string QuantityProduced
         {
             get => this.quantityProduced.GetAttribute("value");
-            set => this.quantityProduced.Do(Driver).ClearAndSendKeys(value);
+            set
+            {
+                this.quantityProduced.Do(Driver).ClearAndSendKeys(value);
+                this.quantityProduced.Do(Driver).FocusOut();
+            }
         }
 
         public string QuantitySold
         {
             get => this.quantitySold.GetAttribute("value");
-            set => this.quantitySold.Do(Driver).ClearAndSendKeys(value);
+            set
+            {
+                this.quantitySold.Do(Driver).ClearAndSendKeys(value);
+                this.quantitySold.Do(Driver).FocusOut();
+            }
         }
 
         public string NoCharge
         {
             get => this.noCharge.GetAttribute("value");
-            set => this.noCharge.Do(Driver).ClearAndSendKeys(value);
+            set
+            {
+                this.noCharge.Do(Driver).ClearAndSendKeys(value);
+                this.noCharge.Do(Driver).FocusOut();
+            }
         }
 
         public string ReturnToStock
         {
             get => this.returnToStock.GetAttribute("value");
-            set => this.returnToStock.Do(Driver).ClearAndSendKeys(value);
+            set
+            {
+                this.returnToStock.Do(Driver).ClearAndSendKeys(value);
+                this.returnToStock.Do(Driver).FocusOut();
+            }
         }
 
         public string Wastage => this.wastage.Text;
