@@ -53,13 +53,14 @@ namespace MenuCycle.Tests.PageObjects
 
         public void SearchMenuCycle(string text)
         {
-            if (SearchIcon.Displayed)
+            if (!SearchButton.Displayed)
             {
                 SearchIcon.Click();
                 Driver.WaitIsClickable(SearchButton);
             }
 
-            SearchInput.ClearAndSendKeys(text);
+            SearchInput.Do(Driver).ClearWithoutFocusOut();
+            SearchInput.SendKeys(text);
             SearchButton.Click();
             Driver.WaitElementToDisappear(SpinningWheel);
         }
@@ -68,7 +69,6 @@ namespace MenuCycle.Tests.PageObjects
         {
             Driver.WaitElementToDisappear(SpinningWheel);
             Driver.WaitElementToExists(searchResultsBody);
-
             if (!NoResultsText.Exist())
             {
                 Driver.WaitListItemsLoad(menuCycleRows);
