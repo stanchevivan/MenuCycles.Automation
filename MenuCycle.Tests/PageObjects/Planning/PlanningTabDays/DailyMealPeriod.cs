@@ -22,7 +22,7 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement ExpandArrow { get; set; }
         [FindsBy(How = How.ClassName, Using = "mealperiod-header__name")]
         private IWebElement MealPeriodName { get; set; }
-        [FindsBy(How = How.ClassName, Using = "mealperiod-header__covers__input")]
+        [FindsBy(How = How.ClassName, Using = "mealperiod-covers__input")]
         private IWebElement Covers { get; set; }
         [FindsBy(How = How.ClassName, Using = "recipe-content")]
         private IList<IWebElement> Items{ get; set; }
