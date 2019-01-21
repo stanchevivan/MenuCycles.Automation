@@ -735,7 +735,7 @@ this.ScenarioSetup(scenarioInfo);
                         "109",
                         "266.76",
                         "315.71",
-                        "16"});
+                        "16%"});
 #line 267
     testRunner.Then("Verify Daily Totals are equal to", ((string)(null)), table7, "Then ");
 #line hidden

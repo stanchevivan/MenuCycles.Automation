@@ -266,7 +266,7 @@ Scenario Outline: Calculate Daily Totals
         |004Baked Beans_1             |              7|
     Then Verify Daily Totals are equal to
         |PlannedQty|TotalCost|Revenue|ActualGP|
-        |       109|   266.76| 315.71|      16|
+        |       109|   266.76| 315.71|     16%|
         
     @QAI
     Examples:
