@@ -16,7 +16,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             PageFactory.InitElements(parent, this);
         }
 
-        [FindsBy(How = How.CssSelector, Using = ".quantity > div > .input__cell")]
+        [FindsBy(How = How.CssSelector, Using = ".quantity > div > .input-cell")]
         private IWebElement plannedQuantity { get; set; }
         [FindsBy(How = How.ClassName, Using = "cost")]
         private IWebElement costPerUnit { get; set; }
@@ -26,7 +26,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         private IWebElement tariffType { get; set; }
         [FindsBy(How = How.ClassName, Using = "select-price-model")]
         private IWebElement priceModel { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".target .input__cell")]
+        [FindsBy(How = How.CssSelector, Using = ".target .input-cell")]
         private IWebElement targetGP { get; set; }
         [FindsBy(How = How.ClassName, Using = "select-tax")]
         private IWebElement taxPercentage { get; set; }
