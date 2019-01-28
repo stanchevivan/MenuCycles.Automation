@@ -237,25 +237,25 @@
       <HintPath>..\packages\Appium.WebDriver.3.0.0.2\lib\net45\appium-dotnet-driver.dll</HintPath>
     </Reference>
     <Reference Include="Fourth.Automation.Framework.Core">
-      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.0.5\lib\net45\Fourth.Automation.Framework.Core.dll</HintPath>
+      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.1.58\lib\net45\Fourth.Automation.Framework.Core.dll</HintPath>
     </Reference>
     <Reference Include="Fourth.Automation.SpecFlow.Extensions">
-      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.0.5\lib\net45\Fourth.Automation.SpecFlow.Extensions.dll</HintPath>
+      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.1.58\lib\net45\Fourth.Automation.SpecFlow.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="SpecFlow.Autofac.SpecFlowPlugin">
-      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.0.5\lib\net45\SpecFlow.Autofac.SpecFlowPlugin.dll</HintPath>
+      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.1.58\lib\net45\SpecFlow.Autofac.SpecFlowPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Fourth.Automation.Framework.Mobile">
-      <HintPath>..\packages\Fourth.Automation.Framework.Mobile.4.0.5\lib\net45\Fourth.Automation.Framework.Mobile.dll</HintPath>
+      <HintPath>..\packages\Fourth.Automation.Framework.Mobile.4.1.58\lib\net45\Fourth.Automation.Framework.Mobile.dll</HintPath>
     </Reference>
     <Reference Include="Fourth.Automation.Framework.Reporting">
       <HintPath>..\packages\Fourth.Automation.Framework.Reporting.4.1.58\lib\net45\Fourth.Automation.Framework.Reporting.dll</HintPath>
     </Reference>
     <Reference Include="WebDriver">
-      <HintPath>..\packages\Selenium.WebDriver.3.10.0\lib\net45\WebDriver.dll</HintPath>
+      <HintPath>..\packages\Selenium.WebDriver.3.12.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
     <Reference Include="WebDriver.Support">
-      <HintPath>..\packages\Selenium.Support.3.10.0\lib\net45\WebDriver.Support.dll</HintPath>
+      <HintPath>..\packages\Selenium.Support.3.12.0\lib\net45\WebDriver.Support.dll</HintPath>
     </Reference>
     <Reference Include="Polly">
       <HintPath>..\packages\Polly.5.9.0\lib\net45\Polly.dll</HintPath>
