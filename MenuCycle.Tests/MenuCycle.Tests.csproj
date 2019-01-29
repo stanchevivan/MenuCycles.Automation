@@ -385,6 +385,7 @@
     <Compile Include="Models\RecipeModelPostProducton.cs" />
     <Compile Include="PageObjects\Planning\PostProductionTabDays\RecipePostProduction.cs" />
     <Compile Include="PageObjects\Planning\PostProductionTabDays\BuffetPostProduction.cs" />
+    <Compile Include="PageObjects\Planning\PostProductionTab\PostProductionTabWeeks.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

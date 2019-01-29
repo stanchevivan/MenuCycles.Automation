@@ -79,3 +79,20 @@ Scenario Outline: Post production validations
     Examples:
     |environment|location|menuCycle         |day       |mealPeriod|recipeName        |tariff   |integerMessage |negativeMessage     |
     |QAI        |SE001   |Local User Testing|WED 11 JUL|DINNER    |724Lamb Burger 6oz|TariffOne|Must be integer|Must be 0 or greater|
+
+
+@TC35467 @D31395
+Scenario Outline: Open Post-Production Screen, navigate to Weekly view
+    Given Menu Cycle app is open on "<environment>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And daily post-production tab is opened
+        And switching to Weekly Post-Production view
+    Then Verify Weekly Post-production view is open
+    
+    @QAI
+    Examples:
+    |environment|location|menuCycle         |day       |
+    |QAI        |SE001   |Local User Testing|WED 11 JUL|
