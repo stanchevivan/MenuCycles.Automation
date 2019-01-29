@@ -22,7 +22,7 @@ properties([
 	parameters([
 		string(name: 'Include_Tags', defaultValue: '', description: 'Tests containing these tags will be executed. Empty for all tests.(comma separated/no whitespaces/)'),
 		string(name: 'Exclude_Tags', defaultValue: '', description: 'Tests containing these tags will NOT be executed.'),
-		string(name: 'Remote_Port', defaultValue: '25140', description: 'Port for tunnel to remote machine.(only needed for Remote jobs)'),
+		string(name: 'Remote_Port', defaultValue: '23017', description: 'Port for tunnel to remote machine.(only needed for Remote jobs)'),
 	]),
 	pipelineTriggers([cron(cronSchedule)]),
 ])
@@ -115,7 +115,7 @@ node('IE1UIBLD03') {
 
 			// Check if device is connected to the machine
 			echo "Looking for ${device} with id ${currentDeviceId} ..."
-			connectedDevices = bat (returnStdout:true, script: "@C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p$remotePort ioreg -p IOUSB -w0 -l")
+			connectedDevices = bat (returnStdout:true, script: "@C:/Users/Jenkins/ssh.exe UIMCM@1.tcp.eu.ngrok.io -p$remotePort ioreg -p IOUSB -w0 -l")
 
 			if (!connectedDevices.contains(currentDeviceId))
 		  {
@@ -154,9 +154,9 @@ node('IE1UIBLD03') {
 		{
 				stage ('Copy build artifacts to remote machine')
 				 {
-					  bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p$remotePort rm -rf ${remotePath}/"
-						bat "C:/Users/Jenkins/ssh.exe UIMCM@0.tcp.ngrok.io -p$remotePort mkdir ${remotePath}/"
-						bat "C:/Users/Jenkins/scp.exe -v -r -P $remotePort \"$env.WORKSPACE/${projectName}/bin/${device}/.\" UIMCM@0.tcp.ngrok.io:${remotePath}/"
+					  bat "C:/Users/Jenkins/ssh.exe UIMCM@1.tcp.eu.ngrok.io -p$remotePort rm -rf ${remotePath}/"
+						bat "C:/Users/Jenkins/ssh.exe UIMCM@1.tcp.eu.ngrok.io -p$remotePort mkdir ${remotePath}/"
+						bat "C:/Users/Jenkins/scp.exe -v -r -P $remotePort \"$env.WORKSPACE/${projectName}/bin/${device}/.\" UIMCM@1.tcp.eu.ngrok.io:${remotePath}/"
 				 }
 		}
 		catch (e)
@@ -188,9 +188,10 @@ node('IE1UIBLD03') {
 					{
 						echo "Copying test results from remote machine to workspace.."
 						bat "mkdir \"$env.WORKSPACE/${projectName}/bin/${device}/Reports/\""
-						bat "C:/Users/Jenkins/scp.exe -v -P $remotePort UIMCM@0.tcp.ngrok.io:~/NUnit.Console-3.8.0/${device}TestResults.xml \"$env.WORKSPACE/\""
-						bat "C:/Users/Jenkins/scp.exe -v -P $remotePort UIMCM@0.tcp.ngrok.io:${remotePath}/Reports/Reports_${jobNameFormatted}.json \"$env.WORKSPACE/${projectName}/bin/\""
+						bat "C:/Users/Jenkins/scp.exe -v -P $remotePort UIMCM@1.tcp.eu.ngrok.io:~/NUnit.Console-3.8.0/${device}TestResults.xml \"$env.WORKSPACE/\""
+						bat "C:/Users/Jenkins/scp.exe -v -P $remotePort UIMCM@1.tcp.eu.ngrok.io:${remotePath}/Reports/Reports_${jobNameFormatted}.json \"$env.WORKSPACE/${projectName}/bin/\""
 					}
+
 						archiveArtifacts artifacts: '*TestResults.xml'
             nunit testResultsPattern: '*TestResults.xml'
             cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: "$projectName/bin"
@@ -250,7 +251,7 @@ def runTests(device)
 			if (isRemote)
 			{
 					print "Running tests remotely.."
-					bat "C:/Users/Jenkins/ssh.exe -o ServerAliveInterval=30 UIMCM@0.tcp.ngrok.io -p$remotePort \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit ${remotePath}/${projectName}.dll ${where} ${quote}${include}${and}${exclude}${quote} --result:${device}TestResults.xml;format=nunit2\""
+					bat "C:/Users/Jenkins/ssh.exe -o ServerAliveInterval=30 UIMCM@1.tcp.eu.ngrok.io -p$remotePort \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit ${remotePath}/${projectName}.dll ${where} ${quote}${include}${and}${exclude}${quote} --result:${device}TestResults.xml;format=nunit2\""
 			}
 			else
 			{
