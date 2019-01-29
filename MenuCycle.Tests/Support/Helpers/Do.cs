@@ -1,4 +1,5 @@
-﻿using Fourth.Automation.Framework.Page;
+﻿using Fourth.Automation.Framework.Mobile;
+using Fourth.Automation.Framework.Page;
 using OpenQA.Selenium;
 
 namespace MenuCycle.Tests
@@ -51,6 +52,7 @@ namespace MenuCycle.Tests
         {
             webElement.Clear();
             webElement.SendKeys(text);
+            FireChangeEvent();
         }
 
         public void SendKeys(string text)
@@ -72,6 +74,12 @@ namespace MenuCycle.Tests
         public void ScrollIntoView()
         {
             ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].scrollIntoView();", webElement);
+        }
+
+        public void FireChangeEvent()
+        {
+            ((IJavaScriptExecutor)Driver).ExecuteScript("var evt = document.createEvent(\"HTMLEvents\");\n    evt.initEvent(\"change\", true, false);\n    arguments[0].dispatchEvent(evt);", webElement);
+
         }
 
         public void InputDate(string text)

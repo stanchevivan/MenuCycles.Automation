@@ -125,6 +125,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
                 {
                     this.plannedQuantity.Do(Driver).ClearWithoutFocusOut();
                     this.plannedQuantity.Do(Driver).SendKeys(dto.PlannedQuantity);
+                    this.plannedQuantity.Do(Driver).FireChangeEvent();
                 }
                 else
                 {
