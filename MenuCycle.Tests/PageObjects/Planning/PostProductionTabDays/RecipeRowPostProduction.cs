@@ -24,7 +24,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         private IWebElement quantityRequired { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".produced-quantity > div > input")]
         private IWebElement quantityProduced { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".sold-quantity > div > input")]
+        [FindsBy(How = How.CssSelector, Using = ".sold-quantity .recipe-data__cell")]
         private IWebElement quantitySold { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".no-charge > div > input")]
         private IWebElement noCharge { get; set; }
@@ -48,6 +48,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public string TariffName => this.tariffName.Text;
         public string PlannedQuantity => this.quantityProduced.Text;
+        public bool IsSoldQtyEnabled => quantitySold.Get().HasClass("input-default");
 
         public string QuantityRequired
         {
@@ -111,7 +112,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         //public bool IsPlannedQuantityWithRedBorder => plannedQuantity.Get().HasClass("border-error");
         //public bool IsReturnToStockWithRedBorder => returnToStock.Get().HasClass("border-error");
 
-    public RecipeModelPostProducton GetDTO()
+        public RecipeModelPostProducton GetDTO()
         {
             return new RecipeModelPostProducton
             {

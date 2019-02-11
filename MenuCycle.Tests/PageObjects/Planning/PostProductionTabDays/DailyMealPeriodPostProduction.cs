@@ -39,7 +39,7 @@ namespace MenuCycle.Tests.PageObjects
                                             .Where(p => !new RecipePostProduction(p, this.Name, Driver).IsBuffet)
                                             .Select(p => new RecipePostProduction(p, this.Name, Driver)).ToList();
         public IList<BuffetPostProduction> Buffets => this.Items
-                                            .Where(p => new BuffetPostProduction(p, this.Name, Driver).IsBuffet)
+                                            .Where(p => new RecipePostProduction(p, this.Name, Driver).IsBuffet)
                                             .Select(p => new BuffetPostProduction(p, this.Name, Driver)).ToList();
 
         public RecipePostProduction GetRecipe(string title)

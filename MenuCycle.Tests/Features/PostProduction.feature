@@ -96,3 +96,19 @@ Scenario Outline: Open Post-Production Screen, navigate to Weekly view
     Examples:
     |environment|location|menuCycle         |day       |
     |QAI        |SE001   |Local User Testing|WED 11 JUL|
+  
+ # Scenario is commented until POS integration is finished   
+ # @TC35573
+ # Scenario Outline: POS Integration: When "isSoldQtyReadOnly" flag = false, 'qty sold' is disabled for buffet at menu level
+   #  Given Menu Cycle app is open on "<environment>" 
+   #      And a local user is selected
+   #      And location "<location>" is selected
+   #      And Menu Cycle "<menuCycle>" is selected
+   #  When planning for "<day>" is opened
+   #      And daily post-production tab is opened
+   # Then Verify Qty Sold input field is disabled for buffet "<buffetName>" in meal period "<mealPeriod>"
+   
+    #    @QAI
+    # Examples:
+    # |environment|location|menuCycle       |day       |buffetName |mealPeriod|
+    # |QAI        |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|   DANGELO|
