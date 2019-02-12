@@ -80,19 +80,24 @@ node('IE1UIBLD03') {
 	{
 		if (jobName.contains("${it}"))
 		{
-				excludeTag("${it}")
+				excludeTag("${it}".replaceAll("-","\\s"))
 				jobName.replace("${it}", "")
 		}
 	}
 
 	// Chech for include tags in Job Name
-	['Smoke', 'QAI', 'UAT', 'PRELIVE', 'EMEA', 'NA', 'Sanity'].each
+	['Smoke', 'QAI', 'UAT', 'PRELIVE', 'EMEA', 'NA', 'Sanity', 'Performance'].each
 	{
 		if (jobName.contains("${it}"))
 		{
 				includeTag("${it}")
 				jobName.replace("${it}", "")
 		}
+	}
+
+	if (!jobName.contains("Performance"))
+	{
+		excludeTag("Performance")
 	}
 
 	stage('Initialize')
