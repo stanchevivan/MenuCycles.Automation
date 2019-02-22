@@ -84,7 +84,6 @@ namespace MenuCycle.Tests.Steps
 
             GivenApplicationIsSelected(application);
             logInAs.WaitPageToLoad();
-            toastNotification.WaitToAppearAndDisapear();
         }
 
         [Given(@"Menu Cycle app is open on ""(.*)""")]
@@ -97,7 +96,6 @@ namespace MenuCycle.Tests.Steps
 
             GivenApplicationIsSelected("Menu Cycles");
             logInAs.WaitPageToLoad();
-            toastNotification.WaitToAppearAndDisapear();
         }
 
         [Given(@"Fourth App is open on ""(.*)""")]
