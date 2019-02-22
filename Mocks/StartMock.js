@@ -9,5 +9,12 @@ module.exports =
         response: mocks.locations_100(responseDetail)
       };
     }
+
+    if (requestDetail.url.includes('qai/api/menuservice//user'))
+    {
+      return {
+        response: mocks.user_locations_100(responseDetail)
+      };
+    }
   }
 };

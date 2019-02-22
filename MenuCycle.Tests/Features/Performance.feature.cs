@@ -20,6 +20,7 @@ namespace MenuCycle.Tests.Features
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Performance Tests")]
     [NUnit.Framework.CategoryAttribute("QAI")]
+    [NUnit.Framework.CategoryAttribute("Performance")]
     public partial class PerformanceTestsFeature
     {
         
@@ -33,7 +34,8 @@ namespace MenuCycle.Tests.Features
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Performance Tests", "    Feature for Performance Tests", ProgrammingLanguage.CSharp, new string[] {
-                        "QAI"});
+                        "QAI",
+                        "Performance"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -67,14 +69,12 @@ namespace MenuCycle.Tests.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Local user locations")]
-        [NUnit.Framework.CategoryAttribute("TC27777")]
-        [NUnit.Framework.CategoryAttribute("Sanity")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "KIRO", null, Category="QAI")]
+        [NUnit.Framework.CategoryAttribute("TC35433")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "MockLoc_1", null, Category="QAI")]
         public virtual void LocalUserLocations(string environment, string location, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "TC27777",
-                    "Sanity"};
+                    "TC35433"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -85,10 +85,66 @@ this.ScenarioSetup(scenarioInfo);
 #line 7
 testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
-testRunner.When("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 9
-        testRunner.And(string.Format("Performance for \"10\" repetitions of Select Location -> Click location name for lo" +
-                        "cation \"{0}\" is evaluated", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When(string.Format("Performance for \"10\" repetitions of Select Location -> Click location name for lo" +
+                        "cation \"{0}\" is evaluated", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Central user search recipes")]
+        [NUnit.Framework.CategoryAttribute("TC35434")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "MockLoc_1", "Automation Testing", "004Baked Beans_3", null, Category="QAI")]
+        public virtual void CentralUserSearchRecipes(string environment, string location, string menuCycle, string recipe, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC35434"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Central user search recipes", @__tags);
+#line 16
+this.ScenarioSetup(scenarioInfo);
+#line 17
+testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 18
+    testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 19
+    testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 20
+testRunner.When("Details for meal period \"DINNER\" in \"FRIDAY\" are opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 21
+    testRunner.And("Recipe search is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 22
+    testRunner.And(string.Format("Performance for \"10\" repetitions for recipe search on \"{0}\"", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Open planning screen")]
+        [NUnit.Framework.CategoryAttribute("TC35443")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "Automation Testing", null, Category="QAI")]
+        public virtual void OpenPlanningScreen(string environment, string menuCycle, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC35443"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open planning screen", @__tags);
+#line 30
+this.ScenarioSetup(scenarioInfo);
+#line 31
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 32
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 33
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
+    testRunner.When("planning for \"<day>\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }
