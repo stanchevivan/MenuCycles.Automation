@@ -62,13 +62,6 @@ namespace MenuCycle.Tests.Steps
             reportsView.WaitReportToLoad();
         }
 
-        [When(@"Location name is clicked")]
-        public void LocationNameIsClicked()
-        {
-            menuCyclesDashboard.ClickLocationName();
-            logInAs.WaitPageToLoad();
-        }
-
         [When(@"Include sell price is checked")]
         public void WhenIncludeSellPriceIsChecked()
         {

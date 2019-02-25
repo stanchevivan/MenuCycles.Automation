@@ -194,5 +194,10 @@ namespace MenuCycle.Tests.PageObjects
         {
             Driver.WaitElementAndClick(WeeksViewButton);
         }
+
+        public void OpenDaysTab()
+        {
+            Driver.WaitElementAndClick(DaysViewButton);
+        }
     }
 }
