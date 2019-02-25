@@ -21,10 +21,11 @@ namespace MenuCycle.Tests.Steps
         readonly ModalDialogPage modalDialogPage;
         readonly ReportsView reportsView;
         readonly WeeklyCalendarView weeklyCalendarView;
+        MenuCyclesDashboard menuCyclesDashboard;
 
         public MenuCycleSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, LogInAs logInAs,
             MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleDailyCalendarView menuCycleDailyCalendarView, RecipeSearch recipeSearch, ToastNotification notification,
-                              ModalDialogPage modalDialogPage, ReportsView reportsView, WeeklyCalendarView weeklyCalendarView)
+                              ModalDialogPage modalDialogPage, ReportsView reportsView, WeeklyCalendarView weeklyCalendarView, MenuCyclesDashboard menuCyclesDashboard)
         {
             this.logInAs = logInAs;
             this.menuCycleDashboard = menuCycleDashboard;
@@ -36,15 +37,31 @@ namespace MenuCycle.Tests.Steps
             this.modalDialogPage = modalDialogPage;
             this.reportsView = reportsView;
             this.weeklyCalendarView = weeklyCalendarView;
+            this.menuCyclesDashboard = menuCyclesDashboard;
 
             this.scenarioContext = scenarioContext;
         }
 
-        [Given(@"a (.*) user is selected")]
-        [When(@"a (.*) user is selected")]
-        public void GivenAUserIsSelected(string userType)
+        //[Given(@"a (.*) user is selected")]
+        //[When(@"a (.*) user is selected")]
+        //public void GivenAUserIsSelected(string userType)
+        //{
+        //    logInAs.LogAs(userType);
+        //}
+
+        [Given(@"a central user is selected")]
+        [When(@"a central user is selected")]
+        public void GivenACentralUserIsSelected()
         {
-            logInAs.LogAs(userType);
+            logInAs.LogAs("central");
+            menuCycleDashboard.WaitPageLoad();
+        }
+
+        [Given(@"a local user is selected")]
+        [When(@"a local user is selected")]
+        public void GivenALocalUserIsSelected()
+        {
+            logInAs.LogAs("local");
         }
 
         [Given(@"Menu Cycle ""(.*)"" is selected")]
@@ -54,6 +71,7 @@ namespace MenuCycle.Tests.Steps
             menuCycleDashboard.WaitPageLoad();
             menuCycleDashboard.SearchMenuCycle(menuCycleName);
             menuCycleDashboard.SelectMenuCycleByName(menuCycleName);
+            
             menuCycleDailyCalendarView.WaitPageLoad();
         }
 
@@ -203,10 +221,35 @@ namespace MenuCycle.Tests.Steps
         [When(@"Weekly Calendar is opened")]
         public void WeeksTabIsOpened()
         {
-            menuCycleDailyCalendarView.WaitPageLoad();
+            //menuCycleDailyCalendarView.WaitPageLoad();
             menuCycleDailyCalendarView.OpenWeeksTab();
             weeklyCalendarView.WaitForLoad();
             planningView.WaitForBackdropToDisappear();
+        }
+
+        [When(@"Daily Calendar is opened")]
+        public void DaysTabIsOpened()
+        {
+            //menuCycleDailyCalendarView.WaitPageLoad();
+            menuCycleDailyCalendarView.OpenDaysTab();
+            menuCycleDailyCalendarView.WaitPageLoad();
+            planningView.WaitForBackdropToDisappear();
+        }
+
+        [When(@"Location name is clicked")]
+        public void LocationNameIsClicked()
+        {
+            menuCyclesDashboard.ClickLocationName();
+            logInAs.WaitPageToLoad();
+        }
+
+        [When(@"Home button is clicked")]
+        public void WhenHomeButtonIsClicked()
+        {
+            menuCycleDailyCalendarView.UseHomeButton();
+            menuCyclesDashboard.WaitPageLoad();
+            notification.CloseNotification();
+            notification.WaitToDisappear();
         }
     }
 }

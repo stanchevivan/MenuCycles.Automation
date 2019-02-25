@@ -68,25 +68,24 @@ namespace MenuCycle.Tests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Local user locations")]
-        [NUnit.Framework.CategoryAttribute("TC35433")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "MockLoc_1", null, Category="QAI")]
-        public virtual void LocalUserLocations(string environment, string location, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Initial load of menu cycles list")]
+        [NUnit.Framework.CategoryAttribute("TC35430")]
+        [NUnit.Framework.TestCaseAttribute("QAI", null, Category="QAI")]
+        public virtual void InitialLoadOfMenuCyclesList(string environment, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "TC35433"};
+                    "TC35430"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Local user locations", @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Initial load of menu cycles list", @__tags);
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
 testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
-testRunner.When(string.Format("Performance for \"10\" repetitions of Select Location -> Click location name for lo" +
-                        "cation \"{0}\" is evaluated", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("Measure performance of load menu cycles list for \"20\" repetitions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -94,8 +93,8 @@ testRunner.When(string.Format("Performance for \"10\" repetitions of Select Loca
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Central user search recipes")]
         [NUnit.Framework.CategoryAttribute("TC35434")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "MockLoc_1", "Automation Testing", "004Baked Beans_3", null, Category="QAI")]
-        public virtual void CentralUserSearchRecipes(string environment, string location, string menuCycle, string recipe, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "Automation Performance Testing", "", "WEDNESDAY", "LUNCH", null, Category="QAI")]
+        public virtual void CentralUserSearchRecipes(string environment, string menuCycle, string recipe, string day, string mealPeriod, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC35434"};
@@ -113,11 +112,11 @@ testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment)
 #line 19
     testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 20
-testRunner.When("Details for meal period \"DINNER\" in \"FRIDAY\" are opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When(string.Format("Details for meal period \"{0}\" in \"{1}\" are opened", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 21
     testRunner.And("Recipe search is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 22
-    testRunner.And(string.Format("Performance for \"10\" repetitions for recipe search on \"{0}\"", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And(string.Format("Measure performance of recipe search for \"100\" repetitions on \"{0}\"", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -125,8 +124,8 @@ testRunner.When("Details for meal period \"DINNER\" in \"FRIDAY\" are opened", (
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Open planning screen")]
         [NUnit.Framework.CategoryAttribute("TC35443")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Automation Testing", null, Category="QAI")]
-        public virtual void OpenPlanningScreen(string environment, string menuCycle, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "Automation Performance Testing", "WEDNESDAY", null, Category="QAI")]
+        public virtual void OpenPlanningScreen(string environment, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC35443"};
@@ -144,7 +143,91 @@ this.ScenarioSetup(scenarioInfo);
 #line 33
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 34
-    testRunner.When("planning for \"<day>\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When(string.Format("Measure performance of Open planning screen for \"20\" repetitions on \"{0}\"", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Open nutrition screen")]
+        [NUnit.Framework.CategoryAttribute("TC35444")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "Automation Performance Testing", "WEDNESDAY", null, Category="QAI")]
+        public virtual void OpenNutritionScreen(string environment, string menuCycle, string day, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC35444"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open nutrition screen", @__tags);
+#line 42
+this.ScenarioSetup(scenarioInfo);
+#line 43
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 44
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 45
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 46
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 47
+        testRunner.And("Measure performance of Open nutrition screen for \"20\" repetitions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Open calendar weeks")]
+        [NUnit.Framework.CategoryAttribute("TC35445")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "Automation Performance Testing", null, Category="QAI")]
+        public virtual void OpenCalendarWeeks(string environment, string menuCycle, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC35445"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open calendar weeks", @__tags);
+#line 55
+this.ScenarioSetup(scenarioInfo);
+#line 56
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 57
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 58
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 59
+    testRunner.When("Measure performance of Open weekly calendar view for \"20\" repetitions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Open menu cycle with 1800 items")]
+        [NUnit.Framework.CategoryAttribute("TC35445")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Winter Breakfast Menu", null, Category="QAI")]
+        public virtual void OpenMenuCycleWith1800Items(string environment, string location, string menuCycle, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC35445"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open menu cycle with 1800 items", @__tags);
+#line 66
+this.ScenarioSetup(scenarioInfo);
+#line 67
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 68
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 69
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 70
+    testRunner.When(string.Format("Measure performance of Open menu cycle with 1800 items for \"10\" repetitions for \"" +
+                        "{0}\"", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }
