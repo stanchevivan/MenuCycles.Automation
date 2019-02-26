@@ -200,6 +200,8 @@ node('IE1UIBLD03') {
 						archiveArtifacts artifacts: '*TestResults.xml'
             nunit testResultsPattern: '*TestResults.xml'
             cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: "$projectName/bin"
+
+						sendSlackNotification(testReport(), '#MC-TestAutomation')
         }
     }
 		catch (e)
@@ -287,4 +289,71 @@ def excludeTag(tag)
 	{
 		Exclude_Tags = "${tag}"
 	}
+}
+
+def testReport()
+{
+	currentLog = currentBuild.rawBuild.log
+	testSummary = currentLog.substring(currentLog.indexOf("Test Run Summary"), currentLog.indexOf("Results "))
+
+	OverallResult = (testSummary =~ /(Overall result:) \w+/)[0][0].replace("Overall result: ","");
+	TotalTests = (testSummary =~ /(Test Count:) \w+/)[0][0].replace("Test Count: ","");
+	Passed = (testSummary =~ /(Passed:) \w+/)[0][0].replace("Passed: ","");
+	Failed = (testSummary =~ /(Failed:) \w+/)[0][0].replace("Failed: ","");
+	Warnings = (testSummary =~ /(Warnings:) \w+/)[0][0].replace("Warnings: ","");
+	Inconclusive = (testSummary =~ /(Inconclusive:) \w+/)[0][0].replace("Inconclusive: ","");
+	Skipped = (testSummary =~ /(Skipped:) \w+/)[0][0].replace("Skipped: ","");
+
+	if (Failed == '0' && OverallResult == 'Passed') {
+		currentBuild.result = 'SUCCESS'
+	} else if (OverallResult == 'Failed') {
+		currentBuild.result = 'FAILED'
+	} else {
+		currentBuild.result = 'UNSTABLE'
+	}
+
+	return "Test Report:\n  ${testSummary}"
+}
+
+def performanceReport()
+{
+	def message = "Performance report:\n";
+	def measurments = (currentBuild.rawBuild.log =~ /Measure.*?(?=-)/);
+
+	for (i = 0; i<measurments.count; i++)
+	{
+    message += measurments[i];
+	}
+
+	return message
+}
+
+def sendSlackNotification(testReport, channel)
+{
+	def buildStatus = currentBuild.result
+	def colorSlack
+	def emotIcon
+
+	if (buildStatus == 'SUCCESS'){
+		colorSlack = '#008000'
+		emotIcon = ":smile:"	}
+	if (buildStatus == 'UNSTABLE'){
+		colorSlack = '#FFB600'
+		emotIcon = ":worried:"	}
+	if (buildStatus == 'FAILURE'){
+		colorSlack = '#FF0000'
+		emotIcon = ":cry:"
+	}
+
+  def msgPrefix = "@channel"
+	def reportLink = "${env.JOB_URL}/${env.BUILD_NUMBER}/cucumber-html-reports/overview-features.html"
+
+  def performanceReportMessage = ""
+	if (Include_Tags.contains("Performance"))
+	{
+		performanceReportMessage = performanceReport()
+	}
+	def message = "${msgPrefix} ${env.JOB_NAME} execution finished with status *${buildStatus}* ${emotIcon} \n ${performanceReportMessage}\n ${testReport} \n Link to the report: ${reportLink}"
+
+	slackSend(color: colorSlack, message: message, channel: channel)
 }
