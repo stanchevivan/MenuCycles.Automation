@@ -62,7 +62,7 @@ Scenario Outline: Open calendar weeks
     |environment|menuCycle                     |
     |QAI        |Automation Performance Testing|
     
-@TC35445
+@TC35439
 Scenario Outline: Open menu cycle with 1800 items
     Given Menu Cycle app is open on "<environment>" 
         And a local user is selected

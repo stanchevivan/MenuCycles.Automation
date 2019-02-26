@@ -41,7 +41,10 @@ namespace MenuCycle.Tests.PageObjects
 
         public void CloseNotification()
         {
-            CloseButton.Click();
+            if (CloseButton.Exist())
+            {
+                CloseButton.Click();
+            }
         }
 
         public void WaitToAppear()

@@ -206,12 +206,12 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Open menu cycle with 1800 items")]
-        [NUnit.Framework.CategoryAttribute("TC35445")]
+        [NUnit.Framework.CategoryAttribute("TC35439")]
         [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Winter Breakfast Menu", null, Category="QAI")]
         public virtual void OpenMenuCycleWith1800Items(string environment, string location, string menuCycle, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "TC35445"};
+                    "TC35439"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
