@@ -174,3 +174,18 @@ Scenario Outline: Contextual error message is shown for Wastage for buffet recip
     Examples:
     |environment|location|menuCycle       |day       |buffetName |recipeName     |mealPeriod|
     |QAI        |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|004Basic Sponge|   DANGELO|
+
+@TC36211
+Scenario Outline: Buffet tariff type is present at menu level
+    Given Menu Cycle app is open on "<environment>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And daily post-production tab is opened
+    Then Buffet tariff type is present for buffet "<buffetName>" in meal period "<mealPeriod>"
+    
+           @QAI
+    Examples:
+    |environment|location|menuCycle       |day       |buffetName |recipeName     |mealPeriod|
+    |QAI        |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|004Basic Sponge|   DANGELO|

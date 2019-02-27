@@ -450,6 +450,39 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Buffet tariff type is present at menu level")]
+        [NUnit.Framework.CategoryAttribute("TC36211")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Please don`t use", "TUE 29 JAN", "Maya Buffet", "004Basic Sponge", "DANGELO", null, Category="QAI")]
+        public virtual void BuffetTariffTypeIsPresentAtMenuLevel(string environment, string location, string menuCycle, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC36211"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Buffet tariff type is present at menu level", @__tags);
+#line 179
+this.ScenarioSetup(scenarioInfo);
+#line 180
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 181
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 182
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 183
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 184
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 185
+        testRunner.And("daily post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 186
+    testRunner.Then(string.Format("Buffet tariff type is present for buffet \"{0}\" in meal period \"{1}\"", buffetName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

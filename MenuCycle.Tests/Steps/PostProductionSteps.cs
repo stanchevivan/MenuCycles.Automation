@@ -26,4 +26,13 @@
 
         [When(@"Wastage value ""(.*)"" is inputed for buffet ""(.*)"" recipe ""(.*)"" in meal period ""(.*)""")]        public void WhenWastageValueIsInputedForBuffetRecipeInMealPeriod(string value, string buffetName, string recipeName, string mealPeriodName)        {            var buffetRecipe = postProductionTabDays                .GetMealPeriod(mealPeriodName)                .GetBuffet(buffetName)                .GetRecipe(recipeName).GetFirstRow();            buffetRecipe.Wastage = value;        }
 
-        [Then(@"Verify contextual error message ""(.*)"" is displayed for Wastage field for buffet ""(.*)"" recipe ""(.*)"" in meal period ""(.*)""")]        public void ThenVerifyContextualErrorMessageIsDisplayedForWastageFieldForBuffetRecipeInMealPeriod(string errorMessage, string buffetName, string recipeName, string mealPeriod)        {            var buffetRecipe = postProductionTabDays                    .GetMealPeriod(mealPeriod)                    .GetBuffet(buffetName)                    .GetRecipe(recipeName)                    .GetFirstRow();            Assert.That(buffetRecipe.WastageContextualError, Is.EqualTo(errorMessage));        }    }}
+        [Then(@"Verify contextual error message ""(.*)"" is displayed for Wastage field for buffet ""(.*)"" recipe ""(.*)"" in meal period ""(.*)""")]        public void ThenVerifyContextualErrorMessageIsDisplayedForWastageFieldForBuffetRecipeInMealPeriod(string errorMessage, string buffetName, string recipeName, string mealPeriod)        {            var buffetRecipe = postProductionTabDays                    .GetMealPeriod(mealPeriod)                    .GetBuffet(buffetName)                    .GetRecipe(recipeName)                    .GetFirstRow();            Assert.That(buffetRecipe.WastageContextualError, Is.EqualTo(errorMessage));
+        }
+
+        [Then(@"Buffet tariff type is present for buffet ""(.*)"" in meal period ""(.*)""")]        public void TarrifTypeForBuffetIsNotEmpty(string buffetName, string mealPeriod)        {
+            var buffetTarrifType = postProductionTabDays
+                   .GetMealPeriod(mealPeriod)
+                   .GetBuffet(buffetName).TariffName;
+
+            Assert.That(buffetTarrifType, Is.Not.Empty);        }    }}
+
