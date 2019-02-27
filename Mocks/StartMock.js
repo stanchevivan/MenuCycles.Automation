@@ -1,19 +1,27 @@
 module.exports =
 {
-  *beforeSendResponse(requestDetail, responseDetail)
+  *beforeSendRequest(requestDetail)
   {
     const mocks = require('./All_mocks');
-    if (requestDetail.url.includes('https://api-dev.fourth.com/qai/api/menuservice/User/Locations'))
+
+    if (requestDetail.url.includes('menuservice//menucycles'))
     {
       return {
-        response: mocks.locations_100(responseDetail)
+        response: mocks.menuCycles
       };
     }
 
     if (requestDetail.url.includes('qai/api/menuservice//user'))
     {
       return {
-        response: mocks.user_locations_100(responseDetail)
+        response: mocks.user_locations_100
+      };
+    }
+
+    if (requestDetail.url.includes('/menuservice/Search//menucycles'))
+    {
+      return {
+        response: mocks.recipe_search
       };
     }
   }

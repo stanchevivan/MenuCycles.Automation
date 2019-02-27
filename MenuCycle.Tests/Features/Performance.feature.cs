@@ -85,7 +85,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 7
 testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
-testRunner.When("Measure performance of load menu cycles list for \"20\" repetitions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("Measure performance of load menu cycles list for \"100\" repetitions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }

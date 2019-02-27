@@ -5,7 +5,7 @@ Feature: Performance Tests
 @TC35430
 Scenario Outline: Initial load of menu cycles list
 Given Menu Cycle app is open on "<environment>" 
-When Measure performance of load menu cycles list for "20" repetitions
+When Measure performance of load menu cycles list for "100" repetitions
     
     @QAI
     Examples:
