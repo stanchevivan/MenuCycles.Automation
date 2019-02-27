@@ -112,3 +112,65 @@ Scenario Outline: Open Post-Production Screen, navigate to Weekly view
     # Examples:
     # |environment|location|menuCycle       |day       |buffetName |mealPeriod|
     # |QAI        |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|   DANGELO|
+    
+@TC36205  
+Scenario Outline: Export Local Sales report
+    Given Menu Cycle app is open on "<environment>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And daily post-production tab is opened
+        And local sales report is exported
+    Then Verify notification message "Successfully Exported." is displayed
+    
+    @QAI
+    Examples:
+    |environment|location|menuCycle         |day       |
+    |QAI        |SE001   |Local User Testing|WED 11 JUL|
+    
+@TC36009 @TC36010
+Scenario Outline: Wastage is an input field and QtySold and No charge fields are not present for buffet recipes
+    Given Menu Cycle app is open on "<environment>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And daily post-production tab is opened
+   Then Verify Wastage for buffet "<buffetName>" recipe "<recipeName>" in meal period "<mealPeriod>" is an editable field
+       And Verify Qty Sold and No Charge fields for buffet "<buffetName>" recipe "<recipeName>" in meal period "<mealPeriod>" are not present
+    
+       @QAI
+    Examples:
+    |environment|location|menuCycle       |day       |buffetName |recipeName     |mealPeriod|
+    |QAI        |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|004Basic Sponge|   DANGELO|
+    
+Scenario Outline: Wastage field is disabled for recipes
+    Given Menu Cycle app is open on "<environment>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And daily post-production tab is opened
+   Then Verify Wastage for recipe "<recipeName>" in meal period "<mealPeriod>" is disabled
+   
+       @QAI
+    Examples:
+    |environment|location|menuCycle       |day       |recipeName             |mealPeriod|
+    |QAI        |SE001   |Please don`t use|TUE 29 JAN|004Apple Sauce (tinned)|   DANGELO|
+    
+@TC36011
+Scenario Outline: Contextual error message is shown for Wastage for buffet recipes when decimal is inputed
+    Given Menu Cycle app is open on "<environment>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And daily post-production tab is opened
+        And Wastage value "9.11" is inputed for buffet "<buffetName>" recipe "<recipeName>" in meal period "<mealPeriod>"
+    Then Verify contextual error message "Must be integer" is displayed for Wastage field for buffet "<buffetName>" recipe "<recipeName>" in meal period "<mealPeriod>"
+
+       @QAI
+    Examples:
+    |environment|location|menuCycle       |day       |buffetName |recipeName     |mealPeriod|
+    |QAI        |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|004Basic Sponge|   DANGELO|

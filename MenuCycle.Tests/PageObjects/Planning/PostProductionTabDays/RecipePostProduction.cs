@@ -27,9 +27,9 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         public bool IsBuffet => this.BuffetRecipes.Count > 0;
         public virtual string Title => this.title.Text;
 
-        public RecipeRowPostProduction GetRow(int index)
+        public RecipeRowPostProduction GetFirstRow()
         {
-            return Rows[index];
+            return Rows[0];
         }
 
         public RecipeRowPostProduction GetRow(string tariffName)

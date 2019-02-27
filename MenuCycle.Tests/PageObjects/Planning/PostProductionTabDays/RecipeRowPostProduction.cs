@@ -30,6 +30,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         private IWebElement noCharge { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".return-stock > div > input")]
         private IWebElement returnToStock { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".wastage > div > input")]
         [FindsBy(How = How.CssSelector, Using = ".wastage > span")]
         private IWebElement wastage { get; set; }
         [FindsBy(How = How.ClassName, Using = "border-error")]
@@ -44,11 +45,14 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         private IWebElement noChargeContextError { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".return-stock > div > .text-error")]
         private IWebElement returnToStockContextError { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".wastage > div > .text-error")]
+        private IWebElement wastageContextError { get; set; }
 
 
         public string TariffName => this.tariffName.Text;
         public string PlannedQuantity => this.quantityProduced.Text;
         public bool IsSoldQtyEnabled => quantitySold.Get().HasClass("input-default");
+        public bool IsWastageEnabled => wastage.Get().HasClass("input-default");
 
         public string QuantityRequired
         {
@@ -79,6 +83,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
                 this.quantitySold.Do(Driver).FocusOut();
             }
         }
+        public bool IsQuantitySoldPresent => quantitySold.Get().ElementPresent;
 
         public string NoCharge
         {
@@ -89,6 +94,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
                 this.noCharge.Do(Driver).FocusOut();
             }
         }
+        public bool IsNoChargePresent => quantitySold.Get().ElementPresent;
 
         public string ReturnToStock
         {
@@ -100,13 +106,18 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             }
         }
 
-        public string Wastage => this.wastage.Text;
+        public string Wastage
+        {
+            get => this.wastage.TagName == "span" ? this.wastage.Text : this.wastage.GetAttribute("value");
+            set => this.wastage.Do(Driver).ClearAndSendKeys(value);
+        }
 
         public string QtyReqdContextError => qtyReqdContextError.Text;
         public string QtyProdContextError => qtyProdContextError.Text;
         public string QtySoldContextError => qtySoldContextError.Text;
         public string NoChargeContextError => noChargeContextError.Text;
         public string ReturnToStockContextError => returnToStockContextError.Text;
+        public string WastageContextualError => wastageContextError.Text;
 
         // May need another check
         //public bool IsPlannedQuantityWithRedBorder => plannedQuantity.Get().HasClass("border-error");

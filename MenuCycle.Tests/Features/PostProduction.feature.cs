@@ -309,6 +309,147 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Export Local Sales report")]
+        [NUnit.Framework.CategoryAttribute("TC36205")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", "WED 11 JUL", null, Category="QAI")]
+        public virtual void ExportLocalSalesReport(string environment, string location, string menuCycle, string day, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC36205"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Export Local Sales report", @__tags);
+#line 117
+this.ScenarioSetup(scenarioInfo);
+#line 118
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 119
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 120
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 121
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 122
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 123
+        testRunner.And("daily post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 124
+        testRunner.And("local sales report is exported", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 125
+    testRunner.Then("Verify notification message \"Successfully Exported.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Wastage is an input field and QtySold and No charge fields are not present for bu" +
+            "ffet recipes")]
+        [NUnit.Framework.CategoryAttribute("TC36009")]
+        [NUnit.Framework.CategoryAttribute("TC36010")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Please don`t use", "TUE 29 JAN", "Maya Buffet", "004Basic Sponge", "DANGELO", null, Category="QAI")]
+        public virtual void WastageIsAnInputFieldAndQtySoldAndNoChargeFieldsAreNotPresentForBuffetRecipes(string environment, string location, string menuCycle, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC36009",
+                    "TC36010"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Wastage is an input field and QtySold and No charge fields are not present for bu" +
+                    "ffet recipes", @__tags);
+#line 133
+this.ScenarioSetup(scenarioInfo);
+#line 134
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 135
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 136
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 137
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 138
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 139
+        testRunner.And("daily post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 140
+   testRunner.Then(string.Format("Verify Wastage for buffet \"{0}\" recipe \"{1}\" in meal period \"{2}\" is an editable " +
+                        "field", buffetName, recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 141
+       testRunner.And(string.Format("Verify Qty Sold and No Charge fields for buffet \"{0}\" recipe \"{1}\" in meal period" +
+                        " \"{2}\" are not present", buffetName, recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Wastage field is disabled for recipes")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Please don`t use", "TUE 29 JAN", "004Apple Sauce (tinned)", "DANGELO", null, Category="QAI")]
+        public virtual void WastageFieldIsDisabledForRecipes(string environment, string location, string menuCycle, string day, string recipeName, string mealPeriod, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Wastage field is disabled for recipes", exampleTags);
+#line 148
+this.ScenarioSetup(scenarioInfo);
+#line 149
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 150
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 151
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 152
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 153
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 154
+        testRunner.And("daily post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 155
+   testRunner.Then(string.Format("Verify Wastage for recipe \"{0}\" in meal period \"{1}\" is disabled", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Contextual error message is shown for Wastage for buffet recipes when decimal is " +
+            "inputed")]
+        [NUnit.Framework.CategoryAttribute("TC36011")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Please don`t use", "TUE 29 JAN", "Maya Buffet", "004Basic Sponge", "DANGELO", null, Category="QAI")]
+        public virtual void ContextualErrorMessageIsShownForWastageForBuffetRecipesWhenDecimalIsInputed(string environment, string location, string menuCycle, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC36011"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Contextual error message is shown for Wastage for buffet recipes when decimal is " +
+                    "inputed", @__tags);
+#line 163
+this.ScenarioSetup(scenarioInfo);
+#line 164
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 165
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 166
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 167
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 168
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 169
+        testRunner.And("daily post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 170
+        testRunner.And(string.Format("Wastage value \"9.11\" is inputed for buffet \"{0}\" recipe \"{1}\" in meal period \"{2}" +
+                        "\"", buffetName, recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 171
+    testRunner.Then(string.Format("Verify contextual error message \"Must be integer\" is displayed for Wastage field " +
+                        "for buffet \"{0}\" recipe \"{1}\" in meal period \"{2}\"", buffetName, recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

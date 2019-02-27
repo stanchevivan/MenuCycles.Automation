@@ -30,6 +30,8 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement dailyTotal_Wastage { get; set; }
         [FindsBy(How = How.XPath, Using = "//button[text()='Weeks']")]
         private IWebElement WeeklyViewButton { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".icon-printer")]
+        private IWebElement LocalSalesReportButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".main > div")]
         private IList<IWebElement> MealPeriodWrappers { get; set; }
@@ -61,6 +63,11 @@ namespace MenuCycle.Tests.PageObjects
         public void UseWeeksButton()
         {
             WeeklyViewButton.Click();
+        }
+
+        public void UseExportLocalSalesReportButton()
+        {
+            LocalSalesReportButton.Click();
         }
     }
 }
