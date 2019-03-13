@@ -41,11 +41,11 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         private IWebElement deleteType { get; set; }
         [FindsBy(How = How.ClassName, Using = "border-error")]
         private IWebElement BorderError { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".quantity .text-error")]
+        [FindsBy(How = How.CssSelector, Using = ".quantity > div > .error-content")]
         private IWebElement PlannedQtyContextualMessage { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".sell-price .text-error")]
+        [FindsBy(How = How.CssSelector, Using = ".sell-price > div > .error-content")]
         private IWebElement SellPriceContextualMessage { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".target .text-error")]
+        [FindsBy(How = How.CssSelector, Using = ".target > div > .error-content")]
         private IWebElement TargetContextualMessage { get; set; }
 
         public string PlannedQuantity

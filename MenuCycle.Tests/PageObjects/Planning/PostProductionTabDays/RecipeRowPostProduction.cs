@@ -31,21 +31,21 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         [FindsBy(How = How.CssSelector, Using = ".return-stock > div > input")]
         private IWebElement returnToStock { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".wastage > div > input")]
-        [FindsBy(How = How.CssSelector, Using = ".wastage > span")]
+        [FindsBy(How = How.CssSelector, Using = ".wastage > div .display-value")]
         private IWebElement wastage { get; set; }
         [FindsBy(How = How.ClassName, Using = "border-error")]
         private IWebElement BorderError { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".required-quantity > div > .text-error")]
+        [FindsBy(How = How.CssSelector, Using = ".required-quantity > div > .error-content")]
         private IWebElement qtyReqdContextError { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".produced-quantity > div > .text-error")]
+        [FindsBy(How = How.CssSelector, Using = ".produced-quantity > div > .error-content")]
         private IWebElement qtyProdContextError { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".sold-quantity > div > .text-error")]
+        [FindsBy(How = How.CssSelector, Using = ".sold-quantity > div > .error-content")]
         private IWebElement qtySoldContextError { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".no-charge > div > .text-error")]
+        [FindsBy(How = How.CssSelector, Using = ".no-charge > div > .error-content")]
         private IWebElement noChargeContextError { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".return-stock > div > .text-error")]
+        [FindsBy(How = How.CssSelector, Using = ".return-stock > div > .error-content")]
         private IWebElement returnToStockContextError { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".wastage > div > .text-error")]
+        [FindsBy(How = How.CssSelector, Using = ".wastage > div > .error-content")]
         private IWebElement wastageContextError { get; set; }
 
 
@@ -108,7 +108,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public string Wastage
         {
-            get => this.wastage.TagName == "span" ? this.wastage.Text : this.wastage.GetAttribute("value");
+            get => this.wastage.TagName == "div" ? this.wastage.Text : this.wastage.GetAttribute("value");
             set => this.wastage.Do(Driver).ClearAndSendKeys(value);
         }
 
