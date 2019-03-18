@@ -184,12 +184,14 @@ namespace MenuCycle.Tests.Steps
         }
 
         [When(@"Expand all is clicked")]
+        [Then(@"Expand all is clicked")]
         public void WhenOpenAllIsClicked()
         {
             commonElements.UseExpandAllButton();
         }
 
         [When(@"Collapse all is clicked")]
+        [Then(@"Collapse all is clicked")]
         public void WhenCloseAllIsClicked()
         {
             commonElements.UseCollapseAllButton();

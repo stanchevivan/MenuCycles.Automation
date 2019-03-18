@@ -388,8 +388,8 @@
       <DependentUpon>DailyCalendar.feature</DependentUpon>
     </Compile>
     <Compile Include="Steps\DailyCalendarSteps.cs" />
-    <Compile Include="Features\PostProduction.feature.cs">
-      <DependentUpon>PostProduction.feature</DependentUpon>
+    <Compile Include="Features\Nutrition.feature.cs">
+      <DependentUpon>Nutrition.feature</DependentUpon>
     </Compile>
     <Compile Include="PageObjects\Planning\PostProductionTabDays\DailyMealPeriodPostProduction.cs" />
     <Compile Include="Steps\PostProductionSteps.cs" />
@@ -402,6 +402,15 @@
       <DependentUpon>Performance.feature</DependentUpon>
     </Compile>
     <Compile Include="Steps\PerformanceSteps.cs" />
+    <Compile Include="Steps\NutritionSteps.cs" />
+    <Compile Include="Features\PostProduction.feature.cs">
+      <DependentUpon>PostProduction.feature</DependentUpon>
+    </Compile>
+    <Compile Include="PageObjects\Planning\NutritionTabDays\DailyMealPeriodNutrition.cs" />
+    <Compile Include="PageObjects\Planning\NutritionTabDays\BuffetNutrition.cs" />
+    <Compile Include="PageObjects\Planning\NutritionTabDays\NutritionScreenRecipe.cs" />
+    <Compile Include="PageObjects\Planning\NutritionTabDays\RecipeRowNutrition.cs" />
+    <Compile Include="Models\RecipeModelNutrition.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -494,6 +503,10 @@
     <None Include="Features\Performance.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Performance.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Nutrition.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Nutrition.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

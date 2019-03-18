@@ -14,8 +14,6 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = ".main > div")]
         private IList<IWebElement> MealPeriodWrappers { get; set; }
-        [FindsBy(How = How.ClassName, Using = "main")]
-        private IWebElement PageContent { get; set; }
         [FindsBy(How = How.ClassName, Using = "mainheader")] //Investigate if more suitable element for the check is needed
         private IWebElement EngineCheck { get; set; }
         [FindsBy(How = How.XPath, Using = "//button[text()='Weeks']")] // Engine
@@ -48,12 +46,6 @@ namespace MenuCycle.Tests.PageObjects
         public string DailyActualGPText => DailyActualGP.Text;
         public string DailyPlanningTitleText => PlanningTitle.Text;
 
-        public override void WaitForLoad()
-        {
-            Driver.WaitElementToExists(PageContent);
-            base.WaitForLoader();
-        }
-
         public void SwitchToWeeklyView()
         {
             WeeksButton.Click();
@@ -79,6 +71,7 @@ namespace MenuCycle.Tests.PageObjects
             return GetMealPeriod(periodName).IsExpanded;
         }
 
+        //TODO Investigate combining GetMealPeriod for all screens
         public DailyMealPeriod GetMealPeriod(string name)
         {
             if (!MealPeriods.Any(x => x.Name == name.ToUpper()))

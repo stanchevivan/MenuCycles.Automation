@@ -49,12 +49,6 @@ namespace MenuCycle.Tests.PageObjects
         public bool AreAllMealPeriodsExpanded => MealPeriods.All(period => period.IsExpanded);
         public bool AreAllMealPeriodsCollapsed => MealPeriods.All(period => !period.IsExpanded);
 
-        public override void WaitForLoad()
-        {
-            Driver.WaitElementToExists(PostProductionNavTabs);
-            base.WaitForLoader();
-        }
-
         public DailyMealPeriodPostProduction GetMealPeriod(string mealPeriodName)
         {
             return MealPeriods.First(x => x.Name == mealPeriodName);
