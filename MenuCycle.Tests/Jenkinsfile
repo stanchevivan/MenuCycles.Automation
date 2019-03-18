@@ -86,7 +86,7 @@ node('IE1UIBLD03') {
 	}
 
 	// Chech for include tags in Job Name
-	['Smoke', 'QAI', 'UAT', 'PRELIVE', 'EMEA', 'NA', 'Sanity', 'Performance'].each
+	['Smoke', 'QAI', 'UAT', 'PRELIVE', 'EMEA', 'NA', 'Sanity', 'Performance', 'E2E'].each
 	{
 		if (jobName.contains("${it}"))
 		{
@@ -95,9 +95,16 @@ node('IE1UIBLD03') {
 		}
 	}
 
-	if (!jobName.contains("Performance"))
+  // Exclude Performance tests for non-performance jobs
+	if (!Include_Tags.contains("Performance"))
 	{
 		excludeTag("Performance")
+	}
+
+  // Exclude Performance tests for non-E2E jobs
+	if (!Include_Tags.contains("E2E"))
+	{
+		excludeTag("E2E")
 	}
 
 	stage('Initialize')
