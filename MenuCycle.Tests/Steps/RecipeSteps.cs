@@ -384,6 +384,14 @@ namespace MenuCycle.Tests.Steps
             scenarioContext.Add(field, value);
         }
 
+        [When(@"sum of planned qty for all tariffs for recipe ""(.*)"" in meal period ""(.*)"" are saved in context")]
+        public void WhenSumOfPlannedQtyForAllTariffsForRecipeInMealPeriodAreSavedInContext(string recipeName, string mealPeriod)
+        {
+            var sum = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeName).Rows.Sum(x => int.Parse(x.PlannedQuantity));
+
+            scenarioContext.Add("PlanningScreenPlannedQtySum", sum);
+        }
+
         [Then(@"Verify ""(.*)"" is equal to the value saved in context for recipe ""(.*)"" in meal period ""(.*)""")]
         public void WhenFieldIsEqualToContextForRecipeInMealPeriod(string field, string recipeTitle, string mealPeriod)
         {

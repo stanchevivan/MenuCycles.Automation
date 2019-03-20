@@ -411,6 +411,7 @@
     <Compile Include="PageObjects\Planning\NutritionTabDays\NutritionScreenRecipe.cs" />
     <Compile Include="PageObjects\Planning\NutritionTabDays\RecipeRowNutrition.cs" />
     <Compile Include="Models\RecipeModelNutrition.cs" />
+    <Compile Include="PageObjects\Planning\NutritionTabDays\ALaCarteNutrition.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

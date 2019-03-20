@@ -5,22 +5,17 @@ using SeleniumExtras.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 {
-    public class BuffetNutrition : RecipeRowNutrition
+    public class BuffetNutrition : NutritionScreenRecipe
     {
-        public string MealPeriodName;
-
-        public BuffetNutrition(IWebElement parent, string mealPeriodName, IWebDriver webDriver) : base(parent, webDriver)
+        public BuffetNutrition(IWebElement parent, string mealPeriodName, IWebDriver webdriver) : base(parent, mealPeriodName, webdriver)
         {
-            PageFactory.InitElements(parent, this);
-            MealPeriodName = mealPeriodName;
+            PageFactory.InitElements(webdriver, parent);
         }
 
         [FindsBy(How = How.ClassName, Using = "recipe-card")]
         private  IList<IWebElement> Items { get; set; }
 
         public IList<NutritionScreenRecipe> Recipes => this.Items.Select(p => new NutritionScreenRecipe(p, MealPeriodName, Driver)).ToList().GetRange(1, Items.Count - 1);
-
-        public string Title => new RecipePostProduction(Items[0], MealPeriodName, Driver).Title;
 
         public NutritionScreenRecipe GetRecipe(string title)
         {

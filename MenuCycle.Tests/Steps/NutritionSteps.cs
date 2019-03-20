@@ -32,5 +32,49 @@
             dynamic values = table.CreateDynamicInstance();            if (!string.IsNullOrEmpty(Convert.ToString(values.PlannedQty)))            {                Assert.That(mealPeriodName.MealPeriodPlannedQtyTotal, Is.EqualTo(Convert.ToString(values.PlannedQty)));            }            if (!string.IsNullOrEmpty(Convert.ToString(values.EnergyKJ)))            {                Assert.That(mealPeriodName.MealPeriodEnergyKJTotal, Is.EqualTo(Convert.ToString(values.EnergyKJ)));            }            if (!string.IsNullOrEmpty(Convert.ToString(values.EnergyKCAL)))            {                Assert.That(mealPeriodName.MealPeriodEnergyKCALTotal, Is.EqualTo(Convert.ToString(values.EnergyKCAL)));            }            if (!string.IsNullOrEmpty(Convert.ToString(values.Fat)))            {                Assert.That(mealPeriodName.MealPeriodFatTotal, Is.EqualTo(Convert.ToString(values.Fat)));            }            if (!string.IsNullOrEmpty(Convert.ToString(values.SaturatedFat)))            {                Assert.That(mealPeriodName.MealPeriodSaturatedFatTotal, Is.EqualTo(Convert.ToString(values.SaturatedFat)));            }            if (!string.IsNullOrEmpty(Convert.ToString(values.Sugar)))            {                Assert.That(mealPeriodName.MealPeriodSugarTotal, Is.EqualTo(Convert.ToString(values.Sugar)));            }            if (!string.IsNullOrEmpty(Convert.ToString(values.Salt)))            {                Assert.That(mealPeriodName.MealPeriodSaltTotal, Is.EqualTo(Convert.ToString(values.Salt)));            }
         }        [Then(@"number of covers field is not present")]        public void NumberOfCoversFieldIsNotPresent()        {            Assert.IsFalse(nutritionTabDays.IsNumberOfCoversHiddenForAllMealPeriods);
         }
+
+        [Then(@"Verify daily nutrition totals equals the sum of all meal period totals")]        public void VerifyDailyNutritionTotalEqualsTheSumOfAllMealPeriodTotals()        {            var sumOfMealPeriodQuantities = nutritionTabDays.MealPeriods.Sum(x => int.Parse(x.MealPeriodPlannedQtyTotal));            Assert.That(sumOfMealPeriodQuantities, Is.EqualTo(int.Parse(nutritionTabDays.DailyPlannedQtyTotal)));
+
+            var sumOfMealPeriodEnergyKJ = nutritionTabDays.MealPeriods.Sum(x => int.Parse(x.MealPeriodEnergyKJTotal));            Assert.That(sumOfMealPeriodEnergyKJ, Is.EqualTo(int.Parse(nutritionTabDays.DailyEnergyKJTotal)));
+
+            var sumOfMealPeriodEnergyKCAL = nutritionTabDays.MealPeriods.Sum(x => int.Parse(x.MealPeriodEnergyKCALTotal));            Assert.That(sumOfMealPeriodEnergyKCAL, Is.EqualTo(int.Parse(nutritionTabDays.DailyEnergyKCALTotal)));
+
+            var sumOfMealPeriodFat = nutritionTabDays.MealPeriods.Sum(x => int.Parse(x.MealPeriodFatTotal));            Assert.That(sumOfMealPeriodFat, Is.EqualTo(int.Parse(nutritionTabDays.DailyFatTotal)));
+
+            var sumOfMealPeriodSaturatedFat = nutritionTabDays.MealPeriods.Sum(x => int.Parse(x.MealPeriodSaturatedFatTotal));            Assert.That(sumOfMealPeriodSaturatedFat, Is.EqualTo(int.Parse(nutritionTabDays.DailySaturatedFatTotal)));
+
+            var sumOfMealPeriodSugar = nutritionTabDays.MealPeriods.Sum(x => int.Parse(x.MealPeriodSugarTotal));            Assert.That(sumOfMealPeriodSugar, Is.EqualTo(int.Parse(nutritionTabDays.DailySugarTotal)));
+
+            var sumOfMealPeriodSalt = nutritionTabDays.MealPeriods.Sum(x => int.Parse(x.MealPeriodSaltTotal));            Assert.That(sumOfMealPeriodSalt, Is.EqualTo(int.Parse(nutritionTabDays.DailySaltTotal)));        }
+
+        [Then(@"Verify meal period ""(.*)"" nutrition total equals the sum of all recipes nutrition values")]        public void VerifyMealPeriodNutritionTotalEqualsTheSumOfRecipesNutritionValues(string mealPeriodName)        {            var recipes = nutritionTabDays.GetMealPeriod(mealPeriodName).Recipes;            var buffetRecipes = nutritionTabDays.GetMealPeriod(mealPeriodName).Buffets.SelectMany(x => x.Recipes).Select(x => x.GetFirstRow());            var aLaCarteRecipes = nutritionTabDays.GetMealPeriod(mealPeriodName).ALaCartes.SelectMany(x => x.Recipes).Select(x => x.GetFirstRow());            var plannedQtySums = recipes.Sum(x => int.Parse(x.GetFirstRow().PlannedQuantity))             + buffetRecipes.Sum(x => int.Parse(x.PlannedQuantity))             + aLaCarteRecipes.Sum(x => int.Parse(x.PlannedQuantity));
+            Assert.That(plannedQtySums, Is.EqualTo(int.Parse(nutritionTabDays.GetMealPeriod(mealPeriodName).MealPeriodPlannedQtyTotal)));
+
+            var EnergyKJSums = recipes.Sum(x => decimal.Parse(x.GetFirstRow().EnergyKJ))
+              + buffetRecipes.Sum(x => decimal.Parse(x.EnergyKJ))
+              + aLaCarteRecipes.Sum(x => decimal.Parse(x.EnergyKJ));            Assert.That(EnergyKJSums, Is.EqualTo(decimal.Parse(nutritionTabDays.GetMealPeriod(mealPeriodName).MealPeriodEnergyKJTotal)));
+
+            var EnergyKCALSums = recipes.Sum(x => decimal.Parse(x.GetFirstRow().EnergyKCAL))
+              + buffetRecipes.Sum(x => decimal.Parse(x.EnergyKCAL))
+              + aLaCarteRecipes.Sum(x => decimal.Parse(x.EnergyKCAL));            Assert.That(EnergyKCALSums, Is.EqualTo(decimal.Parse(nutritionTabDays.GetMealPeriod(mealPeriodName).MealPeriodEnergyKCALTotal)));
+
+            var FatSums = recipes.Sum(x => decimal.Parse(x.GetFirstRow().Fat))
+              + buffetRecipes.Sum(x => decimal.Parse(x.Fat))
+              + aLaCarteRecipes.Sum(x => decimal.Parse(x.Fat));            Assert.That(FatSums, Is.EqualTo(decimal.Parse(nutritionTabDays.GetMealPeriod(mealPeriodName).MealPeriodFatTotal)));
+
+            var SaturatedFatSums = recipes.Sum(x => decimal.Parse(x.GetFirstRow().SaturatesFat))
+              + buffetRecipes.Sum(x => decimal.Parse(x.SaturatesFat))
+              + aLaCarteRecipes.Sum(x => decimal.Parse(x.SaturatesFat));            Assert.That(SaturatedFatSums, Is.EqualTo(decimal.Parse(nutritionTabDays.GetMealPeriod(mealPeriodName).MealPeriodSaturatedFatTotal)));
+
+            var SugarSums = recipes.Sum(x => decimal.Parse(x.GetFirstRow().Sugar))
+              + buffetRecipes.Sum(x => decimal.Parse(x.Sugar))
+              + aLaCarteRecipes.Sum(x => decimal.Parse(x.Sugar));            Assert.That(SugarSums, Is.EqualTo(decimal.Parse(nutritionTabDays.GetMealPeriod(mealPeriodName).MealPeriodSugarTotal)));
+
+            var SaltSums = recipes.Sum(x => decimal.Parse(x.GetFirstRow().Salt))
+              + buffetRecipes.Sum(x => decimal.Parse(x.Salt))
+              + aLaCarteRecipes.Sum(x => decimal.Parse(x.Salt));            Assert.That(SaltSums, Is.EqualTo(decimal.Parse(nutritionTabDays.GetMealPeriod(mealPeriodName).MealPeriodSaltTotal)));
+        }
+
+        [Then(@"Verify Planned Qty for recipe ""(.*)"" in meal period ""(.*)"" equals the sum of the tariffs planned qty values")]        public void ThenVerifyPlannedQtyForRecipeInMealPeriodEqualsTheSumOfTheTariffsPlannedQtyValues(string recipeName, string mealPeriod)        {            var recipePlannedQty = int.Parse(nutritionTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeName).GetFirstRow().PlannedQuantity);            Assert.That(scenarioContext.Get<int>("PlanningScreenPlannedQtySum"), Is.EqualTo(recipePlannedQty));        }
     }}
 

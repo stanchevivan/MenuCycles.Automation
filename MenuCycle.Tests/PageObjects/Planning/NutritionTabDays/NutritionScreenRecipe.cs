@@ -17,15 +17,18 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         [FindsBy(How = How.CssSelector, Using = ".recipe-header__small")]
         protected IList<IWebElement> BuffetRecipes { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".recipe-header__title > span:first-of-type")]
+        private IWebElement type { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-header__title > span:last-of-type")]
         private IWebElement title { get; set; }
         [FindsBy(How = How.ClassName, Using = "recipe-data__row")]
         private IList<IWebElement> RecipeRows { get; set; }
 
+
         public IList<RecipeRowNutrition> Rows => RecipeRows.Select(p => new RecipeRowNutrition(p, Driver)).ToList();
 
-        public bool IsBuffet => this.BuffetRecipes.Count > 0;
         public virtual string Title => this.title.Text;
+        public string Type => type.Text;
 
         public RecipeRowNutrition GetFirstRow()
         {

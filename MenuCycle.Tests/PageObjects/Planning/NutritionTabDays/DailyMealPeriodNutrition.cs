@@ -57,11 +57,14 @@ namespace MenuCycle.Tests.PageObjects
 
 
         public IList<NutritionScreenRecipe> Recipes => this.Items
-                                            .Where(p => !new NutritionScreenRecipe(p, this.Name, Driver).IsBuffet)
+                                            .Where(p => new NutritionScreenRecipe(p, this.Name, Driver).Type == "RECIPE")
                                             .Select(p => new NutritionScreenRecipe(p, this.Name, Driver)).ToList();
         public IList<BuffetNutrition> Buffets => this.Items
-                                            .Where(p => new NutritionScreenRecipe(p, this.Name, Driver).IsBuffet)
+                                            .Where(p => new NutritionScreenRecipe(p, this.Name, Driver).Type == "BUFFET")
                                             .Select(p => new BuffetNutrition(p, this.Name, Driver)).ToList();
+        public IList<ALaCarteNutrition> ALaCartes => this.Items
+                                    .Where(p => new NutritionScreenRecipe(p, this.Name, Driver).Type == "A LA CARTE")
+                                    .Select(p => new ALaCarteNutrition(p, this.Name, Driver)).ToList();
 
         public NutritionScreenRecipe GetRecipe(string title)
         {
