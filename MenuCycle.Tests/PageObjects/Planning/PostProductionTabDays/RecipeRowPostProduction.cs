@@ -20,8 +20,8 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         private IWebElement tariffName { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".quantity > span")]
         private IWebElement plannedQuantity { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".required-quantity > div > input")]
-        private IWebElement quantityRequired { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".requisitioned-quantity > div > input")]
+        private IWebElement quantityRequisitioned { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".produced-quantity > div > input")]
         private IWebElement quantityProduced { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".sold-quantity .recipe-data__cell")]
@@ -54,12 +54,12 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         public bool IsSoldQtyEnabled => quantitySold.Get().HasClass("input-default");
         public bool IsWastageEnabled => wastage.Get().HasClass("input-default");
 
-        public string QuantityRequired
+        public string QuantityRequisitioned
         {
-            get => this.quantityRequired.GetAttribute("value");
+            get => this.quantityRequisitioned.GetAttribute("value");
             set
             {
-                this.quantityRequired.Do(Driver).ClearAndSendKeys(value);
+                this.quantityRequisitioned.Do(Driver).ClearAndSendKeys(value);
                 this.quantityProduced.Do(Driver).FocusOut();
             }
         }
@@ -128,7 +128,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             return new RecipeModelPostProducton
             {
                 PlannedQuantity = this.PlannedQuantity,
-                QuantityRequired = this.QuantityRequired,
+                QuantityRequisitioned = this.QuantityRequisitioned,
                 QuantityProduced = this.QuantityProduced,
                 QuantitySold = this.QuantitySold,
                 NoCharge = this.NoCharge,
@@ -139,7 +139,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public void SetData(RecipeModelPostProducton dto)
         {
-            QuantityRequired = dto.QuantityRequired;
+            QuantityRequisitioned = dto.QuantityRequisitioned;
             QuantityProduced = dto.QuantityProduced;
             QuantitySold = dto.QuantitySold;
             NoCharge = dto.NoCharge;
