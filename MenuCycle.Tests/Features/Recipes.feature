@@ -345,18 +345,17 @@ Scenario Outline: Meal period totals are re-calculated when the data from the in
         |MealPeriodName|TYPE  |RecipeTitle  |PriceModel|Target|SellPrice|TaxPercentage|PlannedQuantity|
         |<mealPeriod>  |RECIPE|<recipeName1>|GP        |    10|        ^|20           |              3|
         |<mealPeriod>  |RECIPE|<recipeName2>|Fixed     |     ^|        2|20           |              4|
-        |<mealPeriod>  |RECIPE|<recipeName3>|Markup    |    33|        ^|20           |              1|
     And data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle|PlannedQuantity|
-        |<mealPeriod>  |RECIPE|Cheese     |               |
+        |MealPeriodName|TYPE  |RecipeTitle  |PlannedQuantity|
+        |<mealPeriod>  |RECIPE|<recipeName1>|               |
     Then Verify value for fields for meal period "<mealPeriod>" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
-        |         7|     6.47|   9.37|     31%|
+        |         4|        0|   6.67|    100%|
         
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|day     |recipeName1                                 |recipeName2                |recipeName3|
-    |QAI        |Meda     |DANGELO   |Thursday|703Coronation Chicken Sandwich Filling (50g)|703Reggae Raggae Mayonnaise|Cheese     |
+    |environment|menuCycle|mealPeriod|day     |recipeName1                                 |recipeName2                |
+    |QAI        |Meda     |DANGELO   |Thursday|703Coronation Chicken Sandwich Filling (50g)|703Reggae Raggae Mayonnaise|
         
 @TC29853
 Scenario Outline: Mass recipe update

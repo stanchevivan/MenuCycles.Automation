@@ -168,10 +168,9 @@ Scenario Outline: Recipes only - Calculate Meal period "Planned Quantity", "Tota
         |MealPeriodName|TYPE  |RecipeTitle                                 |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
         |DANGELO       |RECIPE|703Coronation Chicken Sandwich Filling (50g)|             10|        GP|    14|            20|       ^|
         |DANGELO       |RECIPE|703Reggae Raggae Mayonnaise                 |             10|     Fixed|     ^|            20|       1|
-        |DANGELO       |RECIPE|Cheese                                      |             10|    Markup|    12|            20|       ^|
     Then Verify value for fields for meal period "<mealPeriod>" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
-        |        30|        0|   8.33|    100%|
+        |        20|        0|   8.33|    100%|
         
     @QAI
     Examples:
