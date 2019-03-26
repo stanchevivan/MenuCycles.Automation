@@ -63,6 +63,14 @@ namespace MenuCycle.Tests.PageObjects
             AllApplications.Do(Driver).ScrollIntoView();
         }
 
+        public void SwitchToTab(int index)
+        {
+            if (Driver is OpenQA.Selenium.Chrome.ChromeDriver)
+            {
+                Driver.SwitchTo().Window(Driver.WindowHandles[index - 1]);
+            }
+        }
+
         public void OpenUrl()
         {
             Driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["Engage.Url"]);
@@ -76,7 +84,7 @@ namespace MenuCycle.Tests.PageObjects
         {
             Driver.Navigate().GoToUrl(URL);
 
-            if (Driver is OpenQA.Selenium.IE.InternetExplorerDriver || Driver is OpenQA.Selenium.Chrome.ChromeDriver)
+            if (Driver is OpenQA.Selenium.IE.InternetExplorerDriver) // || Driver is OpenQA.Selenium.Chrome.ChromeDriver)
             {
                 Driver.Manage().Window.Maximize();
             }

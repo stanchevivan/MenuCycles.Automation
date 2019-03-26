@@ -64,13 +64,17 @@ namespace MenuCycle.Tests.Steps
         [Given(@"'(.*)' application is selected")]
         public void GivenApplicationIsSelected(string application)
         {
-            //if (fourthAppMain.LeftMenu.HamburguerMenu.Location.X <= 50)
-            //{
-            //    fourthAppMain.LeftMenu.HamburguerMenu.Click();
-            //}
+            if (fourthAppMain.LeftMenu.HamburguerMenu.Location.X <= 50)
+            {
+                fourthAppMain.LeftMenu.HamburguerMenu.Click();
+            }
 
             fourthAppLocalPage.ScrollToAllApplications();
             fourthAppMain.OpenApp(application);
+          
+            // Because on small window size MC opens in a new background tab, we need to switch to it
+            fourthAppLocalPage.SwitchToTab(2);
+
             fourthAppLocalPage.SwitchToNativeContext();
         }
 
