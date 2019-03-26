@@ -243,10 +243,10 @@
       <HintPath>..\packages\Fourth.Automation.Framework.Reporting.4.2.62\lib\net45\Fourth.Automation.Framework.Reporting.dll</HintPath>
     </Reference>
     <Reference Include="WebDriver">
-      <HintPath>..\packages\Selenium.WebDriver.3.12.1\lib\net45\WebDriver.dll</HintPath>
+      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
     <Reference Include="WebDriver.Support">
-      <HintPath>..\packages\Selenium.Support.3.12.1\lib\net45\WebDriver.Support.dll</HintPath>
+      <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
     </Reference>
     <Reference Include="Polly">
       <HintPath>..\packages\Polly.5.9.0\lib\net45\Polly.dll</HintPath>
