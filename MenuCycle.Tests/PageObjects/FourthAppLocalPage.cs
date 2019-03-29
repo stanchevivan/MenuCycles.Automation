@@ -67,6 +67,10 @@ namespace MenuCycle.Tests.PageObjects
         {
             if (Driver is OpenQA.Selenium.Chrome.ChromeDriver)
             {
+                if (((OpenQA.Selenium.Chrome.ChromeDriver)Driver).WindowHandles.Count < 2)
+                {
+                    Driver.WaitNewWindowOpen();
+                }
                 Driver.SwitchTo().Window(Driver.WindowHandles[index - 1]);
             }
         }
