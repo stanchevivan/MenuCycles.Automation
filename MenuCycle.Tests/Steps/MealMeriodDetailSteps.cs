@@ -1,6 +1,4 @@
-﻿
-using System;
-using System.Linq;
+﻿using System.Linq;
 using MenuCycle.Tests.PageObjects;
 using NUnit.Framework;
 using TechTalk.SpecFlow;

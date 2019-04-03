@@ -1,43 +1,23 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MenuCycle.Tests.Models;
-using MenuCycle.Tests.PageObjects;
-using MenuCycle.Tests.PageObjects.Planning.PlanningTabDays;
+﻿using MenuCycle.Tests.PageObjects;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
 
 namespace MenuCycle.Tests.Steps
 {
     [Binding]
     public class DailyCalendarSteps
     {
-        readonly PlanningView dailyPlanningView;
-        readonly PlanningTabDays planningTabDays;
-        readonly PlanningTabWeeks planningTabWeeks;
-        readonly NutritionTabDays nutritionTabDays;
         readonly MenuCycleDailyCalendarView dailyCalendarView;
-        readonly RecipeSearch recipeSearch;
+
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
-        readonly ModalDialogPage modalDialogPage;
-        readonly WeeklyCalendarView weeklyCalendarView;
 
-        public DailyCalendarSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleDailyCalendarView menuCycleDailyCalendarView,
-            RecipeSearch recipeSearch, ToastNotification notification,
-                              ModalDialogPage modalDialogPage, WeeklyCalendarView weeklyCalendarView)
+        public DailyCalendarSteps (ToastNotification notification, ScenarioContext scenarioContext, MenuCycleDailyCalendarView menuCycleDailyCalendarView)
         {
-            this.dailyPlanningView = dailyPlanningView;
-            this.planningTabDays = planningTabDays;
-            this.planningTabWeeks = planningTabWeeks;
-            this.nutritionTabDays = nutritionTabDays;
-            this.dailyCalendarView = menuCycleDailyCalendarView;
-            this.recipeSearch = recipeSearch;
             this.notification = notification;
-            this.modalDialogPage = modalDialogPage;
-            this.weeklyCalendarView = weeklyCalendarView;
-
             this.scenarioContext = scenarioContext;
+
+            this.dailyCalendarView = menuCycleDailyCalendarView;
         }
 
         [When(@"daily calendar view is switched")]

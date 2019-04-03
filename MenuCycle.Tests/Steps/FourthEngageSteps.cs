@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using Fourth.Automation.Framework.Extension;
 using MenuCycle.Tests.PageObjects;
 using MenuCycle.Tests.Support;

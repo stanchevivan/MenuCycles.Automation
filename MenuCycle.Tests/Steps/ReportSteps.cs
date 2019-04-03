@@ -8,37 +8,17 @@ namespace MenuCycle.Tests.Steps
     [Binding]
     public class ReportSteps
     {
-        readonly PlanningView dailyPlanningView;
-        readonly PlanningTabDays planningTabDays;
-        readonly PlanningTabWeeks planningTabWeeks;
-        readonly NutritionTabDays nutritionTabDays;
-        readonly MenuCycleDailyCalendarView menuCycleDailyCalendarView;
-        readonly RecipeSearch recipeSearch;
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
-        readonly ModalDialogPage modalDialogPage;
         readonly ReportsView reportsView;
         readonly ConsumerFacingReportPage consumerFacingReportPage;
-        readonly MenuCyclesDashboard menuCyclesDashboard;
-        readonly LogInAs logInAs;
 
 
-        public ReportSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleDailyCalendarView menuCycleDailyCalendarView,
-            RecipeSearch recipeSearch, ToastNotification notification,
-                           ModalDialogPage modalDialogPage, ReportsView reportsView, ConsumerFacingReportPage consumerFacingReportPage, MenuCyclesDashboard menuCyclesDashboard, LogInAs logInAs)
+        public ReportSteps(ScenarioContext scenarioContext, ToastNotification notification, ReportsView reportsView, ConsumerFacingReportPage consumerFacingReportPage)
         {
-            this.dailyPlanningView = dailyPlanningView;
-            this.planningTabDays = planningTabDays;
-            this.planningTabWeeks = planningTabWeeks;
-            this.nutritionTabDays = nutritionTabDays;
-            this.menuCycleDailyCalendarView = menuCycleDailyCalendarView;
-            this.recipeSearch = recipeSearch;
             this.notification = notification;
-            this.modalDialogPage = modalDialogPage;
             this.reportsView = reportsView;
             this.consumerFacingReportPage = consumerFacingReportPage;
-            this.menuCyclesDashboard = menuCyclesDashboard;
-            this.logInAs = logInAs;
 
             this.scenarioContext = scenarioContext;
         }

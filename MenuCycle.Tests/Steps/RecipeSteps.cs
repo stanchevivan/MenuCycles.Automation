@@ -1,37 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MenuCycle.Tests.Models;
 using MenuCycle.Tests.PageObjects;
-using MenuCycle.Tests.PageObjects.Planning.PlanningTabDays;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
 
 namespace MenuCycle.Tests.Steps
 {
     [Binding]
     public class RecipeSteps
     {
-        readonly PlanningView dailyPlanningView;
         readonly PlanningTabDays planningTabDays;
-        readonly PlanningTabWeeks planningTabWeeks;
-        readonly NutritionTabDays nutritionTabDays;
-        readonly MenuCycleDailyCalendarView menuCycleDailyCalendarView;
-        readonly RecipeSearch recipeSearch;
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
         readonly ModalDialogPage modalDialogPage;
 
-        public RecipeSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTabDays, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTabDays, MenuCycleDailyCalendarView menuCycleDailyCalendarView,
-            RecipeSearch recipeSearch, ToastNotification notification,
+        public RecipeSteps(ScenarioContext scenarioContext, PlanningTabDays planningTabDays, ToastNotification notification,
                            ModalDialogPage modalDialogPage)
         {
-            this.dailyPlanningView = dailyPlanningView;
             this.planningTabDays = planningTabDays;
-            this.planningTabWeeks = planningTabWeeks;
-            this.nutritionTabDays = nutritionTabDays;
-            this.menuCycleDailyCalendarView = menuCycleDailyCalendarView;
-            this.recipeSearch = recipeSearch;
             this.notification = notification;
             this.modalDialogPage = modalDialogPage;
 

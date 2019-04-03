@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using MenuCycle.Tests.PageObjects;
 using NUnit.Framework;
@@ -15,7 +14,6 @@ namespace MenuCycle.Tests.Steps
         readonly MenuCyclesDashboard menuCycleDashboard;
         readonly CreateMenuCycle createMenuCycle;
         readonly MenuCycleDailyCalendarView menuCycleDailyCalendarView;
-        readonly RecipeSearch recipeSearch;
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
         readonly ModalDialogPage modalDialogPage;
@@ -24,14 +22,13 @@ namespace MenuCycle.Tests.Steps
         MenuCyclesDashboard menuCyclesDashboard;
 
         public MenuCycleSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, LogInAs logInAs,
-            MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleDailyCalendarView menuCycleDailyCalendarView, RecipeSearch recipeSearch, ToastNotification notification,
+            MenuCyclesDashboard menuCycleDashboard, CreateMenuCycle createMenuCycle, MenuCycleDailyCalendarView menuCycleDailyCalendarView, ToastNotification notification,
                               ModalDialogPage modalDialogPage, ReportsView reportsView, WeeklyCalendarView weeklyCalendarView, MenuCyclesDashboard menuCyclesDashboard)
         {
             this.logInAs = logInAs;
             this.menuCycleDashboard = menuCycleDashboard;
             this.createMenuCycle = createMenuCycle;
             this.menuCycleDailyCalendarView = menuCycleDailyCalendarView;
-            this.recipeSearch = recipeSearch;
             this.notification = notification;
             this.planningView = dailyPlanningView;
             this.modalDialogPage = modalDialogPage;

@@ -1,36 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using MenuCycle.Tests.Models;
+﻿using System.Linq;
 using MenuCycle.Tests.PageObjects;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
 
 namespace MenuCycle.Tests.Steps
 {
     [Binding]
     public sealed class SearchRecipeSteps
     {
-        readonly PlanningView planningView;
-        readonly PlanningTabDays planningTabDays;
-        readonly PlanningTabWeeks planningTabWeeks;
-        readonly NutritionTabDays nutritionTabDays;
-        readonly MenuCycleDailyCalendarView menuCycleDailyCalendarView;
         readonly RecipeSearch recipeSearch;
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
         readonly MealPeriodDetails mealPeriodDetails;
         readonly RecipeOverview recipeOverview;
 
-        public SearchRecipeSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, PlanningTabDays planningTab, PlanningTabWeeks planningTabWeeks, NutritionTabDays nutritionTab, MenuCycleDailyCalendarView menuCycleDailyCalendarView, RecipeSearch recipeSearch, ToastNotification notification, MealPeriodDetails mealPeriodDetails, RecipeOverview recipeOverview)
+        public SearchRecipeSteps(ScenarioContext scenarioContext, ToastNotification notification, MealPeriodDetails mealPeriodDetails, RecipeOverview recipeOverview)
         {
-            this.planningView = dailyPlanningView;
-            this.planningTabDays = planningTab;
-            this.planningTabWeeks = planningTabWeeks;
-            this.nutritionTabDays = nutritionTab;
-            this.menuCycleDailyCalendarView = menuCycleDailyCalendarView;
-            this.recipeSearch = recipeSearch;
             this.notification = notification;
             this.mealPeriodDetails = mealPeriodDetails;
             this.recipeOverview = recipeOverview;
