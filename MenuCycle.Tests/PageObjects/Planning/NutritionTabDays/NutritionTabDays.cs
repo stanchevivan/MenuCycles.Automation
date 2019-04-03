@@ -58,5 +58,10 @@ namespace MenuCycle.Tests.PageObjects
             }
             return MealPeriods.First(x => x.Name == name.ToUpper());
         }
+
+        public void ClickWeeklyViewButton()
+        {
+            WeeklyViewButton.Click();
+        }
     }
 }
