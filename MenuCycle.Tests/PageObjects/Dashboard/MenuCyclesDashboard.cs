@@ -16,7 +16,7 @@ namespace MenuCycle.Tests.PageObjects
         public IWebElement CreateMenuCycleButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".menuCycleTableBody .home-div-row")]
-        [FindsBy(How = How.CssSelector, Using = ".empty-menucycle")]
+        //[FindsBy(How = How.CssSelector, Using = ".empty-menucycle")]
         public IList<IWebElement> menuCycleRows { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".menuCycleTableBody")]
