@@ -24,7 +24,7 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement StartDate { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".report-main-right_consumer-facing_date-to_date > input")]
         private IWebElement EndDate { get; set; }
-        [FindsBy(How = How.XPath, Using = "//div[contains(text(), 'Export CSV')]")]
+        [FindsBy(How = How.XPath, Using = "//div[@class='reports-main-right_consumer-facing']//div[contains(text(), 'Export CSV')]")]
         private IWebElement ExportCsvButton { get; set; }
         [FindsBy(How = How.XPath, Using = "//div[contains(text(), 'Export PDF')]")]
         private IWebElement ExportPdfButton { get; set; }
