@@ -216,8 +216,8 @@ Scenario: Menu Extract Report - Central > Export button is displayed and clicked
         And Report "MenuExtract" is opened
         And Export button is not displayed
         And Meal periods are selected
-        |MealPeriod         |
-        |Chloe              |
+        |MealPeriod|
+        |Lunch     |
     Then Verify Export button is displayed
         And Report is exported
         And Verify notification message "Successfully Exported" is displayed

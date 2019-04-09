@@ -48,18 +48,22 @@ using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA
                 case Reports.ConsumerFacing:
                     ConsumerFacingReportButton.Do(Driver).ScrollIntoView();
                     ConsumerFacingReportButton.Click();
+                    Driver.WaitListItemsLoad(MealPeriodsList);
                     break;
                 case Reports.MenuExtract:
                     MenuExtractReportButton.Do(Driver).ScrollIntoView();
                     MenuExtractReportButton.Click();
+                    Driver.WaitListItemsLoad(MealPeriodsList);
                     break;
                 case Reports.RecipeCard:
                     RecipeCardReportButton.Do(Driver).ScrollIntoView();
                     RecipeCardReportButton.Click();
+                    Driver.WaitListItemsLoad(MealPeriodsList);
                     break;
                 case Reports.TrafficLight:
                     TrafficLightReportButton.Do(Driver).ScrollIntoView();
                     TrafficLightReportButton.Click();
+                    Driver.WaitListItemsLoad(MealPeriodsList);
                     break;
                 default:
                     throw new Exception($"No such report found! {reportToOpen}");

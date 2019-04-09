@@ -628,7 +628,7 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriod"});
             table5.AddRow(new string[] {
-                        "Chloe"});
+                        "Lunch"});
 #line 218
         testRunner.And("Meal periods are selected", ((string)(null)), table5, "And ");
 #line 221

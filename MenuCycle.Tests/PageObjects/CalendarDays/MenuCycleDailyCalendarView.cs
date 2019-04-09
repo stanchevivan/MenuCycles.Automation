@@ -156,7 +156,7 @@ namespace MenuCycle.Tests.PageObjects
 
             dayLink.Click();
 
-            var planningLink = PlanningLinks.First(x => x.Displayed);
+            var planningLink = PlanningLinks.First(x => x.Get().ElementPresent);
             Driver.WaitElementAndClick(planningLink);
         }
 
