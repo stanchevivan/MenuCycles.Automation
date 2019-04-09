@@ -226,6 +226,7 @@ def buildConfigurations(device)
 
 def runTests(device)
 {
+	// Assemble include and exclude parameter strings
 			def include = ''
 			def includeTags = Include_Tags.split(',')
 			def isFirstTag = true
@@ -252,6 +253,12 @@ def runTests(device)
 					exclude += "${or}cat != ${it}"
 					isFirstTag = false
 				}
+
+				// If there are include tags, group exclude tags together
+				if (include != '')
+				{
+					exclude = '(' + exclude + ')';
+				}
 			}
 
 			def and = Include_Tags != '' && Exclude_Tags != '' ? " && " : ''
@@ -265,12 +272,12 @@ def runTests(device)
 			if (isRemote)
 			{
 					print "Running tests remotely.."
-					bat "C:/Users/Jenkins/ssh.exe -o ServerAliveInterval=30 UIMCM@1.tcp.eu.ngrok.io -p$remotePort \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit ${remotePath}/${projectName}.dll ${where} ${quote}${include}${and}(${exclude})${quote} --result:${device}TestResults.xml;format=nunit2\""
+					bat "C:/Users/Jenkins/ssh.exe -o ServerAliveInterval=30 UIMCM@1.tcp.eu.ngrok.io -p$remotePort \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit ${remotePath}/${projectName}.dll ${where} ${quote}${include}${and}${exclude}${quote} --result:${device}TestResults.xml;format=nunit2\""
 			}
 			else
 			{
 					print "Running tests locally.."
-					bat "nunit ${projectName}/bin/${device}/${projectName}.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 ${where} ${doubleQuote}${include}${and}(${exclude})${doubleQuote}"
+					bat "nunit ${projectName}/bin/${device}/${projectName}.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 ${where} ${doubleQuote}${include}${and}${exclude}${doubleQuote}"
 			}
 }
 
