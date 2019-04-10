@@ -324,10 +324,10 @@ namespace MenuCycle.Tests.Steps
             Assert.That(menuCycleDailyCalendarView.GetDay(day).MealPeriodCards.Select(x => x.Name).ToList(), Has.No.Member(mealPeriod));
         }
 
-        [When(@"the header for the new meal period is clicked")]
-        public void TheHeaderForNewMealPeriodIsClicked()
+        [Then(@"Verify new meal period header is not clickable")]
+        public void VerifyNewMealPeriodHeaderIsNotClickable()
         {
-            menuCycleDailyCalendarView.ClickNewMealPeriodHeader();
+            menuCycleDailyCalendarView.VerifyNewMealPeriodHeaderIsNotClickable();
         }
 
         [When(@"meal period ""(.*)"" is selected in drop-down")]

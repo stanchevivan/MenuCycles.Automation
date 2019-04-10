@@ -185,6 +185,23 @@ namespace MenuCycle.Tests.PageObjects
             NewMealPeriodHeader.Click();
         }
 
+        public bool VerifyNewMealPeriodHeaderIsNotClickable()
+        {
+            try
+            {
+                NewMealPeriodHeader.Click();
+            }
+            catch (System.Reflection.TargetInvocationException ex)
+            {
+                if (ex.InnerException.Message.Contains("not clickable"))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public void UseDailyReportButton()
         {
             DailyReportButton.Click();

@@ -29,7 +29,8 @@ namespace MenuCycle.Tests.PageObjects
 
         public void WaitForLoad()
         {
-            Driver.WaitElementToDisappear(Backdrop);
+            // TODO: delete commented backdrop wait if not needed
+            //Driver.WaitElementToDisappear(Backdrop);
             Driver.WaitElementToExists(DetailedView);
         }
 

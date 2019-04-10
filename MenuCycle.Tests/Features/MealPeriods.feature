@@ -371,9 +371,7 @@ Scenario Outline: Clicking on the "NEW MEAL PERIOD" box while selecting a meal p
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When New meal period button is clicked for "<day>"
-        And the header for the new meal period is clicked
-        And meal period "<mealPeriod>" is selected in drop-down
-    Then Verify drop down for meal period has "<mealPeriod>" selected
+    Then Verify new meal period header is not clickable
     
     @QAI
     Examples:

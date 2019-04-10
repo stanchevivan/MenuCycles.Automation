@@ -1028,11 +1028,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 373
     testRunner.When(string.Format("New meal period button is clicked for \"{0}\"", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 374
-        testRunner.And("the header for the new meal period is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 375
-        testRunner.And(string.Format("meal period \"{0}\" is selected in drop-down", mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 376
-    testRunner.Then(string.Format("Verify drop down for meal period has \"{0}\" selected", mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify new meal period header is not clickable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

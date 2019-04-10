@@ -169,7 +169,7 @@ this.FeatureBackground();
             table3.AddRow(new string[] {
                         "004Baked Beans_3",
                         "Recipe",
-                        "£1.84"});
+                        "£1.839"});
 #line 36
         testRunner.And("Verify items present in the search results are", ((string)(null)), table3, "And ");
 #line hidden
@@ -180,7 +180,7 @@ this.FeatureBackground();
             table4.AddRow(new string[] {
                         "004Baked Beans_3",
                         "Recipe",
-                        "£1.84"});
+                        "£1.839"});
 #line 39
         testRunner.And("Verify items in meal period detailed view", ((string)(null)), table4, "And ");
 #line 42
@@ -249,11 +249,11 @@ this.FeatureBackground();
                         "0.00"});
             table6.AddRow(new string[] {
                         "EGGS WHOLE PASTEURISED",
-                        "0.00"});
+                        "0.36"});
 #line 55
         testRunner.And("Verify ingredients in the detailed view", ((string)(null)), table6, "And ");
 #line 64
-        testRunner.And("Verify ingredients total cost is \"0.00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Verify ingredients total cost is \"0.36\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -35,7 +35,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         private IWebElement wastage { get; set; }
         [FindsBy(How = How.ClassName, Using = "border-error")]
         private IWebElement BorderError { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".required-quantity > div > .error-content")]
+        [FindsBy(How = How.CssSelector, Using = ".requisitioned-quantity > div > .error-content")]
         private IWebElement qtyReqdContextError { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".produced-quantity > div > .error-content")]
         private IWebElement qtyProdContextError { get; set; }

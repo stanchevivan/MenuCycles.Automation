@@ -35,10 +35,10 @@ Scenario: Recipe price should be the same for meal period detailed view and the 
         And Recipe "004Baked Beans_3" is searched
         And Verify items present in the search results are
             |Name            |Type  |Cost  |
-            |004Baked Beans_3|Recipe|£1.84 |
+            |004Baked Beans_3|Recipe|£1.839|
         And Verify items in meal period detailed view
             |Name            |Type  |Cost  |
-            |004Baked Beans_3|Recipe|£1.84 |
+            |004Baked Beans_3|Recipe|£1.839|
         And meal period detailed view is closed
         And planning for "Monday" is opened
     Then Verify data for items is
@@ -60,5 +60,5 @@ Scenario: Single cost is present for Recipe and Ingredients in recipe detailed v
         |Parsley Curley                      |          0.00|
         |Aryzta - Sausage Roll               |          0.00|
         |Lea & Perrins - Worcestershire Sauce|          0.00|
-        |EGGS WHOLE PASTEURISED              |          0.00|
-        And Verify ingredients total cost is "0.00"
+        |EGGS WHOLE PASTEURISED              |          0.36|
+        And Verify ingredients total cost is "0.36"

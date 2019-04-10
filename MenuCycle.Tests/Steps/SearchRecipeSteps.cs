@@ -14,11 +14,12 @@ namespace MenuCycle.Tests.Steps
         readonly MealPeriodDetails mealPeriodDetails;
         readonly RecipeOverview recipeOverview;
 
-        public SearchRecipeSteps(ScenarioContext scenarioContext, ToastNotification notification, MealPeriodDetails mealPeriodDetails, RecipeOverview recipeOverview)
+        public SearchRecipeSteps(ScenarioContext scenarioContext, ToastNotification notification, MealPeriodDetails mealPeriodDetails, RecipeOverview recipeOverview, RecipeSearch recipeSearch)
         {
             this.notification = notification;
             this.mealPeriodDetails = mealPeriodDetails;
             this.recipeOverview = recipeOverview;
+            this.recipeSearch = recipeSearch;
 
             this.scenarioContext = scenarioContext;
         }
