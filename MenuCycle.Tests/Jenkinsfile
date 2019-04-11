@@ -249,15 +249,9 @@ def runTests(device)
 			{
 				excludeTags.each
 				{
-					def or = isFirstTag ? '' : " || "
+					def or = isFirstTag ? '' : " && "
 					exclude += "${or}cat != ${it}"
 					isFirstTag = false
-				}
-
-				// If there are include tags, group exclude tags together
-				if (include != '')
-				{
-					exclude = '(' + exclude + ')';
 				}
 			}
 
