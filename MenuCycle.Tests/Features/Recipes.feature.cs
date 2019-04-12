@@ -494,7 +494,7 @@ this.ScenarioSetup(scenarioInfo);
                         "TaxPercentage",
                         "SellPrice"});
             table2.AddRow(new string[] {
-                        "004Bread (fresh dough)",
+                        "724Beef Bolognaise",
                         "2",
                         "Fixed",
                         "^",
@@ -523,7 +523,7 @@ this.ScenarioSetup(scenarioInfo);
             table3.AddRow(new string[] {
                         "LANCE",
                         "RECIPE",
-                        "004Basic Sponge",
+                        "004Baked Beans_0",
                         "4",
                         "TariffOne",
                         "Markup",
@@ -540,18 +540,18 @@ this.ScenarioSetup(scenarioInfo);
                         "Revenue",
                         "ActualGP"});
             table4.AddRow(new string[] {
-                        "004Bread (fresh dough)",
-                        "0.1",
-                        "0.2",
+                        "724Beef Bolognaise",
+                        "1.22",
+                        "2.43",
                         "^",
                         "91.67",
-                        "100%"});
+                        "97%"});
             table4.AddRow(new string[] {
                         "724Pepper & Garlic Coated Beef",
-                        "2378.9",
-                        "7136.7",
-                        "2629.31",
-                        "7512.32",
+                        "5022.42",
+                        "15067.27",
+                        "5551.1",
+                        "15860.28",
                         "5%"});
 #line 182
     testRunner.Then("Verify data for recipes in a la carte \"Holiday A La Carte\" in meal period \"LANCE\"" +
@@ -568,10 +568,10 @@ this.ScenarioSetup(scenarioInfo);
             table5.AddRow(new string[] {
                         "LANCE",
                         "RECIPE",
-                        "004Basic Sponge",
-                        "2.52",
-                        "0.72",
-                        "2.9",
+                        "004Baked Beans_0",
+                        "14.71",
+                        "4.23",
+                        "16.92",
                         "13%"});
 #line 186
     testRunner.And("Verify data for items is", ((string)(null)), table5, "And ");

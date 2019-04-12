@@ -174,18 +174,18 @@ Scenario Outline: Calculations for "Total Cost", "Sell Price", "Revenue" and "Ac
         And planning for "<day>" is opened
     When data for recipes in a la carte "Holiday A La Carte" in meal period "LANCE" is set
         |RecipeTitle                   |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
-        |004Bread (fresh dough)        |              2|     Fixed|     ^|           20|       55|
+        |724Beef Bolognaise            |              2|     Fixed|     ^|           20|       55|
         |724Pepper & Garlic Coated Beef|              3|        GP|     5|            5|        ^|
     And data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle    |PlannedQuantity|TariffType|PriceModel|Target|TaxPercentage|
-        |LANCE         |RECIPE|004Basic Sponge|              4| TariffOne|    Markup|    15|            0|
+        |MealPeriodName|TYPE  |RecipeTitle     |PlannedQuantity|TariffType|PriceModel|Target|TaxPercentage|
+        |LANCE         |RECIPE|004Baked Beans_0|              4| TariffOne|    Markup|    15|            0|
     Then Verify data for recipes in a la carte "Holiday A La Carte" in meal period "LANCE" is
-        |RecipeTitle                   |CostPerUnit|TotalCosts|SellPrice|Revenue|ActualGP|
-        |004Bread (fresh dough)        |        0.1|       0.2|        ^|  91.67|    100%|
-        |724Pepper & Garlic Coated Beef|     2378.9|    7136.7|  2629.31|7512.32|      5%|
+        |RecipeTitle                   |CostPerUnit|TotalCosts|SellPrice|Revenue |ActualGP|
+        |724Beef Bolognaise            |       1.22|      2.43|        ^|  91.67 |     97%|
+        |724Pepper & Garlic Coated Beef|    5022.42|  15067.27|   5551.1|15860.28|      5%|
     And Verify data for items is
-        |MealPeriodName|TYPE  |RecipeTitle    |TotalCosts|SellPrice|Revenue|ActualGP|
-        |LANCE         |RECIPE|004Basic Sponge|      2.52|     0.72|    2.9|     13%|
+        |MealPeriodName|TYPE  |RecipeTitle     |TotalCosts|SellPrice|Revenue|ActualGP|
+        |LANCE         |RECIPE|004Baked Beans_0|     14.71|     4.23|  16.92|     13%|
         
     @QAI
     Examples:
