@@ -410,7 +410,7 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Validate Nutritions Meal Period Totals")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "WEDNESDAY", "LANCE", null, Category="QAI")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "Automation Testing", "TUESDAY", "LUNCH", null, Category="QAI")]
         public virtual void ValidateNutritionsMealPeriodTotals(string environment, string menuCycle, string day, string mealPeriod, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Nutritions Meal Period Totals", exampleTags);

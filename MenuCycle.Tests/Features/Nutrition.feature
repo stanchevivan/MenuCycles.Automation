@@ -162,8 +162,8 @@ Scenario Outline: Validate Nutritions Meal Period Totals
         
     @QAI
     Examples:
-    |environment|menuCycle|day      |mealPeriod|
-    |QAI        |Meda     |WEDNESDAY|LANCE     |
+    |environment|menuCycle         |day    |mealPeriod|
+    |QAI        |Automation Testing|TUESDAY|LUNCH     |
     
 Scenario Outline: Verify Number of covers field is not present in the Nutrition screen
     Given Menu Cycle app is open on "<environment>" 
