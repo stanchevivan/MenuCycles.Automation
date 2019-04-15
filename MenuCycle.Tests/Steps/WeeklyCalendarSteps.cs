@@ -1,4 +1,6 @@
-﻿using MenuCycle.Tests.PageObjects;
+﻿using System.Linq;
+using MenuCycle.Tests.PageObjects;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace MenuCycle.Tests.Steps
@@ -10,13 +12,15 @@ namespace MenuCycle.Tests.Steps
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
         readonly WeeklyCalendarView weeklyCalendarView;
+        readonly MenuCycleDailyCalendarView dailyCalendarView;
 
         public WeeklyCalendarSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, ToastNotification notification,
-                              WeeklyCalendarView weeklyCalendarView)
+                              WeeklyCalendarView weeklyCalendarView, MenuCycleDailyCalendarView dailyCalendarView)
         {
             this.dailyPlanningView = dailyPlanningView;
             this.notification = notification;
             this.weeklyCalendarView = weeklyCalendarView;
+            this.dailyCalendarView = dailyCalendarView;
 
             this.scenarioContext = scenarioContext;
         }
@@ -35,6 +39,22 @@ namespace MenuCycle.Tests.Steps
         {
             weeklyCalendarView.GetWeek(weekName).UseDeleteButton();
             dailyPlanningView.WaitForBackdropToDisappear();
+        }
+
+        [Then(@"Verify caledar weeks contains weeks:")]
+        [When(@"Verify caledar weeks contains weeks:")]
+        public void DeleteButtonIsClickedForWeek(Table table)
+        {
+            for (int i = 0; i < weeklyCalendarView.CalendarWeeks.Count; i++)
+            {
+                Assert.That(table.Header.ToList()[i], Is.EqualTo(weeklyCalendarView.CalendarWeeks[i].WeekTitle));
+            }
+        }
+
+        [Then(@"Verify next week arrow is not present")]
+        public void VerifyNextWeekArrowNotPresent()
+        {
+            Assert.IsFalse(dailyCalendarView.IsNextWeekArrowPresent);
         }
     }
 }

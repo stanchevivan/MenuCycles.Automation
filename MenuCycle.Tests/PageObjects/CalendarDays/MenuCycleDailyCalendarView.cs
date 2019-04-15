@@ -61,6 +61,9 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".mc-subheader__buttons > button:first-of-type")]
         private IWebElement SwitchViewButton { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = ".calendar-next-arrow")]
+        private IWebElement NextWeekArrow { get; set; }
+
         /// <summary>
         /// For checking if the calendar is in 5 or 7 day view
         /// </summary>
@@ -77,6 +80,8 @@ namespace MenuCycle.Tests.PageObjects
         public bool IsCalendarViewOpen => DaysContainer.Get().ElementPresent;
 
         public bool IsInFullView => tableHolderDiv.Get().ElementPresent;
+
+        public bool IsNextWeekArrowPresent => NextWeekArrow.Get().ElementPresent;
 
         public DayColumn GetDay(string weekDay)
         {
@@ -215,6 +220,17 @@ namespace MenuCycle.Tests.PageObjects
         public void OpenDaysTab()
         {
             Driver.WaitElementAndClick(DaysViewButton);
+        }
+
+        public void AddWeek()
+        {
+            AddWeekButton.Click();
+            Driver.WaitElementToDisappear(Backdrop);
+        }
+
+        public void NextWeek()
+        {
+            NextWeekArrow.Click();
         }
     }
 }

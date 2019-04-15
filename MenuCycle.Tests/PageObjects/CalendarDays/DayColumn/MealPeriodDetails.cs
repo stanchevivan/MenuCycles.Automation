@@ -32,7 +32,7 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement CrossButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-scroll .colorstrip-Recipe")]
         private IList<IWebElement> RecipeDetailedViewContainer { get; set; }
-        [FindsBy(How = How.ClassName, Using = "modal-backdrop-mp")]
+        [FindsBy(How = How.ClassName, Using = "modal-backdrop")]
         private IWebElement Backdrop { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".select-meal-box .custom-searchbox > div")]
         public IWebElement MealPeriodDropDown { get; set; }

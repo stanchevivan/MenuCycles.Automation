@@ -44,6 +44,19 @@ namespace MenuCycle.Tests.PageObjects
             if (CloseButton.Exist())
             {
                 CloseButton.Click();
+                WaitToDisappear();
+            }
+        }
+
+        public void CloseAllNotifications()
+        {
+            foreach (var notification in Messages)
+            {
+                if (CloseButton.Exist())
+                {
+                    CloseButton.Click();
+                    WaitToDisappear();
+                }
             }
         }
 

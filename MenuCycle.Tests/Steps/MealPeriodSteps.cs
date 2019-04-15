@@ -309,6 +309,7 @@ namespace MenuCycle.Tests.Steps
         public void WhenMealPeriodIsSaved()
         {
             mealPeriodDetails.Save();
+            notification.WaitToDisappear();
         }
 
         [When(@"Meal period delete button is clicked")]

@@ -18,6 +18,7 @@ Scenario Outline: Search Menu Cycles by name or description
     Examples:
     |environment|mc1Name|mc1Description                     |mc2Name        |mc2Description                             |
     |QAI        |Meda   |FOR AUTOMATION TESTS - DO NOT TOUCH|MC with recipes|Testing the publishing of a MC with recipes|
+    
 
 @TC27706 @TC27653 @TC27658 @Smoke
 Scenario Outline: Create Edit Copy Delete menu cycle

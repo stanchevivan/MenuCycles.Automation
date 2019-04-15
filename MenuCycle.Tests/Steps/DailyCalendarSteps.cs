@@ -39,5 +39,12 @@ namespace MenuCycle.Tests.Steps
         {
             Assert.IsFalse(dailyCalendarView.GetDay(dayName).IsVisible);
         }
+
+        [When(@"new week is added")]
+        public void AddWeek()
+        {
+            dailyCalendarView.AddWeek();
+            notification.CloseNotification();
+        }
     }
 }

@@ -21,3 +21,28 @@ Scenario: Copy and Delete week in Weekly Calendar view
         And Delete button is clicked for week "Week 2"
         And Modal dialog Yes is selected
         And Verify notification message "Week Successfully Removed." is displayed
+        
+@TC37776
+Scenario Outline: Empty weeks are not present in the calendar weekly view
+    Given Menu Cycle "<menuCycle>" is selected
+    When new week is added
+        And new week is added
+        And Meal period "<mealPeriod>" is created for "<day>"
+        And Recipe search is opened
+        And Recipe "<recipeName>" is searched
+        And Recipe "<recipeName>" is added
+        And Meal period is saved
+        And meal period detailed view is closed
+        And Weekly Calendar is opened
+        And Verify caledar weeks contains weeks:
+            |WEEK 1|WEEK 3|
+        And Delete button is clicked for week "Week 3"
+        And Modal dialog Yes is selected
+    Then Verify notification message "Week Successfully Removed." is displayed
+        When Daily Calendar is opened
+    Then Verify next week arrow is not present
+    
+    @QAI
+    Examples:
+    |environment|menuCycle             |mealPeriod|day   |recipeName                 |
+    |QAI        |Automation Copy Delete|LUNCH     |Monday|703Reggae Raggae Mayonnaise|
