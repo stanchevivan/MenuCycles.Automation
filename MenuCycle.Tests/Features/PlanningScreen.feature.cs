@@ -1170,6 +1170,35 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Save button is disabled for locked menu cycle")]
+        [NUnit.Framework.CategoryAttribute("TC37810")]
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "LOCKED MENU CYCLE", "TUESDAY", null, Category="QAI")]
+        public virtual void SaveButtonIsDisabledForLockedMenuCycle(string environment, string menuCycle, string day, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC37810"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save button is disabled for locked menu cycle", @__tags);
+#line 459
+this.ScenarioSetup(scenarioInfo);
+#line 460
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 461
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 462
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 463
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 464
+    testRunner.Then("Verify save button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

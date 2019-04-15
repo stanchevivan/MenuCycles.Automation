@@ -221,4 +221,3 @@ Scenario: Menu Extract Report - Central > Export button is displayed and clicked
     Then Verify Export button is displayed
         And Report is exported
         And Verify notification message "Successfully Exported" is displayed
-   

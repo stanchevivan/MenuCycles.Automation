@@ -454,3 +454,16 @@ Scenario Outline: Planning screen is loaded after searching for recipe which is 
     Examples:
     |environment|menuCycle         |mealPeriod|recipeName|day   |
     |QAI        |Automation Testing|LUNCH     |Madanoz   |MONDAY|
+    
+@TC37810    
+Scenario Outline: Save button is disabled for locked menu cycle
+    Given Menu Cycle app is open on "<environment>" 
+        And a nouser user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+    Then Verify save button is disabled
+        
+    @QAI
+    Examples:
+    |environment|menuCycle        |day    |
+    |QAI_2      |LOCKED MENU CYCLE|TUESDAY|
