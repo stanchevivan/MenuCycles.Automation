@@ -5,6 +5,11 @@
     "User": "martin.petkov@fourth.com",
     "Password": "Mypassword_004"
   },
+  "QAI_2": {
+    "URL": "http://qapartial-fourth-app.cs87.force.com/",
+    "User": "mobile.qateam76624@fourth.com",
+    "Password": "Mypassword_001"
+  },
   "EMEA":
    {
     "URL": "https://secure.fourth.com",

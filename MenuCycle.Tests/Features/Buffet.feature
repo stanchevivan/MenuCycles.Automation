@@ -4,7 +4,7 @@
 @TC27790
 Scenario Outline: Calculations for "Total Cost" and "Revenue" should be correct for GP "Price Model"
 	Given Menu Cycle app is open on "<environment>" 
-        And a central user is selected
+        And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
         And Meal Period "<mealPeriod>" is expanded
@@ -40,12 +40,12 @@ Scenario Outline: Calculations for "Total Cost" and "Revenue" should be correct 
     @QAI
     Examples:
     |environment|menuCycle|mealPeriod|day    |
-    |QAI        |Meda     |DANGELO   |TUESDAY|
+    |QAI_2        |Meda     |DANGELO   |TUESDAY|
         
 @TC27795
 Scenario Outline: Calculations for "Total Cost" and "Revenue" and "Actual GP" should be correct for Fixed "Price Model" (Buffet Menu)
     Given Menu Cycle app is open on "<environment>" 
-        And a central user is selected
+        And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
         And Meal Period "<mealPeriod>" is expanded
@@ -81,12 +81,12 @@ Scenario Outline: Calculations for "Total Cost" and "Revenue" and "Actual GP" sh
     @QAI
     Examples:
     |environment|menuCycle|mealPeriod|day    |
-    |QAI        |Meda     |DANGELO   |TUESDAY|
+    |QAI_2        |Meda     |DANGELO   |TUESDAY|
         
 @TC27796
 Scenario Outline: Calculations for "Total Cost" and "Sell Price" and "Revenue" should be correct for Mark Up "Price Model" (Buffet Menu)
     Given Menu Cycle app is open on "<environment>" 
-        And a central user is selected
+        And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
         And Meal Period "<mealPeriod>" is expanded
@@ -122,12 +122,12 @@ Scenario Outline: Calculations for "Total Cost" and "Sell Price" and "Revenue" s
     @QAI
     Examples:
     |environment|menuCycle|mealPeriod|day    |
-    |QAI        |Meda     |DANGELO   |TUESDAY|
+    |QAI_2        |Meda     |DANGELO   |TUESDAY|
         
 @TC30088
 Scenario Outline: Planned Quantity Values are rounded after scaling
     Given Menu Cycle app is open on "<environment>" 
-        And a central user is selected
+        And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
     When data for buffets is set
@@ -148,4 +148,4 @@ Scenario Outline: Planned Quantity Values are rounded after scaling
     @QAI
     Examples:
     |environment|menuCycle|day   |
-    |QAI        |Meda     |FRIDAY|
+    |QAI_2        |Meda     |FRIDAY|

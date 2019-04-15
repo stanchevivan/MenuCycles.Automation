@@ -303,43 +303,6 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Save button is clicked without any changes applied (Local user)")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
-        [NUnit.Framework.CategoryAttribute("TC30910")]
-        [NUnit.Framework.CategoryAttribute("ForDataSeeding")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", "THUR 2 AUG", null, Category="QAI")]
-        public virtual void SaveButtonIsClickedWithoutAnyChangesAppliedLocalUser(string environment, string location, string menuCycle, string day, string[] exampleTags)
-        {
-            string[] @__tags = new string[] {
-                    "TC30910",
-                    "ForDataSeeding",
-                    "ignore"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save button is clicked without any changes applied (Local user)", @__tags);
-#line 110
-this.ScenarioSetup(scenarioInfo);
-#line 111
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 112
-        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 113
-        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 114
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 115
-    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 116
-        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 117
-    testRunner.Then("Verify notification message \"Planning figures updated.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
     }
 }
 #pragma warning restore

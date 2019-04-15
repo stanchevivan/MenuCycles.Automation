@@ -106,17 +106,17 @@ Scenario Outline: Create menu cycle button is not present - local user
     |QAI        |SE001   |
 
 #TODO: Needs seeded data
-@TC30910 @ForDataSeeding @ignore
-Scenario Outline: Save button is clicked without any changes applied (Local user)
-    Given Menu Cycle app is open on "<environment>" 
-        And a local user is selected
-        And location "<location>" is selected
-        And Menu Cycle "<menuCycle>" is selected
-    When planning for "<day>" is opened
-        And Save button is clicked
-    Then Verify notification message "Planning figures updated." is displayed
+# @TC30910 @ForDataSeeding @ignore
+# Scenario Outline: Save button is clicked without any changes applied (Local user)
+    # Given Menu Cycle app is open on "<environment>" 
+    #     And a local user is selected
+    #     And location "<location>" is selected
+    #     And Menu Cycle "<menuCycle>" is selected
+    # When planning for "<day>" is opened
+    #     And Save button is clicked
+    # Then Verify notification message "Planning figures updated." is displayed
     
-    @QAI
-    Examples:
-    |environment|location|menuCycle         |day       |
-    |QAI        |SE001   |Local User Testing|THUR 2 AUG|
+    # @QAI
+    # Examples:
+    # |environment|location|menuCycle         |day       |
+    # |QAI        |SE001   |Local User Testing|THUR 2 AUG|

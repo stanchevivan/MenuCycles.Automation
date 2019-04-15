@@ -61,6 +61,13 @@ namespace MenuCycle.Tests.Steps
             logInAs.LogAs("local");
         }
 
+        [Given(@"a nouser user is selected")]
+        [When(@"a nouser user is selected")]
+        public void GivenANoUserIsSelected()
+        {
+            logInAs.LogAs("nouser");
+        }
+
         [Given(@"Menu Cycle ""(.*)"" is selected")]
         [When(@"Menu Cycle ""(.*)"" is selected")]
         public void GivenMenuCycleIsSelected(string menuCycleName)

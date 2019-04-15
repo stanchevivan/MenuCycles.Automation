@@ -34,37 +34,39 @@ Scenario Outline: "Target %" field is not present and "Sell Price" can be edited
     |environment|menuCycle|day   |recipeName      |mealPeriod|
     |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
     
-@TC29033 @ignore
-Scenario Outline: Target GP % has format: float and type: 2 decimals
-    Given Menu Cycle app is open on "<environment>" 
-        And a central user is selected
-        And Menu Cycle "<menuCycle>" is selected
-    When planning for "<day>" is opened
-        And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "GP"
-        And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2.333333"
-        And the user focus out
-    Then Verify TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "2.33"
+# Not implemented
+# @TC29033 
+# Scenario Outline: Target GP % has format: float and type: 2 decimals
+#     Given Menu Cycle app is open on "<environment>" 
+#         And a central user is selected
+#         And Menu Cycle "<menuCycle>" is selected
+#     When planning for "<day>" is opened
+#         And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "GP"
+#         And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2.333333"
+#         And the user focus out
+#     Then Verify TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "2.33"
     
-    @QAI
-    Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+#     @QAI
+#     Examples:
+#     |environment|menuCycle|day   |recipeName      |mealPeriod|
+#     |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
     
-@TC29034 @ignore    
-Scenario Outline: Target Mark up % has format: float and type: 2 decimals
-    Given Menu Cycle app is open on "<environment>" 
-        And a central user is selected
-        And Menu Cycle "<menuCycle>" is selected
-    When planning for "<day>" is opened
-        And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "Markup"
-        And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2.333333"
-        And the user focus out
-    Then Verify TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "2.33"
+# Not implemented
+# @TC29034   
+# Scenario Outline: Target Mark up % has format: float and type: 2 decimals
+    # Given Menu Cycle app is open on "<environment>" 
+    #     And a central user is selected
+    #     And Menu Cycle "<menuCycle>" is selected
+    # When planning for "<day>" is opened
+    #     And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "Markup"
+    #     And TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2.333333"
+    #     And the user focus out
+    # Then Verify TargetGP% for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "2.33"
     
-    @QAI
-    Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    # @QAI
+    # Examples:
+    # |environment|menuCycle|day   |recipeName      |mealPeriod|
+    # |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
     
 @TC29035
 Scenario Outline: Target GP % validations

@@ -88,9 +88,6 @@ namespace MenuCycle.Tests.PageObjects
             {
                 Driver.AsMobile().SwitchToWebViewContext();
             }
-
-            Driver.WaitIsClickable(Central);
-            //Driver.WaitIsClickable(Local);
         }
 
         void ResumeToastNotification()

@@ -67,7 +67,7 @@ namespace MenuCycle.Tests.Features
         [NUnit.Framework.DescriptionAttribute("Calculations for \"Total Cost\" and \"Revenue\" should be correct for GP \"Price Model" +
             "\"")]
         [NUnit.Framework.CategoryAttribute("TC27790")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "DANGELO", "TUESDAY", null, Category="QAI")]
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "Meda", "DANGELO", "TUESDAY", null, Category="QAI")]
         public virtual void CalculationsForTotalCostAndRevenueShouldBeCorrectForGPPriceModel(string environment, string menuCycle, string mealPeriod, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -83,7 +83,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 6
  testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
-        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 8
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
@@ -218,7 +218,7 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Calculations for \"Total Cost\" and \"Revenue\" and \"Actual GP\" should be correct for" +
             " Fixed \"Price Model\" (Buffet Menu)")]
         [NUnit.Framework.CategoryAttribute("TC27795")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "DANGELO", "TUESDAY", null, Category="QAI")]
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "Meda", "DANGELO", "TUESDAY", null, Category="QAI")]
         public virtual void CalculationsForTotalCostAndRevenueAndActualGPShouldBeCorrectForFixedPriceModelBuffetMenu(string environment, string menuCycle, string mealPeriod, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -234,7 +234,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 47
     testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 48
-        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 49
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 50
@@ -365,7 +365,7 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Calculations for \"Total Cost\" and \"Sell Price\" and \"Revenue\" should be correct fo" +
             "r Mark Up \"Price Model\" (Buffet Menu)")]
         [NUnit.Framework.CategoryAttribute("TC27796")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "DANGELO", "TUESDAY", null, Category="QAI")]
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "Meda", "DANGELO", "TUESDAY", null, Category="QAI")]
         public virtual void CalculationsForTotalCostAndSellPriceAndRevenueShouldBeCorrectForMarkUpPriceModelBuffetMenu(string environment, string menuCycle, string mealPeriod, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -381,7 +381,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 88
     testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 89
-        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 90
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 91
@@ -517,7 +517,7 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Planned Quantity Values are rounded after scaling")]
         [NUnit.Framework.CategoryAttribute("TC30088")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "FRIDAY", null, Category="QAI")]
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "Meda", "FRIDAY", null, Category="QAI")]
         public virtual void PlannedQuantityValuesAreRoundedAfterScaling(string environment, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -532,7 +532,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 129
     testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 130
-        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 131
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 132
