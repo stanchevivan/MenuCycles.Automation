@@ -36,9 +36,20 @@ Scenario Outline: Empty weeks are not present in the calendar weekly view
         And Weekly Calendar is opened
         And Verify caledar weeks contains weeks:
             |WEEK 1|WEEK 3|
+        And Week "WEEK 3" is copied
+        Then Verify notification message "Week Successfully Added." is displayed
+        And Verify caledar weeks contains weeks:
+            |WEEK 1|WEEK 3|WEEK 4|
         And Delete button is clicked for week "Week 3"
         And Modal dialog Yes is selected
-    Then Verify notification message "Week Successfully Removed." is displayed
+        Then Verify notification message "Week Successfully Removed." is displayed
+        And Verify caledar weeks contains weeks:
+            |WEEK 1|WEEK 3|
+        And Delete button is clicked for week "Week 3"
+        And Modal dialog Yes is selected
+        Then Verify notification message "Week Successfully Removed." is displayed
+        And Verify caledar weeks contains weeks:
+            |WEEK 1|
         When Daily Calendar is opened
     Then Verify next week arrow is not present
     

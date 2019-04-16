@@ -45,10 +45,7 @@ namespace MenuCycle.Tests.Steps
         [When(@"Verify caledar weeks contains weeks:")]
         public void DeleteButtonIsClickedForWeek(Table table)
         {
-            for (int i = 0; i < weeklyCalendarView.CalendarWeeks.Count; i++)
-            {
-                Assert.That(table.Header.ToList()[i], Is.EqualTo(weeklyCalendarView.CalendarWeeks[i].WeekTitle));
-            }
+            Assert.That(weeklyCalendarView.CalendarWeeks.Select(x => x.WeekTitle).ToList(), Is.EqualTo(table.Header.ToList()));
         }
 
         [Then(@"Verify next week arrow is not present")]
