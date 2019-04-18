@@ -57,3 +57,15 @@ Scenario Outline: Empty weeks are not present in the calendar weekly view
     Examples:
     |environment|menuCycle             |mealPeriod|day   |recipeName                 |
     |QAI        |Automation Copy Delete|LUNCH     |Monday|703Reggae Raggae Mayonnaise|
+    
+@TC37973
+Scenario Outline: Open meal period from the weekly view
+    Given Menu Cycle "<menuCycle>" is selected
+    When Weekly Calendar is opened
+    And meal period "<mealPeriod>" in day "<day>" for week "<weekName>" is opened
+    Then Verify meal period details for "<weekName> <day>" is open
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day   |weekName|
+    |QAI        |Meda     |Dangelo   |MONDAY|WEEK 2  |

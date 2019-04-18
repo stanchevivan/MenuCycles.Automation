@@ -13,14 +13,16 @@ namespace MenuCycle.Tests.Steps
         readonly ScenarioContext scenarioContext;
         readonly WeeklyCalendarView weeklyCalendarView;
         readonly MenuCycleDailyCalendarView dailyCalendarView;
+        readonly MealPeriodDetails mealPeriodDetails;
 
         public WeeklyCalendarSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, ToastNotification notification,
-                              WeeklyCalendarView weeklyCalendarView, MenuCycleDailyCalendarView dailyCalendarView)
+                              WeeklyCalendarView weeklyCalendarView, MenuCycleDailyCalendarView dailyCalendarView, MealPeriodDetails mealPeriodDetails)
         {
             this.dailyPlanningView = dailyPlanningView;
             this.notification = notification;
             this.weeklyCalendarView = weeklyCalendarView;
             this.dailyCalendarView = dailyCalendarView;
+            this.mealPeriodDetails = mealPeriodDetails;
 
             this.scenarioContext = scenarioContext;
         }
@@ -52,6 +54,20 @@ namespace MenuCycle.Tests.Steps
         public void VerifyNextWeekArrowNotPresent()
         {
             Assert.IsFalse(dailyCalendarView.IsNextWeekArrowPresent);
+        }
+
+
+        [When(@"meal period ""(.*)"" in day ""(.*)"" for week ""(.*)"" is opened")]
+        public void WhenMealPeriodInDayForWeekIsOpened(string mealPeriod, string day, string weekName)
+        {
+            weeklyCalendarView.GetWeek(weekName).GetDay(day).ClickMealPeriod(mealPeriod);
+            mealPeriodDetails.WaitForLoad();
+        }
+
+        [Then(@"Verify meal period details for ""(.*)"" is open")]
+        public void ThenVerifyMealPeriodDetailsForIsOpen(string expectedHeaderText)
+        {
+            Assert.That(mealPeriodDetails.HeaderText, Is.EqualTo(expectedHeaderText));
         }
     }
 }

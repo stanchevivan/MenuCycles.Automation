@@ -200,6 +200,35 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Open meal period from the weekly view")]
+        [NUnit.Framework.CategoryAttribute("TC37973")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "Dangelo", "MONDAY", "WEEK 2", null, Category="QAI")]
+        public virtual void OpenMealPeriodFromTheWeeklyView(string environment, string menuCycle, string mealPeriod, string day, string weekName, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC37973"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open meal period from the weekly view", @__tags);
+#line 62
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 63
+    testRunner.Given(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 64
+    testRunner.When("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 65
+    testRunner.And(string.Format("meal period \"{0}\" in day \"{1}\" for week \"{2}\" is opened", mealPeriod, day, weekName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 66
+    testRunner.Then(string.Format("Verify meal period details for \"{0} {1}\" is open", weekName, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

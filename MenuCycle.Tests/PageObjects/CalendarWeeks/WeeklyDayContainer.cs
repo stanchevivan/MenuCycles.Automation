@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -17,6 +18,10 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "weekly-mealperiod-container")]
         private IList<IWebElement> WeeklyMealPeriodContainer { get; set; }
 
+        public void ClickMealPeriod(string name)
+        {
+            WeeklyMealPeriodContainer.First(x => x.Text == name).Click();
+        }
     }
 }
 
