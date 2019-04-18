@@ -10,9 +10,9 @@ namespace MenuCycle.Tests.PageObjects
         {
         }
 
-        [FindsBy(How = How.ClassName, Using = "planning-switch-day")]
+        [FindsBy(How = How.XPath, Using = "//button[text()='Days']")]
         private IWebElement DaysButton { get; set; }
-        [FindsBy(How = How.ClassName, Using = "weekly-post-production_content")]
+        [FindsBy(How = How.ClassName, Using = "main")]
         private IWebElement PageContent { get; set; }
 
         public bool IsPageLoaded => PageContent.Exist();

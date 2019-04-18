@@ -176,21 +176,21 @@ Scenario Outline: Verify Number of covers field is not present in the Nutrition 
     @QAI
     Examples:
     |environment|menuCycle|day   |mealPeriod|
-    |QAI_2        |Meda     |MONDAY|LUNCH     |
+    |QAI_2      |Meda     |MONDAY|LUNCH     |
     
-    
-@TC37314
-Scenario Outline: Close nutrition weeks with "X" button redirects to the calendar daily view
-    Given Menu Cycle app is open on "<environment>" 
-        And a nouser user is selected
-        And Menu Cycle "<menuCycle>" is selected
-    When planning for "<day>" is opened
-        And daily nutrition tab is opened
-        And weekly nutrition tab is opened
-        And Nutrition X button is clicked and calendar view is opened
-    Then Verify calendar view is opened
+# TODO Remove comment when functionality is implemented 
+# @TC37314
+# Scenario Outline: Close nutrition weeks with "X" button redirects to the calendar daily view
+    # Given Menu Cycle app is open on "<environment>" 
+    #     And a nouser user is selected
+    #     And Menu Cycle "<menuCycle>" is selected
+    # When planning for "<day>" is opened
+    #     And daily nutrition tab is opened
+    #     And weekly nutrition tab is opened
+    #     And Nutrition X button is clicked and calendar view is opened
+    # Then Verify calendar view is opened
         
-    @QAI
-    Examples:
-    |environment|menuCycle|day   |
-    |QAI_2        |Meda     |MONDAY|
+    # @QAI
+    # Examples:
+    # |environment|menuCycle|day   |
+    # |QAI_2      |Meda     |MONDAY|

@@ -11,12 +11,14 @@ namespace MenuCycle.Tests.PageObjects
         {
         }
 
-        [FindsBy(How = How.CssSelector, Using = ".close-planning-page")]
+        [FindsBy(How = How.CssSelector, Using = ".icon-cross")]
         private IWebElement XButton { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".weekly-nutrition_content")]
+        [FindsBy(How = How.CssSelector, Using = ".main")]
         private IWebElement pageContent { get; set; }
-        [FindsBy(How = How.Id, Using = "BlueLoaderShowHide")]
+        [FindsBy(How = How.Id, Using = "loading")]
         private IWebElement SpinningWheel { get; set; }
+        [FindsBy(How = How.XPath, Using = "//button[text()='Days']")]
+        private IWebElement DaysButton { get; set; }
 
         public void ClickXButton()
         {
