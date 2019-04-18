@@ -11,7 +11,7 @@ using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA
         [FindsBy(How = How.ClassName, Using = "weekly-day-container")]
         private IList<IWebElement> dayContainers { get; set; }
         public IList<CalendarWeek> CalendarWeeks => this.CalendarWeek.Select(p => new CalendarWeek(p)).ToList();
-        public void OpenReportsTab()        {            ReportsTab.Click();        }        public void OpenReviewTab()        {            ReviewTab.Click();        }
+        public void OpenReportsTab()        {            ReportsTab.Click();        }        public void ClickReviewTab()        {            ReviewTab.Click();        }
 
         public void WaitForLoad()
         {

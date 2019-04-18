@@ -64,6 +64,9 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".calendar-next-arrow")]
         private IWebElement NextWeekArrow { get; set; }
 
+        [FindsBy(How = How.Id, Using = "dailyReviewBtn")]
+        private IWebElement ReviewButton { get; set; }
+
         /// <summary>
         /// For checking if the calendar is in 5 or 7 day view
         /// </summary>
@@ -231,6 +234,11 @@ namespace MenuCycle.Tests.PageObjects
         public void NextWeek()
         {
             NextWeekArrow.Click();
+        }
+
+        public void ClickReviewTab()
+        {
+            ReviewButton.Click();
         }
     }
 }

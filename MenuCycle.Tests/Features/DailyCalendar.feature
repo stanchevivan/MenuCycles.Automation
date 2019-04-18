@@ -31,3 +31,16 @@ Scenario Outline: Daily Calendar view is switched for local user
     Examples:
     |environment|location|menuCycle         |day      |
     |QAI        |SE001   |Local User Testing|SUN 5 AUG|
+    
+@TC37976
+Scenario Outline: Review page is opened
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When daily review page is opened
+    Then Verify review page is open
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|
+    |QAI        |Meda     |

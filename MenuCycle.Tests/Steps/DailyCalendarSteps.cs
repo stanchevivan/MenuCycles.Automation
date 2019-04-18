@@ -11,11 +11,13 @@ namespace MenuCycle.Tests.Steps
 
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
+        ReviewPage reviewPage;
 
-        public DailyCalendarSteps (ToastNotification notification, ScenarioContext scenarioContext, MenuCycleDailyCalendarView menuCycleDailyCalendarView)
+        public DailyCalendarSteps (ToastNotification notification, ScenarioContext scenarioContext, MenuCycleDailyCalendarView menuCycleDailyCalendarView, ReviewPage reviewPage)
         {
             this.notification = notification;
             this.scenarioContext = scenarioContext;
+            this.reviewPage = reviewPage;
 
             this.dailyCalendarView = menuCycleDailyCalendarView;
         }
@@ -45,6 +47,13 @@ namespace MenuCycle.Tests.Steps
         {
             dailyCalendarView.AddWeek();
             notification.CloseNotification();
+        }
+
+        [When(@"daily review page is opened")]
+        public void ReviewPageIsOpened()
+        {
+            dailyCalendarView.ClickReviewTab();
+            reviewPage.WaitForLoad();
         }
     }
 }

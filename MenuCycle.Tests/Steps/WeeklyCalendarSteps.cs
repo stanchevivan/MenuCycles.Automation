@@ -14,15 +14,17 @@ namespace MenuCycle.Tests.Steps
         readonly WeeklyCalendarView weeklyCalendarView;
         readonly MenuCycleDailyCalendarView dailyCalendarView;
         readonly MealPeriodDetails mealPeriodDetails;
+        readonly ReviewPage reviewPage;
 
         public WeeklyCalendarSteps(ScenarioContext scenarioContext, PlanningView dailyPlanningView, ToastNotification notification,
-                              WeeklyCalendarView weeklyCalendarView, MenuCycleDailyCalendarView dailyCalendarView, MealPeriodDetails mealPeriodDetails)
+                              WeeklyCalendarView weeklyCalendarView, MenuCycleDailyCalendarView dailyCalendarView, MealPeriodDetails mealPeriodDetails, ReviewPage reviewPage)
         {
             this.dailyPlanningView = dailyPlanningView;
             this.notification = notification;
             this.weeklyCalendarView = weeklyCalendarView;
             this.dailyCalendarView = dailyCalendarView;
             this.mealPeriodDetails = mealPeriodDetails;
+            this.reviewPage = reviewPage;
 
             this.scenarioContext = scenarioContext;
         }
@@ -68,6 +70,13 @@ namespace MenuCycle.Tests.Steps
         public void ThenVerifyMealPeriodDetailsForIsOpen(string expectedHeaderText)
         {
             Assert.That(mealPeriodDetails.HeaderText, Is.EqualTo(expectedHeaderText));
+        }
+
+        [When(@"weekly review page is opened")]
+        public void ReviewPageIsOpened()
+        {
+            weeklyCalendarView.ClickReviewTab();
+            reviewPage.WaitForLoad();
         }
     }
 }

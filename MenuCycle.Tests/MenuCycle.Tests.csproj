@@ -412,6 +412,8 @@
     <Compile Include="PageObjects\Planning\NutritionTabDays\RecipeRowNutrition.cs" />
     <Compile Include="Models\RecipeModelNutrition.cs" />
     <Compile Include="PageObjects\Planning\NutritionTabDays\ALaCarteNutrition.cs" />
+    <Compile Include="PageObjects\Review\ReviewPage.cs" />
+    <Compile Include="Steps\ReviewSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -526,6 +528,7 @@
     <Folder Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\" />
     <Folder Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\" />
     <Folder Include="PageObjects\Reports\" />
+    <Folder Include="PageObjects\Review\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Support\EnvironmentConfig.json" />
