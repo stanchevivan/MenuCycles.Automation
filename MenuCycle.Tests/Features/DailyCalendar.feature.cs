@@ -163,6 +163,37 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Navigate to meal period details from internal search")]
+        [NUnit.Framework.CategoryAttribute("TC37976")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "004Baked Beans", "Week 1", "Sunday", null, Category="QAI")]
+        public virtual void NavigateToMealPeriodDetailsFromInternalSearch(string environment, string menuCycle, string recipeName, string weekName, string day, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC37976"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to meal period details from internal search", @__tags);
+#line 49
+this.ScenarioSetup(scenarioInfo);
+#line 50
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 51
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 52
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 53
+    testRunner.When("search in Menu Cycle for \" \"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 54
+        testRunner.And(string.Format("view recipe \"{0}\" in week \"{1}\"", recipeName, weekName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 55
+    testRunner.Then(string.Format("Verify meal period details for \"{0} {1}\" is open", weekName, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

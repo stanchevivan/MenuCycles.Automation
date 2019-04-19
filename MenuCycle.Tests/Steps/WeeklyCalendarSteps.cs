@@ -69,7 +69,7 @@ namespace MenuCycle.Tests.Steps
         [Then(@"Verify meal period details for ""(.*)"" is open")]
         public void ThenVerifyMealPeriodDetailsForIsOpen(string expectedHeaderText)
         {
-            Assert.That(mealPeriodDetails.HeaderText, Is.EqualTo(expectedHeaderText));
+            Assert.That(mealPeriodDetails.HeaderText, Is.EqualTo(expectedHeaderText.ToUpper()));
         }
 
         [When(@"weekly review page is opened")]

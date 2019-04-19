@@ -414,6 +414,9 @@
     <Compile Include="PageObjects\Planning\NutritionTabDays\ALaCarteNutrition.cs" />
     <Compile Include="PageObjects\Review\ReviewPage.cs" />
     <Compile Include="Steps\ReviewSteps.cs" />
+    <Compile Include="PageObjects\CalendarDays\InternalSearch\InternalSearchView.cs" />
+    <Compile Include="Steps\InternalSearchSteps.cs" />
+    <Compile Include="PageObjects\CalendarDays\InternalSearch\InternalSearchResultsLine.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -529,6 +532,7 @@
     <Folder Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\" />
     <Folder Include="PageObjects\Reports\" />
     <Folder Include="PageObjects\Review\" />
+    <Folder Include="PageObjects\CalendarDays\InternalSearch\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Support\EnvironmentConfig.json" />

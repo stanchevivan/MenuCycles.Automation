@@ -44,3 +44,16 @@ Scenario Outline: Review page is opened
     Examples:
     |environment|menuCycle|
     |QAI        |Meda     |
+    
+@TC37976
+Scenario Outline: Navigate to meal period details from internal search
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When search in Menu Cycle for " "
+        And view recipe "<recipeName>" in week "<weekName>"
+    Then Verify meal period details for "<weekName> <day>" is open
+    @QAI
+    Examples:
+    |environment|menuCycle|recipeName    |weekName|day   |
+    |QAI        |Meda     |004Baked Beans|Week 1  |Sunday|
