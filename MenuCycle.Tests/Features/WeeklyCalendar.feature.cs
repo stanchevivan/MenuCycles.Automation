@@ -262,6 +262,35 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("GAP days are indicated in weekly view")]
+        [NUnit.Framework.CategoryAttribute("TC38017")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "Automation Menu Cycle", "Saturday", "Week 1", null, Category="QAI")]
+        public virtual void GAPDaysAreIndicatedInWeeklyView(string environment, string menuCycle, string day, string week, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC38017"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GAP days are indicated in weekly view", @__tags);
+#line 93
+this.ScenarioSetup(scenarioInfo);
+#line 94
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 95
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 96
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 97
+    testRunner.When("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 98
+    testRunner.Then(string.Format("Verify day \"{0}\" in week \"{1}\" is GAP day", day, week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

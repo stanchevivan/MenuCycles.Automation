@@ -78,5 +78,13 @@ namespace MenuCycle.Tests.Steps
             weeklyCalendarView.ClickReviewTab();
             reviewPage.WaitForLoad();
         }
+
+        [Then(@"Verify day ""(.*)"" in week ""(.*)"" is GAP day")]
+        public void VerifyDayIsGAP(string dayName, string weekName)
+        {
+            var day = weeklyCalendarView.GetWeek(weekName).GetDay(dayName);
+            Assert.IsTrue(day.IsGAPDay);
+            Assert.IsTrue(day.IsGAPDayLabelPresent);
+        }
     }
 }

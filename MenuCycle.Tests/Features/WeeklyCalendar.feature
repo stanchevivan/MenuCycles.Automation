@@ -89,3 +89,15 @@ Scenario Outline: NaN is not displayed for Week title
     |environment|menuCycle|
     |QAI        |Meda     |
     
+@TC38017
+Scenario Outline: GAP days are indicated in weekly view
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When Weekly Calendar is opened
+    Then Verify day "<day>" in week "<week>" is GAP day
+        
+    @QAI
+    Examples:
+    |environment|menuCycle            |day     |week  |
+    |QAI        |Automation Menu Cycle|Saturday|Week 1|
