@@ -29,7 +29,7 @@ namespace MenuCycle.Tests.PageObjects
         private IList<IWebElement> searchResults { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".internal-search-results-table")]
-        private IWebElement SearchContent { get; set; }
+        private IWebElement SearchResultsTable { get; set; }
 
         IList<InternalSearchResultsLine> SearchResults => this.searchResults.Select(p => new InternalSearchResultsLine(p)).ToList();
 
@@ -52,7 +52,7 @@ namespace MenuCycle.Tests.PageObjects
         public void WaitForLoad()
         {
             Driver.WaitElementToDisappear(Loader);
-            Driver.WaitElementToExists(SearchContent);
+            Driver.WaitElementToExists(SearchResultsTable);
         }
 
         public InternalSearchResultsLine GetLine(string recipeName, string weekName)

@@ -52,11 +52,7 @@ namespace MenuCycle.Tests.PageObjects
         {
             foreach (var notification in Messages)
             {
-                if (CloseButton.Exist())
-                {
-                    CloseButton.Click();
-                    WaitToDisappear();
-                }
+                CloseNotification();
             }
         }
 

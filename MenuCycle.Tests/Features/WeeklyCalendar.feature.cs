@@ -148,7 +148,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 36
         testRunner.And(string.Format("Recipe \"{0}\" is added", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 37
-        testRunner.And("Meal period is saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Meal period is saved with notification \"Meal Period Saved successfully\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 38
         testRunner.And("meal period detailed view is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 39

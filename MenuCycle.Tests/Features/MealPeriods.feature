@@ -353,8 +353,7 @@ Scenario Outline: Deleting meal period deletes it from calendar view
         And Recipe search is opened
         And Buffet "Maya Buffet" is searched
         And Buffet "Maya Buffet" is added
-        And Meal period is saved
-        And Verify notification message "Meal Period Saved successfully" is displayed
+        And Meal period is saved with notification "Meal Period Saved successfully"
     When Meal period delete button is clicked
         And Modal dialog Yes is selected
         And Verify notification message "Meal Period Deleted Successfully." is displayed

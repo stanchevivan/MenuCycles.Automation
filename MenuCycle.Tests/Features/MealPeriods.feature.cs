@@ -985,16 +985,14 @@ this.ScenarioSetup(scenarioInfo);
 #line 355
         testRunner.And("Buffet \"Maya Buffet\" is added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 356
-        testRunner.And("Meal period is saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Meal period is saved with notification \"Meal Period Saved successfully\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 357
-        testRunner.And("Verify notification message \"Meal Period Saved successfully\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 358
     testRunner.When("Meal period delete button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 359
+#line 358
         testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 360
+#line 359
         testRunner.And("Verify notification message \"Meal Period Deleted Successfully.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 361
+#line 360
     testRunner.Then(string.Format("Verify Meal period \"{0}\" is not present for \"{1}\"", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1017,17 +1015,17 @@ this.ScenarioSetup(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Clicking on the \"NEW MEAL PERIOD\" box while selecting a meal period should not di" +
                     "sable the \"Select meal period\" drop-down", @__tags);
-#line 369
+#line 368
 this.ScenarioSetup(scenarioInfo);
-#line 370
+#line 369
     testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 371
+#line 370
         testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 372
+#line 371
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 373
+#line 372
     testRunner.When(string.Format("New meal period button is clicked for \"{0}\"", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 374
+#line 373
     testRunner.Then("Verify new meal period header is not clickable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

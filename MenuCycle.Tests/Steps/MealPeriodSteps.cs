@@ -305,10 +305,11 @@ namespace MenuCycle.Tests.Steps
             menuCycleDailyCalendarView.UseNewMealPeriodButton(day);
         }
 
-        [When(@"Meal period is saved")]
-        public void WhenMealPeriodIsSaved()
+        [When(@"Meal period is saved with notification ""(.*)""")]
+        public void WhenMealPeriodIsSaved(string expectedMessage)
         {
             mealPeriodDetails.Save();
+            notification.ValidateToastMessage(expectedMessage);
             notification.WaitToDisappear();
         }
 

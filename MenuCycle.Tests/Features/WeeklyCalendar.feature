@@ -34,7 +34,7 @@ Scenario Outline: Empty weeks are not present in the calendar weekly view
         And Recipe search is opened
         And Recipe "<recipeName>" is searched
         And Recipe "<recipeName>" is added
-        And Meal period is saved
+        And Meal period is saved with notification "Meal Period Saved successfully"
         And meal period detailed view is closed
         And Weekly Calendar is opened
         And Verify caledar weeks contains weeks:
