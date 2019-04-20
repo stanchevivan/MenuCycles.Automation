@@ -74,20 +74,25 @@ Scenario Outline: Saved data is retrieved from the API
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
-        And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to random number
+        #And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to random number
+    When data for recipes is set
+        |mealPeriodName|type  |recipeTitle |PlannedQuantity|
+        |<mealPeriod>  |RECIPE|<recipeName>|1#99   |
         And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "Fixed"
         And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2"
-    When Save button is clicked
+        And Save button is clicked
         And Verify notification message "Planning figures updated." is displayed
         And Cancel button is clicked
         And Wait for Calendar view
         And planning for "<day>" is opened
-    Then Verify quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to the previous inputted number
+    Then Verify data for items is
+        |mealPeriodName|type  |recipeTitle |PlannedQty  |
+        |<mealPeriod>  |RECIPE|<recipeName>|<plannedQty>|
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|recipeName      |day   |
-    |QAI        |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
+    |environment|menuCycle|mealPeriod|recipeName      |day   |plannedQty|
+    |QAI        |Meda     |LUNCH     |004Baked Beans_3|MONDAY|      1#99|
     
     
 @TC29019

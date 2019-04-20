@@ -76,7 +76,6 @@
               + aLaCarteRecipes.Sum(x => decimal.Parse(x.Salt));            Assert.That(SaltSums, Is.EqualTo(decimal.Parse(nutritionTabDays.GetMealPeriod(mealPeriodName).MealPeriodSaltTotal)));
         }
 
-        [Then(@"Verify Planned Qty for recipe ""(.*)"" in meal period ""(.*)"" equals the sum of the tariffs planned qty values")]        public void ThenVerifyPlannedQtyForRecipeInMealPeriodEqualsTheSumOfTheTariffsPlannedQtyValues(string recipeName, string mealPeriod)        {            var recipePlannedQty = int.Parse(nutritionTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeName).GetFirstRow().PlannedQuantity);            Assert.That(scenarioContext.Get<int>("PlanningScreenPlannedQtySum"), Is.EqualTo(recipePlannedQty));        }        [When(@"Nutrition X button is clicked and calendar view is opened")]        public void NutritionXButtonIsClicked()
-        {            nutritionTabWeeks.ClickXButton();            menuCycleDailyCalendarView.WaitPageLoad();        }
+        [Then(@"Verify Planned Qty for recipe ""(.*)"" in meal period ""(.*)"" equals the sum of the tariffs planned qty values")]        public void ThenVerifyPlannedQtyForRecipeInMealPeriodEqualsTheSumOfTheTariffsPlannedQtyValues(string recipeName, string mealPeriod)        {            var recipePlannedQty = int.Parse(nutritionTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeName).GetFirstRow().PlannedQuantity);            Assert.That(scenarioContext.Get<int>("PlanningScreenPlannedQtySum"), Is.EqualTo(recipePlannedQty));        }
     }}
 

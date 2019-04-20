@@ -40,6 +40,16 @@ namespace MenuCycle.Tests
             return randomNumber + '.' + fractional;
         }
 
+        internal static string GetRandomIntValue(int min, int max)
+        {
+            Random rnd = new Random();
+            string randomNumber;
+
+            // Substract '1' from {max}, because of the addition of fractional part
+            randomNumber = rnd.Next(min, max - 1).ToString();
+            return randomNumber;
+        }
+
         public static string GetValueForFieldInRecipeRow(string field, RecipeRow row)
         {
             string value;

@@ -55,5 +55,11 @@ namespace MenuCycle.Tests.Steps
             dailyCalendarView.ClickReviewTab();
             reviewPage.WaitForLoad();
         }
+
+        [Then(@"Verify week name is ""(.*)""")]
+        public void ThenVerifyWeekNameIs(string weekName)
+        {
+            Assert.That(dailyCalendarView.WeekNameText, Is.EqualTo(weekName));
+        }
     }
 }

@@ -67,6 +67,9 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.Id, Using = "dailyReviewBtn")]
         private IWebElement ReviewButton { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = "#daily-calendar-week-heading")]
+        private IWebElement WeekName { get; set; }
+
         /// <summary>
         /// For checking if the calendar is in 5 or 7 day view
         /// </summary>
@@ -85,6 +88,8 @@ namespace MenuCycle.Tests.PageObjects
         public bool IsInFullView => tableHolderDiv.Get().ElementPresent;
 
         public bool IsNextWeekArrowPresent => NextWeekArrow.Get().ElementPresent;
+
+        public string WeekNameText => WeekName.Text;
 
         public DayColumn GetDay(string weekDay)
         {

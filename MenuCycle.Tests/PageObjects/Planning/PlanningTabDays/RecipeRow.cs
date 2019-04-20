@@ -121,15 +121,23 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         {
             if (dto.PlannedQuantity != null && dto.PlannedQuantity != "^") 
             {
+                var newValue = dto.PlannedQuantity;
+                // Check if value is in format {int min}#{int max} and return a random decimal
+                if (new Regex(@"^\d+\#\d+$").Match(dto.PlannedQuantity).Success)
+                {
+                    var minMax = dto.PlannedQuantity.Split('#');
+                    newValue = CommonHerlpers.GetRandomIntValue(int.Parse(minMax[0]), int.Parse(minMax[1]));
+                }
+
                 if (dto.Type == "BUFFET")
                 {
                     this.plannedQuantity.Do(Driver).ClearWithoutFocusOut();
-                    this.plannedQuantity.Do(Driver).SendKeys(dto.PlannedQuantity);
+                    this.plannedQuantity.Do(Driver).SendKeys(newValue);
                     this.plannedQuantity.Do(Driver).FireChangeEvent();
                 }
                 else
                 {
-                    this.PlannedQuantity = dto.PlannedQuantity;
+                    this.PlannedQuantity = newValue;
                 }
             }
 

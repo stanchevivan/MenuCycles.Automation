@@ -65,52 +65,50 @@ namespace MenuCycle.Tests.Features
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void FeatureBackground()
-        {
-#line 5
-#line 6
-testRunner.Given("\'Menu Cycles\' application is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 7
-testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-        }
-        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Copy and Delete week in Weekly Calendar view")]
         [NUnit.Framework.CategoryAttribute("TC33038")]
         [NUnit.Framework.CategoryAttribute("TC31075")]
-        public virtual void CopyAndDeleteWeekInWeeklyCalendarView()
+        [NUnit.Framework.TestCaseAttribute("QAI", "Automation Menu Cycle", null, Category="QAI")]
+        public virtual void CopyAndDeleteWeekInWeeklyCalendarView(string environment, string menuCycle, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Copy and Delete week in Weekly Calendar view", new string[] {
-                        "TC33038",
-                        "TC31075"});
-#line 11
+            string[] @__tags = new string[] {
+                    "TC33038",
+                    "TC31075"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Copy and Delete week in Weekly Calendar view", @__tags);
+#line 6
 this.ScenarioSetup(scenarioInfo);
-#line 5
-this.FeatureBackground();
-#line 12
-    testRunner.Given("Menu Cycle \"Automation Menu Cycle\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 13
+#line 7
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 9
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
     testRunner.When("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 14
+#line 11
         testRunner.And("Week \"Week 1\" is copied", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 15
+#line 12
         testRunner.And("Verify notification message \"Week Successfully Added.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 16
+#line 13
         testRunner.And("Week \"Week 2\" is copied", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 17
+#line 14
         testRunner.And("Verify notification message \"Week Successfully Added.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 15
+        testRunner.And("Delete button is clicked for week \"Week 2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
+        testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 17
+    testRunner.Then("Verify notification message \"Week Successfully Removed.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 18
         testRunner.And("Delete button is clicked for week \"Week 2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 19
         testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 20
-    testRunner.Then("Verify notification message \"Week Successfully Removed.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 21
-        testRunner.And("Delete button is clicked for week \"Week 2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 22
-        testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 23
         testRunner.And("Verify notification message \"Week Successfully Removed.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -129,73 +127,75 @@ this.FeatureBackground();
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Empty weeks are not present in the calendar weekly view", @__tags);
-#line 26
-this.ScenarioSetup(scenarioInfo);
-#line 5
-this.FeatureBackground();
 #line 27
-    testRunner.Given(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 28
-    testRunner.When("new week is added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 29
-        testRunner.And("new week is added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 30
-        testRunner.And(string.Format("Meal period \"{0}\" is created for \"{1}\"", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 31
-        testRunner.And("Recipe search is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("new week is added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 32
-        testRunner.And(string.Format("Recipe \"{0}\" is searched", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("new week is added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 33
-        testRunner.And(string.Format("Recipe \"{0}\" is added", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("Meal period \"{0}\" is created for \"{1}\"", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 34
-        testRunner.And("Meal period is saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Recipe search is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 35
-        testRunner.And("meal period detailed view is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("Recipe \"{0}\" is searched", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 36
+        testRunner.And(string.Format("Recipe \"{0}\" is added", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 37
+        testRunner.And("Meal period is saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 38
+        testRunner.And("meal period detailed view is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 39
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "WEEK 1",
                         "WEEK 3"});
-#line 37
-        testRunner.And("Verify caledar weeks contains weeks:", ((string)(null)), table1, "And ");
-#line 39
-        testRunner.And("Week \"WEEK 3\" is copied", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 40
+        testRunner.And("Verify caledar weeks contains weeks:", ((string)(null)), table1, "And ");
+#line 42
+        testRunner.And("Week \"WEEK 3\" is copied", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 43
         testRunner.Then("Verify notification message \"Week Successfully Added.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "WEEK 1",
                         "WEEK 3",
                         "WEEK 4"});
-#line 41
-        testRunner.And("Verify caledar weeks contains weeks:", ((string)(null)), table2, "And ");
-#line 43
-        testRunner.And("Delete button is clicked for week \"Week 3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 44
+        testRunner.And("Verify caledar weeks contains weeks:", ((string)(null)), table2, "And ");
+#line 46
+        testRunner.And("Delete button is clicked for week \"Week 3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 47
         testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 45
+#line 48
         testRunner.Then("Verify notification message \"Week Successfully Removed.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "WEEK 1",
                         "WEEK 3"});
-#line 46
-        testRunner.And("Verify caledar weeks contains weeks:", ((string)(null)), table3, "And ");
-#line 48
-        testRunner.And("Delete button is clicked for week \"Week 3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 49
+        testRunner.And("Verify caledar weeks contains weeks:", ((string)(null)), table3, "And ");
+#line 51
+        testRunner.And("Delete button is clicked for week \"Week 3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 52
         testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 50
+#line 53
         testRunner.Then("Verify notification message \"Week Successfully Removed.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "WEEK 1"});
-#line 51
-        testRunner.And("Verify caledar weeks contains weeks:", ((string)(null)), table4, "And ");
-#line 53
-        testRunner.When("Daily Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 54
+        testRunner.And("Verify caledar weeks contains weeks:", ((string)(null)), table4, "And ");
+#line 56
+        testRunner.When("Daily Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 57
     testRunner.Then("Verify next week arrow is not present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -214,18 +214,51 @@ this.FeatureBackground();
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open meal period from the weekly view", @__tags);
-#line 62
-this.ScenarioSetup(scenarioInfo);
-#line 5
-this.FeatureBackground();
-#line 63
-    testRunner.Given(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 64
-    testRunner.When("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 65
-    testRunner.And(string.Format("meal period \"{0}\" in day \"{1}\" for week \"{2}\" is opened", mealPeriod, day, weekName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 66
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 67
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 68
+    testRunner.Given(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 69
+    testRunner.When("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 70
+        testRunner.And(string.Format("meal period \"{0}\" in day \"{1}\" for week \"{2}\" is opened", mealPeriod, day, weekName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 71
     testRunner.Then(string.Format("Verify meal period details for \"{0} {1}\" is open", weekName, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("NaN is not displayed for Week title")]
+        [NUnit.Framework.CategoryAttribute("TC38017")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", null, Category="QAI")]
+        public virtual void NaNIsNotDisplayedForWeekTitle(string environment, string menuCycle, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC38017"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("NaN is not displayed for Week title", @__tags);
+#line 79
+this.ScenarioSetup(scenarioInfo);
+#line 80
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 81
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 82
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 83
+    testRunner.When("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 84
+        testRunner.And("Daily Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 85
+    testRunner.Then("Verify week name is \"WEEK 1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
