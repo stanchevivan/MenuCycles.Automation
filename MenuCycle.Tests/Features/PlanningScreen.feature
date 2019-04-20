@@ -210,7 +210,7 @@ Scenario Outline: Modal dialog for unsaved changes is shown when going to weekly
         And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to random number
         And weekly Planning view link is clicked
         And Modal dialog Yes is selected
-    When switching to Daily Planning view
+    When Days tab is opened
     Then Verify values for recipe "<recipeName>" in meal period "<mealPeriod>" are equal to the stored ones
     
     @QAI
@@ -386,7 +386,7 @@ Scenario Outline: User should not be redirected to the planning screen after nav
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
             And planning for "<day>" is opened
-    When daily nutrition tab is opened
+    When nutrition tab is opened
         And planning tab is opened
         And Cross button is clicked and calendar view has loaded
         And Home button is clicked
@@ -404,7 +404,7 @@ Scenario Outline: Load engine when Planning screen is opened (Central User)
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-        And daily nutrition tab is opened
+        And nutrition tab is opened
         And planning tab is opened
     Then Verify planning screen engine is loaded
     

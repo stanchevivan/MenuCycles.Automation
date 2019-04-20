@@ -28,8 +28,6 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement dailyTotal_ReturnToStock { get; set; }
         [FindsBy(How = How.ClassName, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(7) > span:last-of-type")]
         private IWebElement dailyTotal_Wastage { get; set; }
-        [FindsBy(How = How.XPath, Using = "//button[text()='Weeks']")]
-        private IWebElement WeeklyViewButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".icon-printer")]
         private IWebElement LocalSalesReportButton { get; set; }
 
@@ -52,11 +50,6 @@ namespace MenuCycle.Tests.PageObjects
         public DailyMealPeriodPostProduction GetMealPeriod(string mealPeriodName)
         {
             return MealPeriods.First(x => x.Name == mealPeriodName);
-        }
-
-        public void UseWeeksButton()
-        {
-            WeeklyViewButton.Click();
         }
 
         public void UseExportLocalSalesReportButton()

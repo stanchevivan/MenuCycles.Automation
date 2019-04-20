@@ -50,7 +50,7 @@ Scenario Outline: Open Planning Screen, go to Post-Production, go back to Planni
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-        And daily post-production tab is opened
+        And post-production tab is opened
         And planning tab is opened
     Then Verify planning screen engine is loaded
     
@@ -81,7 +81,7 @@ Scenario Outline: User should not be redirected to the planning screen after nav
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-        And daily post-production tab is opened
+        And post-production tab is opened
         And planning tab is opened
         And Cross button is clicked and calendar view has loaded
         And Home button is clicked

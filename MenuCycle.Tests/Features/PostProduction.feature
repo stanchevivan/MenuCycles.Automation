@@ -7,7 +7,7 @@ Scenario Outline: Expand all / Collapse all Post-production Days
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-        And daily post-production tab is opened
+        And post-production tab is opened
         And Expand all is clicked
     Then Verify all post production meal periods are expanded
     When Collapse all is clicked
@@ -25,7 +25,7 @@ Scenario Outline: Expand/Collapse single meal period Post-production days
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-        And daily post-production tab is opened
+        And post-production tab is opened
         And Post-production meal period "<mealPeriod>" is collapsed
     Then Verify main data for Meal Period "<mealPeriod>" is collapsed in Post production days
     When Post-production meal period "<mealPeriod>" is expanded
@@ -42,7 +42,7 @@ Scenario Outline: Post production daily total calculations
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-        And daily post-production tab is opened
+        And post-production tab is opened
     Then Verify planned quantity daily total equals the sum of all meal period totals
     When values are entered for recipe "<recipeName>" tariff "<tariff>" in meal period "<mealPeriod>"
     |qtyReqd|qtyProd|qtySold|noCharge|returnToStock|
@@ -60,7 +60,7 @@ Scenario Outline: Post production validations
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-        And daily post-production tab is opened
+        And post-production tab is opened
     Then Verify planned quantity daily total equals the sum of all meal period totals
     When values are entered for recipe "<recipeName>" tariff "<tariff>" in meal period "<mealPeriod>"
     |qtyReqd|qtyProd|qtySold|noCharge|returnToStock|
@@ -88,7 +88,7 @@ Scenario Outline: Open Post-Production Screen, navigate to Weekly view
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-        And daily post-production tab is opened
+        And post-production tab is opened
         And switching to Weekly Post-Production view
     Then Verify Weekly Post-production view is open
     
@@ -105,7 +105,7 @@ Scenario Outline: Open Post-Production Screen, navigate to Weekly view
    #      And location "<location>" is selected
    #      And Menu Cycle "<menuCycle>" is selected
    #  When planning for "<day>" is opened
-   #      And daily post-production tab is opened
+   #      And post-production tab is opened
    # Then Verify Qty Sold input field is disabled for buffet "<buffetName>" in meal period "<mealPeriod>"
    
     #    @QAI
@@ -120,7 +120,7 @@ Scenario Outline: Export Local Sales report
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-        And daily post-production tab is opened
+        And post-production tab is opened
         And local sales report is exported
     Then Verify notification message "Successfully Exported." is displayed
     
@@ -136,7 +136,7 @@ Scenario Outline: Wastage is an input field and QtySold and No charge fields are
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-        And daily post-production tab is opened
+        And post-production tab is opened
    Then Verify Wastage for buffet "<buffetName>" recipe "<recipeName>" in meal period "<mealPeriod>" is an editable field
        And Verify Qty Sold and No Charge fields for buffet "<buffetName>" recipe "<recipeName>" in meal period "<mealPeriod>" are not present
     
@@ -151,7 +151,7 @@ Scenario Outline: Wastage field is disabled for recipes
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-        And daily post-production tab is opened
+        And post-production tab is opened
    Then Verify Wastage for recipe "<recipeName>" in meal period "<mealPeriod>" is disabled
    
        @QAI
@@ -166,7 +166,7 @@ Scenario Outline: Contextual error message is shown for Wastage for buffet recip
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-        And daily post-production tab is opened
+        And post-production tab is opened
         And Wastage value "9.11" is inputed for buffet "<buffetName>" recipe "<recipeName>" in meal period "<mealPeriod>"
     Then Verify contextual error message "Must be integer" is displayed for Wastage field for buffet "<buffetName>" recipe "<recipeName>" in meal period "<mealPeriod>"
 
@@ -182,7 +182,7 @@ Scenario Outline: Buffet tariff type is present at menu level
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-        And daily post-production tab is opened
+        And post-production tab is opened
     Then Buffet tariff type is present for buffet "<buffetName>" in meal period "<mealPeriod>"
     
            @QAI
