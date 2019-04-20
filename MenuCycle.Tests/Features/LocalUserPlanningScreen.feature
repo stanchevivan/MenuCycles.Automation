@@ -1,4 +1,4 @@
-Feature: LocalUserPlanningScreen
+﻿Feature: LocalUserPlanningScreen
     Meal Peridos functionalities and validations
 
 @TC28558 @Smoke
@@ -51,7 +51,7 @@ Scenario Outline: Open Planning Screen, go to Post-Production, go back to Planni
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
         And daily post-production tab is opened
-        And daily planning tab is opened
+        And planning tab is opened
     Then Verify planning screen engine is loaded
     
     @QAI
@@ -66,7 +66,7 @@ Scenario Outline: Open Planning Screen, go to Weekly planning
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-        And switching to Weekly Planning view
+        And Weeks tab is opened
     Then Verify Weekly Planning view is open
     
     @QAI
@@ -82,7 +82,7 @@ Scenario Outline: User should not be redirected to the planning screen after nav
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
         And daily post-production tab is opened
-        And daily planning tab is opened
+        And planning tab is opened
         And Cross button is clicked and calendar view has loaded
         And Home button is clicked
         And Menu Cycle "<menuCycle>" is selected

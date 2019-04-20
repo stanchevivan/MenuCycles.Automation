@@ -7,8 +7,8 @@ Scenario Outline: Open Planning Screen, go to Nutritions, go back to Planning sc
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-        And daily nutrition tab is opened
-        And daily planning tab is opened
+        And nutrition tab is opened
+        And planning tab is opened
     Then Verify planning screen engine is loaded
     
     @QAI
@@ -22,8 +22,8 @@ Scenario Outline: Open Planning Screen, go to Weeks, go back to Planning screen 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-        And switching to Weekly Planning view
-        And switching to Daily Planning view
+        And Weeks tab is opened
+        And Days tab is opened
     Then Verify planning screen engine is loaded
     
     @QAI
@@ -192,7 +192,7 @@ Scenario Outline: Modal dialog for unsaved changes is shown when going to nutrit
         And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to random number
         And daily nutrition tab is clicked
         And Modal dialog Yes is selected
-    When daily planning tab is opened
+    When planning tab is opened
     Then Verify values for recipe "<recipeName>" in meal period "<mealPeriod>" are equal to the stored ones
     
     @QAI
@@ -387,7 +387,7 @@ Scenario Outline: User should not be redirected to the planning screen after nav
         And Menu Cycle "<menuCycle>" is selected
             And planning for "<day>" is opened
     When daily nutrition tab is opened
-        And daily planning tab is opened
+        And planning tab is opened
         And Cross button is clicked and calendar view has loaded
         And Home button is clicked
         And Menu Cycle "<menuCycle>" is selected
@@ -405,7 +405,7 @@ Scenario Outline: Load engine when Planning screen is opened (Central User)
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
         And daily nutrition tab is opened
-        And daily planning tab is opened
+        And planning tab is opened
     Then Verify planning screen engine is loaded
     
     @QAI
