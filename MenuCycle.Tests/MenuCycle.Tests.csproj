@@ -417,6 +417,7 @@
     <Compile Include="PageObjects\CalendarDays\InternalSearch\InternalSearchView.cs" />
     <Compile Include="Steps\InternalSearchSteps.cs" />
     <Compile Include="PageObjects\CalendarDays\InternalSearch\InternalSearchResultsLine.cs" />
+    <Compile Include="Support\LocalDriver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

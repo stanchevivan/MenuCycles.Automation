@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Fourth.Automation.Framework.Core;
 using Fourth.Automation.Framework.Mobile;
 using Fourth.Automation.Framework.Mobile.Resolvers;
@@ -42,7 +43,8 @@ namespace MenuCycle.Tests.Support
             else
             {
                 // TODO: Driver.Close when driver instance can be reused
-                driver.Quit();
+                driver.Close();
+                driver.SwitchTo().Window(driver.WindowHandles.Last());
             }
         }
 
@@ -50,6 +52,7 @@ namespace MenuCycle.Tests.Support
         public static void AfterTestRun()
         {
             //DisposeDriverService.DisposeAllDrivers();
+            LocalDriver.Quit();
         }
     }
 }
