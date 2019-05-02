@@ -41,6 +41,8 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement LocationName { get; set; }
 
         public IList<MenuCycleItem> MenuCycles => this.menuCycleRows.Select(p => new MenuCycleItem(Driver, p)).ToList();
+        public bool IsOpen => SearchButton.Get().ElementPresent;
+
 
         public void CreateMenuCycleClick()
         {

@@ -66,6 +66,7 @@ namespace MenuCycle.Tests.Steps
         public void GivenANoUserIsSelected()
         {
             logInAs.LogAs("nouser");
+            scenarioContext.Add("UserWithOneLocation", true);
         }
 
         [Given(@"Menu Cycle ""(.*)"" is selected")]

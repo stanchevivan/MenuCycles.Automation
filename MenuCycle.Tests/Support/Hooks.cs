@@ -3,6 +3,7 @@ using System.Linq;
 using Fourth.Automation.Framework.Core;
 using Fourth.Automation.Framework.Mobile;
 using Fourth.Automation.Framework.Mobile.Resolvers;
+using MenuCycle.Tests.PageObjects;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
@@ -42,13 +43,31 @@ namespace MenuCycle.Tests.Support
             }
             else
             {
+                //driver.Quit();
                 // TODO: Driver.Close when driver instance can be reused
-                driver.Close();
-                driver.SwitchTo().Window(driver.WindowHandles.Last());
+
+                if (scenarioContext.ContainsKey("UserWithOneLocation") && scenarioContext.Get<bool>("UserWithOneLocation"))
+                {
+                    AfterFeature();
+                }
+                else
+                {
+                    LocalDriver.Driver.Close();
+                    LocalDriver.Driver.SwitchTo().Window(driver.WindowHandles.Last());
+                }
             }
         }
 
         [AfterFeature]
+        public static void AfterFeature()
+        {
+            LocalDriver.Driver.Close();
+            LocalDriver.Driver.SwitchTo().Window(LocalDriver.Driver.WindowHandles.Last());
+            FourthAppLocalPage.SignOut();
+            FourthAppLocalPage.WaitMainPageToLoad();
+        }
+
+        [AfterTestRun]
         public static void AfterTestRun()
         {
             //DisposeDriverService.DisposeAllDrivers();

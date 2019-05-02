@@ -3,6 +3,7 @@ using System.Configuration;
 using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Mobile;
 using Fourth.Automation.Framework.Page;
+using MenuCycle.Tests.Support;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -25,6 +26,13 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement MessageNoButton { get; set; }
         [FindsBy(How = How.Id, Using = "applications-all-apps")]
         private IWebElement AllApplications { get; set; }
+        [FindsBy(How = How.Id, Using = "applications-all-apps")]
+        private static IWebElement StaticAllApplications { get; set; }
+        [FindsBy(How = How.XPath, Using = "//span[text()='Sign Out']")]
+        private static IWebElement SignOutButton { get; set; }
+        [FindsBy(How = How.CssSelector, Using = "button.button-positive")]
+        private static IWebElement PositiveSignOutButton { get; set; }
+
 
         public bool IsMobile => Driver.IsMobile();
 
@@ -34,7 +42,7 @@ namespace MenuCycle.Tests.PageObjects
         {
             //Driver.AsMobile().SwitchToContext("NATIVE_APP");
             Driver.AsMobile().SwitchToNativeContext();
-           
+
         }
 
         public void Wait(IWebElement element)
@@ -42,9 +50,9 @@ namespace MenuCycle.Tests.PageObjects
             Driver.WaitIsClickable(element);
         }
 
-        public void WaitMainPageToLoad(IWebElement allApplicationsButton)
+        public static void WaitMainPageToLoad()
         {
-            Driver.WaitIsClickable(allApplicationsButton);
+            LocalDriver.Driver.WaitIsClickable(StaticAllApplications);
         }
 
         public void SwitchToWebViewContext()
@@ -97,7 +105,12 @@ namespace MenuCycle.Tests.PageObjects
             {
                 ((OpenQA.Selenium.Safari.SafariDriver)Driver).Manage().Window.Maximize();
             }
+        }
 
+        public static void SignOut()
+        {
+            SignOutButton.Click();
+            PositiveSignOutButton.Click();
         }
     }
 }

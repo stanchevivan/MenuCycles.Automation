@@ -13,6 +13,7 @@ namespace MenuCycle.Tests.Steps
         FourthApp.Pages.MainPage fourthAppMain;
         FourthAppLocalPage fourthAppLocalPage;
         LogInAs logInAs;
+        MenuCyclesDashboard menuCyclesDashboard;
         ToastNotification toastNotification;
         ScenarioContext scenarioContext;
 
@@ -21,7 +22,8 @@ namespace MenuCycle.Tests.Steps
                                  FourthAppLocalPage fourthAppLocalPage,
                                  LogInAs logInAs,
                                  ToastNotification toastNotification,
-                                 ScenarioContext scenarioContext)
+                                 ScenarioContext scenarioContext,
+                                 MenuCyclesDashboard menuCyclesDashboard)
         {
             this.fourthAppLogin = fourthAppLogin;
             this.fourthAppMain = fourthAppMain;
@@ -29,6 +31,7 @@ namespace MenuCycle.Tests.Steps
             this.logInAs = logInAs;
             this.toastNotification = toastNotification;
             this.scenarioContext = scenarioContext;
+            this.menuCyclesDashboard = menuCyclesDashboard;
         }
 
         [Given(@"Fourth Engage Dashboard is open")]
@@ -104,8 +107,12 @@ namespace MenuCycle.Tests.Steps
         {
             ConfigurationReader config = new ConfigurationReader(environment);
 
-            fourthAppLocalPage.OpenUrl(config.URL);
-            fourthAppLogin.WaitForPageToLoad();
+            if (!fourthAppLogin.UserNameInput.Get().ElementPresent)
+            {
+                fourthAppLocalPage.OpenUrl(config.URL);
+                fourthAppLogin.WaitForPageToLoad();
+            }
+
             fourthAppLogin.PerformLogin(config.User, config.Password);
             fourthAppMain.WaitToBeReady();
         }
