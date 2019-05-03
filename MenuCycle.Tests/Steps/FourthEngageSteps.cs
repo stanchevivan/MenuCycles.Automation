@@ -15,13 +15,15 @@ namespace MenuCycle.Tests.Steps
         LogInAs logInAs;
         ToastNotification toastNotification;
         ScenarioContext scenarioContext;
+        MenuCyclesBasePage menuCyclesBasePage;
 
         public FourthEngageSteps(FourthApp.Pages.Login fourthAppLogin,
                                  FourthApp.Pages.MainPage fourthAppMain,
                                  FourthAppLocalPage fourthAppLocalPage,
                                  LogInAs logInAs,
                                  ToastNotification toastNotification,
-                                 ScenarioContext scenarioContext)
+                                 ScenarioContext scenarioContext,
+                                 MenuCyclesBasePage menuCyclesBasePage)
         {
             this.fourthAppLogin = fourthAppLogin;
             this.fourthAppMain = fourthAppMain;
@@ -29,6 +31,7 @@ namespace MenuCycle.Tests.Steps
             this.logInAs = logInAs;
             this.toastNotification = toastNotification;
             this.scenarioContext = scenarioContext;
+            this.menuCyclesBasePage = menuCyclesBasePage;
         }
 
         [Given(@"Fourth Engage Dashboard is open")]
@@ -84,6 +87,7 @@ namespace MenuCycle.Tests.Steps
             }
 
             GivenApplicationIsSelected(application);
+            menuCyclesBasePage.MaximizeWindow();
             logInAs.WaitPageToLoad();
         }
 
@@ -96,6 +100,7 @@ namespace MenuCycle.Tests.Steps
             }
 
             GivenApplicationIsSelected("Menu Cycles");
+            menuCyclesBasePage.MaximizeWindow();
             logInAs.WaitPageToLoad();
         }
 

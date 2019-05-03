@@ -25,5 +25,10 @@ namespace MenuCycle.Tests.PageObjects
             Driver.Close();
             Driver.SwitchTo().Window(Driver.WindowHandles.Last());
         }
+
+        public void MaximizeWindow()
+        {
+            Driver.Manage().Window.Maximize();
+        }
     }
 }
