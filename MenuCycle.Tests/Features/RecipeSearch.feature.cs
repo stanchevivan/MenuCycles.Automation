@@ -108,15 +108,15 @@ this.FeatureBackground();
             table1.AddRow(new string[] {
                         "724Fried Egg",
                         "Recipe",
-                        "£0.4"});
+                        "£0.7"});
             table1.AddRow(new string[] {
                         "724Stir Fried Vegetables",
                         "Recipe",
-                        "£0"});
+                        "£0.18"});
             table1.AddRow(new string[] {
                         "724Fried Button Mushrooms",
                         "Recipe",
-                        "£0.521"});
+                        "£0.581"});
 #line 18
         testRunner.And("Verify items present in the search results are", ((string)(null)), table1, "And ");
 #line 24
@@ -224,7 +224,7 @@ this.FeatureBackground();
 #line 53
     testRunner.Then("Verify meal period recipe name is \"724Gourmet Chicken Burger\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 54
-        testRunner.And("Verify recipe price is \"£0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Verify recipe price is \"£0.36\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "IngredientName",

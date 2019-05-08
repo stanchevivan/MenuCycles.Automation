@@ -6,6 +6,8 @@ Scenario Outline: Expand all / Collapse all Post-production Days
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
         And Expand all is clicked
@@ -24,6 +26,8 @@ Scenario Outline: Expand/Collapse single meal period Post-production days
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
         And Post-production meal period "<mealPeriod>" is collapsed
@@ -41,6 +45,8 @@ Scenario Outline: Post production daily total calculations
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
     Then Verify planned quantity daily total equals the sum of all meal period totals
@@ -59,6 +65,8 @@ Scenario Outline: Post production validations
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
     Then Verify planned quantity daily total equals the sum of all meal period totals
@@ -87,6 +95,8 @@ Scenario Outline: Open Post-Production Screen, navigate to Weekly view
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
         And switching to Weekly Post-Production view
@@ -119,6 +129,8 @@ Scenario Outline: Export Local Sales report
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
         And local sales report is exported
@@ -135,6 +147,8 @@ Scenario Outline: Wastage is an input field and QtySold and No charge fields are
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
    Then Verify Wastage for buffet "<buffetName>" recipe "<recipeName>" in meal period "<mealPeriod>" is an editable field
@@ -150,6 +164,8 @@ Scenario Outline: Wastage field is disabled for recipes
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
    Then Verify Wastage for recipe "<recipeName>" in meal period "<mealPeriod>" is disabled
@@ -165,6 +181,8 @@ Scenario Outline: Contextual error message is shown for Wastage for buffet recip
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
         And Wastage value "9.11" is inputed for buffet "<buffetName>" recipe "<recipeName>" in meal period "<mealPeriod>"
@@ -181,6 +199,8 @@ Scenario Outline: Buffet tariff type is present at menu level
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
     Then Buffet tariff type is present for buffet "<buffetName>" in meal period "<mealPeriod>"

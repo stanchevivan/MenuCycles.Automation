@@ -7,6 +7,8 @@ Scenario Outline: Load engine when Planning screen is opened (Local User)
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
     When planning for "<day>" is opened
     Then Verify planning screen engine is loaded
     
@@ -20,7 +22,9 @@ Scenario Outline: Verify save button is disabled for passed days
     Given Menu Cycle app is open on "<environment>" 
         And a local user is selected
         And location "<location>" is selected
-    And Menu Cycle "<menuCycle>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
     When planning for "<day>" is opened
     Then Verify save button is disabled
     
@@ -34,7 +38,9 @@ Scenario Outline: Real date is displayed on the top of the planning screen
     Given Menu Cycle app is open on "<environment>" 
         And a local user is selected
         And location "<location>" is selected
-    And Menu Cycle "<menuCycle>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
     When planning for "<day>" is opened
     Then location name "<date>" is present on the top of the planning
     
@@ -49,6 +55,8 @@ Scenario Outline: Open Planning Screen, go to Post-Production, go back to Planni
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
         And planning tab is opened
@@ -65,6 +73,8 @@ Scenario Outline: Open Planning Screen, go to Weekly planning
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
     When planning for "<day>" is opened
         And Weeks tab is opened
     Then Verify Weekly Planning view is open
@@ -80,6 +90,8 @@ Scenario Outline: User should not be redirected to the planning screen after nav
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
         And planning tab is opened

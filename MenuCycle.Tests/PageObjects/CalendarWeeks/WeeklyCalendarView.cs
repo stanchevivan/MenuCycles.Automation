@@ -10,6 +10,9 @@ using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA
 
         [FindsBy(How = How.ClassName, Using = "weekly-day-container")]
         private IList<IWebElement> dayContainers { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".week-controller_controller-container_title")]
+        private IList<IWebElement> WeeksNames { get; set; }
         public IList<CalendarWeek> CalendarWeeks => this.CalendarWeek.Select(p => new CalendarWeek(p)).ToList();
         public void OpenReportsTab()        {            ReportsTab.Click();        }        public void ClickReviewTab()        {            ReviewTab.Click();        }
 
@@ -25,4 +28,9 @@ using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA
                 throw new System.Exception($"Week {weekName} not found !");
             }
             return CalendarWeeks.First(x => x.WeekTitle == weekName.ToUpper());
+        }
+
+        public void ClickWeek(string weekName)
+        {
+            WeeksNames.First(x => x.Text == weekName).Click();
         }    }}

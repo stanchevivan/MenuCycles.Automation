@@ -224,6 +224,7 @@ namespace MenuCycle.Tests.Steps
             planningView.WaitForBackdropToDisappear();
         }
 
+        [Given(@"Weekly Calendar is opened")]
         [When(@"Weekly Calendar is opened")]
         public void WeeksTabIsOpened()
         {

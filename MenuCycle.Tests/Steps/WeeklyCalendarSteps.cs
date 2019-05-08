@@ -86,5 +86,12 @@ namespace MenuCycle.Tests.Steps
             Assert.IsTrue(day.IsGAPDay);
             Assert.IsTrue(day.IsGAPDayLabelPresent);
         }
+
+        [Given(@"week ""(.*)"" is opened")]
+        public void GivenWeekIsOpened(string weekName)
+        {
+            weeklyCalendarView.ClickWeek(weekName);
+            dailyCalendarView.WaitPageLoad();
+        }
     }
 }

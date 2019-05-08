@@ -18,9 +18,9 @@ Scenario: Recipe search by keyword in Meal period
         And Verify items present in the search results are
             |Name                     |Type  |Cost   |
             |724Fried Onions          |Recipe|£1.2555|
-            |724Fried Egg             |Recipe|£0.4   |
-            |724Stir Fried Vegetables |Recipe|£0   |
-            |724Fried Button Mushrooms|Recipe|£0.521|
+            |724Fried Egg             |Recipe|£0.7   |
+            |724Stir Fried Vegetables |Recipe|£0.18  |
+            |724Fried Button Mushrooms|Recipe|£0.581 |
         And Recipe "Boiled" is searched
     Then Verify items present in the search results are
         |Name                |Type  |Cost|
@@ -51,7 +51,7 @@ Scenario: Single cost is present for Recipe and Ingredients in recipe detailed v
     When Details for meal period "LUNCH" in "Tuesday" are opened
         And detailed view for recipe with name "724Gourmet Chicken Burger" is opened
     Then Verify meal period recipe name is "724Gourmet Chicken Burger"
-        And Verify recipe price is "£0"
+        And Verify recipe price is "£0.36"
         And Verify ingredients in the detailed view
         |IngredientName                      |IngredientCost|
         |Chicken Breast Diced                |          0.00|
