@@ -1,4 +1,7 @@
-﻿using MenuCycle.Tests.PageObjects;
+﻿using System;
+using System.Globalization;
+using System.Linq;
+using MenuCycle.Tests.PageObjects;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
@@ -60,6 +63,23 @@ namespace MenuCycle.Tests.Steps
         public void ThenVerifyWeekNameIs(string weekName)
         {
             Assert.That(dailyCalendarView.WeekNameText, Is.EqualTo(weekName));
+        }
+
+        [Then(@"Verify real world week is opened")]
+        public void RealWorldWeekIsOpened()
+        {
+            var currentDayOfWeek = DateTime.UtcNow.DayOfWeek;
+            string currentDay = DateTime.UtcNow.Day.ToString().ToUpper();
+            int currentMonth = DateTime.UtcNow.Month;
+
+
+            DateTimeFormatInfo MonthName = new DateTimeFormatInfo();
+            string monthNameAbbr = MonthName.GetAbbreviatedMonthName(currentMonth).ToUpper();
+
+            DateTimeFormatInfo DayNameAbbr = new DateTimeFormatInfo();
+            string dayNameAbbr = DayNameAbbr.GetAbbreviatedDayName(currentDayOfWeek).ToUpper();
+
+            Assert.That(dailyCalendarView.GetAllDaysText, Has.Member($"{dayNameAbbr} {currentDay} {monthNameAbbr} ▾"));
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
 using OpenQA.Selenium;
@@ -69,6 +71,8 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = "#daily-calendar-week-heading")]
         private IWebElement WeekName { get; set; }
+
+
 
         /// <summary>
         /// For checking if the calendar is in 5 or 7 day view
@@ -143,6 +147,11 @@ namespace MenuCycle.Tests.PageObjects
         public DayColumn GetDay(int dayIndex)
         {
             return CalendarColumns[dayIndex];
+        }
+
+        public IList<string> GetAllDaysText()
+        {
+            return DaysLinks.Select(x => x.Text).ToList();
         }
 
         public void WaitPageLoad()

@@ -178,7 +178,7 @@ Scenario Outline: Verify Number of covers field is not present in the Nutrition 
     |environment|menuCycle|day   |mealPeriod|
     |QAI_2      |Meda     |MONDAY|LUNCH     |
     
-@TC37314
+@TC38024
 Scenario Outline: Close nutrition weeks with "X" button redirects to the calendar daily view
     Given Menu Cycle app is open on "<environment>" 
         And a nouser user is selected
@@ -194,7 +194,7 @@ Scenario Outline: Close nutrition weeks with "X" button redirects to the calenda
     |environment|menuCycle|day   |
     |QAI_2      |Meda     |MONDAY|
     
-
+@TC38023
 Scenario Outline: Close nutrition weeks with "Cancel" button redirects to the calendar daily view
     Given Menu Cycle app is open on "<environment>" 
         And a nouser user is selected
@@ -204,6 +204,21 @@ Scenario Outline: Close nutrition weeks with "Cancel" button redirects to the ca
         And Weeks tab is opened
         And Cancel button is clicked and calendar view has loaded
     Then Verify calendar view is opened
+        
+    @QAI
+    Examples:
+    |environment|menuCycle|day   |
+    |QAI_2      |Meda     |MONDAY|
+    
+@TC38030    
+Scenario Outline: Save button is disabled for nutrition weeks
+    Given Menu Cycle app is open on "<environment>" 
+        And a nouser user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And nutrition tab is opened
+        And Weeks tab is opened
+    Then Verify save button is disabled
         
     @QAI
     Examples:

@@ -459,12 +459,12 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Close nutrition weeks with \"X\" button redirects to the calendar daily view")]
-        [NUnit.Framework.CategoryAttribute("TC37314")]
+        [NUnit.Framework.CategoryAttribute("TC38024")]
         [NUnit.Framework.TestCaseAttribute("QAI_2", "Meda", "MONDAY", null, Category="QAI")]
         public virtual void CloseNutritionWeeksWithXButtonRedirectsToTheCalendarDailyView(string environment, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "TC37314"};
+                    "TC38024"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -494,10 +494,17 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Close nutrition weeks with \"Cancel\" button redirects to the calendar daily view")]
+        [NUnit.Framework.CategoryAttribute("TC38023")]
         [NUnit.Framework.TestCaseAttribute("QAI_2", "Meda", "MONDAY", null, Category="QAI")]
         public virtual void CloseNutritionWeeksWithCancelButtonRedirectsToTheCalendarDailyView(string environment, string menuCycle, string day, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Close nutrition weeks with \"Cancel\" button redirects to the calendar daily view", exampleTags);
+            string[] @__tags = new string[] {
+                    "TC38023"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Close nutrition weeks with \"Cancel\" button redirects to the calendar daily view", @__tags);
 #line 198
 this.ScenarioSetup(scenarioInfo);
 #line 199
@@ -516,6 +523,39 @@ this.ScenarioSetup(scenarioInfo);
         testRunner.And("Cancel button is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 206
     testRunner.Then("Verify calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Save button is disabled for nutrition weeks")]
+        [NUnit.Framework.CategoryAttribute("TC38030")]
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "Meda", "MONDAY", null, Category="QAI")]
+        public virtual void SaveButtonIsDisabledForNutritionWeeks(string environment, string menuCycle, string day, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC38030"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save button is disabled for nutrition weeks", @__tags);
+#line 214
+this.ScenarioSetup(scenarioInfo);
+#line 215
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 216
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 217
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 218
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 219
+        testRunner.And("nutrition tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 220
+        testRunner.And("Weeks tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 221
+    testRunner.Then("Verify save button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

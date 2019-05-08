@@ -120,3 +120,31 @@ Scenario Outline: Create menu cycle button is not present - local user
     # Examples:
     # |environment|location|menuCycle         |day       |
     # |QAI        |SE001   |Local User Testing|THUR 2 AUG|
+    
+@TC38354
+Scenario Outline: Current week is opened when opening a non-expired menu cycle
+    Given Menu Cycle app is open on "<environment>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When Verify calendar view is opened
+    Then Verify real world week is opened
+        
+    @QAI
+    Examples:
+    |environment|location|menuCycle                |
+    |QAI        |SE001   |For Local User AUTOMATION|
+
+@TC38355    
+Scenario Outline: Last week is opened when opening a menu cycle in the past
+    Given Menu Cycle app is open on "<environment>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When Verify calendar view is opened
+    Then Verify week name is "WEEK 3"
+        
+    @QAI
+    Examples:
+    |environment|location|menuCycle         |
+    |QAI        |SE001   |Local User Testing|

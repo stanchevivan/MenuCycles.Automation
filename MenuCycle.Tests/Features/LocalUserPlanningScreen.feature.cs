@@ -303,6 +303,68 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Current week is opened when opening a non-expired menu cycle")]
+        [NUnit.Framework.CategoryAttribute("TC38354")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "For Local User AUTOMATION", null, Category="QAI")]
+        public virtual void CurrentWeekIsOpenedWhenOpeningANon_ExpiredMenuCycle(string environment, string location, string menuCycle, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC38354"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Current week is opened when opening a non-expired menu cycle", @__tags);
+#line 125
+this.ScenarioSetup(scenarioInfo);
+#line 126
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 127
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 128
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 129
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 130
+    testRunner.When("Verify calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 131
+    testRunner.Then("Verify real world week is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Last week is opened when opening a menu cycle in the past")]
+        [NUnit.Framework.CategoryAttribute("TC38355")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", null, Category="QAI")]
+        public virtual void LastWeekIsOpenedWhenOpeningAMenuCycleInThePast(string environment, string location, string menuCycle, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC38355"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Last week is opened when opening a menu cycle in the past", @__tags);
+#line 139
+this.ScenarioSetup(scenarioInfo);
+#line 140
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 141
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 142
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 143
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 144
+    testRunner.When("Verify calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 145
+    testRunner.Then("Verify week name is \"WEEK 3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

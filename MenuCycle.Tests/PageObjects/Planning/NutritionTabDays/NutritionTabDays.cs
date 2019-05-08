@@ -12,14 +12,10 @@ namespace MenuCycle.Tests.PageObjects
         {
         }
 
-        [FindsBy(How = How.ClassName, Using = "main")]
-        private IWebElement PageContent { get; set; }
-
         [FindsBy(How = How.CssSelector, Using = ".main > div")]
         private IList<IWebElement> MealPeriodWrappers { get; set; }
         [FindsBy(How = How.XPath, Using = "//button[text()='Weeks']")]
         private IWebElement WeeklyViewButton { get; set; }
-
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(1) > span:last-of-type")]
         private IWebElement dailyTotal_PlannedQty { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(2) > span:last-of-type")]

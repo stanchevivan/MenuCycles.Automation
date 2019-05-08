@@ -11,7 +11,7 @@ namespace MenuCycle.Tests.PageObjects
             PageFactory.InitElements(parent, this);
         }
 
-        [FindsBy(How = How.CssSelector, Using = ".name_title a")]
+        [FindsBy(How = How.CssSelector, Using = ".name_title")]
         private IWebElement name { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".name_sub")]
