@@ -271,7 +271,7 @@ Scenario Outline: Calculate Daily Totals
         |004Baked Beans_1             |              7|
     Then Verify Daily Totals are equal to
         |PlannedQty|TotalCost|Revenue|ActualGP|
-        |       109|   266.76| 315.71|     16%|
+        |       109|   321.06| 315.71|     -2%|
         
     @QAI
     Examples:
@@ -354,7 +354,10 @@ Scenario Outline: Notification is shown when user has selected all available pri
         And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
         And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
         And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
-    Then Verify notification message "There are 10 price types available. You cannot add more." is displayed
+        And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
+    Then Verify notification message "There are 13 price types available. You cannot add more." is displayed
     
     @QAI
     Examples:

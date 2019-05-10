@@ -148,9 +148,9 @@ this.ScenarioSetup(scenarioInfo);
                         "DANGELO",
                         "BUFFET",
                         "Aneliya Buffet",
-                        "70.79",
-                        "89.42",
-                        "74.52",
+                        "109.79",
+                        "138.69",
+                        "115.57",
                         "5%"});
 #line 22
     testRunner.And("Verify data for items is", ((string)(null)), table3, "And ");
@@ -204,9 +204,9 @@ this.ScenarioSetup(scenarioInfo);
                         "DANGELO",
                         "BUFFET",
                         "Aneliya Buffet",
-                        "141.59",
-                        "89.42",
-                        "149.04",
+                        "219.59",
+                        "138.69",
+                        "231.15",
                         "5%"});
 #line 36
     testRunner.And("Verify data for items is", ((string)(null)), table6, "And ");
@@ -298,9 +298,9 @@ this.ScenarioSetup(scenarioInfo);
                         "DANGELO",
                         "BUFFET",
                         "Aneliya Buffet",
-                        "70.79",
+                        "109.79",
                         "95.24",
-                        "26%"});
+                        "-15%"});
 #line 63
     testRunner.And("Verify data for items is", ((string)(null)), table9, "And ");
 #line hidden
@@ -352,9 +352,9 @@ this.ScenarioSetup(scenarioInfo);
                         "DANGELO",
                         "BUFFET",
                         "Aneliya Buffet",
-                        "141.59",
+                        "219.59",
                         "190.48",
-                        "26%"});
+                        "-15%"});
 #line 77
     testRunner.And("Verify data for items is", ((string)(null)), table12, "And ");
 #line hidden
@@ -446,9 +446,9 @@ this.ScenarioSetup(scenarioInfo);
                         "DANGELO",
                         "BUFFET",
                         "Aneliya Buffet",
-                        "70.79",
-                        "89.2",
-                        "74.33",
+                        "109.79",
+                        "138.34",
+                        "115.28",
                         "5%"});
 #line 104
     testRunner.And("Verify data for items is", ((string)(null)), table15, "And ");
@@ -504,9 +504,9 @@ this.ScenarioSetup(scenarioInfo);
                         "DANGELO",
                         "BUFFET",
                         "Aneliya Buffet",
-                        "141.59",
-                        "121.48",
-                        "202.47",
+                        "219.59",
+                        "188.41",
+                        "314.01",
                         "30%"});
 #line 118
     testRunner.And("Verify data for items is", ((string)(null)), table18, "And ");

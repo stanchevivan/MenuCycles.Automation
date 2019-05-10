@@ -66,7 +66,7 @@ namespace MenuCycle.Tests.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Only one cost is presented for single recipe in the meal period detailed view")]
         [NUnit.Framework.CategoryAttribute("TC30229")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "LUNCH", "TUESDAY", "724Gourmet Beef Burger 6oz", "£0", "724Gourmet Chicken Burger", "£0", null, Category="QAI")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "LUNCH", "TUESDAY", "724Gourmet Beef Burger 6oz", "£0.36", "724Gourmet Chicken Burger", "£0.36", null, Category="QAI")]
         public virtual void OnlyOneCostIsPresentedForSingleRecipeInTheMealPeriodDetailedView(string environment, string menuCycle, string mealPeriod, string day, string recipe1, string cost1, string recipe2, string cost2, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -138,7 +138,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Cost"});
             table2.AddRow(new string[] {
                         "004Basic Sponge",
-                        "£0"});
+                        "£0.585"});
             table2.AddRow(new string[] {
                         "004Beef Stock (bouillon)",
                         "£0"});
@@ -153,7 +153,7 @@ this.ScenarioSetup(scenarioInfo);
                         "£8.793"});
             table2.AddRow(new string[] {
                         "724Custard Sauce (powder, fresh milk)",
-                        "£0"});
+                        "£0.4351"});
 #line 26
     testRunner.Then("Verify recipes in meal period details for buffet \"Maya Buffet\" are", ((string)(null)), table2, "Then ");
 #line hidden
@@ -162,7 +162,7 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Only single cost is presented for recipes in recipe search")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "LUNCH", "MONDAY", "724Apple Sauce", "£0", null, Category="QAI")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "LUNCH", "MONDAY", "724Apple Sauce", "£2.1011", null, Category="QAI")]
         public virtual void OnlySingleCostIsPresentedForRecipesInRecipeSearch(string environment, string menuCycle, string mealPeriod, string day, string recipe, string cost, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Only single cost is presented for recipes in recipe search", exampleTags);

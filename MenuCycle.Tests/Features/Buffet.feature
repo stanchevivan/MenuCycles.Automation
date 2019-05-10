@@ -21,7 +21,7 @@ Scenario Outline: Calculations for "Total Cost" and "Revenue" should be correct 
         |004Baked Beans_1             |              7|
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
-        |DANGELO          |BUFFET|Aneliya Buffet|     70.79|    89.42|  74.52|      5%|
+        |DANGELO          |BUFFET|Aneliya Buffet|    109.79|   138.69| 115.57|      5%|
     And data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|
         |DANGELO          |BUFFET|Aneliya Buffet|              2|
@@ -35,12 +35,12 @@ Scenario Outline: Calculations for "Total Cost" and "Revenue" should be correct 
         |004Baked Beans_1             |             14|
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
-        |DANGELO          |BUFFET|Aneliya Buffet|    141.59|    89.42| 149.04|      5%|
+        |DANGELO          |BUFFET|Aneliya Buffet|    219.59|   138.69| 231.15|      5%|
         
     @QAI
     Examples:
     |environment|menuCycle|mealPeriod|day    |
-    |QAI_2        |Meda     |DANGELO   |TUESDAY|
+    |QAI_2      |Meda     |DANGELO   |TUESDAY|
         
 @TC27795
 Scenario Outline: Calculations for "Total Cost" and "Revenue" and "Actual GP" should be correct for Fixed "Price Model" (Buffet Menu)
@@ -62,7 +62,7 @@ Scenario Outline: Calculations for "Total Cost" and "Revenue" and "Actual GP" sh
         |004Baked Beans_1             |              7|
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|Revenue|ActualGP|
-        |DANGELO          |BUFFET|Aneliya Buffet|     70.79|  95.24|     26%|
+        |DANGELO          |BUFFET|Aneliya Buffet|    109.79|  95.24|    -15%|
     And data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|
         |DANGELO          |BUFFET|Aneliya Buffet|              2|
@@ -76,12 +76,12 @@ Scenario Outline: Calculations for "Total Cost" and "Revenue" and "Actual GP" sh
         |004Baked Beans_1             |             14|
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|Revenue|ActualGP|
-        |DANGELO          |BUFFET|Aneliya Buffet|    141.59| 190.48|     26%|
+        |DANGELO          |BUFFET|Aneliya Buffet|    219.59| 190.48|    -15%|
         
     @QAI
     Examples:
     |environment|menuCycle|mealPeriod|day    |
-    |QAI_2        |Meda     |DANGELO   |TUESDAY|
+    |QAI_2      |Meda     |DANGELO   |TUESDAY|
         
 @TC27796
 Scenario Outline: Calculations for "Total Cost" and "Sell Price" and "Revenue" should be correct for Mark Up "Price Model" (Buffet Menu)
@@ -103,7 +103,7 @@ Scenario Outline: Calculations for "Total Cost" and "Sell Price" and "Revenue" s
         |004Baked Beans_1             |              7|
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
-        |DANGELO          |BUFFET|Aneliya Buffet|     70.79|     89.2|  74.33|      5%|
+        |DANGELO          |BUFFET|Aneliya Buffet|    109.79|   138.34| 115.28|      5%|
     And data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|Target|
         |DANGELO          |BUFFET|Aneliya Buffet|              2|    43|
@@ -117,12 +117,12 @@ Scenario Outline: Calculations for "Total Cost" and "Sell Price" and "Revenue" s
         |004Baked Beans_1             |             14|
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
-        |DANGELO          |BUFFET|Aneliya Buffet|    141.59|   121.48| 202.47|     30%|
+        |DANGELO          |BUFFET|Aneliya Buffet|    219.59|   188.41| 314.01|     30%|
         
     @QAI
     Examples:
     |environment|menuCycle|mealPeriod|day    |
-    |QAI_2        |Meda     |DANGELO   |TUESDAY|
+    |QAI_2      |Meda     |DANGELO   |TUESDAY|
         
 @TC30088
 Scenario Outline: Planned Quantity Values are rounded after scaling
@@ -148,4 +148,4 @@ Scenario Outline: Planned Quantity Values are rounded after scaling
     @QAI
     Examples:
     |environment|menuCycle|day   |
-    |QAI_2        |Meda     |FRIDAY|
+    |QAI_2      |Meda     |FRIDAY|

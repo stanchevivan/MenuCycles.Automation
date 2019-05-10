@@ -448,9 +448,9 @@ this.ScenarioSetup(scenarioInfo);
                         "ActualGP"});
             table2.AddRow(new string[] {
                         "20",
-                        "0",
-                        "8.33",
-                        "100%"});
+                        "17.28",
+                        "17.26",
+                        "0%"});
 #line 171
     testRunner.Then(string.Format("Verify value for fields for meal period \"{0}\" is", mealPeriod), ((string)(null)), table2, "Then ");
 #line hidden
@@ -535,9 +535,9 @@ this.ScenarioSetup(scenarioInfo);
                         "ActualGP"});
             table5.AddRow(new string[] {
                         "210",
-                        "669.6",
+                        "697.2",
                         "191.67",
-                        "-249%"});
+                        "-264%"});
 #line 197
     testRunner.Then("Verify value for fields for meal period \"DANGELO\" is", ((string)(null)), table5, "Then ");
 #line hidden
@@ -602,9 +602,9 @@ this.ScenarioSetup(scenarioInfo);
                         "ActualGP"});
             table7.AddRow(new string[] {
                         "5",
-                        "15067.27",
-                        "137.5",
-                        "-10858%"});
+                        "15067.91",
+                        "137.61",
+                        "-10849%"});
 #line 216
     testRunner.Then("Verify value for fields for meal period \"DANGELO\" is", ((string)(null)), table7, "Then ");
 #line hidden
@@ -744,9 +744,9 @@ this.ScenarioSetup(scenarioInfo);
                         "ActualGP"});
             table12.AddRow(new string[] {
                         "235",
-                        "15756.88",
-                        "339.39",
-                        "-4543%"});
+                        "15785.13",
+                        "339.51",
+                        "-4549%"});
 #line 250
     testRunner.Then("Verify value for fields for meal period \"DANGELO\" is", ((string)(null)), table12, "Then ");
 #line hidden
