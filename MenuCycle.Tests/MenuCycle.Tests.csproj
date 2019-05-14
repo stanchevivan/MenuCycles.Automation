@@ -417,6 +417,8 @@
     <Compile Include="PageObjects\CalendarDays\InternalSearch\InternalSearchView.cs" />
     <Compile Include="Steps\InternalSearchSteps.cs" />
     <Compile Include="PageObjects\CalendarDays\InternalSearch\InternalSearchResultsLine.cs" />
+    <Compile Include="PageObjects\Planning\NutritionTabWeeks\NutritionDayRow.cs" />
+    <Compile Include="PageObjects\Planning\NutritionTabWeeks\NutritionWeekMealPeriod.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

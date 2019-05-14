@@ -6,7 +6,7 @@ using SeleniumExtras.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class DailyMealPeriod :MenuCyclesBasePage
+    public class DailyMealPeriod : MenuCyclesBasePage
     {
         IWebElement parent_MealPeriodWrapper;
 
