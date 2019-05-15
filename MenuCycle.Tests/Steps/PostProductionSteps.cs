@@ -34,5 +34,14 @@
                    .GetMealPeriod(mealPeriod)
                    .GetBuffet(buffetName).TariffName;
 
-            Assert.That(buffetTarrifType, Is.Not.Empty);        }    }}
+            Assert.That(buffetTarrifType, Is.Not.Empty);        }        [Then(@"Verify weekly post-production totals equals the sum of all meal period totals")]        public void VerifyWeeklyPostProductionTotalEqualsTheSumOfAllMealPeriodTotals()        {            int sumOfDaysQtyReq = postProductionTabWeeks.Days.Sum(x => int.Parse(x.DailyTotalQtyRequisitioned));            Assert.That(sumOfDaysQtyReq, Is.EqualTo(int.Parse(postProductionTabWeeks.WeeklyTotalQtyReqd)));
+            int sumOfDaysQtyProd = postProductionTabWeeks.Days.Sum(x => int.Parse(x.DailyTotalQtyProduced));            Assert.That(sumOfDaysQtyProd, Is.EqualTo(int.Parse(postProductionTabWeeks.WeeklyTotalQtyProd)));
+
+            int sumOfDaysQtySold = postProductionTabWeeks.Days.Sum(x => int.Parse(x.DailyTotalQtySold));            Assert.That(sumOfDaysQtySold, Is.EqualTo(int.Parse(postProductionTabWeeks.WeeklyTotalQtySold)));
+
+            int sumOfDaysNoChargeApplied = postProductionTabWeeks.Days.Sum(x => int.Parse(x.DailyTotalNoChargeApplied));            Assert.That(sumOfDaysNoChargeApplied, Is.EqualTo(int.Parse(postProductionTabWeeks.WeeklyTotalNoChargeApplied)));
+
+            int sumOfDaysReturnToStock = postProductionTabWeeks.Days.Sum(x => int.Parse(x.DailyTotalReturnToStock));            Assert.That(sumOfDaysReturnToStock, Is.EqualTo(int.Parse(postProductionTabWeeks.WeeklyTotalReturnToStock)));
+
+            int sumOfDaysWastage = postProductionTabWeeks.Days.Sum(x => int.Parse(x.DailyTotalWastage));            Assert.That(sumOfDaysWastage, Is.EqualTo(int.Parse(postProductionTabWeeks.WeeklyTotalWastage)));        }    }}
 

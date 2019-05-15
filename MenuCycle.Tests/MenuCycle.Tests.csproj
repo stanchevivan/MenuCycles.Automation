@@ -312,7 +312,6 @@
     <Compile Include="Steps\MealPeriodSteps.cs" />
     <Compile Include="Steps\PlanningSteps.cs" />
     <Compile Include="PageObjects\Planning\NutritionTabWeeks\NutritionTabWeeks.cs" />
-    <Compile Include="PageObjects\Planning\PlanningTabWeeks\MealPeriodWeeks.cs" />
     <Compile Include="PageObjects\Planning\PlanningTabWeeks\PlanningTabWeeks.cs" />
     <Compile Include="PageObjects\MenuCyclesBasePage.cs" />
     <Compile Include="PageObjects\Planning\PlanningTabDays\Recipe.cs" />
@@ -397,7 +396,7 @@
     <Compile Include="Models\RecipeModelPostProducton.cs" />
     <Compile Include="PageObjects\Planning\PostProductionTabDays\RecipePostProduction.cs" />
     <Compile Include="PageObjects\Planning\PostProductionTabDays\BuffetPostProduction.cs" />
-    <Compile Include="PageObjects\Planning\PostProductionTab\PostProductionTabWeeks.cs" />
+    <Compile Include="PageObjects\Planning\PostProductionTabWeeks\PostProductionTabWeeks.cs" />
     <Compile Include="Features\Performance.feature.cs">
       <DependentUpon>Performance.feature</DependentUpon>
     </Compile>
@@ -419,6 +418,10 @@
     <Compile Include="PageObjects\CalendarDays\InternalSearch\InternalSearchResultsLine.cs" />
     <Compile Include="PageObjects\Planning\NutritionTabWeeks\NutritionDayRow.cs" />
     <Compile Include="PageObjects\Planning\NutritionTabWeeks\NutritionWeekMealPeriod.cs" />
+    <Compile Include="PageObjects\Planning\PlanningTabWeeks\PlanningDayRow.cs" />
+    <Compile Include="PageObjects\Planning\PlanningTabWeeks\PlanningWeekMealPeriod.cs" />
+    <Compile Include="PageObjects\Planning\PostProductionTabWeeks\PostProductionDayRow.cs" />
+    <Compile Include="PageObjects\Planning\PostProductionTabWeeks\PostProductionWeekMealPeriod.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -522,7 +525,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PageObjects\CalendarWeeks\" />
-    <Folder Include="PageObjects\Planning\PostProductionTab\" />
+    <Folder Include="PageObjects\Planning\PostProductionTabWeeks\" />
     <Folder Include="PageObjects\Planning\NutritionTabWeeks\" />
     <Folder Include="PageObjects\Planning\PlanningTabWeeks\" />
     <Folder Include="Models\" />

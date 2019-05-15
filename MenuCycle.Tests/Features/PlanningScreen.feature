@@ -475,3 +475,18 @@ Scenario Outline: Save button is disabled for locked menu cycle
     Examples:
     |environment|menuCycle        |day    |
     |QAI_2      |LOCKED MENU CYCLE|TUESDAY|
+    
+@TC38806    
+Scenario Outline: Verify planning weekly totals equals the sum of all meal period totals
+    Given Menu Cycle app is open on "<environment>" 
+        And a nouser user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And Weeks tab is opened
+    Then Verify weekly planning totals equals the sum of all meal period totals
+    
+        
+    @QAI
+    Examples:
+    |environment|menuCycle                               |day   |
+    |QAI_2      |AUTOMATION - API Integration Weekly View|MONDAY|

@@ -209,3 +209,21 @@ Scenario Outline: Buffet tariff type is present at menu level
     Examples:
     |environment|location|menuCycle       |day       |buffetName |recipeName     |mealPeriod|
     |QAI        |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|004Basic Sponge|   DANGELO|
+    
+    
+Scenario Outline: ssss
+    Given Menu Cycle app is open on "<environment>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
+    When planning for "<day>" is opened
+        And post-production tab is opened
+        And Weeks tab is opened
+    Then Verify weekly post-production totals equals the sum of all meal period totals
+    
+           @QAI
+    Examples:
+    |environment|location|menuCycle       |day       |buffetName |recipeName     |mealPeriod|
+    |QAI        |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|004Basic Sponge|   DANGELO|

@@ -1,4 +1,6 @@
-﻿using Fourth.Automation.Framework.Extension;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Fourth.Automation.Framework.Extension;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -19,9 +21,24 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(4) > span:last-of-type")]
         private IWebElement weeklyTotal_ActualGP { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = ".day-data")]
+        private IList<IWebElement> DaysWrapper { get; set; }
+
         public string WeeklyTotalCostText => weeklyTotal_TotalCost.Text;
         public string WeeklyRevenueText => weeklyTotal_Revenue.Text;
         public string WeeklyProfitText => weeklyTotal_Profit.Text;
         public string WeeklyActualGPText => weeklyTotal_ActualGP.Text;
+
+        public IList<PlanningDayRow> Days => this.DaysWrapper.Select(p => new PlanningDayRow(p, Driver)).ToList();
+
+
+        public PlanningDayRow GetDay(string name)
+        {
+            if (!Days.Any(x => x.NutritionDayName == name.ToUpper()))
+            {
+                throw new System.Exception($"Day {name} not found !");
+            }
+            return Days.First(x => x.NutritionDayName == name.ToUpper());
+        }
     }
 }

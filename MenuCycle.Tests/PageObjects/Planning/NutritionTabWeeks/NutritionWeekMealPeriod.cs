@@ -26,7 +26,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".day-data__columns-row > div:nth-of-type(7)")]
         private IWebElement mealPeriod_Salt { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".day-data__row .day-data__columns-row .day-data__content .day-data__data-radius > span")]
+        [FindsBy(How = How.CssSelector, Using = ".day-data__data-radius > span")]
         private IWebElement MealPeriodName { get; set; }
 
         public string MealPeriodNameText => MealPeriodName.Text;
