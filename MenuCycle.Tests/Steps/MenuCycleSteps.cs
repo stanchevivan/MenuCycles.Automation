@@ -215,6 +215,7 @@ namespace MenuCycle.Tests.Steps
             Assert.That(actualGapDays, Is.EqualTo(expectedGapDays));
         }
 
+        [Given(@"Reports page is opened")]
         [When(@"Reports page is opened")]
         public void WhenReportPageIsOpened()
         {

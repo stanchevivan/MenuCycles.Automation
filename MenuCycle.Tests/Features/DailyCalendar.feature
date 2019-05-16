@@ -57,3 +57,48 @@ Scenario Outline: Navigate to meal period details from internal search
     Examples:
     |environment|menuCycle|recipeName    |weekName|day   |
     |QAI        |Meda     |004Baked Beans|Week 1  |Sunday|
+    
+@TC38603
+Scenario Outline: User is redirected to the week from which he opened the Planning screen
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "<weekName>" is opened
+        And planning for "<day>" is opened
+    When Cancel button is clicked and calendar view has loaded
+    Then Verify week name is "<weekName>"
+    @QAI
+    Examples:
+    |environment|menuCycle                  |weekName|day   |
+    |QAI        |Automation - Multiple weeks|WEEK 2  |Monday|
+    
+@TC38604
+Scenario Outline: User is redirected to the week from which he opened the Review page
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "<weekName>" is opened
+        And daily review page is opened
+    When Cancel button is clicked and calendar view has loaded
+    Then Verify week name is "<weekName>"
+    @QAI
+    Examples:
+    |environment|menuCycle                  |weekName|
+    |QAI        |Automation - Multiple weeks|WEEK 2  |
+    
+@TC38605
+Scenario Outline: User is redirected to the week from which he opened the Reports page
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "<weekName>" is opened
+        And Reports page is opened
+    When Cross button is clicked and calendar view has loaded
+    Then Verify week name is "<weekName>"
+    @QAI
+    Examples:
+    |environment|menuCycle                  |weekName|
+    |QAI        |Automation - Multiple weeks|WEEK 2  |

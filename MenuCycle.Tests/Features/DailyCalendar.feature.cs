@@ -194,6 +194,111 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User is redirected to the week from which he opened the Planning screen")]
+        [NUnit.Framework.CategoryAttribute("TC38603")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "Automation - Multiple weeks", "WEEK 2", "Monday", null, Category="QAI")]
+        public virtual void UserIsRedirectedToTheWeekFromWhichHeOpenedThePlanningScreen(string environment, string menuCycle, string weekName, string day, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC38603"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User is redirected to the week from which he opened the Planning screen", @__tags);
+#line 62
+this.ScenarioSetup(scenarioInfo);
+#line 63
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 64
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 65
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 66
+        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 67
+        testRunner.And(string.Format("week \"{0}\" is opened", weekName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 68
+        testRunner.And(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 69
+    testRunner.When("Cancel button is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 70
+    testRunner.Then(string.Format("Verify week name is \"{0}\"", weekName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User is redirected to the week from which he opened the Review page")]
+        [NUnit.Framework.CategoryAttribute("TC38604")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "Automation - Multiple weeks", "WEEK 2", null, Category="QAI")]
+        public virtual void UserIsRedirectedToTheWeekFromWhichHeOpenedTheReviewPage(string environment, string menuCycle, string weekName, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC38604"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User is redirected to the week from which he opened the Review page", @__tags);
+#line 77
+this.ScenarioSetup(scenarioInfo);
+#line 78
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 79
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 80
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 81
+        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 82
+        testRunner.And(string.Format("week \"{0}\" is opened", weekName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 83
+        testRunner.And("daily review page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 84
+    testRunner.When("Cancel button is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 85
+    testRunner.Then(string.Format("Verify week name is \"{0}\"", weekName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User is redirected to the week from which he opened the Reports page")]
+        [NUnit.Framework.CategoryAttribute("TC38605")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "Automation - Multiple weeks", "WEEK 2", null, Category="QAI")]
+        public virtual void UserIsRedirectedToTheWeekFromWhichHeOpenedTheReportsPage(string environment, string menuCycle, string weekName, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC38605"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User is redirected to the week from which he opened the Reports page", @__tags);
+#line 92
+this.ScenarioSetup(scenarioInfo);
+#line 93
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 94
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 95
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 96
+        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 97
+        testRunner.And(string.Format("week \"{0}\" is opened", weekName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 98
+        testRunner.And("Reports page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 99
+    testRunner.When("Cross button is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 100
+    testRunner.Then(string.Format("Verify week name is \"{0}\"", weekName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

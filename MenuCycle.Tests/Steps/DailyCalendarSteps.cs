@@ -52,6 +52,7 @@ namespace MenuCycle.Tests.Steps
             notification.CloseNotification();
         }
 
+        [Given(@"daily review page is opened")]
         [When(@"daily review page is opened")]
         public void ReviewPageIsOpened()
         {
