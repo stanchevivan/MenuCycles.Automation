@@ -14,19 +14,19 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = ".subheader__tab-btn-active.disabled")]
         private IWebElement PostProductionNavTabs { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(1) > span:last-of-type")]
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(2) > span:last-of-type")]
         private IWebElement dailyTotal_PlannedQty { get; set; }
-        [FindsBy(How = How.ClassName, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(2) > span:last-of-type")]
+        [FindsBy(How = How.ClassName, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(3) > span:last-of-type")]
         private IWebElement dailyTotal_QtyReqd { get; set; }
-        [FindsBy(How = How.ClassName, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(3) > span:last-of-typey")]
+        [FindsBy(How = How.ClassName, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(4) > span:last-of-typey")]
         private IWebElement dailyTotal_QtyProd { get; set; }
-        [FindsBy(How = How.ClassName, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(4) > span:last-of-type")]
-        private IWebElement dailyTotal_QtySold { get; set; }
         [FindsBy(How = How.ClassName, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(5) > span:last-of-type")]
-        private IWebElement dailyTotal_NoChargeApplied { get; set; }
+        private IWebElement dailyTotal_QtySold { get; set; }
         [FindsBy(How = How.ClassName, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(6) > span:last-of-type")]
-        private IWebElement dailyTotal_ReturnToStock { get; set; }
+        private IWebElement dailyTotal_NoChargeApplied { get; set; }
         [FindsBy(How = How.ClassName, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(7) > span:last-of-type")]
+        private IWebElement dailyTotal_ReturnToStock { get; set; }
+        [FindsBy(How = How.ClassName, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(8) > span:last-of-type")]
         private IWebElement dailyTotal_Wastage { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".icon-printer")]
         private IWebElement LocalSalesReportButton { get; set; }
