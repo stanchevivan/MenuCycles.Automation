@@ -18,17 +18,17 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement WeeklyViewButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(1) > span:last-of-type")]
         private IWebElement dailyTotal_PlannedQty { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(2) > span:last-of-type")]
-        private IWebElement dailyTotal_EnergyKJ { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(3) > span:last-of-type")]
-        private IWebElement dailyTotal_EnergyKCAL { get; set; }
+        private IWebElement dailyTotal_EnergyKJ { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(4) > span:last-of-type")]
-        private IWebElement dailyTotal_Fat { get; set; }
+        private IWebElement dailyTotal_EnergyKCAL { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(5) > span:last-of-type")]
-        private IWebElement dailyTotal_SaturatedFat { get; set; }
+        private IWebElement dailyTotal_Fat { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(6) > span:last-of-type")]
-        private IWebElement dailyTotal_Sugar { get; set; }
+        private IWebElement dailyTotal_SaturatedFat { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(7) > span:last-of-type")]
+        private IWebElement dailyTotal_Sugar { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(8) > span:last-of-type")]
         private IWebElement dailyTotal_Salt { get; set; }
 
         public IList<DailyMealPeriodNutrition> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriodNutrition(p, Driver)).ToList();

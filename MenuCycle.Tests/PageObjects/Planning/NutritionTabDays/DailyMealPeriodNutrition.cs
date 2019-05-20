@@ -29,17 +29,17 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__column:nth-of-type(1) > span:last-of-type")]
         private IWebElement mealPeriod_plannedQtyText { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__column:nth-of-type(2) > span:last-of-type")]
-        private IWebElement mealPeriod_energyKJ { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__column:nth-of-type(3) > span:last-of-type")]
-        private IWebElement mealPeriod_EnergyKCAL { get; set; }
+        private IWebElement mealPeriod_energyKJ { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__column:nth-of-type(4) > span:last-of-type")]
-        private IWebElement mealPeriod_Fat { get; set; }
+        private IWebElement mealPeriod_EnergyKCAL { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__column:nth-of-type(5) > span:last-of-type")]
-        private IWebElement mealPeriod_SaturatedFat { get; set; }
+        private IWebElement mealPeriod_Fat { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__column:nth-of-type(6) > span:last-of-type")]
-        private IWebElement mealPeriod_Sugar { get; set; }
+        private IWebElement mealPeriod_SaturatedFat { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__column:nth-of-type(7) > span:last-of-type")]
+        private IWebElement mealPeriod_Sugar { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__column:nth-of-type(8) > span:last-of-type")]
         private IWebElement mealPeriod_Salt { get; set; }
 
         public string Name => MealPeriodName.Text;
