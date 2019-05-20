@@ -67,7 +67,7 @@ namespace MenuCycle.Tests.Features
         [NUnit.Framework.DescriptionAttribute("Retrieve recipe information from the API")]
         [NUnit.Framework.CategoryAttribute("TC28829")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "Thursday", "DANGELO", "RECIPE", "703Coronation Chicken Sandwich Filling (50g)", "12", "0.77", "TariffOne", "GP", "5", "20", "0.97", null, Category="QAI")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "Thursday", "DANGELO", "RECIPE", "703Coronation Chicken Sandwich Filling (50g)", "12", "0.77", "TariffOne", "GP", "5.00", "20", "0.97", null, Category="QAI")]
         public virtual void RetrieveRecipeInformationFromTheAPI(string environment, string menuCycle, string day, string mealPeriod, string type, string recipeName, string plannedQuantity, string costPerUnit, string tariffType, string priceModel, string target, string taxPercentage, string sellPrice, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -474,7 +474,7 @@ this.ScenarioSetup(scenarioInfo);
                         "96%"});
             table4.AddRow(new string[] {
                         "724Pepper & Garlic Coated Beef",
-                        "5022.6",
+                        "5022.60",
                         "15067.81",
                         "5551.3",
                         "15860.85",
@@ -602,7 +602,7 @@ this.ScenarioSetup(scenarioInfo);
                         "RECIPE",
                         string.Format("{0}", recipeName),
                         "GP",
-                        "",
+                        "0.00",
                         "^"});
             table6.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
@@ -710,7 +710,7 @@ this.ScenarioSetup(scenarioInfo);
                         "RECIPE",
                         string.Format("{0}", recipeName),
                         "GP",
-                        "",
+                        "0.00",
                         "^"});
             table10.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
@@ -853,7 +853,7 @@ this.ScenarioSetup(scenarioInfo);
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
-                        ""});
+                        "0.00"});
 #line 288
     testRunner.And("Verify data for items is", ((string)(null)), table15, "And ");
 #line hidden
