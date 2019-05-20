@@ -476,7 +476,7 @@ this.ScenarioSetup(scenarioInfo);
                         "724Pepper & Garlic Coated Beef",
                         "5022.60",
                         "15067.81",
-                        "5551.3",
+                        "5551.30",
                         "15860.85",
                         "5%"});
 #line 184
@@ -602,7 +602,7 @@ this.ScenarioSetup(scenarioInfo);
                         "RECIPE",
                         string.Format("{0}", recipeName),
                         "GP",
-                        "0.00",
+                        "",
                         "^"});
             table6.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
@@ -710,7 +710,7 @@ this.ScenarioSetup(scenarioInfo);
                         "RECIPE",
                         string.Format("{0}", recipeName),
                         "GP",
-                        "0.00",
+                        "",
                         "^"});
             table10.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
@@ -853,7 +853,7 @@ this.ScenarioSetup(scenarioInfo);
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
-                        "0.00"});
+                        ""});
 #line 288
     testRunner.And("Verify data for items is", ((string)(null)), table15, "And ");
 #line hidden

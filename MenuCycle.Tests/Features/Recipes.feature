@@ -182,9 +182,9 @@ Scenario Outline: Calculations for "Total Cost", "Sell Price", "Revenue" and "Ac
         |MealPeriodName|TYPE  |RecipeTitle     |PlannedQuantity|TariffType|PriceModel|Target|TaxPercentage|
         |LANCE         |RECIPE|004Baked Beans_0|              4| TariffOne|    Markup|    15|            0|
     Then Verify data for recipes in a la carte "Holiday A La Carte" in meal period "LANCE" is
-        |RecipeTitle                   |CostPerUnit|TotalCosts|SellPrice|Revenue |ActualGP|
-        |724Beef Bolognaise            |       1.83|      3.67|        ^|  91.67 |     96%|
-        |724Pepper & Garlic Coated Beef|    5022.60|  15067.81|   5551.3|15860.85|      5%|
+        |RecipeTitle                   |CostPerUnit|TotalCosts|SellPrice| Revenue|ActualGP|
+        |724Beef Bolognaise            |       1.83|      3.67|        ^|   91.67|     96%|
+        |724Pepper & Garlic Coated Beef|    5022.60|  15067.81|  5551.30|15860.85|      5%|
     And Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle     |TotalCosts|SellPrice|Revenue|ActualGP|
         |LANCE         |RECIPE|004Baked Beans_0|     14.71|     4.23|  16.92|     13%|
@@ -227,7 +227,7 @@ Scenario Outline: Transferring Sell Price value to Markup and GP Target% field d
         And planning for "<day>" is opened
     When data for recipes is set
         |MealPeriodName|TYPE  |RecipeTitle |PriceModel|Target|SellPrice|
-        |<mealPeriod>  |RECIPE|<recipeName>|        GP|  0.00|        ^|
+        |<mealPeriod>  |RECIPE|<recipeName>|        GP|      |        ^|
         |<mealPeriod>  |RECIPE|<recipeName>|    Markup|      |        ^|
         |<mealPeriod>  |RECIPE|<recipeName>|     Fixed|     ^|       50|
         |<mealPeriod>  |RECIPE|<recipeName>|        GP|     ^|        ^|
@@ -254,7 +254,7 @@ Scenario Outline: Transferring Markup Target% value to Sell Price and GP target 
         And planning for "<day>" is opened
     When data for recipes is set
         |MealPeriodName|TYPE  |RecipeTitle |PriceModel|Target|SellPrice|
-        |<mealPeriod>  |RECIPE|<recipeName>|        GP|  0.00|        ^|
+        |<mealPeriod>  |RECIPE|<recipeName>|        GP|      |        ^|
         |<mealPeriod>  |RECIPE|<recipeName>|     Fixed|     ^|         |
         |<mealPeriod>  |RECIPE|<recipeName>|    Markup|    50|        ^|
         |<mealPeriod>  |RECIPE|<recipeName>|        GP|     ^|        ^|
@@ -287,7 +287,7 @@ Scenario Outline: Transferring GP Target% value to Sell Price and Markup target 
         |<mealPeriod>  |RECIPE|<recipeName>|    Markup|     ^|        ^|
     And Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |Target|
-        |<mealPeriod>  |RECIPE|<recipeName>|  0.00|
+        |<mealPeriod>  |RECIPE|<recipeName>|      |
     And data for recipes is set
         |MealPeriodName|TYPE  |RecipeTitle |PriceModel|
         |<mealPeriod>  |RECIPE|<recipeName>|     Fixed|

@@ -26,7 +26,7 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement Covers { get; set; }
         [FindsBy(How = How.ClassName, Using = "recipe-content")]
         private IList<IWebElement> Items{ get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__column:nth-of-type(1) > span:last-of-type")]
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__column:nth-of-type(2) > span:last-of-type")]
         private IWebElement PlannedQuantityText { get; set; }
 
         public string Name => MealPeriodName.Text;

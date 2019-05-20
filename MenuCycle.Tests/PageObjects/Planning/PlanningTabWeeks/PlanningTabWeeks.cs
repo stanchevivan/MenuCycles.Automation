@@ -12,13 +12,13 @@ namespace MenuCycle.Tests.PageObjects
         {
         }
 
-        [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(1) > span:last-of-type")]
-        private IWebElement weeklyTotal_TotalCost { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(2) > span:last-of-type")]
-        private IWebElement weeklyTotal_Revenue { get; set; }
+        private IWebElement weeklyTotal_TotalCost { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(3) > span:last-of-type")]
-        private IWebElement weeklyTotal_Profit { get; set; }
+        private IWebElement weeklyTotal_Revenue { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(4) > span:last-of-type")]
+        private IWebElement weeklyTotal_Profit { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(5) > span:last-of-type")]
         private IWebElement weeklyTotal_ActualGP { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".day-data")]
