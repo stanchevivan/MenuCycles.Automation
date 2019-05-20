@@ -7,8 +7,8 @@ Scenario Outline: Search Menu Cycles by name or description
         And a central user is selected
     When Menu Cycle "<mc1Description>" is searched
         And Verify search results contain the following menu cycles
-        |Name     |Description     |
-        |<mc1Name>|<mc1Description>|
+        |Name                       |Description                                         |
+        |<mc1Name>                  |<mc1Description>                                    |
     When Menu Cycle "<mc2Name>" is searched
     Then Verify search results contain the following menu cycles
         |Name     |Description     |

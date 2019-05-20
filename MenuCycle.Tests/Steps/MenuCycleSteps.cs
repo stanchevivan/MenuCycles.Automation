@@ -94,11 +94,8 @@ namespace MenuCycle.Tests.Steps
         [Then(@"Verify search results contain the following menu cycles")]
         public void VerifySearchResultsContainMenuCycles(Table table)
         {
-            for (int i = 0; i < table.RowCount; i++)
-            {
-                Assert.That(menuCycleDashboard.MenuCycles[i].Name == table.Rows[i]["Name"]);
-                Assert.That(menuCycleDashboard.MenuCycles[i].Description == table.Rows[i]["Description"]);
-            }
+            Assert.That(menuCycleDashboard.MenuCycles.Select(x => x.Name), Is.SupersetOf(table.Rows.Select(x => x["Name"])));
+            Assert.That(menuCycleDashboard.MenuCycles.Select(x => x.Description).ToList(), Is.SupersetOf(table.Rows.Select(x => x["Description"])));
         }
 
         [Given(@"the message '(.*)' is displayed")]
