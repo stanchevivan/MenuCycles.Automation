@@ -229,26 +229,24 @@ namespace MenuCycle.Tests.Steps
         [Then(@"Verify value for fields for meal period ""(.*)"" is")]
         public void TotalPlannedQuantityforMealPeriodIs(string mealPeriodName, Table table)
         {
-            dynamic values = table.CreateDynamicInstance();
-
             var mealPeriod = planningTabDays.GetMealPeriod(mealPeriodName);
 
-            if (!string.IsNullOrEmpty(Convert.ToString(values.PlannedQty)))
+            if (!string.IsNullOrEmpty(table.Rows[0]["PlannedQty"]))
             {
-                Assert.That(mealPeriod.PlannedQuantity, Is.EqualTo(Convert.ToString(values.PlannedQty)));
+                Assert.That(mealPeriod.PlannedQuantity, Is.EqualTo(table.Rows[0]["PlannedQty"]));
             }
 
-            if (!string.IsNullOrEmpty(Convert.ToString(values.TotalCost)))
+            if (!string.IsNullOrEmpty(table.Rows[0]["TotalCost"]))
             {
-                Assert.That(mealPeriod.TotalCost, Is.EqualTo(Convert.ToString(values.TotalCost)));
+                Assert.That(mealPeriod.TotalCost, Is.EqualTo(table.Rows[0]["TotalCost"]));
             }
-            if (!string.IsNullOrEmpty(Convert.ToString(values.Revenue)))
+            if (!string.IsNullOrEmpty(table.Rows[0]["Revenue"]))
             {
-                Assert.That(mealPeriod.Revenue, Is.EqualTo(Convert.ToString(values.Revenue)));
+                Assert.That(mealPeriod.Revenue, Is.EqualTo(table.Rows[0]["Revenue"]));
             }
-            if (!string.IsNullOrEmpty(Convert.ToString(values.ActualGP)))
+            if (!string.IsNullOrEmpty(table.Rows[0]["ActualGP"]))
             {
-                Assert.That(mealPeriod.ActualGP, Is.EqualTo(Convert.ToString(values.ActualGP)));
+                Assert.That(mealPeriod.ActualGP, Is.EqualTo(table.Rows[0]["ActualGP"]));
             }
         }
 

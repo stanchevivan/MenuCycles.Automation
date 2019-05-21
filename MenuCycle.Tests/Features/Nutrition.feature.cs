@@ -303,7 +303,7 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Retrieve recipe information from the API in Nutrition screen")]
         [NUnit.Framework.CategoryAttribute("TC36938")]
-        [NUnit.Framework.TestCaseAttribute("QAI_2", "Meda", "Monday", "LUNCH", "004Baked Beans_3", "100", "799.20", "6.00", "66.00", "79.20", "34.08", "-", null, Category="QAI")]
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "Meda", "Monday", "LUNCH", "004Baked Beans_3", "100", "799.20", "6.00", "66.00", "79.20", "34.08", "15000.00", null, Category="QAI")]
         public virtual void RetrieveRecipeInformationFromTheAPIInNutritionScreen(string environment, string menuCycle, string day, string mealPeriod, string recipeName, string mixPercent, string energyKJ, string energyKCAL, string fat, string saturatedFat, string sugar, string salt, string[] exampleTags)
         {
             string[] @__tags = new string[] {

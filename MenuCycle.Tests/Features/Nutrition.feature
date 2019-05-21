@@ -122,8 +122,8 @@ Scenario Outline: Retrieve recipe information from the API in Nutrition screen
         
     @QAI
     Examples:
-    |environment|menuCycle|day     |mealPeriod|recipeName      |mixPercent|energyKJ|energyKCAL|fat  |saturatedFat|sugar|salt|
-    |QAI_2      |Meda     |Monday  |LUNCH     |004Baked Beans_3|       100|  799.20|      6.00|66.00|       79.20|34.08|-   |
+    |environment|menuCycle|day     |mealPeriod|recipeName      |mixPercent|energyKJ|energyKCAL|fat  |saturatedFat|sugar|salt    |
+    |QAI_2      |Meda     |Monday  |LUNCH     |004Baked Beans_3|       100|  799.20|      6.00|66.00|       79.20|34.08|15000.00|
     
 Scenario Outline: Planned qty are summed for recipe with more than one tariffs
     Given Menu Cycle app is open on "<environment>" 
