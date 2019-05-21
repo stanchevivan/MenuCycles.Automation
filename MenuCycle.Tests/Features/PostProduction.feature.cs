@@ -525,11 +525,18 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("ssss")]
+        [NUnit.Framework.DescriptionAttribute("Verify Post-Production weekly totals equals the sum of all meal period totals")]
+        [NUnit.Framework.CategoryAttribute("TC38808")]
         [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Please don`t use", "TUE 29 JAN", "Maya Buffet", "004Basic Sponge", "DANGELO", null, Category="QAI")]
-        public virtual void Ssss(string environment, string location, string menuCycle, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
+        public virtual void VerifyPost_ProductionWeeklyTotalsEqualsTheSumOfAllMealPeriodTotals(string environment, string location, string menuCycle, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("ssss", exampleTags);
+            string[] @__tags = new string[] {
+                    "TC38808"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Post-Production weekly totals equals the sum of all meal period totals", @__tags);
 #line 214
 this.ScenarioSetup(scenarioInfo);
 #line 215

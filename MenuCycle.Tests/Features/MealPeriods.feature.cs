@@ -535,7 +535,7 @@ this.ScenarioSetup(scenarioInfo);
                         "ActualGP"});
             table5.AddRow(new string[] {
                         "210",
-                        "697.2",
+                        "697.20",
                         "191.67",
                         "-264%"});
 #line 197

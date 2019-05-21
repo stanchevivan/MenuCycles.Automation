@@ -196,7 +196,7 @@ Scenario Outline: Buffets only - Calculate Meal period "Planned Quantity", "Tota
         |004German Shortcrust Pastry (fresh)007|             60|
     Then Verify value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
-        |       210|    697.2| 191.67|   -264%|
+        |       210|   697.20| 191.67|   -264%|
         
     @QAI
     Examples:

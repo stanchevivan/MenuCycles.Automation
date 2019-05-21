@@ -18,7 +18,7 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = ".day-data__name > span")]
         private IWebElement DayName { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".table-section-total__column:nth-of-type(2) > span")]
+        [FindsBy(How = How.CssSelector, Using = ".table-section-total__column:nth-of-type(2)")]
         private IWebElement dailyTotal_QtyReq { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".table-section-total__column:nth-of-type(3)")]
         private IWebElement dailyTotal_QtyProd { get; set; }
