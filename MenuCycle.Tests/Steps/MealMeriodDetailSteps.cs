@@ -84,11 +84,9 @@ namespace MenuCycle.Tests.Steps
             var buffetCard = mealPeriodDetails.GetBuffetCard(buffetName);
 
             // TODO: Should use ExpandedRecipes related to buffet card, not the whole meal period
-            for (int i = 0; i < table.Rows.Count; i++)
-            {
-                Assert.That(mealPeriodDetails.ExpandedRecipes[i].Name, Is.EqualTo(table.Rows[i]["Name"]));
-                Assert.That(mealPeriodDetails.ExpandedRecipes[i].Cost, Is.EqualTo(table.Rows[i]["Cost"]));
-            }
+
+            Assert.That(mealPeriodDetails.ExpandedRecipes.Select(x => x.Name), Is.EqualTo(table.Rows.Select(x => x["Name"])));
+            Assert.That(mealPeriodDetails.ExpandedRecipes.Select(x => x.Cost), Is.EqualTo(table.Rows.Select(x => x["Cost"])));
         }
 
         [When(@"Verify items present in the search results are")]

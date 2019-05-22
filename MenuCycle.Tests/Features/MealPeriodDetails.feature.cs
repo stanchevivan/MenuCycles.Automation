@@ -148,12 +148,6 @@ this.ScenarioSetup(scenarioInfo);
             table2.AddRow(new string[] {
                         "004Fresh Lemon Curd",
                         "£6.3697"});
-            table2.AddRow(new string[] {
-                        "004German Shortcrust Pastry (fresh)007",
-                        "£8.793"});
-            table2.AddRow(new string[] {
-                        "724Custard Sauce (powder, fresh milk)",
-                        "£0.4351"});
 #line 26
     testRunner.Then("Verify recipes in meal period details for buffet \"Maya Buffet\" are", ((string)(null)), table2, "Then ");
 #line hidden

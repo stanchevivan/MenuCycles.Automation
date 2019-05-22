@@ -29,8 +29,8 @@ Scenario Outline: Only one cost is presented for recipes in Buffet in the meal p
     |004Beef Stock (bouillon)              |£0     |
     |004Fish Stock (bouillon)              |£0.4875|
     |004Fresh Lemon Curd                   |£6.3697|
-    |004German Shortcrust Pastry (fresh)007|£8.793 |
-    |724Custard Sauce (powder, fresh milk) |£0.4351|
+    # |004German Shortcrust Pastry (fresh)007|£8.793 |
+    # |724Custard Sauce (powder, fresh milk) |£0.4351|
     
     @QAI
     Examples:
