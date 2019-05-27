@@ -527,8 +527,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Post-Production weekly totals equals the sum of all meal period totals")]
         [NUnit.Framework.CategoryAttribute("TC38808")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Please don`t use", "TUE 29 JAN", "Maya Buffet", "004Basic Sponge", "DANGELO", null, Category="QAI")]
-        public virtual void VerifyPost_ProductionWeeklyTotalsEqualsTheSumOfAllMealPeriodTotals(string environment, string location, string menuCycle, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Please don`t use", "TUE 29 JAN", "211", "210", "75", "165", "211", "-322", null, Category="QAI")]
+        public virtual void VerifyPost_ProductionWeeklyTotalsEqualsTheSumOfAllMealPeriodTotals(string environment, string location, string menuCycle, string day, string qtyReqd, string qtyProd, string qtySold, string noCharge, string returnToStock, string wastage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC38808"};
@@ -559,6 +559,23 @@ this.ScenarioSetup(scenarioInfo);
         testRunner.And("Weeks tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 224
     testRunner.Then("Verify weekly post-production totals equals the sum of all meal period totals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "qtyReqd",
+                        "qtyProd",
+                        "qtySold",
+                        "noCharge",
+                        "returnToStock",
+                        "wastage"});
+            table6.AddRow(new string[] {
+                        string.Format("{0}", qtyReqd),
+                        string.Format("{0}", qtyProd),
+                        string.Format("{0}", qtySold),
+                        string.Format("{0}", noCharge),
+                        string.Format("{0}", returnToStock),
+                        string.Format("{0}", wastage)});
+#line 225
+        testRunner.And("Verify post-production weekly totals are", ((string)(null)), table6, "And ");
 #line hidden
             this.ScenarioCleanup();
         }

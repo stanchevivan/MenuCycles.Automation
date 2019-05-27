@@ -222,8 +222,11 @@ Scenario Outline: Verify Post-Production weekly totals equals the sum of all mea
         And post-production tab is opened
         And Weeks tab is opened
     Then Verify weekly post-production totals equals the sum of all meal period totals
+        And Verify post-production weekly totals are
+        |qtyReqd  |qtyProd  |qtySold  |noCharge  |returnToStock  |wastage  |
+        |<qtyReqd>|<qtyProd>|<qtySold>|<noCharge>|<returnToStock>|<wastage>|
     
-           @QAI
+    @QAI
     Examples:
-    |environment|location|menuCycle       |day       |buffetName |recipeName     |mealPeriod|
-    |QAI        |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|004Basic Sponge|   DANGELO|
+    |environment|location|menuCycle       |day       |qtyReqd|qtyProd|qtySold|noCharge|returnToStock|wastage|
+    |QAI        |SE001   |Please don`t use|TUE 29 JAN|211    |210    |75     |165     |211          |-322   |
