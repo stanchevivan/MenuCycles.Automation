@@ -8,15 +8,14 @@
 
             var recipe = nutritionTabDays.GetMealPeriod(row["MealPeriodName"]).GetRecipe(row["RecipeTitle"]).GetFirstRow();
 
-            Assert.That(recipe.PlannedQuantity, Is.EqualTo(scenarioContext.Get<string>("PlannedQuantity")));
-            Assert.That(recipe.MixPercentage, Is.EqualTo(row["MixPercent"]));
-            Assert.That(recipe.EnergyKJ, Is.EqualTo(row["EnergyKJ"]));
-            Assert.That(recipe.EnergyKCAL, Is.EqualTo(row["EnergyKCAL"]));
-            Assert.That(recipe.Fat, Is.EqualTo(row["Fat"]));
-            Assert.That(recipe.SaturatesFat, Is.EqualTo(row["SaturatedFat"]));
-            Assert.That(recipe.Sugar, Is.EqualTo(row["Sugar"]));
-            Assert.That(recipe.Salt, Is.EqualTo(row["Salt"]));
-        }
+            if (scenarioContext.ContainsKey("PlannedQuantity")) Assert.That(recipe.PlannedQuantity, Is.EqualTo(scenarioContext.Get<string>("PlannedQuantity")));
+            if (row.ContainsKey("MixPercent")) Assert.That(recipe.MixPercentage, Is.EqualTo(row["MixPercent"]));            if (row.ContainsKey("EnergyKJ")) Assert.That(recipe.EnergyKJ, Is.EqualTo(row["EnergyKJ"]));
+            if (row.ContainsKey("EnergyKCAL")) Assert.That(recipe.EnergyKCAL, Is.EqualTo(row["EnergyKCAL"]));
+            if (row.ContainsKey("Fat")) Assert.That(recipe.Fat, Is.EqualTo(row["Fat"]));
+            if (row.ContainsKey("SaturatedFat")) Assert.That(recipe.SaturatesFat, Is.EqualTo(row["SaturatedFat"]));
+            if (row.ContainsKey("Sugar")) Assert.That(recipe.Sugar, Is.EqualTo(row["Sugar"]));
+            if (row.ContainsKey("Salt")) Assert.That(recipe.Salt, Is.EqualTo(row["Salt"]));
+        }
 
         [When(@"Nutrition meal period ""(.*)"" is collapsed")]        public void WhenNutritionMealPeriodIsCollapsed(string periodName)        {            nutritionTabDays.GetMealPeriod(periodName).Collapse();        }        [When(@"Nutrition meal period ""(.*)"" is expanded")]        public void WhenNutritionMealPeriodIsExpanded(string periodName)        {            nutritionTabDays.GetMealPeriod(periodName).Expand();        }        [Then(@"Verify main data for Meal Period ""(.*)"" is collapsed in Nutrition days")]        public void ThenMainDataForNutritionMealPeriodIsCollapsedInPostProductionDays(string periodName)        {            Assert.IsFalse(nutritionTabDays.GetMealPeriod(periodName).IsExpanded);        }        [Then(@"Verify main data for Meal Period ""(.*)"" is expanded in Nutrition days")]        public void ThenMainDataForNutritionMealPeriodIsExpandedInPostProductionDays(string periodName)        {            Assert.IsTrue(nutritionTabDays.GetMealPeriod(periodName).IsExpanded);        }
 

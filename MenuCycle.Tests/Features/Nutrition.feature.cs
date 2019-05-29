@@ -592,6 +592,61 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Nutrition data is shown after changing planned quantity")]
+        [NUnit.Framework.CategoryAttribute("TC39274")]
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "Automation Testing", "THURSDAY", "CHLOE", "004Baked Beans_1", "13092.00", null, Category="QAI")]
+        public virtual void NutritionDataIsShownAfterChangingPlannedQuantity(string environment, string menuCycle, string day, string mealPeriod, string recipeName, string energyKJ, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC39274"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Nutrition data is shown after changing planned quantity", @__tags);
+#line 244
+this.ScenarioSetup(scenarioInfo);
+#line 245
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 246
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 247
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 248
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "PlannedQuantity"});
+            table2.AddRow(new string[] {
+                        string.Format("{0}", mealPeriod),
+                        "RECIPE",
+                        string.Format("{0}", recipeName),
+                        "1#99"});
+#line 249
+        testRunner.And("data for recipes is set", ((string)(null)), table2, "And ");
+#line 252
+        testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 253
+        testRunner.And("nutrition tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "RecipeTitle",
+                        "EnergyKJ"});
+            table3.AddRow(new string[] {
+                        string.Format("{0}", mealPeriod),
+                        string.Format("{0}", recipeName),
+                        string.Format("{0}", energyKJ)});
+#line 254
+    testRunner.Then("Verify nutrition data for recipes are", ((string)(null)), table3, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

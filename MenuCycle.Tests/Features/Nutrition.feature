@@ -163,7 +163,7 @@ Scenario Outline: Validate Nutritions Meal Period Totals
     @QAI
     Examples:
     |environment|menuCycle         |day    |mealPeriod|
-    |QAI_2        |Automation Testing|TUESDAY|LUNCH     |
+    |QAI_2      |Automation Testing|TUESDAY|LUNCH     |
     
 Scenario Outline: Verify Number of covers field is not present in the Nutrition screen
     Given Menu Cycle app is open on "<environment>" 
@@ -239,3 +239,23 @@ Scenario Outline: Verify Nutrition weekly totals equals the sum of all meal peri
     Examples:
     |environment|menuCycle                               |day   |
     |QAI_2      |AUTOMATION - API Integration Weekly View|MONDAY|
+    
+@TC39274    
+Scenario Outline: Nutrition data is shown after changing planned quantity
+    Given Menu Cycle app is open on "<environment>" 
+        And a nouser user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And data for recipes is set
+            |MealPeriodName|TYPE  |RecipeTitle |PlannedQuantity|
+            |<mealPeriod>  |RECIPE|<recipeName>|           1#99|
+        And Save button is clicked
+        And nutrition tab is opened
+    Then Verify nutrition data for recipes are
+        |MealPeriodName|RecipeTitle |EnergyKJ  |
+        |<mealPeriod>  |<recipeName>|<energyKJ>|
+        
+    @QAI
+    Examples:
+    |environment|menuCycle         |day     |mealPeriod|recipeName      |energyKJ|
+    |QAI_2      |Automation Testing|THURSDAY|CHLOE     |004Baked Beans_1|13092.00|
