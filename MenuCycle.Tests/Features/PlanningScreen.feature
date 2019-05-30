@@ -490,3 +490,19 @@ Scenario Outline: Verify planning weekly totals equals the sum of all meal perio
     Examples:
     |environment|menuCycle                               |day   |
     |QAI_2      |AUTOMATION - API Integration Weekly View|MONDAY|
+    
+@TC39250
+Scenario Outline: Default values are '0' for unplanned meal period
+    Given Menu Cycle app is open on "<environment>" 
+        And a nouser user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        When planning for "<day>" is opened
+    Then Verify data for items is
+        |MealPeriodName|TYPE  |RecipeTitle |SellPrice|PlannedQty|
+        |<mealPeriod>  |RECIPE|<recipeName>|     0.00|0         |
+        And Verify number of covers for meal period "<mealPeriod>" is equal to "0"
+        
+    @QAI
+    Examples:
+    |environment|menuCycle         |day   |mealPeriod|recipeName     |
+    |QAI_2      |Automation Testing|MONDAY|DINNER    |004Basic Sponge|

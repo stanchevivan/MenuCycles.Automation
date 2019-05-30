@@ -1257,6 +1257,50 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Default values are \'0\' for unplanned meal period")]
+        [NUnit.Framework.CategoryAttribute("TC39250")]
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "Automation Testing", "MONDAY", "DINNER", "004Basic Sponge", null, Category="QAI")]
+        public virtual void DefaultValuesAre0ForUnplannedMealPeriod(string environment, string menuCycle, string day, string mealPeriod, string recipeName, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC39250"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Default values are \'0\' for unplanned meal period", @__tags);
+#line 495
+this.ScenarioSetup(scenarioInfo);
+#line 496
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 497
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 498
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 499
+        testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "SellPrice",
+                        "PlannedQty"});
+            table11.AddRow(new string[] {
+                        string.Format("{0}", mealPeriod),
+                        "RECIPE",
+                        string.Format("{0}", recipeName),
+                        "0.00",
+                        "0"});
+#line 500
+    testRunner.Then("Verify data for items is", ((string)(null)), table11, "Then ");
+#line 503
+        testRunner.And(string.Format("Verify number of covers for meal period \"{0}\" is equal to \"0\"", mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
