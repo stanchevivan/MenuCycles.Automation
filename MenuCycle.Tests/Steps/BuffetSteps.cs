@@ -115,6 +115,10 @@ namespace MenuCycle.Tests.Steps
                             break;
                         }
                 }
+                if (expectedItem.Type == "RECIPE" && !string.IsNullOrEmpty(expectedItem.TariffType))
+                {
+                    item.GetTariffTypeRow(expectedItem.TariffType).VerifyData(expectedItem);
+                }
 
                 item.GetFirstRow().VerifyData(expectedItem);
             }

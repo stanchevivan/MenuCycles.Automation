@@ -514,7 +514,7 @@ Scenario Outline: Default values are '0' when adding new recipe tariff type
         And Menu Cycle "<menuCycle>" is selected
         When planning for "<day>" is opened
         When Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
-    Then Verify data for recipe row is
+    Then Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |TariffType|SellPrice|PlannedQty|
         |<mealPeriod>  |RECIPE|<recipeName>|TariffTwo |     0.00|0         |
         

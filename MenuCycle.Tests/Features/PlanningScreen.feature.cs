@@ -1343,7 +1343,7 @@ this.ScenarioSetup(scenarioInfo);
                         "0.00",
                         "0"});
 #line 517
-    testRunner.Then("Verify data for recipe row is", ((string)(null)), table12, "Then ");
+    testRunner.Then("Verify data for items is", ((string)(null)), table12, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -66,6 +66,11 @@ namespace MenuCycle.Tests.PageObjects
 
         public RecipeRow GetRecipeRowWithTariffType(string recipeTitle, string tariffType)
         {
+            if (string.IsNullOrEmpty(tariffType))
+            {
+                return GetRecipe(recipeTitle).GetFirstRow();
+            }
+
             return GetRecipe(recipeTitle).GetTariffTypeRow(tariffType);
         }
 
