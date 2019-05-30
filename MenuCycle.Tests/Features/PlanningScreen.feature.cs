@@ -1301,6 +1301,52 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Default values are \'0\' when adding new recipe tariff type")]
+        [NUnit.Framework.CategoryAttribute("TC39251")]
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "Automation Testing", "MONDAY", "DINNER", "004Basic Sponge", null, Category="QAI")]
+        public virtual void DefaultValuesAre0WhenAddingNewRecipeTariffType(string environment, string menuCycle, string day, string mealPeriod, string recipeName, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC39251"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Default values are \'0\' when adding new recipe tariff type", @__tags);
+#line 511
+this.ScenarioSetup(scenarioInfo);
+#line 512
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 513
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 514
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 515
+        testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 516
+        testRunner.When(string.Format("Add type is clicked for recipe \"{0}\" in meal period \"{1}\"", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "TariffType",
+                        "SellPrice",
+                        "PlannedQty"});
+            table12.AddRow(new string[] {
+                        string.Format("{0}", mealPeriod),
+                        "RECIPE",
+                        string.Format("{0}", recipeName),
+                        "TariffTwo",
+                        "0.00",
+                        "0"});
+#line 517
+    testRunner.Then("Verify data for recipe row is", ((string)(null)), table12, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

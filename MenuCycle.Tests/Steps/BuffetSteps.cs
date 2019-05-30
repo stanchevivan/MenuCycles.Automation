@@ -22,9 +22,39 @@ namespace MenuCycle.Tests.Steps
             this.scenarioContext = scenarioContext;
         }
 
-        [When(@"data for buffets is set")]
         [When(@"data for recipes is set")]
         public void WhenDataForItemsIsSet(Table table)
+        {
+            var itemData = table.CreateSet<RecipeModel>();
+
+            RecipeRow item;
+
+            foreach (var data in itemData)
+            {
+
+                switch (data.Type)
+                {
+                    case "RECIPE":
+                        {
+                            item = planningTabDays.GetMealPeriod(data.MealPeriodName)
+                                                  .GetRecipeRowWithTariffType(data.RecipeTitle, data.TariffType);
+                            break;
+                        }
+
+                    default:
+                        {
+                            throw new System.Exception($"TYPE is {data.Type}. It should be RECIPE or BUFFET !");
+                        }
+                }
+
+                item.SetData(data);
+            }
+
+            planningTabDays.FocusOut();
+        }
+
+        [When(@"data for buffets is set")]
+        public void WhenDataForBuffetsIsSet(Table table)
         {
             var itemData = table.CreateSet<RecipeModel>();
 
@@ -35,12 +65,6 @@ namespace MenuCycle.Tests.Steps
 
                 switch (data.Type)
                 {
-                    case "RECIPE":
-                        {
-                            item = planningTabDays.GetMealPeriod(data.MealPeriodName)
-                                                  .GetRecipe(data.RecipeTitle);
-                            break;
-                        }
                     case "BUFFET":
                         {
                             item = planningTabDays.GetMealPeriod(data.MealPeriodName)
@@ -50,7 +74,7 @@ namespace MenuCycle.Tests.Steps
 
                     default:
                         {
-                            throw new System.Exception($"TYPE is {data.Type}. It should be RECIPE or BUFFET !");
+                            throw new System.Exception($"TYPE is {data.Type}. It should be BUFFET !");
                         }
                 }
 
@@ -60,7 +84,6 @@ namespace MenuCycle.Tests.Steps
             planningTabDays.FocusOut();
         }
 
-        [When(@"Verify data for items is")]
         [StepDefinition(@"Verify data for items is")]
         public void WhenVerifyDataForItemsIs(Table table)
         {
@@ -94,6 +117,22 @@ namespace MenuCycle.Tests.Steps
                 }
 
                 item.GetFirstRow().VerifyData(expectedItem);
+            }
+        }
+
+        [StepDefinition(@"Verify data for recipe row is")]
+        public void VerifyDataForRecipeRowIs(Table table)
+        {
+            var expectedItems = table.CreateSet<RecipeModel>();
+
+            RecipeRow item;
+
+            foreach (var expectedItem in expectedItems)
+            { 
+                item = planningTabDays.GetMealPeriod(expectedItem.MealPeriodName)
+                .GetRecipeRowWithTariffType(expectedItem.RecipeTitle, expectedItem.TariffType);
+
+                item.VerifyData(expectedItem);
             }
         }
 

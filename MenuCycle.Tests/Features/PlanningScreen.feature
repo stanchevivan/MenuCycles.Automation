@@ -506,3 +506,19 @@ Scenario Outline: Default values are '0' for unplanned meal period
     Examples:
     |environment|menuCycle         |day   |mealPeriod|recipeName     |
     |QAI_2      |Automation Testing|MONDAY|DINNER    |004Basic Sponge|
+    
+@TC39251
+Scenario Outline: Default values are '0' when adding new recipe tariff type
+    Given Menu Cycle app is open on "<environment>" 
+        And a nouser user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        When planning for "<day>" is opened
+        When Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
+    Then Verify data for recipe row is
+        |MealPeriodName|TYPE  |RecipeTitle |TariffType|SellPrice|PlannedQty|
+        |<mealPeriod>  |RECIPE|<recipeName>|TariffTwo |     0.00|0         |
+        
+    @QAI
+    Examples:
+    |environment|menuCycle         |day   |mealPeriod|recipeName     |
+    |QAI_2      |Automation Testing|MONDAY|DINNER    |004Basic Sponge|

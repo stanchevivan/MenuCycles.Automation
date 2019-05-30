@@ -64,7 +64,7 @@ namespace MenuCycle.Tests.PageObjects
             return this.Recipes.First(a => a.Title == title);
         }
 
-        public RecipeRow GetRecipeWithTariffType(string recipeTitle, string tariffType)
+        public RecipeRow GetRecipeRowWithTariffType(string recipeTitle, string tariffType)
         {
             return GetRecipe(recipeTitle).GetTariffTypeRow(tariffType);
         }
