@@ -36,10 +36,14 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "location-search-box")]
         public IWebElement LocationSearchBox { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = "div.login-box.locations-vis")]
+        private IWebElement LocationAnimationBox { get; set; }
+
         public void SearchLocation(string text)
         {
             LocationSearchBox.Click();
             LocationSearchBox.ClearAndSendKeys(text);
+            LocationAnimationBox.Wait(Driver).ForAnimationToEnd();
             Driver.WaitIsClickable(LocationName);
         }
 

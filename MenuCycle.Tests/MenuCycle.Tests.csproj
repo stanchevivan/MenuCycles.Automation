@@ -422,6 +422,7 @@
     <Compile Include="PageObjects\Planning\PlanningTabWeeks\PlanningWeekMealPeriod.cs" />
     <Compile Include="PageObjects\Planning\PostProductionTabWeeks\PostProductionDayRow.cs" />
     <Compile Include="PageObjects\Planning\PostProductionTabWeeks\PostProductionWeekMealPeriod.cs" />
+    <Compile Include="Support\Helpers\Wait.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
