@@ -1282,12 +1282,14 @@ this.ScenarioSetup(scenarioInfo);
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
+                        "TariffType",
                         "SellPrice",
                         "PlannedQty"});
             table11.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
+                        "TariffTwo",
                         "0.00",
                         "0"});
 #line 500

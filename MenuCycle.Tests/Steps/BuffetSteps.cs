@@ -92,6 +92,7 @@ namespace MenuCycle.Tests.Steps
                 if (expectedItem.Type == "RECIPE" && !string.IsNullOrEmpty(expectedItem.TariffType))
                 {
                     item.GetTariffTypeRow(expectedItem.TariffType).VerifyData(expectedItem);
+                    return;
                 }
 
                 item.GetFirstRow().VerifyData(expectedItem);

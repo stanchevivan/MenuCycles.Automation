@@ -233,13 +233,13 @@ Scenario Outline: Transferring Sell Price value to Markup and GP Target% field d
         |<mealPeriod>  |<recipeName>|        GP|     ^|        ^|
     And Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |Target|
-        |<mealPeriod>  |RECIPE|<recipeName>|      |
+        |<mealPeriod>  |RECIPE|<recipeName>|  0.00|
     And data for recipes is set
         |MealPeriodName|RecipeTitle |PriceModel|
         |<mealPeriod>  |<recipeName>|    Markup|
     Then Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |Target|
-        |<mealPeriod>  |RECIPE|<recipeName>|      |
+        |<mealPeriod>  |RECIPE|<recipeName>|  0.00|
         
     @QAI
     Examples:
@@ -260,13 +260,13 @@ Scenario Outline: Transferring Markup Target% value to Sell Price and GP target 
         |<mealPeriod>  |<recipeName>|        GP|     ^|        ^|
     And Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |Target|
-        |<mealPeriod>  |RECIPE|<recipeName>|      |
+        |<mealPeriod>  |RECIPE|<recipeName>|  0.00|
     And data for recipes is set
         |MealPeriodName|RecipeTitle |PriceModel|
         |<mealPeriod>  |<recipeName>|     Fixed|
     Then Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |SellPrice|
-        |<mealPeriod>  |RECIPE|<recipeName>|         |
+        |<mealPeriod>  |RECIPE|<recipeName>|     0.00|
         
     @QAI
     Examples:
@@ -287,13 +287,13 @@ Scenario Outline: Transferring GP Target% value to Sell Price and Markup target 
         |<mealPeriod>  |<recipeName>|    Markup|     ^|        ^|
     And Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |Target|
-        |<mealPeriod>  |RECIPE|<recipeName>|      |
+        |<mealPeriod>  |RECIPE|<recipeName>|  0.00|
     And data for recipes is set
         |MealPeriodName|RecipeTitle |PriceModel|
         |<mealPeriod>  |<recipeName>|     Fixed|
     Then Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |SellPrice|
-        |<mealPeriod>  |RECIPE|<recipeName>|         |
+        |<mealPeriod>  |RECIPE|<recipeName>|     0.00|
         
     @QAI
     Examples:

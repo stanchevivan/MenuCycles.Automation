@@ -632,7 +632,7 @@ this.ScenarioSetup(scenarioInfo);
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
-                        ""});
+                        "0.00"});
 #line 234
     testRunner.And("Verify data for items is", ((string)(null)), table7, "And ");
 #line hidden
@@ -656,7 +656,7 @@ this.ScenarioSetup(scenarioInfo);
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
-                        ""});
+                        "0.00"});
 #line 240
     testRunner.Then("Verify data for items is", ((string)(null)), table9, "Then ");
 #line hidden
@@ -733,7 +733,7 @@ this.ScenarioSetup(scenarioInfo);
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
-                        ""});
+                        "0.00"});
 #line 261
     testRunner.And("Verify data for items is", ((string)(null)), table11, "And ");
 #line hidden
@@ -757,7 +757,7 @@ this.ScenarioSetup(scenarioInfo);
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
-                        ""});
+                        "0.00"});
 #line 267
     testRunner.Then("Verify data for items is", ((string)(null)), table13, "Then ");
 #line hidden
@@ -834,7 +834,7 @@ this.ScenarioSetup(scenarioInfo);
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
-                        ""});
+                        "0.00"});
 #line 288
     testRunner.And("Verify data for items is", ((string)(null)), table15, "And ");
 #line hidden
@@ -858,7 +858,7 @@ this.ScenarioSetup(scenarioInfo);
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
-                        ""});
+                        "0.00"});
 #line 294
     testRunner.Then("Verify data for items is", ((string)(null)), table17, "Then ");
 #line hidden

@@ -43,7 +43,6 @@ namespace MenuCycle.Tests.PageObjects
         {
             LocationSearchBox.Click();
             LocationSearchBox.ClearAndSendKeys(text);
-            LocationAnimationBox.Wait(Driver).ForAnimationToEnd();
             Driver.WaitIsClickable(LocationName);
         }
 
@@ -79,6 +78,7 @@ namespace MenuCycle.Tests.PageObjects
         {
             Driver.WaitElementAndClick(Local);
             Driver.WaitIsClickable(LocationSearchBox);
+            System.Threading.Thread.Sleep(1000);
         }
 
         public void LogAsNoUser()
