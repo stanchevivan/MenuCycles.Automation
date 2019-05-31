@@ -245,12 +245,10 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "mealPeriodName",
-                        "type",
                         "recipeTitle",
                         "PlannedQuantity"});
             table2.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
-                        "RECIPE",
                         string.Format("{0}", recipeName),
                         "1#99"});
 #line 78
@@ -991,12 +989,10 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
-                        "TYPE",
                         "RecipeTitle",
                         "PriceModel"});
             table10.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
-                        "RECIPE",
                         string.Format("{0}", recipeName),
                         "GP"});
 #line 373

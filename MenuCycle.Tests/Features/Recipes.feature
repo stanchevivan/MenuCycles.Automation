@@ -226,17 +226,17 @@ Scenario Outline: Transferring Sell Price value to Markup and GP Target% field d
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
     When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle |PriceModel|Target|SellPrice|
-        |<mealPeriod>  |RECIPE|<recipeName>|        GP|      |        ^|
-        |<mealPeriod>  |RECIPE|<recipeName>|    Markup|      |        ^|
-        |<mealPeriod>  |RECIPE|<recipeName>|     Fixed|     ^|       50|
-        |<mealPeriod>  |RECIPE|<recipeName>|        GP|     ^|        ^|
+        |MealPeriodName|RecipeTitle |PriceModel|Target|SellPrice|
+        |<mealPeriod>  |<recipeName>|        GP|      |        ^|
+        |<mealPeriod>  |<recipeName>|    Markup|      |        ^|
+        |<mealPeriod>  |<recipeName>|     Fixed|     ^|       50|
+        |<mealPeriod>  |<recipeName>|        GP|     ^|        ^|
     And Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |Target|
         |<mealPeriod>  |RECIPE|<recipeName>|      |
     And data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle |PriceModel|
-        |<mealPeriod>  |RECIPE|<recipeName>|    Markup|
+        |MealPeriodName|RecipeTitle |PriceModel|
+        |<mealPeriod>  |<recipeName>|    Markup|
     Then Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |Target|
         |<mealPeriod>  |RECIPE|<recipeName>|      |
@@ -253,17 +253,17 @@ Scenario Outline: Transferring Markup Target% value to Sell Price and GP target 
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
     When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle |PriceModel|Target|SellPrice|
-        |<mealPeriod>  |RECIPE|<recipeName>|        GP|      |        ^|
-        |<mealPeriod>  |RECIPE|<recipeName>|     Fixed|     ^|         |
-        |<mealPeriod>  |RECIPE|<recipeName>|    Markup|    50|        ^|
-        |<mealPeriod>  |RECIPE|<recipeName>|        GP|     ^|        ^|
+        |MealPeriodName|RecipeTitle |PriceModel|Target|SellPrice|
+        |<mealPeriod>  |<recipeName>|        GP|      |        ^|
+        |<mealPeriod>  |<recipeName>|     Fixed|     ^|         |
+        |<mealPeriod>  |<recipeName>|    Markup|    50|        ^|
+        |<mealPeriod>  |<recipeName>|        GP|     ^|        ^|
     And Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |Target|
         |<mealPeriod>  |RECIPE|<recipeName>|      |
     And data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle |PriceModel|
-        |<mealPeriod>  |RECIPE|<recipeName>|     Fixed|
+        |MealPeriodName|RecipeTitle |PriceModel|
+        |<mealPeriod>  |<recipeName>|     Fixed|
     Then Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |SellPrice|
         |<mealPeriod>  |RECIPE|<recipeName>|         |
@@ -280,17 +280,17 @@ Scenario Outline: Transferring GP Target% value to Sell Price and Markup target 
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
     When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle |PriceModel|Target|SellPrice|
-        |<mealPeriod>  |RECIPE|<recipeName>|     Fixed|     ^|         |
-        |<mealPeriod>  |RECIPE|<recipeName>|    Markup|      |        ^|
-        |<mealPeriod>  |RECIPE|<recipeName>|        GP|    50|        ^|
-        |<mealPeriod>  |RECIPE|<recipeName>|    Markup|     ^|        ^|
+        |MealPeriodName|RecipeTitle |PriceModel|Target|SellPrice|
+        |<mealPeriod>  |<recipeName>|     Fixed|     ^|         |
+        |<mealPeriod>  |<recipeName>|    Markup|      |        ^|
+        |<mealPeriod>  |<recipeName>|        GP|    50|        ^|
+        |<mealPeriod>  |<recipeName>|    Markup|     ^|        ^|
     And Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |Target|
         |<mealPeriod>  |RECIPE|<recipeName>|      |
     And data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle |PriceModel|
-        |<mealPeriod>  |RECIPE|<recipeName>|     Fixed|
+        |MealPeriodName|RecipeTitle |PriceModel|
+        |<mealPeriod>  |<recipeName>|     Fixed|
     Then Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |SellPrice|
         |<mealPeriod>  |RECIPE|<recipeName>|         |
@@ -323,8 +323,8 @@ Scenario Outline: Collapsing meal period does no return previous value
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
     When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle |PlannedQuantity|
-        |<mealPeriod>  |RECIPE|<recipeName>|               |
+        |MealPeriodName|RecipeTitle |PlannedQuantity|
+        |<mealPeriod>  |<recipeName>|               |
         And Meal Period "<mealPeriod>" is collapsed
         And Meal Period "<mealPeriod>" is expanded
     Then Verify data for items is
@@ -344,12 +344,10 @@ Scenario Outline: Meal period totals are re-calculated when the data from the in
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
     When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle  |PriceModel|Target|SellPrice|TaxPercentage|PlannedQuantity|
-        |<mealPeriod>  |RECIPE|<recipeName1>|GP        |    10|        ^|20           |              3|
-        |<mealPeriod>  |RECIPE|<recipeName2>|Fixed     |     ^|        2|20           |              4|
-    And data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle  |PlannedQuantity|
-        |<mealPeriod>  |RECIPE|<recipeName1>|               |
+        |MealPeriodName|RecipeTitle  |PriceModel|Target|SellPrice|TaxPercentage|PlannedQuantity|
+        |<mealPeriod>  |<recipeName1>|GP        |    10|        ^|20           |              3|
+        |<mealPeriod>  |<recipeName2>|Fixed     |     ^|        2|20           |              4|
+        |<mealPeriod>  |<recipeName1>|^         |     ^|        ^|^            |               |
     Then Verify value for fields for meal period "<mealPeriod>" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
         |         4|     3.84|   6.67|     42%|
@@ -366,8 +364,8 @@ Scenario Outline: Mass recipe update
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day1>" is opened
     When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle |PriceModel|TariffType|SellPrice|
-        |<mealPeriod1>  |RECIPE|<recipeName>|Fixed     |TariffOne |     0#99|
+        |MealPeriodName|RecipeTitle |PriceModel|ForTariffType|SellPrice|
+        |<mealPeriod1> |<recipeName>|Fixed     |TariffOne    |     0#99|
     And "SellPrice" is saved in context for recipe "<recipeName>" in meal period "<mealPeriod1>"
         And Save button is clicked
         And Update prices button is clicked for recipe "<recipeName>" in meal period "<mealPeriod1>"
@@ -409,8 +407,8 @@ Scenario Outline: Delete icon appears when adding type
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
     When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle |TariffType|
-        |<mealPeriod>  |RECIPE|<recipeName>|TariffTwo |
+        |MealPeriodName|RecipeTitle |ForTariffType|TariffType|
+        |<mealPeriod>  |<recipeName>|    TariffOne|TariffTwo |
         And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
     Then Verify delete icon is present for recipe "<recipeName>" in meal period "<mealPeriod>" tariff type "TariffOne"
     
@@ -444,8 +442,8 @@ Scenario Outline: Saving decimal values
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
     When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle |SellPrice|
-        |<mealPeriod>  |RECIPE|<recipeName>|     0#99|
+        |MealPeriodName|RecipeTitle |SellPrice|
+        |<mealPeriod>  |<recipeName>|     0#99|
         And Save button is clicked
         And "SellPrice" is saved in context for recipe "<recipeName>" in meal period "<mealPeriod>"
         And Cancel button is clicked
@@ -488,8 +486,8 @@ Scenario Outline: Saving Planning screen with empty fields displays red border a
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
     When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle |SellPrice   |PlannedQuantity|
-        |<mealPeriod>  |RECIPE|<recipeName>|invalidinput|               |
+        |MealPeriodName|RecipeTitle |SellPrice   |PlannedQuantity|
+        |<mealPeriod>  |<recipeName>|invalidinput|               |
     And Save button is clicked
     Then Verify red border and contextual error message "Value is required" is displayed for Planned Quantity field for recipe "<recipeName>" in meal period "<mealPeriod>"
     And Verify red border and contextual error message "Must be number" is displayed for Sell Price field for recipe "<recipeName>" in meal period "<mealPeriod>"

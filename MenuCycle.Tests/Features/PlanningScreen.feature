@@ -76,8 +76,8 @@ Scenario Outline: Saved data is retrieved from the API
         And planning for "<day>" is opened
         #And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to random number
     When data for recipes is set
-        |mealPeriodName|type  |recipeTitle |PlannedQuantity|
-        |<mealPeriod>  |RECIPE|<recipeName>|1#99   |
+        |mealPeriodName|recipeTitle |PlannedQuantity|
+        |<mealPeriod>  |<recipeName>|1#99   |
         And Price model for recipe "<recipeName>" in meal period "<mealPeriod>" is set to "Fixed"
         And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2"
         And Save button is clicked
@@ -371,8 +371,8 @@ Scenario Outline: Modal dialog is closed on cancel when only PriceModel is chang
         And Menu Cycle "<menuCycle>" is selected
             And planning for "<day>" is opened
         When data for recipes is set
-        |MealPeriodName|TYPE  |RecipeTitle |PriceModel|
-        |<mealPeriod>  |RECIPE|<recipeName>|        GP|
+        |MealPeriodName|RecipeTitle |PriceModel|
+        |<mealPeriod>  |<recipeName>|        GP|
         When Cancel button is clicked
             And Modal dialog Yes is selected
             And Wait for Calendar view

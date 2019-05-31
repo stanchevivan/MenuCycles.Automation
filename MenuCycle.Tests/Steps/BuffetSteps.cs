@@ -31,21 +31,8 @@ namespace MenuCycle.Tests.Steps
 
             foreach (var data in itemData)
             {
-
-                switch (data.Type)
-                {
-                    case "RECIPE":
-                        {
-                            item = planningTabDays.GetMealPeriod(data.MealPeriodName)
-                                                  .GetRecipeRowWithTariffType(data.RecipeTitle, data.TariffType);
-                            break;
-                        }
-
-                    default:
-                        {
-                            throw new System.Exception($"TYPE is {data.Type}. It should be RECIPE or BUFFET !");
-                        }
-                }
+                item = planningTabDays.GetMealPeriod(data.MealPeriodName)
+                                      .GetRecipeRowWithTariffType(data.RecipeTitle, data.ForTariffType);
 
                 item.SetData(data);
             }
@@ -62,21 +49,8 @@ namespace MenuCycle.Tests.Steps
 
             foreach (var data in itemData)
             {
-
-                switch (data.Type)
-                {
-                    case "BUFFET":
-                        {
-                            item = planningTabDays.GetMealPeriod(data.MealPeriodName)
-                                                  .GetBuffet(data.RecipeTitle);
-                            break;
-                        }
-
-                    default:
-                        {
-                            throw new System.Exception($"TYPE is {data.Type}. It should be BUFFET !");
-                        }
-                }
+                item = planningTabDays.GetMealPeriod(data.MealPeriodName)
+                                      .GetBuffet(data.RecipeTitle);
 
                 item.GetFirstRow().SetData(data);
             }
@@ -132,7 +106,7 @@ namespace MenuCycle.Tests.Steps
             RecipeRow item;
 
             foreach (var expectedItem in expectedItems)
-            { 
+            {
                 item = planningTabDays.GetMealPeriod(expectedItem.MealPeriodName)
                 .GetRecipeRowWithTariffType(expectedItem.RecipeTitle, expectedItem.TariffType);
 
