@@ -208,7 +208,7 @@ node('IE1UIBLD03') {
             nunit testResultsPattern: '*TestResults.xml'
             cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: "$projectName/bin"
 
-						sendSlackNotification(testReport(), '#MC-TestAutomation')
+						// sendSlackNotification(testReport(), '#MC-TestAutomation')
         }
     }
 		catch (e)
@@ -216,6 +216,22 @@ node('IE1UIBLD03') {
         echo e
         currentBuild.result = "FAILED"
     }
+
+		post
+		{
+			always
+			{
+				sendSlackNotification(testReport(), '#MC-TestAutomation')
+				if (isRemote)
+				{
+					echo "Cleaning up remote machine.. (TODO)"
+				}
+			}
+			success
+			{
+
+			}
+		}
 }
 
 def buildConfigurations(device)
