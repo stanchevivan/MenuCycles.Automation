@@ -1289,7 +1289,7 @@ this.ScenarioSetup(scenarioInfo);
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
-                        "TariffTwo",
+                        "TariffOne",
                         "0.00",
                         "0"});
 #line 500

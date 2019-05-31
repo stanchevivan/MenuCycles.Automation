@@ -499,7 +499,7 @@ Scenario Outline: Default values are '0' for unplanned meal period
         When planning for "<day>" is opened
     Then Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |TariffType|SellPrice|PlannedQty|
-        |<mealPeriod>  |RECIPE|<recipeName>|TariffTwo |     0.00|0         |
+        |<mealPeriod>  |RECIPE|<recipeName>|TariffOne |     0.00|0         |
         And Verify number of covers for meal period "<mealPeriod>" is equal to "0"
         
     @QAI
