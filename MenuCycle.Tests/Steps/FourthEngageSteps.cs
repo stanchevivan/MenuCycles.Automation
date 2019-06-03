@@ -71,7 +71,7 @@ namespace MenuCycle.Tests.Steps
 
             fourthAppLocalPage.ScrollToAllApplications();
             fourthAppMain.OpenApp(application);
-          
+            fourthAppLocalPage.WaitNumberOfTabsIs(2);
             // Because on small window size MC opens in a new background tab, we need to switch to it
             fourthAppLocalPage.SwitchToTab(2);
 

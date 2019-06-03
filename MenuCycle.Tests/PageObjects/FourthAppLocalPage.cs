@@ -5,6 +5,7 @@ using Fourth.Automation.Framework.Mobile;
 using Fourth.Automation.Framework.Page;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
 
 namespace MenuCycle.Tests.PageObjects
 {
@@ -98,6 +99,12 @@ namespace MenuCycle.Tests.PageObjects
                 ((OpenQA.Selenium.Safari.SafariDriver)Driver).Manage().Window.Maximize();
             }
 
+        }
+
+        public void WaitNumberOfTabsIs(int number)
+        {
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until<bool>((d) => Driver.WindowHandles.Count == number);
         }
     }
 }
