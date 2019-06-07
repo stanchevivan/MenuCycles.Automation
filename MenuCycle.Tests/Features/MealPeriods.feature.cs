@@ -1030,6 +1030,61 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("No modal dialog is displayed after trying to add an existing recipe")]
+        [NUnit.Framework.CategoryAttribute("TC39578")]
+        [NUnit.Framework.CategoryAttribute("D35594")]
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "Automation Testing", "LUNCH", "Monday", "004Baked Beans_0", null, Category="QAI")]
+        public virtual void NoModalDialogIsDisplayedAfterTryingToAddAnExistingRecipe(string environment, string menuCycle, string mealPeriod, string day, string recipeName, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC39578",
+                    "D35594"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("No modal dialog is displayed after trying to add an existing recipe", @__tags);
+#line 381
+this.ScenarioSetup(scenarioInfo);
+#line 382
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 383
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 384
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 385
+    testRunner.When("Verify calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 386
+        testRunner.And(string.Format("Meal period \"{0}\" is created for \"{1}\"", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 387
+        testRunner.And("Recipe search is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 388
+        testRunner.And(string.Format("Recipe \"{0}\" is searched", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 389
+        testRunner.And(string.Format("Recipe \"{0}\" is added", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 390
+        testRunner.And("Meal period is saved with notification \"Meal Period Saved successfully\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 391
+        testRunner.And(string.Format("Recipe \"{0}\" is added", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 392
+        testRunner.And("Verify notification message \"Item already added\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 393
+    testRunner.Then("meal period detailed view is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 394
+        testRunner.And(string.Format("Details for meal period \"{0}\" in \"{1}\" are opened", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 395
+        testRunner.And("Meal period delete button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 396
+        testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 397
+        testRunner.And("Verify notification message \"Meal Period Deleted Successfully.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 398
+        testRunner.And(string.Format("Verify Meal period \"{0}\" is not present for \"{1}\"", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

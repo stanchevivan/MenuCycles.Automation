@@ -376,3 +376,28 @@ Scenario Outline: Clicking on the "NEW MEAL PERIOD" box while selecting a meal p
     Examples:
     |environment|menuCycle           |mealPeriod|day   |
     |QAI_2      |Automation Testing  |LUNCH     |Monday|
+    
+@TC39578 @D35594   
+Scenario Outline: No modal dialog is displayed after trying to add an existing recipe
+    Given Menu Cycle app is open on "<environment>" 
+        And a nouser user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When Verify calendar view is opened
+        And Meal period "<mealPeriod>" is created for "<day>"
+        And Recipe search is opened
+        And Recipe "<recipeName>" is searched
+        And Recipe "<recipeName>" is added
+        And Meal period is saved with notification "Meal Period Saved successfully"
+        And Recipe "<recipeName>" is added
+        And Verify notification message "Item already added" is displayed
+    Then meal period detailed view is closed
+        And Details for meal period "<mealPeriod>" in "<day>" are opened
+        And Meal period delete button is clicked
+        And Modal dialog Yes is selected
+        And Verify notification message "Meal Period Deleted Successfully." is displayed
+        And Verify Meal period "<mealPeriod>" is not present for "<day>"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle           |mealPeriod|day   |recipeName      |
+    |QAI_2      |Automation Testing  |LUNCH     |Monday|004Baked Beans_0|

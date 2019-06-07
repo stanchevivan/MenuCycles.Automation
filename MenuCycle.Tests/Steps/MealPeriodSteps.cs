@@ -312,6 +312,7 @@ namespace MenuCycle.Tests.Steps
         }
 
         [When(@"Meal period delete button is clicked")]
+        [Then(@"Meal period delete button is clicked")]
         public void WhenMealPeriodIsDeleted()
         {
             mealPeriodDetails.Delete();

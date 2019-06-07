@@ -106,6 +106,7 @@ namespace MenuCycle.Tests.Steps
         }
 
         [When(@"meal period detailed view is closed")]
+        [Then(@"meal period detailed view is closed")]
         public void WhenMealPeriodDetailedViewIsClosed()
         {
             mealPeriodDetails.UseCrossButton();
