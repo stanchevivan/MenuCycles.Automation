@@ -306,7 +306,7 @@ namespace MenuCycle.Tests.Steps
         [When(@"Meal period is saved with notification ""(.*)""")]
         public void WhenMealPeriodIsSaved(string expectedMessage)
         {
-            mealPeriodDetails.Save();
+            mealPeriodDetails.UseSaveButton();
             notification.ValidateToastMessage(expectedMessage);
             notification.WaitToDisappear();
         }
@@ -315,7 +315,7 @@ namespace MenuCycle.Tests.Steps
         [Then(@"Meal period delete button is clicked")]
         public void WhenMealPeriodIsDeleted()
         {
-            mealPeriodDetails.Delete();
+            mealPeriodDetails.UseDeleteButton();
             modalDialogPage.WaitToAppear();
         }
 

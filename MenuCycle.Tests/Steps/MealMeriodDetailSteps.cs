@@ -111,5 +111,17 @@ namespace MenuCycle.Tests.Steps
         {
             mealPeriodDetails.UseCrossButton();
         }
+
+        [Then(@"Verify meal period copy button is disabled")]
+        public void ThenVerifySaveButtonIsDeleted()
+        {
+            Assert.IsFalse(mealPeriodDetails.IsCopyButtonEnabled);
+        }
+
+        [Then(@"Verify meal period delete button is disabled")]
+        public void ThenVerifyDeleteButtonIsDeleted()
+        {
+            Assert.IsFalse(mealPeriodDetails.IsDeleteButtonEnabled);
+        }
     }
 }

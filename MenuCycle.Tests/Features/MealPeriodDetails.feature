@@ -53,3 +53,20 @@ Scenario Outline: Only single cost is presented for recipes in recipe search
     Examples:
     |environment|menuCycle|mealPeriod|day    |recipe        |cost   |
     |QAI        |Meda     |LUNCH     |MONDAY |724Apple Sauce|£2.1011|
+    
+@TC39628
+Scenario Outline: Copy and Delete buttons are disabled when new recipe is added
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When Details for meal period "<mealPeriod>" in "<day>" are opened
+        And Recipe search is opened
+        And Recipe "<recipe>" is searched
+        And Recipe "<recipe>" is added
+    Then Verify meal period copy button is disabled
+        And Verify meal period delete button is disabled
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day    |recipe        |
+    |QAI        |Meda     |LUNCH     |MONDAY |724Apple Sauce|
