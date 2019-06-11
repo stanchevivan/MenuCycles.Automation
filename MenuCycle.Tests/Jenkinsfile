@@ -65,7 +65,7 @@ node('IE1UIBLD03') {
 	def device = ''
 	device = (mobileDevices + browsers).find
 	{
-		jobName.contains("${it}")
+		jobName =~ /\b${it}\b/
 	}
 
 	if (!device)
