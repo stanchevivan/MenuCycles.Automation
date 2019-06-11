@@ -139,6 +139,11 @@
     <OutputPath>bin\Safari</OutputPath>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ChromeLongTimeOut|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\ChromeLongTimeOut</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
@@ -519,6 +524,9 @@
     <None Include="Features\Nutrition.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Nutrition.feature.cs</LastGenOutput>
+    </None>
+    <None Include="App.ChromeLongTimeOut.config">
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>

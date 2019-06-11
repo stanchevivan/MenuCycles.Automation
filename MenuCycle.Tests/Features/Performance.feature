@@ -67,8 +67,18 @@ Scenario Outline: Open menu cycle with 1800 items
     Given Menu Cycle app is open on "<environment>" 
         And a local user is selected
         And location "<location>" is selected
-    When Measure performance of Open menu cycle with 1800 items for "10" repetitions for "<menuCycle>"
+    When Measure performance of Open menu cycle for "10" repetitions for "<menuCycle>"
     @QAI
     Examples:
     |environment|location|menuCycle            |
     |QAI        |SE001   |Winter Breakfast Menu|
+    
+@TC39657
+Scenario Outline: Open menu cycle with 4000 items in one week
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+    When Measure performance of Open menu cycle for "10" repetitions for "<menuCycle>"
+    @QAI
+    Examples:
+    |environment|location|menuCycle               |
+    |QAI        |SE001   |4000 items - Do not use|

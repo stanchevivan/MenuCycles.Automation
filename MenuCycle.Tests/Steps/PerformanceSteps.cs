@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using MenuCycle.Tests.PageObjects;
 using TechTalk.SpecFlow;
 
 namespace MenuCycle.Tests.Steps
@@ -11,22 +12,24 @@ namespace MenuCycle.Tests.Steps
     {
 
         Stopwatch sw = new Stopwatch();
-        readonly List<double> singleTimes = new List<double>();
+        readonly List<double> measurements = new List<double>();
 
-        double totalTimeElapsed => singleTimes.Sum();
-        double minTimeElapsed => singleTimes.Min();
-        double maxTimeElapsed => singleTimes.Max();
-        double averageTimeElapsed => singleTimes.Average();
+        double totalTimeElapsed => measurements.Sum();
+        double minTimeElapsed => measurements.Min();
+        double maxTimeElapsed => measurements.Max();
+        double averageTimeElapsed => measurements.Average();
 
         MenuCycleSteps menuCycleSteps;
         MealMeriodDetailSteps mealMeriodDetailSteps;
         PlanningSteps planningSteps;
+        MenuCyclesBasePage menuCyclesBasePage;
 
-        public PerformanceSteps(MenuCycleSteps menuCycleSteps, MealMeriodDetailSteps mealMeriodDetailSteps, PlanningSteps planningSteps)
+        public PerformanceSteps(MenuCycleSteps menuCycleSteps, MealMeriodDetailSteps mealMeriodDetailSteps, PlanningSteps planningSteps, MenuCyclesBasePage menuCyclesBasePage)
         {
             this.menuCycleSteps = menuCycleSteps;
             this.mealMeriodDetailSteps = mealMeriodDetailSteps;
             this.planningSteps = planningSteps;
+            this.menuCyclesBasePage = menuCyclesBasePage;
         }
 
         [When(@"Measure performance of load menu cycles list for ""(.*)"" repetitions")]
@@ -38,12 +41,12 @@ namespace MenuCycle.Tests.Steps
                 sw.Start();
                 menuCycleSteps.GivenACentralUserIsSelected();
                 sw.Stop();
-                singleTimes.Add(sw.Elapsed.TotalSeconds);
+                measurements.Add(sw.Elapsed.TotalSeconds);
                 Console.WriteLine(i + 1 + ": " + sw.Elapsed.TotalSeconds);
                 menuCycleSteps.LocationNameIsClicked();
             }
 
-            PrintSummary();
+            PrintSummary(measurements);
         }
 
         [When(@"Measure performance of recipe search for ""(.*)"" repetitions on ""(.*)""")]
@@ -55,11 +58,11 @@ namespace MenuCycle.Tests.Steps
                 sw.Start();
                 mealMeriodDetailSteps.RecipeIsSearched(recipeName);
                 sw.Stop();
-                singleTimes.Add(sw.Elapsed.TotalSeconds);
+                measurements.Add(sw.Elapsed.TotalSeconds);
                 Console.WriteLine(i + 1 + ": " + sw.Elapsed.TotalSeconds);
             }
 
-            PrintSummary();
+            PrintSummary(measurements);
         }
 
         [When(@"Measure performance of Open planning screen for ""(.*)"" repetitions on ""(.*)""")]
@@ -73,13 +76,13 @@ namespace MenuCycle.Tests.Steps
                 menuCycleSteps.WhenPlanningForADayIsOpened(day);
 
                 sw.Stop();
-                singleTimes.Add(sw.Elapsed.TotalSeconds);
+                measurements.Add(sw.Elapsed.TotalSeconds);
                 Console.WriteLine(i + 1 + ": " + sw.Elapsed.TotalSeconds);
 
                 planningSteps.WhenCancelButtonIsClicked();
             }
 
-            PrintSummary();
+            PrintSummary(measurements);
         }
 
         [When(@"Measure performance of Open nutrition screen for ""(.*)"" repetitions")]
@@ -93,13 +96,13 @@ namespace MenuCycle.Tests.Steps
                 planningSteps.WhenNutritionTabIsOpened();
 
                 sw.Stop();
-                singleTimes.Add(sw.Elapsed.TotalSeconds);
+                measurements.Add(sw.Elapsed.TotalSeconds);
                 Console.WriteLine(i + 1 + ": " + sw.Elapsed.TotalSeconds);
 
                 planningSteps.WhenPlanningTabIsOpened();
             }
 
-            PrintSummary();
+            PrintSummary(measurements);
         }
 
         [When(@"Measure performance of Open weekly calendar view for ""(.*)"" repetitions")]
@@ -113,16 +116,16 @@ namespace MenuCycle.Tests.Steps
                 menuCycleSteps.WeeksTabIsOpened();
 
                 sw.Stop();
-                singleTimes.Add(sw.Elapsed.TotalSeconds);
+                measurements.Add(sw.Elapsed.TotalSeconds);
                 Console.WriteLine(i + 1 + ": " + sw.Elapsed.TotalSeconds);
 
                 menuCycleSteps.DaysTabIsOpened();
             }
 
-            PrintSummary();
+            PrintSummary(measurements);
         }
 
-        [When(@"Measure performance of Open menu cycle with 1800 items for ""(.*)"" repetitions for ""(.*)""")]
+        [When(@"Measure performance of Open menu cycle for ""(.*)"" repetitions for ""(.*)""")]
         public void PerformanceOfOpenMenuCycleWithManyItems(int repetitions, string menuCycle)
         {
             for (int i = 0; i < repetitions; i++)
@@ -133,13 +136,13 @@ namespace MenuCycle.Tests.Steps
                 menuCycleSteps.GivenMenuCycleIsSelected(menuCycle);
 
                 sw.Stop();
-                singleTimes.Add(sw.Elapsed.TotalSeconds);
+                measurements.Add(sw.Elapsed.TotalSeconds);
                 Console.WriteLine(i + 1 + ": " + sw.Elapsed.TotalSeconds);
 
                 menuCycleSteps.WhenHomeButtonIsClicked();
             }
 
-            PrintSummary();
+            PrintSummary(measurements);
         }
 
         private double CalculatePercentile(double[] sequence, double percentile)
@@ -159,17 +162,17 @@ namespace MenuCycle.Tests.Steps
             }
         }
 
-        private void PrintSummary()
+        private void PrintSummary(List<double> values)
         {
             Console.WriteLine($"--Summary--");
-            Console.WriteLine($"Number of measurments: {singleTimes.Count}");
+            Console.WriteLine($"Number of measurments: {values.Count}");
             Console.WriteLine($"Total time: {totalTimeElapsed} seconds");
             Console.WriteLine($"~~~~~");
             Console.WriteLine($"Average time: {averageTimeElapsed} seconds");
             Console.WriteLine($"Min time: {minTimeElapsed} seconds");
             Console.WriteLine($"Max time: {maxTimeElapsed} seconds");
-            Console.WriteLine($"50% are above: { CalculatePercentile(singleTimes.ToArray(), 0.5) } seconds");
-            Console.WriteLine($"10% are above: { CalculatePercentile(singleTimes.ToArray(), 0.9) } seconds");
+            Console.WriteLine($"50% are above: { CalculatePercentile(values.ToArray(), 0.5) } seconds");
+            Console.WriteLine($"10% are above: { CalculatePercentile(values.ToArray(), 0.9) } seconds");
             Console.WriteLine($"-----");
         }
     }

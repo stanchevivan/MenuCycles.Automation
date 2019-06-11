@@ -226,8 +226,32 @@ this.ScenarioSetup(scenarioInfo);
 #line 69
         testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 70
-    testRunner.When(string.Format("Measure performance of Open menu cycle with 1800 items for \"10\" repetitions for \"" +
-                        "{0}\"", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When(string.Format("Measure performance of Open menu cycle for \"10\" repetitions for \"{0}\"", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Open menu cycle with 4000 items in one week")]
+        [NUnit.Framework.CategoryAttribute("TC39657")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "4000 items - Do not use", null, Category="QAI")]
+        public virtual void OpenMenuCycleWith4000ItemsInOneWeek(string environment, string location, string menuCycle, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC39657"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open menu cycle with 4000 items in one week", @__tags);
+#line 77
+this.ScenarioSetup(scenarioInfo);
+#line 78
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 79
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 80
+    testRunner.When(string.Format("Measure performance of Open menu cycle for \"10\" repetitions for \"{0}\"", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }

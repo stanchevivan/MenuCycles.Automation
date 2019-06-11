@@ -2,7 +2,7 @@
 def androidDevices = ['Nexus7', 'SamsungTabA', 'SamsungTabS']
 def appleDevices = ['iPadAir', 'iPadMini4', 'iPadPro9']
 def mobileDevices = androidDevices + appleDevices
-def browsers = ['Chrome', 'Firefox', 'IE', 'Safari']
+def browsers = ['Chrome', 'ChromeLongTimeOut', 'Firefox', 'IE', 'Safari']
 
 def jobName = "${env.JOB_NAME}"
 def cronSchedule = (jobName =~ /H\d{2}/)
