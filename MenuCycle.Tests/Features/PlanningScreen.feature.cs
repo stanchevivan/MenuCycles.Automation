@@ -752,9 +752,9 @@ this.ScenarioSetup(scenarioInfo);
                         "ActualGP"});
             table9.AddRow(new string[] {
                         "109",
-                        "321.06",
+                        "334.44",
                         "315.71",
-                        "-2%"});
+                        "-6%"});
 #line 272
     testRunner.Then("Verify Daily Totals are equal to", ((string)(null)), table9, "Then ");
 #line hidden
@@ -1276,7 +1276,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 498
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 499
-        testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 500
+        testRunner.And("Expand all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
@@ -1292,9 +1294,9 @@ this.ScenarioSetup(scenarioInfo);
                         "TariffOne",
                         "0.00",
                         "0"});
-#line 500
+#line 501
     testRunner.Then("Verify data for items is", ((string)(null)), table11, "Then ");
-#line 503
+#line 504
         testRunner.And(string.Format("Verify number of covers for meal period \"{0}\" is equal to \"0\"", mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1313,18 +1315,20 @@ this.ScenarioSetup(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Default values are \'0\' when adding new recipe tariff type", @__tags);
-#line 511
-this.ScenarioSetup(scenarioInfo);
 #line 512
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 513
-        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 514
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 515
-        testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 516
-        testRunner.When(string.Format("Add type is clicked for recipe \"{0}\" in meal period \"{1}\"", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 517
+        testRunner.And("Expand all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 518
+    testRunner.When(string.Format("Add type is clicked for recipe \"{0}\" in meal period \"{1}\"", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
@@ -1340,7 +1344,7 @@ this.ScenarioSetup(scenarioInfo);
                         "TariffTwo",
                         "0.00",
                         "0"});
-#line 517
+#line 519
     testRunner.Then("Verify data for items is", ((string)(null)), table12, "Then ");
 #line hidden
             this.ScenarioCleanup();

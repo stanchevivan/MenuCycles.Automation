@@ -14,7 +14,7 @@ Scenario Outline: Only one cost is presented for single recipe in the meal perio
     @QAI
     Examples:
     |environment|menuCycle|mealPeriod|day    |recipe1                   |cost1|recipe2                  |cost2|
-    |QAI        |Meda     |LUNCH     |TUESDAY|724Gourmet Beef Burger 6oz|£0.36|724Gourmet Chicken Burger|£0.36|
+    |QAI        |Meda     |LUNCH     |TUESDAY|724Gourmet Beef Burger 6oz|£0.45|724Gourmet Chicken Burger|£0.45|
 
 @TC30230
 Scenario Outline: Only one cost is presented for recipes in Buffet in the meal period detailed view
@@ -25,13 +25,10 @@ Scenario Outline: Only one cost is presented for recipes in Buffet in the meal p
         And Buffet "Maya Buffet" is expanded
     Then Verify recipes in meal period details for buffet "Maya Buffet" are
     |Name                                  |Cost   |
-    |004Basic Sponge                       |£0.585 |
-    |004Fresh Lemon Curd                   |£6.3697|
-    |004Fish Stock (bouillon)              |£0.4875|
+    |004Basic Sponge                       |£0.6093|
+    |004Fresh Lemon Curd                   |£6.6351|
+    |004Fish Stock (bouillon)              |£0.5078|
     |004Beef Stock (bouillon)              |£0     |
-    
-    # |004German Shortcrust Pastry (fresh)007|£8.793 |
-    # |724Custard Sauce (powder, fresh milk) |£0.4351|
     
     @QAI
     Examples:
@@ -52,7 +49,7 @@ Scenario Outline: Only single cost is presented for recipes in recipe search
     @QAI
     Examples:
     |environment|menuCycle|mealPeriod|day    |recipe        |cost   |
-    |QAI        |Meda     |LUNCH     |MONDAY |724Apple Sauce|£2.1011|
+    |QAI        |Meda     |LUNCH     |MONDAY |724Apple Sauce|£2.6264|
     
 @TC39628
 Scenario Outline: Copy and Delete buttons are disabled when new recipe is added

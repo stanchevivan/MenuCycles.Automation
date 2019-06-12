@@ -67,7 +67,7 @@ namespace MenuCycle.Tests.Features
         [NUnit.Framework.DescriptionAttribute("Retrieve recipe information from the API")]
         [NUnit.Framework.CategoryAttribute("TC28829")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "Thursday", "DANGELO", "RECIPE", "703Coronation Chicken Sandwich Filling (50g)", "12", "0.77", "TariffOne", "GP", "5.00", "20", "0.97", null, Category="QAI")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "Thursday", "DANGELO", "RECIPE", "703Coronation Chicken Sandwich Filling (50g)", "12", "0.80", "TariffOne", "GP", "5.00", "20", "1.01", null, Category="QAI")]
         public virtual void RetrieveRecipeInformationFromTheAPI(string environment, string menuCycle, string day, string mealPeriod, string type, string recipeName, string plannedQuantity, string costPerUnit, string tariffType, string priceModel, string target, string taxPercentage, string sellPrice, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -374,7 +374,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 163
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 164
-    testRunner.Then(string.Format("Verify CostPerUnit for recipe named \"{0}\" in meal period \"{1}\" is equal to \"1.84\"" +
+    testRunner.Then(string.Format("Verify CostPerUnit for recipe named \"{0}\" in meal period \"{1}\" is equal to \"1.92\"" +
                         "", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -467,17 +467,17 @@ this.ScenarioSetup(scenarioInfo);
                         "ActualGP"});
             table4.AddRow(new string[] {
                         "724Beef Bolognaise",
-                        "1.83",
-                        "3.67",
+                        "1.91",
+                        "3.82",
                         "^",
                         "91.67",
                         "96%"});
             table4.AddRow(new string[] {
                         "724Pepper & Garlic Coated Beef",
-                        "5022.60",
-                        "15067.81",
-                        "5551.30",
-                        "15860.85",
+                        "5231.88",
+                        "15695.63",
+                        "5782.60",
+                        "16521.72",
                         "5%"});
 #line 184
     testRunner.Then("Verify data for recipes in a la carte \"Holiday A La Carte\" in meal period \"LANCE\"" +
@@ -495,9 +495,9 @@ this.ScenarioSetup(scenarioInfo);
                         "LANCE",
                         "RECIPE",
                         "004Baked Beans_0",
-                        "14.71",
-                        "4.23",
-                        "16.92",
+                        "15.33",
+                        "4.41",
+                        "17.62",
                         "13%"});
 #line 188
     testRunner.And("Verify data for items is", ((string)(null)), table5, "And ");
@@ -1035,9 +1035,9 @@ this.ScenarioSetup(scenarioInfo);
                         "ActualGP"});
             table21.AddRow(new string[] {
                         "4",
-                        "3.84",
+                        "4.00",
                         "6.67",
-                        "42%"});
+                        "40%"});
 #line 351
     testRunner.Then(string.Format("Verify value for fields for meal period \"{0}\" is", mealPeriod), ((string)(null)), table21, "Then ");
 #line hidden

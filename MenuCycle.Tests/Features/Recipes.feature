@@ -14,7 +14,7 @@ Scenario Outline: Retrieve recipe information from the API
     @QAI
     Examples:
     |environment|menuCycle|day     |mealPeriod|type  |recipeName                                  |plannedQuantity|costPerUnit|tariffType|priceModel|target|taxPercentage|sellPrice|
-    |QAI        |Meda     |Thursday|DANGELO   |RECIPE|703Coronation Chicken Sandwich Filling (50g)|             12|       0.77| TariffOne|        GP|  5.00|           20|     0.97|
+    |QAI        |Meda     |Thursday|DANGELO   |RECIPE|703Coronation Chicken Sandwich Filling (50g)|             12|       0.80| TariffOne|        GP|  5.00|           20|     1.01|
     
                                                     
     
@@ -161,7 +161,7 @@ Scenario Outline: Retrieve Recipe Price from the API (NO Min - Max)
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-    Then Verify CostPerUnit for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "1.84"
+    Then Verify CostPerUnit for recipe named "<recipeName>" in meal period "<mealPeriod>" is equal to "1.92"
     
     @QAI
     Examples:
@@ -183,11 +183,11 @@ Scenario Outline: Calculations for "Total Cost", "Sell Price", "Revenue" and "Ac
         |LANCE         |RECIPE|004Baked Beans_0|              4| TariffOne|    Markup|    15|            0|
     Then Verify data for recipes in a la carte "Holiday A La Carte" in meal period "LANCE" is
         |RecipeTitle                   |CostPerUnit|TotalCosts|SellPrice| Revenue|ActualGP|
-        |724Beef Bolognaise            |       1.83|      3.67|        ^|   91.67|     96%|
-        |724Pepper & Garlic Coated Beef|    5022.60|  15067.81|  5551.30|15860.85|      5%|
+        |724Beef Bolognaise            |       1.91|      3.82|        ^|   91.67|     96%|
+        |724Pepper & Garlic Coated Beef|    5231.88|  15695.63|  5782.60|16521.72|      5%|
     And Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle     |TotalCosts|SellPrice|Revenue|ActualGP|
-        |LANCE         |RECIPE|004Baked Beans_0|     14.71|     4.23|  16.92|     13%|
+        |LANCE         |RECIPE|004Baked Beans_0|     15.33|     4.41|  17.62|     13%|
         
     @QAI
     Examples:
@@ -350,7 +350,7 @@ Scenario Outline: Meal period totals are re-calculated when the data from the in
         |<mealPeriod>  |<recipeName1>|^         |     ^|        ^|^            |               |
     Then Verify value for fields for meal period "<mealPeriod>" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
-        |         4|     3.84|   6.67|     42%|
+        |         4|     4.00|   6.67|     40%|
         
     @QAI
     Examples:

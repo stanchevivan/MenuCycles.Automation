@@ -271,7 +271,7 @@ Scenario Outline: Calculate Daily Totals
         |004Baked Beans_1             |              7|
     Then Verify Daily Totals are equal to
         |PlannedQty|TotalCost|Revenue|ActualGP|
-        |       109|   321.06| 315.71|     -2%|
+        |       109|   334.44| 315.71|     -6%|
         
     @QAI
     Examples:
@@ -496,7 +496,8 @@ Scenario Outline: Default values are '0' for unplanned meal period
     Given Menu Cycle app is open on "<environment>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
-        When planning for "<day>" is opened
+    When planning for "<day>" is opened
+        And Expand all is clicked
     Then Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |TariffType|SellPrice|PlannedQty|
         |<mealPeriod>  |RECIPE|<recipeName>|TariffOne |     0.00|0         |
@@ -512,8 +513,9 @@ Scenario Outline: Default values are '0' when adding new recipe tariff type
     Given Menu Cycle app is open on "<environment>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
-        When planning for "<day>" is opened
-        When Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
+    When planning for "<day>" is opened
+        And Expand all is clicked
+    When Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
     Then Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle |TariffType|SellPrice|PlannedQty|
         |<mealPeriod>  |RECIPE|<recipeName>|TariffTwo |     0.00|0         |

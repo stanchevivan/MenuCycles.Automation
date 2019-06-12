@@ -21,7 +21,7 @@ Scenario Outline: Calculations for "Total Cost" and "Revenue" should be correct 
         |004Baked Beans_1             |              7|
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
-        |DANGELO          |BUFFET|Aneliya Buffet|    109.79|   138.69| 115.57|      5%|
+        |DANGELO          |BUFFET|Aneliya Buffet|    114.37|   144.47| 120.39|      5%|
     And data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|
         |DANGELO          |BUFFET|Aneliya Buffet|              2|
@@ -35,7 +35,7 @@ Scenario Outline: Calculations for "Total Cost" and "Revenue" should be correct 
         |004Baked Beans_1             |             14|
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
-        |DANGELO          |BUFFET|Aneliya Buffet|    219.59|   138.69| 231.15|      5%|
+        |DANGELO          |BUFFET|Aneliya Buffet|    228.74|   144.47| 240.78|      5%|
         
     @QAI
     Examples:
@@ -62,7 +62,7 @@ Scenario Outline: Calculations for "Total Cost" and "Revenue" and "Actual GP" sh
         |004Baked Beans_1             |              7|
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|Revenue|ActualGP|
-        |DANGELO          |BUFFET|Aneliya Buffet|    109.79|  95.24|    -15%|
+        |DANGELO          |BUFFET|Aneliya Buffet|    114.37|  95.24|    -20%|
     And data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|
         |DANGELO          |BUFFET|Aneliya Buffet|              2|
@@ -76,7 +76,7 @@ Scenario Outline: Calculations for "Total Cost" and "Revenue" and "Actual GP" sh
         |004Baked Beans_1             |             14|
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|Revenue|ActualGP|
-        |DANGELO          |BUFFET|Aneliya Buffet|    219.59| 190.48|    -15%|
+        |DANGELO          |BUFFET|Aneliya Buffet|    228.74| 190.48|    -20%|
         
     @QAI
     Examples:
@@ -103,7 +103,7 @@ Scenario Outline: Calculations for "Total Cost" and "Sell Price" and "Revenue" s
         |004Baked Beans_1             |              7|
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
-        |DANGELO          |BUFFET|Aneliya Buffet|    109.79|   138.34| 115.28|      5%|
+        |DANGELO          |BUFFET|Aneliya Buffet|    114.37|   144.10| 120.09|      5%|
     And data for buffets is set
         |MealPeriodName   |TYPE  |RecipeTitle   |PlannedQuantity|Target|
         |DANGELO          |BUFFET|Aneliya Buffet|              2|    43|
@@ -117,7 +117,7 @@ Scenario Outline: Calculations for "Total Cost" and "Sell Price" and "Revenue" s
         |004Baked Beans_1             |             14|
     And Verify data for items is
         |MealPeriodName   |TYPE  |RecipeTitle   |TotalCosts|SellPrice|Revenue|ActualGP|
-        |DANGELO          |BUFFET|Aneliya Buffet|    219.59|   188.41| 314.01|     30%|
+        |DANGELO          |BUFFET|Aneliya Buffet|    228.74|   196.26| 327.09|     30%|
         
     @QAI
     Examples:

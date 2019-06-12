@@ -102,21 +102,21 @@ this.FeatureBackground();
                         "Type",
                         "Cost"});
             table1.AddRow(new string[] {
+                        "724Fried Button Mushrooms",
+                        "Recipe",
+                        "£1.3078"});
+            table1.AddRow(new string[] {
+                        "724Fried Eggs",
+                        "Recipe",
+                        "£0.7291"});
+            table1.AddRow(new string[] {
                         "724Fried Onions",
                         "Recipe",
-                        "£1.2555"});
-            table1.AddRow(new string[] {
-                        "724Fried Egg",
-                        "Recipe",
-                        "£0.7"});
+                        "£0.1875"});
             table1.AddRow(new string[] {
                         "724Stir Fried Vegetables",
                         "Recipe",
-                        "£0.18"});
-            table1.AddRow(new string[] {
-                        "724Fried Button Mushrooms",
-                        "Recipe",
-                        "£0.581"});
+                        "£0.6052"});
 #line 18
         testRunner.And("Verify items present in the search results are", ((string)(null)), table1, "And ");
 #line 24
@@ -169,7 +169,7 @@ this.FeatureBackground();
             table3.AddRow(new string[] {
                         "004Baked Beans_3",
                         "Recipe",
-                        "£1.839"});
+                        "£1.9157"});
 #line 36
         testRunner.And("Verify items present in the search results are", ((string)(null)), table3, "And ");
 #line hidden
@@ -180,7 +180,7 @@ this.FeatureBackground();
             table4.AddRow(new string[] {
                         "004Baked Beans_3",
                         "Recipe",
-                        "£1.839"});
+                        "£1.9157"});
 #line 39
         testRunner.And("Verify items in meal period detailed view", ((string)(null)), table4, "And ");
 #line 42
@@ -197,7 +197,7 @@ this.FeatureBackground();
                         "LUNCH",
                         "RECIPE",
                         "004Baked Beans_3",
-                        "1.84"});
+                        "1.92"});
 #line 44
     testRunner.Then("Verify data for items is", ((string)(null)), table5, "Then ");
 #line hidden
@@ -224,7 +224,7 @@ this.FeatureBackground();
 #line 53
     testRunner.Then("Verify meal period recipe name is \"724Gourmet Chicken Burger\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 54
-        testRunner.And("Verify recipe price is \"£0.36\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Verify recipe price is \"£0.375\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "IngredientName",
@@ -249,11 +249,11 @@ this.FeatureBackground();
                         "0.00"});
             table6.AddRow(new string[] {
                         "EGGS WHOLE PASTEURISED",
-                        "0.36"});
+                        "0.38"});
 #line 55
         testRunner.And("Verify ingredients in the detailed view", ((string)(null)), table6, "And ");
 #line 64
-        testRunner.And("Verify ingredients total cost is \"0.36\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Verify ingredients total cost is \"0.38\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
