@@ -31,6 +31,7 @@ Global
 		Safari|Any CPU = Safari|Any CPU
 		RemoteSafari|Any CPU = RemoteSafari|Any CPU
 		ChromeLongTimeOut|Any CPU = ChromeLongTimeOut|Any CPU
+		IELongTimeOut|Any CPU = IELongTimeOut|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Android|Any CPU.ActiveCfg = Android|Any CPU
@@ -79,6 +80,8 @@ Global
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Safari|Any CPU.Build.0 = Safari|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.ChromeLongTimeOut|Any CPU.ActiveCfg = ChromeLongTimeOut|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.ChromeLongTimeOut|Any CPU.Build.0 = ChromeLongTimeOut|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.IELongTimeOut|Any CPU.ActiveCfg = IELongTimeOut|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.IELongTimeOut|Any CPU.Build.0 = IELongTimeOut|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
