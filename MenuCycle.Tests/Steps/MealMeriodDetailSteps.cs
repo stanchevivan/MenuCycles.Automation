@@ -56,6 +56,12 @@ namespace MenuCycle.Tests.Steps
             mealPeriodDetails.WaitForSaveButtonToBeEnabled();
         }
 
+        [When(@"Recipe ""(.*)"" is deleted")]
+        public void RecipeIsDeleted(string text)
+        {
+            mealPeriodDetails.GetRecipeCard(text).Delete();
+        }
+
         [When(@"Buffet ""(.*)"" is added")]
         public void BuffetIsAdded(string buffetName)
         {
@@ -112,16 +118,39 @@ namespace MenuCycle.Tests.Steps
             mealPeriodDetails.UseCrossButton();
         }
 
+        [When(@"Verify meal period copy button is disabled")]
         [Then(@"Verify meal period copy button is disabled")]
         public void ThenVerifySaveButtonIsDeleted()
         {
             Assert.IsFalse(mealPeriodDetails.IsCopyButtonEnabled);
         }
 
+        [When(@"Verify meal period delete button is disabled")]
         [Then(@"Verify meal period delete button is disabled")]
         public void ThenVerifyDeleteButtonIsDeleted()
         {
             Assert.IsFalse(mealPeriodDetails.IsDeleteButtonEnabled);
+        }
+
+        [When(@"Verify meal period copy button is enabled")]
+        [Then(@"Verify meal period copy button is enabled")]
+        public void ThenVerifySaveButtonIsEnabled()
+        {
+            Assert.IsTrue(mealPeriodDetails.IsCopyButtonEnabled);
+        }
+
+        [When(@"Verify meal period delete button is enabled")]
+        [Then(@"Verify meal period delete button is enabled")]
+        public void ThenVerifyDeleteButtonIsEnabled()
+        {
+            Assert.IsTrue(mealPeriodDetails.IsDeleteButtonEnabled);
+        }
+
+        [Then(@"Verify order for item ""(.*)"" is ""(.*)""")]
+        public void ThenVerifyOrderForItemIs(string recipeName, int order)
+        {
+            Assert.That(mealPeriodDetails.ItemCards.FindIndex(x => x.Name == recipeName) + 1, 
+                Is.EqualTo(order), "The expected order is different than the actual order");
         }
     }
 }

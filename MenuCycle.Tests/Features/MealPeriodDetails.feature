@@ -67,3 +67,24 @@ Scenario Outline: Copy and Delete buttons are disabled when new recipe is added
     Examples:
     |environment|menuCycle|mealPeriod|day    |recipe        |
     |QAI        |Meda     |LUNCH     |MONDAY |724Apple Sauce|
+    
+@TC39851
+Scenario Outline: Copy/Delete buttons are enabled when you delete and add the same recipe to its original order
+    Given Menu Cycle app is open on "<environment>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When Details for meal period "<mealPeriod>" in "<day>" are opened
+        And Recipe "<recipe>" is deleted
+        And Verify meal period copy button is disabled
+        And Verify meal period delete button is disabled
+        And Recipe search is opened
+        And Recipe "<recipe>" is searched
+        And Recipe "<recipe>" is added
+    Then Verify meal period copy button is enabled
+        And Verify meal period delete button is enabled
+        And Verify order for item "<recipe>" is "4"
+    
+    @QAI
+    Examples:
+    |environment|menuCycle|mealPeriod|day      |recipe          |
+    |QAI        |Meda     |LANCE     |WEDNESDAY|004Baked Beans_0|
