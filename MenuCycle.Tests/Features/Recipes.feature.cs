@@ -495,9 +495,9 @@ this.ScenarioSetup(scenarioInfo);
                         "LANCE",
                         "RECIPE",
                         "004Baked Beans_0",
-                        "15.33",
-                        "4.41",
-                        "17.62",
+                        "125.33",
+                        "36.03",
+                        "144.12",
                         "13%"});
 #line 188
     testRunner.And("Verify data for items is", ((string)(null)), table5, "And ");

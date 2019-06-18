@@ -122,28 +122,28 @@ namespace MenuCycle.Tests.Steps
         [Then(@"Verify meal period copy button is disabled")]
         public void ThenVerifySaveButtonIsDeleted()
         {
-            Assert.IsFalse(mealPeriodDetails.IsCopyButtonEnabled);
+            Assert.IsFalse(mealPeriodDetails.IsCopyButtonEnabled, "Copy button is NOT disabled");
         }
 
         [When(@"Verify meal period delete button is disabled")]
         [Then(@"Verify meal period delete button is disabled")]
         public void ThenVerifyDeleteButtonIsDeleted()
         {
-            Assert.IsFalse(mealPeriodDetails.IsDeleteButtonEnabled);
+            Assert.IsFalse(mealPeriodDetails.IsDeleteButtonEnabled, "Delete button is NOT disabled");
         }
 
         [When(@"Verify meal period copy button is enabled")]
         [Then(@"Verify meal period copy button is enabled")]
         public void ThenVerifySaveButtonIsEnabled()
         {
-            Assert.IsTrue(mealPeriodDetails.IsCopyButtonEnabled);
+            Assert.IsTrue(mealPeriodDetails.IsCopyButtonEnabled, "Copy button is NOT enabled");
         }
 
         [When(@"Verify meal period delete button is enabled")]
         [Then(@"Verify meal period delete button is enabled")]
         public void ThenVerifyDeleteButtonIsEnabled()
         {
-            Assert.IsTrue(mealPeriodDetails.IsDeleteButtonEnabled);
+            Assert.IsTrue(mealPeriodDetails.IsDeleteButtonEnabled, "Delete button is NOT enabled");
         }
 
         [Then(@"Verify order for item ""(.*)"" is ""(.*)""")]
@@ -151,6 +151,24 @@ namespace MenuCycle.Tests.Steps
         {
             Assert.That(mealPeriodDetails.ItemCards.FindIndex(x => x.Name == recipeName) + 1, 
                 Is.EqualTo(order), "The expected order is different than the actual order");
+        }
+
+        [StepDefinition(@"Recipe ""(.*)"" order is moved down ""(.*)"" times")]
+        public void WhenRecipeOrderIsMovedDownTimes(string recipeName, int order)
+        { 
+            for (int i = 0; i < order; i++)
+            {
+                mealPeriodDetails.ItemCards.First(x => x.Name == recipeName).MoveDown();
+            }
+        }
+
+        [StepDefinition(@"Recipe ""(.*)"" order is moved up ""(.*)"" times")]
+        public void WhenRecipeOrderIsMovedUpTimes(string recipeName, int order)
+        {
+            for (int i = 0; i < order; i++)
+            {
+                mealPeriodDetails.ItemCards.First(x => x.Name == recipeName).MoveUp();
+            }
         }
     }
 }

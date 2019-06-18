@@ -167,7 +167,7 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Navigate to meal period details from internal search")]
         [NUnit.Framework.CategoryAttribute("TC37976")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "004Baked Beans", "Week 1", "Sunday", null, Category="QAI")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "004Baked Beanss", "Week 1", "Sunday", null, Category="QAI")]
         public virtual void NavigateToMealPeriodDetailsFromInternalSearch(string environment, string menuCycle, string recipeName, string weekName, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {

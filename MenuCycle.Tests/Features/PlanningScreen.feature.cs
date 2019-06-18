@@ -752,9 +752,9 @@ this.ScenarioSetup(scenarioInfo);
                         "ActualGP"});
             table9.AddRow(new string[] {
                         "109",
-                        "334.44",
+                        "323.19",
                         "315.71",
-                        "-6%"});
+                        "-2%"});
 #line 272
     testRunner.Then("Verify Daily Totals are equal to", ((string)(null)), table9, "Then ");
 #line hidden

@@ -55,8 +55,8 @@ Scenario Outline: Navigate to meal period details from internal search
     Then Verify meal period details for "<weekName> <day>" is open
     @QAI
     Examples:
-    |environment|menuCycle|recipeName    |weekName|day   |
-    |QAI        |Meda     |004Baked Beans|Week 1  |Sunday|
+    |environment|menuCycle|recipeName     |weekName|day   |
+    |QAI        |Meda     |004Baked Beanss|Week 1  |Sunday|
     
 @TC38603
 Scenario Outline: User is redirected to the week from which he opened the Planning screen

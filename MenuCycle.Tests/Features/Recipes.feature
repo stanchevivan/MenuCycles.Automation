@@ -187,7 +187,7 @@ Scenario Outline: Calculations for "Total Cost", "Sell Price", "Revenue" and "Ac
         |724Pepper & Garlic Coated Beef|    5231.88|  15695.63|  5782.60|16521.72|      5%|
     And Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle     |TotalCosts|SellPrice|Revenue|ActualGP|
-        |LANCE         |RECIPE|004Baked Beans_0|     15.33|     4.41|  17.62|     13%|
+        |LANCE         |RECIPE|004Baked Beans_0|    125.33|    36.03| 144.12|     13%|
         
     @QAI
     Examples:
