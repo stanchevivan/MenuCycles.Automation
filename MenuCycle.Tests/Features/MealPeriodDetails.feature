@@ -100,7 +100,7 @@ Scenario Outline: Copy and Delete buttons are disabled when recipe order is chan
         And Verify meal period delete button is disabled
         And Verify order for item "<recipe>" is "2"
         And Recipe "<recipe>" order is moved up "1" times
-
+        And Verify meal period copy button is enabled
         And Verify meal period delete button is enabled
         And Verify order for item "<recipe>" is "1"
         

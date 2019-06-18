@@ -308,6 +308,8 @@ this.ScenarioSetup(scenarioInfo);
         testRunner.And(string.Format("Verify order for item \"{0}\" is \"2\"", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 102
         testRunner.And(string.Format("Recipe \"{0}\" order is moved up \"1\" times", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 103
+        testRunner.And("Verify meal period copy button is enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 104
         testRunner.And("Verify meal period delete button is enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 105
