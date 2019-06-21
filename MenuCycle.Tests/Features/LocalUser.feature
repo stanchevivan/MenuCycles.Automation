@@ -1,10 +1,11 @@
-@QAI
+﻿@QAI
 Feature: LocalUser
     Meal Peridos functionalities and validations
 
 @TC27777 @Sanity
 Scenario Outline: Local user can not delete menu cycle
-Given Menu Cycle app is open on "<environment>" 
+# Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>"
         And a local user is selected
         And location "<location>" is selected
     When Menu Cycle "<menuCycle>" is searched
@@ -13,5 +14,5 @@ Given Menu Cycle app is open on "<environment>"
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |
-    |QAI        |SE001   |Local User Testing|
+    |environment|withFA|location|menuCycle         |
+    |QAI        |false |SE001   |Local User Testing|

@@ -4,7 +4,7 @@ Weekly Calendar Feature
 
 @TC33038 @TC31075
 Scenario Outline: Copy and Delete week in Weekly Calendar view
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When Weekly Calendar is opened
@@ -20,12 +20,12 @@ Scenario Outline: Copy and Delete week in Weekly Calendar view
         And Verify notification message "Week Successfully Removed." is displayed
     @QAI
     Examples:
-    |environment|menuCycle            |
-    |QAI        |Automation Menu Cycle|
+    |environment|withFA|menuCycle            |
+    |QAI        |false |Automation Menu Cycle|
         
 @TC37776
 Scenario Outline: Empty weeks are not present in the calendar weekly view
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When new week is added
@@ -58,12 +58,12 @@ Scenario Outline: Empty weeks are not present in the calendar weekly view
     
     @QAI
     Examples:
-    |environment|menuCycle             |mealPeriod|day   |recipeName                 |
-    |QAI        |Automation Copy Delete|LUNCH     |Monday|703Reggae Raggae Mayonnaise|
+    |environment|withFA|menuCycle             |mealPeriod|day   |recipeName                 |
+    |QAI        |false |Automation Copy Delete|LUNCH     |Monday|703Reggae Raggae Mayonnaise|
     
 @TC37973
 Scenario Outline: Open meal period from the weekly view
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
     Given Menu Cycle "<menuCycle>" is selected
     When Weekly Calendar is opened
@@ -72,12 +72,12 @@ Scenario Outline: Open meal period from the weekly view
         
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|day   |weekName|
-    |QAI        |Meda     |Dangelo   |MONDAY|WEEK 2  |
+    |environment|withFA|menuCycle|mealPeriod|day   |weekName|
+    |QAI        |false |Meda     |Dangelo   |MONDAY|WEEK 2  |
     
 @TC38017
 Scenario Outline: NaN is not displayed for Week title
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When Weekly Calendar is opened
@@ -86,12 +86,12 @@ Scenario Outline: NaN is not displayed for Week title
         
     @QAI
     Examples:
-    |environment|menuCycle|
-    |QAI        |Meda     |
+    |environment|withFA|menuCycle|
+    |QAI        |false |Meda     |
     
 @TC38017
 Scenario Outline: GAP days are indicated in weekly view
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When Weekly Calendar is opened
@@ -99,5 +99,5 @@ Scenario Outline: GAP days are indicated in weekly view
         
     @QAI
     Examples:
-    |environment|menuCycle            |day     |week  |
-    |QAI        |Automation Menu Cycle|Saturday|Week 1|
+    |environment|withFA|menuCycle            |day     |week  |
+    |QAI        |false |Automation Menu Cycle|Saturday|Week 1|

@@ -3,7 +3,7 @@
 
 @TC27713 @Smoke
 Scenario Outline: Search Menu Cycles by name or description
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
     When Menu Cycle "<mc1Description>" is searched
         And Verify search results contain the following menu cycles
@@ -16,13 +16,13 @@ Scenario Outline: Search Menu Cycles by name or description
         
     @QAI
     Examples:
-    |environment|mc1Name|mc1Description                     |mc2Name        |mc2Description                             |
-    |QAI        |Meda   |FOR AUTOMATION TESTS - DO NOT TOUCH|MC with recipes|Testing the publishing of a MC with recipes|
+    |environment|withFA|mc1Name|mc1Description                     |mc2Name        |mc2Description                             |
+    |QAI        |false |Meda   |FOR AUTOMATION TESTS - DO NOT TOUCH|MC with recipes|Testing the publishing of a MC with recipes|
     
 
 @TC27706 @TC27653 @TC27658 @Smoke
 Scenario Outline: Create Edit Copy Delete menu cycle
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
     When Menu Cycle is created with following data
     |MenuCycleName                   |Description   |GapDays           |Usergroup      |
@@ -57,5 +57,5 @@ Scenario Outline: Create Edit Copy Delete menu cycle
     
     @QAI
     Examples:
-    |environment|
-    |QAI        |
+    |environment|withFA|
+    |QAI        |false |

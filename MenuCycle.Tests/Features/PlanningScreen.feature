@@ -3,7 +3,7 @@
 
 @TC28526
 Scenario Outline: Open Planning Screen, go to Nutritions, go back to Planning screen (Central User)
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -13,12 +13,12 @@ Scenario Outline: Open Planning Screen, go to Nutritions, go back to Planning sc
     
     @QAI
     Examples:
-    |environment|menuCycle|day    |
-    |QAI        |Meda     |TUESDAY|
+    |environment|withFA|menuCycle|day    |
+    |QAI        |false |Meda     |TUESDAY|
 
 @TC28555
 Scenario Outline: Open Planning Screen, go to Weeks, go back to Planning screen (Central User)
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -28,12 +28,12 @@ Scenario Outline: Open Planning Screen, go to Weeks, go back to Planning screen 
     
     @QAI
     Examples:
-    |environment|menuCycle|day    |
-    |QAI        |Meda     |TUESDAY|  
+    |environment|withFA|menuCycle|day    |
+    |QAI        |false |Meda     |TUESDAY|  
 
 @TC29023
 Scenario Outline: Save button is clicked without any changes applied
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -42,12 +42,12 @@ Scenario Outline: Save button is clicked without any changes applied
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |
-    |QAI        |Meda     |MONDAY| 
+    |environment|withFA|menuCycle|day   |
+    |QAI        |false |Meda     |MONDAY| 
 
 @TC29022
 Scenario Outline: Save all updated figures (fields)
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -65,12 +65,12 @@ Scenario Outline: Save all updated figures (fields)
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|recipeName      |day   |
-    |QAI        |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
+    |environment|withFA|menuCycle|mealPeriod|recipeName      |day   |
+    |QAI        |false |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
     
 @TC29024
 Scenario Outline: Saved data is retrieved from the API
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -91,13 +91,13 @@ Scenario Outline: Saved data is retrieved from the API
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|recipeName      |day   |plannedQty|
-    |QAI        |Meda     |LUNCH     |004Baked Beans_3|MONDAY|      1#99|
+    |environment|withFA|menuCycle|mealPeriod|recipeName      |day   |plannedQty|
+    |QAI        |false |Meda     |LUNCH     |004Baked Beans_3|MONDAY|      1#99|
     
     
 @TC29019
 Scenario Outline: Successfully Update and Save number of covers
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -113,12 +113,12 @@ Scenario Outline: Successfully Update and Save number of covers
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|recipeName      |day   |
-    |QAI        |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
+    |environment|withFA|menuCycle|mealPeriod|recipeName      |day   |
+    |QAI        |false |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
     
 @TC29080 @D23144 @D24051 @D24410
 Scenario Outline: Open Monday planning screen, then go to Tuesday, back to Monday update total quantity and click Save
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "Monday" is opened
@@ -141,12 +141,12 @@ Scenario Outline: Open Monday planning screen, then go to Tuesday, back to Monda
         
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|recipeName      |item1                     |item2                    |
-    |QAI        |Meda     |LUNCH     |004Baked Beans_3|724Gourmet Beef Burger 6oz|724Gourmet Chicken Burger|
+    |environment|withFA|menuCycle|mealPeriod|recipeName      |item1                     |item2                    |
+    |QAI        |false |Meda     |LUNCH     |004Baked Beans_3|724Gourmet Beef Burger 6oz|724Gourmet Chicken Burger|
         
 @TC29521
 Scenario Outline: Modal dialog for unsaved changes is shown on cancel
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -160,12 +160,12 @@ Scenario Outline: Modal dialog for unsaved changes is shown on cancel
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|recipeName      |day   |
-    |QAI        |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
+    |environment|withFA|menuCycle|mealPeriod|recipeName      |day   |
+    |QAI        |false |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
     
 @TC29521
 Scenario Outline: Modal dialog for unsaved changes is shown on pressing X
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -179,12 +179,12 @@ Scenario Outline: Modal dialog for unsaved changes is shown on pressing X
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|recipeName      |day   |
-    |QAI        |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
+    |environment|withFA|menuCycle|mealPeriod|recipeName      |day   |
+    |QAI        |false |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
     
 @TC29526
 Scenario Outline: Modal dialog for unsaved changes is shown when going to nutrition
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -197,12 +197,12 @@ Scenario Outline: Modal dialog for unsaved changes is shown when going to nutrit
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|recipeName      |day   |
-    |QAI        |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
+    |environment|withFA|menuCycle|mealPeriod|recipeName      |day   |
+    |QAI        |false |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
     
 @TC29521
 Scenario Outline: Modal dialog for unsaved changes is shown when going to weekly planning view
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -215,12 +215,12 @@ Scenario Outline: Modal dialog for unsaved changes is shown when going to weekly
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|recipeName      |day   |
-    |QAI        |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
+    |environment|withFA|menuCycle|mealPeriod|recipeName      |day   |
+    |QAI        |false |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
     
 @TC29558 @D23865
 Scenario Outline: Number of covers is saved after closing the app
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -228,7 +228,7 @@ Scenario Outline: Number of covers is saved after closing the app
         And Save button is clicked
         And Verify notification message "Planning figures updated." is displayed
         And Menu Cycles app is closed
-        And Menu Cycle app is open on "<environment>"  
+        And Menu Cycles app is open on "<environment>" with FourthApp "<withFA>"  
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -236,12 +236,12 @@ Scenario Outline: Number of covers is saved after closing the app
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|day   |
-    |QAI        |Meda     |LUNCH     |MONDAY|
+    |environment|withFA|menuCycle|mealPeriod|day   |
+    |QAI        |false |Meda     |LUNCH     |MONDAY|
     
 @TC29753 @D26939
 Scenario Outline: Calculate Daily Totals
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -275,12 +275,12 @@ Scenario Outline: Calculate Daily Totals
         
     @QAI
     Examples:
-    |environment|menuCycle|day    |
-    |QAI        |Meda     |TUESDAY|
+    |environment|withFA|menuCycle|day    |
+    |QAI        |false |Meda     |TUESDAY|
         
 @TC29844
 Scenario Outline: No planning data available message
-Given Menu Cycle app is open on "<environment>" 
+Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -289,12 +289,12 @@ Given Menu Cycle app is open on "<environment>"
         
     @QAI
     Examples:
-    |environment|menuCycle                   |day    |
-    |QAI        |Testing Copying Meal Periods|TUESDAY|
+    |environment|withFA|menuCycle                   |day    |
+    |QAI        |false |Testing Copying Meal Periods|TUESDAY|
         
 @TC29845
 Scenario Outline: Error message is displayed when changes are made and Update Price button is clicked
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -304,12 +304,12 @@ Scenario Outline: Error message is displayed when changes are made and Update Pr
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|recipeName      |day   |
-    |QAI        |Meda     |DANGELO   |004Baked Beans_3|FRIDAY|
+    |environment|withFA|menuCycle|mealPeriod|recipeName      |day   |
+    |QAI        |false |Meda     |DANGELO   |004Baked Beans_3|FRIDAY|
     
 @TC29885 @D24506
 Scenario Outline: No modal dialog is shown if there are no changes and Cancel button is clicked
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -319,12 +319,12 @@ Scenario Outline: No modal dialog is shown if there are no changes and Cancel bu
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |
-    |QAI        |Meda     |MONDAY|
+    |environment|withFA|menuCycle|day   |
+    |QAI        |false |Meda     |MONDAY|
 
 @TC29874
 Scenario Outline: Notification is shown when user is trying to save planning with the same price type selected several times
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -335,12 +335,12 @@ Scenario Outline: Notification is shown when user is trying to save planning wit
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|recipeName      |day   |
-    |QAI        |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
+    |environment|withFA|menuCycle|mealPeriod|recipeName      |day   |
+    |QAI        |false |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
     
 @TC29875
 Scenario Outline: Notification is shown when user has selected all available price types
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -361,12 +361,12 @@ Scenario Outline: Notification is shown when user has selected all available pri
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|recipeName      |day   |
-    |QAI        |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
+    |environment|withFA|menuCycle|mealPeriod|recipeName      |day   |
+    |QAI        |false |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
     
 @TC30010 @D24750
 Scenario Outline: Modal dialog is closed on cancel when only PriceModel is changed for an unsaved recipe
-        Given Menu Cycle app is open on "<environment>" 
+        Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
             And planning for "<day>" is opened
@@ -380,12 +380,12 @@ Scenario Outline: Modal dialog is closed on cancel when only PriceModel is chang
         
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|recipeName       |day   |
-    |QAI        |Meda     |DANGELO   |004Bechamel Sauce|FRIDAY|
+    |environment|withFA|menuCycle|mealPeriod|recipeName       |day   |
+    |QAI        |false |Meda     |DANGELO   |004Bechamel Sauce|FRIDAY|
         
 @TC30592 @D25310
 Scenario Outline: User should not be redirected to the planning screen after navigating to Nutrition view and back
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
             And planning for "<day>" is opened
@@ -398,12 +398,12 @@ Scenario Outline: User should not be redirected to the planning screen after nav
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |
-    |QAI        |Meda     |MONDAY|
+    |environment|withFA|menuCycle|day   |
+    |QAI        |false |Meda     |MONDAY|
     
 @TC28500 @Smoke
 Scenario Outline: Load engine when Planning screen is opened (Central User)
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -413,12 +413,12 @@ Scenario Outline: Load engine when Planning screen is opened (Central User)
     
     @QAI
     Examples:
-    |environment|menuCycle|day    |
-    |QAI        |Meda     |TUESDAY|
+    |environment|withFA|menuCycle|day    |
+    |QAI        |false |Meda     |TUESDAY|
     
 @TC27677 @Smoke
 Scenario Outline: Close planning screen with "X" button without any changes
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -427,12 +427,12 @@ Scenario Outline: Close planning screen with "X" button without any changes
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |
-    |QAI        |Meda     |MONDAY|
+    |environment|withFA|menuCycle|day   |
+    |QAI        |false |Meda     |MONDAY|
     
 @TC31037
 Scenario Outline: Verify save button is disabled if menu cycle is published
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -440,12 +440,12 @@ Scenario Outline: Verify save button is disabled if menu cycle is published
     
     @QAI
     Examples:
-    |environment|menuCycle                |day     |
-    |QAI        |Menu Cycle for Local user|THURSDAY|
+    |environment|withFA|menuCycle                |day     |
+    |QAI        |false |Menu Cycle for Local user|THURSDAY|
     
 @TC31887 @D26963
 Scenario Outline: Planning screen is loaded after searching for recipe which is not found
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -460,12 +460,12 @@ Scenario Outline: Planning screen is loaded after searching for recipe which is 
        
    @QAI
     Examples:
-    |environment|menuCycle         |mealPeriod|recipeName|day   |
-    |QAI        |Automation Testing|LUNCH     |Madanoz   |MONDAY|
+    |environment|withFA|menuCycle         |mealPeriod|recipeName|day   |
+    |QAI        |false |Automation Testing|LUNCH     |Madanoz   |MONDAY|
     
 @TC37810    
 Scenario Outline: Save button is disabled for locked menu cycle
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -473,12 +473,12 @@ Scenario Outline: Save button is disabled for locked menu cycle
         
     @QAI
     Examples:
-    |environment|menuCycle        |day    |
-    |QAI_2      |LOCKED MENU CYCLE|TUESDAY|
+    |environment|withFA|menuCycle        |day    |
+    |QAI_2      |false |LOCKED MENU CYCLE|TUESDAY|
     
 @TC38806    
 Scenario Outline: Verify planning weekly totals equals the sum of all meal period totals
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -488,12 +488,12 @@ Scenario Outline: Verify planning weekly totals equals the sum of all meal perio
         
     @QAI
     Examples:
-    |environment|menuCycle                               |day   |
-    |QAI_2      |AUTOMATION - API Integration Weekly View|MONDAY|
+    |environment|withFA|menuCycle                               |day   |
+    |QAI_2      |false |AUTOMATION - API Integration Weekly View|MONDAY|
     
 @TC39250
 Scenario Outline: Default values are '0' for unplanned meal period
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -505,12 +505,12 @@ Scenario Outline: Default values are '0' for unplanned meal period
         
     @QAI
     Examples:
-    |environment|menuCycle         |day   |mealPeriod|recipeName     |
-    |QAI_2      |Automation Testing|MONDAY|DINNER    |004Basic Sponge|
+    |environment|withFA|menuCycle         |day   |mealPeriod|recipeName     |
+    |QAI_2      |false |Automation Testing|MONDAY|DINNER    |004Basic Sponge|
     
 @TC39251
 Scenario Outline: Default values are '0' when adding new recipe tariff type
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -522,5 +522,5 @@ Scenario Outline: Default values are '0' when adding new recipe tariff type
         
     @QAI
     Examples:
-    |environment|menuCycle         |day   |mealPeriod|recipeName     |
-    |QAI_2      |Automation Testing|MONDAY|DINNER    |004Basic Sponge|
+    |environment|withFA|menuCycle         |day   |mealPeriod|recipeName     |
+    |QAI_2      |false |Automation Testing|MONDAY|DINNER    |004Basic Sponge|

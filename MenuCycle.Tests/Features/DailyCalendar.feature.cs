@@ -67,8 +67,8 @@ namespace MenuCycle.Tests.Features
         [NUnit.Framework.DescriptionAttribute("Daily Calendar view is switched for central user")]
         [NUnit.Framework.CategoryAttribute("TC34368")]
         [NUnit.Framework.CategoryAttribute("TC34367")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "Sunday", null, Category="QAI")]
-        public virtual void DailyCalendarViewIsSwitchedForCentralUser(string environment, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "Sunday", null, Category="QAI")]
+        public virtual void DailyCalendarViewIsSwitchedForCentralUser(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC34368",
@@ -81,7 +81,7 @@ namespace MenuCycle.Tests.Features
 #line 5
 this.ScenarioSetup(scenarioInfo);
 #line 6
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 8
@@ -102,8 +102,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Daily Calendar view is switched for local user")]
         [NUnit.Framework.CategoryAttribute("TC34370")]
         [NUnit.Framework.CategoryAttribute("TC34369")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", "SUN 5 AUG", null, Category="QAI")]
-        public virtual void DailyCalendarViewIsSwitchedForLocalUser(string environment, string location, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "SUN 5 AUG", null, Category="QAI")]
+        public virtual void DailyCalendarViewIsSwitchedForLocalUser(string environment, string withFA, string location, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC34370",
@@ -116,7 +116,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 20
 this.ScenarioSetup(scenarioInfo);
 #line 21
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 22
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 23
@@ -138,8 +138,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Review page is opened")]
         [NUnit.Framework.CategoryAttribute("TC37976")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", null, Category="QAI")]
-        public virtual void ReviewPageIsOpened(string environment, string menuCycle, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", null, Category="QAI")]
+        public virtual void ReviewPageIsOpened(string environment, string withFA, string menuCycle, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC37976"};
@@ -151,7 +151,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 36
 this.ScenarioSetup(scenarioInfo);
 #line 37
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 38
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 39
@@ -167,8 +167,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Navigate to meal period details from internal search")]
         [NUnit.Framework.CategoryAttribute("TC37976")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "004Baked Beanss", "Week 1", "Sunday", null, Category="QAI")]
-        public virtual void NavigateToMealPeriodDetailsFromInternalSearch(string environment, string menuCycle, string recipeName, string weekName, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "004Baked Beanss", "Week 1", "Sunday", null, Category="QAI")]
+        public virtual void NavigateToMealPeriodDetailsFromInternalSearch(string environment, string withFA, string menuCycle, string recipeName, string weekName, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC37976"};
@@ -180,7 +180,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 49
 this.ScenarioSetup(scenarioInfo);
 #line 50
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 51
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 52
@@ -198,8 +198,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User is redirected to the week from which he opened the Planning screen")]
         [NUnit.Framework.CategoryAttribute("TC38603")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Automation - Multiple weeks", "WEEK 2", "Monday", null, Category="QAI")]
-        public virtual void UserIsRedirectedToTheWeekFromWhichHeOpenedThePlanningScreen(string environment, string menuCycle, string weekName, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Automation - Multiple weeks", "WEEK 2", "Monday", null, Category="QAI")]
+        public virtual void UserIsRedirectedToTheWeekFromWhichHeOpenedThePlanningScreen(string environment, string withFA, string menuCycle, string weekName, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC38603"};
@@ -211,7 +211,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 62
 this.ScenarioSetup(scenarioInfo);
 #line 63
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 64
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 65
@@ -233,8 +233,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User is redirected to the week from which he opened the Review page")]
         [NUnit.Framework.CategoryAttribute("TC38604")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Automation - Multiple weeks", "WEEK 2", null, Category="QAI")]
-        public virtual void UserIsRedirectedToTheWeekFromWhichHeOpenedTheReviewPage(string environment, string menuCycle, string weekName, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Automation - Multiple weeks", "WEEK 2", null, Category="QAI")]
+        public virtual void UserIsRedirectedToTheWeekFromWhichHeOpenedTheReviewPage(string environment, string withFA, string menuCycle, string weekName, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC38604"};
@@ -246,7 +246,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 77
 this.ScenarioSetup(scenarioInfo);
 #line 78
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 79
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 80
@@ -268,8 +268,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User is redirected to the week from which he opened the Reports page")]
         [NUnit.Framework.CategoryAttribute("TC38605")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Automation - Multiple weeks", "WEEK 2", null, Category="QAI")]
-        public virtual void UserIsRedirectedToTheWeekFromWhichHeOpenedTheReportsPage(string environment, string menuCycle, string weekName, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Automation - Multiple weeks", "WEEK 2", null, Category="QAI")]
+        public virtual void UserIsRedirectedToTheWeekFromWhichHeOpenedTheReportsPage(string environment, string withFA, string menuCycle, string weekName, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC38605"};
@@ -281,7 +281,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 92
 this.ScenarioSetup(scenarioInfo);
 #line 93
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 94
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 95

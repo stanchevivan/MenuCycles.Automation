@@ -1,4 +1,5 @@
 using System.Configuration;
+using System.Linq;
 using Fourth.Automation.Framework.Extension;
 using MenuCycle.Tests.PageObjects;
 using MenuCycle.Tests.Support;
@@ -11,14 +12,18 @@ namespace MenuCycle.Tests.Steps
     {
         FourthApp.Pages.Login fourthAppLogin;
         FourthApp.Pages.MainPage fourthAppMain;
+        FourthApp.Pages.SalesforceLoginPage salesforceLoginPage;
         FourthAppLocalPage fourthAppLocalPage;
         LogInAs logInAs;
         ToastNotification toastNotification;
         ScenarioContext scenarioContext;
         MenuCyclesBasePage menuCyclesBasePage;
 
+        ConfigurationReader config;
+
         public FourthEngageSteps(FourthApp.Pages.Login fourthAppLogin,
                                  FourthApp.Pages.MainPage fourthAppMain,
+                                 FourthApp.Pages.SalesforceLoginPage salesforceLoginPage,
                                  FourthAppLocalPage fourthAppLocalPage,
                                  LogInAs logInAs,
                                  ToastNotification toastNotification,
@@ -32,6 +37,7 @@ namespace MenuCycle.Tests.Steps
             this.toastNotification = toastNotification;
             this.scenarioContext = scenarioContext;
             this.menuCyclesBasePage = menuCyclesBasePage;
+            this.salesforceLoginPage = salesforceLoginPage;
         }
 
         [Given(@"Fourth Engage Dashboard is open")]
@@ -76,6 +82,9 @@ namespace MenuCycle.Tests.Steps
             fourthAppLocalPage.SwitchToTab(2);
 
             fourthAppLocalPage.SwitchToNativeContext();
+
+            menuCyclesBasePage.MaximizeWindow();
+            logInAs.WaitPageToLoad();
         }
 
         [Given(@"'(.*)' application is open")]
@@ -91,27 +100,51 @@ namespace MenuCycle.Tests.Steps
             logInAs.WaitPageToLoad();
         }
 
-        [Given(@"Menu Cycle app is open on ""(.*)""")]
-        public void MenuCyclesAppIsOpenOn(string environment)
+        [Given(@"Menu Cycles app is open on ""(.*)"" with FourthApp ""(.*)""")]
+        public void MenuCycleAppIsOpenOnWith(string environment, bool withFA = true)
         {
-            if (!fourthAppMain.NotificationItemButton.Get().ElementPresent)
+            if (withFA)
             {
-                GivenFourthEngageDashboarIsOpenOn(environment);
-            }
+                if (!fourthAppMain.NotificationItemButton.Get().ElementPresent)
+                {
+                    GivenFourthEngageDashboarIsOpenOn(environment);
+                }
 
-            GivenApplicationIsSelected("Menu Cycles");
-            menuCyclesBasePage.MaximizeWindow();
-            logInAs.WaitPageToLoad();
+                GivenApplicationIsSelected("Menu Cycles");
+            }
+            else
+            {
+                config = new ConfigurationReader(environment);
+                salesforceLoginPage.PerformLogin(config.User, config.Password, new System.Uri(config.URL_Salesforce));
+
+                menuCyclesBasePage.MaximizeWindow();
+                logInAs.WaitPageToLoad();
+            }
         }
 
         [Given(@"Fourth App is open on ""(.*)""")]
         public void GivenFourthEngageDashboarIsOpenOn(string environment)
         {
-            ConfigurationReader config = new ConfigurationReader(environment);
+            config = new ConfigurationReader(environment);
 
-            fourthAppLocalPage.OpenUrl(config.URL);
-            fourthAppLogin.WaitForPageToLoad();
-            fourthAppLogin.PerformLogin(config.User, config.Password);
+            if (fourthAppLocalPage.IsMobile)
+            {
+                if (fourthAppLogin.UserNameInput.Get().ElementDisplayed)
+                {
+                    fourthAppLogin.PerformLogin(config.User, config.Password);
+                    fourthAppLocalPage.SwitchToNativeContext();
+                    fourthAppLocalPage.ClickNoButton();
+                    fourthAppLocalPage.SwitchToWebViewContext();
+                }
+            }
+
+            if (!fourthAppLocalPage.IsMobile)
+            {
+                fourthAppLocalPage.OpenUrl(config.URL);
+                fourthAppLogin.WaitForPageToLoad();
+                fourthAppLogin.PerformLogin(config.User, config.Password);
+            }
+
             fourthAppMain.WaitToBeReady();
         }
     }

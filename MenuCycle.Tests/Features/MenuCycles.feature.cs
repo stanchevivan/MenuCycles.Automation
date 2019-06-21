@@ -67,8 +67,8 @@ namespace MenuCycle.Tests.Features
         [NUnit.Framework.DescriptionAttribute("Search Menu Cycles by name or description")]
         [NUnit.Framework.CategoryAttribute("TC27713")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "FOR AUTOMATION TESTS - DO NOT TOUCH", "MC with recipes", "Testing the publishing of a MC with recipes", null, Category="QAI")]
-        public virtual void SearchMenuCyclesByNameOrDescription(string environment, string mc1Name, string mc1Description, string mc2Name, string mc2Description, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "FOR AUTOMATION TESTS - DO NOT TOUCH", "MC with recipes", "Testing the publishing of a MC with recipes", null, Category="QAI")]
+        public virtual void SearchMenuCyclesByNameOrDescription(string environment, string withFA, string mc1Name, string mc1Description, string mc2Name, string mc2Description, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC27713",
@@ -81,7 +81,7 @@ namespace MenuCycle.Tests.Features
 #line 5
 this.ScenarioSetup(scenarioInfo);
 #line 6
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 8
@@ -116,8 +116,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.CategoryAttribute("TC27653")]
         [NUnit.Framework.CategoryAttribute("TC27658")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        [NUnit.Framework.TestCaseAttribute("QAI", null, Category="QAI")]
-        public virtual void CreateEditCopyDeleteMenuCycle(string environment, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", null, Category="QAI")]
+        public virtual void CreateEditCopyDeleteMenuCycle(string environment, string withFA, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC27706",
@@ -132,7 +132,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 24
 this.ScenarioSetup(scenarioInfo);
 #line 25
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 26
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

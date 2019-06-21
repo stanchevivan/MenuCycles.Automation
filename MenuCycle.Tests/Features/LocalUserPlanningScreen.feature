@@ -3,7 +3,7 @@
 
 @TC28558 @Smoke
 Scenario Outline: Load engine when Planning screen is opened (Local User)
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -14,12 +14,12 @@ Scenario Outline: Load engine when Planning screen is opened (Local User)
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |day       |
-    |QAI        |SE001   |Local User Testing|TUE 10 JUL|
+    |environment|withFA|location|menuCycle         |day       |
+    |QAI        |false |SE001   |Local User Testing|TUE 10 JUL|
 
 @TC30226
 Scenario Outline: Verify save button is disabled for passed days
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -30,12 +30,12 @@ Scenario Outline: Verify save button is disabled for passed days
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |day       |
-    |QAI        |SE001   |Local User Testing|TUE 10 JUL|
+    |environment|withFA|location|menuCycle         |day       |
+    |QAI        |false |SE001   |Local User Testing|TUE 10 JUL|
     
 @TC30227
 Scenario Outline: Real date is displayed on the top of the planning screen
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -46,12 +46,12 @@ Scenario Outline: Real date is displayed on the top of the planning screen
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |day       |date                  |
-    |QAI        |SE001   |Local User Testing|TUE 10 JUL|TUESDAY - 10 July 2018|
+    |environment|withFA|location|menuCycle         |day       |date                  |
+    |QAI        |false |SE001   |Local User Testing|TUE 10 JUL|TUESDAY - 10 July 2018|
     
 @TC30264 @D25299
 Scenario Outline: Open Planning Screen, go to Post-Production, go back to Planning screen
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -64,12 +64,12 @@ Scenario Outline: Open Planning Screen, go to Post-Production, go back to Planni
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |day       |
-    |QAI        |SE001   |Local User Testing|TUE 10 JUL|
+    |environment|withFA|location|menuCycle         |day       |
+    |QAI        |false |SE001   |Local User Testing|TUE 10 JUL|
 
 @TC30366 @D25410
 Scenario Outline: Open Planning Screen, go to Weekly planning
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -81,12 +81,12 @@ Scenario Outline: Open Planning Screen, go to Weekly planning
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |day       |
-    |QAI        |SE001   |Local User Testing|WED 11 JUL|
+    |environment|withFA|location|menuCycle         |day       |
+    |QAI        |false |SE001   |Local User Testing|WED 11 JUL|
 
 @TC30313 @D25310
 Scenario Outline: User should not be redirected to the planning screen after navigating to post-production and back
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -102,25 +102,25 @@ Scenario Outline: User should not be redirected to the planning screen after nav
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |day       |
-    |QAI        |SE001   |Local User Testing|TUE 10 JUL|
+    |environment|withFA|location|menuCycle         |day       |
+    |QAI        |false |SE001   |Local User Testing|TUE 10 JUL|
 
 @TC27776 @Smoke
 Scenario Outline: Create menu cycle button is not present - local user
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
     Then Create menu cycle button is not displayed
     
     @QAI
     Examples:
-    |environment|location|
-    |QAI        |SE001   |
+    |environment|withFA|location|
+    |QAI        |false |SE001   |
 
 #TODO: Needs seeded data
 # @TC30910 @ForDataSeeding @ignore
 # Scenario Outline: Save button is clicked without any changes applied (Local user)
-    # Given Menu Cycle app is open on "<environment>" 
+    # Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
     #     And a local user is selected
     #     And location "<location>" is selected
     #     And Menu Cycle "<menuCycle>" is selected
@@ -130,12 +130,12 @@ Scenario Outline: Create menu cycle button is not present - local user
     
     # @QAI
     # Examples:
-    # |environment|location|menuCycle         |day       |
-    # |QAI        |SE001   |Local User Testing|THUR 2 AUG|
+    # |environment|withFA|location|menuCycle         |day       |
+    # |QAI        |false |SE001   |Local User Testing|THUR 2 AUG|
     
 @TC38354
 Scenario Outline: Current week is opened when opening a non-expired menu cycle
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -144,12 +144,12 @@ Scenario Outline: Current week is opened when opening a non-expired menu cycle
         
     @QAI
     Examples:
-    |environment|location|menuCycle                |
-    |QAI        |SE001   |For Local User AUTOMATION|
+    |environment|withFA|location|menuCycle                |
+    |QAI        |false |SE001   |For Local User AUTOMATION|
 
 @TC38355    
 Scenario Outline: Last week is opened when opening a menu cycle in the past
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -158,5 +158,5 @@ Scenario Outline: Last week is opened when opening a menu cycle in the past
         
     @QAI
     Examples:
-    |environment|location|menuCycle         |
-    |QAI        |SE001   |Local User Testing|
+    |environment|withFA|location|menuCycle         |
+    |QAI        |false |SE001   |Local User Testing|

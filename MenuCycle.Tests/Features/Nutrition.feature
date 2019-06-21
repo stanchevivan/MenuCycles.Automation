@@ -2,7 +2,7 @@
 	
 @TC36897
 Scenario Outline: Expand all / Collapse all meal periods Nutrition Days
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -14,12 +14,12 @@ Scenario Outline: Expand all / Collapse all meal periods Nutrition Days
     
     @QAI
     Examples:
-    |environment|menuCycle|day    |
-    |QAI_2        |Meda     |Tuesday|
+    |environment|withFA|menuCycle|day    |
+    |QAI_2      |false |Meda     |Tuesday|
 
 @TC36898    
 Scenario Outline: Expand/Collapse single meal period Nutritions screen days
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -31,12 +31,12 @@ Scenario Outline: Expand/Collapse single meal period Nutritions screen days
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |mealPeriod|
-    |QAI_2        |Meda     |Monday|LUNCH     |
+    |environment|withFA|menuCycle|day   |mealPeriod|
+    |QAI_2      |false |Meda     |Monday|LUNCH     |
 
 @TC36908 
 Scenario Outline: Single Meal Period is expanded by default in the Nutrition screen days
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -45,12 +45,12 @@ Scenario Outline: Single Meal Period is expanded by default in the Nutrition scr
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |mealPeriod|
-    |QAI_2        |Meda     |Monday|LUNCH     |
+    |environment|withFA|menuCycle|day   |mealPeriod|
+    |QAI_2      |false |Meda     |Monday|LUNCH     |
  
 @TC36909       
 Scenario Outline: Multiple Meal Periods are collapsed by default in the Nutrition screen days
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -59,12 +59,12 @@ Scenario Outline: Multiple Meal Periods are collapsed by default in the Nutritio
     
     @QAI
     Examples:
-    |environment|menuCycle|day    |
-    |QAI_2        |Meda     |Tuesday|
+    |environment|withFA|menuCycle|day    |
+    |QAI_2      |false |Meda     |Tuesday|
    
 @TC36910         
 Scenario Outline: Verify save button is disabled for in the Nutrition screen days
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -73,12 +73,12 @@ Scenario Outline: Verify save button is disabled for in the Nutrition screen day
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |
-    |QAI_2        |Meda     |Monday|
+    |environment|withFA|menuCycle|day   |
+    |QAI_2      |false |Meda     |Monday|
 
 @TC36912    
 Scenario Outline: Calendar view is opened when Cancel is clicked in the Nutrition screen days
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -89,12 +89,12 @@ Scenario Outline: Calendar view is opened when Cancel is clicked in the Nutritio
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |
-    |QAI_2        |Meda     |MONDAY|
+    |environment|withFA|menuCycle|day   |
+    |QAI_2      |false |Meda     |MONDAY|
     
 @TC36913
 Scenario Outline: Calendar view is opened when Cross is clicked in the Nutrition screen days
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -105,12 +105,12 @@ Scenario Outline: Calendar view is opened when Cross is clicked in the Nutrition
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |
-    |QAI_2        |Meda     |MONDAY|
+    |environment|withFA|menuCycle|day   |
+    |QAI_2      |false |Meda     |MONDAY|
     
 @TC36938
 Scenario Outline: Retrieve recipe information from the API in Nutrition screen
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -122,11 +122,11 @@ Scenario Outline: Retrieve recipe information from the API in Nutrition screen
         
     @QAI
     Examples:
-    |environment|menuCycle|day     |mealPeriod|recipeName      |mixPercent|energyKJ|energyKCAL|fat  |saturatedFat|sugar|salt    |
-    |QAI_2      |Meda     |Monday  |LUNCH     |004Baked Beans_3|       100|  799.20|      6.00|66.00|       79.20|34.08|15000.00|
+    |environment|withFA|menuCycle|day     |mealPeriod|recipeName      |mixPercent|energyKJ|energyKCAL|fat  |saturatedFat|sugar|salt    |
+    |QAI_2      |false |Meda     |Monday  |LUNCH     |004Baked Beans_3|       100|  799.20|      6.00|66.00|       79.20|34.08|15000.00|
     
 Scenario Outline: Planned qty are summed for recipe with more than one tariffs
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -136,11 +136,11 @@ Scenario Outline: Planned qty are summed for recipe with more than one tariffs
     
     @QAI
     Examples:
-    |environment|menuCycle|day     |mealPeriod|recipeName      |tariffOne|tariffTwo|
-    |QAI_2      |Meda     |Saturday|     LUNCH|004Baked Beans_3|TariffOne|TariffTwo|
+    |environment|withFA|menuCycle|day     |mealPeriod|recipeName      |tariffOne|tariffTwo|
+    |QAI_2      |false |Meda     |Saturday|     LUNCH|004Baked Beans_3|TariffOne|TariffTwo|
     
 Scenario Outline: Validate Nutritions Daily Totals
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -149,11 +149,11 @@ Scenario Outline: Validate Nutritions Daily Totals
         
     @QAI
     Examples:
-    |environment|menuCycle|day    |
-    |QAI_2        |Meda     |TUESDAY|
+    |environment|withFA|menuCycle|day    |
+    |QAI_2      |false |Meda     |TUESDAY|
     
 Scenario Outline: Validate Nutritions Meal Period Totals
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -162,11 +162,11 @@ Scenario Outline: Validate Nutritions Meal Period Totals
         
     @QAI
     Examples:
-    |environment|menuCycle         |day    |mealPeriod|
-    |QAI_2      |Automation Testing|TUESDAY|LUNCH     |
+    |environment|withFA|menuCycle         |day    |mealPeriod|
+    |QAI_2      |false |Automation Testing|TUESDAY|LUNCH     |
     
 Scenario Outline: Verify Number of covers field is not present in the Nutrition screen
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -175,12 +175,12 @@ Scenario Outline: Verify Number of covers field is not present in the Nutrition 
         
     @QAI
     Examples:
-    |environment|menuCycle|day   |mealPeriod|
-    |QAI_2      |Meda     |MONDAY|LUNCH     |
+    |environment|withFA|menuCycle|day   |mealPeriod|
+    |QAI_2      |false |Meda     |MONDAY|LUNCH     |
     
 @TC38024
 Scenario Outline: Close nutrition weeks with "X" button redirects to the calendar daily view
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -191,12 +191,12 @@ Scenario Outline: Close nutrition weeks with "X" button redirects to the calenda
         
     @QAI
     Examples:
-    |environment|menuCycle|day   |
-    |QAI_2      |Meda     |MONDAY|
+    |environment|withFA|menuCycle|day   |
+    |QAI_2      |false |Meda     |MONDAY|
     
 @TC38023
 Scenario Outline: Close nutrition weeks with "Cancel" button redirects to the calendar daily view
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -207,12 +207,12 @@ Scenario Outline: Close nutrition weeks with "Cancel" button redirects to the ca
         
     @QAI
     Examples:
-    |environment|menuCycle|day   |
-    |QAI_2      |Meda     |MONDAY|
+    |environment|withFA|menuCycle|day   |
+    |QAI_2      |false |Meda     |MONDAY|
     
 @TC38030    
 Scenario Outline: Save button is disabled for nutrition weeks
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -222,12 +222,12 @@ Scenario Outline: Save button is disabled for nutrition weeks
         
     @QAI
     Examples:
-    |environment|menuCycle|day   |
-    |QAI_2      |Meda     |MONDAY|
+    |environment|withFA|menuCycle|day   |
+    |QAI_2      |false |Meda     |MONDAY|
     
 @TC38807    
 Scenario Outline: Verify Nutrition weekly totals equals the sum of all meal period totals
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -237,12 +237,12 @@ Scenario Outline: Verify Nutrition weekly totals equals the sum of all meal peri
         
     @QAI
     Examples:
-    |environment|menuCycle                               |day   |
-    |QAI_2      |AUTOMATION - API Integration Weekly View|MONDAY|
+    |environment|withFA|menuCycle                               |day   |
+    |QAI_2      |false |AUTOMATION - API Integration Weekly View|MONDAY|
     
 @TC39274    
 Scenario Outline: Nutrition data is shown after changing planned quantity
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -257,5 +257,5 @@ Scenario Outline: Nutrition data is shown after changing planned quantity
         
     @QAI
     Examples:
-    |environment|menuCycle         |day     |mealPeriod|recipeName      |energyKJ|
-    |QAI_2      |Automation Testing|THURSDAY|CHLOE     |004Baked Beans_1|13092.00|
+    |environment|withFA|menuCycle         |day     |mealPeriod|recipeName      |energyKJ|
+    |QAI_2      |false |Automation Testing|THURSDAY|CHLOE     |004Baked Beans_1|13092.00|

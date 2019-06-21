@@ -66,8 +66,8 @@ namespace MenuCycle.Tests.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Expand all / Collapse all Post-production Days")]
         [NUnit.Framework.CategoryAttribute("TC34327")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", "WED 11 JUL", null, Category="QAI")]
-        public virtual void ExpandAllCollapseAllPost_ProductionDays(string environment, string location, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "WED 11 JUL", null, Category="QAI")]
+        public virtual void ExpandAllCollapseAllPost_ProductionDays(string environment, string withFA, string location, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC34327"};
@@ -79,7 +79,7 @@ namespace MenuCycle.Tests.Features
 #line 4
 this.ScenarioSetup(scenarioInfo);
 #line 5
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 6
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 7
@@ -109,8 +109,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Expand/Collapse single meal period Post-production days")]
         [NUnit.Framework.CategoryAttribute("TC34693")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", "WED 11 JUL", "DINNER", null, Category="QAI")]
-        public virtual void ExpandCollapseSingleMealPeriodPost_ProductionDays(string environment, string location, string menuCycle, string day, string mealPeriod, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "WED 11 JUL", "DINNER", null, Category="QAI")]
+        public virtual void ExpandCollapseSingleMealPeriodPost_ProductionDays(string environment, string withFA, string location, string menuCycle, string day, string mealPeriod, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC34693"};
@@ -122,7 +122,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 24
 this.ScenarioSetup(scenarioInfo);
 #line 25
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 26
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 27
@@ -151,14 +151,14 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Post production daily total calculations")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", "WED 11 JUL", "DINNER", "724Lamb Burger 6oz", "TariffOne", null, Category="QAI")]
-        public virtual void PostProductionDailyTotalCalculations(string environment, string location, string menuCycle, string day, string mealPeriod, string recipeName, string tariff, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "WED 11 JUL", "DINNER", "724Lamb Burger 6oz", "TariffOne", null, Category="QAI")]
+        public virtual void PostProductionDailyTotalCalculations(string environment, string withFA, string location, string menuCycle, string day, string mealPeriod, string recipeName, string tariff, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post production daily total calculations", exampleTags);
 #line 43
 this.ScenarioSetup(scenarioInfo);
 #line 44
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 45
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 46
@@ -199,14 +199,14 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Post production validations")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", "WED 11 JUL", "DINNER", "724Lamb Burger 6oz", "TariffOne", "Must be integer", "Must be 0 or greater", null, Category="QAI")]
-        public virtual void PostProductionValidations(string environment, string location, string menuCycle, string day, string mealPeriod, string recipeName, string tariff, string integerMessage, string negativeMessage, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "WED 11 JUL", "DINNER", "724Lamb Burger 6oz", "TariffOne", "Must be integer", "Must be 0 or greater", null, Category="QAI")]
+        public virtual void PostProductionValidations(string environment, string withFA, string location, string menuCycle, string day, string mealPeriod, string recipeName, string tariff, string integerMessage, string negativeMessage, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post production validations", exampleTags);
 #line 63
 this.ScenarioSetup(scenarioInfo);
 #line 64
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 65
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 66
@@ -293,8 +293,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Open Post-Production Screen, navigate to Weekly view")]
         [NUnit.Framework.CategoryAttribute("TC35467")]
         [NUnit.Framework.CategoryAttribute("D31395")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", "WED 11 JUL", null, Category="QAI")]
-        public virtual void OpenPost_ProductionScreenNavigateToWeeklyView(string environment, string location, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "WED 11 JUL", null, Category="QAI")]
+        public virtual void OpenPost_ProductionScreenNavigateToWeeklyView(string environment, string withFA, string location, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC35467",
@@ -307,7 +307,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 93
 this.ScenarioSetup(scenarioInfo);
 #line 94
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 95
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 96
@@ -333,8 +333,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Export Local Sales report")]
         [NUnit.Framework.CategoryAttribute("TC36205")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Local User Testing", "WED 11 JUL", null, Category="QAI")]
-        public virtual void ExportLocalSalesReport(string environment, string location, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "WED 11 JUL", null, Category="QAI")]
+        public virtual void ExportLocalSalesReport(string environment, string withFA, string location, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC36205"};
@@ -346,7 +346,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 127
 this.ScenarioSetup(scenarioInfo);
 #line 128
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 129
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 130
@@ -374,8 +374,8 @@ this.ScenarioSetup(scenarioInfo);
             "ffet recipes")]
         [NUnit.Framework.CategoryAttribute("TC36009")]
         [NUnit.Framework.CategoryAttribute("TC36010")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Please don`t use", "TUE 29 JAN", "Maya Buffet", "004Basic Sponge", "DANGELO", null, Category="QAI")]
-        public virtual void WastageIsAnInputFieldAndQtySoldAndNoChargeFieldsAreNotPresentForBuffetRecipes(string environment, string location, string menuCycle, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Please don`t use", "TUE 29 JAN", "Maya Buffet", "004Basic Sponge", "DANGELO", null, Category="QAI")]
+        public virtual void WastageIsAnInputFieldAndQtySoldAndNoChargeFieldsAreNotPresentForBuffetRecipes(string environment, string withFA, string location, string menuCycle, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC36009",
@@ -389,7 +389,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 145
 this.ScenarioSetup(scenarioInfo);
 #line 146
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 147
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 148
@@ -416,14 +416,14 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Wastage field is disabled for recipes")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Please don`t use", "TUE 29 JAN", "004Apple Sauce (tinned)", "DANGELO", null, Category="QAI")]
-        public virtual void WastageFieldIsDisabledForRecipes(string environment, string location, string menuCycle, string day, string recipeName, string mealPeriod, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Please don`t use", "TUE 29 JAN", "004Apple Sauce (tinned)", "DANGELO", null, Category="QAI")]
+        public virtual void WastageFieldIsDisabledForRecipes(string environment, string withFA, string location, string menuCycle, string day, string recipeName, string mealPeriod, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Wastage field is disabled for recipes", exampleTags);
 #line 162
 this.ScenarioSetup(scenarioInfo);
 #line 163
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 164
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 165
@@ -448,8 +448,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Contextual error message is shown for Wastage for buffet recipes when decimal is " +
             "inputed")]
         [NUnit.Framework.CategoryAttribute("TC36011")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Please don`t use", "TUE 29 JAN", "Maya Buffet", "004Basic Sponge", "DANGELO", null, Category="QAI")]
-        public virtual void ContextualErrorMessageIsShownForWastageForBuffetRecipesWhenDecimalIsInputed(string environment, string location, string menuCycle, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Please don`t use", "TUE 29 JAN", "Maya Buffet", "004Basic Sponge", "DANGELO", null, Category="QAI")]
+        public virtual void ContextualErrorMessageIsShownForWastageForBuffetRecipesWhenDecimalIsInputed(string environment, string withFA, string location, string menuCycle, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC36011"};
@@ -462,7 +462,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 179
 this.ScenarioSetup(scenarioInfo);
 #line 180
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 181
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 182
@@ -490,8 +490,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Buffet tariff type is present at menu level")]
         [NUnit.Framework.CategoryAttribute("TC36211")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Please don`t use", "TUE 29 JAN", "Maya Buffet", "004Basic Sponge", "DANGELO", null, Category="QAI")]
-        public virtual void BuffetTariffTypeIsPresentAtMenuLevel(string environment, string location, string menuCycle, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Please don`t use", "TUE 29 JAN", "Maya Buffet", "004Basic Sponge", "DANGELO", null, Category="QAI")]
+        public virtual void BuffetTariffTypeIsPresentAtMenuLevel(string environment, string withFA, string location, string menuCycle, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC36211"};
@@ -503,7 +503,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 197
 this.ScenarioSetup(scenarioInfo);
 #line 198
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 199
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 200
@@ -527,8 +527,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Post-Production weekly totals equals the sum of all meal period totals")]
         [NUnit.Framework.CategoryAttribute("TC38808")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "SE001", "Please don`t use", "TUE 29 JAN", "211", "210", "75", "165", "211", "-322", null, Category="QAI")]
-        public virtual void VerifyPost_ProductionWeeklyTotalsEqualsTheSumOfAllMealPeriodTotals(string environment, string location, string menuCycle, string day, string qtyReqd, string qtyProd, string qtySold, string noCharge, string returnToStock, string wastage, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Please don`t use", "TUE 29 JAN", "211", "210", "75", "165", "211", "-322", null, Category="QAI")]
+        public virtual void VerifyPost_ProductionWeeklyTotalsEqualsTheSumOfAllMealPeriodTotals(string environment, string withFA, string location, string menuCycle, string day, string qtyReqd, string qtyProd, string qtySold, string noCharge, string returnToStock, string wastage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC38808"};
@@ -540,7 +540,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 214
 this.ScenarioSetup(scenarioInfo);
 #line 215
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 216
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 217

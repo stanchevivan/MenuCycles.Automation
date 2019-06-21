@@ -25,6 +25,7 @@ namespace MenuCycle.Tests.Support
         }
 
         public string URL => m_Configuration[m_Environment]["URL"];
+        public string URL_Salesforce => m_Configuration[m_Environment]["URL_SF"];
         public string User => m_Configuration[m_Environment]["User"];
         public string Password => m_Configuration[m_Environment]["Password"];
     }

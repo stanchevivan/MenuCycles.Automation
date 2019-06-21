@@ -67,8 +67,8 @@ namespace MenuCycle.Tests.Features
         [NUnit.Framework.DescriptionAttribute("Open Planning Screen, go to Nutritions, go back to Planning screen (Central User)" +
             "")]
         [NUnit.Framework.CategoryAttribute("TC28526")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "TUESDAY", null, Category="QAI")]
-        public virtual void OpenPlanningScreenGoToNutritionsGoBackToPlanningScreenCentralUser(string environment, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "TUESDAY", null, Category="QAI")]
+        public virtual void OpenPlanningScreenGoToNutritionsGoBackToPlanningScreenCentralUser(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC28526"};
@@ -81,7 +81,7 @@ namespace MenuCycle.Tests.Features
 #line 5
 this.ScenarioSetup(scenarioInfo);
 #line 6
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 8
@@ -101,8 +101,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Open Planning Screen, go to Weeks, go back to Planning screen (Central User)")]
         [NUnit.Framework.CategoryAttribute("TC28555")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "TUESDAY", null, Category="QAI")]
-        public virtual void OpenPlanningScreenGoToWeeksGoBackToPlanningScreenCentralUser(string environment, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "TUESDAY", null, Category="QAI")]
+        public virtual void OpenPlanningScreenGoToWeeksGoBackToPlanningScreenCentralUser(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC28555"};
@@ -114,7 +114,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 20
 this.ScenarioSetup(scenarioInfo);
 #line 21
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 22
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 23
@@ -134,8 +134,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Save button is clicked without any changes applied")]
         [NUnit.Framework.CategoryAttribute("TC29023")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "MONDAY", null, Category="QAI")]
-        public virtual void SaveButtonIsClickedWithoutAnyChangesApplied(string environment, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "MONDAY", null, Category="QAI")]
+        public virtual void SaveButtonIsClickedWithoutAnyChangesApplied(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29023"};
@@ -147,7 +147,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 35
 this.ScenarioSetup(scenarioInfo);
 #line 36
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 37
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 38
@@ -165,8 +165,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Save all updated figures (fields)")]
         [NUnit.Framework.CategoryAttribute("TC29022")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", null, Category="QAI")]
-        public virtual void SaveAllUpdatedFiguresFields(string environment, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", null, Category="QAI")]
+        public virtual void SaveAllUpdatedFiguresFields(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29022"};
@@ -178,7 +178,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 49
 this.ScenarioSetup(scenarioInfo);
 #line 50
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 51
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 52
@@ -222,8 +222,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Saved data is retrieved from the API")]
         [NUnit.Framework.CategoryAttribute("TC29024")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", "1#99", null, Category="QAI")]
-        public virtual void SavedDataIsRetrievedFromTheAPI(string environment, string menuCycle, string mealPeriod, string recipeName, string day, string plannedQty, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", "1#99", null, Category="QAI")]
+        public virtual void SavedDataIsRetrievedFromTheAPI(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string day, string plannedQty, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29024"};
@@ -235,7 +235,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 72
 this.ScenarioSetup(scenarioInfo);
 #line 73
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 74
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 75
@@ -287,8 +287,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Successfully Update and Save number of covers")]
         [NUnit.Framework.CategoryAttribute("TC29019")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", null, Category="QAI")]
-        public virtual void SuccessfullyUpdateAndSaveNumberOfCovers(string environment, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", null, Category="QAI")]
+        public virtual void SuccessfullyUpdateAndSaveNumberOfCovers(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29019"};
@@ -300,7 +300,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 99
 this.ScenarioSetup(scenarioInfo);
 #line 100
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 101
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 102
@@ -337,8 +337,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.CategoryAttribute("D23144")]
         [NUnit.Framework.CategoryAttribute("D24051")]
         [NUnit.Framework.CategoryAttribute("D24410")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "LUNCH", "004Baked Beans_3", "724Gourmet Beef Burger 6oz", "724Gourmet Chicken Burger", null, Category="QAI")]
-        public virtual void OpenMondayPlanningScreenThenGoToTuesdayBackToMondayUpdateTotalQuantityAndClickSave(string environment, string menuCycle, string mealPeriod, string recipeName, string item1, string item2, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "LUNCH", "004Baked Beans_3", "724Gourmet Beef Burger 6oz", "724Gourmet Chicken Burger", null, Category="QAI")]
+        public virtual void OpenMondayPlanningScreenThenGoToTuesdayBackToMondayUpdateTotalQuantityAndClickSave(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string item1, string item2, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29080",
@@ -354,7 +354,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 120
 this.ScenarioSetup(scenarioInfo);
 #line 121
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 122
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 123
@@ -408,8 +408,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Modal dialog for unsaved changes is shown on cancel")]
         [NUnit.Framework.CategoryAttribute("TC29521")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", null, Category="QAI")]
-        public virtual void ModalDialogForUnsavedChangesIsShownOnCancel(string environment, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", null, Category="QAI")]
+        public virtual void ModalDialogForUnsavedChangesIsShownOnCancel(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29521"};
@@ -421,7 +421,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 148
 this.ScenarioSetup(scenarioInfo);
 #line 149
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 150
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 151
@@ -449,8 +449,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Modal dialog for unsaved changes is shown on pressing X")]
         [NUnit.Framework.CategoryAttribute("TC29521")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", null, Category="QAI")]
-        public virtual void ModalDialogForUnsavedChangesIsShownOnPressingX(string environment, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", null, Category="QAI")]
+        public virtual void ModalDialogForUnsavedChangesIsShownOnPressingX(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29521"};
@@ -462,7 +462,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 167
 this.ScenarioSetup(scenarioInfo);
 #line 168
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 169
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 170
@@ -490,8 +490,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Modal dialog for unsaved changes is shown when going to nutrition")]
         [NUnit.Framework.CategoryAttribute("TC29526")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", null, Category="QAI")]
-        public virtual void ModalDialogForUnsavedChangesIsShownWhenGoingToNutrition(string environment, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", null, Category="QAI")]
+        public virtual void ModalDialogForUnsavedChangesIsShownWhenGoingToNutrition(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29526"};
@@ -503,7 +503,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 186
 this.ScenarioSetup(scenarioInfo);
 #line 187
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 188
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 189
@@ -529,8 +529,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Modal dialog for unsaved changes is shown when going to weekly planning view")]
         [NUnit.Framework.CategoryAttribute("TC29521")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", null, Category="QAI")]
-        public virtual void ModalDialogForUnsavedChangesIsShownWhenGoingToWeeklyPlanningView(string environment, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", null, Category="QAI")]
+        public virtual void ModalDialogForUnsavedChangesIsShownWhenGoingToWeeklyPlanningView(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29521"};
@@ -542,7 +542,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 204
 this.ScenarioSetup(scenarioInfo);
 #line 205
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 206
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 207
@@ -569,8 +569,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Number of covers is saved after closing the app")]
         [NUnit.Framework.CategoryAttribute("TC29558")]
         [NUnit.Framework.CategoryAttribute("D23865")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "LUNCH", "MONDAY", null, Category="QAI")]
-        public virtual void NumberOfCoversIsSavedAfterClosingTheApp(string environment, string menuCycle, string mealPeriod, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "LUNCH", "MONDAY", null, Category="QAI")]
+        public virtual void NumberOfCoversIsSavedAfterClosingTheApp(string environment, string withFA, string menuCycle, string mealPeriod, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29558",
@@ -583,7 +583,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 222
 this.ScenarioSetup(scenarioInfo);
 #line 223
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 224
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 225
@@ -599,7 +599,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 230
         testRunner.And("Menu Cycles app is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 231
-        testRunner.And(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 232
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 233
@@ -617,8 +617,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Calculate Daily Totals")]
         [NUnit.Framework.CategoryAttribute("TC29753")]
         [NUnit.Framework.CategoryAttribute("D26939")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "TUESDAY", null, Category="QAI")]
-        public virtual void CalculateDailyTotals(string environment, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "TUESDAY", null, Category="QAI")]
+        public virtual void CalculateDailyTotals(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29753",
@@ -631,7 +631,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 243
 this.ScenarioSetup(scenarioInfo);
 #line 244
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 245
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 246
@@ -764,8 +764,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("No planning data available message")]
         [NUnit.Framework.CategoryAttribute("TC29844")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Testing Copying Meal Periods", "TUESDAY", null, Category="QAI")]
-        public virtual void NoPlanningDataAvailableMessage(string environment, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Testing Copying Meal Periods", "TUESDAY", null, Category="QAI")]
+        public virtual void NoPlanningDataAvailableMessage(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29844"};
@@ -777,7 +777,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 282
 this.ScenarioSetup(scenarioInfo);
 #line 283
-testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 284
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 285
@@ -797,8 +797,8 @@ testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment)
         [NUnit.Framework.DescriptionAttribute("Error message is displayed when changes are made and Update Price button is click" +
             "ed")]
         [NUnit.Framework.CategoryAttribute("TC29845")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "DANGELO", "004Baked Beans_3", "FRIDAY", null, Category="QAI")]
-        public virtual void ErrorMessageIsDisplayedWhenChangesAreMadeAndUpdatePriceButtonIsClicked(string environment, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "DANGELO", "004Baked Beans_3", "FRIDAY", null, Category="QAI")]
+        public virtual void ErrorMessageIsDisplayedWhenChangesAreMadeAndUpdatePriceButtonIsClicked(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29845"};
@@ -811,7 +811,7 @@ testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment)
 #line 296
 this.ScenarioSetup(scenarioInfo);
 #line 297
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 298
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 299
@@ -833,8 +833,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("No modal dialog is shown if there are no changes and Cancel button is clicked")]
         [NUnit.Framework.CategoryAttribute("TC29885")]
         [NUnit.Framework.CategoryAttribute("D24506")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "MONDAY", null, Category="QAI")]
-        public virtual void NoModalDialogIsShownIfThereAreNoChangesAndCancelButtonIsClicked(string environment, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "MONDAY", null, Category="QAI")]
+        public virtual void NoModalDialogIsShownIfThereAreNoChangesAndCancelButtonIsClicked(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29885",
@@ -847,7 +847,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 311
 this.ScenarioSetup(scenarioInfo);
 #line 312
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 313
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 314
@@ -868,8 +868,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Notification is shown when user is trying to save planning with the same price ty" +
             "pe selected several times")]
         [NUnit.Framework.CategoryAttribute("TC29874")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", null, Category="QAI")]
-        public virtual void NotificationIsShownWhenUserIsTryingToSavePlanningWithTheSamePriceTypeSelectedSeveralTimes(string environment, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", null, Category="QAI")]
+        public virtual void NotificationIsShownWhenUserIsTryingToSavePlanningWithTheSamePriceTypeSelectedSeveralTimes(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29874"};
@@ -882,7 +882,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 326
 this.ScenarioSetup(scenarioInfo);
 #line 327
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 328
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 329
@@ -906,8 +906,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Notification is shown when user has selected all available price types")]
         [NUnit.Framework.CategoryAttribute("TC29875")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", null, Category="QAI")]
-        public virtual void NotificationIsShownWhenUserHasSelectedAllAvailablePriceTypes(string environment, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", null, Category="QAI")]
+        public virtual void NotificationIsShownWhenUserHasSelectedAllAvailablePriceTypes(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29875"};
@@ -919,7 +919,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 342
 this.ScenarioSetup(scenarioInfo);
 #line 343
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 344
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 345
@@ -964,8 +964,8 @@ this.ScenarioSetup(scenarioInfo);
             "ecipe")]
         [NUnit.Framework.CategoryAttribute("TC30010")]
         [NUnit.Framework.CategoryAttribute("D24750")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "DANGELO", "004Bechamel Sauce", "FRIDAY", null, Category="QAI")]
-        public virtual void ModalDialogIsClosedOnCancelWhenOnlyPriceModelIsChangedForAnUnsavedRecipe(string environment, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "DANGELO", "004Bechamel Sauce", "FRIDAY", null, Category="QAI")]
+        public virtual void ModalDialogIsClosedOnCancelWhenOnlyPriceModelIsChangedForAnUnsavedRecipe(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC30010",
@@ -979,7 +979,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 368
 this.ScenarioSetup(scenarioInfo);
 #line 369
-        testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 370
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 371
@@ -1014,8 +1014,8 @@ this.ScenarioSetup(scenarioInfo);
             "n view and back")]
         [NUnit.Framework.CategoryAttribute("TC30592")]
         [NUnit.Framework.CategoryAttribute("D25310")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "MONDAY", null, Category="QAI")]
-        public virtual void UserShouldNotBeRedirectedToThePlanningScreenAfterNavigatingToNutritionViewAndBack(string environment, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "MONDAY", null, Category="QAI")]
+        public virtual void UserShouldNotBeRedirectedToThePlanningScreenAfterNavigatingToNutritionViewAndBack(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC30592",
@@ -1029,7 +1029,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 387
 this.ScenarioSetup(scenarioInfo);
 #line 388
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 389
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 390
@@ -1056,8 +1056,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Load engine when Planning screen is opened (Central User)")]
         [NUnit.Framework.CategoryAttribute("TC28500")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "TUESDAY", null, Category="QAI")]
-        public virtual void LoadEngineWhenPlanningScreenIsOpenedCentralUser(string environment, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "TUESDAY", null, Category="QAI")]
+        public virtual void LoadEngineWhenPlanningScreenIsOpenedCentralUser(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC28500",
@@ -1070,7 +1070,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 405
 this.ScenarioSetup(scenarioInfo);
 #line 406
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 407
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 408
@@ -1091,8 +1091,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Close planning screen with \"X\" button without any changes")]
         [NUnit.Framework.CategoryAttribute("TC27677")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "MONDAY", null, Category="QAI")]
-        public virtual void ClosePlanningScreenWithXButtonWithoutAnyChanges(string environment, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "MONDAY", null, Category="QAI")]
+        public virtual void ClosePlanningScreenWithXButtonWithoutAnyChanges(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC27677",
@@ -1105,7 +1105,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 420
 this.ScenarioSetup(scenarioInfo);
 #line 421
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 422
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 423
@@ -1123,8 +1123,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify save button is disabled if menu cycle is published")]
         [NUnit.Framework.CategoryAttribute("TC31037")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Menu Cycle for Local user", "THURSDAY", null, Category="QAI")]
-        public virtual void VerifySaveButtonIsDisabledIfMenuCycleIsPublished(string environment, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Menu Cycle for Local user", "THURSDAY", null, Category="QAI")]
+        public virtual void VerifySaveButtonIsDisabledIfMenuCycleIsPublished(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC31037"};
@@ -1136,7 +1136,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 434
 this.ScenarioSetup(scenarioInfo);
 #line 435
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 436
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 437
@@ -1153,8 +1153,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Planning screen is loaded after searching for recipe which is not found")]
         [NUnit.Framework.CategoryAttribute("TC31887")]
         [NUnit.Framework.CategoryAttribute("D26963")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Automation Testing", "LUNCH", "Madanoz", "MONDAY", null, Category="QAI")]
-        public virtual void PlanningScreenIsLoadedAfterSearchingForRecipeWhichIsNotFound(string environment, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Automation Testing", "LUNCH", "Madanoz", "MONDAY", null, Category="QAI")]
+        public virtual void PlanningScreenIsLoadedAfterSearchingForRecipeWhichIsNotFound(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC31887",
@@ -1167,7 +1167,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 447
 this.ScenarioSetup(scenarioInfo);
 #line 448
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 449
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 450
@@ -1197,8 +1197,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Save button is disabled for locked menu cycle")]
         [NUnit.Framework.CategoryAttribute("TC37810")]
-        [NUnit.Framework.TestCaseAttribute("QAI_2", "LOCKED MENU CYCLE", "TUESDAY", null, Category="QAI")]
-        public virtual void SaveButtonIsDisabledForLockedMenuCycle(string environment, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "false", "LOCKED MENU CYCLE", "TUESDAY", null, Category="QAI")]
+        public virtual void SaveButtonIsDisabledForLockedMenuCycle(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC37810"};
@@ -1210,7 +1210,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 467
 this.ScenarioSetup(scenarioInfo);
 #line 468
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 469
         testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 470
@@ -1226,8 +1226,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify planning weekly totals equals the sum of all meal period totals")]
         [NUnit.Framework.CategoryAttribute("TC38806")]
-        [NUnit.Framework.TestCaseAttribute("QAI_2", "AUTOMATION - API Integration Weekly View", "MONDAY", null, Category="QAI")]
-        public virtual void VerifyPlanningWeeklyTotalsEqualsTheSumOfAllMealPeriodTotals(string environment, string menuCycle, string day, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "false", "AUTOMATION - API Integration Weekly View", "MONDAY", null, Category="QAI")]
+        public virtual void VerifyPlanningWeeklyTotalsEqualsTheSumOfAllMealPeriodTotals(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC38806"};
@@ -1239,7 +1239,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 480
 this.ScenarioSetup(scenarioInfo);
 #line 481
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 482
         testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 483
@@ -1257,8 +1257,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Default values are \'0\' for unplanned meal period")]
         [NUnit.Framework.CategoryAttribute("TC39250")]
-        [NUnit.Framework.TestCaseAttribute("QAI_2", "Automation Testing", "MONDAY", "DINNER", "004Basic Sponge", null, Category="QAI")]
-        public virtual void DefaultValuesAre0ForUnplannedMealPeriod(string environment, string menuCycle, string day, string mealPeriod, string recipeName, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "false", "Automation Testing", "MONDAY", "DINNER", "004Basic Sponge", null, Category="QAI")]
+        public virtual void DefaultValuesAre0ForUnplannedMealPeriod(string environment, string withFA, string menuCycle, string day, string mealPeriod, string recipeName, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC39250"};
@@ -1270,7 +1270,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 495
 this.ScenarioSetup(scenarioInfo);
 #line 496
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 497
         testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 498
@@ -1305,8 +1305,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Default values are \'0\' when adding new recipe tariff type")]
         [NUnit.Framework.CategoryAttribute("TC39251")]
-        [NUnit.Framework.TestCaseAttribute("QAI_2", "Automation Testing", "MONDAY", "DINNER", "004Basic Sponge", null, Category="QAI")]
-        public virtual void DefaultValuesAre0WhenAddingNewRecipeTariffType(string environment, string menuCycle, string day, string mealPeriod, string recipeName, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "false", "Automation Testing", "MONDAY", "DINNER", "004Basic Sponge", null, Category="QAI")]
+        public virtual void DefaultValuesAre0WhenAddingNewRecipeTariffType(string environment, string withFA, string menuCycle, string day, string mealPeriod, string recipeName, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC39251"};
@@ -1318,7 +1318,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 512
 this.ScenarioSetup(scenarioInfo);
 #line 513
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 514
         testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 515

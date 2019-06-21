@@ -4,17 +4,17 @@ Feature: Performance Tests
 
 @TC35430
 Scenario Outline: Initial load of menu cycles list
-Given Menu Cycle app is open on "<environment>" 
+Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
 When Measure performance of load menu cycles list for "100" repetitions
     
     @QAI
     Examples:
-    |environment|
-    |QAI        |
+    |environment|withFA|
+    |QAI        |false |
     
 @TC35434
 Scenario Outline: Central user search recipes
-Given Menu Cycle app is open on "<environment>" 
+Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
     And a central user is selected
     And Menu Cycle "<menuCycle>" is selected
 When Details for meal period "<mealPeriod>" in "<day>" are opened
@@ -23,24 +23,24 @@ When Details for meal period "<mealPeriod>" in "<day>" are opened
     
     @QAI
     Examples:
-    |environment|menuCycle                     |recipe|day      |mealPeriod|
-    |QAI        |Automation Performance Testing|      |WEDNESDAY|LUNCH     |
+    |environment|withFA|menuCycle                     |recipe|day      |mealPeriod|
+    |QAI        |false |Automation Performance Testing|      |WEDNESDAY|LUNCH     |
     
 @TC35443
 Scenario Outline: Open planning screen
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When Measure performance of Open planning screen for "20" repetitions on "<day>"
     
     @QAI
     Examples:
-    |environment|menuCycle                     |day      |
-    |QAI        |Automation Performance Testing|WEDNESDAY|
+    |environment|withFA|menuCycle                     |day      |
+    |QAI        |false |Automation Performance Testing|WEDNESDAY|
     
 @TC35444
 Scenario Outline: Open nutrition screen
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -48,37 +48,37 @@ Scenario Outline: Open nutrition screen
     
     @QAI
     Examples:
-    |environment|menuCycle                     |day      |
-    |QAI        |Automation Performance Testing|WEDNESDAY|
+    |environment|withFA|menuCycle                     |day      |
+    |QAI        |false |Automation Performance Testing|WEDNESDAY|
     
 @TC35445
 Scenario Outline: Open calendar weeks
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When Measure performance of Open weekly calendar view for "20" repetitions
     @QAI
     Examples:
-    |environment|menuCycle                     |
-    |QAI        |Automation Performance Testing|
+    |environment|withFA|menuCycle                     |
+    |QAI        |false |Automation Performance Testing|
     
 @TC35439
 Scenario Outline: Open menu cycle with 1800 items
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
     When Measure performance of Open menu cycle for "10" repetitions for "<menuCycle>"
     @QAI
     Examples:
-    |environment|location|menuCycle            |
-    |QAI        |SE001   |Winter Breakfast Menu|
+    |environment|withFA|location|menuCycle            |
+    |QAI        |false |SE001   |Winter Breakfast Menu|
     
 @TC39657
 Scenario Outline: Open menu cycle with 4000 items in one week
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
     When Measure performance of Open menu cycle for "10" repetitions for "<menuCycle>"
     @QAI
     Examples:
-    |environment|location|menuCycle               |
-    |QAI        |SE001   |4000 items - Do not use|
+    |environment|withFA|location|menuCycle               |
+    |QAI        |false |SE001   |4000 items - Do not use|

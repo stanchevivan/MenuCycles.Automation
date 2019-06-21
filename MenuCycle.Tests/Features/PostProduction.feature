@@ -2,7 +2,7 @@
 	
 @TC34327
 Scenario Outline: Expand all / Collapse all Post-production Days
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -17,12 +17,12 @@ Scenario Outline: Expand all / Collapse all Post-production Days
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |day       |
-    |QAI        |SE001   |Local User Testing|WED 11 JUL|
+    |environment|withFA|location|menuCycle         |day       |
+    |QAI        |false |SE001   |Local User Testing|WED 11 JUL|
     
 @TC34693
 Scenario Outline: Expand/Collapse single meal period Post-production days
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -37,11 +37,11 @@ Scenario Outline: Expand/Collapse single meal period Post-production days
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |day       |mealPeriod|
-    |QAI        |SE001   |Local User Testing|WED 11 JUL|DINNER    |
+    |environment|withFA|location|menuCycle         |day       |mealPeriod|
+    |QAI        |false |SE001   |Local User Testing|WED 11 JUL|DINNER    |
     
 Scenario Outline: Post production daily total calculations
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -57,11 +57,11 @@ Scenario Outline: Post production daily total calculations
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |day       |mealPeriod|recipeName        |tariff   |
-    |QAI        |SE001   |Local User Testing|WED 11 JUL|DINNER    |724Lamb Burger 6oz|TariffOne|
+    |environment|withFA|location|menuCycle         |day       |mealPeriod|recipeName        |tariff   |
+    |QAI        |false |SE001   |Local User Testing|WED 11 JUL|DINNER    |724Lamb Burger 6oz|TariffOne|
     
 Scenario Outline: Post production validations
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -85,13 +85,13 @@ Scenario Outline: Post production validations
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |day       |mealPeriod|recipeName        |tariff   |integerMessage |negativeMessage     |
-    |QAI        |SE001   |Local User Testing|WED 11 JUL|DINNER    |724Lamb Burger 6oz|TariffOne|Must be integer|Must be 0 or greater|
+    |environment|withFA|location|menuCycle         |day       |mealPeriod|recipeName        |tariff   |integerMessage |negativeMessage     |
+    |QAI        |false |SE001   |Local User Testing|WED 11 JUL|DINNER    |724Lamb Burger 6oz|TariffOne|Must be integer|Must be 0 or greater|
 
 
 @TC35467 @D31395
 Scenario Outline: Open Post-Production Screen, navigate to Weekly view
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -104,13 +104,13 @@ Scenario Outline: Open Post-Production Screen, navigate to Weekly view
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |day       |
-    |QAI        |SE001   |Local User Testing|WED 11 JUL|
+    |environment|withFA|location|menuCycle         |day       |
+    |QAI        |false |SE001   |Local User Testing|WED 11 JUL|
   
  # Scenario is commented until POS integration is finished   
  # @TC35573
  # Scenario Outline: POS Integration: When "isSoldQtyReadOnly" flag = false, 'qty sold' is disabled for buffet at menu level
-   #  Given Menu Cycle app is open on "<environment>" 
+   #  Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
    #      And a local user is selected
    #      And location "<location>" is selected
    #      And Menu Cycle "<menuCycle>" is selected
@@ -120,12 +120,12 @@ Scenario Outline: Open Post-Production Screen, navigate to Weekly view
    
     #    @QAI
     # Examples:
-    # |environment|location|menuCycle       |day       |buffetName |mealPeriod|
-    # |QAI        |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|   DANGELO|
+    # |environment|withFA|location|menuCycle       |day       |buffetName |mealPeriod|
+    # |QAI        |false |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|   DANGELO|
     
 @TC36205  
 Scenario Outline: Export Local Sales report
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -138,12 +138,12 @@ Scenario Outline: Export Local Sales report
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |day       |
-    |QAI        |SE001   |Local User Testing|WED 11 JUL|
+    |environment|withFA|location|menuCycle         |day       |
+    |QAI        |false |SE001   |Local User Testing|WED 11 JUL|
     
 @TC36009 @TC36010
 Scenario Outline: Wastage is an input field and QtySold and No charge fields are not present for buffet recipes
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -156,11 +156,11 @@ Scenario Outline: Wastage is an input field and QtySold and No charge fields are
     
        @QAI
     Examples:
-    |environment|location|menuCycle       |day       |buffetName |recipeName     |mealPeriod|
-    |QAI        |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|004Basic Sponge|   DANGELO|
+    |environment|withFA|location|menuCycle       |day       |buffetName |recipeName     |mealPeriod|
+    |QAI        |false |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|004Basic Sponge|   DANGELO|
     
 Scenario Outline: Wastage field is disabled for recipes
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -172,12 +172,12 @@ Scenario Outline: Wastage field is disabled for recipes
    
        @QAI
     Examples:
-    |environment|location|menuCycle       |day       |recipeName             |mealPeriod|
-    |QAI        |SE001   |Please don`t use|TUE 29 JAN|004Apple Sauce (tinned)|   DANGELO|
+    |environment|withFA|location|menuCycle       |day       |recipeName             |mealPeriod|
+    |QAI        |false |SE001   |Please don`t use|TUE 29 JAN|004Apple Sauce (tinned)|   DANGELO|
     
 @TC36011
 Scenario Outline: Contextual error message is shown for Wastage for buffet recipes when decimal is inputed
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -190,12 +190,12 @@ Scenario Outline: Contextual error message is shown for Wastage for buffet recip
 
        @QAI
     Examples:
-    |environment|location|menuCycle       |day       |buffetName |recipeName     |mealPeriod|
-    |QAI        |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|004Basic Sponge|   DANGELO|
+    |environment|withFA|location|menuCycle       |day       |buffetName |recipeName     |mealPeriod|
+    |QAI        |false |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|004Basic Sponge|   DANGELO|
 
 @TC36211
 Scenario Outline: Buffet tariff type is present at menu level
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -207,12 +207,12 @@ Scenario Outline: Buffet tariff type is present at menu level
     
            @QAI
     Examples:
-    |environment|location|menuCycle       |day       |buffetName |recipeName     |mealPeriod|
-    |QAI        |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|004Basic Sponge|   DANGELO|
+    |environment|withFA|location|menuCycle       |day       |buffetName |recipeName     |mealPeriod|
+    |QAI        |false |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|004Basic Sponge|   DANGELO|
     
 @TC38808    
 Scenario Outline: Verify Post-Production weekly totals equals the sum of all meal period totals
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
@@ -228,5 +228,5 @@ Scenario Outline: Verify Post-Production weekly totals equals the sum of all mea
     
     @QAI
     Examples:
-    |environment|location|menuCycle       |day       |qtyReqd|qtyProd|qtySold|noCharge|returnToStock|wastage|
-    |QAI        |SE001   |Please don`t use|TUE 29 JAN|211    |210    |75     |165     |211          |-322   |
+    |environment|withFA|location|menuCycle       |day       |qtyReqd|qtyProd|qtySold|noCharge|returnToStock|wastage|
+    |QAI        |false |SE001   |Please don`t use|TUE 29 JAN|211    |210    |75     |165     |211          |-322   |

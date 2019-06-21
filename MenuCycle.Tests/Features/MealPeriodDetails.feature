@@ -2,7 +2,7 @@
 
 @TC30229
 Scenario Outline: Only one cost is presented for single recipe in the meal period detailed view
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When Details for meal period "<mealPeriod>" in "<day>" are opened
@@ -13,12 +13,12 @@ Scenario Outline: Only one cost is presented for single recipe in the meal perio
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|day    |recipe1                   |cost1 |recipe2                  |cost2 |
-    |QAI_2      |Meda     |LUNCH     |TUESDAY|724Gourmet Beef Burger 6oz|£0.375|724Gourmet Chicken Burger|£0.375|
+    |environment|withFA|menuCycle|mealPeriod|day    |recipe1                   |cost1 |recipe2                  |cost2 |
+    |QAI_2      |false |Meda     |LUNCH     |TUESDAY|724Gourmet Beef Burger 6oz|£0.375|724Gourmet Chicken Burger|£0.375|
 
 @TC30230
 Scenario Outline: Only one cost is presented for recipes in Buffet in the meal period detailed view
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When Details for meal period "<mealPeriod>" in "<day>" are opened
@@ -32,11 +32,11 @@ Scenario Outline: Only one cost is presented for recipes in Buffet in the meal p
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|day    |
-    |QAI_2      |Meda     |DANGELO   |TUESDAY|
+    |environment|withFA|menuCycle|mealPeriod|day    |
+    |QAI_2      |false |Meda     |DANGELO   |TUESDAY|
 
 Scenario Outline: Only single cost is presented for recipes in recipe search
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When Details for meal period "<mealPeriod>" in "<day>" are opened
@@ -48,12 +48,12 @@ Scenario Outline: Only single cost is presented for recipes in recipe search
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|day    |recipe        |cost   |
-    |QAI_2      |Meda     |LUNCH     |MONDAY |724Apple Sauce|£2.1886|
+    |environment|withFA|menuCycle|mealPeriod|day    |recipe        |cost   |
+    |QAI_2      |false |Meda     |LUNCH     |MONDAY |724Apple Sauce|£2.1886|
     
 @TC39628
 Scenario Outline: Copy and Delete buttons are disabled when new recipe is added
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When Details for meal period "<mealPeriod>" in "<day>" are opened
@@ -65,12 +65,12 @@ Scenario Outline: Copy and Delete buttons are disabled when new recipe is added
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|day    |recipe        |
-    |QAI_2      |Meda     |LUNCH     |MONDAY |724Apple Sauce|
+    |environment|withFA|menuCycle|mealPeriod|day    |recipe        |
+    |QAI_2      |false |Meda     |LUNCH     |MONDAY |724Apple Sauce|
     
 @TC39851 @TC39630
 Scenario Outline: Copy/Delete buttons are enabled when you delete and add the same recipe to its original order
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When Details for meal period "<mealPeriod>" in "<day>" are opened
@@ -86,12 +86,12 @@ Scenario Outline: Copy/Delete buttons are enabled when you delete and add the sa
     
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|day      |recipe          |
-    |QAI_2      |Meda     |LANCE     |WEDNESDAY|004Baked Beans_0|
+    |environment|withFA|menuCycle|mealPeriod|day      |recipe          |
+    |QAI_2      |false |Meda     |LANCE     |WEDNESDAY|004Baked Beans_0|
     
 @TC39631    
 Scenario Outline: Copy and Delete buttons are disabled when recipe order is changed
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When Details for meal period "<mealPeriod>" in "<day>" are opened
@@ -106,12 +106,12 @@ Scenario Outline: Copy and Delete buttons are disabled when recipe order is chan
         
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|day      |recipe          |
-    |QAI_2      |Meda     |LANCE     |WEDNESDAY|004Baked Beans_0|
+    |environment|withFA|menuCycle|mealPeriod|day      |recipe          |
+    |QAI_2      |false |Meda     |LANCE     |WEDNESDAY|004Baked Beans_0|
     
 @TC39629
 Scenario Outline: Copy/Delete buttons are disabled when you have unsaved new recipes
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When Details for meal period "<mealPeriod>" in "<day>" are opened
@@ -126,5 +126,5 @@ Scenario Outline: Copy/Delete buttons are disabled when you have unsaved new rec
         
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|day      |recipe1         |recipe2         |
-    |QAI_2      |Meda     |LANCE     |WEDNESDAY|004Baked Beans_1|004Baked Beans_2|
+    |environment|withFA|menuCycle|mealPeriod|day      |recipe1         |recipe2         |
+    |QAI_2      |false |Meda     |LANCE     |WEDNESDAY|004Baked Beans_1|004Baked Beans_2|

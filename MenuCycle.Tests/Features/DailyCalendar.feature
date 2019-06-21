@@ -3,7 +3,7 @@
 	
 @TC34368 @TC34367
 Scenario Outline: Daily Calendar view is switched for central user
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When daily calendar view is switched
@@ -13,12 +13,12 @@ Scenario Outline: Daily Calendar view is switched for central user
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |
-    |QAI        |Meda     |Sunday|
+    |environment|withFA|menuCycle|day   |
+    |QAI        |false |Meda     |Sunday|
     
 @TC34370 @TC34369
 Scenario Outline: Daily Calendar view is switched for local user
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
     When Menu Cycle "<menuCycle>" is selected
@@ -29,12 +29,12 @@ Scenario Outline: Daily Calendar view is switched for local user
     
     @QAI
     Examples:
-    |environment|location|menuCycle         |day      |
-    |QAI        |SE001   |Local User Testing|SUN 5 AUG|
+    |environment|withFA|location|menuCycle         |day      |
+    |QAI        |false |SE001   |Local User Testing|SUN 5 AUG|
     
 @TC37976
 Scenario Outline: Review page is opened
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When daily review page is opened
@@ -42,12 +42,12 @@ Scenario Outline: Review page is opened
     
     @QAI
     Examples:
-    |environment|menuCycle|
-    |QAI        |Meda     |
+    |environment|withFA|menuCycle|
+    |QAI        |false |Meda     |
     
 @TC37976
 Scenario Outline: Navigate to meal period details from internal search
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When search in Menu Cycle for " "
@@ -55,12 +55,12 @@ Scenario Outline: Navigate to meal period details from internal search
     Then Verify meal period details for "<weekName> <day>" is open
     @QAI
     Examples:
-    |environment|menuCycle|recipeName     |weekName|day   |
-    |QAI        |Meda     |004Baked Beanss|Week 1  |Sunday|
+    |environment|withFA|menuCycle|recipeName     |weekName|day   |
+    |QAI        |false |Meda     |004Baked Beanss|Week 1  |Sunday|
     
 @TC38603
 Scenario Outline: User is redirected to the week from which he opened the Planning screen
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And Weekly Calendar is opened
@@ -70,12 +70,12 @@ Scenario Outline: User is redirected to the week from which he opened the Planni
     Then Verify week name is "<weekName>"
     @QAI
     Examples:
-    |environment|menuCycle                  |weekName|day   |
-    |QAI        |Automation - Multiple weeks|WEEK 2  |Monday|
+    |environment|withFA|menuCycle                  |weekName|day   |
+    |QAI        |false |Automation - Multiple weeks|WEEK 2  |Monday|
     
 @TC38604
 Scenario Outline: User is redirected to the week from which he opened the Review page
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And Weekly Calendar is opened
@@ -85,12 +85,12 @@ Scenario Outline: User is redirected to the week from which he opened the Review
     Then Verify week name is "<weekName>"
     @QAI
     Examples:
-    |environment|menuCycle                  |weekName|
-    |QAI        |Automation - Multiple weeks|WEEK 2  |
+    |environment|withFA|menuCycle                  |weekName|
+    |QAI        |false |Automation - Multiple weeks|WEEK 2  |
     
 @TC38605
 Scenario Outline: User is redirected to the week from which he opened the Reports page
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And Weekly Calendar is opened
@@ -100,5 +100,5 @@ Scenario Outline: User is redirected to the week from which he opened the Report
     Then Verify week name is "<weekName>"
     @QAI
     Examples:
-    |environment|menuCycle                  |weekName|
-    |QAI        |Automation - Multiple weeks|WEEK 2  |
+    |environment|withFA|menuCycle                  |weekName|
+    |QAI        |false |Automation - Multiple weeks|WEEK 2  |

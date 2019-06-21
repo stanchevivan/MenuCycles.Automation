@@ -3,7 +3,7 @@
 
 @TC28829 @Smoke
 Scenario Outline: Retrieve recipe information from the API
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -13,14 +13,14 @@ Scenario Outline: Retrieve recipe information from the API
         
     @QAI
     Examples:
-    |environment|menuCycle|day     |mealPeriod|type  |recipeName                                  |plannedQuantity|costPerUnit|tariffType|priceModel|target|taxPercentage|sellPrice|
-    |QAI        |Meda     |Thursday|DANGELO   |RECIPE|703Coronation Chicken Sandwich Filling (50g)|             12|       0.80| TariffOne|        GP|  5.00|           20|     1.01|
+    |environment|withFA|menuCycle|day     |mealPeriod|type  |recipeName                                  |plannedQuantity|costPerUnit|tariffType|priceModel|target|taxPercentage|sellPrice|
+    |QAI        |false |Meda     |Thursday|DANGELO   |RECIPE|703Coronation Chicken Sandwich Filling (50g)|             12|       0.80| TariffOne|        GP|  5.00|           20|     1.01|
     
                                                     
     
 @TC28830
 Scenario Outline: "Target %" field is not present and "Sell Price" can be edited if "Price model" = "Fixed"
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -31,13 +31,13 @@ Scenario Outline: "Target %" field is not present and "Sell Price" can be edited
         
     @QAI
     Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
     
 # Not implemented
 # @TC29033 
 # Scenario Outline: Target GP % has format: float and type: 2 decimals
-#     Given Menu Cycle app is open on "<environment>" 
+#     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
 #         And a central user is selected
 #         And Menu Cycle "<menuCycle>" is selected
 #     When planning for "<day>" is opened
@@ -48,13 +48,13 @@ Scenario Outline: "Target %" field is not present and "Sell Price" can be edited
     
 #     @QAI
 #     Examples:
-#     |environment|menuCycle|day   |recipeName      |mealPeriod|
-#     |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+#     |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+#     |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
     
 # Not implemented
 # @TC29034   
 # Scenario Outline: Target Mark up % has format: float and type: 2 decimals
-    # Given Menu Cycle app is open on "<environment>" 
+    # Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
     #     And a central user is selected
     #     And Menu Cycle "<menuCycle>" is selected
     # When planning for "<day>" is opened
@@ -65,12 +65,12 @@ Scenario Outline: "Target %" field is not present and "Sell Price" can be edited
     
     # @QAI
     # Examples:
-    # |environment|menuCycle|day   |recipeName      |mealPeriod|
-    # |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    # |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+    # |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
     
 @TC29035
 Scenario Outline: Target GP % validations
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -94,12 +94,12 @@ Scenario Outline: Target GP % validations
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
     
 @TC29036
 Scenario Outline: Target Markup % validations
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -123,12 +123,12 @@ Scenario Outline: Target Markup % validations
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
     
 @TC29039
 Scenario Outline: Sell price validations
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -152,12 +152,12 @@ Scenario Outline: Sell price validations
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
     
 @TC28899
 Scenario Outline: Retrieve Recipe Price from the API (NO Min - Max)
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
@@ -165,12 +165,12 @@ Scenario Outline: Retrieve Recipe Price from the API (NO Min - Max)
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
 
 @TC27705 @TC27721 @TC27724 @TC27726
 Scenario Outline: Calculations for "Total Cost", "Sell Price", "Revenue" and "Actual GP" should be correct
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -191,12 +191,12 @@ Scenario Outline: Calculations for "Total Cost", "Sell Price", "Revenue" and "Ac
         
     @QAI
     Examples:
-    |environment|menuCycle|day      |
-    |QAI        |Meda     |WEDNESDAY|
+    |environment|withFA|menuCycle|day      |
+    |QAI        |false |Meda     |WEDNESDAY|
         
 @TC29101 @D23785
 Scenario Outline: Planned Quantity validations
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -216,12 +216,12 @@ Scenario Outline: Planned Quantity validations
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
     
 @TC29394 @D23825
 Scenario Outline: Transferring Sell Price value to Markup and GP Target% field does not happen
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -243,12 +243,12 @@ Scenario Outline: Transferring Sell Price value to Markup and GP Target% field d
         
     @QAI
     Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
 
 @TC29395 @D23825
 Scenario Outline: Transferring Markup Target% value to Sell Price and GP target field does not happen
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -270,12 +270,12 @@ Scenario Outline: Transferring Markup Target% value to Sell Price and GP target 
         
     @QAI
     Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
         
 @TC29469 @D23825
 Scenario Outline: Transferring GP Target% value to Sell Price and Markup target field does not happen
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -297,12 +297,12 @@ Scenario Outline: Transferring GP Target% value to Sell Price and Markup target 
         
     @QAI
     Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
 
 @TC29468 @D23967 @D24183 @D23194
 Scenario Outline: Error message displayed if recipe values are empty
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -313,12 +313,12 @@ Scenario Outline: Error message displayed if recipe values are empty
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
     
 @TC29716 @D24183
 Scenario Outline: Collapsing meal period does no return previous value
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -333,13 +333,13 @@ Scenario Outline: Collapsing meal period does no return previous value
         
     @QAI
     Examples:
-    |environment|menuCycle|day     |recipeName                 |mealPeriod|
-    |QAI        |Meda     |Thursday|703Reggae Raggae Mayonnaise|DANGELO   |
+    |environment|withFA|menuCycle|day     |recipeName                 |mealPeriod|
+    |QAI        |false |Meda     |Thursday|703Reggae Raggae Mayonnaise|DANGELO   |
         
         
 @TC29735 @D24183
 Scenario Outline: Meal period totals are re-calculated when the data from the input field is cleared
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -354,12 +354,12 @@ Scenario Outline: Meal period totals are re-calculated when the data from the in
         
     @QAI
     Examples:
-    |environment|menuCycle|mealPeriod|day     |recipeName1                                 |recipeName2                |
-    |QAI        |Meda     |DANGELO   |Thursday|703Coronation Chicken Sandwich Filling (50g)|703Reggae Raggae Mayonnaise|
+    |environment|withFA|menuCycle|mealPeriod|day     |recipeName1                                 |recipeName2                |
+    |QAI        |false |Meda     |DANGELO   |Thursday|703Coronation Chicken Sandwich Filling (50g)|703Reggae Raggae Mayonnaise|
         
 @TC29853
 Scenario Outline: Mass recipe update
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day1>" is opened
@@ -377,12 +377,12 @@ Scenario Outline: Mass recipe update
     
     @QAI
     Examples:
-    |environment|menuCycle|recipeName      |day1     |mealPeriod1|day2  |mealPeriod2|
-    |QAI        |Meda     |004Baked Beans_3|MONDAY   |LUNCH      |FRIDAY|DANGELO    |
+    |environment|withFA|menuCycle|recipeName      |day1     |mealPeriod1|day2  |mealPeriod2|
+    |QAI        |false |Meda     |004Baked Beans_3|MONDAY   |LUNCH      |FRIDAY|DANGELO    |
     
 @TC29933 @D24491
 Scenario Outline: Tariff types are discarded when cancel button is clicked
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -397,12 +397,12 @@ Scenario Outline: Tariff types are discarded when cancel button is clicked
         
     @QAI
     Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
 
 @TC29942 @D24490
 Scenario Outline: Delete icon appears when adding type
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -414,12 +414,12 @@ Scenario Outline: Delete icon appears when adding type
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
     
 @TC29950 @D24575
 Scenario Outline: Opening planning screen multiple times does not add data to unsaved items
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -432,12 +432,12 @@ Scenario Outline: Opening planning screen multiple times does not add data to un
     
     @QAI
     Examples:
-    |environment|menuCycle|day    |recipeName                      |mealPeriod|
-    |QAI        |Meda     |TUESDAY|703Houmus Sandwich Filling (50g)|DINNER    |
+    |environment|withFA|menuCycle|day    |recipeName                      |mealPeriod|
+    |QAI        |false |Meda     |TUESDAY|703Houmus Sandwich Filling (50g)|DINNER    |
     
 @TC29954 @D24588 @Smoke @critical
 Scenario Outline: Saving decimal values
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -452,12 +452,12 @@ Scenario Outline: Saving decimal values
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
     
 @TC29987
 Scenario Outline: Confirm dialog is not shown after save with added TariffTypes
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -476,12 +476,12 @@ Scenario Outline: Confirm dialog is not shown after save with added TariffTypes
         
     @QAI
     Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
         
 @TC30090
 Scenario Outline: Saving Planning screen with empty fields displays red border and contextual message
-    Given Menu Cycle app is open on "<environment>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
@@ -494,5 +494,5 @@ Scenario Outline: Saving Planning screen with empty fields displays red border a
     
     @QAI
     Examples:
-    |environment|menuCycle|day   |recipeName      |mealPeriod|
-    |QAI        |Meda     |MONDAY|004Baked Beans_3|LUNCH     |
+    |environment|withFA|menuCycle|day   |recipeName      |mealPeriod|
+    |QAI        |false |Meda     |MONDAY|004Baked Beans_3|LUNCH     |

@@ -2,16 +2,11 @@
 Feature: RecipeSearch
     Recipe search functionalities and validations
 
-Background: 
-# Given 1 Menu Cycles exists
-# And 1 Meal Period exists
-# And 3 recipes exists
-And 'Menu Cycles' application is open
-And a central user is selected
-
 @TC27633 @Smoke
-Scenario: Recipe search by keyword in Meal period
-    Given Menu Cycle "Meda" is selected
+Scenario Outline: Recipe search by keyword in Meal period
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "Meda" is selected
     When Details for meal period "LUNCH" in "MONDAY" are opened
         And Recipe search is opened
         And Recipe "Fried" is searched
@@ -26,10 +21,17 @@ Scenario: Recipe search by keyword in Meal period
         |Name                |Type  |Cost|
         |004Boiled Rice      |Recipe|£0  |
         |724Boiled Brown Rice|Recipe|£0  |
+        
+        @QAI
+        Examples:
+        |environment|withFA|
+        |QAI        |false |
 
 @TC30803
-Scenario: Recipe price should be the same for meal period detailed view and the planning screen
-    Given Menu Cycle "Meda" is selected
+Scenario Outline: Recipe price should be the same for meal period detailed view and the planning screen
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "Meda" is selected
     When Details for meal period "LUNCH" in "MONDAY" are opened
         And Recipe search is opened
         And Recipe "004Baked Beans_3" is searched
@@ -44,10 +46,17 @@ Scenario: Recipe price should be the same for meal period detailed view and the 
     Then Verify data for items is
         |MealPeriodName|TYPE  |RecipeTitle     |CostPerUnit|
         |LUNCH         |RECIPE|004Baked Beans_3|       1.92|
+        
+        @QAI
+        Examples:
+        |environment|withFA|
+        |QAI        |false |
 
 @TC30233
-Scenario: Single cost is present for Recipe and Ingredients in recipe detailed view
-    Given Menu Cycle "Meda" is selected
+Scenario Outline: Single cost is present for Recipe and Ingredients in recipe detailed view
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "Meda" is selected
     When Details for meal period "LUNCH" in "Tuesday" are opened
         And detailed view for recipe with name "724Gourmet Chicken Burger" is opened
     Then Verify meal period recipe name is "724Gourmet Chicken Burger"
@@ -62,3 +71,8 @@ Scenario: Single cost is present for Recipe and Ingredients in recipe detailed v
         |Lea & Perrins - Worcestershire Sauce|          0.00|
         |EGGS WHOLE PASTEURISED              |          0.38|
         And Verify ingredients total cost is "0.38"
+        
+        @QAI
+        Examples:
+        |environment|withFA|
+        |QAI        |false |

@@ -69,8 +69,8 @@ namespace MenuCycle.Tests.Features
         [NUnit.Framework.DescriptionAttribute("Copy and Delete week in Weekly Calendar view")]
         [NUnit.Framework.CategoryAttribute("TC33038")]
         [NUnit.Framework.CategoryAttribute("TC31075")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Automation Menu Cycle", null, Category="QAI")]
-        public virtual void CopyAndDeleteWeekInWeeklyCalendarView(string environment, string menuCycle, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Automation Menu Cycle", null, Category="QAI")]
+        public virtual void CopyAndDeleteWeekInWeeklyCalendarView(string environment, string withFA, string menuCycle, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC33038",
@@ -83,7 +83,7 @@ namespace MenuCycle.Tests.Features
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
@@ -117,8 +117,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Empty weeks are not present in the calendar weekly view")]
         [NUnit.Framework.CategoryAttribute("TC37776")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Automation Copy Delete", "LUNCH", "Monday", "703Reggae Raggae Mayonnaise", null, Category="QAI")]
-        public virtual void EmptyWeeksAreNotPresentInTheCalendarWeeklyView(string environment, string menuCycle, string mealPeriod, string day, string recipeName, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Automation Copy Delete", "LUNCH", "Monday", "703Reggae Raggae Mayonnaise", null, Category="QAI")]
+        public virtual void EmptyWeeksAreNotPresentInTheCalendarWeeklyView(string environment, string withFA, string menuCycle, string mealPeriod, string day, string recipeName, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC37776"};
@@ -130,7 +130,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 27
 this.ScenarioSetup(scenarioInfo);
 #line 28
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 29
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 30
@@ -204,8 +204,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Open meal period from the weekly view")]
         [NUnit.Framework.CategoryAttribute("TC37973")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", "Dangelo", "MONDAY", "WEEK 2", null, Category="QAI")]
-        public virtual void OpenMealPeriodFromTheWeeklyView(string environment, string menuCycle, string mealPeriod, string day, string weekName, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "Dangelo", "MONDAY", "WEEK 2", null, Category="QAI")]
+        public virtual void OpenMealPeriodFromTheWeeklyView(string environment, string withFA, string menuCycle, string mealPeriod, string day, string weekName, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC37973"};
@@ -217,7 +217,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 65
 this.ScenarioSetup(scenarioInfo);
 #line 66
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 67
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 68
@@ -235,8 +235,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("NaN is not displayed for Week title")]
         [NUnit.Framework.CategoryAttribute("TC38017")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Meda", null, Category="QAI")]
-        public virtual void NaNIsNotDisplayedForWeekTitle(string environment, string menuCycle, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", null, Category="QAI")]
+        public virtual void NaNIsNotDisplayedForWeekTitle(string environment, string withFA, string menuCycle, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC38017"};
@@ -248,7 +248,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 79
 this.ScenarioSetup(scenarioInfo);
 #line 80
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 81
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 82
@@ -266,8 +266,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("GAP days are indicated in weekly view")]
         [NUnit.Framework.CategoryAttribute("TC38017")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "Automation Menu Cycle", "Saturday", "Week 1", null, Category="QAI")]
-        public virtual void GAPDaysAreIndicatedInWeeklyView(string environment, string menuCycle, string day, string week, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Automation Menu Cycle", "Saturday", "Week 1", null, Category="QAI")]
+        public virtual void GAPDaysAreIndicatedInWeeklyView(string environment, string withFA, string menuCycle, string day, string week, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC38017"};
@@ -279,7 +279,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 93
 this.ScenarioSetup(scenarioInfo);
 #line 94
-    testRunner.Given(string.Format("Menu Cycle app is open on \"{0}\"", environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 95
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 96
