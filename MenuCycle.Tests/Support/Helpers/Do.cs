@@ -87,7 +87,8 @@ namespace MenuCycle.Tests
             webElement.Click();
             ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].removeAttribute('readonly')", webElement);
             webElement.Clear();
-            webElement.SendKeys(text);
+            webElement.SendKeys(Keys.Enter); // Needed for JavaScriptSendKeys to work
+            webElement.Do(Driver).JavaScriptSendKeys(text);
             webElement.SendKeys(Keys.Enter);
         }
     }

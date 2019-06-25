@@ -12,7 +12,7 @@ Scenario Outline: Open report page for menu cycle without items
 @QAI
 Examples:
 |environment|withFA|
-|QAI_2      |false |
+|QAI        |false |
     
 Scenario Outline: Consumer Facing Report - Price options are not disabled for Local user
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
@@ -26,7 +26,7 @@ Scenario Outline: Consumer Facing Report - Price options are not disabled for Lo
 @QAI
 Examples:
 |environment|withFA|
-|QAI_2      |false |
+|QAI        |false |
 
 @TC33979 @TC34204
 Scenario Outline: Export Consumer Facing Report as PDF with Sell Price, Kilojoules and Calories
@@ -50,7 +50,7 @@ Scenario Outline: Export Consumer Facing Report as PDF with Sell Price, Kilojoul
     @QAI
     Examples:
     |environment|withFA|
-    |QAI_2      |false |
+    |QAI        |false |
     
 @TC34203
 Scenario Outline: Export Consumer Facing Report as CSV with Sell Price, Kilojoules and Calories
@@ -74,7 +74,7 @@ Scenario Outline: Export Consumer Facing Report as CSV with Sell Price, Kilojoul
     @QAI
     Examples:
     |environment|withFA|
-    |QAI_2      |false |
+    |QAI        |false |
 
 @TC33983
 Scenario Outline: Consumer Facing Report - Local > User is able to export Consumer Facing report as PDF without selecting Calories, kilojoules and Sell Price
@@ -95,7 +95,7 @@ Scenario Outline: Consumer Facing Report - Local > User is able to export Consum
     @QAI
     Examples:
     |environment|withFA|
-    |QAI_2      |false |
+    |QAI        |false |
 
 @TC34205
 Scenario Outline: Consumer Facing Report - Local > User is able to export Consumer Facing report as CSV without selecting Calories, kilojoules and Sell Price
@@ -116,7 +116,7 @@ Scenario Outline: Consumer Facing Report - Local > User is able to export Consum
     @QAI
     Examples:
     |environment|withFA|
-    |QAI_2      |false |
+    |QAI        |false |
 
 @TC33981
 Scenario Outline: Consumer Facing Report - Local > Error message is displayed if selected end date is after MC end date
@@ -138,7 +138,7 @@ Scenario Outline: Consumer Facing Report - Local > Error message is displayed if
         @QAI
     Examples:
     |environment|withFA|
-    |QAI_2      |false |
+    |QAI        |false |
     
 @TC33994
 Scenario Outline: Consumer facing report - Local > Error message is displayed if selected start date is before MC start date
@@ -160,7 +160,7 @@ Scenario Outline: Consumer facing report - Local > Error message is displayed if
         @QAI
         Examples:
         |environment|withFA|
-        |QAI_2      |false |
+        |QAI        |false |
         
 @TC33999
 Scenario Outline: Consumer Facing Report  - Local > Error message is displayed if selected end date is before selected start date
@@ -182,7 +182,7 @@ Scenario Outline: Consumer Facing Report  - Local > Error message is displayed i
         @QAI
         Examples:
         |environment|withFA|
-        |QAI_2      |false |
+        |QAI        |false |
         
 @TC33980
 Scenario Outline: Recipe Card Report - Local > Error message is displayed if selected start date is before MC start date
@@ -204,7 +204,7 @@ Scenario Outline: Recipe Card Report - Local > Error message is displayed if sel
     @QAI
     Examples:
     |environment|withFA|
-    |QAI_2      |false |
+    |QAI        |false |
     
 @TC33982
 Scenario Outline: Recipe Card Report - Local > Error message is displayed if selected end date is before selected start date
@@ -226,7 +226,7 @@ Scenario Outline: Recipe Card Report - Local > Error message is displayed if sel
     @QAI
     Examples:
     |environment|withFA|
-    |QAI_2      |false |
+    |QAI        |false |
     
 @TC33988
 Scenario Outline: Recipe Card Report - Central > Export button is displayed after meal period is specified
@@ -246,7 +246,7 @@ Scenario Outline: Recipe Card Report - Central > Export button is displayed afte
         @QAI
         Examples:
         |environment|withFA|
-        |QAI_2      |false |
+        |QAI        |false |
         
 @TC33997
 Scenario Outline: Recipe Card Report - Local > Error message is displayed if selected end date is after MC end date
@@ -268,7 +268,7 @@ Scenario Outline: Recipe Card Report - Local > Error message is displayed if sel
     @QAI
     Examples:
     |environment|withFA|
-    |QAI_2      |false |
+    |QAI        |false |
     
 @TC33985
 Scenario Outline: Menu Extract Report - Central > Export button is displayed and clicked after meal period is specified
@@ -288,4 +288,4 @@ Scenario Outline: Menu Extract Report - Central > Export button is displayed and
         @QAI
         Examples:
         |environment|withFA|
-        |QAI_2      |false |
+        |QAI        |false |

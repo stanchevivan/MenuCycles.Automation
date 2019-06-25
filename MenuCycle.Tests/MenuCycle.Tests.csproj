@@ -1,4 +1,5 @@
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit3TestAdapter.3.13.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.13.0\build\net35\NUnit3TestAdapter.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -7,7 +8,8 @@
     <RootNamespace>MenuCycle.Tests</RootNamespace>
     <AssemblyName>MenuCycle.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -381,6 +383,8 @@
     <Compile Include="Steps\WeeklyCalendarSteps.cs" />
     <Compile Include="Features\Reports.feature.cs">
       <DependentUpon>Reports.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="PageObjects\CalendarWeeks\MealPeriodWeeklyCard.cs" />
     <Compile Include="PageObjects\CalendarWeeks\CalendarWeek.cs" />
@@ -539,20 +543,7 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PageObjects\CalendarWeeks\" />
-    <Folder Include="PageObjects\Planning\PostProductionTabWeeks\" />
-    <Folder Include="PageObjects\Planning\NutritionTabWeeks\" />
-    <Folder Include="PageObjects\Planning\PlanningTabWeeks\" />
-    <Folder Include="Models\" />
     <Folder Include="PageObjects\Recipe\" />
-    <Folder Include="PageObjects\CalendarDays\DayColumn\" />
-    <Folder Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\" />
-    <Folder Include="PageObjects\Planning\PostProductionTabDays\" />
-    <Folder Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\" />
-    <Folder Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeDetails\" />
-    <Folder Include="PageObjects\Reports\" />
-    <Folder Include="PageObjects\Review\" />
-    <Folder Include="PageObjects\CalendarDays\InternalSearch\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Support\EnvironmentConfig.json" />
@@ -584,4 +575,10 @@
   <Import Project="..\packages\SpecFlow.2.3.2\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.3.2\build\SpecFlow.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.IEDriver.3.141.59\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.3.141.59\build\Selenium.WebDriver.IEDriver.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.74.0.3729.6-beta\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.74.0.3729.6-beta\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.13.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.13.0\build\net35\NUnit3TestAdapter.props'))" />
+  </Target>
 </Project>
