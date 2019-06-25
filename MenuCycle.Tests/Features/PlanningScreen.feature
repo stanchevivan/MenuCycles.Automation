@@ -237,7 +237,7 @@ Scenario Outline: Number of covers is saved after closing the app
     @QAI
     Examples:
     |environment|withFA|menuCycle|mealPeriod|day   |
-    |QAI        |false |Meda     |LUNCH     |MONDAY|
+    |QAI        |true  |Meda     |LUNCH     |MONDAY|
     
 @TC29753 @D26939
 Scenario Outline: Calculate Daily Totals

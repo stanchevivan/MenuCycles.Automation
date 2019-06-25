@@ -1,4 +1,4 @@
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\NUnit3TestAdapter.3.13.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.13.0\build\net35\NUnit3TestAdapter.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -8,7 +8,6 @@
     <RootNamespace>MenuCycle.Tests</RootNamespace>
     <AssemblyName>MenuCycle.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
@@ -317,6 +316,8 @@
     <Compile Include="PageObjects\Planning\PlanningView.cs" />
     <Compile Include="Features\MealPeriods.feature.cs">
       <DependentUpon>MealPeriods.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="PageObjects\Planning\PlanningTabDays\DailyMealPeriod.cs" />
     <Compile Include="PageObjects\Planning\PlanningTabDays\PlanningTabDaysView.cs" />
@@ -360,6 +361,8 @@
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\ExpandedRecipe.cs" />
     <Compile Include="Features\PlanningScreen.feature.cs">
       <DependentUpon>PlanningScreen.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\BuffetCard.cs" />
     <Compile Include="Features\LocalUser.feature.cs">

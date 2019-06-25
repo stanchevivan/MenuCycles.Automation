@@ -215,7 +215,7 @@ Scenario Outline: A la cartes only - Calculate Meal period "Planned Quantity", "
         |724Pepper & Garlic Coated Beef|              3|     Fixed|     ^|           20|       55|
     Then Verify value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost  |Revenue|ActualGP|
-        |         5|   15695.74| 137.62| -11305%|
+        |        56|   15881.68| 137.62| -11440%|
         
     @QAI
     Examples:

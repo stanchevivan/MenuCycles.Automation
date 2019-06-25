@@ -84,11 +84,10 @@ namespace MenuCycle.Tests
 
         public void InputDate(string text)
         {
-            webElement.Click();
             ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].removeAttribute('readonly')", webElement);
-            webElement.Clear();
-            webElement.SendKeys(Keys.Enter); // Needed for JavaScriptSendKeys to work
-            webElement.Do(Driver).JavaScriptSendKeys(text);
+            webElement.Click();
+            webElement.Clear(); // Needed for JavaScriptSendKeys to work
+            webElement.SendKeys(text);
             webElement.SendKeys(Keys.Enter);
         }
     }
