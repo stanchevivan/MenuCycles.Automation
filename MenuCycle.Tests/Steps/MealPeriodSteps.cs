@@ -188,6 +188,7 @@ namespace MenuCycle.Tests.Steps
         public void WhenOpenAllIsClicked()
         {
             commonElements.UseExpandAllButton();
+            menuCycleDailyCalendarView.WaitPageLoad();
         }
 
         [When(@"Collapse all is clicked")]
