@@ -32,6 +32,7 @@ Global
 		SamsungS9|Any CPU = SamsungS9|Any CPU
 		SamsungTabA|Any CPU = SamsungTabA|Any CPU
 		SamsungTabS|Any CPU = SamsungTabS|Any CPU
+		RemoteIE|Any CPU = RemoteIE|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.Android|Any CPU.ActiveCfg = Android|Any CPU
@@ -86,6 +87,8 @@ Global
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungTabA|Any CPU.Build.0 = SamsungTabA|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungTabS|Any CPU.ActiveCfg = SamsungTabS|Any CPU
 		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.SamsungTabS|Any CPU.Build.0 = SamsungTabS|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.RemoteIE|Any CPU.ActiveCfg = RemoteIE|Any CPU
+		{31DC9246-5EA0-4F7A-AACB-6464409D7FAF}.RemoteIE|Any CPU.Build.0 = RemoteIE|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
