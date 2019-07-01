@@ -188,7 +188,7 @@ namespace MenuCycle.Tests.Steps
         public void WhenOpenAllIsClicked()
         {
             commonElements.UseExpandAllButton();
-            menuCycleDailyCalendarView.WaitPageLoad();
+            planningTabDays.WaitForLoader();
         }
 
         [When(@"Collapse all is clicked")]
@@ -210,7 +210,6 @@ namespace MenuCycle.Tests.Steps
         public void AllMealPeriodsAreCollapsedInDailyPlanning()
         {
             Assert.IsTrue(planningTabDays.AreAllMealPeriodsCollapsed);
-
         }
 
         [When(@"Verify all meal periods are expanded in Daily Calendar")]
