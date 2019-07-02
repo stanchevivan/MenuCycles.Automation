@@ -401,3 +401,41 @@ Scenario Outline: No modal dialog is displayed after trying to add an existing r
     Examples:
     |environment|withFA|menuCycle           |mealPeriod|day   |recipeName      |
     |QAI_2      |false |Automation Testing  |LUNCH     |Monday|004Baked Beans_0|
+    
+@D37179 @TC40337
+Scenario Outline: Expand all meal periods in the Calendar view for Central after Expanding them for Local
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When Verify calendar view is opened
+        And Expand all is clicked
+        And Verify all meal periods are expanded in Daily Calendar
+        And Home button is clicked
+        And Location name is clicked
+        And a central user is selected
+        And Menu Cycle "<menuCycle1>" is selected
+        And Verify calendar view is opened
+        And Expand all is clicked
+    Then Verify all meal periods are expanded in Daily Calendar
+    
+    @QAI
+    Examples:
+    |environment|withFA|location|menuCycle         |menuCycle1|
+    |QAI        |false |SE001   |Local User Testing|Meda      |
+    
+@TC40349 @D37177
+Scenario Outline: Verify there are no duplicate items in meal period in the calendar view
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When Verify calendar view is opened
+        And Expand all is clicked
+        And Verify all meal periods are expanded in Daily Calendar
+    Then Verify there are no duplicated items in meal period "<mealPeriod>" for day "<day>" in the calendar view    
+    
+        @QAI
+    Examples:
+    |environment|withFA|location|menuCycle     |mealPeriod     |day   |
+    |QAI        |false |SE001   |DEFECT TESTING|TEST MEALPERIOD|MONDAY|

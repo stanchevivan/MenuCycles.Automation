@@ -155,19 +155,21 @@ namespace MenuCycle.Tests.Steps
 
         [StepDefinition(@"Recipe ""(.*)"" order is moved down ""(.*)"" times")]
         public void WhenRecipeOrderIsMovedDownTimes(string recipeName, int order)
-        { 
+        {
+            var card = mealPeriodDetails.ItemCards.First(x => x.Name == recipeName);
             for (int i = 0; i < order; i++)
             {
-                mealPeriodDetails.ItemCards.First(x => x.Name == recipeName).MoveDown();
+                card.MoveDown();
             }
         }
 
         [StepDefinition(@"Recipe ""(.*)"" order is moved up ""(.*)"" times")]
         public void WhenRecipeOrderIsMovedUpTimes(string recipeName, int order)
         {
+            var card = mealPeriodDetails.ItemCards.First(x => x.Name == recipeName);
             for (int i = 0; i < order; i++)
             {
-                mealPeriodDetails.ItemCards.First(x => x.Name == recipeName).MoveUp();
+                card.MoveUp();
             }
         }
     }

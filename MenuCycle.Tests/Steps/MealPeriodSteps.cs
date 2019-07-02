@@ -342,5 +342,11 @@ namespace MenuCycle.Tests.Steps
         {
             Assert.That(mealPeriodDetails.SelectedMealPeriod, Is.EqualTo(mealPeriodName));
         }
+
+        [Then(@"Verify there are no duplicated items in meal period ""(.*)"" for day ""(.*)"" in the calendar view")]
+        public void ThenVerifyThereAreNoDuplicatedItemsInMealPeriodInTheCalendarView(string mealPeriod, string day)
+        {
+            Assert.IsFalse(menuCycleDailyCalendarView.GetDay(day).GetMealPeriodCard(mealPeriod).NoDuplicateRecipes);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -19,7 +20,7 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement name { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".daily-item-item-contain > div > div")]
-        public IList<IWebElement> Recipes { get; set; }
+        private IList<IWebElement> Recipes { get; set; }
 
         [FindsBy(How = How.ClassName, Using = "mp-has-arrow")]
         private IWebElement ExpandCollapseArrow { get; set; }
@@ -32,6 +33,7 @@ namespace MenuCycle.Tests.PageObjects
         public string Name => name.Text;
         public bool IsExpanded => Expanded.Get().ElementPresent;
         public bool IsExpandable => ExpandCollapseArrow.Get().ElementPresent;
+        public bool NoDuplicateRecipes => Recipes.Distinct() == Recipes;
 
         public void OpenMealPeriodDetails()
         {
