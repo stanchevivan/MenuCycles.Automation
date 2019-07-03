@@ -80,6 +80,7 @@ Scenario Outline: Copy/Delete buttons are enabled when you delete and add the sa
         And Recipe search is opened
         And Recipe "<recipe>" is searched
         And Recipe "<recipe>" is added
+        And Recipe "<recipe>" order is set to "1"
     Then Verify meal period copy button is enabled
         And Verify meal period delete button is enabled
         And Verify order for item "<recipe>" is "1"
@@ -95,11 +96,11 @@ Scenario Outline: Copy and Delete buttons are disabled when recipe order is chan
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When Details for meal period "<mealPeriod>" in "<day>" are opened
-        And Recipe "<recipe>" order is moved down "1" times
+        And Recipe "<recipe>" order is set to "2"
     Then Verify meal period copy button is disabled
         And Verify meal period delete button is disabled
         And Verify order for item "<recipe>" is "2"
-        And Recipe "<recipe>" order is moved up "1" times
+        And Recipe "<recipe>" order is set to "1"
         And Verify meal period copy button is enabled
         And Verify meal period delete button is enabled
         And Verify order for item "<recipe>" is "1"

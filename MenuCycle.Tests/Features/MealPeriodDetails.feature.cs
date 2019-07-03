@@ -266,10 +266,12 @@ this.ScenarioSetup(scenarioInfo);
 #line 82
         testRunner.And(string.Format("Recipe \"{0}\" is added", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 83
-    testRunner.Then("Verify meal period copy button is enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.And(string.Format("Recipe \"{0}\" order is set to \"1\"", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 84
-        testRunner.And("Verify meal period delete button is enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Then("Verify meal period copy button is enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 85
+        testRunner.And("Verify meal period delete button is enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 86
         testRunner.And(string.Format("Verify order for item \"{0}\" is \"1\"", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -288,31 +290,31 @@ this.ScenarioSetup(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Copy and Delete buttons are disabled when recipe order is changed", @__tags);
-#line 93
-this.ScenarioSetup(scenarioInfo);
 #line 94
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 95
-        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 96
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 97
-    testRunner.When(string.Format("Details for meal period \"{0}\" in \"{1}\" are opened", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 98
-        testRunner.And(string.Format("Recipe \"{0}\" order is moved down \"1\" times", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When(string.Format("Details for meal period \"{0}\" in \"{1}\" are opened", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 99
-    testRunner.Then("Verify meal period copy button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.And(string.Format("Recipe \"{0}\" order is set to \"2\"", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 100
-        testRunner.And("Verify meal period delete button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Then("Verify meal period copy button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 101
-        testRunner.And(string.Format("Verify order for item \"{0}\" is \"2\"", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Verify meal period delete button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 102
-        testRunner.And(string.Format("Recipe \"{0}\" order is moved up \"1\" times", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("Verify order for item \"{0}\" is \"2\"", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 103
-        testRunner.And("Verify meal period copy button is enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("Recipe \"{0}\" order is set to \"1\"", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 104
-        testRunner.And("Verify meal period delete button is enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Verify meal period copy button is enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 105
+        testRunner.And("Verify meal period delete button is enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 106
         testRunner.And(string.Format("Verify order for item \"{0}\" is \"1\"", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -331,31 +333,31 @@ this.ScenarioSetup(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Copy/Delete buttons are disabled when you have unsaved new recipes", @__tags);
-#line 113
-this.ScenarioSetup(scenarioInfo);
 #line 114
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 115
-        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 116
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 117
-    testRunner.When(string.Format("Details for meal period \"{0}\" in \"{1}\" are opened", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 118
-        testRunner.And("Recipe search is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When(string.Format("Details for meal period \"{0}\" in \"{1}\" are opened", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 119
-        testRunner.And(string.Format("Recipe \"{0}\" is searched", recipe1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Recipe search is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 120
-        testRunner.And(string.Format("Recipe \"{0}\" is added", recipe1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("Recipe \"{0}\" is searched", recipe1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 121
-            testRunner.And(string.Format("Recipe \"{0}\" is searched", recipe2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("Recipe \"{0}\" is added", recipe1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 122
-            testRunner.And(string.Format("Recipe \"{0}\" is added", recipe2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+            testRunner.And(string.Format("Recipe \"{0}\" is searched", recipe2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 123
-            testRunner.And(string.Format("Recipe \"{0}\" is deleted", recipe2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+            testRunner.And(string.Format("Recipe \"{0}\" is added", recipe2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 124
-    testRunner.Then("Verify meal period copy button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+            testRunner.And(string.Format("Recipe \"{0}\" is deleted", recipe2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 125
+    testRunner.Then("Verify meal period copy button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 126
         testRunner.And("Verify meal period delete button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

@@ -172,5 +172,29 @@ namespace MenuCycle.Tests.Steps
                 card.MoveUp();
             }
         }
+
+        [StepDefinition(@"Recipe ""(.*)"" order is set to ""(.*)""")]
+        public void WhenRecipeOrderIsSetTo(string recipeName, int newOrder)
+        {
+            var card = mealPeriodDetails.ItemCards.First(x => x.Name == recipeName);
+            var currentOrder = mealPeriodDetails.ItemCards.FindIndex(x => x.Name == card.Name);
+            newOrder--;
+
+            do
+            {
+                if (newOrder > currentOrder)
+                {
+                    card.MoveDown();
+                    currentOrder++;
+
+                }
+                if (newOrder < currentOrder)
+                {
+                    card.MoveUp();
+                    currentOrder--;
+                }
+
+            } while (newOrder != currentOrder);
+        }
     }
 }
