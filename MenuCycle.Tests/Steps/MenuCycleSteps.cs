@@ -144,6 +144,13 @@ namespace MenuCycle.Tests.Steps
             menuCycleDailyCalendarView.WaitPageLoad();
         }
 
+        [When(@"Create Menu Cycle page is opened")]
+        public void OpenCreateMenuCyclePage()
+        {
+            menuCycleDashboard.UseCreateMenuCycleButton();
+            createMenuCycle.WaitPageLoad();
+        }
+
         [When(@"Menu Cycle ""(.*)"" is edited to")]
         public void GivenMenuCycleIsEditedToTheFollowingData(string oldName, Table table)
         {
@@ -255,6 +262,18 @@ namespace MenuCycle.Tests.Steps
             menuCyclesDashboard.WaitPageLoad();
             notification.CloseNotification();
             notification.WaitToDisappear();
+        }
+
+        [When(@"browser is refreshed")]
+        public void WhenBrowserIsRefreshed()
+        {
+            createMenuCycle.RefreshBrowser();
+        }
+
+        [Then(@"Verify Create Menu Cycle page is open")]
+        public void ThenVerifyCreateMenuCyclePageIsOpen()
+        {
+            Assert.IsTrue(createMenuCycle.IsPageOpen);
         }
     }
 }

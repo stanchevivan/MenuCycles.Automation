@@ -59,3 +59,18 @@ Scenario Outline: Create Edit Copy Delete menu cycle
     Examples:
     |environment|withFA|
     |QAI        |false |
+    
+@TC40441 @D36216
+Scenario Outline: Create menu cycle page is opened after reopening of the application
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+    When Create Menu Cycle page is opened
+        And browser is refreshed
+        And a central user is selected
+        And Create Menu Cycle page is opened
+    Then Verify Create Menu Cycle page is open
+    
+    @QAI
+    Examples:
+    |environment|withFA|
+    |QAI        |false |

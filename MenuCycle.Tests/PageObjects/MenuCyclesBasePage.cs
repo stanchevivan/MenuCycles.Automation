@@ -99,5 +99,10 @@ namespace MenuCycle.Tests.PageObjects
         {
             Driver.WaitIsClickable(element);
         }
+
+        public void RefreshBrowser()
+        {
+            Driver.Navigate().Refresh();
+        }
     }
 }

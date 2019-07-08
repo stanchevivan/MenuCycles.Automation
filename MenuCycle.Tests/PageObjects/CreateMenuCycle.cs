@@ -7,7 +7,7 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class CreateMenuCycle : BasePage
+    public class CreateMenuCycle : MenuCyclesBasePage
     {
         public CreateMenuCycle(IWebDriver webDriver) : base(webDriver)
         {
@@ -42,6 +42,8 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = ".radio")]
         public IList<IWebElement> NonServingDaysCheckBox { get; set; }
+
+        public bool IsPageOpen => MenuName.Exist();
 
         internal void SearchAndSelectOffer(string offer)
         {

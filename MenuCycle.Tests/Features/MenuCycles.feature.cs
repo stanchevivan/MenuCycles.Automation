@@ -220,6 +220,41 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Create menu cycle page is opened after reopening of the application")]
+        [NUnit.Framework.CategoryAttribute("TC40441")]
+        [NUnit.Framework.CategoryAttribute("D36216")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", null, Category="QAI")]
+        public virtual void CreateMenuCyclePageIsOpenedAfterReopeningOfTheApplication(string environment, string withFA, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC40441",
+                    "D36216"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create menu cycle page is opened after reopening of the application", @__tags);
+#line 64
+this.ScenarioSetup(scenarioInfo);
+#line 65
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 66
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 67
+    testRunner.When("Create Menu Cycle page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 68
+        testRunner.And("browser is refreshed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 69
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 70
+        testRunner.And("Create Menu Cycle page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 71
+    testRunner.Then("Verify Create Menu Cycle page is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
