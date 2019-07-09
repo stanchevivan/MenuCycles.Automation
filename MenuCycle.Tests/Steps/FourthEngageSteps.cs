@@ -87,19 +87,6 @@ namespace MenuCycle.Tests.Steps
             logInAs.WaitPageToLoad();
         }
 
-        [Given(@"'(.*)' application is open")]
-        public void GivenApplicationIsOpen(string application)
-        {
-            if (!fourthAppMain.NotificationItemButton.Get().ElementPresent)
-            {
-                GivenFourthEngageDashboarIsOpen();
-            }
-
-            GivenApplicationIsSelected(application);
-            menuCyclesBasePage.MaximizeWindow();
-            logInAs.WaitPageToLoad();
-        }
-
         [Given(@"Menu Cycles app is open on ""(.*)"" with FourthApp ""(.*)""")]
         public void MenuCycleAppIsOpenOnWith(string environment, bool withFA = true)
         {

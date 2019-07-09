@@ -362,6 +362,32 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Copy/Delete buttons are disabled when last recipe is deleted")]
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "false", "Meda", "LANCE", "WEDNESDAY", "004Beef Stock (bouillon)", null, Category="QAI")]
+        public virtual void CopyDeleteButtonsAreDisabledWhenLastRecipeIsDeleted(string environment, string withFA, string menuCycle, string mealPeriod, string day, string recipe, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Copy/Delete buttons are disabled when last recipe is deleted", exampleTags);
+#line 133
+this.ScenarioSetup(scenarioInfo);
+#line 134
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 135
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 136
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 137
+    testRunner.When(string.Format("Details for meal period \"{0}\" in \"{1}\" are opened", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 138
+        testRunner.And(string.Format("Recipe \"{0}\" is deleted", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 139
+    testRunner.Then("Verify meal period copy button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 140
+        testRunner.And("Verify meal period delete button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

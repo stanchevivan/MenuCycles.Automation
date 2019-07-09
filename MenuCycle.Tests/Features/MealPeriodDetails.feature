@@ -129,3 +129,17 @@ Scenario Outline: Copy/Delete buttons are disabled when you have unsaved new rec
     Examples:
     |environment|withFA|menuCycle|mealPeriod|day      |recipe1         |recipe2         |
     |QAI_2      |false |Meda     |LANCE     |WEDNESDAY|004Baked Beans_1|004Baked Beans_2|
+    
+Scenario Outline: Copy/Delete buttons are disabled when last recipe is deleted
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a nouser user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When Details for meal period "<mealPeriod>" in "<day>" are opened
+        And Recipe "<recipe>" is deleted
+    Then Verify meal period copy button is disabled
+        And Verify meal period delete button is disabled
+    
+    @QAI
+    Examples:
+    |environment|withFA|menuCycle|mealPeriod|day      |recipe                  |
+    |QAI_2      |false |Meda     |LANCE     |WEDNESDAY|004Beef Stock (bouillon)|
