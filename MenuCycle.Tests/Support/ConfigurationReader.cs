@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Json;
-using System.Reflection;
 
 namespace MenuCycle.Tests.Support
 {
@@ -10,17 +9,20 @@ namespace MenuCycle.Tests.Support
         private readonly JsonValue m_Configuration;
         private readonly string m_Environment;
 
+
+        // TODO: Decide best approach to read configuration
         public ConfigurationReader(string environment)
         {
-            var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "MenuCycle.Tests.Support.EnvironmentConfig.json";
+            //var assembly = Assembly.GetExecutingAssembly();
+            //var resourceName = "MenuCycle.Tests.Support.EnvironmentConfig.json";
 
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                string json = reader.ReadToEnd();
-                m_Configuration = JsonValue.Parse(json);
-            }
+            string result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Support/EnvironmentConfig.json"));
+
+            //using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            //using (StreamReader reader = new StreamReader(stream))
+            //{
+                m_Configuration = JsonValue.Parse(result);
+            //}
             m_Environment = environment;
         }
 
