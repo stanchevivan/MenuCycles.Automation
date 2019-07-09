@@ -1174,6 +1174,74 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Meal periods are displayed in the correct sort order in daily calendar")]
+        [NUnit.Framework.CategoryAttribute("TC40440")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Automation Menu Cycle", "MONDAY", "BRUNCH,AFTERNOON TEA,DINNER,DANGELO,JAQUELINE,CYRIL", null, Category="QAI")]
+        public virtual void MealPeriodsAreDisplayedInTheCorrectSortOrderInDailyCalendar(string environment, string withFA, string menuCycle, string day, string mealPeriods, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC40440"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Meal periods are displayed in the correct sort order in daily calendar", @__tags);
+#line 445
+this.ScenarioSetup(scenarioInfo);
+#line 446
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 447
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 448
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                        "mealPeriods"});
+            table13.AddRow(new string[] {
+                        string.Format("{0}", mealPeriods)});
+#line 449
+    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" in daily calendar are:", day), ((string)(null)), table13, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Meal periods are displayed in the correct sort order in weekly calendar")]
+        [NUnit.Framework.CategoryAttribute("TC40449")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Automation Menu Cycle", "MONDAY", "WEEK 1", "Brunch,Afternoon Tea,Dinner,Dangelo,Jaqueline,Cyril", null, Category="QAI")]
+        public virtual void MealPeriodsAreDisplayedInTheCorrectSortOrderInWeeklyCalendar(string environment, string withFA, string menuCycle, string day, string week, string mealPeriods, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC40449"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Meal periods are displayed in the correct sort order in weekly calendar", @__tags);
+#line 459
+this.ScenarioSetup(scenarioInfo);
+#line 460
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 461
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 462
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 463
+        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 464
+    testRunner.When(string.Format("week \"{0}\" is expanded", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                        "mealPeriods"});
+            table14.AddRow(new string[] {
+                        string.Format("{0}", mealPeriods)});
+#line 465
+    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" week \"{1}\" in weekly calendar are:", day, week), ((string)(null)), table14, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

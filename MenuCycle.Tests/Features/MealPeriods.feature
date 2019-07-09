@@ -439,3 +439,34 @@ Scenario Outline: Verify there are no duplicate items in meal period in the cale
     Examples:
     |environment|withFA|location|menuCycle     |mealPeriod     |day   |
     |QAI        |false |SE001   |DEFECT TESTING|TEST MEALPERIOD|MONDAY|
+    
+    
+@TC40440
+Scenario Outline: Meal periods are displayed in the correct sort order in daily calendar
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    Then Verify meal periods for day "<day>" in daily calendar are:
+        |mealPeriods  |
+        |<mealPeriods>|
+    
+    @QAI
+    Examples:
+    |environment|withFA|menuCycle            |day   |mealPeriods|
+    |QAI        |false |Automation Menu Cycle|MONDAY|BRUNCH,AFTERNOON TEA,DINNER,DANGELO,JAQUELINE,CYRIL|
+    
+@TC40449
+Scenario Outline: Meal periods are displayed in the correct sort order in weekly calendar
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+    When week "<week>" is expanded
+    Then Verify meal periods for day "<day>" week "<week>" in weekly calendar are:
+        |mealPeriods  |
+        |<mealPeriods>|
+    
+    @QAI
+    Examples:
+    |environment|withFA|menuCycle            |day   |week  |mealPeriods|
+    |QAI        |false |Automation Menu Cycle|MONDAY|WEEK 1|Brunch,Afternoon Tea,Dinner,Dangelo,Jaqueline,Cyril|

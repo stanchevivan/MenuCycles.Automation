@@ -24,9 +24,16 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "weekly-day-container")]
         private IList<IWebElement> MealPeriodWeeklyDayContainer { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = ".weekly-item_expand")]
+        private IWebElement ExpandButton { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".weekly-view-row-item")]
+        private IWebElement Row { get; set; }
+
         public IList<WeeklyDayContainer> DayContainers => this.MealPeriodWeeklyDayContainer.Select(day => new WeeklyDayContainer(day, day.Get().HasClass("non-serving-week"))).ToList();
 
         public string WeekTitle => WeekName.Text;
+        public bool IsExpanded => Row.Get().HasClass("expanded-weekly-view-item");
 
         public void UseCopyButton()
         {
@@ -36,6 +43,22 @@ namespace MenuCycle.Tests.PageObjects
         public void UseDeleteButton()
         {
             DeleteButton.Click();
+        }
+
+        public void Expand()
+        {
+            if (!IsExpanded)
+            {
+                ExpandButton.Click();
+            }
+        }
+
+        public void Collapse()
+        {
+            if (IsExpanded)
+            {
+                ExpandButton.Click();
+            }
         }
 
         public WeeklyDayContainer GetDay(string weekDay)

@@ -22,6 +22,7 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement GAPDayLabel { get; set; }
 
         public bool IsGAPDayLabelPresent => GAPDayLabel.Get().ElementPresent;
+        public IList<string> MealPeriodNames => WeeklyMealPeriodContainer.Select(x => x.Text).ToList();
 
         public void ClickMealPeriod(string name)
         {

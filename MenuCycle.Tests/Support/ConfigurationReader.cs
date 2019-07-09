@@ -9,7 +9,6 @@ namespace MenuCycle.Tests.Support
         private readonly JsonValue m_Configuration;
         private readonly string m_Environment;
 
-
         // TODO: Decide best approach to read configuration
         public ConfigurationReader(string environment)
         {

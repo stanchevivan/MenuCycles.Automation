@@ -93,5 +93,26 @@ namespace MenuCycle.Tests.Steps
             weeklyCalendarView.ClickWeek(weekName);
             dailyCalendarView.WaitPageLoad();
         }
+
+        [When(@"week ""(.*)"" is expanded")]
+        public void WeekIsExpanded(string weekName)
+        {
+            weeklyCalendarView.GetWeek(weekName).Expand();
+        }
+
+        [When(@"week ""(.*)"" is collapsed")]
+        public void WeekIsCollapsed(string weekName)
+        {
+            weeklyCalendarView.GetWeek(weekName).Collapse();
+        }
+
+        [Then(@"Verify meal periods for day ""(.*)"" week ""(.*)"" in weekly calendar are:")]
+        public void ThenVerifyMealPeriodsAreInCorrectSortOrderForDay(string day,string week, Table table)
+        {
+            var expectedMealPeriods = table.Rows[0]["mealPeriods"].Split(',');
+            var currentMealPeriods = weeklyCalendarView.GetWeek(week).GetDay(day).MealPeriodNames;
+
+            Assert.That(expectedMealPeriods, Is.EqualTo(currentMealPeriods));
+        }
     }
 }

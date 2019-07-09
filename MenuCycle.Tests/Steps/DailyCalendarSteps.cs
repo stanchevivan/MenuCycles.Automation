@@ -82,5 +82,14 @@ namespace MenuCycle.Tests.Steps
 
             Assert.That(dailyCalendarView.GetAllDaysText, Has.Member($"{dayNameAbbr} {currentDay} {monthNameAbbr} ▾"));
         }
+
+        [Then(@"Verify meal periods for day ""(.*)"" in daily calendar are:")]
+        public void ThenVerifyMealPeriodsAreInCorrectSortOrderForDay(string day, Table table)
+        {
+            var expectedMealPeriods = table.Rows[0]["mealPeriods"].Split(',');
+            var currentMealPeriods = dailyCalendarView.GetDay(day).MealPeriodCards.Select(x => x.Name);
+
+            Assert.That(expectedMealPeriods, Is.EqualTo(currentMealPeriods));
+        }
     }
 }
