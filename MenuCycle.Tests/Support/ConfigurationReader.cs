@@ -15,7 +15,7 @@ namespace MenuCycle.Tests.Support
             //var assembly = Assembly.GetExecutingAssembly();
             //var resourceName = "MenuCycle.Tests.Support.EnvironmentConfig.json";
 
-            string result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Support/EnvironmentConfig.json"));
+            string result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Support/Environment.config"));
 
             //using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             //using (StreamReader reader = new StreamReader(stream))

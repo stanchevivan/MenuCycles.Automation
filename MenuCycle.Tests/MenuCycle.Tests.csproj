@@ -550,7 +550,7 @@
     <None Include="App.RemoteIE.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Support\EnvironmentConfig.json">
+    <None Include="Support\Environment.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
