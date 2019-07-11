@@ -102,3 +102,21 @@ Scenario Outline: User is redirected to the week from which he opened the Report
     Examples:
     |environment|withFA|menuCycle                  |weekName|
     |QAI        |false |Automation - Multiple weeks|WEEK 2  |
+    
+@TC40604
+Scenario Outline: Delete last empty week in big menu cycle
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "<weekName>" is opened
+    When new week is added
+        And Daily calendar delete week button is clicked
+        And Calendar Modal dialog Yes is selected
+    Then Verify next week arrow is not present
+        And Verify week name is "<weekName>"
+    
+    @QAI
+    Examples:
+    |environment|withFA|menuCycle              |weekName|
+    |QAI        |false |4000 items - Do not use|WEEK 2  |

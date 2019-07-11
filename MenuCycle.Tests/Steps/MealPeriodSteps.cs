@@ -255,7 +255,15 @@ namespace MenuCycle.Tests.Steps
         {
             modalDialogPage.UseYesButton();
             modalDialogPage.WaitToDisappear();
-            planningTabDays.WaitForLoader();
+            dailyPlanningView.WaitForLoader();
+        }
+
+        [StepDefinition(@"Calendar Modal dialog Yes is selected")]
+        public void ModalDialogYesCalendar()
+        {
+            modalDialogPage.UseYesButton();
+            modalDialogPage.WaitToDisappear();
+            menuCycleDailyCalendarView.WaitForLoader();
         }
 
         [Given(@"Verify items for meal period ""(.*)"" are \(check count ""(.*)""\)")]

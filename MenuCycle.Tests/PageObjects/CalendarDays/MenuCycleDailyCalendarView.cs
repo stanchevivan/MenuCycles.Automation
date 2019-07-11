@@ -153,6 +153,10 @@ namespace MenuCycle.Tests.PageObjects
         {
             return DaysLinks.Select(x => x.Text).ToList();
         }
+        public void WaitForLoader()
+        {
+            Driver.WaitElementToDisappear(SpinningWheel);
+        }
 
         public void WaitPageLoad()
         {
@@ -253,6 +257,11 @@ namespace MenuCycle.Tests.PageObjects
         public void ClickReviewTab()
         {
             ReviewButton.Click();
+        }
+
+        public void UseDeleteWeekButton()
+        {
+            DeleteWeekButton.Click();
         }
     }
 }

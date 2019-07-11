@@ -299,6 +299,45 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Delete last empty week in big menu cycle")]
+        [NUnit.Framework.CategoryAttribute("TC40604")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "4000 items - Do not use", "WEEK 2", null, Category="QAI")]
+        public virtual void DeleteLastEmptyWeekInBigMenuCycle(string environment, string withFA, string menuCycle, string weekName, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC40604"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete last empty week in big menu cycle", @__tags);
+#line 107
+this.ScenarioSetup(scenarioInfo);
+#line 108
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 109
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 110
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 111
+        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 112
+        testRunner.And(string.Format("week \"{0}\" is opened", weekName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 113
+    testRunner.When("new week is added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 114
+        testRunner.And("Daily calendar delete week button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 115
+        testRunner.And("Calendar Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 116
+    testRunner.Then("Verify next week arrow is not present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 117
+        testRunner.And(string.Format("Verify week name is \"{0}\"", weekName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

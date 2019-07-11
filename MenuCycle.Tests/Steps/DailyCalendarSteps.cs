@@ -91,5 +91,11 @@ namespace MenuCycle.Tests.Steps
 
             Assert.That(currentMealPeriods, Is.EqualTo(expectedMealPeriods));
         }
+
+        [When(@"Daily calendar delete week button is clicked")]
+        public void WhenCurrentWeekIsDeleted()
+        {
+            dailyCalendarView.UseDeleteWeekButton();
+        }
     }
 }
