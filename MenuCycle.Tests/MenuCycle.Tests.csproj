@@ -442,7 +442,7 @@
     <Compile Include="PageObjects\Planning\NutritionTabWeeks\NutritionDayRow.cs" />
     <Compile Include="PageObjects\Planning\NutritionTabWeeks\NutritionWeekMealPeriod.cs" />
     <Compile Include="PageObjects\Planning\PlanningTabWeeks\PlanningDayRow.cs" />
-    <Compile Include="PageObjects\Planning\PlanningTabWeeks\PlanningWeekMealPeriod.cs" />
+    <Compile Include="PageObjects\Planning\PlanningTabWeeks\PlanningWeekMealPeriodRow.cs" />
     <Compile Include="PageObjects\Planning\PostProductionTabWeeks\PostProductionDayRow.cs" />
     <Compile Include="PageObjects\Planning\PostProductionTabWeeks\PostProductionWeekMealPeriod.cs" />
     <Compile Include="Support\Helpers\Wait.cs" />

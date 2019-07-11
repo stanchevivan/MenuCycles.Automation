@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using MenuCycle.Tests.PageObjects;
 using NUnit.Framework;
+using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
 
 namespace MenuCycle.Tests.Steps
@@ -195,6 +196,21 @@ namespace MenuCycle.Tests.Steps
                 }
 
             } while (newOrder != currentOrder);
+        }
+
+        [When(@"meal period dropdown is opened")]
+        public void WhenMealPeriodDropdownIsOpened()
+        {
+            mealPeriodDetails.MealPeriodDropDown.Click();
+        }
+
+        [Then(@"Verify meal periods in the meal period dropdown are:")]
+        public void ThenVerifyMealPeriodsInTheMealPeriodDropdownAre(Table table)
+        {
+            var expectedMealPeriods = table.Rows[0]["mealPeriods"].Split(',');
+            var currentMealPeriods = mealPeriodDetails.DropDownMealPeriodsNames;
+
+            Assert.That(currentMealPeriods, Is.EqualTo(expectedMealPeriods));
         }
     }
 }

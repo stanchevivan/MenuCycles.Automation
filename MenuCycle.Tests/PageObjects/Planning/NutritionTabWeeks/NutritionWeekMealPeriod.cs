@@ -29,7 +29,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".day-data__data-radius > span")]
         private IWebElement MealPeriodName { get; set; }
 
-        public string MealPeriodNameText => MealPeriodName.Text;
+        public string Name => MealPeriodName.Text;
 
         public string MealPeriodEnergyKJTotal => mealPeriod_energyKJ.Text;
         public string MealPeriodEnergyKCALTotal => mealPeriod_EnergyKCAL.Text;

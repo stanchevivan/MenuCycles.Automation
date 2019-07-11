@@ -89,7 +89,7 @@ namespace MenuCycle.Tests.Steps
             var expectedMealPeriods = table.Rows[0]["mealPeriods"].Split(',');
             var currentMealPeriods = dailyCalendarView.GetDay(day).MealPeriodCards.Select(x => x.Name);
 
-            Assert.That(expectedMealPeriods, Is.EqualTo(currentMealPeriods));
+            Assert.That(currentMealPeriods, Is.EqualTo(expectedMealPeriods));
         }
     }
 }

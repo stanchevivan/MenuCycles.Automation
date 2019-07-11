@@ -8,7 +8,7 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class PlanningDayRow : MenuCyclesBasePage
     {
-        IWebElement parent_DaysWrapper;
+        readonly IWebElement parent_DaysWrapper;
 
         public PlanningDayRow(IWebElement parent, IWebDriver webDriver) : base(webDriver)
         {
@@ -30,7 +30,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".day-data__row .day-data__columns-row")]
         private IList<IWebElement> DayMealPeriodsRows { get; set; }
 
-        public IList<PlanningWeekMealPeriod> MealPeriodsRows => this.DayMealPeriodsRows.Select(p => new PlanningWeekMealPeriod(p, Driver)).ToList();
+        public IList<PlanningWeekMealPeriodRow> MealPeriodsRows => this.DayMealPeriodsRows.Select(p => new PlanningWeekMealPeriodRow(p, Driver)).ToList();
 
         public string NutritionDayName => DayName.Text;
 
@@ -39,13 +39,13 @@ namespace MenuCycle.Tests.PageObjects
         public string DailyTotalProfit => dailyTotal_Profit.Text;
         public string DailyTotalActualGP => dailyTotal_ActualGP.Text;
 
-        public PlanningWeekMealPeriod GetMealPeriod(string name)
+        public PlanningWeekMealPeriodRow GetMealPeriod(string name)
         {
-            if (!MealPeriodsRows.Any(x => x.MealPeriodNameText == name))
+            if (!MealPeriodsRows.Any(x => x.Name == name))
             {
                 throw new System.Exception($"Meal Period {name} not found !");
             }
-            return MealPeriodsRows.First(x => x.MealPeriodNameText == name);
+            return MealPeriodsRows.First(x => x.Name == name);
         }
     }
 }

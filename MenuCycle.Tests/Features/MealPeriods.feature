@@ -470,3 +470,122 @@ Scenario Outline: Meal periods are displayed in the correct sort order in weekly
     Examples:
     |environment|withFA|menuCycle            |day   |week  |mealPeriods|
     |QAI        |false |Automation Menu Cycle|MONDAY|WEEK 1|Brunch,Afternoon Tea,Dinner,Dangelo,Jaqueline,Cyril|
+    
+@TC40439
+Scenario Outline: Meal periods are displayed in the correct sort order in planning screen daily
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+    Then Verify meal periods for day "<day>" in planning screen daily are:
+        |mealPeriods  |
+        |<mealPeriods>|
+    
+    @QAI
+    Examples:
+    |environment|withFA|menuCycle            |day   |mealPeriods|
+    |QAI        |false |Automation Menu Cycle|MONDAY|BRUNCH,AFTERNOON TEA,DINNER,DANGELO,JAQUELINE,CYRIL|
+    
+@TC40450
+Scenario Outline: Meal periods are displayed in the correct sort order in planning screen weekly
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And Weeks tab is opened
+    Then Verify meal periods for day "<day>" week "<week>" in planning screen weekly are:
+        |mealPeriods  |
+        |<mealPeriods>|
+    
+    @QAI
+    Examples:
+    |environment|withFA|menuCycle            |day   |week  |mealPeriods|
+    |QAI        |false |Automation Menu Cycle|MONDAY|WEEK 1|Brunch,Afternoon Tea,Dinner,Dangelo,Jaqueline,Cyril|
+    
+@TC40480
+Scenario Outline: Meal periods are displayed in the correct sort order in nutrition screen daily
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And nutrition tab is opened
+    Then Verify meal periods for day "<day>" in nutrition screen daily are:
+        |mealPeriods  |
+        |<mealPeriods>|
+    
+    @QAI
+    Examples:
+    |environment|withFA|menuCycle            |day   |mealPeriods|
+    |QAI        |false |Automation Menu Cycle|MONDAY|BRUNCH,AFTERNOON TEA,DINNER,DANGELO,JAQUELINE,CYRIL|
+    
+@TC40451
+Scenario Outline: Meal periods are displayed in the correct sort order in nutrition screen weekly
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And nutrition tab is opened
+        And Weeks tab is opened
+    Then Verify meal periods for day "<day>" week "<week>" in nutrition screen weekly are:
+        |mealPeriods  |
+        |<mealPeriods>|
+    
+    @QAI
+    Examples:
+    |environment|withFA|menuCycle            |day   |week  |mealPeriods|
+    |QAI        |false |Automation Menu Cycle|MONDAY|WEEK 1|Brunch,Afternoon Tea,Dinner,Dangelo,Jaqueline,Cyril|
+    
+@TC40599
+Scenario Outline: Meal periods are displayed in the correct sort order in post-production daily
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
+    When planning for "<day>" is opened
+        And post-production tab is opened
+    Then Verify meal periods for day "<day>" week "<week>" in nutrition screen daily are:
+        |mealPeriods  |
+        |<mealPeriods>|
+    
+    @QAI
+    Examples:
+    |environment|withFA|menuCycle           |location|day       |mealPeriods|
+    |QAI        |false |Automation post-prod|SE001   |WED 10 JUL|BREAKFAST,LUNCH,AFTERNOON TEA,DINNER,RYLEY,CARMINE,JAQUELINE,ALL DAY,ALL DAY 2|
+    
+@TC40598
+Scenario Outline: Meal periods are displayed in the correct sort order in post-production weekly
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 1" is opened
+    When planning for "<day>" is opened
+        And post-production tab is opened
+        And Weeks tab is opened
+    Then Verify meal periods for day "<weekDay>" week "<week>" in nutrition screen weekly are:
+        |mealPeriods  |
+        |<mealPeriods>|
+    
+    @QAI
+    Examples:
+    |environment|withFA|menuCycle           |location|day       |weekDay  |week  |mealPeriods|
+    |QAI        |false |Automation post-prod|SE001   |WED 10 JUL|WEDNESDAY|WEEK 1|Breakfast,Lunch,Afternoon Tea,Dinner,Ryley,Carmine,Jaqueline,All day,All day 2|
+    
+@TC40448
+Scenario Outline: Meal periods are displayed in the correct sort order on Add/Delete meal period
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When New meal period button is clicked for "<day>"
+        And meal period dropdown is opened
+    Then Verify meal periods in the meal period dropdown are:
+        |mealPeriods  |
+        |<mealPeriods>|
+    
+    @QAI
+    Examples:
+    |environment|withFA|menuCycle            |day    |mealPeriods|
+    |QAI        |false |Automation Menu Cycle|TUESDAY|BREAKFAST,BRUNCH,LUNCH,AFTERNOON TEA,DINNER,MIDNIGHT FEAST,TISHTESTPERIOD1,TEST MEALPERIOD,CHLOE,DANGELO,MARGRET,RYLEY,CARMINE,JAQUELINE,JAYDA,ELIJAH,ALENA,LANCE,CYRIL,ADRIEN,ALL DAY,ALL DAY 2|

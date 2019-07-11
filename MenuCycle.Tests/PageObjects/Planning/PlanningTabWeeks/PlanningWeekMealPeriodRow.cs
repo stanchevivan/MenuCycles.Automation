@@ -1,14 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MenuCycle.Tests.PageObjects.Planning.PlanningTabDays;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class PlanningWeekMealPeriod : MenuCyclesBasePage
+    public class PlanningWeekMealPeriodRow : MenuCyclesBasePage
     {
-        public PlanningWeekMealPeriod(IWebElement parent, IWebDriver webDriver) : base(webDriver)
+        public PlanningWeekMealPeriodRow(IWebElement parent, IWebDriver webDriver) : base(webDriver)
         {
             PageFactory.InitElements(parent, this);
         }
@@ -25,12 +22,12 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".day-data__data-radius > span")]
         private IWebElement MealPeriodName { get; set; }
 
-        public string MealPeriodNameText => MealPeriodName.Text;
+        public string Name => MealPeriodName.Text;
 
-        public string MealPeriodTotalCost => mealPeriod_TotalCost.Text;
-        public string MealPeriodRevenue => mealPeriod_Revenue.Text;
-        public string MealPeriodProfit => mealPeriod_Profit.Text;
-        public string MealPeriodActualGP => mealPeriod_ActualGP.Text;
+        public string TotalCost => mealPeriod_TotalCost.Text;
+        public string Revenue => mealPeriod_Revenue.Text;
+        public string Profit => mealPeriod_Profit.Text;
+        public string ActualGP => mealPeriod_ActualGP.Text;
 
     }
 }

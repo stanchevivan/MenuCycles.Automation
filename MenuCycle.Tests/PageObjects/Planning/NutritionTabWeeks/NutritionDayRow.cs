@@ -47,11 +47,11 @@ namespace MenuCycle.Tests.PageObjects
 
         public NutritionWeekMealPeriod GetMealPeriod(string name)
         {
-            if (!MealPeriodsRows.Any(x => x.MealPeriodNameText == name))
+            if (!MealPeriodsRows.Any(x => x.Name == name))
             {
                 throw new System.Exception($"Meal Period {name} not found !");
             }
-            return MealPeriodsRows.First(x => x.MealPeriodNameText == name);
+            return MealPeriodsRows.First(x => x.Name == name);
         }
     }
 }
