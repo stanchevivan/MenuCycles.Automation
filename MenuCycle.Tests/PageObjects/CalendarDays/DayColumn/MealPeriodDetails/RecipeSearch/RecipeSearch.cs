@@ -2,7 +2,6 @@
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Page;
-using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -10,11 +9,8 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class RecipeSearch : BasePage
     {
-        readonly IArtefacts Artefacts;
-
-        public RecipeSearch(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver)
+        public RecipeSearch(IWebDriver webDriver) : base(webDriver)
         {
-            Artefacts = artefacts;
         }
 
         [FindsBy(How = How.CssSelector, Using = ".recipe-search .ui-autocomplete-input")]

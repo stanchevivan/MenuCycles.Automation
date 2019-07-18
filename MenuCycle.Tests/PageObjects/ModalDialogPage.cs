@@ -9,10 +9,8 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class ModalDialogPage : BasePage
     {
-        readonly IArtefacts Artefacts;
-        public ModalDialogPage(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver)
+        public ModalDialogPage(IWebDriver webDriver) : base(webDriver)
         {
-            Artefacts = artefacts;
         }
 
         [FindsBy(How = How.CssSelector, Using = "#calendarModalDialog .modal-dialog-body")]

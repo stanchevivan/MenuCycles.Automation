@@ -12,10 +12,8 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class ToastNotification : BasePage
     {
-        readonly IArtefacts Artefacts;
-        public ToastNotification(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver)
+        public ToastNotification(IWebDriver webDriver) : base(webDriver)
         {
-            Artefacts = artefacts;
         }
 
         [FindsBy(How = How.CssSelector, Using = "div[id='toast-container'] div[class='toast-message']")]
@@ -31,7 +29,6 @@ namespace MenuCycle.Tests.PageObjects
 
             var notificationMessages = Messages.Select(x => x.Text).ToList();
             Assert.That(notificationMessages, Has.Member(expectedMessage));
-            Artefacts.TakeScreenshot();
         }
 
         public void WaitToDisappear()

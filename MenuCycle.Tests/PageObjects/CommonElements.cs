@@ -10,10 +10,8 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class CommonElements : BasePage
     {
-        readonly IArtefacts Artefacts;
-        public CommonElements(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver)
+        public CommonElements(IWebDriver webDriver) : base(webDriver)
         {
-            Artefacts = artefacts;
         }
 
         [FindsBy(How = How.XPath, Using = "//button/span[text()='Expand all']")]
