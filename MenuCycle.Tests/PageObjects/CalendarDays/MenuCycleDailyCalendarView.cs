@@ -241,7 +241,8 @@ namespace MenuCycle.Tests.PageObjects
         public void AddWeek()
         {
             AddWeekButton.Click();
-            Driver.WaitElementToDisappear(Backdrop);
+            //Driver.WaitElementToDisappear(Backdrop);
+            WaitSpinnerToDisappear();
         }
 
         public void NextWeek()

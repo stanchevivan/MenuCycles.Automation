@@ -18,7 +18,10 @@ using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA
 
         public void WaitForLoad()
         {
-            Driver.WaitElementToExists(WeeklyViewList);
+            //Driver.WaitElementToExists(WeeklyViewList);
+            // TODO: REMOVE SLEEP WHEN FIX FOR SPINNER IS APPLIED
+            System.Threading.Thread.Sleep(1000);
+            Driver.WaitElementToExists(WeeksNames[0]);
         }
 
         public CalendarWeek GetWeek(string weekName)

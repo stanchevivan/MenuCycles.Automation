@@ -29,6 +29,7 @@ namespace MenuCycle.Tests.Steps
         public void WhenRecipeDetailedViewIsOpened(string recipeName)
         {
             mealPeriodDetails.GetRecipeCard(recipeName).OpenRecipeDetailedView();
+            mealPeriodDetails.WaitSpinnerToDisappear();
             recipeOverview.WaitForLoad();
         }
 
