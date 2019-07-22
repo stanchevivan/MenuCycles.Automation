@@ -29,10 +29,7 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.Id, Using = "delWeekbtn")]
         private IWebElement DeleteWeekButton { get; set; }
-
-        [FindsBy(How = How.Id, Using = "BlueLoaderShowHide")]
-        private IWebElement SpinningWheel { get; set; }
-
+    
         [FindsBy(How = How.CssSelector, Using = "#dailyCalendarTableHolder .daily-header-container > div")]
         private IList<IWebElement> CalendarHeaderContainer { get; set; }
 
@@ -153,16 +150,12 @@ namespace MenuCycle.Tests.PageObjects
         {
             return DaysLinks.Select(x => x.Text).ToList();
         }
-        public void WaitForLoader()
-        {
-            Driver.WaitElementToDisappear(SpinningWheel);
-        }
 
         public void WaitPageLoad()
         {
             Driver.WaitListItemsLoad(CalendarHeaderContainer);
             Driver.WaitIsClickable(DaysViewButton);
-            Driver.WaitElementToDisappear(SpinningWheel);
+            WaitSpinnerToDisappear();
         }
 
         public void SwitchView()
@@ -231,11 +224,13 @@ namespace MenuCycle.Tests.PageObjects
         public void UseDailyReportButton()
         {
             DailyReportButton.Click();
+            WaitSpinnerToDisappear();
         }
 
         public void OpenWeeksTab()
         {
             Driver.WaitElementAndClick(WeeksViewButton);
+            WaitSpinnerToDisappear();
         }
 
         public void OpenDaysTab()

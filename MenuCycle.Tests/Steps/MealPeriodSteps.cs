@@ -188,7 +188,7 @@ namespace MenuCycle.Tests.Steps
         public void WhenOpenAllIsClicked()
         {
             commonElements.UseExpandAllButton();
-            planningTabDays.WaitForLoader();
+            planningTabDays.WaitSpinnerToDisappear();
         }
 
         [When(@"Collapse all is clicked")]
@@ -255,7 +255,7 @@ namespace MenuCycle.Tests.Steps
         {
             modalDialogPage.UseYesButton();
             modalDialogPage.WaitToDisappear();
-            dailyPlanningView.WaitForLoader();
+            dailyPlanningView.WaitSpinnerToDisappear();
         }
 
         [StepDefinition(@"Calendar Modal dialog Yes is selected")]
@@ -263,7 +263,7 @@ namespace MenuCycle.Tests.Steps
         {
             modalDialogPage.UseYesButton();
             modalDialogPage.WaitToDisappear();
-            menuCycleDailyCalendarView.WaitForLoader();
+            planningTabDays.WaitSpinnerToDisappear();
         }
 
         [Given(@"Verify items for meal period ""(.*)"" are \(check count ""(.*)""\)")]

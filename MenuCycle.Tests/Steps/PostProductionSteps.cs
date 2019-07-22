@@ -11,7 +11,7 @@
 
         [Then(@"Verify Qty Sold input field is disabled for buffet ""(.*)"" in meal period ""(.*)""")]        public void ThenVerifyQtySoldInputFieldIsDisabledForBuffet(string buffetName, string mealPeriod)        {            var buffet = postProductionTabDays.GetMealPeriod(mealPeriod).GetBuffet(buffetName);            Assert.IsFalse(buffet.IsSoldQtyEnabled);        }
 
-        [When(@"local sales report is exported")]        public void LocalSalesReportIsExported()        {            postProductionTabDays.UseExportLocalSalesReportButton();            postProductionTabDays.WaitForLoader();        }        [Then(@"Verify Wastage for buffet ""(.*)"" recipe ""(.*)"" in meal period ""(.*)"" is an editable field")]        public void ThenVerifyWastageInputFieldIsEnabledForBuffetRecipe(string buffetName, string recipeName, string mealPeriod)
+        [When(@"local sales report is exported")]        public void LocalSalesReportIsExported()        {            postProductionTabDays.UseExportLocalSalesReportButton();            postProductionTabDays.WaitSpinnerToDisappear();        }        [Then(@"Verify Wastage for buffet ""(.*)"" recipe ""(.*)"" in meal period ""(.*)"" is an editable field")]        public void ThenVerifyWastageInputFieldIsEnabledForBuffetRecipe(string buffetName, string recipeName, string mealPeriod)
         {
             var buffetRecipe = postProductionTabDays.GetMealPeriod(mealPeriod).GetBuffet(buffetName).GetRecipe(recipeName);
 

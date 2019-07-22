@@ -34,10 +34,6 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "home-search-button")]
         private IWebElement SearchButton { get; set; }
 
-        //[FindsBy(How = How.Id, Using = "BlueLoaderShowHide")]
-        [FindsBy(How = How.CssSelector, Using = "#BlueLoaderShowHide:not(.BluemealperiodLoaderShowHide)")]
-        IWebElement SpinningWheel { get; set; }
-
         [FindsBy(How = How.ClassName, Using = "current-location-name")]
         private IWebElement LocationName { get; set; }
 
@@ -64,12 +60,12 @@ namespace MenuCycle.Tests.PageObjects
             SearchInput.Do(Driver).ClearWithoutFocusOut();
             SearchInput.SendKeys(text);
             SearchButton.Click();
-            Driver.WaitElementToDisappear(SpinningWheel);
+            WaitSpinnerToDisappear();
         }
 
         public void WaitPageLoad()
         {
-            Driver.WaitElementToDisappear(SpinningWheel);
+            WaitSpinnerToDisappear();
             Driver.WaitElementToExists(searchResultsBody);
             if (!NoResultsText.Exist())
             {

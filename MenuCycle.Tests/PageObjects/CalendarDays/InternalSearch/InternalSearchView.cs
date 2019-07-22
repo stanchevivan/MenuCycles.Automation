@@ -22,9 +22,6 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".internal-mc-searchbox-button")]
         private IWebElement InternalSearchButton { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".BlueLoaderShowHide")]
-        private IWebElement Loader { get; set; }
-
         [FindsBy(How = How.CssSelector, Using = ".internal-search-results-body-item-container")]
         private IList<IWebElement> searchResults { get; set; }
 
@@ -51,7 +48,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public void WaitForLoad()
         {
-            Driver.WaitElementToDisappear(Loader);
+            WaitSpinnerToDisappear();
             Driver.WaitElementToExists(SearchResultsTable);
         }
 

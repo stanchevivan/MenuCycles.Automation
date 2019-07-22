@@ -34,7 +34,7 @@ using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA
         public bool IsExportButtonVisible => ExportButton.Get().ElementPresent;
         public void WaitForLoad()
         {
-            Driver.WaitElementToDisappear(RightSection);
+            Driver.WaitElementToExists(RightSection);
         }
         public void WaitReportToLoad()
         {

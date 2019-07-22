@@ -5,6 +5,7 @@ using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Mobile;
 using Fourth.Automation.Framework.Page;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 
 namespace MenuCycle.Tests.PageObjects
@@ -15,9 +16,21 @@ namespace MenuCycle.Tests.PageObjects
         {
         }
 
+        [FindsBy(How = How.CssSelector, Using = "#loader")]        private IWebElement Loader { get; set; }
+
         public bool IsMobile => Driver.IsMobile();
 
         public bool IsiOS => Driver.IsIos();
+
+        public void WaitSpinnerToDisappear()
+        {
+            Driver.WaitElementToDisappear(Loader);
+        }
+
+        public void WaitSpinnerToAppear()
+        {
+            Driver.WaitElementToExists(Loader);
+        }
 
         public void SwitchToNativeContext()
         {

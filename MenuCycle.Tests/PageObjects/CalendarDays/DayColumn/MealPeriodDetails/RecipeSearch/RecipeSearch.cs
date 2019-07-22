@@ -7,7 +7,7 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
-    public class RecipeSearch : BasePage
+    public class RecipeSearch : MenuCyclesBasePage
     {
         public RecipeSearch(IWebDriver webDriver) : base(webDriver)
         {
@@ -18,10 +18,7 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = ".search-btn-text")]
         private IWebElement SearchButton { get; set; }
-
-        [FindsBy(How = How.Id, Using = "BlueLoaderShowHideSearch")]
-        private IWebElement SpinningWheel { get; set; }
-
+    
         [FindsBy(How = How.CssSelector, Using = ".strip-pad .colorstrip-Recipe")]
         private IList<IWebElement> RecipeSearchContainer { get; set; }
 
@@ -45,7 +42,7 @@ namespace MenuCycle.Tests.PageObjects
             ClearAllSearchTags();
             SearchBox.SendKeys(recipeName);
             SearchButton.Click();
-            Driver.WaitElementToDisappear(SpinningWheel);
+            WaitSpinnerToDisappear();
         }
 
         public void AddRecipe(string recipeName)

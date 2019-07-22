@@ -233,7 +233,7 @@ namespace MenuCycle.Tests.Steps
         [When(@"Weekly Calendar is opened")]
         public void WeeksTabIsOpened()
         {
-            //menuCycleDailyCalendarView.WaitPageLoad();
+            //menuCycleDailyCalendarView.WaitPageLoad
             menuCycleDailyCalendarView.OpenWeeksTab();
             weeklyCalendarView.WaitForLoad();
             planningView.WaitForBackdropToDisappear();

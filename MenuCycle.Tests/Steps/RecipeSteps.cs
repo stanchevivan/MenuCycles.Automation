@@ -304,7 +304,7 @@ namespace MenuCycle.Tests.Steps
         public void ConfirmIsSelectedOnUnsavedChangesDialog()
         {
             modalDialogPage.UseApplyButton();
-            planningTabDays.WaitForLoader();
+            planningTabDays.WaitSpinnerToDisappear();
         }
 
         [When(@"Verify Future recipe instances count is (.*)")]
