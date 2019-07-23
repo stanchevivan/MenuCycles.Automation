@@ -143,3 +143,18 @@ Scenario Outline: Copy/Delete buttons are disabled when last recipe is deleted
     Examples:
     |environment|withFA|menuCycle|mealPeriod|day      |recipe                  |
     |QAI_2      |false |Meda     |LANCE     |WEDNESDAY|004Beef Stock (bouillon)|
+
+@TC40894 @D38047
+Scenario Outline: Local user open recipe details
+Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>"
+        And a local user is selected
+        And location "<location>" is selected
+        When Menu Cycle "<menuCycle>" is selected
+        And Details for meal period "<mealPeriod>" in "<day>" are opened
+        And detailed view for recipe with name "<recipe>" is opened
+    Then Verify meal period recipe name is "<recipe>"
+    
+    @QAI
+    Examples:
+    |environment|withFA|location|menuCycle         |day   |mealPeriod|recipe        |
+    |QAI        |false |SE001   |Local User Testing|MONDAY|LUNCH     |724Egg Noodles|
