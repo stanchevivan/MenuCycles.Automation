@@ -29,7 +29,7 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.Id, Using = "delWeekbtn")]
         private IWebElement DeleteWeekButton { get; set; }
-    
+
         [FindsBy(How = How.CssSelector, Using = "#dailyCalendarTableHolder .daily-header-container > div")]
         private IList<IWebElement> CalendarHeaderContainer { get; set; }
 
@@ -41,9 +41,6 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = ".Planning-engine")]
         private IList<IWebElement> PlanningLinks { get; set; }
-
-        [FindsBy(How = How.ClassName, Using = "modal-backdrop")]
-        private IWebElement Backdrop { get; set; }
 
         [FindsBy(How = How.ClassName, Using = "daily-header-container")]
         private IWebElement DaysContainer { get; set; }
@@ -170,7 +167,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public void OpenDailyPlanningForDay(string weekDay)
         {
-            Driver.WaitElementToDisappear(Backdrop);
+            WaitSpinnerToDisappear();
             var dayLink = DaysLinks.First(x => x.Text.Contains(weekDay.ToUpper()));
 
             dayLink.Click();

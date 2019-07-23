@@ -225,8 +225,7 @@ namespace MenuCycle.Tests.Steps
         {
             menuCycleDailyCalendarView.WaitPageLoad();
             menuCycleDailyCalendarView.UseDailyReportButton();
-            reportsView.WaitForLoad();
-            planningView.WaitForBackdropToDisappear();
+            reportsView.WaitForLoad();            
         }
 
         [Given(@"Weekly Calendar is opened")]
@@ -236,7 +235,6 @@ namespace MenuCycle.Tests.Steps
             //menuCycleDailyCalendarView.WaitPageLoad
             menuCycleDailyCalendarView.OpenWeeksTab();
             weeklyCalendarView.WaitForLoad();
-            planningView.WaitForBackdropToDisappear();
         }
 
         [When(@"Daily Calendar is opened")]
@@ -245,7 +243,6 @@ namespace MenuCycle.Tests.Steps
             //menuCycleDailyCalendarView.WaitPageLoad();
             menuCycleDailyCalendarView.OpenDaysTab();
             menuCycleDailyCalendarView.WaitPageLoad();
-            planningView.WaitForBackdropToDisappear();
         }
 
         [When(@"Location name is clicked")]

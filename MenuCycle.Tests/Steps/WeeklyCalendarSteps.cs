@@ -34,7 +34,7 @@ namespace MenuCycle.Tests.Steps
         {
             
             weeklyCalendarView.GetWeek(weekName).UseCopyButton();
-            dailyPlanningView.WaitForBackdropToDisappear();
+            dailyPlanningView.WaitSpinnerToDisappear();
         }
 
         [When(@"Delete button is clicked for week ""(.*)""")]
@@ -42,7 +42,7 @@ namespace MenuCycle.Tests.Steps
         public void DeleteButtonIsClickedForWeek(string weekName)
         {
             weeklyCalendarView.GetWeek(weekName).UseDeleteButton();
-            dailyPlanningView.WaitForBackdropToDisappear();
+            dailyPlanningView.WaitSpinnerToDisappear();
         }
 
         [Then(@"Verify caledar weeks contains weeks:")]

@@ -17,8 +17,6 @@ namespace MenuCycle.Tests.PageObjects
         private IList<IWebElement> ingredients { get; set; }
         [FindsBy(How = How.ClassName, Using = "showRecipeDetail")]
         private IWebElement DetailedView { get; set; }
-        [FindsBy(How = How.ClassName, Using = "modal-backdrop-mp")]
-        private IWebElement Backdrop { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".recipe-overview-detail-row-footer .overview-desccription-col-cost")]
         private IWebElement TotalCost { get; set; }
 
