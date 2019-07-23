@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using TechTalk.SpecFlow;
-
-namespace MenuCycle.Tests.Support
+﻿namespace MenuCycle.Tests.Support
 {
+    using TechTalk.SpecFlow;
+
     //[Binding]
     public sealed class SeedHooks
     {
-        readonly ScenarioContext scenarioContext;
+        private readonly ScenarioContext scenarioContext;
 
         public SeedHooks(ScenarioContext scenarioContext)
         {
@@ -32,4 +31,3 @@ namespace MenuCycle.Tests.Support
         }
     }
 }
-

@@ -1,21 +1,19 @@
-﻿using System;
-using Fourth.Automation.Framework.Core;
-using Fourth.Automation.Framework.Mobile;
-using Fourth.Automation.Framework.Mobile.Appium;
-using Fourth.Automation.Framework.Mobile.Resolvers;
-using OpenQA.Selenium;
-using TechTalk.SpecFlow;
-
-namespace MenuCycle.Tests.Support
+﻿namespace MenuCycle.Tests.Support
 {
+    using Fourth.Automation.Framework.Core;
+    using Fourth.Automation.Framework.Mobile;
+    using Fourth.Automation.Framework.Mobile.Appium;
+    using Fourth.Automation.Framework.Mobile.Resolvers;
+    using TechTalk.SpecFlow;
+
     [Binding]
     public static class AppiumHooks
     {
-            private static readonly AppiumDebugServers appiumServers;
+            private static readonly AppiumDebugServers AppiumServers;
 
             static AppiumHooks()
             {
-                appiumServers = new AppiumDebugServers(
+                AppiumServers = new AppiumDebugServers(
                     new TerminalCommand[] {
                     new AppiumServer(DriverFactory.DriverInfo),
                     new IOSWebkitDebugProxy(DriverFactory.DriverInfo) });
@@ -26,13 +24,13 @@ namespace MenuCycle.Tests.Support
             {
                 DriverFactory.Resolvers.Add(new AndroidResolver());
                 DriverFactory.Resolvers.Add(new IOSResolver());
-                appiumServers.Start(DriverFactory.DriverInfo);
+                AppiumServers.Start(DriverFactory.DriverInfo);
             }
 
             [AfterTestRun]
             public static void AfterTestRun()
             {
-                appiumServers.Stop();
+                AppiumServers.Stop();
             }
     }
 }

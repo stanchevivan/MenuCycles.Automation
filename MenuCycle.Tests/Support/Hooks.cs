@@ -10,14 +10,14 @@ namespace MenuCycle.Tests.Support
     [Binding]
     public sealed class Hooks
     {
-        IWebDriver driver;
-        ScenarioContext scenarioContext;
+        private IWebDriver driver;
+        private ScenarioContext scenarioContext;
+
         public Hooks(IWebDriver driver, ScenarioContext scenarioContext)
         {
             this.driver = driver;
             this.scenarioContext = scenarioContext;
         }
-
 
         [BeforeTestRun]
         public static void BeforeTestRun()
@@ -35,21 +35,21 @@ namespace MenuCycle.Tests.Support
         [AfterScenario]
         public void AfterScenario()
         {
-            if (driver.IsMobile())
+            if (this.driver.IsMobile())
             {
-                driver.Quit();
+                this.driver.Quit();
             }
             else
             {
                 // TODO: Driver.Close when driver instance can be reused
-                driver.Quit();
+                this.driver.Quit();
             }
         }
 
         [AfterFeature]
         public static void AfterTestRun()
         {
-            //DisposeDriverService.DisposeAllDrivers();
+            // DisposeDriverService.DisposeAllDrivers();
         }
     }
 }
