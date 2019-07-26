@@ -1584,6 +1584,40 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Can not add existing meal period")]
+        [NUnit.Framework.CategoryAttribute("TC41079")]
+        [NUnit.Framework.CategoryAttribute("D37940")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Automation Testing", "TUESDAY", "LUNCH", new string[] {
+                "QAI"}, Category="QAI")]
+        public virtual void CanNotAddExistingMealPeriod(string environment, string withFA, string menuCycle, string day, string mealPeriod, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC41079",
+                    "D37940"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Can not add existing meal period", null, @__tags);
+#line 595
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 596
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 597
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 598
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 599
+    testRunner.When(string.Format("Meal period \"{0}\" is created for \"{1}\"", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 600
+    testRunner.Then("Verify notification message \"This meal period already exists in this day.\" is dis" +
+                    "played", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

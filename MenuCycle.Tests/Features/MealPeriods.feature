@@ -589,3 +589,17 @@ Scenario Outline: Meal periods are displayed in the correct sort order on Add/De
     Examples:
     |environment|withFA|menuCycle            |day    |mealPeriods|
     |QAI        |false |Automation Menu Cycle|TUESDAY|BREAKFAST,BRUNCH,LUNCH,AFTERNOON TEA,DINNER,MIDNIGHT FEAST,TISHTESTPERIOD1,TEST MEALPERIOD,CHLOE,DANGELO,MARGRET,RYLEY,CARMINE,JAQUELINE,JAYDA,ELIJAH,ALENA,LANCE,CYRIL,ADRIEN,ALL DAY,ALL DAY 2|
+
+
+@TC41079 @D37940
+Scenario Outline: Can not add existing meal period
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When Meal period "<mealPeriod>" is created for "<day>"
+    Then Verify notification message "This meal period already exists in this day." is displayed
+    
+    @QAI
+    Examples:
+    |environment|withFA|menuCycle         |day    |mealPeriod|
+    |QAI        |false |Automation Testing|TUESDAY|LUNCH     |
