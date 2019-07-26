@@ -449,6 +449,7 @@
     <Compile Include="Features\Recipes.feature.cs">
       <DependentUpon>Recipes.feature</DependentUpon>
     </Compile>
+    <Compile Include="PageObjects\Planning\PostProductionTabDays\NestedRecipePostProduction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

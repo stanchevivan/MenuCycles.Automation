@@ -72,9 +72,9 @@ namespace MenuCycle.Tests.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Expand all / Collapse all Post-production Days")]
         [NUnit.Framework.CategoryAttribute("TC34327")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "WED 11 JUL", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void ExpandAllCollapseAllPost_ProductionDays(string environment, string withFA, string location, string menuCycle, string day, string[] exampleTags)
+        public virtual void ExpandAllCollapseAllPost_ProductionDays(string environment, string withFA, string location, string menuCycle, string week, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC34327"};
@@ -97,7 +97,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 9
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
-        testRunner.And("week \"WEEK 1\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
@@ -117,9 +117,9 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Expand/Collapse single meal period Post-production days")]
         [NUnit.Framework.CategoryAttribute("TC34693")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "WED 11 JUL", "DINNER", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "MARGRET", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void ExpandCollapseSingleMealPeriodPost_ProductionDays(string environment, string withFA, string location, string menuCycle, string day, string mealPeriod, string[] exampleTags)
+        public virtual void ExpandCollapseSingleMealPeriodPost_ProductionDays(string environment, string withFA, string location, string menuCycle, string week, string day, string mealPeriod, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC34693"};
@@ -142,7 +142,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 29
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 30
-        testRunner.And("week \"WEEK 1\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 31
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 32
@@ -161,9 +161,9 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Post production daily total calculations")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "WED 11 JUL", "DINNER", "724Lamb Burger 6oz", "TariffOne", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "MARGRET", "004Apple Sauce (tinned)", "TariffOne", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void PostProductionDailyTotalCalculations(string environment, string withFA, string location, string menuCycle, string day, string mealPeriod, string recipeName, string tariff, string[] exampleTags)
+        public virtual void PostProductionDailyTotalCalculations(string environment, string withFA, string location, string menuCycle, string week, string day, string mealPeriod, string recipeName, string tariff, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post production daily total calculations", null, exampleTags);
 #line 43
@@ -180,7 +180,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 48
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 49
-        testRunner.And("week \"WEEK 1\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 50
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 51
@@ -211,9 +211,9 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Post production validations")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "WED 11 JUL", "DINNER", "724Lamb Burger 6oz", "TariffOne", "Must be integer", "Must be 0 or greater", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "MARGRET", "004Apple Sauce (tinned)", "TariffOne", "Must be integer", "Must be 0 or greater", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void PostProductionValidations(string environment, string withFA, string location, string menuCycle, string day, string mealPeriod, string recipeName, string tariff, string integerMessage, string negativeMessage, string[] exampleTags)
+        public virtual void PostProductionValidations(string environment, string withFA, string location, string menuCycle, string week, string day, string mealPeriod, string recipeName, string tariff, string integerMessage, string negativeMessage, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post production validations", null, exampleTags);
 #line 63
@@ -230,7 +230,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 68
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 69
-        testRunner.And("week \"WEEK 1\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 70
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 71
@@ -307,9 +307,9 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Open Post-Production Screen, navigate to Weekly view")]
         [NUnit.Framework.CategoryAttribute("TC35467")]
         [NUnit.Framework.CategoryAttribute("D31395")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "WED 11 JUL", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void OpenPost_ProductionScreenNavigateToWeeklyView(string environment, string withFA, string location, string menuCycle, string day, string[] exampleTags)
+        public virtual void OpenPost_ProductionScreenNavigateToWeeklyView(string environment, string withFA, string location, string menuCycle, string week, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC35467",
@@ -333,7 +333,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 98
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 99
-        testRunner.And("week \"WEEK 1\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 100
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 101
@@ -392,9 +392,9 @@ this.ScenarioInitialize(scenarioInfo);
             "ffet recipes")]
         [NUnit.Framework.CategoryAttribute("TC36009")]
         [NUnit.Framework.CategoryAttribute("TC36010")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Please don`t use", "TUE 29 JAN", "Maya Buffet", "004Basic Sponge", "DANGELO", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "Maya Buffet", "004Basic Sponge", "MARGRET", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void WastageIsAnInputFieldAndQtySoldAndNoChargeFieldsAreNotPresentForBuffetRecipes(string environment, string withFA, string location, string menuCycle, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
+        public virtual void WastageIsAnInputFieldAndQtySoldAndNoChargeFieldsAreNotPresentForBuffetRecipes(string environment, string withFA, string location, string menuCycle, string week, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC36009",
@@ -419,7 +419,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 150
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 151
-        testRunner.And("week \"WEEK 1\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 152
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 153
@@ -436,9 +436,9 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Wastage field is disabled for recipes")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Please don`t use", "TUE 29 JAN", "004Apple Sauce (tinned)", "DANGELO", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "004Apple Sauce (tinned)", "MARGRET", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void WastageFieldIsDisabledForRecipes(string environment, string withFA, string location, string menuCycle, string day, string recipeName, string mealPeriod, string[] exampleTags)
+        public virtual void WastageFieldIsDisabledForRecipes(string environment, string withFA, string location, string menuCycle, string week, string day, string recipeName, string mealPeriod, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Wastage field is disabled for recipes", null, exampleTags);
 #line 162
@@ -455,7 +455,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 167
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 168
-        testRunner.And("week \"WEEK 1\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 169
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 170
@@ -470,7 +470,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Contextual error message is shown for Wastage for buffet recipes when decimal is " +
             "inputed")]
         [NUnit.Framework.CategoryAttribute("TC36011")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Please don`t use", "TUE 29 JAN", "Maya Buffet", "004Basic Sponge", "DANGELO", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "FRI 26 JUL", "Maya Buffet", "004Basic Sponge", "MARGRET", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void ContextualErrorMessageIsShownForWastageForBuffetRecipesWhenDecimalIsInputed(string environment, string withFA, string location, string menuCycle, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
         {
@@ -496,7 +496,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 184
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 185
-        testRunner.And("week \"WEEK 1\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("week \"WEEK 3\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 186
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 187
@@ -514,9 +514,9 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Buffet tariff type is present at menu level")]
         [NUnit.Framework.CategoryAttribute("TC36211")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Please don`t use", "TUE 29 JAN", "Maya Buffet", "004Basic Sponge", "DANGELO", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "Maya Buffet", "004Basic Sponge", "MARGRET", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void BuffetTariffTypeIsPresentAtMenuLevel(string environment, string withFA, string location, string menuCycle, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
+        public virtual void BuffetTariffTypeIsPresentAtMenuLevel(string environment, string withFA, string location, string menuCycle, string week, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC36211"};
@@ -539,7 +539,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 202
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 203
-        testRunner.And("week \"WEEK 1\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 204
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 205
@@ -553,9 +553,9 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Post-Production weekly totals equals the sum of all meal period totals")]
         [NUnit.Framework.CategoryAttribute("TC38808")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Please don`t use", "TUE 29 JAN", "211", "210", "75", "165", "211", "-322", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "301", "50", "77", "9", "4", "261", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void VerifyPost_ProductionWeeklyTotalsEqualsTheSumOfAllMealPeriodTotals(string environment, string withFA, string location, string menuCycle, string day, string qtyReqd, string qtyProd, string qtySold, string noCharge, string returnToStock, string wastage, string[] exampleTags)
+        public virtual void VerifyPost_ProductionWeeklyTotalsEqualsTheSumOfAllMealPeriodTotals(string environment, string withFA, string location, string menuCycle, string week, string day, string qtyReqd, string qtyProd, string qtySold, string noCharge, string returnToStock, string wastage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC38808"};
@@ -578,7 +578,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 219
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 220
-        testRunner.And("week \"WEEK 1\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 221
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 222

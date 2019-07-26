@@ -18,8 +18,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public IList<NestedRecipe> Recipes => this.Items.Select(p => new NestedRecipe(p, MealPeriodName, Driver)).ToList().GetRange(1, Items.Count - 1);
 
-        public override string Type => new Recipe(Items[0], MealPeriodName, Driver).Type;
-        public override string Title => new Recipe(Items[0], MealPeriodName, Driver).Title;
+        public override string Title => title.Text.Remove(0, 13);
 
         public NestedRecipe GetRecipe(string title)
         {

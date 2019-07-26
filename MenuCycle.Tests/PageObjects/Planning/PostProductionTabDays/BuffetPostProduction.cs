@@ -15,14 +15,16 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             MealPeriodName = mealPeriodName;
         }
 
-        [FindsBy(How = How.ClassName, Using = "recipe-card")]
+        [FindsBy(How = How.CssSelector, Using = ".recipe-card")]
         private  IList<IWebElement> Items { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".recipe-header__title")]
+        protected IWebElement title { get; set; }
 
-        public IList<RecipePostProduction> Recipes => this.Items.Select(p => new RecipePostProduction(p, MealPeriodName, Driver)).ToList().GetRange(1, Items.Count - 1);
+        public IList<NestedRecipePostProduction> Recipes => this.Items.Select(p => new NestedRecipePostProduction(p, MealPeriodName, Driver)).ToList().GetRange(1, Items.Count - 1);
 
-        public string Title => new RecipePostProduction(Items[0], MealPeriodName, Driver).Title;
+        public string Title => this.title.Text.Remove(0, 9);
 
-        public RecipePostProduction GetRecipe(string title)
+        public NestedRecipePostProduction GetRecipe(string title)
         {
             if (!Recipes.Any(x => x.Title == title))
             {

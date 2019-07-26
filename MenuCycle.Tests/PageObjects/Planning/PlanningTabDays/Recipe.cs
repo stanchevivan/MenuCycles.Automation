@@ -17,19 +17,19 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         [FindsBy(How = How.CssSelector, Using = ".recipe-header__title > span:first-of-type")]
         protected IWebElement type { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".recipe-header__title > span:last-of-type")]
-        private IWebElement title { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".update-prices > .recipe-header__button-title")]
+        [FindsBy(How = How.CssSelector, Using = ".recipe-header__title")]
+        protected IWebElement title { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".update-prices")]
         private IWebElement updatePrices { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".add-type > .recipe-header__button-title")]
+        [FindsBy(How = How.CssSelector, Using = ".add-type")]
         private IWebElement addTypeButton { get; set; }
         [FindsBy(How = How.ClassName, Using = "recipe-data__row")]
         private IList<IWebElement> RecipeRows { get; set; }
 
-        public IList<RecipeRow> Rows => RecipeRows.Select(p => new RecipeRow(p, Driver)).ToList();
+        public virtual IList<RecipeRow> Rows => RecipeRows.Select(p => new RecipeRow(p, Driver)).ToList();
 
         public virtual string Type => this.type.Text;
-        public virtual string Title => this.title.Text;
+        public virtual string Title => this.title.Text.Remove(0, 9);
         public virtual string Colour => this.type.GetCssValue("color");
 
         public void AddType()
@@ -37,7 +37,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
             this.addTypeButton.Click();
         }
 
-        public RecipeRow GetFirstRow()
+        public virtual RecipeRow GetFirstRow()
         {
             return Rows.First();
         }

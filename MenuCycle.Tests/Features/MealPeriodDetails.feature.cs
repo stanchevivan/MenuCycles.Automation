@@ -415,7 +415,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Local user open recipe details")]
         [NUnit.Framework.CategoryAttribute("TC40894")]
         [NUnit.Framework.CategoryAttribute("D38047")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "MONDAY", "LUNCH", "724Egg Noodles", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "THURSDAY", "LUNCH", "004Baked Beans_2", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void LocalUserOpenRecipeDetails(string environment, string withFA, string location, string menuCycle, string day, string mealPeriod, string recipe, string[] exampleTags)
         {

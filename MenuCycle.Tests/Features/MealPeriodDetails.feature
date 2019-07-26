@@ -156,5 +156,5 @@ Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>"
     
     @QAI
     Examples:
-    |environment|withFA|location|menuCycle         |day   |mealPeriod|recipe        |
-    |QAI        |false |SE001   |Local User Testing|MONDAY|LUNCH     |724Egg Noodles|
+    |environment|withFA|location|menuCycle         |day     |mealPeriod|recipe          |
+    |QAI        |false |SE001   |Local User Testing|THURSDAY|LUNCH     |004Baked Beans_2|

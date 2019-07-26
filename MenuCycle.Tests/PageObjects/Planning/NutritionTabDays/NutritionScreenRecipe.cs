@@ -5,11 +5,11 @@ using SeleniumExtras.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 {
-    public class NutritionScreenRecipe : MenuCyclesBasePage
+    public class NutritionScreenRecipe : Recipe
     {
-        public string MealPeriodName { get; set; }
+        //public string MealPeriodName { get; set; }
 
-        public NutritionScreenRecipe(IWebElement parent, string mealPeriodName, IWebDriver webDriver) : base(webDriver)
+        public NutritionScreenRecipe(IWebElement parent, string mealPeriodName, IWebDriver webDriver) : base(parent, mealPeriodName, webDriver)
         {
             PageFactory.InitElements(parent, this);
             this.MealPeriodName = mealPeriodName;
@@ -17,20 +17,20 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         [FindsBy(How = How.CssSelector, Using = ".recipe-header__small")]
         protected IList<IWebElement> BuffetRecipes { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".recipe-header__title > span:first-of-type")]
-        private IWebElement type { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".recipe-header__title > span:last-of-type")]
-        private IWebElement title { get; set; }
+        //[FindsBy(How = How.CssSelector, Using = ".recipe-header__title > span:first-of-type")]
+        //private IWebElement type { get; set; }
+        //[FindsBy(How = How.CssSelector, Using = ".recipe-header__title > span:last-of-type")]
+        //private IWebElement title { get; set; }
         [FindsBy(How = How.ClassName, Using = "recipe-data__row")]
         private IList<IWebElement> RecipeRows { get; set; }
 
 
-        public IList<RecipeRowNutrition> Rows => RecipeRows.Select(p => new RecipeRowNutrition(p, Driver)).ToList();
+        public new IList<RecipeRowNutrition> Rows => RecipeRows.Select(p => new RecipeRowNutrition(p, Driver)).ToList();
 
-        public virtual string Title => this.title.Text;
-        public string Type => type.Text;
+        //public virtual string Title => this.title.Text;
+        //public string Type => type.Text;
 
-        public RecipeRowNutrition GetFirstRow()
+        public new RecipeRowNutrition GetFirstRow()
         {
             return Rows[0];
         }

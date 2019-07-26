@@ -24,7 +24,7 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement MealPeriodName { get; set; }
         [FindsBy(How = How.ClassName, Using = "mealperiod-header__covers__input")]
         private IWebElement Covers { get; set; }
-        [FindsBy(How = How.ClassName, Using = "recipe-content")]
+        [FindsBy(How = How.ClassName, Using = "recipe-wrapper")]
         private IList<IWebElement> Items{ get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__column:nth-of-type(2) > span:last-of-type")]
         private IWebElement PlannedQuantityText { get; set; }
@@ -54,6 +54,11 @@ namespace MenuCycle.Tests.PageObjects
 
         public BuffetPostProduction GetBuffet(string name)
         {
+            if (!Buffets.Any(a => a.Title == name))
+            {
+                throw new System.Exception($"Buffet {name} not found !");
+            }
+
             return this.Buffets.First(a => a.Title == name);
         }
 

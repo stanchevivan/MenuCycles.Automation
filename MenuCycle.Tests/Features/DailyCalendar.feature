@@ -29,8 +29,8 @@ Scenario Outline: Daily Calendar view is switched for local user
     
     @QAI
     Examples:
-    |environment|withFA|location|menuCycle         |day      |
-    |QAI        |false |SE001   |Local User Testing|SUN 5 AUG|
+    |environment|withFA|location|menuCycle         |day       |
+    |QAI        |false |SE001   |Local User Testing|SUN 28 JUL|
     
 @TC37976
 Scenario Outline: Review page is opened

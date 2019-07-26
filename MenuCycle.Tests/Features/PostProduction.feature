@@ -7,7 +7,7 @@ Scenario Outline: Expand all / Collapse all Post-production Days
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
         And Weekly Calendar is opened
-        And week "WEEK 1" is opened
+        And week "<week>" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
         And Expand all is clicked
@@ -17,8 +17,8 @@ Scenario Outline: Expand all / Collapse all Post-production Days
     
     @QAI
     Examples:
-    |environment|withFA|location|menuCycle         |day       |
-    |QAI        |false |SE001   |Local User Testing|WED 11 JUL|
+    |environment|withFA|location|menuCycle           |week  |day       |
+    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|
     
 @TC34693
 Scenario Outline: Expand/Collapse single meal period Post-production days
@@ -27,7 +27,7 @@ Scenario Outline: Expand/Collapse single meal period Post-production days
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
         And Weekly Calendar is opened
-        And week "WEEK 1" is opened
+        And week "<week>" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
         And Post-production meal period "<mealPeriod>" is collapsed
@@ -37,8 +37,8 @@ Scenario Outline: Expand/Collapse single meal period Post-production days
     
     @QAI
     Examples:
-    |environment|withFA|location|menuCycle         |day       |mealPeriod|
-    |QAI        |false |SE001   |Local User Testing|WED 11 JUL|DINNER    |
+    |environment|withFA|location|menuCycle           |week  |day       |mealPeriod|
+    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|MARGRET    |
     
 Scenario Outline: Post production daily total calculations
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
@@ -46,7 +46,7 @@ Scenario Outline: Post production daily total calculations
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
         And Weekly Calendar is opened
-        And week "WEEK 1" is opened
+        And week "<week>" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
     Then Verify planned quantity daily total equals the sum of all meal period totals
@@ -57,8 +57,8 @@ Scenario Outline: Post production daily total calculations
     
     @QAI
     Examples:
-    |environment|withFA|location|menuCycle         |day       |mealPeriod|recipeName        |tariff   |
-    |QAI        |false |SE001   |Local User Testing|WED 11 JUL|DINNER    |724Lamb Burger 6oz|TariffOne|
+    |environment|withFA|location|menuCycle           |week  |day       |mealPeriod|recipeName             |tariff   |
+    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|MARGRET   |004Apple Sauce (tinned)|TariffOne|
     
 Scenario Outline: Post production validations
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
@@ -66,7 +66,7 @@ Scenario Outline: Post production validations
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
         And Weekly Calendar is opened
-        And week "WEEK 1" is opened
+        And week "<week>" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
     Then Verify planned quantity daily total equals the sum of all meal period totals
@@ -85,8 +85,8 @@ Scenario Outline: Post production validations
     
     @QAI
     Examples:
-    |environment|withFA|location|menuCycle         |day       |mealPeriod|recipeName        |tariff   |integerMessage |negativeMessage     |
-    |QAI        |false |SE001   |Local User Testing|WED 11 JUL|DINNER    |724Lamb Burger 6oz|TariffOne|Must be integer|Must be 0 or greater|
+    |environment|withFA|location|menuCycle           |week  |day       |mealPeriod |recipeName             |tariff   |integerMessage |negativeMessage     |
+    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|MARGRET    |004Apple Sauce (tinned)|TariffOne|Must be integer|Must be 0 or greater|
 
 
 @TC35467 @D31395
@@ -96,7 +96,7 @@ Scenario Outline: Open Post-Production Screen, navigate to Weekly view
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
         And Weekly Calendar is opened
-        And week "WEEK 1" is opened
+        And week "<week>" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
         And switching to Weekly Post-Production view
@@ -104,8 +104,8 @@ Scenario Outline: Open Post-Production Screen, navigate to Weekly view
     
     @QAI
     Examples:
-    |environment|withFA|location|menuCycle         |day       |
-    |QAI        |false |SE001   |Local User Testing|WED 11 JUL|
+    |environment|withFA|location|menuCycle           |week  |day       |
+    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|
   
  # Scenario is commented until POS integration is finished   
  # @TC35573
@@ -148,7 +148,7 @@ Scenario Outline: Wastage is an input field and QtySold and No charge fields are
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
         And Weekly Calendar is opened
-        And week "WEEK 1" is opened
+        And week "<week>" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
    Then Verify Wastage for buffet "<buffetName>" recipe "<recipeName>" in meal period "<mealPeriod>" is an editable field
@@ -156,8 +156,8 @@ Scenario Outline: Wastage is an input field and QtySold and No charge fields are
     
        @QAI
     Examples:
-    |environment|withFA|location|menuCycle       |day       |buffetName |recipeName     |mealPeriod|
-    |QAI        |false |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|004Basic Sponge|   DANGELO|
+    |environment|withFA|location|menuCycle           |week  |day       |buffetName |recipeName     |mealPeriod|
+    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|Maya Buffet|004Basic Sponge|   MARGRET|
     
 Scenario Outline: Wastage field is disabled for recipes
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
@@ -165,15 +165,15 @@ Scenario Outline: Wastage field is disabled for recipes
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
         And Weekly Calendar is opened
-        And week "WEEK 1" is opened
+        And week "<week>" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
    Then Verify Wastage for recipe "<recipeName>" in meal period "<mealPeriod>" is disabled
    
        @QAI
     Examples:
-    |environment|withFA|location|menuCycle       |day       |recipeName             |mealPeriod|
-    |QAI        |false |SE001   |Please don`t use|TUE 29 JAN|004Apple Sauce (tinned)|   DANGELO|
+    |environment|withFA|location|menuCycle           |week  |day       |recipeName             |mealPeriod|
+    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|004Apple Sauce (tinned)|   MARGRET|
     
 @TC36011
 Scenario Outline: Contextual error message is shown for Wastage for buffet recipes when decimal is inputed
@@ -182,7 +182,7 @@ Scenario Outline: Contextual error message is shown for Wastage for buffet recip
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
         And Weekly Calendar is opened
-        And week "WEEK 1" is opened
+        And week "WEEK 3" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
         And Wastage value "9.11" is inputed for buffet "<buffetName>" recipe "<recipeName>" in meal period "<mealPeriod>"
@@ -190,8 +190,8 @@ Scenario Outline: Contextual error message is shown for Wastage for buffet recip
 
        @QAI
     Examples:
-    |environment|withFA|location|menuCycle       |day       |buffetName |recipeName     |mealPeriod|
-    |QAI        |false |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|004Basic Sponge|   DANGELO|
+    |environment|withFA|location|menuCycle           |day       |buffetName |recipeName     |mealPeriod|
+    |QAI        |false |SE001   |Automation post-prod|FRI 26 JUL|Maya Buffet|004Basic Sponge|   MARGRET|
 
 @TC36211
 Scenario Outline: Buffet tariff type is present at menu level
@@ -200,15 +200,15 @@ Scenario Outline: Buffet tariff type is present at menu level
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
         And Weekly Calendar is opened
-        And week "WEEK 1" is opened
+        And week "<week>" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
     Then Buffet tariff type is present for buffet "<buffetName>" in meal period "<mealPeriod>"
     
            @QAI
     Examples:
-    |environment|withFA|location|menuCycle       |day       |buffetName |recipeName     |mealPeriod|
-    |QAI        |false |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|004Basic Sponge|   DANGELO|
+    |environment|withFA|location|menuCycle           |week  |day       |buffetName |recipeName     |mealPeriod|
+    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|Maya Buffet|004Basic Sponge|   MARGRET|
     
 @TC38808    
 Scenario Outline: Verify Post-Production weekly totals equals the sum of all meal period totals
@@ -217,7 +217,7 @@ Scenario Outline: Verify Post-Production weekly totals equals the sum of all mea
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
         And Weekly Calendar is opened
-        And week "WEEK 1" is opened
+        And week "<week>" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
         And Weeks tab is opened
@@ -228,5 +228,5 @@ Scenario Outline: Verify Post-Production weekly totals equals the sum of all mea
     
     @QAI
     Examples:
-    |environment|withFA|location|menuCycle       |day       |qtyReqd|qtyProd|qtySold|noCharge|returnToStock|wastage|
-    |QAI        |false |SE001   |Please don`t use|TUE 29 JAN|211    |210    |75     |165     |211          |-322   |
+    |environment|withFA|location|menuCycle           |week  |day       |qtyReqd|qtyProd|qtySold|noCharge|returnToStock|wastage|
+    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|301    |50     |77     |9       |4            |261    |

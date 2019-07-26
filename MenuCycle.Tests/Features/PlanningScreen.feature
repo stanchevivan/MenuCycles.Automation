@@ -440,8 +440,8 @@ Scenario Outline: Verify save button is disabled if menu cycle is published
     
     @QAI
     Examples:
-    |environment|withFA|menuCycle                |day     |
-    |QAI        |false |Menu Cycle for Local user|THURSDAY|
+    |environment|withFA|menuCycle         |day      |
+    |QAI        |false |Local User Testing|WEDNESDAY|
     
 @TC31887 @D26963
 Scenario Outline: Planning screen is loaded after searching for recipe which is not found

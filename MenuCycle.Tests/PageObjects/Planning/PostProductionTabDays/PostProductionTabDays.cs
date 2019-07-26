@@ -49,6 +49,11 @@ namespace MenuCycle.Tests.PageObjects
 
         public DailyMealPeriodPostProduction GetMealPeriod(string mealPeriodName)
         {
+            if (!MealPeriods.Any(x => x.Name == mealPeriodName))
+            {
+                throw new System.Exception($"Meal period {mealPeriodName} not found !");
+            }
+
             return MealPeriods.First(x => x.Name == mealPeriodName);
         }
 

@@ -1173,7 +1173,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify save button is disabled if menu cycle is published")]
         [NUnit.Framework.CategoryAttribute("TC31037")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Menu Cycle for Local user", "THURSDAY", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Local User Testing", "WEDNESDAY", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void VerifySaveButtonIsDisabledIfMenuCycleIsPublished(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
