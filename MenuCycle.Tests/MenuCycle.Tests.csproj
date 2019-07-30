@@ -313,8 +313,6 @@
     <Compile Include="PageObjects\Dashboard\MenuCycleItem.cs" />
     <Compile Include="PageObjects\Dashboard\MenuCyclesDashboard.cs" />
     <Compile Include="Steps\FourthEngageSteps.cs" />
-    <Compile Include="Steps\MenuCycleSteps.cs" />
-    <Compile Include="Steps\SearchRecipeSteps.cs" />
     <Compile Include="Steps\SeedSteps.cs" />
     <Compile Include="Support\Hooks.cs" />
     <Compile Include="Support\SeedHooks.cs" />
@@ -328,8 +326,6 @@
     <Compile Include="PageObjects\Planning\PlanningTabDays\PlanningTabDaysView.cs" />
     <Compile Include="PageObjects\Planning\NutritionTabDays\NutritionTabDays.cs" />
     <Compile Include="Support\Helpers\Get.cs" />
-    <Compile Include="Steps\MealPeriodSteps.cs" />
-    <Compile Include="Steps\PlanningSteps.cs" />
     <Compile Include="PageObjects\Planning\NutritionTabWeeks\NutritionTabWeeks.cs" />
     <Compile Include="PageObjects\Planning\PlanningTabWeeks\PlanningTabWeeks.cs" />
     <Compile Include="PageObjects\MenuCyclesBasePage.cs" />
@@ -339,7 +335,6 @@
     <Compile Include="PageObjects\Planning\PlanningTabDays\NestedRecipe.cs" />
     <Compile Include="Models\RecipeModel.cs" />
     <Compile Include="Support\Helpers\Do.cs" />
-    <Compile Include="Steps\RecipeSteps.cs" />
     <Compile Include="Features\RecipeSearch.feature.cs">
       <DependentUpon>RecipeSearch.feature</DependentUpon>
     </Compile>
@@ -347,17 +342,13 @@
     <Compile Include="Features\Buffet.feature.cs">
       <DependentUpon>Buffet.feature</DependentUpon>
     </Compile>
-    <Compile Include="Steps\BuffetSteps.cs" />
-    <Compile Include="Steps\ALaCarteSteps.cs" />
     <Compile Include="PageObjects\ModalDialogPage.cs" />
     <Compile Include="Support\Helpers\CommonHelpers.cs" />
     <Compile Include="PageObjects\Planning\PlanningTabDays\RecipeRow.cs" />
     <Compile Include="PageObjects\FourthAppLocalPage.cs" />
-    <Compile Include="Steps\LocalUserPlanningSteps.cs" />
     <Compile Include="Features\MealPeriodDetails.feature.cs">
       <DependentUpon>MealPeriodDetails.feature</DependentUpon>
     </Compile>
-    <Compile Include="Steps\MealMeriodDetailSteps.cs" />
     <Compile Include="PageObjects\Planning\PostProductionTabDays\PostProductionTabDays.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodCard.cs" />
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails.cs" />
@@ -389,7 +380,6 @@
     <Compile Include="PageObjects\CalendarDays\DayColumn\MealPeriodDetails\RecipeSearch\BuffetItem.cs" />
     <Compile Include="Support\Helpers\DisposeDriverervice.cs" />
     <Compile Include="Support\AppiumHooks.cs" />
-    <Compile Include="Steps\WeeklyCalendarSteps.cs" />
     <Compile Include="Features\Reports.feature.cs">
       <DependentUpon>Reports.feature</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -403,18 +393,15 @@
       <DependentUpon>WeeklyCalendar.feature</DependentUpon>
     </Compile>
     <Compile Include="PageObjects\Reports\ConsumerFacingReportPage.cs" />
-    <Compile Include="Steps\ReportSteps.cs" />
     <Compile Include="PageObjects\Reports\ReportsView.cs" />
     <Compile Include="Support\ConfigurationReader.cs" />
     <Compile Include="Features\DailyCalendar.feature.cs">
       <DependentUpon>DailyCalendar.feature</DependentUpon>
     </Compile>
-    <Compile Include="Steps\DailyCalendarSteps.cs" />
     <Compile Include="Features\Nutrition.feature.cs">
       <DependentUpon>Nutrition.feature</DependentUpon>
     </Compile>
     <Compile Include="PageObjects\Planning\PostProductionTabDays\DailyMealPeriodPostProduction.cs" />
-    <Compile Include="Steps\PostProductionSteps.cs" />
     <Compile Include="PageObjects\Planning\PostProductionTabDays\RecipeRowPostProduction.cs" />
     <Compile Include="Models\RecipeModelPostProducton.cs" />
     <Compile Include="PageObjects\Planning\PostProductionTabDays\RecipePostProduction.cs" />
@@ -423,8 +410,6 @@
     <Compile Include="Features\Performance.feature.cs">
       <DependentUpon>Performance.feature</DependentUpon>
     </Compile>
-    <Compile Include="Steps\PerformanceSteps.cs" />
-    <Compile Include="Steps\NutritionSteps.cs" />
     <Compile Include="Features\PostProduction.feature.cs">
       <DependentUpon>PostProduction.feature</DependentUpon>
     </Compile>
@@ -450,6 +435,49 @@
       <DependentUpon>Recipes.feature</DependentUpon>
     </Compile>
     <Compile Include="PageObjects\Planning\PostProductionTabDays\NestedRecipePostProduction.cs" />
+    <Compile Include="Features\BuffetSteps.cs">
+      <DependentUpon>Buffet.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Steps\ALaCarteSteps.cs" />
+    <Compile Include="Features\DailyCalendarSteps.cs">
+      <DependentUpon>DailyCalendar.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\LocalUserPlanningSteps.cs">
+      <DependentUpon>LocalUserPlanningScreen.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\MealPeriodSteps.cs">
+      <DependentUpon>MealPeriods.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\NutritionSteps.cs">
+      <DependentUpon>Nutrition.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\MenuCycleSteps.cs">
+      <DependentUpon>MenuCycles.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\MealMeriodDetailSteps.cs">
+      <DependentUpon>MealPeriodDetails.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\PerformanceSteps.cs">
+      <DependentUpon>Performance.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\PlanningSteps.cs">
+      <DependentUpon>PlanningScreen.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\RecipeSteps.cs">
+      <DependentUpon>Recipes.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\SearchRecipeSteps.cs">
+      <DependentUpon>RecipeSearch.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\ReportSteps.cs">
+      <DependentUpon>Reports.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\WeeklyCalendarSteps.cs">
+      <DependentUpon>WeeklyCalendar.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\PostProductionSteps.cs">
+      <DependentUpon>PostProduction.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

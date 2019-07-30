@@ -15,7 +15,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         }
 
         [FindsBy(How = How.CssSelector, Using = ".recipe-header__title > span")]
-        private IWebElement title { get; set; }
+        private new IWebElement title { get; set; }
 
         public override string Colour => this.type.GetCssValue("color");
         public override string Title => this.title.Text;
