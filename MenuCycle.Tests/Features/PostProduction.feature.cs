@@ -349,7 +349,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Export Local Sales report")]
         [NUnit.Framework.CategoryAttribute("TC36205")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "WED 11 JUL", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "WED 31 JUL", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void ExportLocalSalesReport(string environment, string withFA, string location, string menuCycle, string day, string[] exampleTags)
         {
@@ -374,7 +374,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 132
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 133
-        testRunner.And("week \"WEEK 1\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("week \"WEEK 2\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 134
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 135

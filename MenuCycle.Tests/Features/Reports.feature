@@ -127,9 +127,9 @@ Scenario Outline: Consumer Facing Report - Local > Error message is displayed if
     When Reports page is opened
         And Report "ConsumerFacing" is opened
         And Export CSV and Export PDF buttons are not displayed
-        And Report start date "11/07/2018" is selected
+        And Report start date "31/07/2019" is selected
         And Export CSV and Export PDF buttons are not displayed
-        And Report end date "31/07/2018" is selected
+        And Report end date "3/08/2019" is selected
         And Export CSV button is clicked
     Then Verify notification message "Please select a report end date that is before the menu cycle end date" is displayed
         And Export PDF button is clicked
@@ -256,8 +256,8 @@ Scenario Outline: Recipe Card Report - Local > Error message is displayed if sel
         And Menu Cycle "Local User Testing" is selected
     When Reports page is opened
         And Report "RecipeCard" is opened
-        And Report start date "11/07/2018" is selected
-        And Report end date "31/07/2018" is selected
+        And Report start date "31/07/2019" is selected
+        And Report end date "30/08/2019" is selected
         And Meal periods are selected
         |MealPeriod         |
         |Lunch              |

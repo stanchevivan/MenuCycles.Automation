@@ -130,7 +130,7 @@ Scenario Outline: Export Local Sales report
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
         And Weekly Calendar is opened
-        And week "WEEK 1" is opened
+        And week "WEEK 2" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
         And local sales report is exported
@@ -139,7 +139,7 @@ Scenario Outline: Export Local Sales report
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |day       |
-    |QAI        |false |SE001   |Local User Testing|WED 11 JUL|
+    |QAI        |false |SE001   |Local User Testing|WED 31 JUL|
     
 @TC36009 @TC36010
 Scenario Outline: Wastage is an input field and QtySold and No charge fields are not present for buffet recipes

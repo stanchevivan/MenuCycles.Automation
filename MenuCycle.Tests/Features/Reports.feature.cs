@@ -374,11 +374,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 129
         testRunner.And("Export CSV and Export PDF buttons are not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 130
-        testRunner.And("Report start date \"11/07/2018\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Report start date \"31/07/2019\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 131
         testRunner.And("Export CSV and Export PDF buttons are not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 132
-        testRunner.And("Report end date \"31/07/2018\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Report end date \"3/08/2019\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 133
         testRunner.And("Export CSV button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 134
@@ -685,9 +685,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 258
         testRunner.And("Report \"RecipeCard\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 259
-        testRunner.And("Report start date \"11/07/2018\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Report start date \"31/07/2019\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 260
-        testRunner.And("Report end date \"31/07/2018\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Report end date \"30/08/2019\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriod"});

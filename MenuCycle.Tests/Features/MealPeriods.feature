@@ -430,6 +430,8 @@ Scenario Outline: Verify there are no duplicate items in meal period in the cale
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "WEEK 3" is opened
     When Verify calendar view is opened
         And Expand all is clicked
         And Verify all meal periods are expanded in Daily Calendar
@@ -437,8 +439,8 @@ Scenario Outline: Verify there are no duplicate items in meal period in the cale
     
         @QAI
     Examples:
-    |environment|withFA|location|menuCycle     |mealPeriod     |day   |
-    |QAI        |false |SE001   |DEFECT TESTING|TEST MEALPERIOD|MONDAY|
+    |environment|withFA|location|menuCycle                |mealPeriod|day        |
+    |QAI        |false |SE001   |FOR Local User AUTOMATION|LUNCH     |WED 14 AUG |
     
     
 @TC40440
