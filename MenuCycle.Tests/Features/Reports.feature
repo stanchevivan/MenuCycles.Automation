@@ -85,9 +85,9 @@ Scenario Outline: Consumer Facing Report - Local > User is able to export Consum
     When Reports page is opened
         And Report "ConsumerFacing" is opened
         And Export CSV and Export PDF buttons are not displayed
-        And Report start date "11/07/2018" is selected
+        And Report start date "29/07/2019" is selected
         And Export CSV and Export PDF buttons are not displayed
-        And Report end date "25/07/2018" is selected
+        And Report end date "31/07/2019" is selected
         And Export CSV and Export PDF buttons are displayed
         And Export PDF button is clicked
     Then Verify notification message "Successfully Exported" is displayed
@@ -106,9 +106,9 @@ Scenario Outline: Consumer Facing Report - Local > User is able to export Consum
     When Reports page is opened
         And Report "ConsumerFacing" is opened
         And Export CSV and Export PDF buttons are not displayed
-        And Report start date "11/07/2018" is selected
+        And Report start date "29/07/2019" is selected
         And Export CSV and Export PDF buttons are not displayed
-        And Report end date "25/07/2018" is selected
+        And Report end date "31/07/2019" is selected
         And Export CSV and Export PDF buttons are displayed
         And Export CSV button is clicked
     Then Verify notification message "Successfully Exported" is displayed
@@ -123,7 +123,7 @@ Scenario Outline: Consumer Facing Report - Local > Error message is displayed if
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "SE001" is selected
-        And Menu Cycle "Local User Testing" is selected
+        And Menu Cycle "Local User Expired" is selected
     When Reports page is opened
         And Report "ConsumerFacing" is opened
         And Export CSV and Export PDF buttons are not displayed
@@ -253,7 +253,7 @@ Scenario Outline: Recipe Card Report - Local > Error message is displayed if sel
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "SE001" is selected
-        And Menu Cycle "Local User Testing" is selected
+        And Menu Cycle "Local User Expired" is selected
     When Reports page is opened
         And Report "RecipeCard" is opened
         And Report start date "31/07/2019" is selected

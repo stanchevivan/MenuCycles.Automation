@@ -276,11 +276,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 87
         testRunner.And("Export CSV and Export PDF buttons are not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 88
-        testRunner.And("Report start date \"11/07/2018\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Report start date \"29/07/2019\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 89
         testRunner.And("Export CSV and Export PDF buttons are not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 90
-        testRunner.And("Report end date \"25/07/2018\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Report end date \"31/07/2019\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 91
         testRunner.And("Export CSV and Export PDF buttons are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 92
@@ -325,11 +325,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 108
         testRunner.And("Export CSV and Export PDF buttons are not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 109
-        testRunner.And("Report start date \"11/07/2018\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Report start date \"29/07/2019\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 110
         testRunner.And("Export CSV and Export PDF buttons are not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 111
-        testRunner.And("Report end date \"25/07/2018\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Report end date \"31/07/2019\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 112
         testRunner.And("Export CSV and Export PDF buttons are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 113
@@ -366,7 +366,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 125
         testRunner.And("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 126
-        testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Menu Cycle \"Local User Expired\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 127
     testRunner.When("Reports page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 128
@@ -679,7 +679,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 255
         testRunner.And("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 256
-        testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Menu Cycle \"Local User Expired\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 257
     testRunner.When("Reports page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 258
