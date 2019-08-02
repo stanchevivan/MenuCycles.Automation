@@ -415,9 +415,9 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Local user open recipe details")]
         [NUnit.Framework.CategoryAttribute("TC40894")]
         [NUnit.Framework.CategoryAttribute("D38047")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "THURSDAY", "LUNCH", "004Baked Beans_2", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "THURSDAY", "WEEK 1", "LUNCH", "004Baked Beans_2", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void LocalUserOpenRecipeDetails(string environment, string withFA, string location, string menuCycle, string day, string mealPeriod, string recipe, string[] exampleTags)
+        public virtual void LocalUserOpenRecipeDetails(string environment, string withFA, string location, string menuCycle, string day, string week, string mealPeriod, string recipe, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC40894",
@@ -431,18 +431,22 @@ this.ScenarioInitialize(scenarioInfo);
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 149
-testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 150
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 151
         testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 152
-        testRunner.When(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 153
-        testRunner.And(string.Format("Details for meal period \"{0}\" in \"{1}\" are opened", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 154
-        testRunner.And(string.Format("detailed view for recipe with name \"{0}\" is opened", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 155
+        testRunner.And(string.Format("Details for meal period \"{0}\" in \"{1}\" are opened", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 156
+        testRunner.And(string.Format("detailed view for recipe with name \"{0}\" is opened", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 157
     testRunner.Then(string.Format("Verify meal period recipe name is \"{0}\"", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

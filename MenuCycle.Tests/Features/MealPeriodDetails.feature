@@ -146,15 +146,17 @@ Scenario Outline: Copy/Delete buttons are disabled when last recipe is deleted
 
 @TC40894 @D38047
 Scenario Outline: Local user open recipe details
-Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>"
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>"
         And a local user is selected
         And location "<location>" is selected
-        When Menu Cycle "<menuCycle>" is selected
+    When Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "<week>" is opened
         And Details for meal period "<mealPeriod>" in "<day>" are opened
         And detailed view for recipe with name "<recipe>" is opened
     Then Verify meal period recipe name is "<recipe>"
     
     @QAI
     Examples:
-    |environment|withFA|location|menuCycle         |day     |mealPeriod|recipe          |
-    |QAI        |false |SE001   |Local User Testing|THURSDAY|LUNCH     |004Baked Beans_2|
+    |environment|withFA|location|menuCycle         |day     |week  |mealPeriod|recipe          |
+    |QAI        |false |SE001   |Local User Testing|THURSDAY|WEEK 1|LUNCH     |004Baked Beans_2|
