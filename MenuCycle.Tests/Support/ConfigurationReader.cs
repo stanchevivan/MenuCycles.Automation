@@ -9,19 +9,10 @@ namespace MenuCycle.Tests.Support
         private readonly JsonValue configuration;
         private readonly string environment;
 
-        // TODO: Decide best approach to read configuration
         public ConfigurationReader(string environment)
         {
-            // var assembly = Assembly.GetExecutingAssembly();
-            // var resourceName = "MenuCycle.Tests.Support.EnvironmentConfig.json";
-
             string result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Support/Environment.config"));
-
-            // using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            // using (StreamReader reader = new StreamReader(stream))
-            // {
-                this.configuration = JsonValue.Parse(result);
-            // }
+            configuration = JsonValue.Parse(result);
             this.environment = environment;
         }
 
