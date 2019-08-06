@@ -74,8 +74,7 @@ node('IE1UIBLD03') {
 		error("${device} is not supported !\nStopping job...")
 	}
 
-	// Checking for excluding tags first and removeing them, to avoid passing them as include tags
-	// Chech for exclude tags in Job Name
+  // Chech for exclude tags in the Job Name, and removing them from jobName variable to avoid reading them as include tags
 	['-QAI', '-UAT', '-PRELIVE', '-EMEA', '-NA', '-Sanity'].each
 	{
 		if (jobName.contains("${it}"))
@@ -101,7 +100,7 @@ node('IE1UIBLD03') {
 		excludeTag("Performance")
 	}
 
-  // Exclude Performance tests for non-E2E jobs
+  // Exclude E2E tests for non-E2E jobs
 	if (!Include_Tags.contains("E2E"))
 	{
 		excludeTag("E2E")
@@ -111,7 +110,7 @@ node('IE1UIBLD03') {
 	{
 		if(isRemote && device in mobileDevices)
 		{
-			// Get the current device id
+			// Get the device id from the Config file
 			currentDeviceConfig = bat(returnStdout:true, script: "more \"$env.WORKSPACE/${projectName}/App.${device}.config\"")
 			currentDeviceId = ""
 
@@ -224,30 +223,33 @@ def buildConfigurations(device)
         bat "\"$msbuild\" \"${solutionPath}\" /t:Rebuild $commonReleaseBuildParams /p:Configuration=\"${device}\""
 }
 
+
 def runTests(device)
 {
-	// Assemble include and exclude parameter strings
-			def include = ''
-			def includeTags = Include_Tags.split(',')
+			// First part of the method formats include/exclude tags as parameters for Nunit-Console, depending on all possible combinations
+			def includeParameter = ''
+			def includeTagsList = Include_Tags.split(',')
 			def isFirstTag = true
 
-			if (Include_Tags != '')
+			// Check if list is empty
+			if (includeTagsList)
 			{
-				includeTags.each
+				includeTagsList.each
 				{
 					def and = isFirstTag ? '' : " && "
-					include += "${and}cat == ${it}"
+					includeParameter += "${and}cat == ${it}"
 					isFirstTag = false
 				}
 			}
 
 			def exclude = ''
-			def excludeTags = Exclude_Tags.split(',')
+			def excludeTagsList = Exclude_Tags.split(',')
 		 	isFirstTag = true
 
-			if (Exclude_Tags != '')
+			// Check if list is empty
+			if (excludeTagsList)
 			{
-				excludeTags.each
+				excludeTagsList.each
 				{
 					def or = isFirstTag ? '' : " && "
 					exclude += "${or}cat != ${it}"
@@ -263,18 +265,21 @@ def runTests(device)
       print "Including tags:  ${Include_Tags}"
 			print "Excluding tags:  ${Exclude_Tags}"
 
+
+			// Second part of the method executes the tests using Nunit Console
 			if (isRemote)
 			{
 					print "Running tests remotely.."
-					bat "C:/Users/Jenkins/ssh.exe -o ServerAliveInterval=30 UIMCM@1.tcp.eu.ngrok.io -p$remotePort \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit ${remotePath}/${projectName}.dll ${where} ${quote}${include}${and}${exclude}${quote} --result:${device}TestResults.xml;format=nunit2\""
+					bat "C:/Users/Jenkins/ssh.exe -o ServerAliveInterval=30 UIMCM@1.tcp.eu.ngrok.io -p$remotePort \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit ${remotePath}/${projectName}.dll ${where} ${quote}${includeParameter}${and}${exclude}${quote} --result:${device}TestResults.xml;format=nunit2\""
 			}
 			else
 			{
 					print "Running tests locally.."
-					bat "nunit ${projectName}/bin/${device}/${projectName}.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 ${where} ${doubleQuote}${include}${and}${exclude}${doubleQuote}"
+					bat "nunit ${projectName}/bin/${device}/${projectName}.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 ${where} ${doubleQuote}${includeParameter}${and}${exclude}${doubleQuote}"
 			}
 }
 
+// Helper method to include tag
 def includeTag(tag)
 {
 	if (Include_Tags != '')
@@ -287,6 +292,7 @@ def includeTag(tag)
 	}
 }
 
+// Helper method to exclude tag
 def excludeTag(tag)
 {
 	if (Exclude_Tags != '')
@@ -299,6 +305,7 @@ def excludeTag(tag)
 	}
 }
 
+// Helper method to generate report summary for Slack
 def testReport()
 {
 	currentLog = currentBuild.rawBuild.log
@@ -323,6 +330,7 @@ def testReport()
 	return "Test Report:\n  ${testSummary}"
 }
 
+// Helper method to generate Performance tests report summary for Slack (TODO)
 def performanceReport()
 {
 	def message = "Performance report:\n";
@@ -336,6 +344,7 @@ def performanceReport()
 	return message
 }
 
+// Helper method to send report summary to Slack
 def sendSlackNotification(testReport, channel)
 {
 	def buildStatus = currentBuild.result

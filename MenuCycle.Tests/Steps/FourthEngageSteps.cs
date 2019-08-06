@@ -19,8 +19,6 @@ namespace MenuCycle.Tests.Steps
         ScenarioContext scenarioContext;
         MenuCyclesBasePage menuCyclesBasePage;
 
-        ConfigurationReader config;
-
         public FourthEngageSteps(FourthApp.Pages.Login fourthAppLogin,
                                  FourthApp.Pages.MainPage fourthAppMain,
                                  FourthApp.Pages.SalesforceLoginPage salesforceLoginPage,
@@ -101,8 +99,8 @@ namespace MenuCycle.Tests.Steps
             }
             else
             {
-                config = new ConfigurationReader(environment);
-                salesforceLoginPage.PerformLogin(config.User, config.Password, new System.Uri(config.URL_Salesforce));
+                ConfigurationReader.Initialize(environment);
+                salesforceLoginPage.PerformLogin(ConfigurationReader.User, ConfigurationReader.Password, new System.Uri(ConfigurationReader.URL_Salesforce));
 
                 menuCyclesBasePage.MaximizeWindow();
                 logInAs.WaitPageToLoad();
@@ -112,13 +110,13 @@ namespace MenuCycle.Tests.Steps
         [Given(@"Fourth App is open on ""(.*)""")]
         public void GivenFourthEngageDashboarIsOpenOn(string environment)
         {
-            config = new ConfigurationReader(environment);
+            ConfigurationReader.Initialize(environment);
 
             if (fourthAppLocalPage.IsMobile)
             {
                 if (fourthAppLogin.UserNameInput.Get().ElementDisplayed)
                 {
-                    fourthAppLogin.PerformLogin(config.User, config.Password);
+                    fourthAppLogin.PerformLogin(ConfigurationReader.User, ConfigurationReader.Password);
                     fourthAppLocalPage.SwitchToNativeContext();
                     fourthAppLocalPage.ClickNoButton();
                     fourthAppLocalPage.SwitchToWebViewContext();
@@ -127,9 +125,9 @@ namespace MenuCycle.Tests.Steps
 
             if (!fourthAppLocalPage.IsMobile)
             {
-                fourthAppLocalPage.OpenUrl(config.URL);
+                fourthAppLocalPage.OpenUrl(ConfigurationReader.URL);
                 fourthAppLogin.WaitForPageToLoad();
-                fourthAppLogin.PerformLogin(config.User, config.Password);
+                fourthAppLogin.PerformLogin(ConfigurationReader.User, ConfigurationReader.Password);
             }
 
             fourthAppMain.WaitToBeReady();

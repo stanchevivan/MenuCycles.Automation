@@ -4,21 +4,26 @@ using System.Json;
 
 namespace MenuCycle.Tests.Support
 {
-    public class ConfigurationReader
+    public static class ConfigurationReader
     {
-        private readonly JsonValue configuration;
-        private readonly string environment;
+        private static readonly JsonValue configuration;
+        private static string environment;
 
-        public ConfigurationReader(string environment)
+        static ConfigurationReader()
         {
             string result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Support/Environment.config"));
             configuration = JsonValue.Parse(result);
-            this.environment = environment;
         }
 
-        public string URL => this.configuration[environment]["URL"];
-        public string URL_Salesforce => this.configuration[environment]["URL_SF"];
-        public string User => this.configuration[environment]["User"];
-        public string Password => this.configuration[environment]["Password"];
+        public static void Initialize(string env)
+        {
+            environment = env;
+
+        }
+
+        public static string URL => configuration[environment]["URL"];
+        public static string URL_Salesforce => configuration[environment]["URL_SF"];
+        public static string User => configuration[environment]["User"];
+        public static string Password => configuration[environment]["Password"];
     }
 }
