@@ -102,7 +102,11 @@ namespace MenuCycle.Tests.Steps
                 ConfigurationReader.Initialize(environment);
                 salesforceLoginPage.PerformLogin(ConfigurationReader.User, ConfigurationReader.Password, new System.Uri(ConfigurationReader.URL_Salesforce));
 
-                menuCyclesBasePage.MaximizeWindow();
+                if (!fourthAppLocalPage.IsMobile)
+                {
+                    menuCyclesBasePage.MaximizeWindow();
+                }
+
                 logInAs.WaitPageToLoad();
             }
         }
