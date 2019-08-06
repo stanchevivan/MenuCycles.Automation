@@ -1,6 +1,6 @@
 #!groovy
 def androidDevices = ['Nexus7', 'SamsungTabA', 'SamsungTabS']
-def appleDevices = ['iPadAir', 'iPadMini4', 'iPadPro9']
+def appleDevices = ['iPadAir', 'iPadMini4', 'iPadPro9', 'iPadPro2018']
 def mobileDevices = androidDevices + appleDevices
 def browsers = ['Chrome', 'ChromeLongTimeOut', 'Firefox', 'IE', 'IELongTimeOut', 'Safari']
 
@@ -117,6 +117,7 @@ node('IE1UIBLD03') {
 			if (device in appleDevices)
 			{
 				currentDeviceId = (currentDeviceConfig =~ '(?<=udid" value=")[^"]*')[0]
+				currentDeviceId = currentDeviceId.replaceAll("-","")
 			}
 
 			if (device in androidDevices)
