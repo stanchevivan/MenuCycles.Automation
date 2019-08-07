@@ -22,6 +22,8 @@ Scenario Outline: Daily Calendar view is switched for local user
         And a local user is selected
         And location "<location>" is selected
     When Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "<week>" is opened
         And daily calendar view is switched
         And Verify day "<day>" is visible
         And daily calendar view is switched
@@ -29,8 +31,8 @@ Scenario Outline: Daily Calendar view is switched for local user
     
     @QAI
     Examples:
-    |environment|withFA|location|menuCycle         |day       |
-    |QAI        |false |SE001   |Local User Testing|SUN 28 JUL|
+    |environment|withFA|location|menuCycle         |day       |week  |
+    |QAI        |false |SE001   |Local User Testing|SUN 28 JUL|WEEK 1|
     
 @TC37976
 Scenario Outline: Review page is opened

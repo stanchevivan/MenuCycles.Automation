@@ -63,7 +63,7 @@ namespace MenuCycle.Tests.Steps
         [Then(@"Verify week name is ""(.*)""")]
         public void ThenVerifyWeekNameIs(string weekName)
         {
-            Assert.That(dailyCalendarView.WeekNameText, Is.EqualTo(weekName));
+            Assert.That(dailyCalendarView.WeekName, Is.EqualTo(weekName));
         }
 
         [Then(@"Verify real world week is opened")]

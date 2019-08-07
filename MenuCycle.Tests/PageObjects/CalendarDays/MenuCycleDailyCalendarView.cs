@@ -64,7 +64,7 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement ReviewButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#daily-calendar-week-heading")]
-        private IWebElement WeekName { get; set; }
+        private IWebElement WeekNameText { get; set; }
 
 
 
@@ -87,10 +87,15 @@ namespace MenuCycle.Tests.PageObjects
 
         public bool IsNextWeekArrowPresent => NextWeekArrow.Get().ElementPresent;
 
-        public string WeekNameText => WeekName.Text;
+        public string WeekName => WeekNameText.Text;
 
         public DayColumn GetDay(string weekDay)
         {
+            if (!CalendarHeaders.Any(x => x.Name.Contains(weekDay.ToUpper())))
+            {
+                throw new IndexOutOfRangeException($"Day {weekDay} in {WeekName} not found");
+            }
+            
             int dayIndex;
 
             List<string> dayAbbreviations = new List<string>
