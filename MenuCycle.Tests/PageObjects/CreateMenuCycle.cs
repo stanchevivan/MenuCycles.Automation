@@ -39,7 +39,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.Id, Using = "cancel")]
         public IWebElement CancelButton { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".radio")]
+        [FindsBy(How = How.CssSelector, Using = "label.colorfill")]
         public IList<IWebElement> NonServingDaysCheckBox { get; set; }
 
         public bool IsPageOpen => MenuName.Exist();
@@ -84,13 +84,13 @@ namespace MenuCycle.Tests.PageObjects
 
         public void SelectGAPDays(IList<string> days)
         {
-            foreach (var item in NonServingDaysCheckBox)
-            {
-                if (item.Selected)
-                {
-                    item.Click();
-                }
-            }
+            //foreach (var item in NonServingDaysCheckBox)
+            //{
+            //    if (item.Selected)
+            //    {
+            //        item.Click();
+            //    }
+            //}
 
             foreach (var day in days)
             {
@@ -129,10 +129,10 @@ namespace MenuCycle.Tests.PageObjects
                     throw new Exception($"Invalid day {day} !");
             }
 
-            if (!NonServingDaysCheckBox[dayIndex].Selected)
-            {
+            //if (!NonServingDaysCheckBox[dayIndex].Selected)
+            //{
                 NonServingDaysCheckBox[dayIndex].Click();
-            }
+            //}
         }
 
         public void WaitGAPDaysToAppear()
