@@ -234,7 +234,7 @@ def runTests(device)
 			def isFirstTag = true
 
 			// Check if list is empty
-			if (includeTagsList)
+			if (Include_Tags != '')
 			{
 				includeTagsList.each
 				{
@@ -244,17 +244,17 @@ def runTests(device)
 				}
 			}
 
-			def exclude = ''
+			def excludeParameter = ''
 			def excludeTagsList = Exclude_Tags.split(',')
 		 	isFirstTag = true
 
 			// Check if list is empty
-			if (excludeTagsList)
+			if (Exclude_Tags != '')
 			{
 				excludeTagsList.each
 				{
 					def or = isFirstTag ? '' : " && "
-					exclude += "${or}cat != ${it}"
+					excludeParameter += "${or}cat != ${it}"
 					isFirstTag = false
 				}
 			}
@@ -272,12 +272,12 @@ def runTests(device)
 			if (isRemote)
 			{
 					print "Running tests remotely.."
-					bat "C:/Users/Jenkins/ssh.exe -o ServerAliveInterval=30 UIMCM@1.tcp.eu.ngrok.io -p$remotePort \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit ${remotePath}/${projectName}.dll ${where} ${quote}${includeParameter}${and}${exclude}${quote} --result:${device}TestResults.xml;format=nunit2\""
+					bat "C:/Users/Jenkins/ssh.exe -o ServerAliveInterval=30 UIMCM@1.tcp.eu.ngrok.io -p$remotePort \"cd /Users/uimcm/NUnit.Console-3.8.0/ ; bash --login /Users/uimcm/NUnit.Console-3.8.0/nunit ${remotePath}/${projectName}.dll ${where} ${quote}${includeParameter}${and}${excludeParameter}${quote} --result:${device}TestResults.xml;format=nunit2\""
 			}
 			else
 			{
 					print "Running tests locally.."
-					bat "nunit ${projectName}/bin/${device}/${projectName}.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 ${where} ${doubleQuote}${includeParameter}${and}${exclude}${doubleQuote}"
+					bat "nunit ${projectName}/bin/${device}/${projectName}.dll --result:${device}TestResults.xml;format=nunit2 --framework:net-4.5 ${where} ${doubleQuote}${includeParameter}${and}${excludeParameter}${doubleQuote}"
 			}
 }
 
