@@ -158,5 +158,5 @@ Scenario Outline: Local user open recipe details
     
     @QAI
     Examples:
-    |environment|withFA|location|menuCycle         |day     |week  |mealPeriod|recipe          |
-    |QAI        |false |SE001   |Local User Testing|THURSDAY|WEEK 1|LUNCH     |004Baked Beans_2|
+    |environment|withFA|location|menuCycle         |day        |week  |mealPeriod|recipe          |
+    |QAI        |false |SE001   |Local User Testing|THUR 25 JUL|WEEK 1|LUNCH     |004Baked Beans_2|

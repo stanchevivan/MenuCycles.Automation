@@ -364,6 +364,41 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Empty week is created last")]
+        [NUnit.Framework.CategoryAttribute("TC41594")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Automation - Multiple weeks", "WEEK 2", "WEEK 4", new string[] {
+                "QAI"}, Category="QAI")]
+        public virtual void EmptyWeekIsCreatedLast(string environment, string withFA, string menuCycle, string weekName1, string weekName2, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC41594"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Empty week is created last", null, @__tags);
+#line 127
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 128
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 129
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 130
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 131
+        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 132
+        testRunner.And(string.Format("week \"{0}\" is opened", weekName1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 133
+    testRunner.When("new week is added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 134
+    testRunner.Then(string.Format("Verify week name is \"{0}\"", weekName2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

@@ -122,3 +122,18 @@ Scenario Outline: Delete last empty week in big menu cycle
     Examples:
     |environment|withFA|menuCycle              |weekName|
     |QAI        |false |4000 items - Do not use|WEEK 2  |
+    
+@TC41594    
+Scenario Outline: Empty week is created last 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "<weekName1>" is opened
+    When new week is added
+    Then Verify week name is "<weekName2>"
+    
+    @QAI
+    Examples:
+    |environment|withFA|menuCycle                  |weekName1|weekName2|
+    |QAI        |false |Automation - Multiple weeks|WEEK 2   |WEEK 4   |
