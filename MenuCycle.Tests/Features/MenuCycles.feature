@@ -74,3 +74,19 @@ Scenario Outline: Create menu cycle page is opened after reopening of the applic
     Examples:
     |environment|withFA|
     |QAI        |false |
+
+@TC41875
+Scenario Outline: [MC] Review page is visible after switching Local -> Central user
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a local user is selected
+        And location "<location>" is selected
+    When Location name is clicked
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And daily review page is opened
+    Then Verify review page is open
+    
+    @QAI
+    Examples:
+    |environment|withFA|location|menuCycle|
+    |QAI        |false |   SE001|Meda     |
