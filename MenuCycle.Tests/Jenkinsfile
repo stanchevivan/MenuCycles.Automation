@@ -202,7 +202,7 @@ node('IE1UIBLD03') {
 						bat "mkdir \"$env.WORKSPACE/${projectName}/bin/${device}/Reports/\""
 						bat "C:/Users/Jenkins/scp.exe -v -P $remotePort UIMCM@1.tcp.eu.ngrok.io:~/NUnit.Console-3.8.0/${device}TestResults.xml \"$env.WORKSPACE/\""
 						// NOT WORKING until Framework.Reporting is updated
-						//bat "C:/Users/Jenkins/scp.exe -v -P $remotePort UIMCM@1.tcp.eu.ngrok.io:${remotePath}/Reports/Reports_${jobNameFormatted}.json \"$env.WORKSPACE/${projectName}/bin/\""
+						bat "C:/Users/Jenkins/scp.exe -v -P $remotePort UIMCM@1.tcp.eu.ngrok.io:${remotePath}/Reports/Reports_${jobNameFormatted}.json \"$env.WORKSPACE/${projectName}/bin/\""
 					}
 
 						archiveArtifacts artifacts: '*TestResults.xml'
