@@ -108,7 +108,8 @@ Scenario Outline: Calendar view is opened when Cross is clicked in the Nutrition
     |environment|withFA|menuCycle|day   |
     |QAI_2      |false |Meda     |MONDAY|
     
-@TC36938
+# enable test when data is fixed
+@TC36938 @ignore
 Scenario Outline: Retrieve recipe information from the API in Nutrition screen
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected

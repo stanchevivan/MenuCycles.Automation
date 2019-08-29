@@ -80,6 +80,8 @@ namespace MenuCycle.Tests.Steps
             DateTimeFormatInfo DayNameAbbr = new DateTimeFormatInfo();
             string dayNameAbbr = DayNameAbbr.GetAbbreviatedDayName(currentDayOfWeek).ToUpper();
 
+            dayNameAbbr = dayNameAbbr == "THU" ? "THUR" : dayNameAbbr;
+
             Assert.That(dailyCalendarView.GetAllDaysText, Has.Member($"{dayNameAbbr} {currentDay} {monthNameAbbr} ▾"));
         }
 
