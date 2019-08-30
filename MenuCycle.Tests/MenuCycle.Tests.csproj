@@ -239,9 +239,6 @@
     <Reference Include="System.ValueTuple">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
-    <Reference Include="SpecFlow.Assist.Dynamic">
-      <HintPath>..\packages\SpecFlow.Assist.Dynamic.1.4.1\lib\netstandard2.0\SpecFlow.Assist.Dynamic.dll</HintPath>
-    </Reference>
     <Reference Include="TechTalk.SpecFlow">
       <HintPath>..\packages\SpecFlow.3.0.225\lib\net45\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
