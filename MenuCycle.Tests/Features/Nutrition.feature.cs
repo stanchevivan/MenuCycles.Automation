@@ -321,66 +321,6 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Retrieve recipe information from the API in Nutrition screen")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
-        [NUnit.Framework.CategoryAttribute("TC36938")]
-        [NUnit.Framework.TestCaseAttribute("QAI_2", "false", "Meda", "Monday", "LUNCH", "004Baked Beans_3", "100", "799.20", "6.00", "66.00", "79.20", "34.08", "15000.00", new string[] {
-                "QAI"}, Category="QAI")]
-        public virtual void RetrieveRecipeInformationFromTheAPIInNutritionScreen(string environment, string withFA, string menuCycle, string day, string mealPeriod, string recipeName, string mixPercent, string energyKJ, string energyKCAL, string fat, string saturatedFat, string sugar, string salt, string[] exampleTags)
-        {
-            string[] @__tags = new string[] {
-                    "TC36938",
-                    "ignore"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Retrieve recipe information from the API in Nutrition screen", null, @__tags);
-#line 113
-this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
-#line 114
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 115
-        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 116
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 117
-    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 118
-        testRunner.And(string.Format("\"PlannedQuantity\" is saved in context for recipe \"{0}\" in meal period \"{1}\"", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 119
-        testRunner.And("nutrition tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "MealPeriodName",
-                        "RecipeTitle",
-                        "PlannedQuantity",
-                        "MixPercent",
-                        "EnergyKJ",
-                        "EnergyKCAL",
-                        "Fat",
-                        "SaturatedFat",
-                        "Sugar",
-                        "Salt"});
-            table1.AddRow(new string[] {
-                        string.Format("{0}", mealPeriod),
-                        string.Format("{0}", recipeName),
-                        "<plannedQuantity>",
-                        string.Format("{0}", mixPercent),
-                        string.Format("{0}", energyKJ),
-                        string.Format("{0}", energyKCAL),
-                        string.Format("{0}", fat),
-                        string.Format("{0}", saturatedFat),
-                        string.Format("{0}", sugar),
-                        string.Format("{0}", salt)});
-#line 120
-    testRunner.Then("Verify nutrition data for recipes are", ((string)(null)), table1, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Planned qty are summed for recipe with more than one tariffs")]
         [NUnit.Framework.TestCaseAttribute("QAI_2", "false", "Meda", "Saturday", "LUNCH", "004Baked Beans_3", "TariffOne", "TariffTwo", new string[] {
                 "QAI"}, Category="QAI")]
@@ -659,33 +599,33 @@ this.ScenarioInitialize(scenarioInfo);
 #line 249
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
                         "PlannedQuantity"});
-            table2.AddRow(new string[] {
+            table1.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
                         "1#99"});
 #line 250
-        testRunner.And("data for recipes is set", ((string)(null)), table2, "And ");
+        testRunner.And("data for recipes is set", ((string)(null)), table1, "And ");
 #line 253
         testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 254
         testRunner.And("nutrition tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "RecipeTitle",
                         "EnergyKJ"});
-            table3.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
                         string.Format("{0}", recipeName),
                         string.Format("{0}", energyKJ)});
 #line 255
-    testRunner.Then("Verify nutrition data for recipes are", ((string)(null)), table3, "Then ");
+    testRunner.Then("Verify nutrition data for recipes are", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

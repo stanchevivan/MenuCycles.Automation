@@ -109,22 +109,22 @@ Scenario Outline: Calendar view is opened when Cross is clicked in the Nutrition
     |QAI_2      |false |Meda     |MONDAY|
     
 # enable test when data is fixed
-@TC36938 @ignore
-Scenario Outline: Retrieve recipe information from the API in Nutrition screen
-    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
-        And a nouser user is selected
-        And Menu Cycle "<menuCycle>" is selected
-    When planning for "<day>" is opened
-        And "PlannedQuantity" is saved in context for recipe "<recipeName>" in meal period "<mealPeriod>"
-        And nutrition tab is opened
-    Then Verify nutrition data for recipes are
-        |MealPeriodName|RecipeTitle |PlannedQuantity  |MixPercent  |EnergyKJ  |EnergyKCAL  |Fat  |SaturatedFat  |Sugar  |Salt  |
-        |<mealPeriod>  |<recipeName>|<plannedQuantity>|<mixPercent>|<energyKJ>|<energyKCAL>|<fat>|<saturatedFat>|<sugar>|<salt>|
-        
-    @QAI
-    Examples:
-    |environment|withFA|menuCycle|day     |mealPeriod|recipeName      |mixPercent|energyKJ|energyKCAL|fat  |saturatedFat|sugar|salt    |
-    |QAI_2      |false |Meda     |Monday  |LUNCH     |004Baked Beans_3|       100|  799.20|      6.00|66.00|       79.20|34.08|15000.00|
+#@TC36938 @ignore
+#Scenario Outline: Retrieve recipe information from the API in Nutrition screen
+#    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+#        And a nouser user is selected
+#        And Menu Cycle "<menuCycle>" is selected
+#    When planning for "<day>" is opened
+#        And "PlannedQuantity" is saved in context for recipe "<recipeName>" in meal period "<mealPeriod>"
+#        And nutrition tab is opened
+#    Then Verify nutrition data for recipes are
+#        |MealPeriodName|RecipeTitle |PlannedQuantity  |MixPercent  |EnergyKJ  |EnergyKCAL  |Fat  |SaturatedFat  |Sugar  |Salt  |
+#        |<mealPeriod>  |<recipeName>|<plannedQuantity>|<mixPercent>|<energyKJ>|<energyKCAL>|<fat>|<saturatedFat>|<sugar>|<salt>|
+#        
+#    @QAI
+#    Examples:
+#    |environment|withFA|menuCycle|day     |mealPeriod|recipeName      |mixPercent|energyKJ|energyKCAL|fat  |saturatedFat|sugar|salt    |
+#    |QAI_2      |false |Meda     |Monday  |LUNCH     |004Baked Beans_3|       100|  799.20|      6.00|66.00|       79.20|34.08|15000.00|
     
 Scenario Outline: Planned qty are summed for recipe with more than one tariffs
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
