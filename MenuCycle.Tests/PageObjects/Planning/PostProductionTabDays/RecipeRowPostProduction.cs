@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using Fourth.Automation.Framework.Page;
+using Fourth.Automation.Framework.Reporting;
 using MenuCycle.Tests.Models;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -11,7 +12,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 {
     public class RecipeRowPostProduction : MenuCyclesBasePage
     {
-        public RecipeRowPostProduction(IWebElement parent, IWebDriver webDriver) : base(webDriver)
+        public RecipeRowPostProduction(IWebElement parent, IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
         {
             PageFactory.InitElements(parent, this);
         }

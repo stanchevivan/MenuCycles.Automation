@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
+using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -8,8 +9,11 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class PostProductionTabDays : PlanningView
     {
-        public PostProductionTabDays(IWebDriver webDriver) : base(webDriver)
+        private readonly IArtefacts Artefacts;
+
+        public PostProductionTabDays(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
         {
+            Artefacts = artefacts;
         }
 
         [FindsBy(How = How.CssSelector, Using = ".subheader__tab-btn-active.disabled")]
@@ -34,7 +38,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".main > div")]
         private IList<IWebElement> MealPeriodWrappers { get; set; }
 
-        public IList<DailyMealPeriodPostProduction> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriodPostProduction(p, Driver)).ToList();
+        public IList<DailyMealPeriodPostProduction> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriodPostProduction(p, Driver, Artefacts)).ToList();
 
         public string PlannedQtyTotal => dailyTotal_PlannedQty.Text;
         public string QtyReqdTotal => dailyTotal_QtyReqd.Text;

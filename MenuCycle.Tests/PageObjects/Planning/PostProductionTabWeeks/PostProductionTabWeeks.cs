@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
+using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -8,8 +9,10 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class PostProductionTabWeeks : MenuCyclesBasePage
     {
-        public PostProductionTabWeeks(IWebDriver webDriver) : base(webDriver)
+        private readonly IArtefacts Artefacts;
+        public PostProductionTabWeeks(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
         {
+            Artefacts = artefacts;
         }
 
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(2) > span:last-of-type")]
@@ -35,7 +38,7 @@ namespace MenuCycle.Tests.PageObjects
         public string WeeklyTotalReturnToStock => weeklyTotal_ReturnToStock.Text;
         public string WeeklyTotalWastage => weeklyTotal_Wastage.Text;
 
-        public IList<PostProductionDayRow> Days => this.DaysWrapper.Select(p => new PostProductionDayRow(p, Driver)).ToList();
+        public IList<PostProductionDayRow> Days => this.DaysWrapper.Select(p => new PostProductionDayRow(p, Driver, Artefacts)).ToList();
 
 
         public PostProductionDayRow GetDay(string name)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Fourth.Automation.Framework.Extension;
+using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -8,7 +9,7 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class CreateMenuCycle : MenuCyclesBasePage
     {
-        public CreateMenuCycle(IWebDriver webDriver) : base(webDriver)
+        public CreateMenuCycle(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
         {
         }
 

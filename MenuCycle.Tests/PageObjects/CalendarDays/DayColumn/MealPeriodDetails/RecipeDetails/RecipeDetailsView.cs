@@ -1,11 +1,12 @@
-﻿using OpenQA.Selenium;
+﻿using Fourth.Automation.Framework.Reporting;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
     public class RecipeDetailsView : MenuCyclesBasePage
     {
-        public RecipeDetailsView(IWebDriver webDriver) : base(webDriver)
+        public RecipeDetailsView(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
         {
             PageFactory.InitElements(Driver, this);
         }

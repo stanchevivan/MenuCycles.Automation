@@ -4,6 +4,7 @@ using System.Linq;
 using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Mobile;
 using Fourth.Automation.Framework.Page;
+using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
@@ -12,8 +13,11 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class MenuCyclesBasePage : BasePage
     {
-        public MenuCyclesBasePage(IWebDriver webDriver) : base(webDriver)
+        private readonly IArtefacts Artefacts;
+
+        public MenuCyclesBasePage(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver)
         {
+            Artefacts = artefacts;
         }
 
         [FindsBy(How = How.CssSelector, Using = "#loader")]        private IWebElement Loader { get; set; }

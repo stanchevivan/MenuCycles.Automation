@@ -1,4 +1,5 @@
 ﻿using Fourth.Automation.Framework.Extension;
+using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -6,7 +7,7 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class FourthAppLocalPage : MenuCyclesBasePage
     {
-        public FourthAppLocalPage(IWebDriver webDriver) : base(webDriver)
+        public FourthAppLocalPage(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
         {
         }
 

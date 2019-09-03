@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Fourth.Automation.Framework.Reporting;
 using MenuCycle.Tests.PageObjects.Planning.PlanningTabDays;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
@@ -8,10 +9,12 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class DailyMealPeriodNutrition : MenuCyclesBasePage
     {
+        private readonly IArtefacts Artefacts;
         IWebElement parent_MealPeriodWrapper;
 
-        public DailyMealPeriodNutrition(IWebElement parent, IWebDriver webDriver) : base(webDriver)
+        public DailyMealPeriodNutrition(IWebElement parent, IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
         {
+            Artefacts = artefacts;
             this.parent_MealPeriodWrapper = parent;
             PageFactory.InitElements(parent, this);
         }
@@ -57,14 +60,14 @@ namespace MenuCycle.Tests.PageObjects
 
 
         public IList<NutritionScreenRecipe> Recipes => this.Items
-                                            .Where(p => new NutritionScreenRecipe(p, this.Name, Driver).Type == "RECIPE")
-                                            .Select(p => new NutritionScreenRecipe(p, this.Name, Driver)).ToList();
+                                            .Where(p => new NutritionScreenRecipe(p, this.Name, Driver, Artefacts).Type == "RECIPE")
+                                            .Select(p => new NutritionScreenRecipe(p, this.Name, Driver, Artefacts)).ToList();
         public IList<BuffetNutrition> Buffets => this.Items
-                                            .Where(p => new NutritionScreenRecipe(p, this.Name, Driver).Type == "BUFFET")
-                                            .Select(p => new BuffetNutrition(p, this.Name, Driver)).ToList();
+                                            .Where(p => new NutritionScreenRecipe(p, this.Name, Driver, Artefacts).Type == "BUFFET")
+                                            .Select(p => new BuffetNutrition(p, this.Name, Driver, Artefacts)).ToList();
         public IList<ALaCarteNutrition> ALaCartes => this.Items
-                                    .Where(p => new NutritionScreenRecipe(p, this.Name, Driver).Type == "A LA CARTE")
-                                    .Select(p => new ALaCarteNutrition(p, this.Name, Driver)).ToList();
+                                    .Where(p => new NutritionScreenRecipe(p, this.Name, Driver, Artefacts).Type == "A LA CARTE")
+                                    .Select(p => new ALaCarteNutrition(p, this.Name, Driver, Artefacts)).ToList();
 
         public NutritionScreenRecipe GetRecipe(string title)
         {
