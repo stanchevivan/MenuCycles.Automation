@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
-using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -9,11 +8,8 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class MenuCyclesDashboard : MenuCyclesBasePage
     {
-        private readonly IArtefacts Artefacts;
-
-        public MenuCyclesDashboard(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
+        public MenuCyclesDashboard(IWebDriver webDriver) : base(webDriver)
         {
-            Artefacts = artefacts;
         }
 
         [FindsBy(How = How.CssSelector, Using = "div[class='borbot clickable']")]
@@ -41,7 +37,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "current-location-name")]
         private IWebElement LocationName { get; set; }
 
-        public IList<MenuCycleItem> MenuCycles => this.menuCycleRows.Select(p => new MenuCycleItem(Driver, p, Artefacts)).ToList();
+        public IList<MenuCycleItem> MenuCycles => this.menuCycleRows.Select(p => new MenuCycleItem(Driver, p)).ToList();
 
         public void CreateMenuCycleClick()
         {

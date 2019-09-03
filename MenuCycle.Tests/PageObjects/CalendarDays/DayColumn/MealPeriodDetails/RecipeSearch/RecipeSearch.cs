@@ -2,7 +2,6 @@
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
 using Fourth.Automation.Framework.Page;
-using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -10,7 +9,7 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class RecipeSearch : MenuCyclesBasePage
     {
-        public RecipeSearch(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
+        public RecipeSearch(IWebDriver webDriver) : base(webDriver)
         {
         }
 

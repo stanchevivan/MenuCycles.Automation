@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Fourth.Automation.Framework.Reporting;
 using MenuCycle.Tests.PageObjects.Planning.PlanningTabDays;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
@@ -10,11 +9,9 @@ namespace MenuCycle.Tests.PageObjects
     public class DailyMealPeriodPostProduction : MenuCyclesBasePage
     {
         IWebElement parent_MealPeriodWrapper;
-        private readonly IArtefacts Artefacts;
 
-        public DailyMealPeriodPostProduction(IWebElement parent, IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
+        public DailyMealPeriodPostProduction(IWebElement parent, IWebDriver webDriver) : base(webDriver)
         {
-            Artefacts = artefacts;
             this.parent_MealPeriodWrapper = parent;
             PageFactory.InitElements(parent, this);
         }
@@ -39,11 +36,11 @@ namespace MenuCycle.Tests.PageObjects
         public string PlannedQuantity => PlannedQuantityText.Text;
 
         public IList<RecipePostProduction> Recipes => this.Items
-                                            .Where(p => !new RecipePostProduction(p, this.Name, Driver, Artefacts).IsBuffet)
-                                            .Select(p => new RecipePostProduction(p, this.Name, Driver, Artefacts)).ToList();
+                                            .Where(p => !new RecipePostProduction(p, this.Name, Driver).IsBuffet)
+                                            .Select(p => new RecipePostProduction(p, this.Name, Driver)).ToList();
         public IList<BuffetPostProduction> Buffets => this.Items
-                                            .Where(p => new RecipePostProduction(p, this.Name, Driver, Artefacts).IsBuffet)
-                                            .Select(p => new BuffetPostProduction(p, this.Name, Driver, Artefacts)).ToList();
+                                            .Where(p => new RecipePostProduction(p, this.Name, Driver).IsBuffet)
+                                            .Select(p => new BuffetPostProduction(p, this.Name, Driver)).ToList();
 
         public RecipePostProduction GetRecipe(string title)
         {

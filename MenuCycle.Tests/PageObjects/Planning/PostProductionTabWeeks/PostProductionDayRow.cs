@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Fourth.Automation.Framework.Reporting;
 using MenuCycle.Tests.PageObjects.Planning.PlanningTabDays;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
@@ -10,9 +9,8 @@ namespace MenuCycle.Tests.PageObjects
     public class PostProductionDayRow : MenuCyclesBasePage
     {
         IWebElement parent_DaysWrapper;
-        private readonly IArtefacts Artefacts;
 
-        public PostProductionDayRow(IWebElement parent, IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
+        public PostProductionDayRow(IWebElement parent, IWebDriver webDriver) : base(webDriver)
         {
             this.parent_DaysWrapper = parent;
             PageFactory.InitElements(parent, this);
@@ -36,7 +34,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".day-data__row .day-data__columns-row")]
         private IList<IWebElement> DayMealPeriodsRows { get; set; }
 
-        public IList<PostProductionWeekMealPeriod> MealPeriodsRows => this.DayMealPeriodsRows.Select(p => new PostProductionWeekMealPeriod(p, Driver, Artefacts)).ToList();
+        public IList<PostProductionWeekMealPeriod> MealPeriodsRows => this.DayMealPeriodsRows.Select(p => new PostProductionWeekMealPeriod(p, Driver)).ToList();
 
         public string PostProductionDayName => DayName.Text;
 

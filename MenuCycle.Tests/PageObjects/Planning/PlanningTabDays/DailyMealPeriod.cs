@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Fourth.Automation.Framework.Reporting;
 using MenuCycle.Tests.PageObjects.Planning.PlanningTabDays;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
@@ -10,11 +9,9 @@ namespace MenuCycle.Tests.PageObjects
     public class DailyMealPeriod : MenuCyclesBasePage
     {
         IWebElement parent_MealPeriodWrapper;
-        private readonly IArtefacts Artefacts;
 
-        public DailyMealPeriod(IWebElement parent, IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
+        public DailyMealPeriod(IWebElement parent, IWebDriver webDriver) : base(webDriver)
         {
-            Artefacts = artefacts;
             this.parent_MealPeriodWrapper = parent;
             PageFactory.InitElements(parent, this);
         }
@@ -48,14 +45,14 @@ namespace MenuCycle.Tests.PageObjects
         public string ActualGP => ActualGPText.Text;
 
         public IList<Recipe> Recipes => this.Items
-                                            .Where(p => new Recipe(p, this.Name, Driver, Artefacts).Type == "RECIPE")
-                                            .Select(p => new Recipe(p, this.Name, Driver, Artefacts)).ToList();
+                                            .Where(p => new Recipe(p, this.Name, Driver).Type == "RECIPE")
+                                            .Select(p => new Recipe(p, this.Name, Driver)).ToList();
         public IList<Buffet> Buffets => this.Items
-                                            .Where(p => new Buffet(p, this.Name, Driver, Artefacts).Type == "BUFFET")
-                                            .Select(p => new Buffet(p, this.Name, Driver, Artefacts)).ToList();
+                                            .Where(p => new Buffet(p, this.Name, Driver).Type == "BUFFET")
+                                            .Select(p => new Buffet(p, this.Name, Driver)).ToList();
         public IList<ALaCarte> ALaCartes => this.Items
-                                                .Where(p => new ALaCarte(p, this.Name, Driver, Artefacts).Type == "A LA CARTE")
-                                                .Select(p => new ALaCarte(p, this.Name, Driver, Artefacts)).ToList();
+                                                .Where(p => new ALaCarte(p, this.Name, Driver).Type == "A LA CARTE")
+                                                .Select(p => new ALaCarte(p, this.Name, Driver)).ToList();
 
         public Recipe GetRecipe(string title)
         {

@@ -16,10 +16,9 @@ namespace MenuCycle.Tests.Steps
         readonly ReviewPage reviewPage;
         readonly InternalSearchView internalSearchView;
         readonly MealPeriodDetails mealPeriodDetails;
-        readonly MenuCycleDailyCalendarView dailyCalendarView;
 
         public InternalSearchSteps(ScenarioContext scenarioContext, PlanningTabDays planningTabDays, ToastNotification notification,
-                           ModalDialogPage modalDialogPage, ReviewPage reviewPage, InternalSearchView internalSearchView, MealPeriodDetails mealPeriodDetails, MenuCycleDailyCalendarView dailyCalendarView)
+                           ModalDialogPage modalDialogPage, ReviewPage reviewPage, InternalSearchView internalSearchView, MealPeriodDetails mealPeriodDetails)
         {
             this.planningTabDays = planningTabDays;
             this.notification = notification;
@@ -27,7 +26,6 @@ namespace MenuCycle.Tests.Steps
             this.reviewPage = reviewPage;
             this.internalSearchView = internalSearchView;
             this.mealPeriodDetails = mealPeriodDetails;
-            this.dailyCalendarView = dailyCalendarView;
 
             this.scenarioContext = scenarioContext;
         }
@@ -35,7 +33,7 @@ namespace MenuCycle.Tests.Steps
         [When(@"search in Menu Cycle for ""(.*)""")]
         public void SearchInMCFor(string text)
         {
-            dailyCalendarView.ClickInternalSearchIcon();
+            internalSearchView.ClickSearchIcon();
             internalSearchView.EnterSearchCriteria(text);
             internalSearchView.ClickSearchButton();
             internalSearchView.WaitForLoad();
@@ -43,13 +41,6 @@ namespace MenuCycle.Tests.Steps
 
         [When(@"view recipe ""(.*)"" in week ""(.*)""")]
         public void ViewRecipeInWeek(string recipeName, string weekName)
-        {
-            internalSearchView.GetLine(recipeName, weekName).ViewRecipe();
-            mealPeriodDetails.WaitForLoad();
-        }
-
-        [When(@"Menu Cycle internal search is opened")]
-        public void InternalSearchIsOpened(string recipeName, string weekName)
         {
             internalSearchView.GetLine(recipeName, weekName).ViewRecipe();
             mealPeriodDetails.WaitForLoad();

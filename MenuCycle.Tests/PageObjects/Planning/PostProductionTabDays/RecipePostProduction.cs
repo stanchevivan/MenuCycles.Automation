@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -8,11 +7,9 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 {
     public class RecipePostProduction : Recipe
     {
-        private readonly IArtefacts Artefacts;
 
-        public RecipePostProduction(IWebElement parent, string mealPeriodName, IWebDriver webDriver, IArtefacts artefacts) : base(parent, mealPeriodName, webDriver, artefacts)
+        public RecipePostProduction(IWebElement parent, string mealPeriodName, IWebDriver webDriver) : base(parent, mealPeriodName, webDriver)
         {
-            Artefacts = artefacts;
             PageFactory.InitElements(parent, this);
         }
 
@@ -21,7 +18,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         [FindsBy(How = How.ClassName, Using = "recipe-data__row")]
         private IList<IWebElement> RecipeRows { get; set; }
 
-        public new IList<RecipeRowPostProduction> Rows => RecipeRows.Select(p => new RecipeRowPostProduction(p, Driver, Artefacts)).ToList();
+        public new IList<RecipeRowPostProduction> Rows => RecipeRows.Select(p => new RecipeRowPostProduction(p, Driver)).ToList();
 
         public bool IsBuffet => this.BuffetRecipes.Count > 0;
 

@@ -4,16 +4,13 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;
 using System.Linq;
-using Fourth.Automation.Framework.Reporting;
 
 namespace MenuCycle.Tests.PageObjects
 {
     public class NutritionTabWeeks : PlanningView
     {
-        private readonly IArtefacts Artefacts;
-        public NutritionTabWeeks(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
+        public NutritionTabWeeks(IWebDriver webDriver) : base(webDriver)
         {
-            Artefacts = artefacts;
         }
 
         [FindsBy(How = How.XPath, Using = "//button[text()='Weeks']")]
@@ -34,7 +31,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".day-data")]
         private IList<IWebElement> DaysWrapper { get; set; }
 
-        public IList<NutritionDayRow> Days => this.DaysWrapper.Select(p => new NutritionDayRow(p, Driver, Artefacts)).ToList();
+        public IList<NutritionDayRow> Days => this.DaysWrapper.Select(p => new NutritionDayRow(p, Driver)).ToList();
 
         public string WeeklyEnergyKJTotal => weeklyTotal_EnergyKJ.Text;
         public string WeeklyEnergyKCALTotal => weeklyTotal_EnergyKCAL.Text;

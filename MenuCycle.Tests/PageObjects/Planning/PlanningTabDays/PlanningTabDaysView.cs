@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
-using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -9,10 +8,8 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class PlanningTabDays : PlanningView
     {
-        private readonly IArtefacts Artefacts;
-        public PlanningTabDays(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
+        public PlanningTabDays(IWebDriver webDriver) : base(webDriver)
         {
-            Artefacts = artefacts;
         }
 
         [FindsBy(How = How.CssSelector, Using = ".main > div")]
@@ -36,7 +33,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "mainheader__period")]
         private IWebElement PlanningTitle { get; set; }
 
-        public IList<DailyMealPeriod> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriod(p, Driver, Artefacts)).ToList();
+        public IList<DailyMealPeriod> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriod(p, Driver)).ToList();
         public IList<string> MealPeriodColours => MealPeriods.Select(x => x.Colour).ToList();
 
         public bool HasMealPeriods => MealPeriods.Any();

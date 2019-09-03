@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
-using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -9,10 +8,13 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class InternalSearchView : MenuCyclesBasePage
     {
-        public InternalSearchView(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
+        public InternalSearchView(IWebDriver webDriver) : base(webDriver)
         {
             PageFactory.InitElements(Driver, this);
         }
+
+        [FindsBy(How = How.CssSelector, Using = ".search-in-mc")]
+        private IWebElement InternalSearchIcon { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".mc-internal-search-comp .ui-autocomplete-input")]
         private IWebElement InternalSearchInput { get; set; }
@@ -28,6 +30,11 @@ namespace MenuCycle.Tests.PageObjects
 
         IList<InternalSearchResultsLine> SearchResults => this.searchResults.Select(p => new InternalSearchResultsLine(p)).ToList();
 
+        public void ClickSearchIcon()
+        {
+            InternalSearchIcon.Click();
+        }
+
         public void EnterSearchCriteria(string text)
         {
             InternalSearchInput.ClearAndSendKeys(text);
@@ -36,6 +43,7 @@ namespace MenuCycle.Tests.PageObjects
         public void ClickSearchButton()
         {
             InternalSearchButton.Click();
+
         }
 
         public void WaitForLoad()

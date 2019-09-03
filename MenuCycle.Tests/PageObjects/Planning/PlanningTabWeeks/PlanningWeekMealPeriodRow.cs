@@ -1,12 +1,11 @@
-﻿using Fourth.Automation.Framework.Reporting;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects
 {
     public class PlanningWeekMealPeriodRow : MenuCyclesBasePage
     {
-        public PlanningWeekMealPeriodRow(IWebElement parent, IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
+        public PlanningWeekMealPeriodRow(IWebElement parent, IWebDriver webDriver) : base(webDriver)
         {
             PageFactory.InitElements(parent, this);
         }

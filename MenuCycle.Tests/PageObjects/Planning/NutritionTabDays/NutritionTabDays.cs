@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
-using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -9,11 +8,8 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class NutritionTabDays : PlanningView
     {
-        private readonly IArtefacts Artefacts;
-
-        public NutritionTabDays(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
+        public NutritionTabDays(IWebDriver webDriver) : base(webDriver)
         {
-            Artefacts = artefacts;
         }
 
         [FindsBy(How = How.CssSelector, Using = ".main > div")]
@@ -35,7 +31,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(8) > span:last-of-type")]
         private IWebElement dailyTotal_Salt { get; set; }
 
-        public IList<DailyMealPeriodNutrition> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriodNutrition(p, Driver, Artefacts)).ToList();
+        public IList<DailyMealPeriodNutrition> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriodNutrition(p, Driver)).ToList();
 
 
         public bool AreAllMealPeriodsExpanded => MealPeriods.All(period => period.IsExpanded);

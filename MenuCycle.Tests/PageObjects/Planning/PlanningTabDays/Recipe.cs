@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -9,11 +8,9 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
     public class Recipe : MenuCyclesBasePage
     {
         public string MealPeriodName { get; set; }
-        private readonly IArtefacts Artefacts;
 
-        public Recipe(IWebElement parent, string mealPeriodName, IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
+        public Recipe(IWebElement parent, string mealPeriodName, IWebDriver webDriver) : base(webDriver)
         {
-            Artefacts = artefacts;
             PageFactory.InitElements(parent, this);
             this.MealPeriodName = mealPeriodName;
         }
@@ -29,7 +26,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
         [FindsBy(How = How.ClassName, Using = "recipe-data__row")]
         private IList<IWebElement> RecipeRows { get; set; }
 
-        public virtual IList<RecipeRow> Rows => RecipeRows.Select(p => new RecipeRow(p, Driver, Artefacts)).ToList();
+        public virtual IList<RecipeRow> Rows => RecipeRows.Select(p => new RecipeRow(p, Driver)).ToList();
 
         public virtual string Type => this.type.Text;
         public virtual string Title => this.title.Text.Remove(0, 9);

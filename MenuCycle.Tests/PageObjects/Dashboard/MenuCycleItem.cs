@@ -1,5 +1,4 @@
 ﻿using Fourth.Automation.Framework.Extension;
-using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -7,7 +6,7 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class MenuCycleItem : MenuCyclesBasePage
     {
-        public MenuCycleItem(IWebDriver driver, IWebElement parent, IArtefacts artefacts) : base(driver, artefacts)
+        public MenuCycleItem(IWebDriver driver, IWebElement parent) : base(driver)
         {
             PageFactory.InitElements(parent, this);
         }

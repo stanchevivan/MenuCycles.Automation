@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
-using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -11,9 +10,7 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class MenuCycleDailyCalendarView : MenuCyclesBasePage
     {
-        private readonly IArtefacts Artefacts;
-
-        public MenuCycleDailyCalendarView(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
+        public MenuCycleDailyCalendarView(IWebDriver webDriver) : base(webDriver)
         {
             PageFactory.InitElements(Driver, this);
         }
@@ -69,8 +66,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = "#daily-calendar-week-heading")]
         private IWebElement WeekNameText { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".search-in-mc")]
-        private IWebElement InternalSearchIcon { get; set; }
+
 
         /// <summary>
         /// For checking if the calendar is in 5 or 7 day view
@@ -81,7 +77,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public List<WeekDays> CalendarHeaders => this.CalendarHeaderContainer.Select(p => new WeekDays(p)).ToList();
 
-        public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p, Driver, Artefacts)).ToList();
+        public IList<DayColumn> CalendarColumns => this.CalendarColumnContainer.Select(p => new DayColumn(p, Driver)).ToList();
 
         public bool AreAllMealPeriodsExpanded => CalendarColumns.SelectMany(day => day.MealPeriodCards).Where(mp => mp.IsExpandable).All(mp => mp.IsExpanded);
 
@@ -263,11 +259,6 @@ namespace MenuCycle.Tests.PageObjects
         public void UseDeleteWeekButton()
         {
             DeleteWeekButton.Click();
-        }
-
-        public void ClickInternalSearchIcon()
-        {
-            InternalSearchIcon.Click();
         }
     }
 }

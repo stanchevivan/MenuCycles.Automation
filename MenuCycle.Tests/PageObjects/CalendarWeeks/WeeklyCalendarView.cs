@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Fourth.Automation.Framework.Extension;using Fourth.Automation.Framework.Reporting;
-using OpenQA.Selenium;using OpenQA.Selenium.Support.PageObjects;namespace MenuCycle.Tests.PageObjects{    public class WeeklyCalendarView : MenuCyclesBasePage    {        public WeeklyCalendarView(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)        {        }        [FindsBy(How = How.Id, Using = "weeklyReportBtn")]        private IWebElement ReportsTab { get; set; }        [FindsBy(How = How.Id, Using = "weeklyReviewBtn")]        private IWebElement ReviewTab { get; set; }
+using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA.Selenium.Support.PageObjects;namespace MenuCycle.Tests.PageObjects{    public class WeeklyCalendarView : MenuCyclesBasePage    {        public WeeklyCalendarView(IWebDriver webDriver) : base(webDriver)        {        }        [FindsBy(How = How.Id, Using = "weeklyReportBtn")]        private IWebElement ReportsTab { get; set; }        [FindsBy(How = How.Id, Using = "weeklyReviewBtn")]        private IWebElement ReviewTab { get; set; }
         [FindsBy(How = How.ClassName, Using = "weekly-view-item")]
         private IList<IWebElement> CalendarWeek { get; set; }
 

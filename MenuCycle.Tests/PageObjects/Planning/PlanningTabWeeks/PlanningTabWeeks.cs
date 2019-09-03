@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Fourth.Automation.Framework.Extension;
-using Fourth.Automation.Framework.Reporting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -9,10 +8,8 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class PlanningTabWeeks : PlanningView
     {
-        private readonly IArtefacts Artefacts;
-        public PlanningTabWeeks(IWebDriver webDriver, IArtefacts artefacts) : base(webDriver, artefacts)
+        public PlanningTabWeeks(IWebDriver webDriver) : base(webDriver)
         {
-            Artefacts = artefacts;
         }
 
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(2) > span:last-of-type")]
@@ -32,7 +29,7 @@ namespace MenuCycle.Tests.PageObjects
         public string WeeklyProfitText => weeklyTotal_Profit.Text;
         public string WeeklyActualGPText => weeklyTotal_ActualGP.Text;
 
-        public IList<PlanningDayRow> Days => this.DaysWrapper.Select(p => new PlanningDayRow(p, Driver, Artefacts)).ToList();
+        public IList<PlanningDayRow> Days => this.DaysWrapper.Select(p => new PlanningDayRow(p, Driver)).ToList();
 
 
         public PlanningDayRow GetDay(string name)
