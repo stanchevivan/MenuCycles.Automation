@@ -49,6 +49,7 @@ namespace MenuCycle.Tests.Steps
         public void AddWeek()
         {
             dailyCalendarView.AddWeek();
+            notification.WaitToAppear();
             notification.CloseNotification();
         }
 
