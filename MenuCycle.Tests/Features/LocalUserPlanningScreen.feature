@@ -15,7 +15,7 @@ Scenario Outline: Load engine when Planning screen is opened (Local User)
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |day        |
-    |QAI        |false |SE001   |Local User Testing|THUR 25 JUL|
+    |QAI        |false |Site EUR1   |Local User Testing|THUR 25 JUL|
 
 @TC30226
 Scenario Outline: Verify save button is disabled for passed days
@@ -31,7 +31,7 @@ Scenario Outline: Verify save button is disabled for passed days
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |day        |
-    |QAI        |false |SE001   |Local User Testing|THUR 25 JUL|
+    |QAI        |false |Site EUR1   |Local User Testing|THUR 25 JUL|
     
 @TC30227
 Scenario Outline: Real date is displayed on the top of the planning screen
@@ -47,7 +47,7 @@ Scenario Outline: Real date is displayed on the top of the planning screen
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |day        |date                   |
-    |QAI        |false |SE001   |Local User Testing|THUR 25 JUL|THURSDAY - 25 July 2019|
+    |QAI        |false |Site EUR1   |Local User Testing|THUR 25 JUL|THURSDAY - 25 July 2019|
     
 @TC30264 @D25299
 Scenario Outline: Open Planning Screen, go to Post-Production, go back to Planning screen
@@ -65,7 +65,7 @@ Scenario Outline: Open Planning Screen, go to Post-Production, go back to Planni
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |day        |
-    |QAI        |false |SE001   |Local User Testing|THUR 25 JUL|
+    |QAI        |false |Site EUR1   |Local User Testing|THUR 25 JUL|
 
 @TC30366 @D25410
 Scenario Outline: Open Planning Screen, go to Weekly planning
@@ -82,7 +82,7 @@ Scenario Outline: Open Planning Screen, go to Weekly planning
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |day        |
-    |QAI        |false |SE001   |Local User Testing|THUR 25 JUL|
+    |QAI        |false |Site EUR1   |Local User Testing|THUR 25 JUL|
 
 @TC30313 @D25310
 Scenario Outline: User should not be redirected to the planning screen after navigating to post-production and back
@@ -103,7 +103,7 @@ Scenario Outline: User should not be redirected to the planning screen after nav
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |day        |
-    |QAI        |false |SE001   |Local User Testing|THUR 25 JUL|
+    |QAI        |false |Site EUR1   |Local User Testing|THUR 25 JUL|
 
 @TC27776 @Smoke
 Scenario Outline: Create menu cycle button is not present - local user
@@ -115,7 +115,7 @@ Scenario Outline: Create menu cycle button is not present - local user
     @QAI
     Examples:
     |environment|withFA|location|
-    |QAI        |false |SE001   |
+    |QAI        |false |Site EUR1   |
 
 #TODO: Needs seeded data
 # @TC30910 @ForDataSeeding @ignore
@@ -131,7 +131,7 @@ Scenario Outline: Create menu cycle button is not present - local user
     # @QAI
     # Examples:
     # |environment|withFA|location|menuCycle         |day       |
-    # |QAI        |false |SE001   |Local User Testing|THUR 2 AUG|
+    # |QAI        |false |Site EUR1   |Local User Testing|THUR 2 AUG|
     
 @TC38354
 Scenario Outline: Current week is opened when opening a non-expired menu cycle
@@ -145,7 +145,7 @@ Scenario Outline: Current week is opened when opening a non-expired menu cycle
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |
-    |QAI        |false |SE001   |Local User Testing|
+    |QAI        |false |Site EUR1   |Local User Testing|
 
 @TC38355    
 Scenario Outline: Last week is opened when opening a menu cycle in the past
@@ -159,4 +159,4 @@ Scenario Outline: Last week is opened when opening a menu cycle in the past
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |
-    |QAI        |false |SE001   |Local User Expired|
+    |QAI        |false |Site EUR1   |Local User Expired|

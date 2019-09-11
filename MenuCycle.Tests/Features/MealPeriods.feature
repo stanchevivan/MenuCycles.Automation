@@ -422,7 +422,7 @@ Scenario Outline: Expand all meal periods in the Calendar view for Central after
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |menuCycle1|
-    |QAI        |false |SE001   |Local User Testing|Meda      |
+    |QAI        |false |Site EUR1   |Local User Testing|Meda      |
     
 @TC40349 @D37177
 Scenario Outline: Verify there are no duplicate items in meal period in the calendar view
@@ -440,7 +440,7 @@ Scenario Outline: Verify there are no duplicate items in meal period in the cale
         @QAI
     Examples:
     |environment|withFA|location|menuCycle                |mealPeriod|day        |
-    |QAI        |false |SE001   |FOR Local User AUTOMATION|LUNCH     |WED 14 AUG |
+    |QAI        |false |Site EUR1   |FOR Local User AUTOMATION|LUNCH     |WED 14 AUG |
     
     
 @TC40440
@@ -554,7 +554,7 @@ Scenario Outline: Meal periods are displayed in the correct sort order in post-p
     @QAI
     Examples:
     |environment|withFA|menuCycle           |location|day       |mealPeriods|
-    |QAI        |false |Automation post-prod|SE001   |WED 10 JUL|BREAKFAST,LUNCH,AFTERNOON TEA,DINNER,RYLEY,CARMINE,JAQUELINE,ALL DAY,ALL DAY 2|
+    |QAI        |false |Automation post-prod|Site EUR1   |WED 10 JUL|BREAKFAST,LUNCH,AFTERNOON TEA,DINNER,RYLEY,CARMINE,JAQUELINE,ALL DAY,ALL DAY 2|
     
 @TC40598
 Scenario Outline: Meal periods are displayed in the correct sort order in post-production weekly
@@ -574,7 +574,7 @@ Scenario Outline: Meal periods are displayed in the correct sort order in post-p
     @QAI
     Examples:
     |environment|withFA|menuCycle           |location|day       |weekDay  |week  |mealPeriods|
-    |QAI        |false |Automation post-prod|SE001   |WED 10 JUL|WEDNESDAY|WEEK 1|Breakfast,Lunch,Afternoon Tea,Dinner,Ryley,Carmine,Jaqueline,All day,All day 2|
+    |QAI        |false |Automation post-prod|Site EUR1   |WED 10 JUL|WEDNESDAY|WEEK 1|Breakfast,Lunch,Afternoon Tea,Dinner,Ryley,Carmine,Jaqueline,All day,All day 2|
     
 @TC40448
 Scenario Outline: Meal periods are displayed in the correct sort order on Add/Delete meal period

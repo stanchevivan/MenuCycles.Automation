@@ -75,7 +75,7 @@ namespace MenuCycle.Tests.Features
         [NUnit.Framework.DescriptionAttribute("Local user can not delete menu cycle")]
         [NUnit.Framework.CategoryAttribute("TC27777")]
         [NUnit.Framework.CategoryAttribute("Sanity")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Local User Testing", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void LocalUserCanNotDeleteMenuCycle(string environment, string withFA, string location, string menuCycle, string[] exampleTags)
         {

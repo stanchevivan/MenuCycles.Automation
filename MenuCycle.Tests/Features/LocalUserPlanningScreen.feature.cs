@@ -73,7 +73,7 @@ namespace MenuCycle.Tests.Features
         [NUnit.Framework.DescriptionAttribute("Load engine when Planning screen is opened (Local User)")]
         [NUnit.Framework.CategoryAttribute("TC28558")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "THUR 25 JUL", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Local User Testing", "THUR 25 JUL", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void LoadEngineWhenPlanningScreenIsOpenedLocalUser(string environment, string withFA, string location, string menuCycle, string day, string[] exampleTags)
         {
@@ -111,7 +111,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify save button is disabled for passed days")]
         [NUnit.Framework.CategoryAttribute("TC30226")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "THUR 25 JUL", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Local User Testing", "THUR 25 JUL", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void VerifySaveButtonIsDisabledForPassedDays(string environment, string withFA, string location, string menuCycle, string day, string[] exampleTags)
         {
@@ -148,7 +148,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Real date is displayed on the top of the planning screen")]
         [NUnit.Framework.CategoryAttribute("TC30227")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "THUR 25 JUL", "THURSDAY - 25 July 2019", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Local User Testing", "THUR 25 JUL", "THURSDAY - 25 July 2019", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void RealDateIsDisplayedOnTheTopOfThePlanningScreen(string environment, string withFA, string location, string menuCycle, string day, string date, string[] exampleTags)
         {
@@ -186,7 +186,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Open Planning Screen, go to Post-Production, go back to Planning screen")]
         [NUnit.Framework.CategoryAttribute("TC30264")]
         [NUnit.Framework.CategoryAttribute("D25299")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "THUR 25 JUL", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Local User Testing", "THUR 25 JUL", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void OpenPlanningScreenGoToPost_ProductionGoBackToPlanningScreen(string environment, string withFA, string location, string menuCycle, string day, string[] exampleTags)
         {
@@ -229,7 +229,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Open Planning Screen, go to Weekly planning")]
         [NUnit.Framework.CategoryAttribute("TC30366")]
         [NUnit.Framework.CategoryAttribute("D25410")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "THUR 25 JUL", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Local User Testing", "THUR 25 JUL", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void OpenPlanningScreenGoToWeeklyPlanning(string environment, string withFA, string location, string menuCycle, string day, string[] exampleTags)
         {
@@ -271,7 +271,7 @@ this.ScenarioInitialize(scenarioInfo);
             "duction and back")]
         [NUnit.Framework.CategoryAttribute("TC30313")]
         [NUnit.Framework.CategoryAttribute("D25310")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "THUR 25 JUL", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Local User Testing", "THUR 25 JUL", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void UserShouldNotBeRedirectedToThePlanningScreenAfterNavigatingToPost_ProductionAndBack(string environment, string withFA, string location, string menuCycle, string day, string[] exampleTags)
         {
@@ -321,7 +321,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Create menu cycle button is not present - local user")]
         [NUnit.Framework.CategoryAttribute("TC27776")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void CreateMenuCycleButtonIsNotPresent_LocalUser(string environment, string withFA, string location, string[] exampleTags)
         {
@@ -351,7 +351,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Current week is opened when opening a non-expired menu cycle")]
         [NUnit.Framework.CategoryAttribute("TC38354")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Local User Testing", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void CurrentWeekIsOpenedWhenOpeningANon_ExpiredMenuCycle(string environment, string withFA, string location, string menuCycle, string[] exampleTags)
         {
@@ -384,7 +384,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Last week is opened when opening a menu cycle in the past")]
         [NUnit.Framework.CategoryAttribute("TC38355")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Expired", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Local User Expired", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void LastWeekIsOpenedWhenOpeningAMenuCycleInThePast(string environment, string withFA, string location, string menuCycle, string[] exampleTags)
         {

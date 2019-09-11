@@ -89,4 +89,4 @@ Scenario Outline: [MC] Review page is visible after switching Local -> Central u
     @QAI
     Examples:
     |environment|withFA|location|menuCycle|
-    |QAI        |false |   SE001|Meda     |
+    |QAI        |false |   Site EUR1|Meda     |

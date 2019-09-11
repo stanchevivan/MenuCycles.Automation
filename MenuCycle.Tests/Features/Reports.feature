@@ -17,7 +17,7 @@ Examples:
 Scenario Outline: Consumer Facing Report - Price options are not disabled for Local user
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
-        And location "SE001" is selected
+        And location "Site EUR1" is selected
         And Menu Cycle "Local User Testing" is selected
     When Reports page is opened
         And Report "ConsumerFacing" is opened
@@ -32,7 +32,7 @@ Examples:
 Scenario Outline: Export Consumer Facing Report as PDF with Sell Price, Kilojoules and Calories
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
-        And location "SE001" is selected
+        And location "Site EUR1" is selected
         And Menu Cycle "Consumer Facing Report Export AUTOMATION" is selected
     When Reports page is opened
         And Report "ConsumerFacing" is opened
@@ -56,7 +56,7 @@ Scenario Outline: Export Consumer Facing Report as PDF with Sell Price, Kilojoul
 Scenario Outline: Export Consumer Facing Report as CSV with Sell Price, Kilojoules and Calories
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
-        And location "SE001" is selected
+        And location "Site EUR1" is selected
         And Menu Cycle "Consumer Facing Report Export AUTOMATION" is selected
     When Reports page is opened
         And Report "ConsumerFacing" is opened
@@ -80,7 +80,7 @@ Scenario Outline: Export Consumer Facing Report as CSV with Sell Price, Kilojoul
 Scenario Outline: Consumer Facing Report - Local > User is able to export Consumer Facing report as PDF without selecting Calories, kilojoules and Sell Price
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
-        And location "SE001" is selected
+        And location "Site EUR1" is selected
         And Menu Cycle "Local User Testing" is selected
     When Reports page is opened
         And Report "ConsumerFacing" is opened
@@ -101,7 +101,7 @@ Scenario Outline: Consumer Facing Report - Local > User is able to export Consum
 Scenario Outline: Consumer Facing Report - Local > User is able to export Consumer Facing report as CSV without selecting Calories, kilojoules and Sell Price
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
-        And location "SE001" is selected
+        And location "Site EUR1" is selected
         And Menu Cycle "Local User Testing" is selected
     When Reports page is opened
         And Report "ConsumerFacing" is opened
@@ -122,7 +122,7 @@ Scenario Outline: Consumer Facing Report - Local > User is able to export Consum
 Scenario Outline: Consumer Facing Report - Local > Error message is displayed if selected end date is after MC end date
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
-        And location "SE001" is selected
+        And location "Site EUR1" is selected
         And Menu Cycle "Local User Expired" is selected
     When Reports page is opened
         And Report "ConsumerFacing" is opened
@@ -144,7 +144,7 @@ Scenario Outline: Consumer Facing Report - Local > Error message is displayed if
 Scenario Outline: Consumer facing report - Local > Error message is displayed if selected start date is before MC start date
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
-        And location "SE001" is selected
+        And location "Site EUR1" is selected
         And Menu Cycle "Local User Testing" is selected
     When Reports page is opened
         And Report "ConsumerFacing" is opened
@@ -166,7 +166,7 @@ Scenario Outline: Consumer facing report - Local > Error message is displayed if
 Scenario Outline: Consumer Facing Report  - Local > Error message is displayed if selected end date is before selected start date
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
-        And location "SE001" is selected
+        And location "Site EUR1" is selected
         And Menu Cycle "Local User Testing" is selected
     When Reports page is opened
         And Report "ConsumerFacing" is opened
@@ -188,7 +188,7 @@ Scenario Outline: Consumer Facing Report  - Local > Error message is displayed i
 Scenario Outline: Recipe Card Report - Local > Error message is displayed if selected start date is before MC start date
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
-        And location "SE001" is selected
+        And location "Site EUR1" is selected
         And Menu Cycle "Local User Testing" is selected
     When Reports page is opened
         And Report "RecipeCard" is opened
@@ -210,7 +210,7 @@ Scenario Outline: Recipe Card Report - Local > Error message is displayed if sel
 Scenario Outline: Recipe Card Report - Local > Error message is displayed if selected end date is before selected start date
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
-        And location "SE001" is selected
+        And location "Site EUR1" is selected
         And Menu Cycle "Local User Testing" is selected
     When Reports page is opened
         And Report "RecipeCard" is opened
@@ -252,7 +252,7 @@ Scenario Outline: Recipe Card Report - Central > Export button is displayed afte
 Scenario Outline: Recipe Card Report - Local > Error message is displayed if selected end date is after MC end date
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
-        And location "SE001" is selected
+        And location "Site EUR1" is selected
         And Menu Cycle "Local User Expired" is selected
     When Reports page is opened
         And Report "RecipeCard" is opened

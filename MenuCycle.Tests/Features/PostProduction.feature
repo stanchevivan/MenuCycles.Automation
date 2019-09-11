@@ -18,7 +18,7 @@ Scenario Outline: Expand all / Collapse all Post-production Days
     @QAI
     Examples:
     |environment|withFA|location|menuCycle           |week  |day       |
-    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|
+    |QAI        |false |Site EUR1   |Automation post-prod|WEEK 3|FRI 26 JUL|
     
 @TC34693
 Scenario Outline: Expand/Collapse single meal period Post-production days
@@ -38,7 +38,7 @@ Scenario Outline: Expand/Collapse single meal period Post-production days
     @QAI
     Examples:
     |environment|withFA|location|menuCycle           |week  |day       |mealPeriod|
-    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|MARGRET    |
+    |QAI        |false |Site EUR1   |Automation post-prod|WEEK 3|FRI 26 JUL|MARGRET    |
     
 Scenario Outline: Post production daily total calculations
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
@@ -58,7 +58,7 @@ Scenario Outline: Post production daily total calculations
     @QAI
     Examples:
     |environment|withFA|location|menuCycle           |week  |day       |mealPeriod|recipeName             |tariff   |
-    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|MARGRET   |004Apple Sauce (tinned)|TariffOne|
+    |QAI        |false |Site EUR1   |Automation post-prod|WEEK 3|FRI 26 JUL|MARGRET   |004Apple Sauce (tinned)|TariffOne|
     
 Scenario Outline: Post production validations
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
@@ -86,7 +86,7 @@ Scenario Outline: Post production validations
     @QAI
     Examples:
     |environment|withFA|location|menuCycle           |week  |day       |mealPeriod |recipeName             |tariff   |integerMessage |negativeMessage     |
-    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|MARGRET    |004Apple Sauce (tinned)|TariffOne|Must be integer|Must be 0 or greater|
+    |QAI        |false |Site EUR1   |Automation post-prod|WEEK 3|FRI 26 JUL|MARGRET    |004Apple Sauce (tinned)|TariffOne|Must be integer|Must be 0 or greater|
 
 
 @TC35467 @D31395
@@ -105,7 +105,7 @@ Scenario Outline: Open Post-Production Screen, navigate to Weekly view
     @QAI
     Examples:
     |environment|withFA|location|menuCycle           |week  |day       |
-    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|
+    |QAI        |false |Site EUR1   |Automation post-prod|WEEK 3|FRI 26 JUL|
   
  # Scenario is commented until POS integration is finished   
  # @TC35573
@@ -121,7 +121,7 @@ Scenario Outline: Open Post-Production Screen, navigate to Weekly view
     #    @QAI
     # Examples:
     # |environment|withFA|location|menuCycle       |day       |buffetName |mealPeriod|
-    # |QAI        |false |SE001   |Please don`t use|TUE 29 JAN|Maya Buffet|   DANGELO|
+    # |QAI        |false |Site EUR1   |Please don`t use|TUE 29 JAN|Maya Buffet|   DANGELO|
     
 @TC36205  
 Scenario Outline: Export Local Sales report
@@ -139,7 +139,7 @@ Scenario Outline: Export Local Sales report
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |day       |
-    |QAI        |false |SE001   |Local User Testing|WED 31 JUL|
+    |QAI        |false |Site EUR1   |Local User Testing|WED 31 JUL|
     
 @TC36009 @TC36010
 Scenario Outline: Wastage is an input field and QtySold and No charge fields are not present for buffet recipes
@@ -157,7 +157,7 @@ Scenario Outline: Wastage is an input field and QtySold and No charge fields are
        @QAI
     Examples:
     |environment|withFA|location|menuCycle           |week  |day       |buffetName |recipeName     |mealPeriod|
-    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|Maya Buffet|004Basic Sponge|   MARGRET|
+    |QAI        |false |Site EUR1   |Automation post-prod|WEEK 3|FRI 26 JUL|Maya Buffet|004Basic Sponge|   MARGRET|
     
 Scenario Outline: Wastage field is disabled for recipes
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
@@ -173,7 +173,7 @@ Scenario Outline: Wastage field is disabled for recipes
        @QAI
     Examples:
     |environment|withFA|location|menuCycle           |week  |day       |recipeName             |mealPeriod|
-    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|004Apple Sauce (tinned)|   MARGRET|
+    |QAI        |false |Site EUR1   |Automation post-prod|WEEK 3|FRI 26 JUL|004Apple Sauce (tinned)|   MARGRET|
     
 @TC36011
 Scenario Outline: Contextual error message is shown for Wastage for buffet recipes when decimal is inputed
@@ -191,7 +191,7 @@ Scenario Outline: Contextual error message is shown for Wastage for buffet recip
        @QAI
     Examples:
     |environment|withFA|location|menuCycle           |day       |buffetName |recipeName     |mealPeriod|
-    |QAI        |false |SE001   |Automation post-prod|FRI 26 JUL|Maya Buffet|004Basic Sponge|   MARGRET|
+    |QAI        |false |Site EUR1   |Automation post-prod|FRI 26 JUL|Maya Buffet|004Basic Sponge|   MARGRET|
 
 @TC36211
 Scenario Outline: Buffet tariff type is present at menu level
@@ -208,7 +208,7 @@ Scenario Outline: Buffet tariff type is present at menu level
            @QAI
     Examples:
     |environment|withFA|location|menuCycle           |week  |day       |buffetName |recipeName     |mealPeriod|
-    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|Maya Buffet|004Basic Sponge|   MARGRET|
+    |QAI        |false |Site EUR1   |Automation post-prod|WEEK 3|FRI 26 JUL|Maya Buffet|004Basic Sponge|   MARGRET|
     
 @TC38808    
 Scenario Outline: Verify Post-Production weekly totals equals the sum of all meal period totals
@@ -229,4 +229,4 @@ Scenario Outline: Verify Post-Production weekly totals equals the sum of all mea
     @QAI
     Examples:
     |environment|withFA|location|menuCycle           |week  |day       |qtyReqd|qtyProd|qtySold|noCharge|returnToStock|wastage|
-    |QAI        |false |SE001   |Automation post-prod|WEEK 3|FRI 26 JUL|301    |50     |77     |9       |4            |261    |
+    |QAI        |false |Site EUR1   |Automation post-prod|WEEK 3|FRI 26 JUL|301    |50     |77     |9       |4            |261    |

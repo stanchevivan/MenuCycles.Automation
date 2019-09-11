@@ -15,4 +15,4 @@ Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>"
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |
-    |QAI        |false |SE001   |Local User Testing|
+    |QAI        |false |Site EUR1   |Local User Testing|

@@ -223,7 +223,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Open menu cycle with 1800 items")]
         [NUnit.Framework.CategoryAttribute("TC35439")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Winter Breakfast Menu", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Winter Breakfast Menu", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void OpenMenuCycleWith1800Items(string environment, string withFA, string location, string menuCycle, string[] exampleTags)
         {
@@ -252,7 +252,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Open menu cycle with 4000 items in one week")]
         [NUnit.Framework.CategoryAttribute("TC39657")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "4000 items - Do not use", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "4000 items - Do not use", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void OpenMenuCycleWith4000ItemsInOneWeek(string environment, string withFA, string location, string menuCycle, string[] exampleTags)
         {

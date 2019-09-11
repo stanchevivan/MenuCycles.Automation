@@ -72,7 +72,7 @@ namespace MenuCycle.Tests.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Expand all / Collapse all Post-production Days")]
         [NUnit.Framework.CategoryAttribute("TC34327")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void ExpandAllCollapseAllPost_ProductionDays(string environment, string withFA, string location, string menuCycle, string week, string day, string[] exampleTags)
         {
@@ -117,7 +117,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Expand/Collapse single meal period Post-production days")]
         [NUnit.Framework.CategoryAttribute("TC34693")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "MARGRET", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "MARGRET", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void ExpandCollapseSingleMealPeriodPost_ProductionDays(string environment, string withFA, string location, string menuCycle, string week, string day, string mealPeriod, string[] exampleTags)
         {
@@ -161,7 +161,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Post production daily total calculations")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "MARGRET", "004Apple Sauce (tinned)", "TariffOne", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "MARGRET", "004Apple Sauce (tinned)", "TariffOne", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void PostProductionDailyTotalCalculations(string environment, string withFA, string location, string menuCycle, string week, string day, string mealPeriod, string recipeName, string tariff, string[] exampleTags)
         {
@@ -211,7 +211,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Post production validations")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "MARGRET", "004Apple Sauce (tinned)", "TariffOne", "Must be integer", "Must be 0 or greater", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "MARGRET", "004Apple Sauce (tinned)", "TariffOne", "Must be integer", "Must be 0 or greater", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void PostProductionValidations(string environment, string withFA, string location, string menuCycle, string week, string day, string mealPeriod, string recipeName, string tariff, string integerMessage, string negativeMessage, string[] exampleTags)
         {
@@ -307,7 +307,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Open Post-Production Screen, navigate to Weekly view")]
         [NUnit.Framework.CategoryAttribute("TC35467")]
         [NUnit.Framework.CategoryAttribute("D31395")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void OpenPost_ProductionScreenNavigateToWeeklyView(string environment, string withFA, string location, string menuCycle, string week, string day, string[] exampleTags)
         {
@@ -349,7 +349,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Export Local Sales report")]
         [NUnit.Framework.CategoryAttribute("TC36205")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "WED 31 JUL", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Local User Testing", "WED 31 JUL", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void ExportLocalSalesReport(string environment, string withFA, string location, string menuCycle, string day, string[] exampleTags)
         {
@@ -392,7 +392,7 @@ this.ScenarioInitialize(scenarioInfo);
             "ffet recipes")]
         [NUnit.Framework.CategoryAttribute("TC36009")]
         [NUnit.Framework.CategoryAttribute("TC36010")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "Maya Buffet", "004Basic Sponge", "MARGRET", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "Maya Buffet", "004Basic Sponge", "MARGRET", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void WastageIsAnInputFieldAndQtySoldAndNoChargeFieldsAreNotPresentForBuffetRecipes(string environment, string withFA, string location, string menuCycle, string week, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
         {
@@ -436,7 +436,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Wastage field is disabled for recipes")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "004Apple Sauce (tinned)", "MARGRET", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "004Apple Sauce (tinned)", "MARGRET", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void WastageFieldIsDisabledForRecipes(string environment, string withFA, string location, string menuCycle, string week, string day, string recipeName, string mealPeriod, string[] exampleTags)
         {
@@ -470,7 +470,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Contextual error message is shown for Wastage for buffet recipes when decimal is " +
             "inputed")]
         [NUnit.Framework.CategoryAttribute("TC36011")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "FRI 26 JUL", "Maya Buffet", "004Basic Sponge", "MARGRET", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "FRI 26 JUL", "Maya Buffet", "004Basic Sponge", "MARGRET", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void ContextualErrorMessageIsShownForWastageForBuffetRecipesWhenDecimalIsInputed(string environment, string withFA, string location, string menuCycle, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
         {
@@ -514,7 +514,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Buffet tariff type is present at menu level")]
         [NUnit.Framework.CategoryAttribute("TC36211")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "Maya Buffet", "004Basic Sponge", "MARGRET", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "Maya Buffet", "004Basic Sponge", "MARGRET", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void BuffetTariffTypeIsPresentAtMenuLevel(string environment, string withFA, string location, string menuCycle, string week, string day, string buffetName, string recipeName, string mealPeriod, string[] exampleTags)
         {
@@ -553,7 +553,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Post-Production weekly totals equals the sum of all meal period totals")]
         [NUnit.Framework.CategoryAttribute("TC38808")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "301", "50", "77", "9", "4", "261", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "301", "50", "77", "9", "4", "261", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void VerifyPost_ProductionWeeklyTotalsEqualsTheSumOfAllMealPeriodTotals(string environment, string withFA, string location, string menuCycle, string week, string day, string qtyReqd, string qtyProd, string qtySold, string noCharge, string returnToStock, string wastage, string[] exampleTags)
         {

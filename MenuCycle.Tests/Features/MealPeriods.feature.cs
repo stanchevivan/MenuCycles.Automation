@@ -1143,7 +1143,7 @@ this.ScenarioInitialize(scenarioInfo);
             " Local")]
         [NUnit.Framework.CategoryAttribute("D37179")]
         [NUnit.Framework.CategoryAttribute("TC40337")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Local User Testing", "Meda", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Local User Testing", "Meda", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void ExpandAllMealPeriodsInTheCalendarViewForCentralAfterExpandingThemForLocal(string environment, string withFA, string location, string menuCycle, string menuCycle1, string[] exampleTags)
         {
@@ -1195,7 +1195,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Verify there are no duplicate items in meal period in the calendar view")]
         [NUnit.Framework.CategoryAttribute("TC40349")]
         [NUnit.Framework.CategoryAttribute("D37177")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "FOR Local User AUTOMATION", "LUNCH", "WED 14 AUG", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "FOR Local User AUTOMATION", "LUNCH", "WED 14 AUG", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void VerifyThereAreNoDuplicateItemsInMealPeriodInTheCalendarView(string environment, string withFA, string location, string menuCycle, string mealPeriod, string day, string[] exampleTags)
         {
@@ -1462,7 +1462,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Meal periods are displayed in the correct sort order in post-production daily")]
         [NUnit.Framework.CategoryAttribute("TC40599")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Automation post-prod", "SE001", "WED 10 JUL", "BREAKFAST,LUNCH,AFTERNOON TEA,DINNER,RYLEY,CARMINE,JAQUELINE,ALL DAY,ALL DAY 2", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Automation post-prod", "Site EUR1", "WED 10 JUL", "BREAKFAST,LUNCH,AFTERNOON TEA,DINNER,RYLEY,CARMINE,JAQUELINE,ALL DAY,ALL DAY 2", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void MealPeriodsAreDisplayedInTheCorrectSortOrderInPost_ProductionDaily(string environment, string withFA, string menuCycle, string location, string day, string mealPeriods, string[] exampleTags)
         {
@@ -1506,7 +1506,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Meal periods are displayed in the correct sort order in post-production weekly")]
         [NUnit.Framework.CategoryAttribute("TC40598")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Automation post-prod", "SE001", "WED 10 JUL", "WEDNESDAY", "WEEK 1", "Breakfast,Lunch,Afternoon Tea,Dinner,Ryley,Carmine,Jaqueline,All day,All day 2", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Automation post-prod", "Site EUR1", "WED 10 JUL", "WEDNESDAY", "WEEK 1", "Breakfast,Lunch,Afternoon Tea,Dinner,Ryley,Carmine,Jaqueline,All day,All day 2", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void MealPeriodsAreDisplayedInTheCorrectSortOrderInPost_ProductionWeekly(string environment, string withFA, string menuCycle, string location, string day, string weekDay, string week, string mealPeriods, string[] exampleTags)
         {

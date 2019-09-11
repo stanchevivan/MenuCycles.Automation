@@ -271,7 +271,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("[MC] Review page is visible after switching Local -> Central user")]
         [NUnit.Framework.CategoryAttribute("TC41875")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "SE001", "Meda", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Meda", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void MCReviewPageIsVisibleAfterSwitchingLocal_CentralUser(string environment, string withFA, string location, string menuCycle, string[] exampleTags)
         {

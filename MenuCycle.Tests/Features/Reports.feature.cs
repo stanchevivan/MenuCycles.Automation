@@ -119,7 +119,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 19
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 20
-        testRunner.And("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 21
         testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 22
@@ -158,7 +158,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 34
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 35
-        testRunner.And("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 36
         testRunner.And("Menu Cycle \"Consumer Facing Report Export AUTOMATION\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 37
@@ -211,7 +211,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 58
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 59
-        testRunner.And("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 60
         testRunner.And("Menu Cycle \"Consumer Facing Report Export AUTOMATION\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 61
@@ -266,7 +266,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 82
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 83
-        testRunner.And("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 84
         testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 85
@@ -315,7 +315,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 103
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 104
-        testRunner.And("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 105
         testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 106
@@ -364,7 +364,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 124
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 125
-        testRunner.And("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 126
         testRunner.And("Menu Cycle \"Local User Expired\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 127
@@ -417,7 +417,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 146
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 147
-        testRunner.And("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 148
         testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 149
@@ -470,7 +470,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 168
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 169
-        testRunner.And("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 170
         testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 171
@@ -523,7 +523,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 190
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 191
-        testRunner.And("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 192
         testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 193
@@ -576,7 +576,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 212
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 213
-        testRunner.And("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 214
         testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 215
@@ -677,7 +677,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 254
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 255
-        testRunner.And("location \"SE001\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 256
         testRunner.And("Menu Cycle \"Local User Expired\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 257

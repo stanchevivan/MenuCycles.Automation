@@ -71,7 +71,7 @@ Scenario Outline: Open menu cycle with 1800 items
     @QAI
     Examples:
     |environment|withFA|location|menuCycle            |
-    |QAI        |false |SE001   |Winter Breakfast Menu|
+    |QAI        |false |Site EUR1   |Winter Breakfast Menu|
     
 @TC39657
 Scenario Outline: Open menu cycle with 4000 items in one week
@@ -81,4 +81,4 @@ Scenario Outline: Open menu cycle with 4000 items in one week
     @QAI
     Examples:
     |environment|withFA|location|menuCycle               |
-    |QAI        |false |SE001   |4000 items - Do not use|
+    |QAI        |false |Site EUR1   |4000 items - Do not use|
