@@ -142,6 +142,7 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\Safari</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ChromeLongTimeOut|AnyCPU' ">
     <Optimize>false</Optimize>
@@ -161,6 +162,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPadPro2018|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\iPadPro2018</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPhone7Plus|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone7Plus</OutputPath>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
@@ -588,6 +594,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="App.iPadPro2018.config" />
+    <None Include="App.iPhone7Plus.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

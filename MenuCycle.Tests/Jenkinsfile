@@ -1,6 +1,6 @@
 #!groovy
 def androidDevices = ['Nexus7', 'SamsungTabA', 'SamsungTabS']
-def appleDevices = ['iPadAir', 'iPadMini4', 'iPadPro9', 'iPadPro2018']
+def appleDevices = ['iPadAir', 'iPadMini4', 'iPadPro9', 'iPadPro2018', 'iPhone7Plus']
 def mobileDevices = androidDevices + appleDevices
 def browsers = ['Chrome', 'ChromeLongTimeOut', 'Firefox', 'IE', 'IELongTimeOut', 'Safari']
 
