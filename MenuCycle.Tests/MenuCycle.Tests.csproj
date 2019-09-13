@@ -595,6 +595,9 @@
     </None>
     <None Include="App.iPadPro2018.config" />
     <None Include="App.iPhone7Plus.config" />
+    <None Include="specflow.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
