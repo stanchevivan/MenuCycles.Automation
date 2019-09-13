@@ -206,7 +206,7 @@ node('IE1UIBLD03') {
 
 						archiveArtifacts artifacts: '*TestResults.xml'
             nunit testResultsPattern: '*TestResults.xml'
-            cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: "$projectName/bin"
+            cucumber fileIncludePattern: '**/Reports*.json', jsonReportDirectory: "$projectName/bin"
 
 						sendSlackNotification(testReport(), '#MC-TestAutomation')
         }
