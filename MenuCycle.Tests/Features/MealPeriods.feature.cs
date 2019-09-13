@@ -439,7 +439,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 166
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
@@ -448,7 +448,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Target",
                         "TaxPercentage",
                         "SellPrice"});
-            table1.AddRow(new string[] {
+            table26.AddRow(new string[] {
                         "DANGELO",
                         "RECIPE",
                         "703Coronation Chicken Sandwich Filling (50g)",
@@ -457,7 +457,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "14",
                         "20",
                         "^"});
-            table1.AddRow(new string[] {
+            table26.AddRow(new string[] {
                         "DANGELO",
                         "RECIPE",
                         "703Reggae Raggae Mayonnaise",
@@ -467,20 +467,20 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "1"});
 #line 167
-    testRunner.And("data for recipes is set", ((string)(null)), table1, "And ");
+    testRunner.And("data for recipes is set", ((string)(null)), table26, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
                         "PlannedQty",
                         "TotalCost",
                         "Revenue",
                         "ActualGP"});
-            table2.AddRow(new string[] {
+            table27.AddRow(new string[] {
                         "20",
                         "18.00",
                         "17.64",
                         "-2%"});
 #line 171
-    testRunner.Then(string.Format("Verify value for fields for meal period \"{0}\" is", mealPeriod), ((string)(null)), table2, "Then ");
+    testRunner.Then(string.Format("Verify value for fields for meal period \"{0}\" is", mealPeriod), ((string)(null)), table27, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -513,7 +513,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 185
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
@@ -522,7 +522,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "PriceModel",
                         "TaxPercentage",
                         "SellPrice"});
-            table3.AddRow(new string[] {
+            table28.AddRow(new string[] {
                         "DANGELO",
                         "BUFFET",
                         "Maya Buffet",
@@ -532,44 +532,44 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "23"});
 #line 186
-    testRunner.And("data for buffets is set", ((string)(null)), table3, "And ");
+    testRunner.And("data for buffets is set", ((string)(null)), table28, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
                         "RecipeTitle",
                         "PlannedQuantity"});
-            table4.AddRow(new string[] {
+            table29.AddRow(new string[] {
                         "004Basic Sponge",
                         "10"});
-            table4.AddRow(new string[] {
+            table29.AddRow(new string[] {
                         "004Fresh Lemon Curd",
                         "20"});
-            table4.AddRow(new string[] {
+            table29.AddRow(new string[] {
                         "004Fish Stock (bouillon)",
                         "30"});
-            table4.AddRow(new string[] {
+            table29.AddRow(new string[] {
                         "004Beef Stock (bouillon)",
                         "40"});
-            table4.AddRow(new string[] {
+            table29.AddRow(new string[] {
                         "724Custard Sauce (powder, fresh milk)",
                         "50"});
-            table4.AddRow(new string[] {
+            table29.AddRow(new string[] {
                         "004German Shortcrust Pastry (fresh)007",
                         "60"});
 #line 189
-    testRunner.And("data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table4, "And ");
+    testRunner.And("data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table29, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
                         "PlannedQty",
                         "TotalCost",
                         "Revenue",
                         "ActualGP"});
-            table5.AddRow(new string[] {
+            table30.AddRow(new string[] {
                         "210",
                         "720.63",
                         "191.67",
                         "-276%"});
 #line 197
-    testRunner.Then("Verify value for fields for meal period \"DANGELO\" is", ((string)(null)), table5, "Then ");
+    testRunner.Then("Verify value for fields for meal period \"DANGELO\" is", ((string)(null)), table30, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -602,21 +602,21 @@ this.ScenarioInitialize(scenarioInfo);
 #line 211
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
                         "RecipeTitle",
                         "PlannedQuantity",
                         "PriceModel",
                         "Target",
                         "TaxPercentage",
                         "SellPrice"});
-            table6.AddRow(new string[] {
+            table31.AddRow(new string[] {
                         "004Bread (fresh dough)",
                         "2",
                         "GP",
                         "11",
                         "20",
                         "^"});
-            table6.AddRow(new string[] {
+            table31.AddRow(new string[] {
                         "724Pepper & Garlic Coated Beef",
                         "3",
                         "Fixed",
@@ -625,20 +625,20 @@ this.ScenarioInitialize(scenarioInfo);
                         "55"});
 #line 212
     testRunner.And("data for recipes in a la carte \"Holiday A La Carte\" in meal period \"DANGELO\" is s" +
-                    "et", ((string)(null)), table6, "And ");
+                    "et", ((string)(null)), table31, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
                         "PlannedQty",
                         "TotalCost",
                         "Revenue",
                         "ActualGP"});
-            table7.AddRow(new string[] {
+            table32.AddRow(new string[] {
                         "56",
                         "15881.68",
                         "137.62",
                         "-11440%"});
 #line 216
-    testRunner.Then("Verify value for fields for meal period \"DANGELO\" is", ((string)(null)), table7, "Then ");
+    testRunner.Then("Verify value for fields for meal period \"DANGELO\" is", ((string)(null)), table32, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -671,21 +671,21 @@ this.ScenarioInitialize(scenarioInfo);
 #line 230
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
                         "RecipeTitle",
                         "PlannedQuantity",
                         "PriceModel",
                         "Target",
                         "TaxPercentage",
                         "SellPrice"});
-            table8.AddRow(new string[] {
+            table33.AddRow(new string[] {
                         "004Bread (fresh dough)",
                         "2",
                         "GP",
                         "11",
                         "20",
                         "^"});
-            table8.AddRow(new string[] {
+            table33.AddRow(new string[] {
                         "724Pepper & Garlic Coated Beef",
                         "3",
                         "Fixed",
@@ -694,9 +694,9 @@ this.ScenarioInitialize(scenarioInfo);
                         "55"});
 #line 231
     testRunner.And("data for recipes in a la carte \"Holiday A La Carte\" in meal period \"DANGELO\" is s" +
-                    "et", ((string)(null)), table8, "And ");
+                    "et", ((string)(null)), table33, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
@@ -705,7 +705,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "PriceModel",
                         "TaxPercentage",
                         "SellPrice"});
-            table9.AddRow(new string[] {
+            table34.AddRow(new string[] {
                         "DANGELO",
                         "BUFFET",
                         "Maya Buffet",
@@ -715,33 +715,33 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "23"});
 #line 235
-    testRunner.And("data for buffets is set", ((string)(null)), table9, "And ");
+    testRunner.And("data for buffets is set", ((string)(null)), table34, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table35 = new TechTalk.SpecFlow.Table(new string[] {
                         "RecipeTitle",
                         "PlannedQuantity"});
-            table10.AddRow(new string[] {
+            table35.AddRow(new string[] {
                         "004Basic Sponge",
                         "10"});
-            table10.AddRow(new string[] {
+            table35.AddRow(new string[] {
                         "004Fresh Lemon Curd",
                         "20"});
-            table10.AddRow(new string[] {
+            table35.AddRow(new string[] {
                         "004Fish Stock (bouillon)",
                         "30"});
-            table10.AddRow(new string[] {
+            table35.AddRow(new string[] {
                         "004Beef Stock (bouillon)",
                         "40"});
-            table10.AddRow(new string[] {
+            table35.AddRow(new string[] {
                         "724Custard Sauce (powder, fresh milk)",
                         "50"});
-            table10.AddRow(new string[] {
+            table35.AddRow(new string[] {
                         "004German Shortcrust Pastry (fresh)007",
                         "60"});
 #line 238
-    testRunner.And("data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table10, "And ");
+    testRunner.And("data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table35, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table36 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
@@ -750,7 +750,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Target",
                         "TaxPercentage",
                         "SellPrice"});
-            table11.AddRow(new string[] {
+            table36.AddRow(new string[] {
                         "DANGELO",
                         "RECIPE",
                         "004Bechamel Sauce",
@@ -759,7 +759,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "14",
                         "20",
                         "^"});
-            table11.AddRow(new string[] {
+            table36.AddRow(new string[] {
                         "DANGELO",
                         "RECIPE",
                         "004Baked Beans_3",
@@ -769,20 +769,20 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "1"});
 #line 246
-    testRunner.And("data for recipes is set", ((string)(null)), table11, "And ");
+    testRunner.And("data for recipes is set", ((string)(null)), table36, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table37 = new TechTalk.SpecFlow.Table(new string[] {
                         "PlannedQty",
                         "TotalCost",
                         "Revenue",
                         "ActualGP"});
-            table12.AddRow(new string[] {
+            table37.AddRow(new string[] {
                         "235",
                         "16437.22",
                         "339.59",
                         "-4740%"});
 #line 250
-    testRunner.Then("Verify value for fields for meal period \"DANGELO\" is", ((string)(null)), table12, "Then ");
+    testRunner.Then("Verify value for fields for meal period \"DANGELO\" is", ((string)(null)), table37, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1259,12 +1259,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 450
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table38 = new TechTalk.SpecFlow.Table(new string[] {
                         "mealPeriods"});
-            table13.AddRow(new string[] {
+            table38.AddRow(new string[] {
                         string.Format("{0}", mealPeriods)});
 #line 451
-    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" in daily calendar are:", day), ((string)(null)), table13, "Then ");
+    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" in daily calendar are:", day), ((string)(null)), table38, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1297,12 +1297,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 466
     testRunner.When(string.Format("week \"{0}\" is expanded", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table39 = new TechTalk.SpecFlow.Table(new string[] {
                         "mealPeriods"});
-            table14.AddRow(new string[] {
+            table39.AddRow(new string[] {
                         string.Format("{0}", mealPeriods)});
 #line 467
-    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" week \"{1}\" in weekly calendar are:", day, week), ((string)(null)), table14, "Then ");
+    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" week \"{1}\" in weekly calendar are:", day, week), ((string)(null)), table39, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1333,12 +1333,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 481
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table40 = new TechTalk.SpecFlow.Table(new string[] {
                         "mealPeriods"});
-            table15.AddRow(new string[] {
+            table40.AddRow(new string[] {
                         string.Format("{0}", mealPeriods)});
 #line 482
-    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" in planning screen daily are:", day), ((string)(null)), table15, "Then ");
+    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" in planning screen daily are:", day), ((string)(null)), table40, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1371,12 +1371,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 497
         testRunner.And("Weeks tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table41 = new TechTalk.SpecFlow.Table(new string[] {
                         "mealPeriods"});
-            table16.AddRow(new string[] {
+            table41.AddRow(new string[] {
                         string.Format("{0}", mealPeriods)});
 #line 498
-    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" week \"{1}\" in planning screen weekly are:", day, week), ((string)(null)), table16, "Then ");
+    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" week \"{1}\" in planning screen weekly are:", day, week), ((string)(null)), table41, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1409,12 +1409,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 513
         testRunner.And("nutrition tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table42 = new TechTalk.SpecFlow.Table(new string[] {
                         "mealPeriods"});
-            table17.AddRow(new string[] {
+            table42.AddRow(new string[] {
                         string.Format("{0}", mealPeriods)});
 #line 514
-    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" in nutrition screen daily are:", day), ((string)(null)), table17, "Then ");
+    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" in nutrition screen daily are:", day), ((string)(null)), table42, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1449,12 +1449,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 530
         testRunner.And("Weeks tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table43 = new TechTalk.SpecFlow.Table(new string[] {
                         "mealPeriods"});
-            table18.AddRow(new string[] {
+            table43.AddRow(new string[] {
                         string.Format("{0}", mealPeriods)});
 #line 531
-    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" week \"{1}\" in nutrition screen weekly are:", day, week), ((string)(null)), table18, "Then ");
+    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" week \"{1}\" in nutrition screen weekly are:", day, week), ((string)(null)), table43, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1493,12 +1493,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 549
         testRunner.And("post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table44 = new TechTalk.SpecFlow.Table(new string[] {
                         "mealPeriods"});
-            table19.AddRow(new string[] {
+            table44.AddRow(new string[] {
                         string.Format("{0}", mealPeriods)});
 #line 550
-    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" week \"<week>\" in nutrition screen daily are:", day), ((string)(null)), table19, "Then ");
+    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" week \"<week>\" in nutrition screen daily are:", day), ((string)(null)), table44, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1539,12 +1539,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 569
         testRunner.And("Weeks tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table45 = new TechTalk.SpecFlow.Table(new string[] {
                         "mealPeriods"});
-            table20.AddRow(new string[] {
+            table45.AddRow(new string[] {
                         string.Format("{0}", mealPeriods)});
 #line 570
-    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" week \"{1}\" in nutrition screen weekly are:", weekDay, week), ((string)(null)), table20, "Then ");
+    testRunner.Then(string.Format("Verify meal periods for day \"{0}\" week \"{1}\" in nutrition screen weekly are:", weekDay, week), ((string)(null)), table45, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1579,12 +1579,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 585
         testRunner.And("meal period dropdown is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table46 = new TechTalk.SpecFlow.Table(new string[] {
                         "mealPeriods"});
-            table21.AddRow(new string[] {
+            table46.AddRow(new string[] {
                         string.Format("{0}", mealPeriods)});
 #line 586
-    testRunner.Then("Verify meal periods in the meal period dropdown are:", ((string)(null)), table21, "Then ");
+    testRunner.Then("Verify meal periods in the meal period dropdown are:", ((string)(null)), table46, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

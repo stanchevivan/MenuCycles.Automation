@@ -599,33 +599,33 @@ this.ScenarioInitialize(scenarioInfo);
 #line 249
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table55 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
                         "PlannedQuantity"});
-            table1.AddRow(new string[] {
+            table55.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
                         "1#99"});
 #line 250
-        testRunner.And("data for recipes is set", ((string)(null)), table1, "And ");
+        testRunner.And("data for recipes is set", ((string)(null)), table55, "And ");
 #line 253
         testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 254
         testRunner.And("nutrition tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table56 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "RecipeTitle",
                         "EnergyKJ"});
-            table2.AddRow(new string[] {
+            table56.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
                         string.Format("{0}", recipeName),
                         string.Format("{0}", energyKJ)});
 #line 255
-    testRunner.Then("Verify nutrition data for recipes are", ((string)(null)), table2, "Then ");
+    testRunner.Then("Verify nutrition data for recipes are", ((string)(null)), table56, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

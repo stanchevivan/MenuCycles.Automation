@@ -1,6 +1,7 @@
 ﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\SpecFlow.Tools.MsBuild.Generation.3.0.225\build\SpecFlow.Tools.MsBuild.Generation.props" Condition="Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.0.225\build\SpecFlow.Tools.MsBuild.Generation.props')" />
+  <Import Project="..\packages\SpecFlow.NUnit.3.0.225\build\SpecFlow.NUnit.props" Condition="Exists('..\packages\SpecFlow.NUnit.3.0.225\build\SpecFlow.NUnit.props')" />
   <Import Project="..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props')" />
-  <Import Project="..\packages\SpecFlow.Autofac.3.0.225\build\SpecFlow.Autofac.props" Condition="Exists('..\packages\SpecFlow.Autofac.3.0.225\build\SpecFlow.Autofac.props')" />
   <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -245,9 +246,6 @@
     <Reference Include="System.ValueTuple">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
-    <Reference Include="TechTalk.SpecFlow">
-      <HintPath>..\packages\SpecFlow.3.0.225\lib\net45\TechTalk.SpecFlow.dll</HintPath>
-    </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
@@ -267,7 +265,7 @@
       <HintPath>..\packages\Gherkin.6.0.0\lib\net45\Gherkin.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.4.0\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Utf8Json">
       <HintPath>..\packages\Utf8Json.1.3.7\lib\net47\Utf8Json.dll</HintPath>
@@ -275,8 +273,26 @@
     <Reference Include="Appium.Net">
       <HintPath>..\packages\Appium.WebDriver.4.0.0.6-beta\lib\net45\Appium.Net.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Polly">
+      <HintPath>..\packages\Polly.5.9.0\lib\net45\Polly.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf">
+      <HintPath>..\packages\Google.Protobuf.3.7.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Cucumber.Messages">
+      <HintPath>..\packages\Cucumber.Messages.4.0.0\lib\net45\Cucumber.Messages.dll</HintPath>
+    </Reference>
     <Reference Include="Autofac">
       <HintPath>..\packages\Autofac.4.9.4\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\packages\SpecFlow.3.0.225\lib\net45\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
     <Reference Include="Fourth.Automation.Framework.Core">
       <HintPath>..\packages\Fourth.Automation.Framework.Core.5.0.70\lib\net45\Fourth.Automation.Framework.Core.dll</HintPath>
@@ -284,17 +300,8 @@
     <Reference Include="Fourth.Automation.SpecFlow.Extensions">
       <HintPath>..\packages\Fourth.Automation.Framework.Core.5.0.70\lib\net45\Fourth.Automation.SpecFlow.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
     <Reference Include="SpecFlow.Autofac.SpecFlowPlugin">
       <HintPath>..\packages\Fourth.Automation.Framework.Core.5.0.70\lib\net45\SpecFlow.Autofac.SpecFlowPlugin.dll</HintPath>
-    </Reference>
-    <Reference Include="Polly">
-      <HintPath>..\packages\Polly.5.9.0\lib\net45\Polly.dll</HintPath>
     </Reference>
     <Reference Include="Fourth.Automation.Framework.Mobile">
       <HintPath>..\packages\Fourth.Automation.Framework.Mobile.5.0.70\lib\net45\Fourth.Automation.Framework.Mobile.dll</HintPath>
@@ -304,6 +311,9 @@
     </Reference>
     <Reference Include="Fourth.Automation.Framework.Reporting">
       <HintPath>..\packages\Fourth.Automation.Framework.Reporting.5.0.70\lib\net45\Fourth.Automation.Framework.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow.NUnit.SpecFlowPlugin">
+      <HintPath>..\packages\SpecFlow.NUnit.3.0.225\lib\net45\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -496,31 +506,25 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Features\RecipeSearch.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>RecipeSearch.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\MenuCycles.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MenuCycles.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Features\MealPeriods.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MealPeriods.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\PlanningScreen.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>PlanningScreen.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\Recipes.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Recipes.feature.cs</LastGenOutput>
     </None>
     <None Include="App.Firefox.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="Features\Buffet.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Buffet.feature.cs</LastGenOutput>
     </None>
     <None Include="App.iPadAir.config" />
@@ -548,39 +552,30 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Features\MealPeriodDetails.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MealPeriodDetails.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\LocalUserPlanningScreen.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LocalUserPlanningScreen.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\LocalUser.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LocalUser.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\Reports.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Reports.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\WeeklyCalendar.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>WeeklyCalendar.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\DailyCalendar.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>DailyCalendar.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\PostProduction.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>PostProduction.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\Performance.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Performance.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\Nutrition.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Nutrition.feature.cs</LastGenOutput>
     </None>
     <None Include="App.ChromeLongTimeOut.config">
@@ -628,8 +623,9 @@
   <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
   <Import Project="..\packages\Selenium.Firefox.WebDriver.0.21.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.21.0\build\Selenium.Firefox.WebDriver.targets')" />
   <Import Project="..\packages\SlowMonkey.1.1.1\build\SlowMonkey.targets" Condition="Exists('..\packages\SlowMonkey.1.1.1\build\SlowMonkey.targets')" />
-  <Import Project="..\packages\SpecFlow.Autofac.3.0.225\build\SpecFlow.Autofac.targets" Condition="Exists('..\packages\SpecFlow.Autofac.3.0.225\build\SpecFlow.Autofac.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.76.0.3809.12600\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.76.0.3809.12600\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.IEDriver.3.150.0\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.3.150.0\build\Selenium.WebDriver.IEDriver.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.GeckoDriver.0.25.0\build\Selenium.WebDriver.GeckoDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.GeckoDriver.0.25.0\build\Selenium.WebDriver.GeckoDriver.targets')" />
+  <Import Project="..\packages\SpecFlow.NUnit.3.0.225\build\SpecFlow.NUnit.targets" Condition="Exists('..\packages\SpecFlow.NUnit.3.0.225\build\SpecFlow.NUnit.targets')" />
+  <Import Project="..\packages\SpecFlow.Tools.MsBuild.Generation.3.0.225\build\SpecFlow.Tools.MsBuild.Generation.targets" Condition="Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.0.225\build\SpecFlow.Tools.MsBuild.Generation.targets')" />
 </Project>
