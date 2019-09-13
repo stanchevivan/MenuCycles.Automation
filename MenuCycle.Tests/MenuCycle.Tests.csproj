@@ -251,9 +251,6 @@
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Fourth.Automation.Framework.Reporting">
-      <HintPath>..\packages\Fourth.Automation.Framework.Reporting.4.3.69\lib\net45\Fourth.Automation.Framework.Reporting.dll</HintPath>
-    </Reference>
     <Reference Include="WebDriver">
       <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
@@ -282,10 +279,10 @@
       <HintPath>..\packages\Autofac.4.9.4\lib\net45\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Fourth.Automation.Framework.Core">
-      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.3.69\lib\net45\Fourth.Automation.Framework.Core.dll</HintPath>
+      <HintPath>..\packages\Fourth.Automation.Framework.Core.5.0.70\lib\net45\Fourth.Automation.Framework.Core.dll</HintPath>
     </Reference>
     <Reference Include="Fourth.Automation.SpecFlow.Extensions">
-      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.3.69\lib\net45\Fourth.Automation.SpecFlow.Extensions.dll</HintPath>
+      <HintPath>..\packages\Fourth.Automation.Framework.Core.5.0.70\lib\net45\Fourth.Automation.SpecFlow.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
@@ -294,16 +291,19 @@
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="SpecFlow.Autofac.SpecFlowPlugin">
-      <HintPath>..\packages\Fourth.Automation.Framework.Core.4.3.69\lib\net45\SpecFlow.Autofac.SpecFlowPlugin.dll</HintPath>
+      <HintPath>..\packages\Fourth.Automation.Framework.Core.5.0.70\lib\net45\SpecFlow.Autofac.SpecFlowPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Polly">
       <HintPath>..\packages\Polly.5.9.0\lib\net45\Polly.dll</HintPath>
     </Reference>
     <Reference Include="Fourth.Automation.Framework.Mobile">
-      <HintPath>..\packages\Fourth.Automation.Framework.Mobile.4.3.69\lib\net45\Fourth.Automation.Framework.Mobile.dll</HintPath>
+      <HintPath>..\packages\Fourth.Automation.Framework.Mobile.5.0.70\lib\net45\Fourth.Automation.Framework.Mobile.dll</HintPath>
     </Reference>
     <Reference Include="FourthApp">
       <HintPath>..\packages\FourthApp.Pages.1.0.17\lib\net46\FourthApp.dll</HintPath>
+    </Reference>
+    <Reference Include="Fourth.Automation.Framework.Reporting">
+      <HintPath>..\packages\Fourth.Automation.Framework.Reporting.5.0.70\lib\net45\Fourth.Automation.Framework.Reporting.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -628,5 +628,5 @@
   <Import Project="..\packages\SpecFlow.Autofac.3.0.225\build\SpecFlow.Autofac.targets" Condition="Exists('..\packages\SpecFlow.Autofac.3.0.225\build\SpecFlow.Autofac.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.76.0.3809.12600\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.76.0.3809.12600\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.IEDriver.3.150.0\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.3.150.0\build\Selenium.WebDriver.IEDriver.targets')" />
-  <Import Project="..\packages\Selenium.WebDriver.GeckoDriver.0.24.0.1\build\Selenium.WebDriver.GeckoDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.GeckoDriver.0.24.0.1\build\Selenium.WebDriver.GeckoDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.GeckoDriver.0.25.0\build\Selenium.WebDriver.GeckoDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.GeckoDriver.0.25.0\build\Selenium.WebDriver.GeckoDriver.targets')" />
 </Project>
