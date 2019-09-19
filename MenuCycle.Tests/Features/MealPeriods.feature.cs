@@ -564,10 +564,10 @@ this.ScenarioInitialize(scenarioInfo);
                         "Revenue",
                         "ActualGP"});
             table30.AddRow(new string[] {
-                        "210",
-                        "720.63",
+                        "407",
+                        "1165.63",
                         "191.67",
-                        "-276%"});
+                        "-508%"});
 #line 197
     testRunner.Then("Verify value for fields for meal period \"DANGELO\" is", ((string)(null)), table30, "Then ");
 #line hidden
@@ -633,10 +633,10 @@ this.ScenarioInitialize(scenarioInfo);
                         "Revenue",
                         "ActualGP"});
             table32.AddRow(new string[] {
-                        "56",
-                        "15881.68",
+                        "253",
+                        "16326.68",
                         "137.62",
-                        "-11440%"});
+                        "-11764%"});
 #line 216
     testRunner.Then("Verify value for fields for meal period \"DANGELO\" is", ((string)(null)), table32, "Then ");
 #line hidden
@@ -777,10 +777,10 @@ this.ScenarioInitialize(scenarioInfo);
                         "Revenue",
                         "ActualGP"});
             table37.AddRow(new string[] {
-                        "235",
-                        "16437.22",
+                        "432",
+                        "16882.22",
                         "339.59",
-                        "-4740%"});
+                        "-4871%"});
 #line 250
     testRunner.Then("Verify value for fields for meal period \"DANGELO\" is", ((string)(null)), table37, "Then ");
 #line hidden

@@ -196,7 +196,7 @@ Scenario Outline: Buffets only - Calculate Meal period "Planned Quantity", "Tota
         |004German Shortcrust Pastry (fresh)007|             60|
     Then Verify value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
-        |       210|   720.63| 191.67|   -276%|
+        |       407|  1165.63| 191.67|   -508%|
         
     @QAI
     Examples:
@@ -214,8 +214,8 @@ Scenario Outline: A la cartes only - Calculate Meal period "Planned Quantity", "
         |004Bread (fresh dough)        |              2|        GP|    11|           20|        ^|
         |724Pepper & Garlic Coated Beef|              3|     Fixed|     ^|           20|       55|
     Then Verify value for fields for meal period "DANGELO" is
-        |PlannedQty|TotalCost  |Revenue|ActualGP|
-        |        56|   15881.68| 137.62| -11440%|
+        |PlannedQty|TotalCost|Revenue|ActualGP|
+        |       253| 16326.68| 137.62| -11764%|
         
     @QAI
     Examples:
@@ -249,7 +249,7 @@ Scenario Outline: Combined for Buffet, A la cares and recipes - Calculate Meal p
         |DANGELO       |RECIPE|004Baked Beans_3 |             10|     Fixed|     ^|            20|       1|
     Then Verify value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
-        |       235| 16437.22| 339.59|  -4740%|
+        |       432| 16882.22| 339.59|  -4871%|
         
     @QAI
     Examples:
