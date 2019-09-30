@@ -67,28 +67,14 @@ namespace MenuCycle.Tests.Steps
 
             foreach (var expectedItem in expectedItems)
             {
-                switch (expectedItem.Type)
-                {
-                    case "RECIPE":
-                        {
-                            item = planningTabDays.GetMealPeriod(expectedItem.MealPeriodName)
-                                                  .GetRecipe(expectedItem.RecipeTitle);
-                            break;
-                        }
-                    case "BUFFET":
-                        {
-                            item = planningTabDays.GetMealPeriod(expectedItem.MealPeriodName)
-                                                  .GetBuffet(expectedItem.RecipeTitle);
-                            break;
-                        }
+                item =
+                 expectedItem.Type switch
+                 {
+                     "RECIPE" => planningTabDays.GetMealPeriod(expectedItem.MealPeriodName).GetRecipe(expectedItem.RecipeTitle),
+                     "BUFFET" => planningTabDays.GetMealPeriod(expectedItem.MealPeriodName).GetBuffet(expectedItem.RecipeTitle),
+                     _ => planningTabDays.GetMealPeriod(expectedItem.MealPeriodName).GetRecipe(expectedItem.RecipeTitle)
+                 };
 
-                    default:
-                        {
-                            item = planningTabDays.GetMealPeriod(expectedItem.MealPeriodName)
-                                                  .GetRecipe(expectedItem.RecipeTitle);
-                            break;
-                        }
-                }
                 if (expectedItem.Type == "RECIPE" && !string.IsNullOrEmpty(expectedItem.TariffType))
                 {
                     item.GetTariffTypeRow(expectedItem.TariffType).VerifyData(expectedItem);

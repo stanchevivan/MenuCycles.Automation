@@ -50,68 +50,21 @@ namespace MenuCycle.Tests
             return randomNumber;
         }
 
-        public static string GetValueForFieldInRecipeRow(string field, RecipeRow row)
-        {
-            string value;
+        public static string ValueForFieldInRecipeRow(string field, RecipeRow row) =>
 
-            switch (field)
+            field switch
             {
-                case "PlannedQuantity":
-                    {
-                        value = row.PlannedQuantity;
-                        break;
-                    }
-                case "CostPerUnit":
-                    {
-                        value = row.CostPerUnit;
-                        break;
-                    }
-                case "TotalCosts":
-                    {
-                        value = row.TotalCosts;
-                        break;
-                    }
-                case "TariffType":
-                    {
-                        value = row.TariffType;
-                        break;
-                    }
-                case "PriceModel":
-                    {
-                        value = row.PriceModel;
-                        break;
-                    }
-                case "Target":
-                    {
-                        value = row.Target;
-                        break;
-                    }
-                case "TaxPercentage":
-                    {
-                        value = row.TaxPercentage;
-                        break;
-                    }
-                case "SellPrice":
-                    {
-                        value = row.SellPrice;
-                        break;
-                    }
-                case "Revenue":
-                    {
-                        value = row.Revenue;
-                        break;
-                    }
-                case "ActualGP":
-                    {
-                        value = row.ActualGP;
-                        break;
-                    }
-                default:
-                    value = null;
-                    break;
-            }
-
-            return value;
-        }
+                "PlannedQuantity" => row.PlannedQuantity,
+                "CostPerUnit" => row.CostPerUnit,
+                "TotalCosts" => row.TotalCosts,
+                "TariffType" => row.TariffType,
+                "PriceModel" => row.PriceModel,
+                "Target" => row.Target,
+                "TaxPercentage" => row.TaxPercentage,
+                "SellPrice" => row.SellPrice,
+                "Revenue" => row.Revenue,
+                "ActualGP" => row.ActualGP,
+                _ => null
+            };
     }
 }

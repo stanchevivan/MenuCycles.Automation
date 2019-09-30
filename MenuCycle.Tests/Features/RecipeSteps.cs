@@ -191,31 +191,15 @@ namespace MenuCycle.Tests.Steps
         public void ThenTargetPercentageFieldForRecipeInMealPeriodIsEmpty(string field, string recipeName, string mealPeriod)
         {
             var recipe = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeName);
-            string fieldValue;
 
-
-            switch (field)
+            string fieldValue =
+            field switch
             {
-                case "Target":
-                    {
-                        fieldValue = recipe.GetFirstRow().Target;
-                        break;
-                    }
-                case "Sell Price":
-                    {
-                        fieldValue = recipe.GetFirstRow().SellPrice;
-                        break;
-                    }
-                case "Planned Qty":
-                    {
-                        fieldValue = recipe.GetFirstRow().PlannedQuantity;
-                        break;
-                    }
-                default:
-                    {
-                        throw new System.Exception($"Verification for field {field} is not implemented!");
-                    }
-            }
+                "Target" => recipe.GetFirstRow().Target,
+                "Sell Price" => recipe.GetFirstRow().SellPrice,
+                "Planned Qty" => recipe.GetFirstRow().PlannedQuantity,
+                _ => throw new System.Exception($"Verification for field {field} is not implemented!")
+            };
 
             Assert.IsEmpty(fieldValue);
         }
@@ -365,7 +349,7 @@ namespace MenuCycle.Tests.Steps
         public void WhenFieldAreSavedInContextForRecipeInMealPeriod(string field, string recipeTitle, string mealPeriod)
         {
             var defaultRecipeRow = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeTitle).GetFirstRow();
-            var value = CommonHerlpers.GetValueForFieldInRecipeRow(field, defaultRecipeRow);
+            var value = CommonHerlpers.ValueForFieldInRecipeRow(field, defaultRecipeRow);
 
             scenarioContext.Add(field, value);
         }
@@ -382,7 +366,7 @@ namespace MenuCycle.Tests.Steps
         public void WhenFieldIsEqualToContextForRecipeInMealPeriod(string field, string recipeTitle, string mealPeriod)
         {
             var defaultRecipeRow = planningTabDays.GetMealPeriod(mealPeriod).GetRecipe(recipeTitle).GetFirstRow();
-            var value = CommonHerlpers.GetValueForFieldInRecipeRow(field, defaultRecipeRow);
+            var value = CommonHerlpers.ValueForFieldInRecipeRow(field, defaultRecipeRow);
 
             Assert.That(value, Is.EqualTo(scenarioContext.Get<string>(field)));
         }

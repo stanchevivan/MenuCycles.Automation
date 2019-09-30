@@ -54,7 +54,7 @@ node('IE1UIBLD03') {
 
 	commonReleaseBuildParams = "/p:CI_BuildNum=${env.BUILD_ID};CI_BuildId=${releaseTag}"
 	solutionPath = "$env.WORKSPACE/$solutionName"
-	msbuild = tool 'v15'
+	msbuild = tool 'v16'
 
 	if (isRemote)
  	{

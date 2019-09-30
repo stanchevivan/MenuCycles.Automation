@@ -96,8 +96,6 @@ namespace MenuCycle.Tests.PageObjects
                 throw new IndexOutOfRangeException($"Day {weekDay} in {WeekName} not found");
             }
             
-            int dayIndex;
-
             List<string> dayAbbreviations = new List<string>
             {
                 "MON",
@@ -111,34 +109,25 @@ namespace MenuCycle.Tests.PageObjects
 
             weekDay = dayAbbreviations.First(weekDay.ToUpper().Contains);
 
-            switch (weekDay.ToUpper())
+            int dayIndex =
+            weekDay.ToUpper() switch
             {
-                case "MONDAY":
-                case "MON":
-                    { dayIndex = 0; break; }
-                case "TUESDAY":
-                case "TUE":
-                    { dayIndex = 1; break; }
-                case "WEDNESDAY":
-                case "WED":
-                    { dayIndex = 2; break; }
-                case "THURSDAY":
-                case "THUR":
-                    { dayIndex = 3; break; }
-                case "FRIDAY":
-                case "FRI":
-                    { dayIndex = 4; break; }
-                case "SATURDAY":
-                case "SAT":
-                    { dayIndex = 5; break; }
-                case "SUNDAY":
-                case "SUN":
-                    { dayIndex = 6; break; }
-                default:
-                    {
-                        throw new System.Exception($"Could not match day {weekDay}");
-                    }
-            }
+                "MONDAY" => 0,
+                "MON" => 0,
+                "TUESDAY" => 1,
+                "TUE" => 1,
+                "WEDNESDAY" => 2,
+                "WED" => 2,
+                "THURSDAY" => 3,
+                "THUR" => 3,
+                "FRIDAY" => 4,
+                "FRI" => 4,
+                "SATURDAY" => 5,
+                "SAT" => 5,
+                "SUNDAY" => 6,
+                "SUN" => 6,
+                _ => throw new System.Exception($"Could not match day {weekDay}")
+            };
 
             return CalendarColumns[dayIndex];
         }

@@ -61,32 +61,18 @@ namespace MenuCycle.Tests.PageObjects
             }
         }
 
-        public WeeklyDayContainer GetDay(string weekDay)
-        {
-            int dayIndex;
+        public WeeklyDayContainer GetDay(string weekDay) =>
 
-            switch (weekDay.ToUpper())
+            weekDay.ToUpper() switch
             {
-                case "MONDAY":
-                    { dayIndex = 0; break; }
-                case "TUESDAY":
-                    { dayIndex = 1; break; }
-                case "WEDNESDAY":
-                    { dayIndex = 2; break; }
-                case "THURSDAY":
-                    { dayIndex = 3; break; }
-                case "FRIDAY":
-                    { dayIndex = 4; break; }
-                case "SATURDAY":
-                    { dayIndex = 5; break; }
-                case "SUNDAY":
-                    { dayIndex = 6; break; }
-                default:
-                    {
-                        throw new System.Exception($"Could not match day {weekDay}");
-                    }
-            }
-            return DayContainers[dayIndex];
-        }
+                "MONDAY" => DayContainers[0],
+                "TUESDAY" => DayContainers[1],
+                "WEDNESDAY" => DayContainers[2],
+                "THURSDAY" => DayContainers[3],
+                "FRIDAY" => DayContainers[4],
+                "SATURDAY" => DayContainers[5],
+                "SUNDAY" => DayContainers[6],
+                _ => throw new System.Exception($"Day {weekDay} Not found")
+            };
     }
 }

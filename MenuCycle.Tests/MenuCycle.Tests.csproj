@@ -23,12 +23,17 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+    <PublicSign>false</PublicSign>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -40,6 +45,7 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <DebugType>full</DebugType>
     <ErrorReport>prompt</ErrorReport>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Android|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -48,6 +54,7 @@
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'iOS|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -55,10 +62,12 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <DebugType>full</DebugType>
     <ErrorReport>prompt</ErrorReport>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'IE|AnyCPU'">
     <OutputPath>bin\IE\</OutputPath>
     <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Firefox|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -68,107 +77,128 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <WarningLevel>4</WarningLevel>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'RemoteS8Plus|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\RemoteS8Plus</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'SamsungS8Plus|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\SamsungS8Plus</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPadPro9|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\iPadPro9</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nexus7|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\Nexus7</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPadAir|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\iPadAir</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPadMini4|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\iPadMini4</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPhone6|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhone6</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPhone7|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhone7</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'SamsungS9|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\SamsungS9</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPhone8|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhone8</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'SamsungTabA|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\SamsungTabA</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'SamsungTabS|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\SamsungTabS</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nexus6|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\Nexus6</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPhone6 Plus|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhone6 Plus</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Safari|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\Safari</OutputPath>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ChromeLongTimeOut|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\ChromeLongTimeOut</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'IELongTimeOut|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\IELongTimeOut</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'RemoteIE|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\RemoteIE</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPadPro2018|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\iPadPro2018</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPhone7Plus|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhone7Plus</OutputPath>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">

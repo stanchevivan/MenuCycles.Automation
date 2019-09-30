@@ -100,38 +100,22 @@ namespace MenuCycle.Tests.PageObjects
 
         private void ChooseGAPDay(string day)
         {
-            int dayIndex = 99;
-
-            switch (day.ToUpper())
+            int dayIndex =
+            day.ToUpper() switch
             {
-                case "MONDAY":
-                    dayIndex = 0;
-                    break;
-                case "TUESDAY":
-                    dayIndex = 1;
-                    break;
-                case "WEDNESDAY":
-                    dayIndex = 2;
-                    break;
-                case "THURSDAY":
-                    dayIndex = 3;
-                    break;
-                case "FRIDAY":
-                    dayIndex = 4;
-                    break;
-                case "SATURDAY":
-                    dayIndex = 5;
-                    break;
-                case "SUNDAY":
-                    dayIndex = 6;
-                    break;
-                default:
-                    throw new Exception($"Invalid day {day} !");
-            }
+                "MONDAY" => 0,
+                "TUESDAY" => 1,
+                "WEDNESDAY" => 2,
+                "THURSDAY" => 3,
+                "FRIDAY" => 4,
+                "SATURDAY" => 5,
+                "SUNDAY" => 6,
+                _ => throw new Exception($"Invalid day {day} !"),
+            };
 
             //if (!NonServingDaysCheckBox[dayIndex].Selected)
             //{
-                NonServingDaysCheckBox[dayIndex].Click();
+            NonServingDaysCheckBox[dayIndex].Click();
             //}
         }
 
