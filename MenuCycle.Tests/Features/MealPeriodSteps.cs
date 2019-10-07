@@ -188,7 +188,7 @@ namespace MenuCycle.Tests.Steps
         public void WhenOpenAllIsClicked()
         {
             commonElements.UseExpandAllButton();
-            planningTabDays.WaitSpinnerToDisappear();
+            planningTabDays.WaitMеаlPeriodsToAppear();
         }
 
         [When(@"Collapse all is clicked")]
@@ -196,6 +196,7 @@ namespace MenuCycle.Tests.Steps
         public void WhenCloseAllIsClicked()
         {
             commonElements.UseCollapseAllButton();
+            planningTabDays.WaitMеаlPeriodsToDisappear();
         }
 
         [When(@"Verify all meal periods are expanded in Daily Planning")]

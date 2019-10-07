@@ -18,10 +18,10 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.Id, Using = "menucycleName")]
         private IWebElement Name { get; set; }
 
-        [FindsBy(How = How.Id, Using = "daysTab")]
+        [FindsBy(How = How.XPath, Using = "//div[contains(@class, 'mc-header__view')]/a[contains(@href, 'calendar/')]")]
         private IWebElement DaysViewButton { get; set; }
 
-        [FindsBy(How = How.Id, Using = "weeksTab")]
+        [FindsBy(How = How.XPath, Using = "//div[contains(@class, 'mc-header__view')]/a[contains(@href, 'calendar-week/')]")]
         private IWebElement WeeksViewButton { get; set; }
 
         [FindsBy(How = How.Id, Using = "daily-view-add-week-button")]
@@ -45,7 +45,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "daily-header-container")]
         private IWebElement DaysContainer { get; set; }
 
-        [FindsBy(How = How.Id, Using = "dashboardIcon")]
+        [FindsBy(How = How.CssSelector, Using = "icon-home")]
         private IWebElement HomeButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".NewMealPeriod .clickable")]

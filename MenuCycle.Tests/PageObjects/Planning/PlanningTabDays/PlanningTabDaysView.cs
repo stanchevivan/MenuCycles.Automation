@@ -14,9 +14,9 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = ".main > div")]
         private IList<IWebElement> MealPeriodWrappers { get; set; }
-        [FindsBy(How = How.ClassName, Using = "mainheader")] //Investigate if more suitable element for the check is needed
+        [FindsBy(How = How.ClassName, Using = "mc-header")] //Investigate if more suitable element for the check is needed
         private IWebElement EngineCheck { get; set; }
-        [FindsBy(How = How.XPath, Using = "//button[text()='Weeks']")] // Engine
+        [FindsBy(How = How.XPath, Using = "//div[text()='Weeks']")] // Engine
         private IWebElement WeeksButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(1) > span:last-of-type")]
         private IWebElement DailyPlannedQuantity { get; set; }
@@ -32,6 +32,9 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement ModalDialog { get; set; }
         [FindsBy(How = How.ClassName, Using = "mainheader__period")]
         private IWebElement PlanningTitle { get; set; }
+        [FindsBy(How = How.ClassName, Using = "mealperiod-main")]
+        private IWebElement MealPeriodContent { get; set; }
+
 
         public IList<DailyMealPeriod> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriod(p, Driver)).ToList();
         public IList<string> MealPeriodColours => MealPeriods.Select(x => x.Colour).ToList();
@@ -85,6 +88,16 @@ namespace MenuCycle.Tests.PageObjects
         {
             ConfirmButton.Click();
             Driver.WaitElementToDisappear(ModalDialog);
+        }
+
+        public void WaitMеаlPeriodsToAppear()
+        {
+            Driver.WaitIsClickable(MealPeriodContent);
+        }
+
+        public void WaitMеаlPeriodsToDisappear()
+        {
+            Driver.WaitElementToDisappear(MealPeriodContent);
         }
     }
 }

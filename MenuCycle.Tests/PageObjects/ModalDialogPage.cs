@@ -21,10 +21,10 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = "modal-dialog-engine__title > span")]
         private IWebElement Title { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "#calendarModalDialog .modal-button.yes")]
-        [FindsBy(How = How.XPath, Using = "//*[@class='btn-default__text' and text()='Yes']")]
-        [FindsBy(How = How.XPath, Using = "//*[@class='btn-default__text' and text()='Apply']")]
-        [FindsBy(How = How.CssSelector, Using = ".modal-button.yes")]
+       // [FindsBy(How = How.CssSelector, Using = "#calendarModalDialog .modal-button.yes")]
+       // [FindsBy(How = How.XPath, Using = "//*[@class='btn-default__text' and text()='Yes']")]
+       // [FindsBy(How = How.XPath, Using = "//*[@class='btn-default__text' and text()='Apply']")]
+        [FindsBy(How = How.CssSelector, Using = ".btn-confirm")]
         private IWebElement YesButton { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@class='btn-default__text' and text()='No']")]
