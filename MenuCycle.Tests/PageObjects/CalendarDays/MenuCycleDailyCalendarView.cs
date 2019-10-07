@@ -30,7 +30,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.Id, Using = "delWeekbtn")]
         private IWebElement DeleteWeekButton { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "#dailyCalendarTableHolder .daily-header-container > div")]
+        [FindsBy(How = How.CssSelector, Using = "#dailyCalendarTableHolder .daily-header-div > div")]
         private IList<IWebElement> CalendarHeaderContainer { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#dailyCalendarTableHolder .daily-view-screen > div")]
@@ -54,7 +54,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.Id, Using = "dailyReportBtn")]
         private IWebElement DailyReportButton { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".mc-subheader__buttons > button:first-of-type")]
+        [FindsBy(How = How.CssSelector, Using = ".mc-calendar-subheader__buttons > button:first-of-type")]
         private IWebElement SwitchViewButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".calendar-next-arrow")]
