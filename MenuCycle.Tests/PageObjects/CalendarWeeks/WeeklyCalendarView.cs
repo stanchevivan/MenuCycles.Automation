@@ -18,7 +18,7 @@ using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA
 
         public void WaitForLoad()
         {
-            Driver.WaitElementToExists(WeeklyViewList);
+            Driver.WaitListItemsLoad(CalendarWeek);
         }
 
         public CalendarWeek GetWeek(string weekName)

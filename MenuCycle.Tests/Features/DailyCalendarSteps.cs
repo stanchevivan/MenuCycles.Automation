@@ -14,6 +14,7 @@ namespace MenuCycle.Tests.Steps
 
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
+        
         ReviewPage reviewPage;
 
         public DailyCalendarSteps (ToastNotification notification, ScenarioContext scenarioContext, MenuCycleDailyCalendarView menuCycleDailyCalendarView, ReviewPage reviewPage)
@@ -99,6 +100,13 @@ namespace MenuCycle.Tests.Steps
         public void WhenCurrentWeekIsDeleted()
         {
             dailyCalendarView.UseDeleteWeekButton();
+        }
+
+        [When(@"Calendar tab is clicked and calendar view has loaded")]
+        public void WhenCalendarTabIsClickedAndCalendarViewHasLoaded()
+        {
+            dailyCalendarView.ClickCalendarTab();
+            dailyCalendarView.WaitPageLoad();
         }
     }
 }

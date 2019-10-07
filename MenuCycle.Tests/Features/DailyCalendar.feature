@@ -98,7 +98,7 @@ Scenario Outline: User is redirected to the week from which he opened the Report
         And Weekly Calendar is opened
         And week "<weekName>" is opened
         And Reports page is opened
-    When Cross button is clicked and calendar view has loaded
+    When Calendar tab is clicked and calendar view has loaded
     Then Verify week name is "<weekName>"
     @QAI
     Examples:

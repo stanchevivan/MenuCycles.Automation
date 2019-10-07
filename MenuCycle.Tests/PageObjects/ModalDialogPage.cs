@@ -19,9 +19,12 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement Message { get; set; }
         [FindsBy(How = How.CssSelector, Using = "modal-dialog-engine__title > span")]
         private IWebElement Title { get; set; }
+
         [FindsBy(How = How.CssSelector, Using = ".btn-confirm")]
+        [FindsBy(How = How.CssSelector, Using = ".yes")]
         private IWebElement YesButton { get; set; }
         [FindsBy(How = How.XPath, Using = "//*[@class='btn-default__text' and text()='No']")]
+        [FindsBy(How = How.CssSelector, Using = ".no")]
         private IWebElement NoButton { get; set; }
         [FindsBy(How = How.ClassName, Using = "displayed-count")]
         private IWebElement recipeCountMessage { get; set; }

@@ -13,7 +13,7 @@ namespace MenuCycle.Tests.PageObjects
             PageFactory.InitElements(Driver, this);
         }
 
-        [FindsBy(How = How.CssSelector, Using = ".search-in-mc")]
+        [FindsBy(How = How.CssSelector, Using = ".icon-search")]
         private IWebElement InternalSearchIcon { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".mc-internal-search-comp .ui-autocomplete-input")]
