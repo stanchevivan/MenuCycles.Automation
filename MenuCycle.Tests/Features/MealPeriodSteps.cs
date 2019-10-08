@@ -188,7 +188,8 @@ namespace MenuCycle.Tests.Steps
         public void WhenOpenAllIsClicked()
         {
             commonElements.UseExpandAllButton();
-            planningTabDays.WaitMеаlPeriodsToAppear();
+            planningTabDays.WaitSpinnerToDisappear();
+            //planningTabDays.WaitMеаlPeriodsToAppear();
         }
 
         [When(@"Collapse all is clicked")]
@@ -196,7 +197,7 @@ namespace MenuCycle.Tests.Steps
         public void WhenCloseAllIsClicked()
         {
             commonElements.UseCollapseAllButton();
-            planningTabDays.WaitMеаlPeriodsToDisappear();
+            //planningTabDays.WaitMеаlPeriodsToDisappear();
         }
 
         [When(@"Verify all meal periods are expanded in Daily Planning")]
@@ -217,14 +218,14 @@ namespace MenuCycle.Tests.Steps
         [Then(@"Verify all meal periods are expanded in Daily Calendar")]
         public void AllMealPeriodsAreExpandedInDailyCalendar()
         {
-            Assert.IsTrue(menuCycleDailyCalendarView.AreAllMealPeriodsExpanded);
+            Assert.IsTrue(menuCycleDailyCalendarView.AreAllMealPeriodsExpanded, "Meal periods are not expanded");
         }
 
         [When(@"Verify all meal periods are collapsed in Daily Calendar")]
         [Then(@"Verify all meal periods are collapsed in Daily Calendar")]
         public void AllMealPeriodsAreCollapsedInDailyCalendar()
         {
-            Assert.IsFalse(menuCycleDailyCalendarView.AreAllMealPeriodsExpanded);
+            Assert.IsFalse(menuCycleDailyCalendarView.AreAllMealPeriodsExpanded, "Meal periods are not collapsed");
         }
 
         [Then(@"Verify value for fields for meal period ""(.*)"" is")]

@@ -32,7 +32,7 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement ModalDialog { get; set; }
         [FindsBy(How = How.ClassName, Using = "mc-header__period")]
         private IWebElement PlanningTitle { get; set; }
-        [FindsBy(How = How.ClassName, Using = "mealperiod-main")]
+        [FindsBy(How = How.ClassName, Using = "daily-item-item-contain")]
         private IWebElement MealPeriodContent { get; set; }
 
 

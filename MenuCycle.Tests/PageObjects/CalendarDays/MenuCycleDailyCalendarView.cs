@@ -47,7 +47,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "daily-header-container")]
         private IWebElement DaysContainer { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "icon-home")]
+        [FindsBy(How = How.CssSelector, Using = ".icon-home")]
         private IWebElement HomeButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".NewMealPeriod .clickable")]
