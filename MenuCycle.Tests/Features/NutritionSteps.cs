@@ -90,4 +90,10 @@
             decimal sumOfDaysSugar = nutritionTabWeeks.Days.Sum(x => decimal.Parse(x.DailyTotalSugar));            Assert.That(sumOfDaysSugar, Is.EqualTo(decimal.Parse(nutritionTabWeeks.WeeklySugarTotal)));
 
             decimal sumOfDaysSalt = nutritionTabWeeks.Days.Sum(x => decimal.Parse(x.DailyTotalSalt));            Assert.That(sumOfDaysSalt, Is.EqualTo(decimal.Parse(nutritionTabWeeks.WeeklySaltTotal)));        }        [Then(@"Verify meal periods for day ""(.*)"" in nutrition screen daily are:")]        public void ThenVerifyMealPeriodsForNuritionDayAre(string day,Table table)        {            var expectedMealPeriods = table.Rows[0]["mealPeriods"].Split(',');            var currentMealPeriods =  nutritionTabDays.MealPeriods.Select(x => x.Name);            Assert.That(currentMealPeriods, Is.EqualTo(expectedMealPeriods));        }        [Then(@"Verify meal periods for day ""(.*)"" week ""(.*)"" in nutrition screen weekly are:")]        public void ThenVerifyMealPeriodsForDayInNutritionWeeksAre(string day, string week, Table table)        {            var expectedMealPeriods = table.Rows[0]["mealPeriods"].Split(',');            var currentMealPeriods = nutritionTabWeeks.GetDay(day).MealPeriodsRows.Select(x => x.Name);            Assert.That(currentMealPeriods, Is.EqualTo(expectedMealPeriods));        }
+
+        [Then(@"Verify save button is not present")]
+        public void ThenVerifySaveButtonIsNotPresent()
+        {
+           Assert.IsFalse(planningTabDays.IsSaveButtonPresent);
+        }
     }}

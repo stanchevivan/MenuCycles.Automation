@@ -214,11 +214,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify save button is disabled for in the Nutrition screen days")]
+        [NUnit.Framework.DescriptionAttribute("Verify save button is hidden for in the Nutrition screen days")]
         [NUnit.Framework.CategoryAttribute("TC36910")]
         [NUnit.Framework.TestCaseAttribute("QAI_2", "false", "Meda", "Monday", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void VerifySaveButtonIsDisabledForInTheNutritionScreenDays(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
+        public virtual void VerifySaveButtonIsHiddenForInTheNutritionScreenDays(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC36910"};
@@ -226,7 +226,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify save button is disabled for in the Nutrition screen days", null, @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify save button is hidden for in the Nutrition screen days", null, @__tags);
 #line 66
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -241,7 +241,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 71
         testRunner.And("nutrition tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 72
-    testRunner.Then("Verify save button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify save button is not present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -504,11 +504,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Save button is disabled for nutrition weeks")]
+        [NUnit.Framework.DescriptionAttribute("Save button is hidden for nutrition weeks")]
         [NUnit.Framework.CategoryAttribute("TC38030")]
         [NUnit.Framework.TestCaseAttribute("QAI_2", "false", "Meda", "MONDAY", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void SaveButtonIsDisabledForNutritionWeeks(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
+        public virtual void SaveButtonIsHiddenForNutritionWeeks(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC38030"};
@@ -516,7 +516,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save button is disabled for nutrition weeks", null, @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save button is hidden for nutrition weeks", null, @__tags);
 #line 215
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -533,7 +533,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 221
         testRunner.And("Weeks tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 222
-    testRunner.Then("Verify save button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify save button is not present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

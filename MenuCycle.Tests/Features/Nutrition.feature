@@ -63,13 +63,13 @@ Scenario Outline: Multiple Meal Periods are collapsed by default in the Nutritio
     |QAI_2      |false |Meda     |Tuesday|
    
 @TC36910         
-Scenario Outline: Verify save button is disabled for in the Nutrition screen days
+Scenario Outline: Verify save button is hidden for in the Nutrition screen days
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
         And nutrition tab is opened
-    Then Verify save button is disabled
+    Then Verify save button is not present
     
     @QAI
     Examples:
@@ -212,14 +212,14 @@ Scenario Outline: Close nutrition weeks with "Cancel" button redirects to the ca
     |QAI_2      |false |Meda     |MONDAY|
     
 @TC38030    
-Scenario Outline: Save button is disabled for nutrition weeks
+Scenario Outline: Save button is hidden for nutrition weeks
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
         And nutrition tab is opened
         And Weeks tab is opened
-    Then Verify save button is disabled
+    Then Verify save button is not present
         
     @QAI
     Examples:
