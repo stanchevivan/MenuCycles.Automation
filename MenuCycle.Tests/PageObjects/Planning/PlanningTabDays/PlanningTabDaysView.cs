@@ -36,6 +36,7 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement MealPeriodContent { get; set; }
 
 
+
         public IList<DailyMealPeriod> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriod(p, Driver)).ToList();
         public IList<string> MealPeriodColours => MealPeriods.Select(x => x.Colour).ToList();
 

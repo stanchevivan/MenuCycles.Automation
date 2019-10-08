@@ -8,11 +8,8 @@ namespace MenuCycle.Tests.PageObjects
 {
     public class DailyMealPeriod : MenuCyclesBasePage
     {
-        IWebElement parent_MealPeriodWrapper;
-
         public DailyMealPeriod(IWebElement parent, IWebDriver webDriver) : base(webDriver)
         {
-            this.parent_MealPeriodWrapper = parent;
             PageFactory.InitElements(parent, this);
         }
 
@@ -25,7 +22,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.ClassName, Using = "mealperiod-covers__input")]
         private IWebElement Covers { get; set; }
         [FindsBy(How = How.ClassName, Using = "recipe-wrapper")]
-        private IList<IWebElement> Items{ get; set; }
+        private IList<IWebElement> Items { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__row > .mealperiod-total__column:nth-of-type(1) > span:last-of-type")]
         private IWebElement PlannedQuantityText { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__row > .mealperiod-total__column:nth-of-type(3) > span:last-of-type")]
@@ -34,9 +31,12 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement RevenueText { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-total__row > .mealperiod-total__column:nth-of-type(10) > span:last-of-type")]
         private IWebElement ActualGPText { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".main > div .mealperiod-header")]
+        private IWebElement MealPeriodColor { get; set; }
+
 
         public string Name => MealPeriodName.Text;
-        public string Colour => parent_MealPeriodWrapper.GetCssValue("background-color");
+        public string Colour => MealPeriodColor.GetCssValue("background-color");
         public bool IsExpanded => CollapseArrow.Get().ElementPresent;
         public string NumberOfCovers { get => Covers.GetAttribute("value"); set => Covers.Do(Driver).ClearAndSendKeys(value); }
         public string PlannedQuantity => PlannedQuantityText.Text;
