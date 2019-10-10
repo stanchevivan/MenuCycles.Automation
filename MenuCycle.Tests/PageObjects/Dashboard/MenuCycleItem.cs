@@ -17,6 +17,9 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".name_sub")]
         private IWebElement description { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = ".home-row-is-published")]
+        private IWebElement status { get; set; }
+
         [FindsBy(How = How.CssSelector, Using = ".home-button-expand")]
         private IWebElement actionButton { get; set; }
 
@@ -32,6 +35,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public string Name => name.Text;
         public string Description => description.Text;
+        public string Status => status.Text;
         public bool IsDeleteButtonPresent => deleteButton.Get().ElementPresent;
 
         public void Select()

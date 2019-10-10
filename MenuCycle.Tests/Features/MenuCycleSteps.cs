@@ -98,6 +98,12 @@ namespace MenuCycle.Tests.Steps
             Assert.That(menuCycleDashboard.MenuCycles.Select(x => x.Description).ToList(), Is.SupersetOf(table.Rows.Select(x => x["Description"])));
         }
 
+        [Then(@"Verify search results contains menu cycle with name ""(.*)"" and status ""(.*)""")]
+        public void ThenVerifySearchResultsContainsMenuCycleWithTheFollowing(string cycleName, string status)
+        {
+            Assert.AreEqual(status, menuCycleDashboard.GetMenuCycle(cycleName).Status);
+        }
+
         [Given(@"the message '(.*)' is displayed")]
         [When(@"the message '(.*)' is displayed")]
         [Then(@"the message '(.*)' is displayed")]
@@ -225,7 +231,7 @@ namespace MenuCycle.Tests.Steps
         {
             menuCycleDailyCalendarView.WaitPageLoad();
             menuCycleDailyCalendarView.UseDailyReportButton();
-            reportsView.WaitForLoad();            
+            reportsView.WaitForLoad();
         }
 
         [Given(@"Weekly Calendar is opened")]

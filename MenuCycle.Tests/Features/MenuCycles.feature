@@ -90,3 +90,18 @@ Scenario Outline: [MC] Review page is visible after switching Local -> Central u
     Examples:
     |environment|withFA|location|menuCycle|
     |QAI        |false |   Site EUR1|Meda     |
+
+
+@TC42984 @D40840
+Scenario Outline: Verify menu cycle status
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+    When Menu Cycle "<mcName>" is searched
+        Then Verify search results contains menu cycle with name "<mcName>" and status "<mcStatus>"
+       
+  @QAI
+    Examples:
+    |environment|withFA|mcName                   |mcStatus |
+    |QAI        |false |published menu cycle name|Published|
+   
+    

@@ -304,6 +304,35 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify menu cycle status")]
+        [NUnit.Framework.CategoryAttribute("TC27713")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "published menu cycle name", "Published", new string[] {
+                "QAI"}, Category="QAI")]
+        public virtual void VerifyMenuCycleStatus(string environment, string withFA, string mcName, string mcStatus, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC27713"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify menu cycle status", null, @__tags);
+#line 96
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 97
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 98
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 99
+    testRunner.When(string.Format("Menu Cycle \"{0}\" is searched", mcName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 100
+        testRunner.Then(string.Format("Verify search results contains menu cycle with name \"{0}\" and status \"{1}\"", mcName, mcStatus), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
