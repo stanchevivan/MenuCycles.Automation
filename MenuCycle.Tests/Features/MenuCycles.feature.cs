@@ -307,13 +307,15 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify menu cycle status")]
-        [NUnit.Framework.CategoryAttribute("TC27713")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "published menu cycle name", "Published", new string[] {
+        [NUnit.Framework.CategoryAttribute("TC42984")]
+        [NUnit.Framework.CategoryAttribute("D40840")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Published MC for AUTOMATION", "Published", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void VerifyMenuCycleStatus(string environment, string withFA, string mcName, string mcStatus, string[] exampleTags)
+        public virtual void VerifyMenuCycleStatus(string environment, string withFA, string menuCycle, string status, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "TC27713"};
+                    "TC42984",
+                    "D40840"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -327,9 +329,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 98
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 99
-    testRunner.When(string.Format("Menu Cycle \"{0}\" is searched", mcName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When(string.Format("Menu Cycle \"{0}\" is searched", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 100
-        testRunner.Then(string.Format("Verify search results contains menu cycle with name \"{0}\" and status \"{1}\"", mcName, mcStatus), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then(string.Format("Verify search results contains menu cycle with name \"{0}\" and status \"{1}\"", menuCycle, status), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
