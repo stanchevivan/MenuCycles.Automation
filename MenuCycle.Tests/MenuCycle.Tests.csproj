@@ -31,7 +31,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <LangVersion>8.0</LangVersion>
-    <PublicSign>false</PublicSign>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
   </PropertyGroup>
@@ -526,6 +525,8 @@
     <Compile Include="Features\PostProductionSteps.cs">
       <DependentUpon>PostProduction.feature</DependentUpon>
     </Compile>
+    <Compile Include="PageObjects\MassUpdate\MassUpdatePage.cs" />
+    <Compile Include="PageObjects\MassUpdate\MassUpdateSearchResultCard.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -629,6 +630,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PageObjects\Recipe\" />
+    <Folder Include="PageObjects\MassUpdate\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterCompile" Condition="Exists('App.$(Configuration).config')">
