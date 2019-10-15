@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
-namespace MenuCycle.Tests.PageObjects.MassUpdate
+namespace MenuCycle.Tests.PageObjects
 {
     public class MassUpdateSearchResultCard : MenuCyclesBasePage
     {
@@ -11,7 +11,7 @@ namespace MenuCycle.Tests.PageObjects.MassUpdate
 			PageFactory.InitElements(parent, this);
 		}
 
-		[FindsBy(How = How.CssSelector, Using = ".search-results-card__cell:last-of-type")]
+		[FindsBy(How = How.CssSelector, Using = ".search-results-card__side-left .search-results-card__cell:last-of-type")]
         private IWebElement RecipeCardName { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".search-results-card__cell .mc-checkbox")]

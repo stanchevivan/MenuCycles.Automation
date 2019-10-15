@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 
-namespace MenuCycle.Tests.PageObjects.MassUpdate
+namespace MenuCycle.Tests.PageObjects
 {
     public class MassUpdatePage : MenuCyclesBasePage
     {
@@ -13,7 +13,7 @@ namespace MenuCycle.Tests.PageObjects.MassUpdate
         {
         }
 
-        [FindsBy(How = How.CssSelector, Using = ".search-bar__input")]
+        [FindsBy(How = How.CssSelector, Using = ".tagify__input")]
         private IWebElement SearchInput { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".search-bar__button")]
@@ -36,22 +36,22 @@ namespace MenuCycle.Tests.PageObjects.MassUpdate
 
 
         public IList<MassUpdateSearchResultCard> ResultCards => this.SearchResultCard.Select(p => new MassUpdateSearchResultCard(p, Driver)).ToList();
+
         public string ResultMessageText => SearchResultsMessage.Text;
         public string NoResultMessageText => NoResultsMessage.Text;
 
         public MassUpdateSearchResultCard GetResultCard(string name)
         {
-            if (!ResultCards.Any(x => x.RecipeName == name.ToUpper()))
+            if (!ResultCards.Any(x => x.RecipeName.ToUpper() == name.ToUpper()))
             {
                 throw new Exception($"Recipe {name} not found !");
             }
-            return ResultCards.First(x => x.RecipeName == name.ToUpper());
+            return ResultCards.First(x => x.RecipeName.ToUpper() == name.ToUpper());
         }
 
         public void EnterKeywordInSearch(string text)
         {
             SearchInput.SendKeys(text);
-
         }
 
         public void ClickSearchButton()

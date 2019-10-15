@@ -527,6 +527,14 @@
     </Compile>
     <Compile Include="PageObjects\MassUpdate\MassUpdatePage.cs" />
     <Compile Include="PageObjects\MassUpdate\MassUpdateSearchResultCard.cs" />
+    <Compile Include="Features\MassUpdate.feature.cs">
+      <DependentUpon>MassUpdate.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Features\MassUpdateSteps.cs">
+      <DependentUpon>MassUpdate.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">
@@ -623,6 +631,9 @@
     <None Include="App.iPhone7Plus.config" />
     <None Include="specflow.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Features\MassUpdate.feature">
+      <LastGenOutput>MealPeriods.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

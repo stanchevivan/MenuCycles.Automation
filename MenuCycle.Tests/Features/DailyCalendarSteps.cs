@@ -108,5 +108,11 @@ namespace MenuCycle.Tests.Steps
             dailyCalendarView.ClickCalendarTab();
             dailyCalendarView.WaitPageLoad();
         }
+
+        [When(@"Mass Update page is opened")]
+        public void WhenMassUpdatePageIsOpened()
+        {
+            dailyCalendarView.ClickMassUpdateTab();
+        }
     }
 }

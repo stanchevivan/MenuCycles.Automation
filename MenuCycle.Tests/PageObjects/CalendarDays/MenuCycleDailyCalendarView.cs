@@ -20,9 +20,14 @@ namespace MenuCycle.Tests.PageObjects
         //TODO: make better looking selector
         [FindsBy(How = How.XPath, Using = "//div[contains(@class, 'mc-header__view')]/a[contains(@href, 'calendar/')]")]
         private IWebElement DaysViewButton { get; set; }
+
         //TODO: make better looking selector
         [FindsBy(How = How.XPath, Using = "//div[contains(@class, 'mc-header__view')]/a[contains(@href, 'calendar-week/')]")]
         private IWebElement WeeksViewButton { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//div[contains(@class, 'mc-header__route-links')]/a[contains(@href, '/mass-update')]")]
+        private IWebElement MassUpdateButton { get; set; }
+
         [FindsBy(How = How.XPath, Using = "//div[contains(@class, 'mc-header__route-links')]/a[contains(@href, 'calendar/')]")]
         private IWebElement CalendarButton { get; set; }
 
@@ -256,6 +261,11 @@ namespace MenuCycle.Tests.PageObjects
         public void ClickCalendarTab()
         {
             CalendarButton.Click();
+        }
+
+        public void ClickMassUpdateTab()
+        {
+            MassUpdateButton.Click();
         }
     }
 }
