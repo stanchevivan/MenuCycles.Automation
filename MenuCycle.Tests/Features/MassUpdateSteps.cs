@@ -52,7 +52,29 @@ namespace MenuCycle.Tests.Steps
         [When(@"recipe ""(.*)"" is selected")]
         public void WhenRecipeIsSelected(string recipeName)
         {
-            massUpdate.GetResultCard(recipeName).SelectRecipeCard();
+            massUpdate.GetRecipe(recipeName).SelectRecipeCard();
+        }
+
+        [When(@"checkbox for row ""(.*)"", ""(.*)"", ""(.*)"" in  recipe ""(.*)"" is selected")]
+        public void WhenCheckboxForRowInRecipeIsSelected(string week, string day, string mealPeriod, string recipeName)
+        {
+            massUpdate.GetRecipe(recipeName).GetRow(week, day, mealPeriod).SelectOccurrence();
+        }
+
+        [When(@"recipe ""(.*)"" is expanded")]
+        public void WhenRecipeIsExpanded(string recipeName)
+        {
+            massUpdate.GetRecipe(recipeName).ClickArrow();
+            //Need to add wait for spinner
+            //System.Threading.Thread.Sleep(4000);
+
+        }
+
+        [Then(@"The result message is ""(.*)""")]
+        public void ThenTheResultMessageIs(string message)
+        {
+            string actualMessage = massUpdate.NoResultMessageText.ToUpper();
+            Assert.AreEqual(message.ToUpper(), actualMessage);
         }
     }
 }

@@ -535,6 +535,8 @@
     <Compile Include="Features\MassUpdateSteps.cs">
       <DependentUpon>MassUpdate.feature</DependentUpon>
     </Compile>
+    <Compile Include="PageObjects\MassUpdate\MassUpdateOccurrencesCard.cs" />
+    <Compile Include="PageObjects\MassUpdate\MassUpdateOccurrencesRow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

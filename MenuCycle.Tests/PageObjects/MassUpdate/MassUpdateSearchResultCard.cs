@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -20,9 +22,27 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".search-results-card .search-results-card__arrow-icon")]
         private IWebElement OccurrencesArrow { get; set; }
 
+        private IWebElement occurrencesCard { get; set; }
+
+        public MassUpdateOccurrencesCard OccurrencesCard => new MassUpdateOccurrencesCard(occurrencesCard, Driver);
+
         public string RecipeName => RecipeCardName.Text;
 
-        public void ClickOccurencesArrow()
+        public bool IsExpanded => OccurrencesArrow.Get().HasClass("icon-chevron-up");
+
+        public void AssociateOccurrence(IWebElement occurrenceCard)
+        {
+            this.occurrencesCard = occurrenceCard;
+        }
+
+        public MassUpdateOccurrencesRow GetRow(string weekName, string weekDay, string mealPeriod)
+        {
+            return OccurrencesCard.OccurrancesRows.First(x => x.WeekNameText == weekName
+            && x.DayNameText == weekDay
+            && x.MealPeriodNameText == mealPeriod);
+        }
+
+        public void ClickArrow()
         {
             OccurrencesArrow.Click();
         }

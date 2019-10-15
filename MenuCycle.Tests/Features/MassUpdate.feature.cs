@@ -31,7 +31,7 @@ namespace MenuCycle.Tests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Mass Update", "\tMeal Periods functionalities and validations", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Mass Update", "\tMass Update functionalities and validations", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -67,6 +67,39 @@ namespace MenuCycle.Tests.Features
         public virtual void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Validate message no results")]
+        [NUnit.Framework.CategoryAttribute("TC43047")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "Marto", "We couldn\'t find any results for \"Marto\"", new string[] {
+                "QAI"}, Category="QAI")]
+        public virtual void ValidateMessageNoResults(string environment, string withFA, string menuCycle, string recipeName, string message, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC43047"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate message no results", null, @__tags);
+#line 23
+    this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 24
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 25
+       testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+       testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+    testRunner.When("Mass Update page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 28
+       testRunner.And(string.Format("recipe \"{0}\" is searched", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 29
+    testRunner.Then(string.Format("The result message is \"{0}\"", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
         }
     }
 }

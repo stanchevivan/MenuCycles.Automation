@@ -11,6 +11,7 @@ namespace MenuCycle.Tests.PageObjects
     {
         public MassUpdatePage(IWebDriver webDriver) : base(webDriver)
         {
+            
         }
 
         [FindsBy(How = How.CssSelector, Using = ".tagify__input")]
@@ -33,14 +34,26 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = ".mass-update__message")]
         private IWebElement NoResultsMessage { get; set; }
+        
 
-
-        public IList<MassUpdateSearchResultCard> ResultCards => this.SearchResultCard.Select(p => new MassUpdateSearchResultCard(p, Driver)).ToList();
+        public IList<MassUpdateSearchResultCard> ResultCards
+        {
+            get
+            {
+                var cards = this.SearchResultCard.Select(p => new MassUpdateSearchResultCard(p, Driver)).ToList();
+                List<MassUpdateSearchResultCard> ExpandedCards = cards.Where(x => x.IsExpanded).ToList();
+                for (int i = 0; i < ExpandedCards.Count; i++)
+                {
+                    ExpandedCards[i].AssociateOccurrence(OccurrencesCard[i]);
+                }
+                return cards;
+            }
+        }
 
         public string ResultMessageText => SearchResultsMessage.Text;
         public string NoResultMessageText => NoResultsMessage.Text;
 
-        public MassUpdateSearchResultCard GetResultCard(string name)
+        public MassUpdateSearchResultCard GetRecipe(string name)
         {
             if (!ResultCards.Any(x => x.RecipeName.ToUpper() == name.ToUpper()))
             {
