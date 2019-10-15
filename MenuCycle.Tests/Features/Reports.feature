@@ -33,13 +33,13 @@ Scenario Outline: Export Consumer Facing Report as PDF with Sell Price, Kilojoul
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "Site EUR1" is selected
-        And Menu Cycle "Consumer Facing Report Export AUTOMATION" is selected
+        And Menu Cycle "AUTOMATIOn - ConsumerFacingReport" is selected
     When Reports page is opened
         And Report "ConsumerFacing" is opened
         And Export CSV and Export PDF buttons are not displayed
-        And Report start date "02/07/2019" is selected
+        And Report start date "15/10/2019" is selected
         And Export CSV and Export PDF buttons are not displayed
-        And Report end date "03/07/2019" is selected
+        And Report end date "16/10/2019" is selected
         And Export CSV and Export PDF buttons are displayed
         And Include sell price is checked
         And Calories checkbox is checked
@@ -57,13 +57,13 @@ Scenario Outline: Export Consumer Facing Report as CSV with Sell Price, Kilojoul
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "Site EUR1" is selected
-        And Menu Cycle "Consumer Facing Report Export AUTOMATION" is selected
+        And Menu Cycle "AUTOMATIOn - ConsumerFacingReport" is selected
     When Reports page is opened
         And Report "ConsumerFacing" is opened
         And Export CSV and Export PDF buttons are not displayed
-        And Report start date "02/07/2019" is selected
+        And Report start date "15/10/2019" is selected
         And Export CSV and Export PDF buttons are not displayed
-        And Report end date "03/07/2019" is selected
+        And Report end date "16/10/2019" is selected
         And Export CSV and Export PDF buttons are displayed
         And Include sell price is checked
         And Calories checkbox is checked
