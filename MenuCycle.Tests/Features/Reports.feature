@@ -289,3 +289,113 @@ Scenario Outline: Menu Extract Report - Central > Export button is displayed and
         Examples:
         |environment|withFA|
         |QAI        |false |
+
+@TC43059
+Scenario Outline: Menu Cycle Calendar - Central - Export Successfully 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "Meda" is selected
+    When Reports page is opened
+        And Report "MenuCycleCalendar" is opened
+        And Export button is not displayed
+        And Meal periods are selected
+        |MealPeriod|
+        |Dangelo   |
+    Then Verify Export button is displayed
+        And Report is exported
+        And Verify notification message "Successfully Exported" is displayed
+        
+        @QAI
+        Examples:
+        |environment|withFA|
+        |QAI        |false |
+
+@TC43061
+Scenario Outline: Menu Cycle Calendar - Local - Export Successfully 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a local user is selected
+        And location "Site EUR1" is selected
+        And Menu Cycle "Local User Testing" is selected
+    When Reports page is opened
+        And Report "MenuCycleCalendar" is opened
+        And Export button is not displayed
+        And Meal periods are selected
+        |MealPeriod|
+        |Dinner   |
+    Then Verify Export button is displayed
+        And Report is exported
+        And Verify notification message "Successfully Exported" is displayed
+        
+        @QAI
+        Examples:
+        |environment|withFA|
+        |QAI        |false |
+
+@TC43060
+Scenario Outline: Location Gap Check - Central - Export Successfully 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "Meda" is selected
+    When Reports page is opened
+        And Report "LocatioGapCheck" is opened
+        And Export button is not displayed
+        And Locations are selected
+        |MealPeriod|
+        |Site EUR1 |
+    Then Verify Export button is displayed
+        And Report is exported
+        And Verify notification message "Successfully Exported" is displayed
+        
+        @QAI
+        Examples:
+        |environment|withFA|
+        |QAI        |false |
+
+@TC43058
+Scenario Outline: Traffic Light Report - Central - Export Successfully 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "Meda" is selected
+    When Reports page is opened
+        And Report "TrafficLight" is opened
+    Then Verify Export button is displayed
+       And Report is exported
+       And Verify notification message "Successfully Exported" is displayed
+        
+        @QAI
+        Examples:
+        |environment|withFA|
+        |QAI        |false |
+
+@TC43057
+Scenario Outline: Traffic Light Report - Local - Export Successfully 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a local user is selected
+        And location "Site EUR1" is selected
+        And Menu Cycle "Local User Testing" is selected
+    When Reports page is opened
+        And Report "TrafficLight" is opened
+    Then Verify Export button is displayed
+        And Report is exported
+        And Verify notification message "Successfully Exported" is displayed
+        
+        @QAI
+        Examples:
+        |environment|withFA|
+        |QAI        |false |
+
+@TC43056
+Scenario Outline: Buying Report - Local - Export Successfully 
+   Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+       And a local user is selected
+        And location "Site EUR1" is selected
+        And Menu Cycle "Local User Testing" is selected
+    When Reports page is opened
+        And Report "BuyingReport" is opened
+    Then Report is exported
+       And Verify notification message "Successfully Exported" is displayed
+        
+       @QAI
+        Examples:
+        |environment|withFA|
+        |QAI        |false |

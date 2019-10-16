@@ -85,6 +85,8 @@ namespace MenuCycle.Tests.Steps
         }
 
         [When(@"Meal periods are selected")]
+        //Locations checkboxes uses the same selector as the meal periods
+        [When(@"Locations are selected")]
         public void MealPeriodIsSelected(Table table)
         {
             foreach (TableRow row in table.Rows)

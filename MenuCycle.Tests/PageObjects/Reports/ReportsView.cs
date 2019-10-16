@@ -9,6 +9,13 @@ using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA
             MenuExtract,
             TrafficLight,
             ConsumerFacing,
+            MenuCycleCalendar,
+            BuyingReport,
+            LocalProductionRequirements,
+            LocalSalesHistory,
+            PerformanceReport,
+            AllergenReport,
+            LocatioGapCheck
         };        [FindsBy(How = How.ClassName, Using = "reports-main-right")]        private IWebElement RightSection { get; set; }        [FindsBy(How = How.CssSelector, Using = ".icon-report")]        private IList<IWebElement> ReportsList { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".main-heading_consumer-facing")]
         private IWebElement ConsumerFacingReportButton { get; set; }        [FindsBy(How = How.CssSelector, Using = ".main-heading_recipe-card")]
@@ -17,6 +24,20 @@ using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA
         private IWebElement TrafficLightReportButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".main-heading_menu-extract")]
         private IWebElement MenuExtractReportButton { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".main-heading_menu-cycle-calendar")]
+        private IWebElement MenuCycleCalendarReportButton { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".main-heading_requirements")]
+        private IWebElement LocalReqsReportButton { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".main-heading_buying")]
+        private IWebElement BuyingReportButton { get; set; }        
+        [FindsBy(How = How.CssSelector, Using = ".main-heading_local")]
+        private IWebElement LocalSalesHistoryReportButton { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".main-heading_performance-report")]
+        private IWebElement PerformanceReportButton { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".main-heading_allergen")]
+        private IWebElement AllergenReportButton { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".main-heading_location-gap-check")]
+        private IWebElement LocationGapCheckReportButton { get; set; }        
         [FindsBy(How = How.CssSelector, Using = ".icon-report_2")]
         private IWebElement RightSectionIcon { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".reports-main-right > div:not(.hidden) .clickable")]
@@ -63,6 +84,41 @@ using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA
                 case Reports.TrafficLight:
                     TrafficLightReportButton.Do(Driver).ScrollIntoView();
                     TrafficLightReportButton.Click();
+                    Driver.WaitElementToExists(ExportButton);
+                    break;
+                case Reports.MenuCycleCalendar:
+                    MenuCycleCalendarReportButton.Do(Driver).ScrollIntoView();
+                    MenuCycleCalendarReportButton.Click();
+                    Driver.WaitListItemsLoad(MealPeriodsList);
+                    break;
+                case Reports.BuyingReport:
+                    BuyingReportButton.Do(Driver).ScrollIntoView();
+                    BuyingReportButton.Click();
+                    Driver.WaitElementToExists(ExportButton);
+                    break;
+                case Reports.LocalProductionRequirements:
+                    LocalReqsReportButton.Do(Driver).ScrollIntoView();
+                    LocalReqsReportButton.Click();
+                    Driver.WaitListItemsLoad(MealPeriodsList);
+                    break;
+                case Reports.LocalSalesHistory:
+                    LocalSalesHistoryReportButton.Do(Driver).ScrollIntoView();
+                    LocalSalesHistoryReportButton.Click();
+                    Driver.WaitListItemsLoad(MealPeriodsList);
+                    break;
+                case Reports.PerformanceReport:
+                    PerformanceReportButton.Do(Driver).ScrollIntoView();
+                    PerformanceReportButton.Click();
+                    Driver.WaitListItemsLoad(MealPeriodsList);
+                    break;
+                case Reports.AllergenReport:
+                    AllergenReportButton.Do(Driver).ScrollIntoView();
+                    AllergenReportButton.Click();
+                    Driver.WaitListItemsLoad(MealPeriodsList);
+                    break;
+                case Reports.LocatioGapCheck:
+                    LocationGapCheckReportButton.Do(Driver).ScrollIntoView();
+                    LocationGapCheckReportButton.Click();
                     Driver.WaitListItemsLoad(MealPeriodsList);
                     break;
                 default:
