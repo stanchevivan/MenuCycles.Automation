@@ -24,11 +24,11 @@ Scenario Outline: Only one cost is presented for recipes in Buffet in the meal p
     When Details for meal period "<mealPeriod>" in "<day>" are opened
         And Buffet "Maya Buffet" is expanded
     Then Verify recipes in meal period details for buffet "Maya Buffet" are
-    |Name                                  |Cost   |
-    |004Basic Sponge                       |£0.0468|
-    |004Fresh Lemon Curd                   |£6.6351|
-    |004Fish Stock (bouillon)              |£0.5078|
-    |004Beef Stock (bouillon)              |£0     |
+    |Name                                  |Cost |
+    |004Basic Sponge                       |£0.04|
+    |004Fresh Lemon Curd                   |£6.63|
+    |004Fish Stock (bouillon)              |£0.5 |
+    |004Beef Stock (bouillon)              |£0   |
     
     @QAI
     Examples:

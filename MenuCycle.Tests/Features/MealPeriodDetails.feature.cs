@@ -148,13 +148,13 @@ this.ScenarioInitialize(scenarioInfo);
                         "Cost"});
             table24.AddRow(new string[] {
                         "004Basic Sponge",
-                        "£0.0468"});
+                        "£0.04"});
             table24.AddRow(new string[] {
                         "004Fresh Lemon Curd",
-                        "£6.6351"});
+                        "£6.63"});
             table24.AddRow(new string[] {
                         "004Fish Stock (bouillon)",
-                        "£0.5078"});
+                        "£0.5"});
             table24.AddRow(new string[] {
                         "004Beef Stock (bouillon)",
                         "£0"});
