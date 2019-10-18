@@ -14,8 +14,6 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = ".main > div")]
         private IList<IWebElement> MealPeriodWrappers { get; set; }
-        [FindsBy(How = How.ClassName, Using = "mc-header")] //Investigate if more suitable element for the check is needed
-        private IWebElement EngineCheck { get; set; }
         [FindsBy(How = How.XPath, Using = "//div[text()='Weeks']")] // Engine
         private IWebElement WeeksButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(1) > span:last-of-type")]
@@ -53,11 +51,6 @@ namespace MenuCycle.Tests.PageObjects
         public void SwitchToWeeklyView()
         {
             WeeksButton.Click();
-        }
-
-        public bool IsEngineLoaded()
-        {
-            return EngineCheck.Exist();
         }
 
         public void ExpandMealPeriod(string periodName)

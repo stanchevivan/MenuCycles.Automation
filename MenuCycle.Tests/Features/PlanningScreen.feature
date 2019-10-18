@@ -1,36 +1,7 @@
 ﻿Feature: PlanningScreen
     Meal Peridos functionalities and validations
-
-@TC28526
-Scenario Outline: Open Planning Screen, go to Nutritions, go back to Planning screen (Central User)
-    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
-        And a central user is selected
-        And Menu Cycle "<menuCycle>" is selected
-    When planning for "<day>" is opened
-        And nutrition tab is opened
-        And planning tab is opened
-    Then Verify planning screen engine is loaded
     
-    @QAI
-    Examples:
-    |environment|withFA|menuCycle|day    |
-    |QAI        |false |Meda     |TUESDAY|
-
-@TC28555
-Scenario Outline: Open Planning Screen, go to Weeks, go back to Planning screen (Central User)
-    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
-        And a central user is selected
-        And Menu Cycle "<menuCycle>" is selected
-    When planning for "<day>" is opened
-        And Weeks tab is opened
-        And Days tab is opened
-    Then Verify planning screen engine is loaded
     
-    @QAI
-    Examples:
-    |environment|withFA|menuCycle|day    |
-    |QAI        |false |Meda     |TUESDAY|  
-
 @TC29023
 Scenario Outline: Save button is clicked without any changes applied
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
@@ -401,20 +372,6 @@ Scenario Outline: User should not be redirected to the planning screen after nav
     |environment|withFA|menuCycle|day   |
     |QAI        |false |Meda     |MONDAY|
     
-@TC28500 @Smoke
-Scenario Outline: Load engine when Planning screen is opened (Central User)
-    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
-        And a central user is selected
-        And Menu Cycle "<menuCycle>" is selected
-    When planning for "<day>" is opened
-        And nutrition tab is opened
-        And planning tab is opened
-    Then Verify planning screen engine is loaded
-    
-    @QAI
-    Examples:
-    |environment|withFA|menuCycle|day    |
-    |QAI        |false |Meda     |TUESDAY|
     
 @TC27677 @Smoke
 Scenario Outline: Close planning screen with "X" button without any changes
@@ -442,27 +399,7 @@ Scenario Outline: Verify save button is disabled if menu cycle is published
     Examples:
     |environment|withFA|menuCycle         |day      |
     |QAI        |false |Local User Testing|WEDNESDAY|
-    
-@TC31887 @D26963
-Scenario Outline: Planning screen is loaded after searching for recipe which is not found
-    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
-        And a central user is selected
-        And Menu Cycle "<menuCycle>" is selected
-    When planning for "<day>" is opened
-        And Cross button is clicked and calendar view has loaded
-        And Meal period "<mealPeriod>" is created for "Monday"
-        And Recipe search is opened
-        And Recipe "<recipeName>" is searched
-        And "Sorry, we could not find any match for your search." message is displayed
-        And meal period detailed view is closed
-        And planning for "<day>" is opened
-    Then Verify planning screen engine is loaded
        
-   @QAI
-    Examples:
-    |environment|withFA|menuCycle         |mealPeriod|recipeName|day   |
-    |QAI        |false |Automation Testing|LUNCH     |Madanoz   |MONDAY|
-    
 @TC37810    
 Scenario Outline: Save button is disabled for locked menu cycle
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 

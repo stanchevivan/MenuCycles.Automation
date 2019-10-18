@@ -1,21 +1,6 @@
 ﻿Feature: LocalUserPlanningScreen
     Meal Peridos functionalities and validations
-
-@TC28558 @Smoke
-Scenario Outline: Load engine when Planning screen is opened (Local User)
-    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
-        And a local user is selected
-        And location "<location>" is selected
-        And Menu Cycle "<menuCycle>" is selected
-        And Weekly Calendar is opened
-        And week "WEEK 1" is opened
-    When planning for "<day>" is opened
-    Then Verify planning screen engine is loaded
     
-    @QAI
-    Examples:
-    |environment|withFA|location|menuCycle         |day        |
-    |QAI        |false |Site EUR1   |Local User Testing|THUR 25 JUL|
 
 @TC30226
 Scenario Outline: Verify save button is disabled for passed days
@@ -47,25 +32,7 @@ Scenario Outline: Real date is displayed on the top of the planning screen
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |day        |date                   |
-    |QAI        |false |Site EUR1   |Local User Testing|THUR 25 JUL|THURSDAY - 25 July 2019|
-    
-@TC30264 @D25299
-Scenario Outline: Open Planning Screen, go to Post-Production, go back to Planning screen
-    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
-        And a local user is selected
-        And location "<location>" is selected
-        And Menu Cycle "<menuCycle>" is selected
-        And Weekly Calendar is opened
-        And week "WEEK 1" is opened
-    When planning for "<day>" is opened
-        And post-production tab is opened
-        And planning tab is opened
-    Then Verify planning screen engine is loaded
-    
-    @QAI
-    Examples:
-    |environment|withFA|location|menuCycle         |day        |
-    |QAI        |false |Site EUR1   |Local User Testing|THUR 25 JUL|
+    |QAI        |false |Site EUR1   |Local User Testing|THUR 25 JUL|THURSDAY - 25 July 2019|    
 
 @TC30366 @D25410
 Scenario Outline: Open Planning Screen, go to Weekly planning
