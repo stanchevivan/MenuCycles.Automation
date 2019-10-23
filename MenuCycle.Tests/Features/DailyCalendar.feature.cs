@@ -327,7 +327,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Delete last empty week in big menu cycle")]
         [NUnit.Framework.CategoryAttribute("TC40604")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "4000 items - Do not use", "WEEK 2", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "4000 items - Do not use FOR AUTOMATION", "WEEK 2", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void DeleteLastEmptyWeekInBigMenuCycle(string environment, string withFA, string menuCycle, string weekName, string[] exampleTags)
         {

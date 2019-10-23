@@ -120,8 +120,8 @@ Scenario Outline: Delete last empty week in big menu cycle
     
     @QAI
     Examples:
-    |environment|withFA|menuCycle              |weekName|
-    |QAI        |false |4000 items - Do not use|WEEK 2  |
+    |environment|withFA|menuCycle                             |weekName|
+    |QAI        |false |4000 items - Do not use FOR AUTOMATION|WEEK 2  |
     
 @TC41594    
 Scenario Outline: Empty week is created last 
