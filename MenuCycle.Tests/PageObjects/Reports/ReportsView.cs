@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA.Selenium.Support.PageObjects;namespace MenuCycle.Tests.PageObjects{    public class ReportsView : MenuCyclesBasePage    {        public ReportsView(IWebDriver webDriver) : base(webDriver)        {        }
+using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA.Selenium.Support.PageObjects;
+
+namespace MenuCycle.Tests.PageObjects{    public class ReportsView : MenuCyclesBasePage    {        public ReportsView(IWebDriver webDriver) : base(webDriver)        {        }
 
         public enum Reports
         {
@@ -29,7 +32,7 @@ using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA
         [FindsBy(How = How.CssSelector, Using = ".main-heading_requirements")]
         private IWebElement LocalReqsReportButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".main-heading_buying")]
-        private IWebElement BuyingReportButton { get; set; }        
+        private IWebElement BuyingReportButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".main-heading_local")]
         private IWebElement LocalSalesHistoryReportButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".main-heading_performance-report")]
@@ -37,7 +40,7 @@ using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA
         [FindsBy(How = How.CssSelector, Using = ".main-heading_allergen")]
         private IWebElement AllergenReportButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".main-heading_location-gap-check")]
-        private IWebElement LocationGapCheckReportButton { get; set; }        
+        private IWebElement LocationGapCheckReportButton { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".icon-report_2")]
         private IWebElement RightSectionIcon { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".reports-main-right > div:not(.hidden) .clickable")]
@@ -144,5 +147,65 @@ using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA
         public void SelectMealPeriod(string mealPeriodName)
         {
             MealPeriodsList.First(m => m.Text == mealPeriodName).FindElement(By.ClassName(CheckBox.Get().Classes[0])).Click();
+        }
+
+        //static void ConvertFromFile(string expectedFilePath)
+        //{
+        //    string outFile = "/Users/MPetkov/Downloads/Result.txt";
+
+        //    DocumentCore dc = DocumentCore.Load(expectedFilePath);
+            
+        //    dc.Save(outFile);
+        //}
+
+        public void CompareReports(Reports report)
+        {
+            var directory = new DirectoryInfo("/Users/MPetkov/Downloads/");
+            string actualReport = directory.GetFiles()
+                 .OrderByDescending(f => f.LastWriteTime)
+                 .First().ToString();
+            
+            string actual = File.ReadAllText(actualReport);
+            string expected;
+
+            switch (report)
+            {
+                case Reports.ConsumerFacing:
+                    //string expectedReport = "/Users/MPetkov/Downloads/ConsumerReport (15).pdf";
+                    string expectedReport = "/Users/MPetkov/Downloads/LocalSalesReport (8).pdf";
+
+                    expected = File.ReadAllText(expectedReport);
+                    
+                    Console.WriteLine($"TEXT EXPECTED {expected}");
+                    Console.WriteLine($"TEXT ACTUAL {actual}");
+
+                    if (expected != actual)
+                    {
+                        throw new Exception($"Report Content Not Equal with the Expected content!");
+                    }
+                    break;
+                case Reports.MenuExtract:
+                    break;
+                case Reports.RecipeCard:
+                    break;
+                case Reports.TrafficLight:
+                    break;
+                case Reports.MenuCycleCalendar:
+                    break;
+                case Reports.BuyingReport:
+                    break;
+                case Reports.LocalProductionRequirements:
+                    break;
+                case Reports.LocalSalesHistory:
+                    break;
+                case Reports.PerformanceReport:
+                    break;
+                case Reports.AllergenReport:
+                    break;
+                case Reports.LocatioGapCheck:
+                    break;
+                default:
+                    throw new Exception($"Different! {report}");
+            }
         }
     }}

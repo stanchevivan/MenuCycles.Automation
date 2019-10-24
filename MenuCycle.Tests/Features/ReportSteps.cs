@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using static MenuCycle.Tests.PageObjects.ReportsView;
+using System.IO;
 
 namespace MenuCycle.Tests.Steps
 {
@@ -141,6 +142,13 @@ namespace MenuCycle.Tests.Steps
         public void ExportButtonIsDisplayed()
         {
             Assert.IsTrue(reportsView.IsExportButtonVisible);
+        }
+        
+        [Then(@"Verify notification message ""(.*)"" is displayed and the report ""(.*)"" is the right one")]
+        public void ThenVerifyNotificationMessageIsDisplayedAndTheReportIsTheRightOne(string message, Reports report)
+        {
+            notification.ValidateToastMessage(message);
+            reportsView.CompareReports(report);
         }
     }
 }
