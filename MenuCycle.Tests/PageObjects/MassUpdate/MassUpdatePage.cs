@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MenuCycle.Tests.PageObjects.MassUpdate;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -11,7 +12,7 @@ namespace MenuCycle.Tests.PageObjects
     {
         public MassUpdatePage(IWebDriver webDriver) : base(webDriver)
         {
-            
+
         }
 
         [FindsBy(How = How.CssSelector, Using = ".tagify__input")]
@@ -34,7 +35,14 @@ namespace MenuCycle.Tests.PageObjects
 
         [FindsBy(How = How.CssSelector, Using = ".mass-update__message")]
         private IWebElement NoResultsMessage { get; set; }
-        
+
+        [FindsBy(How = How.CssSelector, Using = ".search-utility-bar__button")]
+        private IWebElement UpdatePriceButton { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".update-prices-container__wrapper")]
+        private IList<IWebElement> UpdatePrices { get; set; }
+
+        public IList<UpdatePrices> UpdatePriceWindow => this.UpdatePrices.Select(p => new UpdatePrices(p, Driver)).ToList();
 
         public IList<MassUpdateSearchResultCard> ResultCards
         {
@@ -86,6 +94,11 @@ namespace MenuCycle.Tests.PageObjects
             {
                 SelectAllCheckbox.Click();
             }
+        }
+
+        public void SelectUpdatePriceButton()
+        {
+            UpdatePriceButton.Click();
         }
     }
 }
