@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA.Selenium.Support.PageObjects;
+using Fourth.Automation.Framework.Extension;using NUnit.Framework;
+using OpenQA.Selenium;using OpenQA.Selenium.Support.PageObjects;
 
 namespace MenuCycle.Tests.PageObjects{    public class ReportsView : MenuCyclesBasePage    {        public ReportsView(IWebDriver webDriver) : base(webDriver)        {        }
 
@@ -12,6 +13,7 @@ namespace MenuCycle.Tests.PageObjects{    public class ReportsView : MenuCycle
             MenuExtract,
             TrafficLight,
             ConsumerFacing,
+            ConsumerFacingCSV,
             MenuCycleCalendar,
             BuyingReport,
             LocalProductionRequirements,
@@ -149,40 +151,46 @@ namespace MenuCycle.Tests.PageObjects{    public class ReportsView : MenuCycle
             MealPeriodsList.First(m => m.Text == mealPeriodName).FindElement(By.ClassName(CheckBox.Get().Classes[0])).Click();
         }
 
-        //static void ConvertFromFile(string expectedFilePath)
-        //{
-        //    string outFile = "/Users/MPetkov/Downloads/Result.txt";
+        public string StartReadingFromLine(string filePath, int line)
+        {
+            string reportText = File.ReadAllText(filePath);
 
-        //    DocumentCore dc = DocumentCore.Load(expectedFilePath);
-            
-        //    dc.Save(outFile);
-        //}
+            string[] fromLine = reportText
+                                    .Split(Environment.NewLine.ToCharArray())
+                                    .Skip(line)
+                                    .ToArray();
+
+            string actualOutput = string.Join(Environment.NewLine, fromLine);
+
+            return actualOutput;
+        }
 
         public void CompareReports(Reports report)
         {
-            var directory = new DirectoryInfo("/Users/MPetkov/Downloads/");
+            int startFromLine = 10;
+
+            DirectoryInfo directory = new DirectoryInfo("/Users/MPetkov/Downloads/");
             string actualReport = directory.GetFiles()
                  .OrderByDescending(f => f.LastWriteTime)
                  .First().ToString();
-            
-            string actual = File.ReadAllText(actualReport);
-            string expected;
 
+            var actualOutput = StartReadingFromLine(actualReport, startFromLine);
+            
             switch (report)
             {
                 case Reports.ConsumerFacing:
                     //string expectedReport = "/Users/MPetkov/Downloads/ConsumerReport (15).pdf";
-                    string expectedReport = "/Users/MPetkov/Downloads/LocalSalesReport (8).pdf";
+                    //string expectedReport = "/Users/MPetkov/Downloads/LocalSalesReport (8).pdf";
+                    string expectedReport = "/Users/MPetkov/Downloads/ConsumerReport (4).csv";
 
-                    expected = File.ReadAllText(expectedReport);
-                    
-                    Console.WriteLine($"TEXT EXPECTED {expected}");
-                    Console.WriteLine($"TEXT ACTUAL {actual}");
 
-                    if (expected != actual)
+                    var expectedOutput = StartReadingFromLine(expectedReport, startFromLine);
+
+                    if (expectedOutput != actualOutput)
                     {
-                        throw new Exception($"Report Content Not Equal with the Expected content!");
+                        throw new Exception($"Report Content Not Equal With The Expected Content!");
                     }
+
                     break;
                 case Reports.MenuExtract:
                     break;
@@ -205,7 +213,7 @@ namespace MenuCycle.Tests.PageObjects{    public class ReportsView : MenuCycle
                 case Reports.LocatioGapCheck:
                     break;
                 default:
-                    throw new Exception($"Different! {report}");
+                    break;
             }
         }
     }}

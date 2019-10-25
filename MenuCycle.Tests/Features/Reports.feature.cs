@@ -238,7 +238,8 @@ this.ScenarioInitialize(scenarioInfo);
 #line 71
         testRunner.And("Export CSV button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 72
-    testRunner.Then("Verify notification message \"Successfully Exported\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify notification message \"Successfully Exported\" is displayed and the report \"" +
+                    "ConsumerFacing\" is the right one", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

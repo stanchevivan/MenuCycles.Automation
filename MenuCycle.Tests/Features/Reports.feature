@@ -69,7 +69,7 @@ Scenario Outline: Export Consumer Facing Report as CSV with Sell Price, Kilojoul
         And Calories checkbox is checked
         And Kilojoules checkbox is checked
         And Export CSV button is clicked
-    Then Verify notification message "Successfully Exported" is displayed
+    Then Verify notification message "Successfully Exported" is displayed and the report "ConsumerFacing" is the right one
     
     @QAI
     Examples:
