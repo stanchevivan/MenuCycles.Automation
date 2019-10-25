@@ -185,7 +185,7 @@ this.ScenarioInitialize(scenarioInfo);
         testRunner.And("Export PDF button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 48
     testRunner.Then("Verify notification message \"Successfully Exported\" is displayed and the report \"" +
-                    "ConsumerFacing\" is the right one", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                    "ConsumerFacing\" type \"pdf\" is the right one", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -239,7 +239,7 @@ this.ScenarioInitialize(scenarioInfo);
         testRunner.And("Export CSV button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 72
     testRunner.Then("Verify notification message \"Successfully Exported\" is displayed and the report \"" +
-                    "ConsumerFacing\" is the right one", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                    "ConsumerFacing\" type \"csv\" is the right one", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

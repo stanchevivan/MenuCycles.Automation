@@ -151,31 +151,37 @@ namespace MenuCycle.Tests.PageObjects{    public class ReportsView : MenuCycle
             MealPeriodsList.First(m => m.Text == mealPeriodName).FindElement(By.ClassName(CheckBox.Get().Classes[0])).Click();
         }
 
-        public string StartReadingFromLine(string filePath, int line)
+        public string StartReadingFromLine(string filePath, int line, string reportType)
         {
             string reportText = File.ReadAllText(filePath);
 
-            string[] fromLine = reportText
-                                    .Split(Environment.NewLine.ToCharArray())
-                                    .Skip(line)
-                                    .ToArray();
+            if (reportType.ToLower() == "pdf")
+            {
+                string[] fromLine = reportText
+                                        .Split(Environment.NewLine.ToCharArray())
+                                        .Skip(line)
+                                        .ToArray();
 
-            string actualOutput = string.Join(Environment.NewLine, fromLine);
+                string actualOutput = string.Join(Environment.NewLine, fromLine);
 
-            return actualOutput;
+                return actualOutput;
+            }
+
+            return reportText;
         }
 
-        public void CompareReports(Reports report)
+        public void CompareReports(Reports report, string reportType)
         {
             int startFromLine = 10;
+            string expectedOutput;
 
             DirectoryInfo directory = new DirectoryInfo("/Users/MPetkov/Downloads/");
             string actualReport = directory.GetFiles()
                  .OrderByDescending(f => f.LastWriteTime)
                  .First().ToString();
 
-            var actualOutput = StartReadingFromLine(actualReport, startFromLine);
-            
+            var actualOutput = StartReadingFromLine(actualReport, startFromLine, reportType);
+
             switch (report)
             {
                 case Reports.ConsumerFacing:
@@ -184,12 +190,11 @@ namespace MenuCycle.Tests.PageObjects{    public class ReportsView : MenuCycle
                     string expectedReport = "/Users/MPetkov/Downloads/ConsumerReport (4).csv";
 
 
-                    var expectedOutput = StartReadingFromLine(expectedReport, startFromLine);
+                    expectedOutput = StartReadingFromLine(expectedReport, startFromLine, reportType);
+                    Console.WriteLine($"Actual {actualOutput}");
+                    Console.WriteLine($"Expected {expectedOutput}");
 
-                    if (expectedOutput != actualOutput)
-                    {
-                        throw new Exception($"Report Content Not Equal With The Expected Content!");
-                    }
+                    Assert.AreEqual(expectedOutput, actualOutput);
 
                     break;
                 case Reports.MenuExtract:

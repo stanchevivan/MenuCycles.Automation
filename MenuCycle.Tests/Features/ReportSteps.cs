@@ -144,11 +144,11 @@ namespace MenuCycle.Tests.Steps
             Assert.IsTrue(reportsView.IsExportButtonVisible);
         }
         
-        [Then(@"Verify notification message ""(.*)"" is displayed and the report ""(.*)"" is the right one")]
-        public void ThenVerifyNotificationMessageIsDisplayedAndTheReportIsTheRightOne(string message, Reports report)
+        [Then(@"Verify notification message ""(.*)"" is displayed and the report ""(.*)"" type ""(.*)"" is the right one")]
+        public void ThenVerifyNotificationMessageIsDisplayedAndTheReportIsTheRightOne(string message, Reports report, string reportType)
         {
             notification.ValidateToastMessage(message);
-            reportsView.CompareReports(report);
+            reportsView.CompareReports(report, reportType);
         }
     }
 }
