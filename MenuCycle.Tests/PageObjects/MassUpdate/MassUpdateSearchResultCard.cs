@@ -37,9 +37,9 @@ namespace MenuCycle.Tests.PageObjects
 
         public MassUpdateOccurrencesRow GetRow(string weekName, string weekDay, string mealPeriod)
         {
-            return OccurrencesCard.OccurrancesRows.First(x => x.WeekNameText == weekName
-            && x.DayNameText == weekDay
-            && x.MealPeriodNameText == mealPeriod);
+            return OccurrencesCard.OccurrancesRows.First(x => x.WeekNameText.ToUpper() == weekName.ToUpper()
+            && x.DayNameText.ToUpper() == weekDay.ToUpper()
+            && x.MealPeriodNameText.ToUpper() == mealPeriod.ToUpper());
         }
 
         public void ClickArrow()

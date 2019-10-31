@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Fourth.Automation.Framework.Extension;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -16,8 +17,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".search-results-row")]
         private IList <IWebElement> Rows { get; set; }
 
-
         public IList<MassUpdateOccurrencesRow> OccurrancesRows => this.Rows.Select(p => new MassUpdateOccurrencesRow(p, Driver)).ToList();
-
+       
     }
 }
