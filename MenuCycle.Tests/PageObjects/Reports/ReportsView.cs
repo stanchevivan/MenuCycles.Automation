@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Fourth.Automation.Framework.Extension;using NUnit.Framework;
 using OpenQA.Selenium;using OpenQA.Selenium.Support.PageObjects;
 
@@ -151,7 +152,10 @@ namespace MenuCycle.Tests.PageObjects{    public class ReportsView : MenuCycle
             MealPeriodsList.First(m => m.Text == mealPeriodName).FindElement(By.ClassName(CheckBox.Get().Classes[0])).Click();
         }
 
-        public string StartReadingFromLine(string filePath, int line, string reportType)
+        /// <summary>
+        /// Start reading PDF file from specific line.
+        /// </summary>
+        public string StartReadingPDFFromLine(string filePath, int line, string reportType)
         {
             string reportText = File.ReadAllText(filePath);
 
@@ -175,28 +179,40 @@ namespace MenuCycle.Tests.PageObjects{    public class ReportsView : MenuCycle
             int startFromLine = 10;
             string expectedOutput;
 
-            DirectoryInfo directory = new DirectoryInfo("/Users/MPetkov/Downloads/");
+            string expectedReportPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+                "Documents/MenuCycleReports");
+
+            string downloadsPath = Path.Combine(
+                  Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+                  "Downloads");
+
+            DirectoryInfo directory = new DirectoryInfo(downloadsPath);
             string actualReport = directory.GetFiles()
                  .OrderByDescending(f => f.LastWriteTime)
                  .First().ToString();
 
-            var actualOutput = StartReadingFromLine(actualReport, startFromLine, reportType);
+            var actualOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
             switch (report)
             {
                 case Reports.ConsumerFacing:
-                    //string expectedReport = "/Users/MPetkov/Downloads/ConsumerReport (15).pdf";
-                    //string expectedReport = "/Users/MPetkov/Downloads/LocalSalesReport (8).pdf";
-                    string expectedReport = "/Users/MPetkov/Downloads/ConsumerReport (4).csv";
+                    //string consumerFacingPDF = "/Users/MPetkov/Projects/Fourth.MenuCycles.Automation/Reports/ConsumerReportPdf.pdf";
+                    string consumerFacingPDF = expectedReportPath + "/ConsumerReportPdf.pdf";
 
-
-                    expectedOutput = StartReadingFromLine(expectedReport, startFromLine, reportType);
-                    Console.WriteLine($"Actual {actualOutput}");
-                    Console.WriteLine($"Expected {expectedOutput}");
+                    expectedOutput = StartReadingPDFFromLine(consumerFacingPDF, startFromLine, reportType);
 
                     Assert.AreEqual(expectedOutput, actualOutput);
-
                     break;
+
+                case Reports.ConsumerFacingCSV:
+                    //string consumerFacingCSV = "/Users/MPetkov/Projects/Fourth.MenuCycles.Automation/Reports/ConsumerReportCsv.csv";
+                    string consumerFacingCSV = expectedReportPath + "/ConsumerReportCsv.csv";
+
+                    expectedOutput = StartReadingPDFFromLine(consumerFacingCSV, startFromLine, reportType);
+
+                    Assert.AreEqual(expectedOutput, actualOutput);
+                    break;
+
                 case Reports.MenuExtract:
                     break;
                 case Reports.RecipeCard:
@@ -216,8 +232,6 @@ namespace MenuCycle.Tests.PageObjects{    public class ReportsView : MenuCycle
                 case Reports.AllergenReport:
                     break;
                 case Reports.LocatioGapCheck:
-                    break;
-                default:
                     break;
             }
         }
