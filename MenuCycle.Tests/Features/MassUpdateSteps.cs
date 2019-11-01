@@ -101,6 +101,7 @@ namespace MenuCycle.Tests.Steps
         }
 
         [When(@"apply button is clicked")]
+        [Then(@"apply button is clicked")]
         public void WhenApplyButtonIsClicked()
         {
             updatePrices.SelectApplyButton();
@@ -116,11 +117,10 @@ namespace MenuCycle.Tests.Steps
         [When(@"Verify red border and contextual error message ""(.*)"" is displayed for Sell Price field for ""(.*)"" tariff type")]
         public void WhenVerifyRedBorderAndContextualErrorMessageIsDisplayedForSellPriceField(string errorMessage, string tariffType)
         {
+            Assert.IsTrue(updatePrices.GetRowByTariff(tariffType)
+                 .SellPriceHasRedBorder, "Red border is not displayed");
             Assert.AreEqual(updatePrices.GetRowByTariff(tariffType)
                  .SellPriceContextualErrorMessage, errorMessage);
-            Assert.IsTrue(updatePrices.GetRowByTariff(tariffType)
-                .SellPriceHasRedBorder);
-
         }
 
         [When(@"Verify red border is not displayed for Sell Price field for ""(.*)"" tariff type")]
@@ -150,12 +150,30 @@ namespace MenuCycle.Tests.Steps
         [Then(@"Verify red border and contextual error message ""(.*)"" is displayed for targetGP% field for ""(.*)"" tariff type")]
         public void WhenVerifyRedBorderAndContextualErrorMessageIsDisplayedForTargetGPFieldForTariffType(string errorMessage, string tariffType)
         {
+            Assert.IsTrue(updatePrices.GetRowByTariff(tariffType)
+                 .IsTargetGPWithRedBorder, "Red border is not displayed");
             Assert.AreEqual(updatePrices.GetRowByTariff(tariffType)
                  .TargetPercentageContextualErrorMessage, errorMessage);
-            Assert.IsTrue(updatePrices.GetRowByTariff(tariffType)
-                 .IsTargetGPWithRedBorder);
         }
 
+        [When(@"add types is selected")]
+        public void WhenAddTypesIsSelected()
+        {
+            updatePrices.SelectAddTypesButton();
+        }
+
+        [Then(@"tariff type ""(.*)"" has been added")]
+        public void ThenTariffTypeHasBeenAdded(string tariffType)
+        {
+            Assert.IsTrue(updatePrices.GetRowByTariff(tariffType).IsTariffTypePresent);
+        }
+
+        [When(@"tariff type ""(.*)"" is set to ""(.*)""")]
+        public void WhenTariffTypeIsSetTo(string tariffType, string newTariffType)
+        {
+            updatePrices.GetRowByTariff(tariffType)
+                .TariffType = newTariffType;
+        }
 
     }
 }

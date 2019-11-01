@@ -38,6 +38,12 @@ namespace MenuCycle.Tests.PageObjects
         public bool SellPriceHasRedBorder => sellPrice.Get().HasClass("border-error");
         public bool IsTargetGPWithRedBorder => targetGP.Get().HasClass("border-error");
         public bool IsDeleteIconPresent => deleteType.Get().ElementPresent;
+        public bool IsTariffTypePresent => tariffType.Get().ElementPresent;
+
+        public void DeleteType()
+        {
+            deleteType.Click();
+        }
 
         public string TariffType
         {
