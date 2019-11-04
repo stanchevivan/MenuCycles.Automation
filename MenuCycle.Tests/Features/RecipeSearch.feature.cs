@@ -103,45 +103,45 @@ this.ScenarioInitialize(scenarioInfo);
 #line 12
         testRunner.And("Recipe \"Fried\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table101 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Type",
-                        "Cost"});
-            table101.AddRow(new string[] {
-                        "724Fried Button Mushrooms",
-                        "Recipe",
-                        "£1.3078"});
-            table101.AddRow(new string[] {
-                        "724Fried Eggs",
-                        "Recipe",
-                        "£0.7291"});
-            table101.AddRow(new string[] {
-                        "724Fried Onions",
-                        "Recipe",
-                        "£0.1875"});
-            table101.AddRow(new string[] {
-                        "724Stir Fried Vegetables",
-                        "Recipe",
-                        "£0.6052"});
-#line 13
-        testRunner.And("Verify items present in the search results are", ((string)(null)), table101, "And ");
-#line 19
-        testRunner.And("Recipe \"Boiled\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
             TechTalk.SpecFlow.Table table102 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Type",
                         "Cost"});
             table102.AddRow(new string[] {
+                        "724Fried Button Mushrooms",
+                        "Recipe",
+                        "£1.3078"});
+            table102.AddRow(new string[] {
+                        "724Fried Eggs",
+                        "Recipe",
+                        "£0.7291"});
+            table102.AddRow(new string[] {
+                        "724Fried Onions",
+                        "Recipe",
+                        "£0.1875"});
+            table102.AddRow(new string[] {
+                        "724Stir Fried Vegetables",
+                        "Recipe",
+                        "£0.6052"});
+#line 13
+        testRunner.And("Verify items present in the search results are", ((string)(null)), table102, "And ");
+#line 19
+        testRunner.And("Recipe \"Boiled\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table103 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Type",
+                        "Cost"});
+            table103.AddRow(new string[] {
                         "004Boiled Rice",
                         "Recipe",
                         "£0"});
-            table102.AddRow(new string[] {
+            table103.AddRow(new string[] {
                         "724Boiled Brown Rice",
                         "Recipe",
                         "£0"});
 #line 20
-    testRunner.Then("Verify items present in the search results are", ((string)(null)), table102, "Then ");
+    testRunner.Then("Verify items present in the search results are", ((string)(null)), table103, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -178,17 +178,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 37
         testRunner.And("Recipe \"004Baked Beans_3\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table103 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Type",
-                        "Cost"});
-            table103.AddRow(new string[] {
-                        "004Baked Beans_3",
-                        "Recipe",
-                        "£1.9157"});
-#line 38
-        testRunner.And("Verify items present in the search results are", ((string)(null)), table103, "And ");
-#line hidden
             TechTalk.SpecFlow.Table table104 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Type",
@@ -197,25 +186,36 @@ this.ScenarioInitialize(scenarioInfo);
                         "004Baked Beans_3",
                         "Recipe",
                         "£1.9157"});
+#line 38
+        testRunner.And("Verify items present in the search results are", ((string)(null)), table104, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table105 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Type",
+                        "Cost"});
+            table105.AddRow(new string[] {
+                        "004Baked Beans_3",
+                        "Recipe",
+                        "£1.9157"});
 #line 41
-        testRunner.And("Verify items in meal period detailed view", ((string)(null)), table104, "And ");
+        testRunner.And("Verify items in meal period detailed view", ((string)(null)), table105, "And ");
 #line 44
         testRunner.And("meal period detailed view is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 45
         testRunner.And("planning for \"Monday\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table105 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table106 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
                         "CostPerUnit"});
-            table105.AddRow(new string[] {
+            table106.AddRow(new string[] {
                         "LUNCH",
                         "RECIPE",
                         "004Baked Beans_3",
                         "1.92"});
 #line 46
-    testRunner.Then("Verify data for items is", ((string)(null)), table105, "Then ");
+    testRunner.Then("Verify data for items is", ((string)(null)), table106, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -252,32 +252,32 @@ this.ScenarioInitialize(scenarioInfo);
 #line 63
         testRunner.And("Verify recipe price is \"£0.375\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table106 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table107 = new TechTalk.SpecFlow.Table(new string[] {
                         "IngredientName",
                         "IngredientCost"});
-            table106.AddRow(new string[] {
+            table107.AddRow(new string[] {
                         "Chicken Breast Diced",
                         "0.00"});
-            table106.AddRow(new string[] {
+            table107.AddRow(new string[] {
                         "004Fresh White Breadcrumbs (frz) 10g",
                         "0.00"});
-            table106.AddRow(new string[] {
+            table107.AddRow(new string[] {
                         "ONION FRESH",
                         "0.00"});
-            table106.AddRow(new string[] {
+            table107.AddRow(new string[] {
                         "Parsley Curley",
                         "0.00"});
-            table106.AddRow(new string[] {
+            table107.AddRow(new string[] {
                         "Aryzta - Sausage Roll",
                         "0.00"});
-            table106.AddRow(new string[] {
+            table107.AddRow(new string[] {
                         "Lea & Perrins - Worcestershire Sauce",
                         "0.00"});
-            table106.AddRow(new string[] {
+            table107.AddRow(new string[] {
                         "EGGS WHOLE PASTEURISED",
                         "0.38"});
 #line 64
-        testRunner.And("Verify ingredients in the detailed view", ((string)(null)), table106, "And ");
+        testRunner.And("Verify ingredients in the detailed view", ((string)(null)), table107, "And ");
 #line 73
         testRunner.And("Verify ingredients total cost is \"0.38\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

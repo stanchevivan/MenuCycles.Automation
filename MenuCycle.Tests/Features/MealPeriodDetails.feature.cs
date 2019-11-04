@@ -95,20 +95,20 @@ this.ScenarioInitialize(scenarioInfo);
 #line 8
     testRunner.When(string.Format("Details for meal period \"{0}\" in \"{1}\" are opened", mealPeriod, day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Type",
                         "Cost"});
-            table23.AddRow(new string[] {
+            table24.AddRow(new string[] {
                         string.Format("{0}", recipe1),
                         "Recipe",
                         string.Format("{0}", cost1)});
-            table23.AddRow(new string[] {
+            table24.AddRow(new string[] {
                         string.Format("{0}", recipe2),
                         "Recipe",
                         string.Format("{0}", cost2)});
 #line 9
-    testRunner.Then("Verify items in the meal period are", ((string)(null)), table23, "Then ");
+    testRunner.Then("Verify items in the meal period are", ((string)(null)), table24, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -143,23 +143,23 @@ this.ScenarioInitialize(scenarioInfo);
 #line 25
         testRunner.And("Buffet \"Maya Buffet\" is expanded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Cost"});
-            table24.AddRow(new string[] {
+            table25.AddRow(new string[] {
                         "004Basic Sponge",
                         "£0.04"});
-            table24.AddRow(new string[] {
+            table25.AddRow(new string[] {
                         "004Fresh Lemon Curd",
                         "£6.63"});
-            table24.AddRow(new string[] {
+            table25.AddRow(new string[] {
                         "004Fish Stock (bouillon)",
                         "£0.5"});
-            table24.AddRow(new string[] {
+            table25.AddRow(new string[] {
                         "004Beef Stock (bouillon)",
                         "£0"});
 #line 26
-    testRunner.Then("Verify recipes in meal period details for buffet \"Maya Buffet\" are", ((string)(null)), table24, "Then ");
+    testRunner.Then("Verify recipes in meal period details for buffet \"Maya Buffet\" are", ((string)(null)), table25, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -187,16 +187,16 @@ this.ScenarioInitialize(scenarioInfo);
 #line 44
         testRunner.And(string.Format("Recipe \"{0}\" is searched", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Type",
                         "Cost"});
-            table25.AddRow(new string[] {
+            table26.AddRow(new string[] {
                         string.Format("{0}", recipe),
                         "Recipe",
                         string.Format("{0}", cost)});
 #line 45
-    testRunner.Then("Verify items present in the search results are", ((string)(null)), table25, "Then ");
+    testRunner.Then("Verify items present in the search results are", ((string)(null)), table26, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

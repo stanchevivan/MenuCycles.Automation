@@ -188,20 +188,20 @@ this.ScenarioInitialize(scenarioInfo);
 #line 52
     testRunner.Then("Verify planned quantity daily total equals the sum of all meal period totals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table69 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table70 = new TechTalk.SpecFlow.Table(new string[] {
                         "qtyReqd",
                         "qtyProd",
                         "qtySold",
                         "noCharge",
                         "returnToStock"});
-            table69.AddRow(new string[] {
+            table70.AddRow(new string[] {
                         "7",
                         "10",
                         "3",
                         "1",
                         "2"});
 #line 53
-    testRunner.When(string.Format("values are entered for recipe \"{0}\" tariff \"{1}\" in meal period \"{2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table69, "When ");
+    testRunner.When(string.Format("values are entered for recipe \"{0}\" tariff \"{1}\" in meal period \"{2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table70, "When ");
 #line 56
     testRunner.Then(string.Format("Verify Wastage is correctly calculated for recipe \"{0}\" tariff \"{1}\" in meal peri" +
                         "od \"{2}\"", recipeName, tariff, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -238,21 +238,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 72
     testRunner.Then("Verify planned quantity daily total equals the sum of all meal period totals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table70 = new TechTalk.SpecFlow.Table(new string[] {
-                        "qtyReqd",
-                        "qtyProd",
-                        "qtySold",
-                        "noCharge",
-                        "returnToStock"});
-            table70.AddRow(new string[] {
-                        "a",
-                        "b",
-                        "c",
-                        "d",
-                        "e"});
-#line 73
-    testRunner.When(string.Format("values are entered for recipe \"{0}\" tariff \"{1}\" in meal period \"{2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table70, "When ");
-#line hidden
             TechTalk.SpecFlow.Table table71 = new TechTalk.SpecFlow.Table(new string[] {
                         "qtyReqd",
                         "qtyProd",
@@ -260,14 +245,13 @@ this.ScenarioInitialize(scenarioInfo);
                         "noCharge",
                         "returnToStock"});
             table71.AddRow(new string[] {
-                        string.Format("{0}", integerMessage),
-                        string.Format("{0}", integerMessage),
-                        string.Format("{0}", integerMessage),
-                        string.Format("{0}", integerMessage),
-                        string.Format("{0}", integerMessage)});
-#line 76
-    testRunner.Then(string.Format("Verify context errors are present for recipe \"{0}\" tariff \"{1}\" in meal period \"{" +
-                        "2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table71, "Then ");
+                        "a",
+                        "b",
+                        "c",
+                        "d",
+                        "e"});
+#line 73
+    testRunner.When(string.Format("values are entered for recipe \"{0}\" tariff \"{1}\" in meal period \"{2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table71, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table72 = new TechTalk.SpecFlow.Table(new string[] {
                         "qtyReqd",
@@ -276,13 +260,14 @@ this.ScenarioInitialize(scenarioInfo);
                         "noCharge",
                         "returnToStock"});
             table72.AddRow(new string[] {
-                        "-1",
-                        "-2",
-                        "-10",
-                        "-3",
-                        "-99"});
-#line 79
-    testRunner.When(string.Format("values are entered for recipe \"{0}\" tariff \"{1}\" in meal period \"{2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table72, "When ");
+                        string.Format("{0}", integerMessage),
+                        string.Format("{0}", integerMessage),
+                        string.Format("{0}", integerMessage),
+                        string.Format("{0}", integerMessage),
+                        string.Format("{0}", integerMessage)});
+#line 76
+    testRunner.Then(string.Format("Verify context errors are present for recipe \"{0}\" tariff \"{1}\" in meal period \"{" +
+                        "2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table72, "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table73 = new TechTalk.SpecFlow.Table(new string[] {
                         "qtyReqd",
@@ -291,6 +276,21 @@ this.ScenarioInitialize(scenarioInfo);
                         "noCharge",
                         "returnToStock"});
             table73.AddRow(new string[] {
+                        "-1",
+                        "-2",
+                        "-10",
+                        "-3",
+                        "-99"});
+#line 79
+    testRunner.When(string.Format("values are entered for recipe \"{0}\" tariff \"{1}\" in meal period \"{2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table73, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table74 = new TechTalk.SpecFlow.Table(new string[] {
+                        "qtyReqd",
+                        "qtyProd",
+                        "qtySold",
+                        "noCharge",
+                        "returnToStock"});
+            table74.AddRow(new string[] {
                         string.Format("{0}", negativeMessage),
                         string.Format("{0}", negativeMessage),
                         string.Format("{0}", negativeMessage),
@@ -298,7 +298,7 @@ this.ScenarioInitialize(scenarioInfo);
                         string.Format("{0}", negativeMessage)});
 #line 82
     testRunner.Then(string.Format("Verify context errors are present for recipe \"{0}\" tariff \"{1}\" in meal period \"{" +
-                        "2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table73, "Then ");
+                        "2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table74, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -588,14 +588,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 224
     testRunner.Then("Verify weekly post-production totals equals the sum of all meal period totals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table74 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table75 = new TechTalk.SpecFlow.Table(new string[] {
                         "qtyReqd",
                         "qtyProd",
                         "qtySold",
                         "noCharge",
                         "returnToStock",
                         "wastage"});
-            table74.AddRow(new string[] {
+            table75.AddRow(new string[] {
                         string.Format("{0}", qtyReqd),
                         string.Format("{0}", qtyProd),
                         string.Format("{0}", qtySold),
@@ -603,7 +603,7 @@ this.ScenarioInitialize(scenarioInfo);
                         string.Format("{0}", returnToStock),
                         string.Format("{0}", wastage)});
 #line 225
-        testRunner.And("Verify post-production weekly totals are", ((string)(null)), table74, "And ");
+        testRunner.And("Verify post-production weekly totals are", ((string)(null)), table75, "And ");
 #line hidden
             this.ScenarioCleanup();
         }
