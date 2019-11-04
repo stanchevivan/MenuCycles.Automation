@@ -187,8 +187,6 @@ namespace MenuCycle.Tests.Steps
             notification.WaitToAppear();
             notification.WaitToDisappear();
             menuCycleDashboard.WaitPageLoad();
- 
-            //notification.CloseNotification();
         }
 
         [When(@"Menu Cycle ""(.*)"" is deleted")]
