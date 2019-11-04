@@ -393,7 +393,7 @@ Scenario Outline: Buying Report - Local - Export Successfully
     When Reports page is opened
         And Report "BuyingReport" is opened
     Then Report is exported
-       And Verify notification message "Successfully Exported" is displayed
+       And Verify notification message "Successfully Exported." is displayed
         
        @QAI
         Examples:
