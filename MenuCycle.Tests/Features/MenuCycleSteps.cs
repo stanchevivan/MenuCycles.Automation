@@ -184,11 +184,11 @@ namespace MenuCycle.Tests.Steps
             menuCycleDashboard.GetMenuCycle(menuCycleName)
                               .UseActionButton()
                               .UseCopyButton();
-
-            menuCycleDashboard.WaitPageLoad();
             notification.WaitToAppear();
-            //notification.CloseNotification();
             notification.WaitToDisappear();
+            menuCycleDashboard.WaitPageLoad();
+ 
+            //notification.CloseNotification();
         }
 
         [When(@"Menu Cycle ""(.*)"" is deleted")]
