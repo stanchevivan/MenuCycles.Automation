@@ -192,19 +192,21 @@ namespace MenuCycle.Tests.Steps
         [When(@"Menu Cycle ""(.*)"" is deleted")]
         public void DeleteMenuCycle(string menuCycleName)
         {
-            var mc = menuCycleDashboard.GetMenuCycle(menuCycleName);
-            mc
-                .UseActionButton()
-                .UseDeleteButton();
+            while (menuCycleDashboard.MenuCycles.Count != 0)
+            {
+                var mc = menuCycleDashboard.GetMenuCycle(menuCycleName);
+                mc
+                    .UseActionButton()
+                    .UseDeleteButton();
 
-            modalDialogPage.WaitToAppear();
-            modalDialogPage.UseYesButton();
+                modalDialogPage.WaitToAppear();
+                modalDialogPage.UseYesButton();
 
-            menuCycleDashboard.WaitPageLoad();
+                menuCycleDashboard.WaitPageLoad();
 
-            notification.WaitToAppear();
-            //notification.CloseNotification();
-            notification.WaitToDisappear();
+                notification.WaitToAppear();
+                notification.WaitToDisappear();
+            }
         }
 
         [Then(@"Verify search results contain no menu cycles")]

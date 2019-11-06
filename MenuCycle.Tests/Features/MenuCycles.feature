@@ -48,7 +48,9 @@ Scenario Outline: Create Edit Copy Delete menu cycle
             |Name                            |Description    |
             |Automatically edited menu cycle |yes description|
             |Automatically created menu cycle|no description |
+        And Menu Cycle "Automatically created menu cycle" is searched
         And Menu Cycle "Automatically created menu cycle" is deleted
+        And Menu Cycle "Automatically edited menu cycle" is searched
         And Menu Cycle "Automatically edited menu cycle" is deleted
         And Menu Cycle "Automatically created menu cycle" is searched
     Then Verify search results contain no menu cycles

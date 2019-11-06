@@ -360,7 +360,7 @@ Scenario Outline: Traffic Light Report - Central - Export Successfully
         And Report "TrafficLight" is opened
     Then Verify Export button is displayed
        And Report is exported
-       And Verify notification message "Successfully Exported" is displayed
+       And Verify notification message "Successfully Exported." is displayed
         
         @QAI
         Examples:
@@ -377,7 +377,7 @@ Scenario Outline: Traffic Light Report - Local - Export Successfully
         And Report "TrafficLight" is opened
     Then Verify Export button is displayed
         And Report is exported
-        And Verify notification message "Successfully Exported" is displayed
+        And Verify notification message "Successfully Exported." is displayed
         
         @QAI
         Examples:
@@ -388,10 +388,10 @@ Scenario Outline: Traffic Light Report - Local - Export Successfully
 Scenario Outline: Buying Report - Local - Export Successfully 
    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
        And a local user is selected
-        And location "Site EUR1" is selected
-        And Menu Cycle "Local User Testing" is selected
+       And location "Site EUR1" is selected
+       And Menu Cycle "Local User Testing" is selected
     When Reports page is opened
-        And Report "BuyingReport" is opened
+       And Report "BuyingReport" is opened
     Then Report is exported
        And Verify notification message "Successfully Exported." is displayed
         
