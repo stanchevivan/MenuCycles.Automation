@@ -372,7 +372,7 @@ Scenario Outline: Traffic Light Report - Local - Export Successfully
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "Site EUR1" is selected
-        And Menu Cycle "Local User Testing" is selected
+        And Menu Cycle "Consumer Facing Report Export AUTOMATION" is selected
     When Reports page is opened
         And Report "TrafficLight" is opened
     Then Verify Export button is displayed
