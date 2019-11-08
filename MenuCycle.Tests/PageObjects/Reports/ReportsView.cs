@@ -174,52 +174,66 @@ namespace MenuCycle.Tests.PageObjects{    public class ReportsView : MenuCycle
             return reportText;
         }
 
-        public void CompareReports(Reports report, string reportType)
+        public void CompareReports(Reports report, string reportType, string reportName)
         {
             int startFromLine = 10;
-            string expectedOutput;
+            string expectedReportOutput;
 
-            string expectedReportPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
-                "Documents/MenuCycleReports");
+            string currentDirectory = Directory.GetCurrentDirectory();
+            string parentDir = Directory.GetParent(currentDirectory).Parent.Parent.ToString();
+
+            string expectedReportPath = Path.Combine(parentDir, "Reports");
 
             string downloadsPath = Path.Combine(
                   Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
                   "Downloads");
 
-            DirectoryInfo directory = new DirectoryInfo(downloadsPath);
-            string actualReport = directory.GetFiles()
+            DirectoryInfo actualReportDir = new DirectoryInfo(downloadsPath);
+            string actualReport = actualReportDir.GetFiles()
                  .OrderByDescending(f => f.LastWriteTime)
                  .First().ToString();
 
-            var actualOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
+            var actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
             switch (report)
             {
                 case Reports.ConsumerFacing:
-                    //string consumerFacingPDF = "/Users/MPetkov/Projects/Fourth.MenuCycles.Automation/Reports/ConsumerReportPdf.pdf";
-                    string consumerFacingPDF = expectedReportPath + "/ConsumerReportPdf.pdf";
+                    string consumerFacingPath = Path.Combine(expectedReportPath, "ConsumerFacing");
 
-                    expectedOutput = StartReadingPDFFromLine(consumerFacingPDF, startFromLine, reportType);
+                    string expectedConsumerFacingPDF = Path.Combine(consumerFacingPath, reportName);
 
-                    Assert.AreEqual(expectedOutput, actualOutput);
+                    expectedReportOutput = StartReadingPDFFromLine(expectedConsumerFacingPDF, startFromLine, reportType);
+
+                    Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
-
-                case Reports.ConsumerFacingCSV:
-                    //string consumerFacingCSV = "/Users/MPetkov/Projects/Fourth.MenuCycles.Automation/Reports/ConsumerReportCsv.csv";
-                    string consumerFacingCSV = expectedReportPath + "/ConsumerReportCsv.csv";
-
-                    expectedOutput = StartReadingPDFFromLine(consumerFacingCSV, startFromLine, reportType);
-
-                    Assert.AreEqual(expectedOutput, actualOutput);
-                    break;
-
                 case Reports.MenuExtract:
+                    string menuExtractReportPath = Path.Combine(expectedReportPath, "MenuExtract");
+
+                    string expectedMenuExtract = Path.Combine(menuExtractReportPath, reportName);
+
+                    expectedReportOutput = StartReadingPDFFromLine(expectedMenuExtract, startFromLine, reportType);
+
+                    Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.RecipeCard:
+                    string recipeCardReportPath = Path.Combine(expectedReportPath, "RecipeCard");
+
+                    string expectedRecipeCard = Path.Combine(recipeCardReportPath, reportName);
+
+                    expectedReportOutput = StartReadingPDFFromLine(expectedRecipeCard, startFromLine, reportType);
+
+                    Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.TrafficLight:
                     break;
                 case Reports.MenuCycleCalendar:
+                    string menuCycleCalendarReportPath = Path.Combine(expectedReportPath, "MenuCycleCalendar");
+
+                    string expectedMenuCycleCalendar = Path.Combine(menuCycleCalendarReportPath, reportName);
+
+                    expectedReportOutput = StartReadingPDFFromLine(expectedMenuCycleCalendar, startFromLine, reportType);
+
+                    Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.BuyingReport:
                     break;

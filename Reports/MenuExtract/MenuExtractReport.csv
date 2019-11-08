@@ -1,0 +1,10 @@
+Menu Cycle Id ,Menu Cycle ,Offer Code ,Item type ,Menu Cycles day ,Meal period ,Menu name ,Course ,Recipe name ,Recipe short name ,Recipe description ,Product type ,Cooking Time ,Prep Time ,Recipe Category 1 ,Recipe Category 2 ,Recipe Category 3 ,Recipe Category 4 ,Recipe Category 5 ,Recipe Category 6 ,Recipe Category 7 ,Recipe Category 8 ,Recipe Internal Code ,Serving Weight ,Shrinkage ,Yield ,Recipe Portion Size ,Unit Of Use ,Cost 
+    21058,Meda,SodexoUK,Recipe,1,Lunch,,,004Baked Beans_3,Bean 3,Baked BeansEEE1,Standard,30,15,"AP Starter, Hot, Soup",SI Side Salad,SubMenuGroup2,Test ,,,,,,1.2000 kg,0.00,kg,120.0000,g,1.9157
+    21058,Meda,SodexoUK,Recipe,2,Lunch,,,724Gourmet Beef Burger 6oz,,Gourmet Beef Burger,Standard,60,45,MenuGroupDefault,,,,,,,,,1.8985 kg,0.00,kg,189.8500,g,0.3750
+    21058,Meda,SodexoUK,Recipe,2,Lunch,,,724Gourmet Chicken Burger,Chick Burger,Gourmet Chicken Burger,Standard,60,45,MenuGroupDefault,Test ,,,,,,,,1.8985 kg,0.00,kg,189.8500,g,0.3750
+    21058,Meda,SodexoUK,Recipe,6,Lunch,,,004Baked Beans_3,Bean 3,Baked BeansEEE1,Standard,30,15,"AP Starter, Hot, Soup",SI Side Salad,SubMenuGroup2,Test ,,,,,,1.2000 kg,0.00,kg,120.0000,g,1.9157
+    21058,Meda,SodexoUK,Recipe,7,Lunch,,,004Baked Beanss,004Baked Beans,Baked BeansEEE1,Standard,6,5,MenuGroupDefault,Test ,,,,,,,,1.5000 kg,0.00,kg,15.0000,g,2.3946
+    21058,Meda,SodexoUK,Recipe,7,Lunch,,,004Baked Beans_0,Bean 0,Baked BeansEEE ,Standard,30,15,"AP Starter, Hot, Soup",BR Hot Items,"FB Hot, Wrap","SI Vegetable, Compound, Processed",SubMenuGroup2,Test ,,,,1.2000 kg,0.00,kg,120.0000,g,278.8314
+    21058,Meda,SodexoUK,Recipe,7,Lunch,,,004Baked Beans_1,Bean 1,Baked BeansEEE,Standard,30,15,SubMenuGroup2,Test ,,,,,,,,1.2000 kg,0.00,kg,120.0000,g,5.7471
+    21058,Meda,SodexoUK,Recipe,9,Lunch,,,004Basic Sponge,,Basic Sponge,Standard,,,MenuGroupDefault,,,,,,,,,150.0000 g,0.00,g,15.0000,g,0.0468
+    21058,Meda,SodexoUK,Recipe,9,Lunch,,,004Baked Beans_0,Bean 0,Baked BeansEEE ,Standard,30,15,"AP Starter, Hot, Soup",BR Hot Items,"FB Hot, Wrap","SI Vegetable, Compound, Processed",SubMenuGroup2,Test ,,,,1.2000 kg,0.00,kg,120.0000,g,278.8314

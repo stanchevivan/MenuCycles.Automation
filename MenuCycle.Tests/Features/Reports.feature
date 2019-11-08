@@ -45,7 +45,8 @@ Scenario Outline: Export Consumer Facing Report as PDF with Sell Price, Kilojoul
         And Calories checkbox is checked
         And Kilojoules checkbox is checked
         And Export PDF button is clicked
-    Then Verify notification message "Successfully Exported" is displayed and the report "ConsumerFacing" type "pdf" is the right one
+    Then Verify notification message "Successfully Exported" is displayed 
+        And report "ConsumerFacing" with name "ConsumerReportPdfAllParams.pdf" type "pdf" is compared with the expected one
     
     @QAI
     Examples:
@@ -69,7 +70,8 @@ Scenario Outline: Export Consumer Facing Report as CSV with Sell Price, Kilojoul
         And Calories checkbox is checked
         And Kilojoules checkbox is checked
         And Export CSV button is clicked
-    Then Verify notification message "Successfully Exported" is displayed and the report "ConsumerFacingCSV" type "csv" is the right one
+    Then Verify notification message "Successfully Exported" is displayed 
+        And report "ConsumerFacing" with name "ConsumerReportCsvAllParams.csv" type "csv" is compared with the expected one
     
     @QAI
     Examples:
@@ -91,7 +93,8 @@ Scenario Outline: Consumer Facing Report - Local > User is able to export Consum
         And Export CSV and Export PDF buttons are displayed
         And Export PDF button is clicked
     Then Verify notification message "Successfully Exported" is displayed
-    
+            And report "ConsumerFacing" with name "ConsumerReportNoParams.pdf" type "pdf" is compared with the expected one
+
     @QAI
     Examples:
     |environment|withFA|
@@ -112,7 +115,8 @@ Scenario Outline: Consumer Facing Report - Local > User is able to export Consum
         And Export CSV and Export PDF buttons are displayed
         And Export CSV button is clicked
     Then Verify notification message "Successfully Exported" is displayed
-    
+        And report "ConsumerFacing" with name "ConsumerReportNoParams.csv" type "csv" is compared with the expected one
+   
     @QAI
     Examples:
     |environment|withFA|
@@ -242,6 +246,7 @@ Scenario Outline: Recipe Card Report - Central > Export button is displayed afte
     Then Verify Export button is displayed
         And Report is exported
         And Verify notification message "Successfully Exported." is displayed
+    And report "RecipeCard" with name "RecipeCard.pdf" type "pdf" is compared with the expected one
         
         @QAI
         Examples:
@@ -284,7 +289,7 @@ Scenario Outline: Menu Extract Report - Central > Export button is displayed and
     Then Verify Export button is displayed
         And Report is exported
         And Verify notification message "Successfully Exported" is displayed
-        
+        And report "MenuExtract" with name "MenuExtractReport.csv" type "csv" is compared with the expected one
         @QAI
         Examples:
         |environment|withFA|
@@ -304,6 +309,7 @@ Scenario Outline: Menu Cycle Calendar - Central - Export Successfully
     Then Verify Export button is displayed
         And Report is exported
         And Verify notification message "Successfully Exported" is displayed
+        And report "MenuCycleCalendar" with name "CentralMenuCycleCalendar.csv" type "csv" is compared with the expected one
         
         @QAI
         Examples:
@@ -325,6 +331,7 @@ Scenario Outline: Menu Cycle Calendar - Local - Export Successfully
     Then Verify Export button is displayed
         And Report is exported
         And Verify notification message "Successfully Exported" is displayed
+        And report "MenuCycleCalendar" with name "LocalMenuCycleCalendar.csv" type "csv" is compared with the expected one
         
         @QAI
         Examples:
