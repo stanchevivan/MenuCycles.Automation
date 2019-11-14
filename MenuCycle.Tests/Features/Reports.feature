@@ -269,6 +269,31 @@ Scenario Outline: Recipe Card Report - Local > Error message is displayed if sel
     Examples:
     |environment|withFA|
     |QAI        |false |
+
+    @TC43574
+    Scenario Outline: Recipe Card Report - Local > Export Successfully
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a local user is selected
+        And location "Site EUR1" is selected
+        And Menu Cycle "Local User Testing" is selected
+    When Reports page is opened
+        And Report "RecipeCard" is opened
+        And Report start date "31/07/2019" is selected
+        And Report end date "30/08/2019" is selected
+        And Meal periods are selected
+        |MealPeriod         |
+        |Lunch              |
+        |Dinner             |
+        And recipe "<recipe>" is searched
+        And Checkbox for Select All is selected
+        And Done button is selected
+        And Report is exported
+    Then Verify notification message "Successfully Exported." is displayed
+    
+    @QAI
+    Examples:
+    |environment|withFA|recipe|
+    |QAI        |false |apple |
     
 @TC33985
 Scenario Outline: Menu Extract Report - Central > Export button is displayed and clicked after meal period is specified
@@ -399,3 +424,20 @@ Scenario Outline: Buying Report - Local - Export Successfully
         Examples:
         |environment|withFA|
         |QAI        |false |
+
+    @TC43575
+    Scenario Outline: Destinations to publish - Location Gap Check - Export Successfully
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a central user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When daily review page is opened
+        And Select & Verify Destinations button is clicked
+        And All destinations are selected
+        And Run button is clicked
+        Then Verify notification message "Successfully Exported" is displayed
+        And Verify Gap Check report are displayed
+    
+    @QAI
+    Examples:
+    |environment|withFA|menuCycle|
+    |QAI        |false |Meda     |

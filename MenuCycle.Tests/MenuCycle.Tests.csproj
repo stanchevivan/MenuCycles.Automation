@@ -539,6 +539,7 @@
     <Compile Include="PageObjects\MassUpdate\MassUpdateOccurrencesRow.cs" />
     <Compile Include="PageObjects\MassUpdate\UpdatePrices\UpdatePrices.cs" />
     <Compile Include="PageObjects\MassUpdate\UpdatePrices\UpdatePricesRow.cs" />
+    <Compile Include="PageObjects\Review\DestinationReviewPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Chrome.config">

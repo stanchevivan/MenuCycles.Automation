@@ -12,14 +12,15 @@ namespace MenuCycle.Tests.Steps
         readonly ScenarioContext scenarioContext;
         readonly ReportsView reportsView;
         readonly ConsumerFacingReportPage consumerFacingReportPage;
+        readonly ModalDialogPage modalDialogPage;
 
 
-        public ReportSteps(ScenarioContext scenarioContext, ToastNotification notification, ReportsView reportsView, ConsumerFacingReportPage consumerFacingReportPage)
+        public ReportSteps(ScenarioContext scenarioContext, ToastNotification notification, ReportsView reportsView, ConsumerFacingReportPage consumerFacingReportPage, ModalDialogPage modalDialogPage)
         {
             this.notification = notification;
             this.reportsView = reportsView;
             this.consumerFacingReportPage = consumerFacingReportPage;
-
+            this.modalDialogPage = modalDialogPage;
             this.scenarioContext = scenarioContext;
         }
 
@@ -141,6 +142,18 @@ namespace MenuCycle.Tests.Steps
         public void ExportButtonIsDisplayed()
         {
             Assert.IsTrue(reportsView.IsExportButtonVisible);
+        }
+
+        [When(@"Checkbox for Select All is selected")]
+        public void WhenCheckboxForSelectAllIsSelected()
+        {
+            modalDialogPage.ClickSelectAll();
+        }
+
+        [When(@"Done button is selected")]
+        public void WhenDoneButtonIsSelected()
+        {
+            modalDialogPage.UseApplyButton();
         }
     }
 }

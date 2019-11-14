@@ -86,7 +86,7 @@ namespace MenuCycle.Tests.PageObjects
 
         public MenuCycleItem GetMenuCycle(string name)
         {
-            return MenuCycles.First(x => x.Name == name);
+            return MenuCycles.First(x => x.Name.ToUpper() == name.ToUpper());
         }
 
         public void ClickLocationName()
