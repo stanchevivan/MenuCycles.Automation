@@ -708,11 +708,18 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Recipe Card Report - Local > Export Successfully")]
+        [NUnit.Framework.CategoryAttribute("TC43574")]
         [NUnit.Framework.TestCaseAttribute("QAI", "false", "apple", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void RecipeCardReport_LocalExportSuccessfully(string environment, string withFA, string recipe, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Recipe Card Report - Local > Export Successfully", null, exampleTags);
+            string[] @__tags = new string[] {
+                    "TC43574"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Recipe Card Report - Local > Export Successfully", null, @__tags);
 #line 274
     this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -1003,9 +1010,9 @@ this.ScenarioInitialize(scenarioInfo);
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 399
         testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 375
+#line 400
         testRunner.And("Menu Cycle \"Consumer Facing Report Export AUTOMATION\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 376
+#line 401
     testRunner.When("Reports page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 402
         testRunner.And("Report \"TrafficLight\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -1058,11 +1065,18 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Destinations to publish - Location Gap Check - Export Successfully")]
+        [NUnit.Framework.CategoryAttribute("TC43575")]
         [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void DestinationsToPublish_LocationGapCheck_ExportSuccessfully(string environment, string withFA, string menuCycle, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Destinations to publish - Location Gap Check - Export Successfully", null, exampleTags);
+            string[] @__tags = new string[] {
+                    "TC43575"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Destinations to publish - Location Gap Check - Export Successfully", null, @__tags);
 #line 429
     this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
