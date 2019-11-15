@@ -1,0 +1,1090 @@
+{
+  "Request": {
+    "Path": {
+      "Matchers": [
+        {
+          "Name": "WildcardMatcher",
+          "Pattern": "/user",
+          "IgnoreCase": true
+        }
+      ]
+    },
+    "Method": "GET"
+  },
+  "Response": {
+    "StatusCode": 200,
+    "Headers": {
+      "Content-Type": "application/vnd.siren+json",
+      "Access-Control-Allow-Origin": "http://localhost:4200",
+      "Access-Control-Allow-Headers": "Authorization, Content-Type, X-Fourth-Org, X-Fourth-UserID"
+    },
+    "BodyAsJson": {
+      "class": [
+        "User"
+      ],
+      "properties": {
+        "userId": 10044,
+        "name": "MC Automation",
+        "externalId": "0058E000002wxbQQAQ",
+        "isCentral": false,
+        "canCreateMenuCycle": true,
+        "canDeleteMenuCycle": true,
+        "canEditMenuCycle": true,
+        "canViewMenu": true,
+        "canViewMenuCycle": true,
+        "canViewRecipe": true,
+        "canPublishMenuCycle": true,
+        "preventSellPriceEditMenuCycle": false,
+        "canLockMenuCycle": true
+      },
+      "entities": [
+        {
+          "class": [
+            "Groups"
+          ],
+          "rel": [
+            "/rels/user/groups"
+          ],
+          "properties": {
+            "defaultPageSize": 17,
+            "totalRows": 17
+          },
+          "entities": [
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 1,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "SodexoUK"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/1",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 2,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "UK Group"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/2",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 3,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "UK Library"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/3",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 4,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "UK Live Data Management"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/4",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 5,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "E&W Library"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/5",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 6,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "GB Library"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/6",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 7,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "NI Library"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/7",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 8,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "Scotland Library"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/8",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 9,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "ROI Group"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/9",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 10,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "ROI Library"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/10",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 11,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "ROI Live Data Management"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/11",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 12,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "ROI Archive"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/12",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 13,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "UK Archive"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/13",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 20,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "TestGroupPrice"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/20",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 21,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "TestGroupPrice2"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/21",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 24,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "TestGroupPrice3"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/24",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Group"
+              ],
+              "rel": [
+                "/rels/group"
+              ],
+              "properties": {
+                "groupId": 10028,
+                "groupGuid": "00000000-0000-0000-0000-000000000000",
+                "name": "Demo Zhivko"
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/10028",
+                  "method": "GET",
+                  "title": "Group",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/groups"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
+                  "method": "GET",
+                  "title": "Groups",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/groups",
+              "method": "GET",
+              "title": "Groups",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "Locations"
+          ],
+          "rel": [
+            "/rels/user/locations"
+          ],
+          "properties": {
+            "defaultPageSize": 11,
+            "totalRows": 11
+          },
+          "entities": [
+            {
+              "class": [
+                "Location"
+              ],
+              "rel": [
+                "/rels/location"
+              ],
+              "properties": {
+                "locationId": 2,
+                "name": "Site EUR2",
+                "locationCode": "SE002",
+                "canCreateMenuCycle": true,
+                "canDeleteMenuCycle": true,
+                "canEditMenuCycle": true,
+                "preventSellPriceEditMenuCycle": false
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/2",
+                  "method": "GET",
+                  "title": "Location",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/menucycle/locations"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
+                  "method": "GET",
+                  "title": "Locations",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Location"
+              ],
+              "rel": [
+                "/rels/location"
+              ],
+              "properties": {
+                "locationId": 3,
+                "name": "Site EUR1",
+                "locationCode": "SE001",
+                "canCreateMenuCycle": true,
+                "canDeleteMenuCycle": true,
+                "canEditMenuCycle": true,
+                "preventSellPriceEditMenuCycle": false
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/3",
+                  "method": "GET",
+                  "title": "Location",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/menucycle/locations"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
+                  "method": "GET",
+                  "title": "Locations",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Location"
+              ],
+              "rel": [
+                "/rels/location"
+              ],
+              "properties": {
+                "locationId": 4,
+                "name": "Site GBP1",
+                "locationCode": "SG001",
+                "canCreateMenuCycle": true,
+                "canDeleteMenuCycle": true,
+                "canEditMenuCycle": true,
+                "preventSellPriceEditMenuCycle": false
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/4",
+                  "method": "GET",
+                  "title": "Location",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/menucycle/locations"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
+                  "method": "GET",
+                  "title": "Locations",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Location"
+              ],
+              "rel": [
+                "/rels/location"
+              ],
+              "properties": {
+                "locationId": 5,
+                "name": "Site GBP2",
+                "locationCode": "SG002",
+                "canCreateMenuCycle": true,
+                "canDeleteMenuCycle": true,
+                "canEditMenuCycle": true,
+                "preventSellPriceEditMenuCycle": false
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/5",
+                  "method": "GET",
+                  "title": "Location",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/menucycle/locations"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
+                  "method": "GET",
+                  "title": "Locations",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Location"
+              ],
+              "rel": [
+                "/rels/location"
+              ],
+              "properties": {
+                "locationId": 6,
+                "name": "Demo site",
+                "locationCode": "DS123",
+                "canCreateMenuCycle": true,
+                "canDeleteMenuCycle": true,
+                "canEditMenuCycle": true,
+                "preventSellPriceEditMenuCycle": false
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/6",
+                  "method": "GET",
+                  "title": "Location",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/menucycle/locations"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
+                  "method": "GET",
+                  "title": "Locations",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Location"
+              ],
+              "rel": [
+                "/rels/location"
+              ],
+              "properties": {
+                "locationId": 7,
+                "name": "site gbp3",
+                "locationCode": "SG003",
+                "canCreateMenuCycle": true,
+                "canDeleteMenuCycle": true,
+                "canEditMenuCycle": true,
+                "preventSellPriceEditMenuCycle": false
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/7",
+                  "method": "GET",
+                  "title": "Location",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/menucycle/locations"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
+                  "method": "GET",
+                  "title": "Locations",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Location"
+              ],
+              "rel": [
+                "/rels/location"
+              ],
+              "properties": {
+                "locationId": 8,
+                "name": "Sodexosite",
+                "locationCode": "SS01",
+                "canCreateMenuCycle": true,
+                "canDeleteMenuCycle": true,
+                "canEditMenuCycle": true,
+                "preventSellPriceEditMenuCycle": false
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/8",
+                  "method": "GET",
+                  "title": "Location",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/menucycle/locations"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
+                  "method": "GET",
+                  "title": "Locations",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Location"
+              ],
+              "rel": [
+                "/rels/location"
+              ],
+              "properties": {
+                "locationId": 15,
+                "name": "DemositeM02at0956",
+                "locationCode": "DS002",
+                "canCreateMenuCycle": true,
+                "canDeleteMenuCycle": true,
+                "canEditMenuCycle": true,
+                "preventSellPriceEditMenuCycle": false
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/15",
+                  "method": "GET",
+                  "title": "Location",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/menucycle/locations"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
+                  "method": "GET",
+                  "title": "Locations",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Location"
+              ],
+              "rel": [
+                "/rels/location"
+              ],
+              "properties": {
+                "locationId": 16,
+                "name": "NewMSTestSite M209:57",
+                "locationCode": "sitecode_09:57",
+                "canCreateMenuCycle": true,
+                "canDeleteMenuCycle": true,
+                "canEditMenuCycle": true,
+                "preventSellPriceEditMenuCycle": false
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/16",
+                  "method": "GET",
+                  "title": "Location",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/menucycle/locations"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
+                  "method": "GET",
+                  "title": "Locations",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Location"
+              ],
+              "rel": [
+                "/rels/location"
+              ],
+              "properties": {
+                "locationId": 17,
+                "name": "MenuServiceSite",
+                "locationCode": "MS0123",
+                "canCreateMenuCycle": true,
+                "canDeleteMenuCycle": true,
+                "canEditMenuCycle": true,
+                "preventSellPriceEditMenuCycle": false
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/17",
+                  "method": "GET",
+                  "title": "Location",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/menucycle/locations"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
+                  "method": "GET",
+                  "title": "Locations",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            },
+            {
+              "class": [
+                "Location"
+              ],
+              "rel": [
+                "/rels/location"
+              ],
+              "properties": {
+                "locationId": 20,
+                "name": "MenuService01",
+                "locationCode": "MS4321",
+                "canCreateMenuCycle": true,
+                "canDeleteMenuCycle": true,
+                "canEditMenuCycle": true,
+                "preventSellPriceEditMenuCycle": false
+              },
+              "entities": [],
+              "links": [
+                {
+                  "rel": [
+                    "self"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/20",
+                  "method": "GET",
+                  "title": "Location",
+                  "type": "application/vnd.siren+json;"
+                },
+                {
+                  "rel": [
+                    "/rels/menucycle/locations"
+                  ],
+                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
+                  "method": "GET",
+                  "title": "Locations",
+                  "type": "application/vnd.siren+json;"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/locations",
+              "method": "GET",
+              "title": "Locations",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -11,7 +11,7 @@ namespace MenuCycle.Tests.Support
 
         static ConfigurationReader()
         {
-            string result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Support/Environment.config"));
+            string result = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Support/Environment.json"));
             configuration = JsonValue.Parse(result);
         }
 

@@ -11,12 +11,14 @@ namespace MenuCycle.Tests.Support
     public sealed class Hooks
     {
         private IWebDriver driver;
-        private ScenarioContext scenarioContext;
+        //private ScenarioContext scenarioContext;
+        private readonly WireMock mock;
 
-        public Hooks(IWebDriver driver, ScenarioContext scenarioContext)
+        public Hooks(IWebDriver driver, ScenarioContext scenarioContext, WireMock mock)
         {
             this.driver = driver;
-            this.scenarioContext = scenarioContext;
+            //this.scenarioContext = scenarioContext;
+            this.mock = mock;
         }
 
         [BeforeTestRun]
@@ -30,11 +32,13 @@ namespace MenuCycle.Tests.Support
         [BeforeScenario]
         public void BeforeScenario()
         {
+            mock.Start();
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
+            mock.Stop();
             if (this.driver.IsMobile())
             {
                 this.driver.Quit();

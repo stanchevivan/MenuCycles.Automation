@@ -1,0 +1,2594 @@
+﻿{
+  "Request": {
+    "Path": {
+      "Matchers": [
+        {
+          "Name": "WildcardMatcher",
+          "Pattern": "/menucycles",
+          "IgnoreCase": true
+        }
+      ]
+    },
+    "Method": "GET"
+  },
+  "Response": {
+    "StatusCode": 200,
+    "Headers": {
+      "Content-Type": "application/vnd.siren+json",
+      "Access-Control-Allow-Origin": "http://localhost:4200",
+      "Access-Control-Allow-Headers": "Authorization, Content-Type, X-Fourth-Org, X-Fourth-UserID"
+    },
+    "BodyAsJson": {
+      "class": [
+        "MenuCycles",
+        "Paged-Collection"
+      ],
+      "properties": {
+        "defaultPageSize": 20,
+        "top": 20,
+        "totalRows": 1079
+      },
+      "entities": [
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 166003,
+            "name": "EII DO NOT TOUCH",
+            "description": "EII DO NOT TOUCH",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-31T00:00:00",
+            "endDate": "2019-10-31T00:00:00",
+            "releaseDate": "2019-10-31T00:00:00",
+            "nonServingDays": 64,
+            "status": 3,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/166003/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/166003/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/166003/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/166003/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/166003/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/166003",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/166003",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/166003",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165996,
+            "name": "EII DO NOT TOUCH",
+            "description": "EII DO NOT TOUCH",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-28T00:00:00",
+            "endDate": "2019-10-28T00:00:00",
+            "releaseDate": "2019-10-28T00:00:00",
+            "nonServingDays": 64,
+            "status": 3,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165996/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165996/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165996/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165996/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165996/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165996",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165996",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165996",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165993,
+            "name": "EII DO NOT TOUCH",
+            "description": "EII DO NOT TOUCH",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-31T00:00:00",
+            "endDate": "2019-10-31T00:00:00",
+            "releaseDate": "2019-10-31T00:00:00",
+            "nonServingDays": 64,
+            "status": 3,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165993/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165993/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165993/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165993/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165993/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165993",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165993",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165993",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165960,
+            "name": "EII DO NOT TOUCH",
+            "description": "EII DO NOT TOUCH",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-31T00:00:00",
+            "endDate": "2019-10-31T00:00:00",
+            "releaseDate": "2019-10-31T00:00:00",
+            "nonServingDays": 64,
+            "status": 3,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165960/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165960/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165960/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165960/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165960/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165960",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165960",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165960",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165943,
+            "name": "EII DO NOT TOUCH",
+            "description": "EII DO NOT TOUCH",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-31T00:00:00",
+            "endDate": "2019-10-31T00:00:00",
+            "releaseDate": "2019-10-31T00:00:00",
+            "nonServingDays": 64,
+            "status": 3,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165943/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165943/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165943/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165943/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165943/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165943",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165943",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165943",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165926,
+            "name": "EII DO NOT TOUCH",
+            "description": "EII DO NOT TOUCH",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-31T00:00:00",
+            "endDate": "2019-10-31T00:00:00",
+            "releaseDate": "2019-10-31T00:00:00",
+            "nonServingDays": 64,
+            "status": 3,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165926/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165926/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165926/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165926/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165926/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165926",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165926",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165926",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165909,
+            "name": "EII DO NOT TOUCH",
+            "description": "EII DO NOT TOUCH",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-31T00:00:00",
+            "endDate": "2019-10-31T00:00:00",
+            "releaseDate": "2019-10-31T00:00:00",
+            "nonServingDays": 64,
+            "status": 3,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165909/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165909/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165909/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165909/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165909/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165909",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165909",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165909",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165908,
+            "name": "mass update test",
+            "description": "НЕ пипай тук!",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-31T00:00:00",
+            "endDate": "2019-10-31T00:00:00",
+            "releaseDate": "2019-10-31T00:00:00",
+            "nonServingDays": 64,
+            "status": 3,
+            "numberOfWeeks": 4,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165908/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165908/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165908/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165908/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165908/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165908",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165908",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165908",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165905,
+            "name": "EII DO NOT TOUCH",
+            "description": "EII DO NOT TOUCH",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-31T00:00:00",
+            "endDate": "2019-10-31T00:00:00",
+            "releaseDate": "2019-10-31T00:00:00",
+            "nonServingDays": 64,
+            "status": 3,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165905/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165905/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165905/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165905/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165905/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165905",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165905",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165905",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165902,
+            "name": "EII DO NOT TOUCH",
+            "description": "EII DO NOT TOUCH",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-31T00:00:00",
+            "endDate": "2019-10-31T00:00:00",
+            "releaseDate": "2019-10-31T00:00:00",
+            "nonServingDays": 64,
+            "status": 3,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165902/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165902/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165902/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165902/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165902/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165902",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165902",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165902",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165901,
+            "name": "тест",
+            "description": "тест",
+            "isPublished": false,
+            "isMaster": true,
+            "nonServingDays": 0,
+            "status": 6,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165901/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165901/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165901/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165901/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165901/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Publish",
+              "class": [
+                "Publish"
+              ],
+              "method": "POST",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165901/Publish",
+              "title": "Publish the menu cycle to the current list of locations",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165901",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165901",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165901",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165898,
+            "name": "dfsdss",
+            "description": "dfsfsd",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-31T00:00:00",
+            "endDate": "2019-10-31T00:00:00",
+            "releaseDate": "2019-10-31T00:00:00",
+            "nonServingDays": 64,
+            "status": 3,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165898/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165898/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165898/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165898/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165898/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165898",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165898",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165898",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165897,
+            "name": "mass update test",
+            "description": "НЕ пипай тук!",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-31T00:00:00",
+            "endDate": "2019-10-31T00:00:00",
+            "releaseDate": "2019-10-31T00:00:00",
+            "nonServingDays": 64,
+            "status": 3,
+            "numberOfWeeks": 4,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165897/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165897/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165897/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165897/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165897/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165897",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165897",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165897",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165892,
+            "name": "dfsdss",
+            "description": "dfsfsd",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-31T00:00:00",
+            "endDate": "2019-10-31T00:00:00",
+            "releaseDate": "2019-10-31T00:00:00",
+            "nonServingDays": 64,
+            "status": 4,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165892/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165892/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165892/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165892/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165892/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165892",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165892",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165892",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165889,
+            "name": "dfsdss",
+            "description": "dfsfsd",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-31T00:00:00",
+            "endDate": "2019-10-31T00:00:00",
+            "releaseDate": "2019-10-31T00:00:00",
+            "nonServingDays": 64,
+            "status": 3,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165889/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165889/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165889/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165889/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165889/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165889",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165889",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165889",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165888,
+            "name": "test category defect",
+            "description": "test",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-31T00:00:00",
+            "endDate": "2019-10-31T00:00:00",
+            "releaseDate": "2019-10-31T00:00:00",
+            "nonServingDays": 0,
+            "status": 3,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165888/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165888/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165888/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165888/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165888/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165888",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165888",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165888",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165885,
+            "name": "test publish status",
+            "description": "test",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-28T00:00:00",
+            "endDate": "2020-12-31T00:00:00",
+            "releaseDate": "2019-10-28T00:00:00",
+            "nonServingDays": 0,
+            "status": 3,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165885/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165885/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165885/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165885/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165885/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165885",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165885",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165885",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165880,
+            "name": "test publish status",
+            "description": "test",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-28T00:00:00",
+            "endDate": "2020-12-31T00:00:00",
+            "releaseDate": "2019-10-28T00:00:00",
+            "nonServingDays": 0,
+            "status": 3,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165880/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165880/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165880/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165880/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165880/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165880",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165880",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165880",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165877,
+            "name": "dfsdss",
+            "description": "dfsfsd",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-31T00:00:00",
+            "endDate": "2019-10-31T00:00:00",
+            "releaseDate": "2019-10-31T00:00:00",
+            "nonServingDays": 64,
+            "status": 3,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165877/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165877/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165877/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165877/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165877/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165877",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165877",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165877",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        },
+        {
+          "class": [
+            "MenuCycle"
+          ],
+          "rel": [
+            "/rels/menucycle"
+          ],
+          "properties": {
+            "menuCycleId": 165874,
+            "name": "dfsdss",
+            "description": "dfsfsd",
+            "isPublished": true,
+            "isMaster": true,
+            "startDate": "2019-10-31T00:00:00",
+            "endDate": "2019-10-31T00:00:00",
+            "releaseDate": "2019-10-31T00:00:00",
+            "nonServingDays": 64,
+            "status": 3,
+            "numberOfWeeks": 1,
+            "numberOfRecipes": 0,
+            "numberOfPlannings": 0
+          },
+          "entities": [
+            {
+              "class": [
+                "Items"
+              ],
+              "rel": [
+                "/rels/menucycle/items"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165874/Items"
+            },
+            {
+              "class": [
+                "Groups"
+              ],
+              "rel": [
+                "/rels/menucycle/groups"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165874/Groups"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/publish"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165874/Publish"
+            },
+            {
+              "class": [
+                "Locations"
+              ],
+              "rel": [
+                "/rels/menucycle/locations"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165874/Locations"
+            },
+            {
+              "class": [
+                "Planning"
+              ],
+              "rel": [
+                "/rels/menucycle/planning"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165874/Planning"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Delete",
+              "class": [
+                "Delete"
+              ],
+              "method": "DELETE",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165874",
+              "title": "Deletes menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Update",
+              "class": [
+                "Update"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165874",
+              "title": "Updates menu cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            },
+            {
+              "name": "Search",
+              "class": [
+                "Search"
+              ],
+              "method": "PUT",
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/Search/MenuCycles",
+              "title": "Search for menus and recipes to add to the cycle",
+              "type": "application/vnd.siren+json;",
+              "fields": []
+            }
+          ],
+          "links": [
+            {
+              "rel": [
+                "self"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles/165874",
+              "method": "GET",
+              "title": "Menu Cycle",
+              "type": "application/vnd.siren+json;"
+            },
+            {
+              "rel": [
+                "/rels/menucycles"
+              ],
+              "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+              "method": "GET",
+              "title": "Menu Cycles",
+              "type": "application/vnd.siren+json;"
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "name": "Create",
+          "class": [
+            "Create"
+          ],
+          "method": "POST",
+          "href": "https://api-dev.fourth.com/qai/api/menuservice/MenuCycles",
+          "title": "Create a menu cycle",
+          "type": "application/vnd.siren+json;",
+          "fields": []
+        }
+      ],
+      "links": [
+        {
+          "rel": [
+            "self"
+          ],
+          "href": "https://api-dev.fourth.com/qai/api/menuservice//MenuCycles?%24orderby=MenuCycleId+desc&%24top=20",
+          "method": "GET",
+          "title": "MenuCycles",
+          "type": "application/vnd.siren+json;"
+        },
+        {
+          "rel": [
+            "currentPage"
+          ],
+          "href": "https://api-dev.fourth.com/qai/api/menuservice//MenuCycles?$orderby=MenuCycleId%20desc&$top=20&$skip=0",
+          "method": "GET",
+          "title": "Current Page",
+          "type": "application/vnd.siren+json;"
+        },
+        {
+          "rel": [
+            "nextPage"
+          ],
+          "href": "https://api-dev.fourth.com/qai/api/menuservice//MenuCycles?$orderby=MenuCycleId%20desc&$top=20&$skip=20",
+          "method": "GET",
+          "title": "Next Page",
+          "type": "application/vnd.siren+json;"
+        },
+        {
+          "rel": [
+            "lastPage"
+          ],
+          "href": "https://api-dev.fourth.com/qai/api/menuservice//MenuCycles?$orderby=MenuCycleId%20desc&$top=20&$skip=1060",
+          "method": "GET",
+          "title": "Last Page",
+          "type": "application/vnd.siren+json;"
+        }
+      ]
+    }
+  }
+}

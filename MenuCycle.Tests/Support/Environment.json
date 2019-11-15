@@ -1,6 +1,10 @@
 ﻿{
-  "QAI": 
-  {
+  "Local": {
+    "URL": "http://localhost:4200",
+    "User": "",
+    "Password": ""
+  },
+  "QAI": {
     "URL": "http://qapartial-fourth-app.cs87.force.com/",
     "URL_SF": "https://qapartial-fourth-app.cs87.force.com/login?startURL=%2Fidp%2Flogin%3Fapp%3D0sp8E000000009m",
     "User": "martin.petkov@fourth.com",
@@ -12,22 +16,19 @@
     "User": "mobile.qateam76624@fourth.com",
     "Password": "Mypassword_003"
   },
-  "EMEA":
-   {
+  "EMEA": {
     "URL": "https://secure.fourth.com",
     "User": "",
     "Password": ""
   },
-  "US": 
-  {
+  "US": {
     "URL": "https://secure.fourth.com",
     "User": "",
     "Password": ""
   },
-  "UAT":
-   {
+  "UAT": {
     "URL": "https://uat-fourth-app.cs102.force.com",
     "User": "",
     "Password": ""
-  },
+  }
 }

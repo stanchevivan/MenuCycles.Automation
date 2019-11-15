@@ -100,11 +100,11 @@ namespace MenuCycle.Tests.Steps
             else
             {
                 ConfigurationReader.Initialize(environment);
-                salesforceLoginPage.PerformLogin(ConfigurationReader.User, ConfigurationReader.Password, new System.Uri(ConfigurationReader.URL_Salesforce));
+                //salesforceLoginPage.PerformLogin(ConfigurationReader.User, ConfigurationReader.Password, new System.Uri(ConfigurationReader.URL_Salesforce));
 
                 if (!fourthAppLocalPage.IsMobile)
                 {
-                    menuCyclesBasePage.MaximizeWindow();
+                    menuCyclesBasePage.MaximizeWindow(ConfigurationReader.URL);
                 }
 
                 logInAs.WaitPageToLoad();

@@ -65,6 +65,13 @@ namespace MenuCycle.Tests.PageObjects
             Driver.Manage().Window.Maximize();
         }
 
+        public void MaximizeWindow(string url)
+        {
+            Driver.Manage().Window.Maximize();
+            Driver.Navigate().GoToUrl(url);
+        }
+
+
         public void SwitchToTab(int index)
         {
             if (Driver is OpenQA.Selenium.Chrome.ChromeDriver)

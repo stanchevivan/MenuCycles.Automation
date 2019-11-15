@@ -73,7 +73,7 @@ namespace MenuCycle.Tests.Features
         [NUnit.Framework.DescriptionAttribute("Search Menu Cycles by name or description")]
         [NUnit.Framework.CategoryAttribute("TC27713")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "FOR AUTOMATION TESTS - DO NOT TOUCH", "MC with recipes", "Testing the publishing of a MC with recipes", new string[] {
+        [NUnit.Framework.TestCaseAttribute("Local", "false", "Meda", "FOR AUTOMATION TESTS - DO NOT TOUCH", "MC with recipes", "Testing the publishing of a MC with recipes", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void SearchMenuCyclesByNameOrDescription(string environment, string withFA, string mc1Name, string mc1Description, string mc2Name, string mc2Description, string[] exampleTags)
         {
@@ -123,8 +123,8 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.CategoryAttribute("TC27706")]
         [NUnit.Framework.CategoryAttribute("TC27653")]
         [NUnit.Framework.CategoryAttribute("TC27658")]
-        [NUnit.Framework.CategoryAttribute("Smoke")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", new string[] {
+        [NUnit.Framework.CategoryAttribute("Smokesc")]
+        [NUnit.Framework.TestCaseAttribute("Local", "false", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void CreateEditCopyDeleteMenuCycle(string environment, string withFA, string[] exampleTags)
         {
@@ -132,7 +132,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "TC27706",
                     "TC27653",
                     "TC27658",
-                    "Smoke"};
+                    "Smokesc"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));

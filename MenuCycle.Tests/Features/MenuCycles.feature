@@ -16,11 +16,11 @@ Scenario Outline: Search Menu Cycles by name or description
         
     @QAI
     Examples:
-    |environment|withFA|mc1Name|mc1Description                     |mc2Name        |mc2Description                             |
-    |QAI        |false |Meda   |FOR AUTOMATION TESTS - DO NOT TOUCH|MC with recipes|Testing the publishing of a MC with recipes|
+    | environment | withFA | mc1Name | mc1Description                      | mc2Name         | mc2Description                              |
+    | Local       | false  | Meda    | FOR AUTOMATION TESTS - DO NOT TOUCH | MC with recipes | Testing the publishing of a MC with recipes |
     
 
-@TC27706 @TC27653 @TC27658 @Smoke
+@TC27706 @TC27653 @TC27658 @Smokesc
 Scenario Outline: Create Edit Copy Delete menu cycle
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
@@ -59,8 +59,8 @@ Scenario Outline: Create Edit Copy Delete menu cycle
     
     @QAI
     Examples:
-    |environment|withFA|
-    |QAI        |false |
+    | environment | withFA |
+    | Local       | false  |
     
 @TC40441 @D36216
 Scenario Outline: Create menu cycle page is opened after reopening of the application
