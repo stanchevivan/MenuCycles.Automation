@@ -53,6 +53,7 @@ namespace MenuCycle.Tests.Steps
         public void WhenRunButtonIsClicked()
         {
             destinationReviewPage.ClickRunButton();
+            planningTabDays.WaitSpinnerToDisappear();
         }
 
         [Then(@"Verify Gap Check report are displayed")]

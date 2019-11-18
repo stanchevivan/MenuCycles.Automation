@@ -266,7 +266,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 80
         testRunner.And("Verify notification message \"Planning figures updated.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 81
-        testRunner.And("Cross button is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Calendar tab is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 82
         testRunner.And(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 83
@@ -397,11 +397,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Modal dialog for unsaved changes is shown on pressing X")]
+        [NUnit.Framework.DescriptionAttribute("Modal dialog for unsaved changes is shown on pressing calendar button")]
         [NUnit.Framework.CategoryAttribute("TC29521")]
         [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void ModalDialogForUnsavedChangesIsShownOnPressingX(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
+        public virtual void ModalDialogForUnsavedChangesIsShownOnPressingCalendarButton(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29521"};
@@ -409,7 +409,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modal dialog for unsaved changes is shown on pressing X", null, @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modal dialog for unsaved changes is shown on pressing calendar button", null, @__tags);
 #line 138
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -426,7 +426,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 144
         testRunner.And(string.Format("quantity for recipe named \"{0}\" in meal period \"{1}\" is set to random number", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 145
-        testRunner.And("Cross button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Calendar tab is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 146
         testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 147
@@ -1015,7 +1015,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 364
         testRunner.And("planning tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 365
-        testRunner.And("Cross button is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Calendar tab is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 366
         testRunner.And("Home button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 367
@@ -1027,12 +1027,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Close planning screen with \"X\" button without any changes")]
+        [NUnit.Framework.DescriptionAttribute("Select calendar button on planning screen without any changes")]
         [NUnit.Framework.CategoryAttribute("TC27677")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
         [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "MONDAY", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void ClosePlanningScreenWithXButtonWithoutAnyChanges(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
+        public virtual void SelectCalendarButtonOnPlanningScreenWithoutAnyChanges(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC27677",
@@ -1041,7 +1041,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Close planning screen with \"X\" button without any changes", null, @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select calendar button on planning screen without any changes", null, @__tags);
 #line 377
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -1054,7 +1054,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 381
         testRunner.And(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 382
-    testRunner.When("Cross button is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("Calendar tab is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 383
     testRunner.Then("Verify calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

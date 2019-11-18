@@ -78,7 +78,7 @@ Scenario Outline: Successfully Update and Save number of covers
         And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2"
         And Save button is clicked
         And Verify notification message "Planning figures updated." is displayed
-        And Cross button is clicked and calendar view has loaded
+        And Calendar tab is clicked and calendar view has loaded
         And planning for "<day>" is opened
     Then Verify number of covers for meal period "<mealPeriod>" is equal to the previous inputted number
     
@@ -135,14 +135,14 @@ Scenario Outline: Modal dialog for unsaved changes is shown on cancel
     |QAI        |false |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
     
 @TC29521
-Scenario Outline: Modal dialog for unsaved changes is shown on pressing X
+Scenario Outline: Modal dialog for unsaved changes is shown on pressing calendar button
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
         And values for recipe "<recipeName>" in meal period "<mealPeriod>" are stored
         And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to random number
-        And Cross button is clicked
+        And Calendar tab is clicked
         And Modal dialog Yes is selected
         And Wait for Calendar view
     When planning for "<day>" is opened
@@ -362,7 +362,7 @@ Scenario Outline: User should not be redirected to the planning screen after nav
             And planning for "<day>" is opened
     When nutrition tab is opened
         And planning tab is opened
-        And Cross button is clicked and calendar view has loaded
+        And Calendar tab is clicked and calendar view has loaded
         And Home button is clicked
         And Menu Cycle "<menuCycle>" is selected
     Then Verify calendar view is opened
@@ -374,12 +374,12 @@ Scenario Outline: User should not be redirected to the planning screen after nav
     
     
 @TC27677 @Smoke
-Scenario Outline: Close planning screen with "X" button without any changes
+Scenario Outline: Select calendar button on planning screen without any changes
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
-    When Cross button is clicked and calendar view has loaded
+    When Calendar tab is clicked and calendar view has loaded
     Then Verify calendar view is opened
     
     @QAI

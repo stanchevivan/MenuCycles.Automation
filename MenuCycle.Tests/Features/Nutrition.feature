@@ -99,7 +99,7 @@ Scenario Outline: Calendar view is opened when Cross is clicked in the Nutrition
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
         And nutrition tab is opened
-    When Cross button is clicked
+    When Calendar tab is clicked and calendar view has loaded
         And Wait for Calendar view
     Then Verify calendar view is opened
     
@@ -180,14 +180,14 @@ Scenario Outline: Verify Number of covers field is not present in the Nutrition 
     |QAI_2      |false |Meda     |MONDAY|LUNCH     |
     
 @TC38024
-Scenario Outline: Close nutrition weeks with "X" button redirects to the calendar daily view
+Scenario Outline: Selecting calendar button redirects to the calendar daily view
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
         And nutrition tab is opened
         And Weeks tab is opened
-        And Cross button is clicked and calendar view has loaded
+        And Calendar tab is clicked and calendar view has loaded
     Then Verify calendar view is opened
         
     @QAI

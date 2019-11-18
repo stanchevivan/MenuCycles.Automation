@@ -209,9 +209,9 @@ Scenario Outline: A la cartes only - Calculate Meal period "Planned Quantity", "
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-    And data for recipes in a la carte "Holiday A La Carte" in meal period "DANGELO" is set
+    And data for recipes in a la carte "Holiday A La Carte E2E" in meal period "DANGELO" is set
         |RecipeTitle                   |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
-        |004Bread (fresh dough)        |              2|        GP|    11|           20|        ^|
+        |004Bread (frozen dough)       |              2|        GP|    11|           20|        ^|
         |724Pepper & Garlic Coated Beef|              3|     Fixed|     ^|           20|       55|
     Then Verify value for fields for meal period "DANGELO" is
         |PlannedQty|TotalCost|Revenue|ActualGP|
@@ -228,9 +228,9 @@ Scenario Outline: Combined for Buffet, A la cares and recipes - Calculate Meal p
         And a nouser user is selected
         And Menu Cycle "<menuCycle>" is selected
     When planning for "<day>" is opened
-    And data for recipes in a la carte "Holiday A La Carte" in meal period "DANGELO" is set
+    And data for recipes in a la carte "Holiday A La Carte E2E" in meal period "DANGELO" is set
         |RecipeTitle                   |PlannedQuantity|PriceModel|Target|TaxPercentage|SellPrice|
-        |004Bread (fresh dough)        |              2|        GP|    11|           20|        ^|
+        |004Bread (frozen dough)       |              2|        GP|    11|           20|        ^|
         |724Pepper & Garlic Coated Beef|              3|     Fixed|     ^|           20|       55|
     And data for buffets is set
         |MealPeriodName|TYPE  |RecipeTitle|PlannedQuantity|TariffType|PriceModel|TaxPercentage|SellPrice|

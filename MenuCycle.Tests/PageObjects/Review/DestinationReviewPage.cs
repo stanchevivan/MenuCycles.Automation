@@ -18,7 +18,7 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement SelectAllCheckbox { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".destination-run-btn")]
         private IWebElement RunButton { get; set; }
-        [FindsBy(How = How.Id, Using = ".gap-check-report")]
+        [FindsBy(How = How.Id, Using = "gap-check-report")]
         private IWebElement GapCheckReport { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".footer-btn-donе")]
         private IWebElement DoneButton { get; set; }

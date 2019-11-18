@@ -610,7 +610,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "TaxPercentage",
                         "SellPrice"});
             table32.AddRow(new string[] {
-                        "004Bread (fresh dough)",
+                        "004Bread (frozen dough)",
                         "2",
                         "GP",
                         "11",
@@ -624,8 +624,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "55"});
 #line 212
-    testRunner.And("data for recipes in a la carte \"Holiday A La Carte\" in meal period \"DANGELO\" is s" +
-                    "et", ((string)(null)), table32, "And ");
+    testRunner.And("data for recipes in a la carte \"Holiday A La Carte E2E\" in meal period \"DANGELO\" " +
+                    "is set", ((string)(null)), table32, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
                         "PlannedQty",
@@ -679,7 +679,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "TaxPercentage",
                         "SellPrice"});
             table34.AddRow(new string[] {
-                        "004Bread (fresh dough)",
+                        "004Bread (frozen dough)",
                         "2",
                         "GP",
                         "11",
@@ -693,8 +693,8 @@ this.ScenarioInitialize(scenarioInfo);
                         "20",
                         "55"});
 #line 231
-    testRunner.And("data for recipes in a la carte \"Holiday A La Carte\" in meal period \"DANGELO\" is s" +
-                    "et", ((string)(null)), table34, "And ");
+    testRunner.And("data for recipes in a la carte \"Holiday A La Carte E2E\" in meal period \"DANGELO\" " +
+                    "is set", ((string)(null)), table34, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table35 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
