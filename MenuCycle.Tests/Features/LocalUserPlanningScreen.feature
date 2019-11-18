@@ -62,7 +62,7 @@ Scenario Outline: User should not be redirected to the planning screen after nav
     When planning for "<day>" is opened
         And post-production tab is opened
         And planning tab is opened
-        And Cross button is clicked and calendar view has loaded
+        And Calendar tab is clicked and calendar view has loaded
         And Home button is clicked
         And Menu Cycle "<menuCycle>" is selected
     Then Verify calendar view is opened
