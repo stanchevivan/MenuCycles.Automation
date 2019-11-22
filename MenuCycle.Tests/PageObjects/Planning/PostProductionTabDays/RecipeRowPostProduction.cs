@@ -50,7 +50,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
 
         public string TariffName => this.tariffName.Text;
-        public string PlannedQuantity => this.quantityProduced.Text;
+        public string PlannedQuantity => this.plannedQuantity.Text;
         public bool IsSoldQtyEnabled => quantitySold.Get().HasClass("input-default");
         public bool IsWastageEnabled => wastage.Get().HasClass("input-default");
 
@@ -76,7 +76,7 @@ namespace MenuCycle.Tests.PageObjects.Planning.PlanningTabDays
 
         public string QuantitySold
         {
-            get => this.quantitySold.GetAttribute("value");
+            get => this.quantitySold.TagName == "span" ? this.quantitySold.Text : this.quantitySold.GetAttribute("value");
             set
             {
                 this.quantitySold.Do(Driver).ClearAndSendKeys(value);

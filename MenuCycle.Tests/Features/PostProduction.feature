@@ -49,16 +49,23 @@ Scenario Outline: Post production daily total calculations
         And week "<week>" is opened
     When planning for "<day>" is opened
         And post-production tab is opened
+        And Expand all is clicked
     Then Verify planned quantity daily total equals the sum of all meal period totals
     When values are entered for recipe "<recipeName>" tariff "<tariff>" in meal period "<mealPeriod>"
-    |qtyReqd|qtyProd|qtySold|noCharge|returnToStock|
-    |      7|     10|      3|       1|            2|
-    Then Verify Wastage is correctly calculated for recipe "<recipeName>" tariff "<tariff>" in meal period "<mealPeriod>"
+    |qtySold|
+    |      2|
+    And values are entered for recipe "<recipeName>" tariff "<recipe>" in meal period "<mealPeriod>"
+    |qtyReqd|qtyProd|noCharge|returnToStock|
+    |     55|     60|      15|            5|
+    Then Verify Wastage is correctly calculated for recipe "<recipeName>" tariff "<recipe>" in meal period "<mealPeriod>"
+    And Verify values for recipe "<recipeName>" tariff "<recipe>" in meal period "<mealPeriod>"
+    |plannedQty|qtySold|
+    |        48|     62|
     
     @QAI
     Examples:
-    |environment|withFA|location|menuCycle           |week  |day       |mealPeriod|recipeName             |tariff   |
-    |QAI        |false |Site EUR1   |Automation post-prod|WEEK 3|FRI 26 JUL|MARGRET   |004Apple Sauce (tinned)|TariffOne|
+    |environment|withFA|location    |menuCycle                        |week  |day       |mealPeriod|recipeName      |tariff   |recipe|
+    |QAI        |false |Site EUR1   |Post-production MC for AUTOMATION|WEEK 1|THUR 21 NOV|MARGRET   |004Apple Sauce_100|TariffOne|Recipe Total|
     
 Scenario Outline: Post production validations
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
@@ -71,22 +78,34 @@ Scenario Outline: Post production validations
         And post-production tab is opened
     Then Verify planned quantity daily total equals the sum of all meal period totals
     When values are entered for recipe "<recipeName>" tariff "<tariff>" in meal period "<mealPeriod>"
-    |qtyReqd|qtyProd|qtySold|noCharge|returnToStock|
-    |      a|      b|      c|       d|            e|
+    |qtySold|
+    |      c|
     Then Verify context errors are present for recipe "<recipeName>" tariff "<tariff>" in meal period "<mealPeriod>"
-    |qtyReqd         |qtyProd         |qtySold         |noCharge        |returnToStock   |
-    |<integerMessage>|<integerMessage>|<integerMessage>|<integerMessage>|<integerMessage>|
+    |qtySold         |
+    |<integerMessage>|
     When values are entered for recipe "<recipeName>" tariff "<tariff>" in meal period "<mealPeriod>"
-    |qtyReqd|qtyProd|qtySold|noCharge|returnToStock|
-    |     -1|     -2|    -10|      -3|          -99|
+    |qtySold|
+    |    -10|
     Then Verify context errors are present for recipe "<recipeName>" tariff "<tariff>" in meal period "<mealPeriod>"
-    |qtyReqd          |qtyProd          |qtySold          |noCharge         |returnToStock    |
-    |<negativeMessage>|<negativeMessage>|<negativeMessage>|<negativeMessage>|<negativeMessage>|
+    |qtySold          |
+    |<negativeMessage>|
+    When values are entered for recipe "<recipeName>" tariff "<recipe>" in meal period "<mealPeriod>"
+    |qtyReqd|qtyProd|noCharge|returnToStock|
+    |     c|     a|      1b|            n|
+    Then Verify context errors are present for recipe "<recipeName>" tariff "<recipe>" in meal period "<mealPeriod>"
+    |qtyReqd|qtyProd|noCharge|returnToStock|
+    |<integerMessage>|<integerMessage>|<integerMessage>|<integerMessage>|
+    When values are entered for recipe "<recipeName>" tariff "<recipe>" in meal period "<mealPeriod>"
+    |qtyReqd|qtyProd|noCharge|returnToStock|
+    |     -5|     -6|      -3|           -5|
+    Then Verify context errors are present for recipe "<recipeName>" tariff "<recipe>" in meal period "<mealPeriod>"
+    |qtyReqd|qtyProd|noCharge|returnToStock|
+    |<negativeMessage>|<negativeMessage>|<negativeMessage>|<negativeMessage>|
     
     @QAI
     Examples:
-    |environment|withFA|location|menuCycle           |week  |day       |mealPeriod |recipeName             |tariff   |integerMessage |negativeMessage     |
-    |QAI        |false |Site EUR1   |Automation post-prod|WEEK 3|FRI 26 JUL|MARGRET    |004Apple Sauce (tinned)|TariffOne|Must be integer|Must be 0 or greater|
+    |environment|withFA|location |menuCycle           |week  |day       |mealPeriod |recipeName      |tariff   |recipe|integerMessage |negativeMessage     |
+    |QAI        |false |Site EUR1|Automation post-prod|WEEK 3|FRI 26 JUL|MARGRET    |004Apple Sauce_100|TariffOne|Recipe Total|Must be integer|Must be 0 or greater|
 
 
 @TC35467 @D31395
@@ -173,7 +192,7 @@ Scenario Outline: Wastage field is disabled for recipes
        @QAI
     Examples:
     |environment|withFA|location|menuCycle           |week  |day       |recipeName             |mealPeriod|
-    |QAI        |false |Site EUR1   |Automation post-prod|WEEK 3|FRI 26 JUL|004Apple Sauce (tinned)|   MARGRET|
+    |QAI        |false |Site EUR1   |Automation post-prod|WEEK 3|FRI 26 JUL|004Apple Sauce_100|   MARGRET|
     
 @TC36011
 Scenario Outline: Contextual error message is shown for Wastage for buffet recipes when decimal is inputed
@@ -228,5 +247,5 @@ Scenario Outline: Verify Post-Production weekly totals equals the sum of all mea
     
     @QAI
     Examples:
-    |environment|withFA|location|menuCycle           |week  |day       |qtyReqd|qtyProd|qtySold|noCharge|returnToStock|wastage|
-    |QAI        |false |Site EUR1   |Automation post-prod|WEEK 3|FRI 26 JUL|301    |50     |77     |9       |4            |261    |
+    |environment|withFA|location |menuCycle           |week  |day       |qtyReqd|qtyProd|qtySold|noCharge|returnToStock|wastage|
+    |QAI        |false |Site EUR1|Post-production MC for AUTOMATION|WEEK 1|THUR 21 NOV|143   |105    |102    |59       |23            |95    |
