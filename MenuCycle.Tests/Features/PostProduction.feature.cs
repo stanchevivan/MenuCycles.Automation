@@ -72,7 +72,7 @@ namespace MenuCycle.Tests.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Expand all / Collapse all Post-production Days")]
         [NUnit.Framework.CategoryAttribute("TC34327")]
-        [NUnit.Framework.TestCaseAttribute("Local", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void ExpandAllCollapseAllPost_ProductionDays(string environment, string withFA, string location, string menuCycle, string week, string day, string[] exampleTags)
         {

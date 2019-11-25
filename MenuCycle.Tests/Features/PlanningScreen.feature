@@ -328,7 +328,8 @@ Scenario Outline: Notification is shown when user has selected all available pri
         And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
         And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
         And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
-    Then Verify notification message "There are 13 price types available. You cannot add more." is displayed
+        And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
+    Then Verify notification message "There are 14 price types available. You cannot add more." is displayed
     
     @QAI
     Examples:
