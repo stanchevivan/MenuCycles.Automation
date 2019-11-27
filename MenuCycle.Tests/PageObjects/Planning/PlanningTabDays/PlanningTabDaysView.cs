@@ -32,7 +32,10 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement PlanningTitle { get; set; }
         [FindsBy(How = How.ClassName, Using = "daily-item-item-contain")]
         private IWebElement MealPeriodContent { get; set; }
-
+        [FindsBy(How = How.ClassName, Using = "previous-day")]
+        private IWebElement PreviousDayButton { get; set; }
+        [FindsBy(How = How.ClassName, Using = "next-day")]
+        private IWebElement NextDayButton { get; set; }
 
 
         public IList<DailyMealPeriod> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriod(p, Driver)).ToList();
@@ -41,6 +44,9 @@ namespace MenuCycle.Tests.PageObjects
         public bool HasMealPeriods => MealPeriods.Any();
         public bool AreAllMealPeriodsExpanded => MealPeriods.All(period => period.IsExpanded);
         public bool AreAllMealPeriodsCollapsed => MealPeriods.All(period => !period.IsExpanded);
+
+        public bool IsPreviousButtonVisible => PreviousDayButton.Exist();
+        public bool IsNextButtonVisible => NextDayButton.Exist();
 
         public string DailyPlanedQuanityText => DailyPlannedQuantity.Text;
         public string DailyTotalCostText => DailyTotalCost.Text;
@@ -92,6 +98,18 @@ namespace MenuCycle.Tests.PageObjects
         public void WaitMеаlPeriodsToDisappear()
         {
             Driver.WaitElementToDisappear(MealPeriodContent);
+        }
+
+        public void ClickPreviousDayButton()
+        {
+            PreviousDayButton.Click();
+           
+        }
+
+        public void ClickNextDayButton()
+        {
+            NextDayButton.Click();
+
         }
     }
 }

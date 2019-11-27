@@ -1257,6 +1257,138 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Change week using day-to-day navigation")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Post-production MC for AUTOMATION", "WEEK 2", "MON 25 NOV", "SUNDAY - 24 November 2019", "MONDAY - 25 November 2019", new string[] {
+                "QAI"}, Category="QAI")]
+        public virtual void ChangeWeekUsingDay_To_DayNavigation(string environment, string withFA, string location, string menuCycle, string week, string day, string prevDay, string nextDay, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Change week using day-to-day navigation", null, exampleTags);
+#line 467
+   this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 468
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 469
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 470
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 471
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 472
+        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 473
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 474
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 475
+        testRunner.And("Previous day button is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 476
+    testRunner.Then(string.Format("the screen for \"{0}\" is open", prevDay), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 477
+    testRunner.Then("Next day button is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 478
+    testRunner.Then(string.Format("the screen for \"{0}\" is open", nextDay), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Modal dialog for unsaved changes is shown if day-to-day navigation is used")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Post-production MC for AUTOMATION", "WEEK 1", "THUR 21 NOV", "MARGRET", "FRIDAY - 22 November 2019", new string[] {
+                "QAI"}, Category="QAI")]
+        public virtual void ModalDialogForUnsavedChangesIsShownIfDay_To_DayNavigationIsUsed(string environment, string withFA, string location, string menuCycle, string week, string day, string mealPeriod, string nextDay, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modal dialog for unsaved changes is shown if day-to-day navigation is used", null, exampleTags);
+#line 486
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 487
+ testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 488
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 489
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 490
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 491
+        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 492
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 493
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 494
+    testRunner.And(string.Format("Number of covers for meal period \"{0}\" is set to random number", mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 495
+    testRunner.And("Next day button is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 496
+    testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 497
+    testRunner.Then(string.Format("the screen for \"{0}\" is open", nextDay), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Button for previous day navigation not visible on first day of MC")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Post-production MC for AUTOMATION", "WEEK 1", "THUR 21 NOV", new string[] {
+                "QAI"}, Category="QAI")]
+        public virtual void ButtonForPreviousDayNavigationNotVisibleOnFirstDayOfMC(string environment, string withFA, string location, string menuCycle, string week, string day, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Button for previous day navigation not visible on first day of MC", null, exampleTags);
+#line 505
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 506
+ testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 507
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 508
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 509
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 510
+        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 511
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 512
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 513
+    testRunner.Then("Verify button for previous day is not visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Button for next day navigation not visible on last day of MC")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Post-production MC for AUTOMATION", "WEEK 2", "SAT 30 NOV", new string[] {
+                "QAI"}, Category="QAI")]
+        public virtual void ButtonForNextDayNavigationNotVisibleOnLastDayOfMC(string environment, string withFA, string location, string menuCycle, string week, string day, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Button for next day navigation not visible on last day of MC", null, exampleTags);
+#line 521
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 522
+ testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 523
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 524
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 525
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 526
+        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 527
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 528
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 529
+    testRunner.Then("Verify button for next day is not visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
