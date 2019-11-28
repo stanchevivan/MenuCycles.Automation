@@ -474,9 +474,9 @@ Scenario Outline: Change week using day-to-day navigation
         And week "<week>" is opened
     When planning for "<day>" is opened
         And Previous day button is selected
-    Then the screen for "<prevDay>" is open
+    Then Verify the screen for "<prevDay>" is open
     Then Next day button is selected
-    Then the screen for "<nextDay>" is open
+    Then Verify the screen for "<nextDay>" is open
 
     @QAI
     Examples:
@@ -495,7 +495,7 @@ Scenario Outline: Modal dialog for unsaved changes is shown if day-to-day naviga
         And Number of covers for meal period "<mealPeriod>" is set to random number
         And Next day button is selected
         And Modal dialog Yes is selected
-    Then the screen for "<nextDay>" is open
+    Then Verify the screen for "<nextDay>" is open
         
  @QAI
     Examples:

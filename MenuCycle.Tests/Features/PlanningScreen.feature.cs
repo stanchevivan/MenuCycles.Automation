@@ -1294,11 +1294,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 476
         testRunner.And("Previous day button is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 477
-    testRunner.Then(string.Format("the screen for \"{0}\" is open", prevDay), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then(string.Format("Verify the screen for \"{0}\" is open", prevDay), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 478
     testRunner.Then("Next day button is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 479
-    testRunner.Then(string.Format("the screen for \"{0}\" is open", nextDay), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then(string.Format("Verify the screen for \"{0}\" is open", nextDay), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1341,7 +1341,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 497
         testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 498
-    testRunner.Then(string.Format("the screen for \"{0}\" is open", nextDay), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then(string.Format("Verify the screen for \"{0}\" is open", nextDay), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
