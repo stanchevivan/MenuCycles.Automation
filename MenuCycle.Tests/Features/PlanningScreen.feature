@@ -464,7 +464,8 @@ Scenario Outline: Default values are '0' when adding new recipe tariff type
     |QAI_2      |false |Automation Testing|MONDAY|DINNER    |004Basic Sponge|
 
    
-   Scenario Outline: Change week using day-to-day navigation
+@TC43688 @TC43694
+Scenario Outline: Change week using day-to-day navigation
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
@@ -482,18 +483,18 @@ Scenario Outline: Default values are '0' when adding new recipe tariff type
     |environment|withFA|location    |menuCycle                        |week  |day       |prevDay                  |nextDay|
     |QAI        |false |Site EUR1   |Post-production MC for AUTOMATION|WEEK 2|MON 25 NOV|SUNDAY - 24 November 2019|MONDAY - 25 November 2019|
     
- 
+@TC43842
 Scenario Outline: Modal dialog for unsaved changes is shown if day-to-day navigation is used
- Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "<location>" is selected
         And Menu Cycle "<menuCycle>" is selected
         And Weekly Calendar is opened
         And week "<week>" is opened
     When planning for "<day>" is opened
-    And Number of covers for meal period "<mealPeriod>" is set to random number
-    And Next day button is selected
-    And Modal dialog Yes is selected
+        And Number of covers for meal period "<mealPeriod>" is set to random number
+        And Next day button is selected
+        And Modal dialog Yes is selected
     Then the screen for "<nextDay>" is open
         
  @QAI
@@ -501,7 +502,7 @@ Scenario Outline: Modal dialog for unsaved changes is shown if day-to-day naviga
     |environment|withFA|location    |menuCycle                        |week  |day        |mealPeriod|nextDay|
     |QAI        |false |Site EUR1   |Post-production MC for AUTOMATION|WEEK 1|THUR 21 NOV|MARGRET   |FRIDAY - 22 November 2019|
     
- 
+ @TC43697
  Scenario Outline: Button for previous day navigation not visible on first day of MC
  Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
@@ -517,7 +518,7 @@ Scenario Outline: Modal dialog for unsaved changes is shown if day-to-day naviga
     |environment|withFA|location    |menuCycle                        |week  |day        |
     |QAI        |false |Site EUR1   |Post-production MC for AUTOMATION|WEEK 1|THUR 21 NOV|
     
- 
+ @TC43698
  Scenario Outline: Button for next day navigation not visible on last day of MC
  Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
