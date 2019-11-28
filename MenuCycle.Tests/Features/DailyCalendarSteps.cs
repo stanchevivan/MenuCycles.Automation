@@ -104,6 +104,7 @@ namespace MenuCycle.Tests.Steps
         }
 
         [When(@"Calendar tab is clicked and calendar view has loaded")]
+        [Then(@"Calendar tab is clicked and calendar view has loaded")]
         public void WhenCalendarTabIsClickedAndCalendarViewHasLoaded()
         {
             dailyCalendarView.ClickCalendarTab();

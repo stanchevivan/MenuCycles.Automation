@@ -37,8 +37,8 @@ Scenario Outline: Expand/Collapse single meal period Post-production days
     
     @QAI
     Examples:
-    |environment|withFA|location|menuCycle           |week  |day       |mealPeriod|
-    |QAI        |false |Site EUR1   |Automation post-prod|WEEK 3|FRI 26 JUL|MARGRET    |
+    |environment|withFA|location |menuCycle           |week  |day       |mealPeriod|
+    |QAI        |false |Site EUR1|Automation post-prod|WEEK 3|FRI 26 JUL|MARGRET   |
     
 Scenario Outline: Post production daily total calculations
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
