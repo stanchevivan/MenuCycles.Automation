@@ -45,7 +45,7 @@ Scenario Outline: Export Consumer Facing Report as PDF with Sell Price, Kilojoul
         And Calories checkbox is checked
         And Kilojoules checkbox is checked
         And Export PDF button is clicked
-    Then Verify notification message "Successfully Exported" is displayed
+    Then Verify notification message "Successfully Exported." is displayed
     
     @QAI
     Examples:
@@ -69,7 +69,7 @@ Scenario Outline: Export Consumer Facing Report as CSV with Sell Price, Kilojoul
         And Calories checkbox is checked
         And Kilojoules checkbox is checked
         And Export CSV button is clicked
-    Then Verify notification message "Successfully Exported" is displayed
+    Then Verify notification message "Successfully Exported." is displayed
     
     @QAI
     Examples:
@@ -90,7 +90,7 @@ Scenario Outline: Consumer Facing Report - Local > User is able to export Consum
         And Report end date "31/07/2019" is selected
         And Export CSV and Export PDF buttons are displayed
         And Export PDF button is clicked
-    Then Verify notification message "Successfully Exported" is displayed
+    Then Verify notification message "Successfully Exported." is displayed
     
     @QAI
     Examples:
@@ -111,122 +111,14 @@ Scenario Outline: Consumer Facing Report - Local > User is able to export Consum
         And Report end date "31/07/2019" is selected
         And Export CSV and Export PDF buttons are displayed
         And Export CSV button is clicked
-    Then Verify notification message "Successfully Exported" is displayed
-    
-    @QAI
-    Examples:
-    |environment|withFA|
-    |QAI        |false |
-
-@TC33981
-Scenario Outline: Consumer Facing Report - Local > Error message is displayed if selected end date is after MC end date
-    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
-        And a local user is selected
-        And location "Site EUR1" is selected
-        And Menu Cycle "Local User Expired" is selected
-    When Reports page is opened
-        And Report "ConsumerFacing" is opened
-        And Export CSV and Export PDF buttons are not displayed
-        And Report start date "31/07/2019" is selected
-        And Export CSV and Export PDF buttons are not displayed
-        And Report end date "3/08/2019" is selected
-        And Export CSV button is clicked
-    Then Verify notification message "Please select a report end date that is before the menu cycle end date" is displayed
-        And Export PDF button is clicked
-        And Verify notification message "Please select a report end date that is before the menu cycle end date" is displayed
-        
-        @QAI
-    Examples:
-    |environment|withFA|
-    |QAI        |false |
-    
-@TC33994
-Scenario Outline: Consumer facing report - Local > Error message is displayed if selected start date is before MC start date
-    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
-        And a local user is selected
-        And location "Site EUR1" is selected
-        And Menu Cycle "Local User Testing" is selected
-    When Reports page is opened
-        And Report "ConsumerFacing" is opened
-        And Export CSV and Export PDF buttons are not displayed
-        And Report start date "08/07/2018" is selected
-        And Export CSV and Export PDF buttons are not displayed
-        And Report end date "11/07/2018" is selected
-        And Export CSV button is clicked
-    Then Verify notification message "Please select a report start date that is after the menu cycle start date" is displayed
-        And Export PDF button is clicked
-        And Verify notification message "Please select a report start date that is after the menu cycle start date" is displayed
-        
-        @QAI
-        Examples:
-        |environment|withFA|
-        |QAI        |false |
-        
-@TC33999
-Scenario Outline: Consumer Facing Report  - Local > Error message is displayed if selected end date is before selected start date
-    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
-        And a local user is selected
-        And location "Site EUR1" is selected
-        And Menu Cycle "Local User Testing" is selected
-    When Reports page is opened
-        And Report "ConsumerFacing" is opened
-        And Export CSV and Export PDF buttons are not displayed
-        And Report start date "20/07/2018" is selected
-        And Export CSV and Export PDF buttons are not displayed
-        And Report end date "11/07/2018" is selected
-        And Export CSV button is clicked
-    Then Verify notification message "Please select an end date that is not before the start date" is displayed
-        And Export PDF button is clicked
-        And Verify notification message "Please select an end date that is not before the start date" is displayed
-        
-        @QAI
-        Examples:
-        |environment|withFA|
-        |QAI        |false |
-        
-@TC33980
-Scenario Outline: Recipe Card Report - Local > Error message is displayed if selected start date is before MC start date
-    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
-        And a local user is selected
-        And location "Site EUR1" is selected
-        And Menu Cycle "Local User Testing" is selected
-    When Reports page is opened
-        And Report "RecipeCard" is opened
-        And Report start date "08/07/2018" is selected
-        And Report end date "11/07/2018" is selected
-        And Meal periods are selected
-        |MealPeriod         |
-        |Lunch              |
-        |Dinner             |
-        And Report is exported
-    Then Verify notification message "Please select a report start date that is after the menu cycle start date" is displayed
+    Then Verify notification message "Successfully Exported." is displayed
     
     @QAI
     Examples:
     |environment|withFA|
     |QAI        |false |
     
-@TC33982
-Scenario Outline: Recipe Card Report - Local > Error message is displayed if selected end date is before selected start date
-    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
-        And a local user is selected
-        And location "Site EUR1" is selected
-        And Menu Cycle "Local User Testing" is selected
-    When Reports page is opened
-        And Report "RecipeCard" is opened
-        And Report start date "20/07/2018" is selected
-        And Report end date "11/07/2018" is selected
-        And Meal periods are selected
-        |MealPeriod         |
-        |Lunch              |
-        |Dinner             |
-        And Report is exported
-    Then Verify notification message "Please select an end date that is not before the start date" is displayed
-    
-    @QAI
-    Examples:
-    |environment|withFA|
-    |QAI        |false |
+        
     
 @TC33988
 Scenario Outline: Recipe Card Report - Central > Export button is displayed after meal period is specified
@@ -248,27 +140,6 @@ Scenario Outline: Recipe Card Report - Central > Export button is displayed afte
         |environment|withFA|
         |QAI        |false |
         
-@TC33997
-Scenario Outline: Recipe Card Report - Local > Error message is displayed if selected end date is after MC end date
-    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
-        And a local user is selected
-        And location "Site EUR1" is selected
-        And Menu Cycle "Local User Expired" is selected
-    When Reports page is opened
-        And Report "RecipeCard" is opened
-        And Report start date "31/07/2019" is selected
-        And Report end date "30/08/2019" is selected
-        And Meal periods are selected
-        |MealPeriod         |
-        |Lunch              |
-        |Dinner             |
-        And Report is exported
-    Then Verify notification message "Please select a report end date that is before the menu cycle end date" is displayed
-    
-    @QAI
-    Examples:
-    |environment|withFA|
-    |QAI        |false |
 
     @TC43574
     Scenario Outline: Recipe Card Report - Local > Export Successfully
@@ -308,7 +179,7 @@ Scenario Outline: Menu Extract Report - Central > Export button is displayed and
         |Lunch     |
     Then Verify Export button is displayed
         And Report is exported
-        And Verify notification message "Successfully Exported" is displayed
+        And Verify notification message "Successfully Exported." is displayed
         
         @QAI
         Examples:
@@ -328,7 +199,7 @@ Scenario Outline: Menu Cycle Calendar - Central - Export Successfully
         |Dangelo   |
     Then Verify Export button is displayed
         And Report is exported
-        And Verify notification message "Successfully Exported" is displayed
+        And Verify notification message "Successfully Exported." is displayed
         
         @QAI
         Examples:
@@ -349,7 +220,7 @@ Scenario Outline: Menu Cycle Calendar - Local - Export Successfully
         |Dinner   |
     Then Verify Export button is displayed
         And Report is exported
-        And Verify notification message "Successfully Exported" is displayed
+        And Verify notification message "Successfully Exported." is displayed
         
         @QAI
         Examples:
@@ -369,7 +240,7 @@ Scenario Outline: Location Gap Check - Central - Export Successfully
         |Site EUR1 |
     Then Verify Export button is displayed
         And Report is exported
-        And Verify notification message "Successfully Exported" is displayed
+        And Verify notification message "Successfully Exported." is displayed
         
         @QAI
         Examples:

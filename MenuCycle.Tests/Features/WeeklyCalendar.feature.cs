@@ -164,22 +164,22 @@ this.ScenarioInitialize(scenarioInfo);
 #line 39
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table123 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table120 = new TechTalk.SpecFlow.Table(new string[] {
                         "WEEK 1",
                         "WEEK 3"});
 #line 40
-        testRunner.And("Verify caledar weeks contains weeks:", ((string)(null)), table123, "And ");
+        testRunner.And("Verify caledar weeks contains weeks:", ((string)(null)), table120, "And ");
 #line 42
         testRunner.And("Week \"WEEK 3\" is copied", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 43
         testRunner.Then("Verify notification message \"Week Successfully Added.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table124 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table121 = new TechTalk.SpecFlow.Table(new string[] {
                         "WEEK 1",
                         "WEEK 3",
                         "WEEK 4"});
 #line 44
-        testRunner.And("Verify caledar weeks contains weeks:", ((string)(null)), table124, "And ");
+        testRunner.And("Verify caledar weeks contains weeks:", ((string)(null)), table121, "And ");
 #line 46
         testRunner.And("Delete button is clicked for week \"Week 3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 47
@@ -187,11 +187,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 48
         testRunner.Then("Verify notification message \"Week Successfully Removed.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table125 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table122 = new TechTalk.SpecFlow.Table(new string[] {
                         "WEEK 1",
                         "WEEK 3"});
 #line 49
-        testRunner.And("Verify caledar weeks contains weeks:", ((string)(null)), table125, "And ");
+        testRunner.And("Verify caledar weeks contains weeks:", ((string)(null)), table122, "And ");
 #line 51
         testRunner.And("Delete button is clicked for week \"Week 3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 52
@@ -199,10 +199,10 @@ this.ScenarioInitialize(scenarioInfo);
 #line 53
         testRunner.Then("Verify notification message \"Week Successfully Removed.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table126 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table123 = new TechTalk.SpecFlow.Table(new string[] {
                         "WEEK 1"});
 #line 54
-        testRunner.And("Verify caledar weeks contains weeks:", ((string)(null)), table126, "And ");
+        testRunner.And("Verify caledar weeks contains weeks:", ((string)(null)), table123, "And ");
 #line 56
         testRunner.When("Daily Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 57

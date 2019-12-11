@@ -16,39 +16,42 @@ using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA
             PerformanceReport,
             AllergenReport,
             LocatioGapCheck
-        };        [FindsBy(How = How.ClassName, Using = "reports-main-right")]        private IWebElement RightSection { get; set; }        [FindsBy(How = How.CssSelector, Using = ".icon-report")]        private IList<IWebElement> ReportsList { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".main-heading_consumer-facing")]
-        private IWebElement ConsumerFacingReportButton { get; set; }        [FindsBy(How = How.CssSelector, Using = ".main-heading_recipe-card")]
+        };        [FindsBy(How = How.ClassName, Using = "reports__content")]        private IWebElement RightSection { get; set; }        [FindsBy(How = How.CssSelector, Using = ".icon-report")]        private IList<IWebElement> ReportsList { get; set; }
+        [FindsBy(How = How.Id, Using = "consumerFacingReport")]
+        private IWebElement ConsumerFacingReportButton { get; set; }        [FindsBy(How = How.Id, Using = "recipeCard")]
         private IWebElement RecipeCardReportButton { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".main-heading_traff")]
+        [FindsBy(How = How.Id, Using = "trafficLightReport")]
         private IWebElement TrafficLightReportButton { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".main-heading_menu-extract")]
+        [FindsBy(How = How.Id, Using = "menuExtractReport")]
         private IWebElement MenuExtractReportButton { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".main-heading_menu-cycle-calendar")]
+        [FindsBy(How = How.Id, Using = "menuCycleCalendarReport")]
         private IWebElement MenuCycleCalendarReportButton { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".main-heading_requirements")]
+        [FindsBy(How = How.Id, Using = "localProductionRequirements")]
         private IWebElement LocalReqsReportButton { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".main-heading_buying")]
+        [FindsBy(How = How.Id, Using = "buyingReport")]
         private IWebElement BuyingReportButton { get; set; }        
-        [FindsBy(How = How.CssSelector, Using = ".main-heading_local")]
+        [FindsBy(How = How.Id, Using = "localSalesHistory")]
         private IWebElement LocalSalesHistoryReportButton { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".main-heading_performance-report")]
+        [FindsBy(How = How.Id, Using = "performanceReport")]
         private IWebElement PerformanceReportButton { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".main-heading_allergen")]
+        [FindsBy(How = How.Id, Using = "allergenIntoleranceReport")]
         private IWebElement AllergenReportButton { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".main-heading_location-gap-check")]
+        [FindsBy(How = How.Id, Using = "locationGapCheckReport")]
         private IWebElement LocationGapCheckReportButton { get; set; }        
         [FindsBy(How = How.CssSelector, Using = ".icon-report_2")]
         private IWebElement RightSectionIcon { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".reports-main-right > div:not(.hidden) .clickable")]
+        [FindsBy(How = How.CssSelector, Using = ".report_export-btn")]
+        [FindsBy(How = How.XPath, Using = "//button[text()='Export']")]
         private IWebElement ExportButton { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".reports-main-right > div:not(.hidden) .radio")]
+        [FindsBy(How = How.CssSelector, Using = ".checkbox-list__content .checkbox-list__item")]
         private IList<IWebElement> MealPeriodsList { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".squaredOne")]
+        [FindsBy(How = How.CssSelector, Using = ".mc-checkbox__checkmark")]
         private IWebElement CheckBox { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".reports-main-right > div:not(.hidden) .timing-data-box:first-of-type input")]
+        [FindsBy(How = How.CssSelector, Using = ".reports__body")]
+        private IWebElement ReportBody { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".reports__content .date-selector_box:first-of-type input")]
         private IWebElement StartDate { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".reports-main-right > div:not(.hidden) .timing-data-box:last-of-type input")]
+        [FindsBy(How = How.CssSelector, Using = ".reports__content .date-selector_box:last-of-type input")]
         private IWebElement EndDate { get; set; }
 
         public bool IsPageLoaded => RightSection.Displayed;
@@ -69,7 +72,7 @@ using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA
                 case Reports.ConsumerFacing:
                     ConsumerFacingReportButton.Do(Driver).ScrollIntoView();
                     ConsumerFacingReportButton.Click();
-                    Driver.WaitListItemsLoad(MealPeriodsList);
+                    Driver.WaitElementToExists(ReportBody);
                     break;
                 case Reports.MenuExtract:
                     MenuExtractReportButton.Do(Driver).ScrollIntoView();

@@ -12,21 +12,21 @@ namespace MenuCycle.Tests.PageObjects
         {
         }
 
-        [FindsBy(How = How.ClassName, Using = "report-main-right_consumer-facing_price_select")]
+        [FindsBy(How = How.ClassName, Using = "report-consumer-facing__tariff-select")]
         private IWebElement PriceTypeDropDown { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".sell-price > .squaredOne")]
+        [FindsBy(How = How.CssSelector, Using = ".report-consumer-facing__price-options__include-price > label > span:first-of-type")]
         private IWebElement SellPriceCheckBox { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".calories > .squaredOne")]
+        [FindsBy(How = How.CssSelector, Using = "input[name='calories'] + span")]
         private IWebElement CaloriesCheckBox { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".kj > .squaredOne")]
+        [FindsBy(How = How.CssSelector, Using = "input[name='kilojoules'] + span")]
         private IWebElement KilojoulesCheckBox { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".report-main-right_consumer-facing_date-from_date > input")]
         private IWebElement StartDate { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".report-main-right_consumer-facing_date-to_date > input")]
         private IWebElement EndDate { get; set; }
-        [FindsBy(How = How.XPath, Using = "//div[@class='reports-main-right_consumer-facing']//div[contains(text(), 'Export CSV')]")]
+        [FindsBy(How = How.XPath, Using = "//button[text() = 'Export CSV']")]
         private IWebElement ExportCsvButton { get; set; }
-        [FindsBy(How = How.XPath, Using = "//div[contains(text(), 'Export PDF')]")]
+        [FindsBy(How = How.XPath, Using = "//button[text() = 'Export PDF']")]
         private IWebElement ExportPdfButton { get; set; }
 
         public bool IsSellPriceSelected => SellPriceCheckBox.Selected;
