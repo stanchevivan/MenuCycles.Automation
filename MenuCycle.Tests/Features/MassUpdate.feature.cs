@@ -277,7 +277,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 92
         testRunner.And("add types is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 93
-     testRunner.Then("Verify notification message \"There are 14 price types available. You cannot add m" +
+        testRunner.And("add types is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 94
+     testRunner.Then("Verify notification message \"There are 15 price types available. You cannot add m" +
                     "ore.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -299,34 +301,34 @@ this.ScenarioInitialize(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Notification is shown when trying to update prices with the same price type selec" +
                     "ted several times", null, @__tags);
-#line 102
+#line 103
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 103
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 104
-        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 105
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 106
-        testRunner.And("Mass Update page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 107
-        testRunner.And(string.Format("recipe \"{0}\" is searched", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Mass Update page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 108
-        testRunner.And(string.Format("recipe \"{0}\" is expanded", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("recipe \"{0}\" is searched", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 109
-        testRunner.And(string.Format("recipe \"{0}\" is selected", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("recipe \"{0}\" is expanded", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 110
-        testRunner.And("update price is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("recipe \"{0}\" is selected", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 111
-        testRunner.And("proceed button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("update price is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 112
-    testRunner.When("add types is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And("proceed button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 113
-        testRunner.And(string.Format("tariff type \"{0}\" is set to \"{1}\"", tariffType, newTariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("add types is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 114
-        testRunner.And("apply button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("tariff type \"{0}\" is set to \"{1}\"", tariffType, newTariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 115
+        testRunner.And("apply button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 116
     testRunner.Then("Verify notification message \"Please make sure that you have not selected the same" +
                     " price type several times\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -347,61 +349,61 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Fixed price model validations", null, @__tags);
-#line 124
+#line 125
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 125
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 126
-        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 127
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 128
-        testRunner.And("Mass Update page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 129
-        testRunner.And(string.Format("recipe \"{0}\" is searched", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Mass Update page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 130
-        testRunner.And(string.Format("recipe \"{0}\" is expanded", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("recipe \"{0}\" is searched", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 131
-        testRunner.And(string.Format("recipe \"{0}\" is selected", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("recipe \"{0}\" is expanded", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 132
-        testRunner.And("update price is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("recipe \"{0}\" is selected", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 133
-        testRunner.And("proceed button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("update price is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 134
-    testRunner.When(string.Format("Price model for tariff type \"{0}\" is set to \"{1}\"", tariffType, priceModel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And("proceed button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 135
-        testRunner.And(string.Format("sell price for \"{0}\" is set to \"\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When(string.Format("Price model for tariff type \"{0}\" is set to \"{1}\"", tariffType, priceModel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 136
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("sell price for \"{0}\" is set to \"\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 137
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 138
         testRunner.And(string.Format("Verify red border and contextual error message \"Value is required\" is displayed f" +
                         "or Sell Price field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 138
-        testRunner.And(string.Format("sell price for \"{0}\" is set to \"7a7\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 139
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("sell price for \"{0}\" is set to \"7a7\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 140
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 141
         testRunner.And(string.Format("Verify red border and contextual error message \"Must be number\" is displayed for " +
                         "Sell Price field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 141
-        testRunner.And(string.Format("sell price for \"{0}\" is set to \"-1\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 142
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("sell price for \"{0}\" is set to \"-1\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 143
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 144
         testRunner.And(string.Format("Verify red border and contextual error message \"Must be 0 or greater\" is displaye" +
                         "d for Sell Price field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 144
-        testRunner.And(string.Format("sell price for \"{0}\" is set to \"0\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 145
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("sell price for \"{0}\" is set to \"0\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 146
-        testRunner.And(string.Format("Verify red border is not displayed for Sell Price field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 147
-        testRunner.And(string.Format("sell price for \"{0}\" is set to \"4534\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 148
         testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 147
+        testRunner.And(string.Format("Verify red border is not displayed for Sell Price field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 148
+        testRunner.And(string.Format("sell price for \"{0}\" is set to \"4534\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 149
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 150
     testRunner.Then(string.Format("Verify red border is not displayed for Sell Price field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -421,61 +423,61 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GP price model validations", null, @__tags);
-#line 158
+#line 159
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 159
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 160
-        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 161
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 162
-        testRunner.And("Mass Update page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 163
-        testRunner.And(string.Format("recipe \"{0}\" is searched", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Mass Update page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 164
-        testRunner.And(string.Format("recipe \"{0}\" is expanded", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("recipe \"{0}\" is searched", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 165
-        testRunner.And(string.Format("recipe \"{0}\" is selected", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("recipe \"{0}\" is expanded", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 166
-        testRunner.And("update price is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("recipe \"{0}\" is selected", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 167
-        testRunner.And("proceed button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("update price is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 168
-    testRunner.When(string.Format("Price model for tariff type \"{0}\" is set to \"{1}\"", tariffType, priceModel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And("proceed button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 169
-        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When(string.Format("Price model for tariff type \"{0}\" is set to \"{1}\"", tariffType, priceModel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 170
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 171
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 172
         testRunner.And(string.Format("Verify red border and contextual error message \"Value is required\" is displayed f" +
                         "or targetGP% field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 172
-        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"7a7\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 173
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"7a7\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 174
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 175
         testRunner.And(string.Format("Verify red border and contextual error message \"Must be number\" is displayed for " +
                         "targetGP% field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 175
-        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"100\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 176
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"100\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 177
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 178
         testRunner.And(string.Format("Verify red border and contextual error message \"Must be -99.99 to 99.99\" is displ" +
                         "ayed for targetGP% field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 178
-        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"99.99\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 179
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"99.99\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 180
-        testRunner.And(string.Format("Verify red border is not displayed for targetGP% field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 181
-        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"-99.99\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 182
         testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 181
+        testRunner.And(string.Format("Verify red border is not displayed for targetGP% field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 182
+        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"-99.99\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 183
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 184
     testRunner.Then(string.Format("Verify red border is not displayed for targetGP% field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -495,61 +497,61 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Markup price model validations", null, @__tags);
-#line 192
+#line 193
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 193
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 194
-        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 195
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 196
-        testRunner.And("Mass Update page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 197
-        testRunner.And(string.Format("recipe \"{0}\" is searched", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Mass Update page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 198
-        testRunner.And(string.Format("recipe \"{0}\" is expanded", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("recipe \"{0}\" is searched", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 199
-        testRunner.And(string.Format("recipe \"{0}\" is selected", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("recipe \"{0}\" is expanded", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 200
-        testRunner.And("update price is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("recipe \"{0}\" is selected", recipeName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 201
-        testRunner.And("proceed button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("update price is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 202
-    testRunner.When(string.Format("Price model for tariff type \"{0}\" is set to \"{1}\"", tariffType, priceModel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And("proceed button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 203
-        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When(string.Format("Price model for tariff type \"{0}\" is set to \"{1}\"", tariffType, priceModel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 204
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 205
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 206
         testRunner.And(string.Format("Verify red border and contextual error message \"Value is required\" is displayed f" +
                         "or targetGP% field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 206
-        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"7a7\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 207
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"7a7\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 208
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 209
         testRunner.And(string.Format("Verify red border and contextual error message \"Must be number\" is displayed for " +
                         "targetGP% field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 209
-        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"-1\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 210
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"-1\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 211
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 212
         testRunner.And(string.Format("Verify red border and contextual error message \"Must be 0 or greater\" is displaye" +
                         "d for targetGP% field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 212
-        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"0\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 213
-        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"0\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 214
-        testRunner.And(string.Format("Verify red border is not displayed for targetGP% field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 215
-        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"334\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 216
         testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 215
+        testRunner.And(string.Format("Verify red border is not displayed for targetGP% field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 216
+        testRunner.And(string.Format("targetGP% for \"{0}\" is set to \"334\"", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 217
+        testRunner.And("the user focus out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 218
     testRunner.Then(string.Format("Verify red border is not displayed for targetGP% field for \"{0}\" tariff type", tariffType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

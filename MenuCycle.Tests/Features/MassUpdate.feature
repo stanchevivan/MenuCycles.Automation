@@ -90,7 +90,8 @@ Scenario Outline: Notification is shown when all available tariff types have bee
         And add types is selected
         And add types is selected
         And add types is selected
-     Then Verify notification message "There are 14 price types available. You cannot add more." is displayed
+        And add types is selected
+     Then Verify notification message "There are 15 price types available. You cannot add more." is displayed
 
     @QAI
    Examples:
