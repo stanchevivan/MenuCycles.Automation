@@ -312,3 +312,25 @@ Scenario Outline: Buying Report - Local - Export Successfully
     Examples:
     |environment|withFA|menuCycle|
     |QAI        |false |Meda     |
+
+@TC44242
+Scenario Outline: Allergen Report - Local - Export Successfully 
+   Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+       And a local user is selected
+       And location "Site EUR1" is selected
+       And Menu Cycle "Local User Testing" is selected
+    When Reports page is opened
+       And Report "AllergenReport" is opened
+       And Report start date "16/12/2019" is selected
+       And Report end date "20/12/2019" is selected
+       And Meal periods are selected
+        |MealPeriod         |
+        |Lunch              |
+        |Dinner             |
+    Then Report is exported
+       And Verify notification message "Successfully Exported." is displayed
+        
+       @QAI
+        Examples:
+        |environment|withFA|
+        |QAI        |false |

@@ -783,6 +783,49 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Allergen Report - Local - Export Successfully")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", new string[] {
+                "QAI"}, Category="QAI")]
+        public virtual void AllergenReport_Local_ExportSuccessfully(string environment, string withFA, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Allergen Report - Local - Export Successfully", null, exampleTags);
+#line 316
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 317
+   testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 318
+       testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 319
+       testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 320
+       testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 321
+    testRunner.When("Reports page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 322
+       testRunner.And("Report \"AllergenReport\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 323
+       testRunner.And("Report start date \"16/12/2019\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 324
+       testRunner.And("Report end date \"20/12/2019\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table120 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriod"});
+            table120.AddRow(new string[] {
+                        "Lunch"});
+            table120.AddRow(new string[] {
+                        "Dinner"});
+#line 325
+       testRunner.And("Meal periods are selected", ((string)(null)), table120, "And ");
+#line 329
+    testRunner.Then("Report is exported", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 330
+       testRunner.And("Verify notification message \"Successfully Exported.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
