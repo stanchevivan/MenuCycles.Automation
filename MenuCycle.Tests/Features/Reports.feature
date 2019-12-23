@@ -18,7 +18,7 @@ Scenario Outline: Consumer Facing Report - Price options are not disabled for Lo
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "Site EUR1" is selected
-        And Menu Cycle "Local User Testing" is selected
+        And Menu Cycle "FOR Local User AUTOMATION" is selected
     When Reports page is opened
         And Report "ConsumerFacing" is opened
     Then Verify Include sell price is not checked
@@ -33,13 +33,13 @@ Scenario Outline: Export Consumer Facing Report as PDF with Sell Price, Kilojoul
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "Site EUR1" is selected
-        And Menu Cycle "AUTOMATIOn - ConsumerFacingReport" is selected
+        And Menu Cycle "FOR Local User AUTOMATION" is selected
     When Reports page is opened
         And Report "ConsumerFacing" is opened
         And Export CSV and Export PDF buttons are not displayed
-        And Report start date "15/10/2019" is selected
+        And Report start date "20/12/2019" is selected
         And Export CSV and Export PDF buttons are not displayed
-        And Report end date "16/10/2019" is selected
+        And Report end date "31/12/2019" is selected
         And Export CSV and Export PDF buttons are displayed
         And Include sell price is checked
         And Calories checkbox is checked
@@ -57,13 +57,13 @@ Scenario Outline: Export Consumer Facing Report as CSV with Sell Price, Kilojoul
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "Site EUR1" is selected
-        And Menu Cycle "AUTOMATIOn - ConsumerFacingReport" is selected
+        And Menu Cycle "FOR Local User AUTOMATION" is selected
     When Reports page is opened
         And Report "ConsumerFacing" is opened
         And Export CSV and Export PDF buttons are not displayed
-        And Report start date "15/10/2019" is selected
+        And Report start date "20/12/2019" is selected
         And Export CSV and Export PDF buttons are not displayed
-        And Report end date "16/10/2019" is selected
+        And Report end date "31/12/2019" is selected
         And Export CSV and Export PDF buttons are displayed
         And Include sell price is checked
         And Calories checkbox is checked
@@ -81,7 +81,7 @@ Scenario Outline: Consumer Facing Report - Local > User is able to export Consum
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "Site EUR1" is selected
-        And Menu Cycle "Local User Testing" is selected
+        And Menu Cycle "FOR Local User AUTOMATION" is selected
     When Reports page is opened
         And Report "ConsumerFacing" is opened
         And Export CSV and Export PDF buttons are not displayed
@@ -102,7 +102,7 @@ Scenario Outline: Consumer Facing Report - Local > User is able to export Consum
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "Site EUR1" is selected
-        And Menu Cycle "Local User Testing" is selected
+        And Menu Cycle "FOR Local User AUTOMATION" is selected
     When Reports page is opened
         And Report "ConsumerFacing" is opened
         And Export CSV and Export PDF buttons are not displayed
@@ -146,7 +146,7 @@ Scenario Outline: Recipe Card Report - Central > Export button is displayed afte
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "Site EUR1" is selected
-        And Menu Cycle "Local User Testing" is selected
+        And Menu Cycle "FOR Local User AUTOMATION" is selected
     When Reports page is opened
         And Report "RecipeCard" is opened
         And Report start date "31/07/2019" is selected
@@ -154,7 +154,7 @@ Scenario Outline: Recipe Card Report - Central > Export button is displayed afte
         And Meal periods are selected
         |MealPeriod         |
         |Lunch              |
-        |Dinner             |
+        |Brunch             |
         And recipe "<recipe>" is searched
         And Checkbox for Select All is selected
         And Done button is selected
@@ -211,13 +211,13 @@ Scenario Outline: Menu Cycle Calendar - Local - Export Successfully
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "Site EUR1" is selected
-        And Menu Cycle "Local User Testing" is selected
+        And Menu Cycle "FOR Local User AUTOMATION" is selected
     When Reports page is opened
         And Report "MenuCycleCalendar" is opened
         And Export button is not displayed
         And Meal periods are selected
         |MealPeriod|
-        |Dinner   |
+        |Brunch   |
     Then Verify Export button is displayed
         And Report is exported
         And Verify notification message "Successfully Exported." is displayed
@@ -268,7 +268,7 @@ Scenario Outline: Traffic Light Report - Local - Export Successfully
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
         And location "Site EUR1" is selected
-        And Menu Cycle "Consumer Facing Report Export AUTOMATION" is selected
+        And Menu Cycle "FOR Local User AUTOMATION" is selected
     When Reports page is opened
         And Report "TrafficLight" is opened
     Then Verify Export button is displayed
@@ -285,7 +285,7 @@ Scenario Outline: Buying Report - Local - Export Successfully
    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
        And a local user is selected
        And location "Site EUR1" is selected
-       And Menu Cycle "Local User Testing" is selected
+       And Menu Cycle "FOR Local User AUTOMATION" is selected
     When Reports page is opened
        And Report "BuyingReport" is opened
     Then Report is exported
@@ -318,7 +318,7 @@ Scenario Outline: Allergen Report - Local - Export Successfully
    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
        And a local user is selected
        And location "Site EUR1" is selected
-       And Menu Cycle "Local User Testing" is selected
+       And Menu Cycle "FOR Local User AUTOMATION" is selected
     When Reports page is opened
        And Report "AllergenReport" is opened
        And Report start date "16/12/2019" is selected
@@ -326,7 +326,7 @@ Scenario Outline: Allergen Report - Local - Export Successfully
        And Meal periods are selected
         |MealPeriod         |
         |Lunch              |
-        |Dinner             |
+        |Brunch             |
     Then Report is exported
        And Verify notification message "Successfully Exported." is displayed
         
