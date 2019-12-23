@@ -387,7 +387,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Export Local Sales report")]
         [NUnit.Framework.CategoryAttribute("TC36205")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Local User Testing", "WED 31 JUL", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "FOR Local User AUTOMATION", "WED 7 AUG", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void ExportLocalSalesReport(string environment, string withFA, string location, string menuCycle, string day, string[] exampleTags)
         {

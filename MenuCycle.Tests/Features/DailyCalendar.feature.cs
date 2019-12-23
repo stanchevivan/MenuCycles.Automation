@@ -110,7 +110,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Daily Calendar view is switched for local user")]
         [NUnit.Framework.CategoryAttribute("TC34370")]
         [NUnit.Framework.CategoryAttribute("TC34369")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Local User Testing", "SUN 28 JUL", "WEEK 1", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "FOR Local User AUTOMATION", "SUN 28 JUL", "WEEK 1", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void DailyCalendarViewIsSwitchedForLocalUser(string environment, string withFA, string location, string menuCycle, string day, string week, string[] exampleTags)
         {
