@@ -19,7 +19,7 @@ Scenario Outline: Search Menu Cycles by name or description
     |environment|withFA|mc1Name|mc1Description                     |mc2Name        |mc2Description                             |
     |QAI        |false |Meda   |FOR AUTOMATION TESTS - DO NOT TOUCH|MC with recipes|Testing the publishing of a MC with recipes|
     
-
+    
 @TC27706 @TC27653 @TC27658 @Smoke
 Scenario Outline: Create Edit Copy Delete menu cycle
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
@@ -32,18 +32,20 @@ Scenario Outline: Create Edit Copy Delete menu cycle
             |Wednesday|
             |Thursday |
         And Home button is clicked
+        And Menu Cycle "Automatically created menu cycle" is searched
         And Verify search results contain the following menu cycles
             |Name                            |Description   |
             |Automatically created menu cycle|no description|
         And Menu Cycle "Automatically created menu cycle" is copied
+        And Menu Cycle "Automatically created menu cycle" is searched
         And Verify search results contain the following menu cycles
             |Name                            |Description   |
-            |Automatically created menu cycle|no description|
             |Automatically created menu cycle|no description|
         And Menu Cycle "Automatically created menu cycle" is edited to
             |MenuCycleName                  |Description    |
             |Automatically edited menu cycle|yes description|
         And Home button is clicked
+        And Menu Cycle "Automatically" is searched
         And Verify search results contain the following menu cycles
             |Name                            |Description    |
             |Automatically edited menu cycle |yes description|
