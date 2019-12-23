@@ -32,7 +32,7 @@ Scenario Outline: Daily Calendar view is switched for local user
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |day       |week  |
-    |QAI        |false |Site EUR1   |Local User Testing|SUN 28 JUL|WEEK 1|
+    |QAI        |false |Site EUR1   |FOR Local User AUTOMATION|SUN 28 JUL|WEEK 1|
     
 @TC37976
 Scenario Outline: Review page is opened

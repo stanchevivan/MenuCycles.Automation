@@ -16,7 +16,7 @@ Scenario Outline: Verify save button is disabled for passed days
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |day        |
-    |QAI        |false |Site EUR1   |Local User Testing|THUR 25 JUL|
+    |QAI        |false |Site EUR1   |FOR Local User AUTOMATION|WED 31 JUL|
     
 @TC30227
 Scenario Outline: Real date is displayed on the top of the planning screen
@@ -32,7 +32,7 @@ Scenario Outline: Real date is displayed on the top of the planning screen
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |day        |date                   |
-    |QAI        |false |Site EUR1   |Local User Testing|THUR 25 JUL|THURSDAY - 25 July 2019|    
+    |QAI        |false |Site EUR1   |FOR Local User AUTOMATION|WED 31 JUL|WEDNESDAY - 31 July 2019|    
 
 @TC30366 @D25410
 Scenario Outline: Open Planning Screen, go to Weekly planning
@@ -49,7 +49,7 @@ Scenario Outline: Open Planning Screen, go to Weekly planning
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |day        |
-    |QAI        |false |Site EUR1   |Local User Testing|THUR 25 JUL|
+    |QAI        |false |Site EUR1   |FOR Local User AUTOMATION|WED 31 JUL|
 
 @TC30313 @D25310
 Scenario Outline: User should not be redirected to the planning screen after navigating to post-production and back
@@ -70,7 +70,7 @@ Scenario Outline: User should not be redirected to the planning screen after nav
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |day        |
-    |QAI        |false |Site EUR1   |Local User Testing|THUR 25 JUL|
+    |QAI        |false |Site EUR1   |FOR Local User AUTOMATION|WED 31 JUL|
 
 @TC27776 @Smoke
 Scenario Outline: Create menu cycle button is not present - local user
@@ -112,7 +112,7 @@ Scenario Outline: Current week is opened when opening a non-expired menu cycle
     @QAI
     Examples:
     |environment|withFA|location|menuCycle         |
-    |QAI        |false |Site EUR1   |Local User Testing|
+    |QAI        |false |Site EUR1   |FOR Local User AUTOMATION|
 
 @TC38355    
 Scenario Outline: Last week is opened when opening a menu cycle in the past
