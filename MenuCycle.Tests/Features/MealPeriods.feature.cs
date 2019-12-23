@@ -1506,7 +1506,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Meal periods are displayed in the correct sort order in post-production weekly")]
         [NUnit.Framework.CategoryAttribute("TC40598")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Automation post-prod", "Site EUR1", "WED 10 JUL", "WEDNESDAY", "WEEK 1", "Breakfast,Lunch,Afternoon Tea,Dinner,Ryley,Carmine,Jaqueline,All day,All day 2", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Published MC for AUTOMATION", "Site EUR1", "WED 25 DEC", "WEDNESDAY", "WEEK 12", "Breakfast,Lunch,Afternoon Tea,Dinner,Ryley,Carmine,Jaqueline,All day,All day 2", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void MealPeriodsAreDisplayedInTheCorrectSortOrderInPost_ProductionWeekly(string environment, string withFA, string menuCycle, string location, string day, string weekDay, string week, string mealPeriods, string[] exampleTags)
         {
@@ -1531,7 +1531,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 565
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 566
-        testRunner.And("week \"WEEK 1\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 567
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 568
