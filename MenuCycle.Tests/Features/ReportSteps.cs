@@ -149,6 +149,7 @@ namespace MenuCycle.Tests.Steps
         public void ThenReportTypeIsComparedWithTheExpetedOne(Reports report, string reportName, string reportType)
         {
             reportsView.CompareReports(report, reportType, reportName);
+        }
         [When(@"Checkbox for Select All is selected")]
         public void WhenCheckboxForSelectAllIsSelected()
         {
