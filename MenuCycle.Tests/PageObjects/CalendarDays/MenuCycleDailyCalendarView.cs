@@ -67,7 +67,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".calendar-next-arrow")]
         private IWebElement NextWeekArrow { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//a[contains(@href, 'review/')]")]
+        [FindsBy(How = How.XPath, Using = "//a[contains(@href, 'review')]")]
         private IWebElement ReviewButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#daily-calendar-week-heading")]

@@ -10,16 +10,16 @@ namespace MenuCycle.Tests.PageObjects
         {
         }
 
-        [FindsBy(How = How.CssSelector, Using = ".review-body")]
+        [FindsBy(How = How.CssSelector, Using = ".review")]
         private IWebElement PageBody { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".summary-box-week")]
-        private IWebElement SummaryWeeks { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".review__recipes_box")]
+        private IWebElement SummaryRecipes { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".verify-destinations-btn")]
         private IWebElement SelectDestinations { get; set; }
 
-        public bool IsLoaded => SummaryWeeks.Displayed;
+        public bool IsLoaded => SummaryRecipes.Displayed;
 
         public void WaitForLoad()
         {
