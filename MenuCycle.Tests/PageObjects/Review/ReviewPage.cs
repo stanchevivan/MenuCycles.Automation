@@ -16,7 +16,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".review__recipes_box")]
         private IWebElement SummaryRecipes { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".verify-destinations-btn")]
+        [FindsBy(How = How.XPath, Using = "//a[contains(@href,'review-destinations')]")]
         private IWebElement SelectDestinations { get; set; }
 
         public bool IsLoaded => SummaryRecipes.Displayed;
