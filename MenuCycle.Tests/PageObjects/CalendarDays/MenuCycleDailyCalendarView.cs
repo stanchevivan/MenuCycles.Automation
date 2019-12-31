@@ -58,7 +58,7 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".NewMealPeriod .clickable")]
         private IWebElement NewMealPeriodHeader { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//a[contains(@href, 'reports/')]")]
+        [FindsBy(How = How.XPath, Using = "//a[contains(@href, '/reports')]")]
         private IWebElement DailyReportButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".mc-calendar-subheader__buttons > button:first-of-type")]

@@ -28,6 +28,9 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement NoButton { get; set; }
         [FindsBy(How = How.ClassName, Using = "displayed-count")]
         private IWebElement recipeCountMessage { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".modal-recipes-checkbox-list__select-all .mc-checkbox")]
+        private IWebElement selectAllCheckbox { get; set; }
+
         public string RecipeCount => Regex.Match(recipeCountMessage.Text, "\\d+").Value;
 
         public void UseYesButton()
@@ -58,6 +61,11 @@ namespace MenuCycle.Tests.PageObjects
         public void WaitRecipeCountToAppear()
         {
             Driver.WaitElementToExists(recipeCountMessage);
+        }
+
+        public void ClickSelectAll()
+        {
+            selectAllCheckbox.Click();
         }
     }
 }

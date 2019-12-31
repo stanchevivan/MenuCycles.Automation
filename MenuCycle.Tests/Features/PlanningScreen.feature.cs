@@ -130,18 +130,18 @@ this.ScenarioInitialize(scenarioInfo);
 #line 25
         testRunner.And(string.Format("Number of covers for meal period \"{0}\" is set to random number", mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table57 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table58 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
                         "SellPrice"});
-            table57.AddRow(new string[] {
+            table58.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
                         "0#99"});
 #line 26
-        testRunner.And("data for recipes is set", ((string)(null)), table57, "And ");
+        testRunner.And("data for recipes is set", ((string)(null)), table58, "And ");
 #line 29
         testRunner.And(string.Format("quantity for recipe named \"{0}\" in meal period \"{1}\" is set to random number", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 30
@@ -187,16 +187,16 @@ this.ScenarioInitialize(scenarioInfo);
 #line 47
         testRunner.And(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table58 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table59 = new TechTalk.SpecFlow.Table(new string[] {
                         "mealPeriodName",
                         "recipeTitle",
                         "PlannedQuantity"});
-            table58.AddRow(new string[] {
+            table59.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
                         string.Format("{0}", recipeName),
                         "1#99"});
 #line 49
-    testRunner.When("data for recipes is set", ((string)(null)), table58, "When ");
+    testRunner.When("data for recipes is set", ((string)(null)), table59, "When ");
 #line 52
         testRunner.And(string.Format("Price model for recipe \"{0}\" in meal period \"{1}\" is set to \"Fixed\"", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 53
@@ -212,18 +212,18 @@ this.ScenarioInitialize(scenarioInfo);
 #line 58
         testRunner.And(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table59 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table60 = new TechTalk.SpecFlow.Table(new string[] {
                         "mealPeriodName",
                         "type",
                         "recipeTitle",
                         "PlannedQty"});
-            table59.AddRow(new string[] {
+            table60.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
                         string.Format("{0}", plannedQty)});
 #line 59
-    testRunner.Then("Verify data for items is", ((string)(null)), table59, "Then ");
+    testRunner.Then("Verify data for items is", ((string)(null)), table60, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -266,7 +266,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 80
         testRunner.And("Verify notification message \"Planning figures updated.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 81
-        testRunner.And("Cross button is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Calendar tab is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 82
         testRunner.And(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 83
@@ -316,20 +316,20 @@ this.ScenarioInitialize(scenarioInfo);
 #line 98
         testRunner.And(string.Format("Meal Period \"{0}\" is expanded", mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table60 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table61 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle"});
-            table60.AddRow(new string[] {
+            table61.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", item1)});
-            table60.AddRow(new string[] {
+            table61.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", item2)});
 #line 99
-        testRunner.And(string.Format("Verify items for meal period \"{0}\" are (check count \"yes\")", mealPeriod), ((string)(null)), table60, "And ");
+        testRunner.And(string.Format("Verify items for meal period \"{0}\" are (check count \"yes\")", mealPeriod), ((string)(null)), table61, "And ");
 #line 103
         testRunner.And("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 104
@@ -397,11 +397,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Modal dialog for unsaved changes is shown on pressing X")]
+        [NUnit.Framework.DescriptionAttribute("Modal dialog for unsaved changes is shown on pressing calendar button")]
         [NUnit.Framework.CategoryAttribute("TC29521")]
         [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "LUNCH", "004Baked Beans_3", "MONDAY", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void ModalDialogForUnsavedChangesIsShownOnPressingX(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
+        public virtual void ModalDialogForUnsavedChangesIsShownOnPressingCalendarButton(string environment, string withFA, string menuCycle, string mealPeriod, string recipeName, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC29521"};
@@ -409,7 +409,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modal dialog for unsaved changes is shown on pressing X", null, @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modal dialog for unsaved changes is shown on pressing calendar button", null, @__tags);
 #line 138
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -426,7 +426,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 144
         testRunner.And(string.Format("quantity for recipe named \"{0}\" in meal period \"{1}\" is set to random number", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 145
-        testRunner.And("Cross button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Calendar tab is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 146
         testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 147
@@ -601,41 +601,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 219
         testRunner.And("Expand all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table61 = new TechTalk.SpecFlow.Table(new string[] {
-                        "MealPeriodName",
-                        "TYPE",
-                        "RecipeTitle",
-                        "PlannedQuantity",
-                        "PriceModel",
-                        "TaxPercentage",
-                        "SellPrice"});
-            table61.AddRow(new string[] {
-                        "LUNCH",
-                        "RECIPE",
-                        "724Gourmet Beef Burger 6oz",
-                        "3",
-                        "Fixed",
-                        "0",
-                        "3"});
-            table61.AddRow(new string[] {
-                        "LUNCH",
-                        "RECIPE",
-                        "724Gourmet Chicken Burger",
-                        "7",
-                        "Fixed",
-                        "0",
-                        "8"});
-            table61.AddRow(new string[] {
-                        "DINNER",
-                        "RECIPE",
-                        "703Houmus Sandwich Filling (50g)",
-                        "5",
-                        "Fixed",
-                        "0",
-                        "8"});
-#line 220
-    testRunner.And("data for recipes is set", ((string)(null)), table61, "And ");
-#line hidden
             TechTalk.SpecFlow.Table table62 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
@@ -645,6 +610,41 @@ this.ScenarioInitialize(scenarioInfo);
                         "TaxPercentage",
                         "SellPrice"});
             table62.AddRow(new string[] {
+                        "LUNCH",
+                        "RECIPE",
+                        "724Gourmet Beef Burger 6oz",
+                        "3",
+                        "Fixed",
+                        "0",
+                        "3"});
+            table62.AddRow(new string[] {
+                        "LUNCH",
+                        "RECIPE",
+                        "724Gourmet Chicken Burger",
+                        "7",
+                        "Fixed",
+                        "0",
+                        "8"});
+            table62.AddRow(new string[] {
+                        "DINNER",
+                        "RECIPE",
+                        "703Houmus Sandwich Filling (50g)",
+                        "5",
+                        "Fixed",
+                        "0",
+                        "8"});
+#line 220
+    testRunner.And("data for recipes is set", ((string)(null)), table62, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table63 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MealPeriodName",
+                        "TYPE",
+                        "RecipeTitle",
+                        "PlannedQuantity",
+                        "PriceModel",
+                        "TaxPercentage",
+                        "SellPrice"});
+            table63.AddRow(new string[] {
                         "DANGELO",
                         "BUFFET",
                         "Maya Buffet",
@@ -652,7 +652,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "Fixed",
                         "20",
                         "23"});
-            table62.AddRow(new string[] {
+            table63.AddRow(new string[] {
                         "DANGELO",
                         "BUFFET",
                         "Aneliya Buffet",
@@ -661,62 +661,62 @@ this.ScenarioInitialize(scenarioInfo);
                         "5",
                         "20"});
 #line 225
-    testRunner.And("data for buffets is set", ((string)(null)), table62, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table63 = new TechTalk.SpecFlow.Table(new string[] {
-                        "RecipeTitle",
-                        "PlannedQuantity"});
-            table63.AddRow(new string[] {
-                        "004Fish Stock (bouillon)",
-                        "10"});
-            table63.AddRow(new string[] {
-                        "004Basic Sponge",
-                        "20"});
-            table63.AddRow(new string[] {
-                        "004Fresh Lemon Curd",
-                        "30"});
-            table63.AddRow(new string[] {
-                        "004Beef Stock (bouillon)",
-                        "7"});
-#line 229
-    testRunner.And("data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table63, "And ");
+    testRunner.And("data for buffets is set", ((string)(null)), table63, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table64 = new TechTalk.SpecFlow.Table(new string[] {
                         "RecipeTitle",
                         "PlannedQuantity"});
             table64.AddRow(new string[] {
-                        "004Bechamel Sauce",
-                        "2"});
+                        "004Fish Stock (bouillon)",
+                        "10"});
             table64.AddRow(new string[] {
-                        "004Beef Stock (bouillon)",
-                        "3"});
-            table64.AddRow(new string[] {
-                        "004Tartare Sauce (bulk)",
-                        "4"});
+                        "004Basic Sponge",
+                        "20"});
             table64.AddRow(new string[] {
                         "004Fresh Lemon Curd",
-                        "5"});
+                        "30"});
             table64.AddRow(new string[] {
+                        "004Beef Stock (bouillon)",
+                        "7"});
+#line 229
+    testRunner.And("data for recipes in buffet \"Maya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table64, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table65 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RecipeTitle",
+                        "PlannedQuantity"});
+            table65.AddRow(new string[] {
+                        "004Bechamel Sauce",
+                        "2"});
+            table65.AddRow(new string[] {
+                        "004Beef Stock (bouillon)",
+                        "3"});
+            table65.AddRow(new string[] {
+                        "004Tartare Sauce (bulk)",
+                        "4"});
+            table65.AddRow(new string[] {
+                        "004Fresh Lemon Curd",
+                        "5"});
+            table65.AddRow(new string[] {
                         "004Blueberry Muffin (Wrapped)",
                         "6"});
-            table64.AddRow(new string[] {
+            table65.AddRow(new string[] {
                         "004Baked Beans_1",
                         "7"});
 #line 235
-    testRunner.And("data for recipes in buffet \"Aneliya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table64, "And ");
+    testRunner.And("data for recipes in buffet \"Aneliya Buffet\" in meal period \"DANGELO\" is set", ((string)(null)), table65, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table65 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table66 = new TechTalk.SpecFlow.Table(new string[] {
                         "PlannedQty",
                         "TotalCost",
                         "Revenue",
                         "ActualGP"});
-            table65.AddRow(new string[] {
+            table66.AddRow(new string[] {
                         "109",
                         "323.19",
                         "315.71",
                         "-2%"});
 #line 243
-    testRunner.Then("Verify Daily Totals are equal to", ((string)(null)), table65, "Then ");
+    testRunner.Then("Verify Daily Totals are equal to", ((string)(null)), table66, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -923,7 +923,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 330
         testRunner.And(string.Format("Add type is clicked for recipe \"{0}\" in meal period \"{1}\"", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 331
-    testRunner.Then("Verify notification message \"There are 13 price types available. You cannot add m" +
+        testRunner.And(string.Format("Add type is clicked for recipe \"{0}\" in meal period \"{1}\"", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 332
+        testRunner.And(string.Format("Add type is clicked for recipe \"{0}\" in meal period \"{1}\"", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 333
+    testRunner.Then("Verify notification message \"There are 15 price types available. You cannot add m" +
                     "ore.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -947,35 +951,35 @@ this.ScenarioInitialize(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modal dialog is closed on cancel when only PriceModel is changed for an unsaved r" +
                     "ecipe", null, @__tags);
-#line 339
+#line 341
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 340
-        testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 341
-        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 342
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 343
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 344
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 345
             testRunner.And(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table66 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table67 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "RecipeTitle",
                         "PriceModel"});
-            table66.AddRow(new string[] {
+            table67.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
                         string.Format("{0}", recipeName),
                         "GP"});
-#line 344
-        testRunner.When("data for recipes is set", ((string)(null)), table66, "When ");
-#line 347
-        testRunner.When("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 348
-            testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 346
+        testRunner.When("data for recipes is set", ((string)(null)), table67, "When ");
 #line 349
-            testRunner.And("Wait for Calendar view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.When("Cancel button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 350
+            testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 351
+            testRunner.And("Wait for Calendar view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 352
         testRunner.Then("Verify calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -999,40 +1003,40 @@ this.ScenarioInitialize(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User should not be redirected to the planning screen after navigating to Nutritio" +
                     "n view and back", null, @__tags);
-#line 358
+#line 360
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 359
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 360
-        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 361
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 362
-            testRunner.And(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 363
-    testRunner.When("nutrition tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 364
-        testRunner.And("planning tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 365
-        testRunner.And("Cross button is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 366
-        testRunner.And("Home button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 367
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 364
+            testRunner.And(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 365
+    testRunner.When("nutrition tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 366
+        testRunner.And("planning tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 367
+        testRunner.And("Calendar tab is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 368
+        testRunner.And("Home button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 369
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 370
     testRunner.Then("Verify calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Close planning screen with \"X\" button without any changes")]
+        [NUnit.Framework.DescriptionAttribute("Select calendar button on planning screen without any changes")]
         [NUnit.Framework.CategoryAttribute("TC27677")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
         [NUnit.Framework.TestCaseAttribute("QAI", "false", "Meda", "MONDAY", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void ClosePlanningScreenWithXButtonWithoutAnyChanges(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
+        public virtual void SelectCalendarButtonOnPlanningScreenWithoutAnyChanges(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC27677",
@@ -1041,21 +1045,21 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Close planning screen with \"X\" button without any changes", null, @__tags);
-#line 377
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select calendar button on planning screen without any changes", null, @__tags);
+#line 379
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 378
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 379
-        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 380
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 381
-        testRunner.And(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 382
-    testRunner.When("Cross button is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 383
+        testRunner.And(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 384
+    testRunner.When("Calendar tab is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 385
     testRunner.Then("Verify calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1075,18 +1079,18 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify save button is disabled if menu cycle is published", null, @__tags);
-#line 391
+#line 393
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 392
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 393
-        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 394
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 395
-    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 396
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 397
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 398
     testRunner.Then("Verify save button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1106,18 +1110,18 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save button is disabled for locked menu cycle", null, @__tags);
-#line 404
+#line 406
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 405
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 406
-        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 407
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 408
-    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 409
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 410
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 411
     testRunner.Then("Verify save button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1137,20 +1141,20 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify planning weekly totals equals the sum of all meal period totals", null, @__tags);
-#line 417
+#line 419
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 418
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 419
-        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 420
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 421
-    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 422
-        testRunner.And("Weeks tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 423
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 424
+        testRunner.And("Weeks tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 425
     testRunner.Then("Verify weekly planning totals equals the sum of all meal period totals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1170,37 +1174,37 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Default values are \'0\' for unplanned meal period", null, @__tags);
-#line 432
+#line 434
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 433
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 434
-        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 435
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 436
-    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 437
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 438
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 439
         testRunner.And("Expand all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table67 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table68 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
                         "TariffType",
                         "SellPrice",
                         "PlannedQty"});
-            table67.AddRow(new string[] {
+            table68.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
                         "TariffOne",
                         "0.00",
                         "0"});
-#line 438
-    testRunner.Then("Verify data for items is", ((string)(null)), table67, "Then ");
-#line 441
+#line 440
+    testRunner.Then("Verify data for items is", ((string)(null)), table68, "Then ");
+#line 443
         testRunner.And(string.Format("Verify number of covers for meal period \"{0}\" is equal to \"0\"", mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1220,38 +1224,200 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Default values are \'0\' when adding new recipe tariff type", null, @__tags);
-#line 449
+#line 451
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 450
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 451
-        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 452
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 453
-    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 454
-        testRunner.And("Expand all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 455
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 456
+        testRunner.And("Expand all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 457
     testRunner.When(string.Format("Add type is clicked for recipe \"{0}\" in meal period \"{1}\"", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table68 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table69 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
                         "TariffType",
                         "SellPrice",
                         "PlannedQty"});
-            table68.AddRow(new string[] {
+            table69.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
                         "TariffTwo",
                         "0.00",
                         "0"});
-#line 456
-    testRunner.Then("Verify data for items is", ((string)(null)), table68, "Then ");
+#line 458
+    testRunner.Then("Verify data for items is", ((string)(null)), table69, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Change week using day-to-day navigation")]
+        [NUnit.Framework.CategoryAttribute("TC43688")]
+        [NUnit.Framework.CategoryAttribute("TC43694")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Post-production MC for AUTOMATION", "WEEK 2", "MON 25 NOV", "SUNDAY - 24 November 2019", "MONDAY - 25 November 2019", new string[] {
+                "QAI"}, Category="QAI")]
+        public virtual void ChangeWeekUsingDay_To_DayNavigation(string environment, string withFA, string location, string menuCycle, string week, string day, string prevDay, string nextDay, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC43688",
+                    "TC43694"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Change week using day-to-day navigation", null, @__tags);
+#line 469
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 470
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 471
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 472
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 473
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 474
+        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 475
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 476
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 477
+        testRunner.And("Previous day button is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 478
+    testRunner.Then(string.Format("Verify the screen for \"{0}\" is open", prevDay), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 479
+    testRunner.Then("Next day button is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 480
+    testRunner.Then(string.Format("Verify the screen for \"{0}\" is open", nextDay), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Modal dialog for unsaved changes is shown if day-to-day navigation is used")]
+        [NUnit.Framework.CategoryAttribute("TC43842")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Post-production MC for AUTOMATION", "WEEK 1", "THUR 21 NOV", "MARGRET", "FRIDAY - 22 November 2019", new string[] {
+                "QAI"}, Category="QAI")]
+        public virtual void ModalDialogForUnsavedChangesIsShownIfDay_To_DayNavigationIsUsed(string environment, string withFA, string location, string menuCycle, string week, string day, string mealPeriod, string nextDay, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC43842"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modal dialog for unsaved changes is shown if day-to-day navigation is used", null, @__tags);
+#line 488
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 489
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 490
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 491
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 492
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 493
+        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 494
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 495
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 496
+        testRunner.And(string.Format("Number of covers for meal period \"{0}\" is set to random number", mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 497
+        testRunner.And("Next day button is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 498
+        testRunner.And("Modal dialog Yes is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 499
+    testRunner.Then(string.Format("Verify the screen for \"{0}\" is open", nextDay), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Button for previous day navigation not visible on first day of MC")]
+        [NUnit.Framework.CategoryAttribute("TC43697")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Post-production MC for AUTOMATION", "WEEK 1", "THUR 21 NOV", new string[] {
+                "QAI"}, Category="QAI")]
+        public virtual void ButtonForPreviousDayNavigationNotVisibleOnFirstDayOfMC(string environment, string withFA, string location, string menuCycle, string week, string day, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC43697"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Button for previous day navigation not visible on first day of MC", null, @__tags);
+#line 507
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 508
+ testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 509
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 510
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 511
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 512
+        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 513
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 514
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 515
+    testRunner.Then("Verify button for previous day is not visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Button for next day navigation not visible on last day of MC")]
+        [NUnit.Framework.CategoryAttribute("TC43698")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Post-production MC for AUTOMATION", "WEEK 2", "SAT 30 NOV", new string[] {
+                "QAI"}, Category="QAI")]
+        public virtual void ButtonForNextDayNavigationNotVisibleOnLastDayOfMC(string environment, string withFA, string location, string menuCycle, string week, string day, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "TC43698"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Button for next day navigation not visible on last day of MC", null, @__tags);
+#line 523
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 524
+ testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 525
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 526
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 527
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 528
+        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 529
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 530
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 531
+    testRunner.Then("Verify button for next day is not visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

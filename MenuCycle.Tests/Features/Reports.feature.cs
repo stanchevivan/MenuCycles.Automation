@@ -121,7 +121,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 20
         testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 21
-        testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Menu Cycle \"FOR Local User AUTOMATION\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 22
     testRunner.When("Reports page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 23
@@ -160,7 +160,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 35
         testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 36
-        testRunner.And("Menu Cycle \"AUTOMATIOn - ConsumerFacingReport\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Menu Cycle \"FOR Local User AUTOMATION\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 37
     testRunner.When("Reports page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 38
@@ -168,11 +168,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 39
         testRunner.And("Export CSV and Export PDF buttons are not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 40
-        testRunner.And("Report start date \"15/10/2019\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Report start date \"20/12/2019\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 41
         testRunner.And("Export CSV and Export PDF buttons are not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 42
-        testRunner.And("Report end date \"16/10/2019\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Report end date \"31/12/2019\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 43
         testRunner.And("Export CSV and Export PDF buttons are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 44
@@ -238,12 +238,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 71
         testRunner.And("Kilojoules checkbox is checked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 72
-        testRunner.And("Export CSV button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 73
-    testRunner.Then("Verify notification message \"Successfully Exported\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 74
-        testRunner.And("report \"ConsumerFacing\" with name \"ConsumerReportCsvAllParams.csv\" type \"csv\" is " +
-                    "compared with the expected one", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Then("Verify notification message \"Successfully Exported.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -270,7 +265,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 83
     testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 84
-        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Menu Cycle \"FOR Local User AUTOMATION\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 85
         testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 86
@@ -288,14 +283,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 92
         testRunner.And("Report end date \"31/07/2019\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 93
-        testRunner.And("Export CSV and Export PDF buttons are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 94
-        testRunner.And("Export PDF button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 95
-    testRunner.Then("Verify notification message \"Successfully Exported\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 96
-            testRunner.And("report \"ConsumerFacing\" with name \"ConsumerReportNoParams.pdf\" type \"pdf\" is comp" +
-                    "ared with the expected one", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Then("Verify notification message \"Successfully Exported.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -325,9 +313,9 @@ this.ScenarioInitialize(scenarioInfo);
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 107
         testRunner.And("location \"Site EUR1\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 108
-        testRunner.And("Menu Cycle \"Local User Testing\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 109
+#line 105
+        testRunner.And("Menu Cycle \"FOR Local User AUTOMATION\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 106
     testRunner.When("Reports page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 110
         testRunner.And("Report \"ConsumerFacing\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -649,9 +637,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 242
         testRunner.And("Export button is not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table109 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table114 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriod"});
-            table109.AddRow(new string[] {
+            table114.AddRow(new string[] {
                         "Lunch"});
 #line 243
         testRunner.And("Meal periods are selected", ((string)(null)), table109, "And ");
@@ -669,15 +657,14 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Recipe Card Report - Local > Error message is displayed if selected end date is a" +
-            "fter MC end date")]
-        [NUnit.Framework.CategoryAttribute("TC33997")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", new string[] {
+        [NUnit.Framework.DescriptionAttribute("Recipe Card Report - Local > Export Successfully")]
+        [NUnit.Framework.CategoryAttribute("TC43574")]
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "apple", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void RecipeCardReport_LocalErrorMessageIsDisplayedIfSelectedEndDateIsAfterMCEndDate(string environment, string withFA, string[] exampleTags)
+        public virtual void RecipeCardReport_LocalExportSuccessfully(string environment, string withFA, string recipe, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "TC33997"};
+                    "TC43574"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -704,9 +691,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 265
         testRunner.And("Report end date \"30/08/2019\" is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table110 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table115 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriod"});
-            table110.AddRow(new string[] {
+            table115.AddRow(new string[] {
                         "Lunch"});
             table110.AddRow(new string[] {
                         "Dinner"});
@@ -717,6 +704,20 @@ this.ScenarioInitialize(scenarioInfo);
 #line 271
     testRunner.Then("Verify notification message \"Please select a report end date that is before the m" +
                     "enu cycle end date\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+            table115.AddRow(new string[] {
+                        "Brunch"});
+#line 154
+        testRunner.And("Meal periods are selected", ((string)(null)), table115, "And ");
+#line 158
+        testRunner.And(string.Format("recipe \"{0}\" is searched", recipe), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 159
+        testRunner.And("Checkbox for Select All is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 160
+        testRunner.And("Done button is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 161
+        testRunner.And("Report is exported", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 162
+    testRunner.Then("Verify notification message \"Successfully Exported.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -753,9 +754,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 285
         testRunner.And("Export button is not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table111 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table116 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriod"});
-            table111.AddRow(new string[] {
+            table116.AddRow(new string[] {
                         "Lunch"});
 #line 286
         testRunner.And("Meal periods are selected", ((string)(null)), table111, "And ");
@@ -764,7 +765,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 290
         testRunner.And("Report is exported", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 291
-        testRunner.And("Verify notification message \"Successfully Exported\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Verify notification message \"Successfully Exported.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 292
         testRunner.And("report \"MenuExtract\" with name \"MenuExtractReport.csv\" type \"csv\" is compared wit" +
                     "h the expected one", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -802,9 +803,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 305
         testRunner.And("Export button is not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table112 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table117 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriod"});
-            table112.AddRow(new string[] {
+            table117.AddRow(new string[] {
                         "Dangelo"});
 #line 306
         testRunner.And("Meal periods are selected", ((string)(null)), table112, "And ");
@@ -813,7 +814,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 310
         testRunner.And("Report is exported", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 311
-        testRunner.And("Verify notification message \"Successfully Exported\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Verify notification message \"Successfully Exported.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 312
         testRunner.And("report \"MenuCycleCalendar\" with name \"CentralMenuCycleCalendar.csv\" type \"csv\" is" +
                     " compared with the expected one", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -853,7 +854,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 327
         testRunner.And("Export button is not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table113 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table118 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriod"});
             table113.AddRow(new string[] {
                         "Dinner"});
@@ -864,7 +865,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 332
         testRunner.And("Report is exported", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 333
-        testRunner.And("Verify notification message \"Successfully Exported\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Verify notification message \"Successfully Exported.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 334
         testRunner.And("report \"MenuCycleCalendar\" with name \"LocalMenuCycleCalendar.csv\" type \"csv\" is c" +
                     "ompared with the expected one", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -902,9 +903,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 348
         testRunner.And("Export button is not displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table114 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table119 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriod"});
-            table114.AddRow(new string[] {
+            table119.AddRow(new string[] {
                         "Site EUR1"});
 #line 349
         testRunner.And("Locations are selected", ((string)(null)), table114, "And ");
@@ -913,7 +914,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 353
         testRunner.And("Report is exported", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 354
-        testRunner.And("Verify notification message \"Successfully Exported\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Verify notification message \"Successfully Exported.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -950,7 +951,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 369
        testRunner.And("Report is exported", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 370
-       testRunner.And("Verify notification message \"Successfully Exported\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+       testRunner.And("Verify notification message \"Successfully Exported.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -989,7 +990,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 386
         testRunner.And("Report is exported", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 387
-        testRunner.And("Verify notification message \"Successfully Exported\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Verify notification message \"Successfully Exported.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1026,7 +1027,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 402
     testRunner.Then("Report is exported", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 403
-       testRunner.And("Verify notification message \"Successfully Exported\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+       testRunner.And("Verify notification message \"Successfully Exported.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -97,6 +97,11 @@ namespace MenuCycle.Tests.Steps
 
                 GivenApplicationIsSelected("Menu Cycles");
             }
+            else if (environment.Equals("Local"))
+            {
+                ConfigurationReader.Initialize(environment);
+                menuCyclesBasePage.OpenUrl(ConfigurationReader.URL);
+            }
             else
             {
                 ConfigurationReader.Initialize(environment);

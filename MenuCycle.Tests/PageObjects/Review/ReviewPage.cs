@@ -16,11 +16,19 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".summary-box-week")]
         private IWebElement SummaryWeeks { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = ".verify-destinations-btn")]
+        private IWebElement SelectDestinations { get; set; }
+
         public bool IsLoaded => SummaryWeeks.Displayed;
 
         public void WaitForLoad()
         {
             Driver.WaitElementToExists(PageBody);
+        }
+
+        public void ClickSelectDestinationsBtn()
+        {
+            SelectDestinations.Click();
         }
     }
 }

@@ -311,7 +311,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 101
         testRunner.And("nutrition tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 102
-    testRunner.When("Cross button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("Calendar tab is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 103
         testRunner.And("Wait for Calendar view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 104
@@ -430,11 +430,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Close nutrition weeks with \"X\" button redirects to the calendar daily view")]
+        [NUnit.Framework.DescriptionAttribute("Selecting calendar button redirects to the calendar daily view")]
         [NUnit.Framework.CategoryAttribute("TC38024")]
         [NUnit.Framework.TestCaseAttribute("QAI_2", "false", "Meda", "MONDAY", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void CloseNutritionWeeksWithXButtonRedirectsToTheCalendarDailyView(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
+        public virtual void SelectingCalendarButtonRedirectsToTheCalendarDailyView(string environment, string withFA, string menuCycle, string day, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "TC38024"};
@@ -442,7 +442,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Close nutrition weeks with \"X\" button redirects to the calendar daily view", null, @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Selecting calendar button redirects to the calendar daily view", null, @__tags);
 #line 183
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -459,7 +459,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 189
         testRunner.And("Weeks tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 190
-        testRunner.And("Cross button is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Calendar tab is clicked and calendar view has loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 191
     testRunner.Then("Verify calendar view is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -599,33 +599,33 @@ this.ScenarioInitialize(scenarioInfo);
 #line 249
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table55 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table56 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "TYPE",
                         "RecipeTitle",
                         "PlannedQuantity"});
-            table55.AddRow(new string[] {
+            table56.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
                         "RECIPE",
                         string.Format("{0}", recipeName),
                         "1#99"});
 #line 250
-        testRunner.And("data for recipes is set", ((string)(null)), table55, "And ");
+        testRunner.And("data for recipes is set", ((string)(null)), table56, "And ");
 #line 253
         testRunner.And("Save button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 254
         testRunner.And("nutrition tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table56 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table57 = new TechTalk.SpecFlow.Table(new string[] {
                         "MealPeriodName",
                         "RecipeTitle",
                         "EnergyKJ"});
-            table56.AddRow(new string[] {
+            table57.AddRow(new string[] {
                         string.Format("{0}", mealPeriod),
                         string.Format("{0}", recipeName),
                         string.Format("{0}", energyKJ)});
 #line 255
-    testRunner.Then("Verify nutrition data for recipes are", ((string)(null)), table56, "Then ");
+    testRunner.Then("Verify nutrition data for recipes are", ((string)(null)), table57, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

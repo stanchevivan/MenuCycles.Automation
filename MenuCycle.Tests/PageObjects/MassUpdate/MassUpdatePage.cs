@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MenuCycle.Tests.PageObjects.MassUpdate;
+using Fourth.Automation.Framework.Extension;
+using MenuCycle.Tests.PageObjects;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -30,6 +31,9 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".occurrences-card")]
         private IList<IWebElement> OccurrencesCard { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = ".occurrences-card")]
+        private IWebElement OccurrencesCardTest { get; set; }
+
         [FindsBy(How = How.CssSelector, Using = ".search-header .mc-checkbox__checkmark")]
         private IWebElement SelectAllCheckbox { get; set; }
 
@@ -39,10 +43,13 @@ namespace MenuCycle.Tests.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".search-utility-bar__button")]
         private IWebElement UpdatePriceButton { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".update-prices-container__wrapper")]
-        private IList<IWebElement> UpdatePrices { get; set; }
+        //[FindsBy(How = How.CssSelector, Using = ".update-prices-container__wrapper")]
+        //private IList<IWebElement> UpdatePrices { get; set; }
 
-        public IList<UpdatePrices> UpdatePriceWindow => this.UpdatePrices.Select(p => new UpdatePrices(p, Driver)).ToList();
+        [FindsBy(How = How.CssSelector, Using = ".occurrences-card__spinner")]
+        private IWebElement OccurrencesSpinner { get; set; }
+
+      //  public IList<UpdatePrices> UpdatePriceWindow => this.UpdatePrices.Select(p => new UpdatePrices(p, Driver)).ToList();
 
         public IList<MassUpdateSearchResultCard> ResultCards
         {
@@ -68,6 +75,11 @@ namespace MenuCycle.Tests.PageObjects
                 throw new Exception($"Recipe {name} not found !");
             }
             return ResultCards.First(x => x.RecipeName.ToUpper() == name.ToUpper());
+        }
+
+        public void WaitForPageToLoad()
+        {
+            Driver.WaitElementToExists(SearchInput);
         }
 
         public void EnterKeywordInSearch(string text)
@@ -99,6 +111,11 @@ namespace MenuCycle.Tests.PageObjects
         public void SelectUpdatePriceButton()
         {
             UpdatePriceButton.Click();
+        }
+
+        public void WaitForOccurrencesToLoad()
+        {
+            Driver.WaitElementToDisappear(OccurrencesSpinner);
         }
     }
 }

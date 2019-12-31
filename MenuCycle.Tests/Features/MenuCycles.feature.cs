@@ -95,25 +95,25 @@ this.ScenarioInitialize(scenarioInfo);
 #line 8
     testRunner.When(string.Format("Menu Cycle \"{0}\" is searched", mc1Description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table47 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Description"});
-            table47.AddRow(new string[] {
-                        string.Format("{0}", mc1Name),
-                        string.Format("{0}", mc1Description)});
-#line 9
-        testRunner.And("Verify search results contain the following menu cycles", ((string)(null)), table47, "And ");
-#line 12
-    testRunner.When(string.Format("Menu Cycle \"{0}\" is searched", mc2Name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
             TechTalk.SpecFlow.Table table48 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Description"});
             table48.AddRow(new string[] {
+                        string.Format("{0}", mc1Name),
+                        string.Format("{0}", mc1Description)});
+#line 9
+        testRunner.And("Verify search results contain the following menu cycles", ((string)(null)), table48, "And ");
+#line 12
+    testRunner.When(string.Format("Menu Cycle \"{0}\" is searched", mc2Name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table49 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Description"});
+            table49.AddRow(new string[] {
                         string.Format("{0}", mc2Name),
                         string.Format("{0}", mc2Description)});
 #line 13
-    testRunner.Then("Verify search results contain the following menu cycles", ((string)(null)), table48, "Then ");
+    testRunner.Then("Verify search results contain the following menu cycles", ((string)(null)), table49, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -146,40 +146,31 @@ this.ScenarioInitialize(scenarioInfo);
 #line 26
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table49 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table50 = new TechTalk.SpecFlow.Table(new string[] {
                         "MenuCycleName",
                         "Description",
                         "GapDays",
                         "Usergroup"});
-            table49.AddRow(new string[] {
+            table50.AddRow(new string[] {
                         "Automatically created menu cycle",
                         "no description",
                         "Wednesday,Thursday",
                         "TestGroupPrice2"});
 #line 27
-    testRunner.When("Menu Cycle is created with following data", ((string)(null)), table49, "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table50 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Day"});
-            table50.AddRow(new string[] {
-                        "Wednesday"});
-            table50.AddRow(new string[] {
-                        "Thursday"});
-#line 30
-        testRunner.And("Verify GAP days in calendar view are", ((string)(null)), table50, "And ");
-#line 34
-        testRunner.And("Home button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("Menu Cycle is created with following data", ((string)(null)), table50, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table51 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Name",
-                        "Description"});
+                        "Day"});
             table51.AddRow(new string[] {
-                        "Automatically created menu cycle",
-                        "no description"});
+                        "Wednesday"});
+            table51.AddRow(new string[] {
+                        "Thursday"});
+#line 30
+        testRunner.And("Verify GAP days in calendar view are", ((string)(null)), table51, "And ");
+#line 34
+        testRunner.And("Home button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 35
-        testRunner.And("Verify search results contain the following menu cycles", ((string)(null)), table51, "And ");
-#line 38
-        testRunner.And("Menu Cycle \"Automatically created menu cycle\" is copied", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Menu Cycle \"Automatically created menu cycle\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table52 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
@@ -187,45 +178,61 @@ this.ScenarioInitialize(scenarioInfo);
             table52.AddRow(new string[] {
                         "Automatically created menu cycle",
                         "no description"});
-            table52.AddRow(new string[] {
-                        "Automatically created menu cycle",
-                        "no description"});
-#line 39
+#line 36
         testRunner.And("Verify search results contain the following menu cycles", ((string)(null)), table52, "And ");
+#line 39
+        testRunner.And("Menu Cycle \"Automatically created menu cycle\" is copied", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 40
+        testRunner.And("Menu Cycle \"Automatically created menu cycle\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table53 = new TechTalk.SpecFlow.Table(new string[] {
-                        "MenuCycleName",
-                        "Description"});
-            table53.AddRow(new string[] {
-                        "Automatically edited menu cycle",
-                        "yes description"});
-#line 43
-        testRunner.And("Menu Cycle \"Automatically created menu cycle\" is edited to", ((string)(null)), table53, "And ");
-#line 46
-        testRunner.And("Home button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table54 = new TechTalk.SpecFlow.Table(new string[] {
                         "Name",
                         "Description"});
+            table53.AddRow(new string[] {
+                        "Automatically created menu cycle",
+                        "no description"});
+#line 41
+        testRunner.And("Verify search results contain the following menu cycles", ((string)(null)), table53, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table54 = new TechTalk.SpecFlow.Table(new string[] {
+                        "MenuCycleName",
+                        "Description"});
             table54.AddRow(new string[] {
                         "Automatically edited menu cycle",
                         "yes description"});
-            table54.AddRow(new string[] {
+#line 44
+        testRunner.And("Menu Cycle \"Automatically created menu cycle\" is edited to", ((string)(null)), table54, "And ");
+#line 47
+        testRunner.And("Home button is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 48
+        testRunner.And("Menu Cycle \"Automatically\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table55 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Description"});
+            table55.AddRow(new string[] {
+                        "Automatically edited menu cycle",
+                        "yes description"});
+            table55.AddRow(new string[] {
                         "Automatically created menu cycle",
                         "no description"});
-#line 47
-        testRunner.And("Verify search results contain the following menu cycles", ((string)(null)), table54, "And ");
-#line 51
-        testRunner.And("Menu Cycle \"Automatically created menu cycle\" is deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 52
-        testRunner.And("Menu Cycle \"Automatically edited menu cycle\" is deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 49
+        testRunner.And("Verify search results contain the following menu cycles", ((string)(null)), table55, "And ");
 #line 53
         testRunner.And("Menu Cycle \"Automatically created menu cycle\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 54
-    testRunner.Then("Verify search results contain no menu cycles", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.And("Menu Cycle \"Automatically created menu cycle\" is deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 55
         testRunner.And("Menu Cycle \"Automatically edited menu cycle\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 56
+        testRunner.And("Menu Cycle \"Automatically edited menu cycle\" is deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 57
+        testRunner.And("Menu Cycle \"Automatically created menu cycle\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 58
+    testRunner.Then("Verify search results contain no menu cycles", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 59
+        testRunner.And("Menu Cycle \"Automatically edited menu cycle\" is searched", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 60
     testRunner.Then("Verify search results contain no menu cycles", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -247,22 +254,22 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create menu cycle page is opened after reopening of the application", null, @__tags);
-#line 64
+#line 68
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 65
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 66
-        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 67
-    testRunner.When("Create Menu Cycle page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 68
-        testRunner.And("browser is refreshed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 69
-        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 70
-        testRunner.And("Create Menu Cycle page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 71
+    testRunner.When("Create Menu Cycle page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 72
+        testRunner.And("browser is refreshed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 73
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 74
+        testRunner.And("Create Menu Cycle page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 75
     testRunner.Then("Verify Create Menu Cycle page is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -282,24 +289,24 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[MC] Review page is visible after switching Local -> Central user", null, @__tags);
-#line 79
+#line 83
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 80
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 81
-        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 82
-        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 83
-    testRunner.When("Location name is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 84
-        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 85
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 86
-        testRunner.And("daily review page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 87
+    testRunner.When("Location name is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 88
+        testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 89
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 90
+        testRunner.And("daily review page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 91
     testRunner.Then("Verify review page is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -321,16 +328,16 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify menu cycle status", null, @__tags);
-#line 96
+#line 100
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 97
+#line 101
     testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 98
+#line 102
         testRunner.And("a central user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 99
+#line 103
     testRunner.When(string.Format("Menu Cycle \"{0}\" is searched", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 100
+#line 104
         testRunner.Then(string.Format("Verify search results contains menu cycle with name \"{0}\" and status \"{1}\"", menuCycle, status), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

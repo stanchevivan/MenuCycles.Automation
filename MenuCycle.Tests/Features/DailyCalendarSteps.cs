@@ -14,15 +14,16 @@ namespace MenuCycle.Tests.Steps
 
         readonly ToastNotification notification;
         readonly ScenarioContext scenarioContext;
+        readonly MassUpdatePage massUpdate;
         
         ReviewPage reviewPage;
 
-        public DailyCalendarSteps (ToastNotification notification, ScenarioContext scenarioContext, MenuCycleDailyCalendarView menuCycleDailyCalendarView, ReviewPage reviewPage)
+        public DailyCalendarSteps (ToastNotification notification, ScenarioContext scenarioContext, MenuCycleDailyCalendarView menuCycleDailyCalendarView, ReviewPage reviewPage, MassUpdatePage massUpdate)
         {
             this.notification = notification;
             this.scenarioContext = scenarioContext;
             this.reviewPage = reviewPage;
-
+            this.massUpdate = massUpdate;
             this.dailyCalendarView = menuCycleDailyCalendarView;
         }
 
@@ -103,6 +104,7 @@ namespace MenuCycle.Tests.Steps
         }
 
         [When(@"Calendar tab is clicked and calendar view has loaded")]
+        [Then(@"Calendar tab is clicked and calendar view has loaded")]
         public void WhenCalendarTabIsClickedAndCalendarViewHasLoaded()
         {
             dailyCalendarView.ClickCalendarTab();
@@ -110,9 +112,11 @@ namespace MenuCycle.Tests.Steps
         }
 
         [When(@"Mass Update page is opened")]
+        [Given(@"Mass Update page is opened")]
         public void WhenMassUpdatePageIsOpened()
         {
             dailyCalendarView.ClickMassUpdateTab();
+            massUpdate.WaitForPageToLoad();
         }
     }
 }

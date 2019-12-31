@@ -1,4 +1,4 @@
-using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA.Selenium.Support.PageObjects;namespace MenuCycle.Tests.PageObjects{    public class PlanningView : MenuCyclesBasePage    {        public PlanningView(IWebDriver webDriver) : base(webDriver)        {        }        [FindsBy(How = How.CssSelector, Using = ".mainheader__period > span:first-of-type")]        private IWebElement HeaderDayText { get; set; }
+using Fourth.Automation.Framework.Extension;using OpenQA.Selenium;using OpenQA.Selenium.Support.PageObjects;namespace MenuCycle.Tests.PageObjects{    public class PlanningView : MenuCyclesBasePage    {        public PlanningView(IWebDriver webDriver) : base(webDriver)        {        }        [FindsBy(How = How.CssSelector, Using = ".mc-header__day")]        private IWebElement HeaderDayText { get; set; }
         [FindsBy(How = How.XPath, Using = "//div[text()='Nutrition']")]
         private IWebElement NutritionTabButton { get; set; }
         [FindsBy(How = How.XPath, Using = "//a[contains(@href, 'planning')]")]

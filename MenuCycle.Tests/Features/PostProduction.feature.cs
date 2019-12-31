@@ -161,9 +161,9 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Post production daily total calculations")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "MARGRET", "004Apple Sauce (tinned)", "TariffOne", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Post-production MC for AUTOMATION", "WEEK 1", "THUR 21 NOV", "MARGRET", "004Apple Sauce_100", "TariffOne", "Recipe Total", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void PostProductionDailyTotalCalculations(string environment, string withFA, string location, string menuCycle, string week, string day, string mealPeriod, string recipeName, string tariff, string[] exampleTags)
+        public virtual void PostProductionDailyTotalCalculations(string environment, string withFA, string location, string menuCycle, string week, string day, string mealPeriod, string recipeName, string tariff, string recipe, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post production daily total calculations", null, exampleTags);
 #line 43
@@ -186,119 +186,157 @@ this.ScenarioInitialize(scenarioInfo);
 #line 51
         testRunner.And("post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 52
+        testRunner.And("Expand all is clicked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 53
     testRunner.Then("Verify planned quantity daily total equals the sum of all meal period totals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table69 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table70 = new TechTalk.SpecFlow.Table(new string[] {
+                        "qtySold"});
+            table70.AddRow(new string[] {
+                        "2"});
+#line 54
+    testRunner.When(string.Format("values are entered for recipe \"{0}\" tariff \"{1}\" in meal period \"{2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table70, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table71 = new TechTalk.SpecFlow.Table(new string[] {
                         "qtyReqd",
                         "qtyProd",
-                        "qtySold",
                         "noCharge",
                         "returnToStock"});
-            table69.AddRow(new string[] {
-                        "7",
-                        "10",
-                        "3",
-                        "1",
-                        "2"});
-#line 53
-    testRunner.When(string.Format("values are entered for recipe \"{0}\" tariff \"{1}\" in meal period \"{2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table69, "When ");
-#line 56
+            table71.AddRow(new string[] {
+                        "55",
+                        "60",
+                        "15",
+                        "5"});
+#line 57
+    testRunner.And(string.Format("values are entered for recipe \"{0}\" tariff \"{1}\" in meal period \"{2}\"", recipeName, recipe, mealPeriod), ((string)(null)), table71, "And ");
+#line 60
     testRunner.Then(string.Format("Verify Wastage is correctly calculated for recipe \"{0}\" tariff \"{1}\" in meal peri" +
-                        "od \"{2}\"", recipeName, tariff, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                        "od \"{2}\"", recipeName, recipe, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table72 = new TechTalk.SpecFlow.Table(new string[] {
+                        "plannedQty",
+                        "qtySold"});
+            table72.AddRow(new string[] {
+                        "48",
+                        "62"});
+#line 61
+    testRunner.And(string.Format("Verify values for recipe \"{0}\" tariff \"{1}\" in meal period \"{2}\"", recipeName, recipe, mealPeriod), ((string)(null)), table72, "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Post production validations")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "MARGRET", "004Apple Sauce (tinned)", "TariffOne", "Must be integer", "Must be 0 or greater", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "MARGRET", "004Apple Sauce_100", "TariffOne", "Recipe Total", "Must be integer", "Must be 0 or greater", new string[] {
                 "QAI"}, Category="QAI")]
-        public virtual void PostProductionValidations(string environment, string withFA, string location, string menuCycle, string week, string day, string mealPeriod, string recipeName, string tariff, string integerMessage, string negativeMessage, string[] exampleTags)
+        public virtual void PostProductionValidations(string environment, string withFA, string location, string menuCycle, string week, string day, string mealPeriod, string recipeName, string tariff, string recipe, string integerMessage, string negativeMessage, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post production validations", null, exampleTags);
-#line 63
+#line 70
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 64
-    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 65
-        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 66
-        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 67
-        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 68
-        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 69
-        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 70
-    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 71
-        testRunner.And("post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 72
+        testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 73
+        testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 74
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 75
+        testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 76
+        testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 77
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 78
+        testRunner.And("post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 79
     testRunner.Then("Verify planned quantity daily total equals the sum of all meal period totals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table70 = new TechTalk.SpecFlow.Table(new string[] {
-                        "qtyReqd",
-                        "qtyProd",
-                        "qtySold",
-                        "noCharge",
-                        "returnToStock"});
-            table70.AddRow(new string[] {
-                        "a",
-                        "b",
-                        "c",
-                        "d",
-                        "e"});
-#line 73
-    testRunner.When(string.Format("values are entered for recipe \"{0}\" tariff \"{1}\" in meal period \"{2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table70, "When ");
+            TechTalk.SpecFlow.Table table73 = new TechTalk.SpecFlow.Table(new string[] {
+                        "qtySold"});
+            table73.AddRow(new string[] {
+                        "c"});
+#line 80
+    testRunner.When(string.Format("values are entered for recipe \"{0}\" tariff \"{1}\" in meal period \"{2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table73, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table71 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table74 = new TechTalk.SpecFlow.Table(new string[] {
+                        "qtySold"});
+            table74.AddRow(new string[] {
+                        string.Format("{0}", integerMessage)});
+#line 83
+    testRunner.Then(string.Format("Verify context errors are present for recipe \"{0}\" tariff \"{1}\" in meal period \"{" +
+                        "2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table74, "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table75 = new TechTalk.SpecFlow.Table(new string[] {
+                        "qtySold"});
+            table75.AddRow(new string[] {
+                        "-10"});
+#line 86
+    testRunner.When(string.Format("values are entered for recipe \"{0}\" tariff \"{1}\" in meal period \"{2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table75, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table76 = new TechTalk.SpecFlow.Table(new string[] {
+                        "qtySold"});
+            table76.AddRow(new string[] {
+                        string.Format("{0}", negativeMessage)});
+#line 89
+    testRunner.Then(string.Format("Verify context errors are present for recipe \"{0}\" tariff \"{1}\" in meal period \"{" +
+                        "2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table76, "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table77 = new TechTalk.SpecFlow.Table(new string[] {
                         "qtyReqd",
                         "qtyProd",
-                        "qtySold",
                         "noCharge",
                         "returnToStock"});
-            table71.AddRow(new string[] {
-                        string.Format("{0}", integerMessage),
+            table77.AddRow(new string[] {
+                        "c",
+                        "a",
+                        "1b",
+                        "n"});
+#line 92
+    testRunner.When(string.Format("values are entered for recipe \"{0}\" tariff \"{1}\" in meal period \"{2}\"", recipeName, recipe, mealPeriod), ((string)(null)), table77, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table78 = new TechTalk.SpecFlow.Table(new string[] {
+                        "qtyReqd",
+                        "qtyProd",
+                        "noCharge",
+                        "returnToStock"});
+            table78.AddRow(new string[] {
                         string.Format("{0}", integerMessage),
                         string.Format("{0}", integerMessage),
                         string.Format("{0}", integerMessage),
                         string.Format("{0}", integerMessage)});
-#line 76
+#line 95
     testRunner.Then(string.Format("Verify context errors are present for recipe \"{0}\" tariff \"{1}\" in meal period \"{" +
-                        "2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table71, "Then ");
+                        "2}\"", recipeName, recipe, mealPeriod), ((string)(null)), table78, "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table72 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table79 = new TechTalk.SpecFlow.Table(new string[] {
                         "qtyReqd",
                         "qtyProd",
-                        "qtySold",
                         "noCharge",
                         "returnToStock"});
-            table72.AddRow(new string[] {
-                        "-1",
-                        "-2",
-                        "-10",
+            table79.AddRow(new string[] {
+                        "-5",
+                        "-6",
                         "-3",
-                        "-99"});
-#line 79
-    testRunner.When(string.Format("values are entered for recipe \"{0}\" tariff \"{1}\" in meal period \"{2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table72, "When ");
+                        "-5"});
+#line 98
+    testRunner.When(string.Format("values are entered for recipe \"{0}\" tariff \"{1}\" in meal period \"{2}\"", recipeName, recipe, mealPeriod), ((string)(null)), table79, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table73 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table80 = new TechTalk.SpecFlow.Table(new string[] {
                         "qtyReqd",
                         "qtyProd",
-                        "qtySold",
                         "noCharge",
                         "returnToStock"});
-            table73.AddRow(new string[] {
-                        string.Format("{0}", negativeMessage),
+            table80.AddRow(new string[] {
                         string.Format("{0}", negativeMessage),
                         string.Format("{0}", negativeMessage),
                         string.Format("{0}", negativeMessage),
                         string.Format("{0}", negativeMessage)});
-#line 82
+#line 101
     testRunner.Then(string.Format("Verify context errors are present for recipe \"{0}\" tariff \"{1}\" in meal period \"{" +
-                        "2}\"", recipeName, tariff, mealPeriod), ((string)(null)), table73, "Then ");
+                        "2}\"", recipeName, recipe, mealPeriod), ((string)(null)), table80, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -319,28 +357,28 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open Post-Production Screen, navigate to Weekly view", null, @__tags);
-#line 93
+#line 112
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 94
+#line 113
     testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 95
+#line 114
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 96
+#line 115
         testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 97
+#line 116
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 98
+#line 117
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 99
+#line 118
         testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 100
+#line 119
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 101
+#line 120
         testRunner.And("post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 102
+#line 121
         testRunner.And("switching to Weekly Post-Production view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 103
+#line 122
     testRunner.Then("Verify Weekly Post-production view is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -349,7 +387,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Export Local Sales report")]
         [NUnit.Framework.CategoryAttribute("TC36205")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Local User Testing", "WED 31 JUL", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "FOR Local User AUTOMATION", "WED 7 AUG", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void ExportLocalSalesReport(string environment, string withFA, string location, string menuCycle, string day, string[] exampleTags)
         {
@@ -360,28 +398,28 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Export Local Sales report", null, @__tags);
-#line 127
+#line 146
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 128
+#line 147
     testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 129
+#line 148
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 130
+#line 149
         testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 131
+#line 150
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 132
+#line 151
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 133
+#line 152
         testRunner.And("week \"WEEK 2\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 134
+#line 153
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 135
+#line 154
         testRunner.And("post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 136
+#line 155
         testRunner.And("local sales report is exported", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 137
+#line 156
     testRunner.Then("Verify notification message \"Successfully Exported.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -405,29 +443,29 @@ this.ScenarioInitialize(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Wastage is an input field and QtySold and No charge fields are not present for bu" +
                     "ffet recipes", null, @__tags);
-#line 145
+#line 164
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 146
+#line 165
     testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 147
+#line 166
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 148
+#line 167
         testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 149
+#line 168
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 150
+#line 169
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 151
+#line 170
         testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 152
+#line 171
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 153
+#line 172
         testRunner.And("post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 154
+#line 173
    testRunner.Then(string.Format("Verify Wastage for buffet \"{0}\" recipe \"{1}\" in meal period \"{2}\" is an editable " +
                         "field", buffetName, recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 155
+#line 174
        testRunner.And(string.Format("Verify Qty Sold and No Charge fields for buffet \"{0}\" recipe \"{1}\" in meal period" +
                         " \"{2}\" are not present", buffetName, recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -436,31 +474,31 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Wastage field is disabled for recipes")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "004Apple Sauce (tinned)", "MARGRET", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "004Apple Sauce_100", "MARGRET", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void WastageFieldIsDisabledForRecipes(string environment, string withFA, string location, string menuCycle, string week, string day, string recipeName, string mealPeriod, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Wastage field is disabled for recipes", null, exampleTags);
-#line 162
+#line 181
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 163
+#line 182
     testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 164
+#line 183
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 165
+#line 184
         testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 166
+#line 185
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 167
+#line 186
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 168
+#line 187
         testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 169
+#line 188
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 170
+#line 189
         testRunner.And("post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 171
+#line 190
    testRunner.Then(string.Format("Verify Wastage for recipe \"{0}\" in meal period \"{1}\" is disabled", recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -482,29 +520,29 @@ this.ScenarioInitialize(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Contextual error message is shown for Wastage for buffet recipes when decimal is " +
                     "inputed", null, @__tags);
-#line 179
+#line 198
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 180
+#line 199
     testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 181
+#line 200
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 182
+#line 201
         testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 183
+#line 202
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 184
+#line 203
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 185
+#line 204
         testRunner.And("week \"WEEK 3\" is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 186
+#line 205
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 187
+#line 206
         testRunner.And("post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 188
+#line 207
         testRunner.And(string.Format("Wastage value \"9.11\" is inputed for buffet \"{0}\" recipe \"{1}\" in meal period \"{2}" +
                         "\"", buffetName, recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 189
+#line 208
     testRunner.Then(string.Format("Verify contextual error message \"Must be integer\" is displayed for Wastage field " +
                         "for buffet \"{0}\" recipe \"{1}\" in meal period \"{2}\"", buffetName, recipeName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -525,26 +563,26 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Buffet tariff type is present at menu level", null, @__tags);
-#line 197
+#line 216
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 198
+#line 217
     testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 199
+#line 218
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 200
+#line 219
         testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 201
+#line 220
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 202
+#line 221
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 203
+#line 222
         testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 204
+#line 223
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 205
+#line 224
         testRunner.And("post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 206
+#line 225
     testRunner.Then(string.Format("Buffet tariff type is present for buffet \"{0}\" in meal period \"{1}\"", buffetName, mealPeriod), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -553,7 +591,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Post-Production weekly totals equals the sum of all meal period totals")]
         [NUnit.Framework.CategoryAttribute("TC38808")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Automation post-prod", "WEEK 3", "FRI 26 JUL", "301", "50", "77", "9", "4", "261", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Post-production MC for AUTOMATION", "WEEK 1", "THUR 21 NOV", "143", "105", "102", "59", "23", "95", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void VerifyPost_ProductionWeeklyTotalsEqualsTheSumOfAllMealPeriodTotals(string environment, string withFA, string location, string menuCycle, string week, string day, string qtyReqd, string qtyProd, string qtySold, string noCharge, string returnToStock, string wastage, string[] exampleTags)
         {
@@ -564,46 +602,46 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Post-Production weekly totals equals the sum of all meal period totals", null, @__tags);
-#line 214
+#line 233
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 215
+#line 234
     testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 216
+#line 235
         testRunner.And("a local user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 217
+#line 236
         testRunner.And(string.Format("location \"{0}\" is selected", location), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 218
+#line 237
         testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 219
+#line 238
         testRunner.And("Weekly Calendar is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 220
+#line 239
         testRunner.And(string.Format("week \"{0}\" is opened", week), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 221
+#line 240
     testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 222
+#line 241
         testRunner.And("post-production tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 223
+#line 242
         testRunner.And("Weeks tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 224
+#line 243
     testRunner.Then("Verify weekly post-production totals equals the sum of all meal period totals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table74 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table81 = new TechTalk.SpecFlow.Table(new string[] {
                         "qtyReqd",
                         "qtyProd",
                         "qtySold",
                         "noCharge",
                         "returnToStock",
                         "wastage"});
-            table74.AddRow(new string[] {
+            table81.AddRow(new string[] {
                         string.Format("{0}", qtyReqd),
                         string.Format("{0}", qtyProd),
                         string.Format("{0}", qtySold),
                         string.Format("{0}", noCharge),
                         string.Format("{0}", returnToStock),
                         string.Format("{0}", wastage)});
-#line 225
-        testRunner.And("Verify post-production weekly totals are", ((string)(null)), table74, "And ");
+#line 244
+        testRunner.And("Verify post-production weekly totals are", ((string)(null)), table81, "And ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -78,7 +78,7 @@ Scenario Outline: Successfully Update and Save number of covers
         And SellPrice for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to "2"
         And Save button is clicked
         And Verify notification message "Planning figures updated." is displayed
-        And Cross button is clicked and calendar view has loaded
+        And Calendar tab is clicked and calendar view has loaded
         And planning for "<day>" is opened
     Then Verify number of covers for meal period "<mealPeriod>" is equal to the previous inputted number
     
@@ -135,14 +135,14 @@ Scenario Outline: Modal dialog for unsaved changes is shown on cancel
     |QAI        |false |Meda     |LUNCH     |004Baked Beans_3|MONDAY|
     
 @TC29521
-Scenario Outline: Modal dialog for unsaved changes is shown on pressing X
+Scenario Outline: Modal dialog for unsaved changes is shown on pressing calendar button
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
         And values for recipe "<recipeName>" in meal period "<mealPeriod>" are stored
         And quantity for recipe named "<recipeName>" in meal period "<mealPeriod>" is set to random number
-        And Cross button is clicked
+        And Calendar tab is clicked
         And Modal dialog Yes is selected
         And Wait for Calendar view
     When planning for "<day>" is opened
@@ -328,7 +328,9 @@ Scenario Outline: Notification is shown when user has selected all available pri
         And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
         And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
         And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
-    Then Verify notification message "There are 13 price types available. You cannot add more." is displayed
+        And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
+        And Add type is clicked for recipe "<recipeName>" in meal period "<mealPeriod>"
+    Then Verify notification message "There are 15 price types available. You cannot add more." is displayed
     
     @QAI
     Examples:
@@ -362,7 +364,7 @@ Scenario Outline: User should not be redirected to the planning screen after nav
             And planning for "<day>" is opened
     When nutrition tab is opened
         And planning tab is opened
-        And Cross button is clicked and calendar view has loaded
+        And Calendar tab is clicked and calendar view has loaded
         And Home button is clicked
         And Menu Cycle "<menuCycle>" is selected
     Then Verify calendar view is opened
@@ -374,12 +376,12 @@ Scenario Outline: User should not be redirected to the planning screen after nav
     
     
 @TC27677 @Smoke
-Scenario Outline: Close planning screen with "X" button without any changes
+Scenario Outline: Select calendar button on planning screen without any changes
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "<menuCycle>" is selected
         And planning for "<day>" is opened
-    When Cross button is clicked and calendar view has loaded
+    When Calendar tab is clicked and calendar view has loaded
     Then Verify calendar view is opened
     
     @QAI
@@ -461,3 +463,74 @@ Scenario Outline: Default values are '0' when adding new recipe tariff type
     Examples:
     |environment|withFA|menuCycle         |day   |mealPeriod|recipeName     |
     |QAI_2      |false |Automation Testing|MONDAY|DINNER    |004Basic Sponge|
+
+   
+@TC43688 @TC43694
+Scenario Outline: Change week using day-to-day navigation
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "<week>" is opened
+    When planning for "<day>" is opened
+        And Previous day button is selected
+    Then Verify the screen for "<prevDay>" is open
+    Then Next day button is selected
+    Then Verify the screen for "<nextDay>" is open
+
+    @QAI
+    Examples:
+    |environment|withFA|location    |menuCycle                        |week  |day       |prevDay                  |nextDay|
+    |QAI        |false |Site EUR1   |Post-production MC for AUTOMATION|WEEK 2|MON 25 NOV|SUNDAY - 24 November 2019|MONDAY - 25 November 2019|
+    
+@TC43842
+Scenario Outline: Modal dialog for unsaved changes is shown if day-to-day navigation is used
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "<week>" is opened
+    When planning for "<day>" is opened
+        And Number of covers for meal period "<mealPeriod>" is set to random number
+        And Next day button is selected
+        And Modal dialog Yes is selected
+    Then Verify the screen for "<nextDay>" is open
+        
+ @QAI
+    Examples:
+    |environment|withFA|location    |menuCycle                        |week  |day        |mealPeriod|nextDay|
+    |QAI        |false |Site EUR1   |Post-production MC for AUTOMATION|WEEK 1|THUR 21 NOV|MARGRET   |FRIDAY - 22 November 2019|
+    
+ @TC43697
+ Scenario Outline: Button for previous day navigation not visible on first day of MC
+ Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "<week>" is opened
+    When planning for "<day>" is opened
+    Then Verify button for previous day is not visible
+        
+ @QAI
+    Examples:
+    |environment|withFA|location    |menuCycle                        |week  |day        |
+    |QAI        |false |Site EUR1   |Post-production MC for AUTOMATION|WEEK 1|THUR 21 NOV|
+    
+ @TC43698
+ Scenario Outline: Button for next day navigation not visible on last day of MC
+ Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a local user is selected
+        And location "<location>" is selected
+        And Menu Cycle "<menuCycle>" is selected
+        And Weekly Calendar is opened
+        And week "<week>" is opened
+    When planning for "<day>" is opened
+    Then Verify button for next day is not visible
+        
+ @QAI
+    Examples:
+    |environment|withFA|location    |menuCycle                        |week  |day       |
+    |QAI        |false |Site EUR1   |Post-production MC for AUTOMATION|WEEK 2|SAT 30 NOV|
