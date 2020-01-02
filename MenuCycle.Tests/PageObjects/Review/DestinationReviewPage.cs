@@ -12,15 +12,15 @@ namespace MenuCycle.Tests.PageObjects
             PageFactory.InitElements(Driver, this);
         }
 
-        [FindsBy(How = How.CssSelector, Using = ".destination-review-page")]
+        [FindsBy(How = How.CssSelector, Using = ".review-destinations")]
         private IWebElement PageBody { get; set; }
-        [FindsBy(How = How.Id, Using = "checkbox-all")]
+        [FindsBy(How = How.CssSelector, Using = ".scrollable-list__controls .mc-checkbox__checkmark")]
         private IWebElement SelectAllCheckbox { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".destination-run-btn")]
+        [FindsBy(How = How.XPath, Using = "//button[contains(text(),'Run')]")]
         private IWebElement RunButton { get; set; }
         [FindsBy(How = How.Id, Using = "gap-check-report")]
         private IWebElement GapCheckReport { get; set; }
-        [FindsBy(How = How.CssSelector, Using = ".footer-btn-donе")]
+        [FindsBy(How = How.XPath, Using = "//button[contains(text(),'Done')]")]
         private IWebElement DoneButton { get; set; }
 
         public bool GapCheckReportIsLoaded => GapCheckReport.Displayed;

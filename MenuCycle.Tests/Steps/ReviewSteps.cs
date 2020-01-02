@@ -43,9 +43,7 @@ namespace MenuCycle.Tests.Steps
         [When(@"All destinations are selected")]
         public void WhenAllDestinationsAreSelected()
         {
-            notification.WaitToAppear();
-            notification.WaitToDisappear();
-            //destinationReviewPage.WaitForLoad();
+            destinationReviewPage.WaitForLoad();
             destinationReviewPage.ClickSelectAllCheckbox();
         }
 
