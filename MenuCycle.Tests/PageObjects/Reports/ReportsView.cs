@@ -29,7 +29,7 @@ namespace MenuCycle.Tests.PageObjects
             LocalSalesHistory,
             PerformanceReport,
             AllergenReport,
-            LocatioGapCheck
+            LocationGapCheck
         };
 
         [FindsBy(How = How.ClassName, Using = "reports__content")]
@@ -50,7 +50,7 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement LocalReqsReportButton { get; set; }
         [FindsBy(How = How.Id, Using = "buyingReport")]
         private IWebElement BuyingReportButton { get; set; }        
-        [FindsBy(How = How.Id, Using = "localSalesHistory")]
+        [FindsBy(How = How.Id, Using = "localSalesHistoryReport")]
         private IWebElement LocalSalesHistoryReportButton { get; set; }
         [FindsBy(How = How.Id, Using = "performanceReport")]
         private IWebElement PerformanceReportButton { get; set; }
@@ -141,7 +141,7 @@ namespace MenuCycle.Tests.PageObjects
                     AllergenReportButton.Click();
                     Driver.WaitListItemsLoad(MealPeriodsList);
                     break;
-                case Reports.LocatioGapCheck:
+                case Reports.LocationGapCheck:
                     LocationGapCheckReportButton.Do(Driver).ScrollIntoView();
                     LocationGapCheckReportButton.Click();
                     Driver.WaitListItemsLoad(MealPeriodsList);
@@ -244,6 +244,13 @@ namespace MenuCycle.Tests.PageObjects
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.TrafficLight:
+                    string trafficLightReportPath = Path.Combine(expectedReportPath, "TrafficLight");
+
+                    string expectedTrafficLight = Path.Combine(trafficLightReportPath, reportName);
+
+                    expectedReportOutput = StartReadingPDFFromLine(expectedTrafficLight, startFromLine, reportType);
+
+                    Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.MenuCycleCalendar:
                     string menuCycleCalendarReportPath = Path.Combine(expectedReportPath, "MenuCycleCalendar");
@@ -255,16 +262,58 @@ namespace MenuCycle.Tests.PageObjects
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.BuyingReport:
+                    string buyingReportReportPath = Path.Combine(expectedReportPath, "BuyingReport");
+
+                    string expectedBuyingReport = Path.Combine(buyingReportReportPath, reportName);
+
+                    expectedReportOutput = StartReadingPDFFromLine(expectedBuyingReport, 0, reportType);
+
+                    Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.LocalProductionRequirements:
+                    string localProductionRequirementsPath = Path.Combine(expectedReportPath, "LocalProductionRequirements");
+
+                    string expectedLocalProductionRequirements = Path.Combine(localProductionRequirementsPath, reportName);
+
+                    expectedReportOutput = StartReadingPDFFromLine(expectedLocalProductionRequirements, 0, reportType);
+
+                    Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.LocalSalesHistory:
+                    string localSalesHistoryPath = Path.Combine(expectedReportPath, "LocalSalesHistory");
+
+                    string expectedLocalSalesHistory = Path.Combine(localSalesHistoryPath, reportName);
+
+                    expectedReportOutput = StartReadingPDFFromLine(expectedLocalSalesHistory, 0, reportType);
+
+                    Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.PerformanceReport:
+                    string PerformanceReportPath = Path.Combine(expectedReportPath, "PerformanceReport");
+
+                    string expectedPerformanceReport = Path.Combine(PerformanceReportPath, reportName);
+
+                    expectedReportOutput = StartReadingPDFFromLine(expectedPerformanceReport, 0, reportType);
+
+                    Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.AllergenReport:
+                    string allergenReportReportPath = Path.Combine(expectedReportPath, "AllergenReport");
+
+                    string expectedAllergenReport = Path.Combine(allergenReportReportPath, reportName);
+
+                    expectedReportOutput = StartReadingPDFFromLine(expectedAllergenReport, startFromLine, reportType);
+
+                    Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
-                case Reports.LocatioGapCheck:
+                case Reports.LocationGapCheck:
+                    string locatioGapCheckReportPath = Path.Combine(expectedReportPath, "LocationGapCheck");
+
+                    string expectedLocationGapCheck = Path.Combine(locatioGapCheckReportPath, reportName);
+
+                    expectedReportOutput = StartReadingPDFFromLine(expectedLocationGapCheck, 2, reportType);
+
+                    Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
             }
         }

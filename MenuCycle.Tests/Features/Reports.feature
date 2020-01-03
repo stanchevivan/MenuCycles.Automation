@@ -2,7 +2,7 @@
 Feature: Reports
     Reports feature
 
-@TC32573 @D28281
+@TC32573 @D28281 @Reports
 Scenario Outline: Open report page for menu cycle without items
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
@@ -13,7 +13,8 @@ Scenario Outline: Open report page for menu cycle without items
 Examples:
 |environment|withFA|
 |QAI        |false |
-    
+ 
+@Reports   
 Scenario Outline: Consumer Facing Report - Price options are not disabled for Local user
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
@@ -28,7 +29,7 @@ Examples:
 |environment|withFA|
 |QAI        |false |
 
-@TC33979 @TC34204
+@TC33979 @TC34204 @Reports
 Scenario Outline: Export Consumer Facing Report as PDF with Sell Price, Kilojoules and Calories
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
@@ -37,9 +38,9 @@ Scenario Outline: Export Consumer Facing Report as PDF with Sell Price, Kilojoul
     When Reports page is opened
         And Report "ConsumerFacing" is opened
         And Export CSV and Export PDF buttons are not displayed
-        And Report start date "20/12/2019" is selected
+        And Report start date "28/09/2019" is selected
         And Export CSV and Export PDF buttons are not displayed
-        And Report end date "31/12/2019" is selected
+        And Report end date "31/01/2020" is selected
         And Export CSV and Export PDF buttons are displayed
         And Include sell price is checked
         And Calories checkbox is checked
@@ -53,7 +54,7 @@ Scenario Outline: Export Consumer Facing Report as PDF with Sell Price, Kilojoul
     |environment|withFA|
     |QAI        |false |
     
-@TC34203
+@TC34203 @Reports
 Scenario Outline: Export Consumer Facing Report as CSV with Sell Price, Kilojoules and Calories
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
@@ -62,9 +63,9 @@ Scenario Outline: Export Consumer Facing Report as CSV with Sell Price, Kilojoul
     When Reports page is opened
         And Report "ConsumerFacing" is opened
         And Export CSV and Export PDF buttons are not displayed
-        And Report start date "20/12/2019" is selected
+        And Report start date "28/09/2019" is selected
         And Export CSV and Export PDF buttons are not displayed
-        And Report end date "31/12/2019" is selected
+        And Report end date "31/01/2020" is selected
         And Export CSV and Export PDF buttons are displayed
         And Include sell price is checked
         And Calories checkbox is checked
@@ -78,7 +79,7 @@ Scenario Outline: Export Consumer Facing Report as CSV with Sell Price, Kilojoul
     |environment|withFA|
     |QAI        |false |
 
-@TC33983
+@TC33983 @Reports
 Scenario Outline: Consumer Facing Report - Local > User is able to export Consumer Facing report as PDF without selecting Calories, kilojoules and Sell Price
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
@@ -87,9 +88,9 @@ Scenario Outline: Consumer Facing Report - Local > User is able to export Consum
     When Reports page is opened
         And Report "ConsumerFacing" is opened
         And Export CSV and Export PDF buttons are not displayed
-        And Report start date "29/07/2019" is selected
+        And Report start date "31/07/2019" is selected
         And Export CSV and Export PDF buttons are not displayed
-        And Report end date "31/07/2019" is selected
+        And Report end date "30/09/2019" is selected
         And Export CSV and Export PDF buttons are displayed
         And Export PDF button is clicked
     Then Verify notification message "Successfully Exported." is displayed
@@ -100,7 +101,7 @@ Scenario Outline: Consumer Facing Report - Local > User is able to export Consum
     |environment|withFA|
     |QAI        |false |
 
-@TC34205
+@TC34205 @Reports
 Scenario Outline: Consumer Facing Report - Local > User is able to export Consumer Facing report as CSV without selecting Calories, kilojoules and Sell Price
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
@@ -109,9 +110,9 @@ Scenario Outline: Consumer Facing Report - Local > User is able to export Consum
     When Reports page is opened
         And Report "ConsumerFacing" is opened
         And Export CSV and Export PDF buttons are not displayed
-        And Report start date "29/07/2019" is selected
+        And Report start date "31/07/2019" is selected
         And Export CSV and Export PDF buttons are not displayed
-        And Report end date "31/07/2019" is selected
+        And Report end date "30/09/2019" is selected
         And Export CSV and Export PDF buttons are displayed
         And Export CSV button is clicked
     Then Verify notification message "Successfully Exported." is displayed
@@ -124,7 +125,7 @@ Scenario Outline: Consumer Facing Report - Local > User is able to export Consum
     
         
     
-@TC33988
+@TC33988 @Reports
 Scenario Outline: Recipe Card Report - Central > Export button is displayed after meal period is specified
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
@@ -138,7 +139,7 @@ Scenario Outline: Recipe Card Report - Central > Export button is displayed afte
     Then Verify Export button is displayed
         And Report is exported
         And Verify notification message "Successfully Exported." is displayed
-    And report "RecipeCard" with name "RecipeCard.pdf" type "pdf" is compared with the expected one
+    And report "RecipeCard" with name "RecipeCardReportCentral.pdf" type "pdf" is compared with the expected one
         
         @QAI
         Examples:
@@ -146,7 +147,7 @@ Scenario Outline: Recipe Card Report - Central > Export button is displayed afte
         |QAI        |false |
         
 
-    @TC43574
+    @TC43574 @Reports
     Scenario Outline: Recipe Card Report - Local > Export Successfully
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
@@ -165,13 +166,14 @@ Scenario Outline: Recipe Card Report - Central > Export button is displayed afte
         And Done button is selected
         And Report is exported
     Then Verify notification message "Successfully Exported." is displayed
+        And report "RecipeCard" with name "RecipeCardReportLocal.pdf" type "pdf" is compared with the expected one
     
     @QAI
     Examples:
     |environment|withFA|recipe|
     |QAI        |false |apple |
     
-@TC33985
+@TC33985 @Reports
 Scenario Outline: Menu Extract Report - Central > Export button is displayed and clicked after meal period is specified
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
@@ -191,7 +193,7 @@ Scenario Outline: Menu Extract Report - Central > Export button is displayed and
         |environment|withFA|
         |QAI        |false |
 
-@TC43059
+@TC43059 @Reports
 Scenario Outline: Menu Cycle Calendar - Central - Export Successfully 
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
@@ -212,7 +214,7 @@ Scenario Outline: Menu Cycle Calendar - Central - Export Successfully
         |environment|withFA|
         |QAI        |false |
 
-@TC43061
+@TC43061 @Reports
 Scenario Outline: Menu Cycle Calendar - Local - Export Successfully 
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
@@ -234,13 +236,13 @@ Scenario Outline: Menu Cycle Calendar - Local - Export Successfully
         |environment|withFA|
         |QAI        |false |
 
-@TC43060
+@TC43060 @Reports
 Scenario Outline: Location Gap Check - Central - Export Successfully 
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
         And Menu Cycle "Meda" is selected
     When Reports page is opened
-        And Report "LocatioGapCheck" is opened
+        And Report "LocationGapCheck" is opened
         And Export button is not displayed
         And Locations are selected
         |MealPeriod|
@@ -248,13 +250,14 @@ Scenario Outline: Location Gap Check - Central - Export Successfully
     Then Verify Export button is displayed
         And Report is exported
         And Verify notification message "Successfully Exported." is displayed
+        And report "LocationGapCheck" with name "LocationGapCheckReport.csv" type "csv" is compared with the expected one
         
         @QAI
         Examples:
         |environment|withFA|
         |QAI        |false |
 
-@TC43058
+@TC43058 @Reports
 Scenario Outline: Traffic Light Report - Central - Export Successfully 
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
@@ -264,13 +267,14 @@ Scenario Outline: Traffic Light Report - Central - Export Successfully
     Then Verify Export button is displayed
        And Report is exported
        And Verify notification message "Successfully Exported." is displayed
+       And report "TrafficLight" with name "TrafficLightReportCentral.pdf" type "pdf" is compared with the expected one
         
         @QAI
         Examples:
         |environment|withFA|
         |QAI        |false |
 
-@TC43057
+@TC43057 @Reports
 Scenario Outline: Traffic Light Report - Local - Export Successfully 
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a local user is selected
@@ -281,13 +285,15 @@ Scenario Outline: Traffic Light Report - Local - Export Successfully
     Then Verify Export button is displayed
         And Report is exported
         And Verify notification message "Successfully Exported." is displayed
+        And report "TrafficLight" with name "TrafficLightReportLocal.pdf" type "pdf" is compared with the expected one
+        
         
         @QAI
         Examples:
         |environment|withFA|
         |QAI        |false |
 
-@TC43056
+@TC43056 @Reports
 Scenario Outline: Buying Report - Local - Export Successfully 
    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
        And a local user is selected
@@ -297,13 +303,15 @@ Scenario Outline: Buying Report - Local - Export Successfully
        And Report "BuyingReport" is opened
     Then Report is exported
        And Verify notification message "Successfully Exported." is displayed
+       And report "BuyingReport" with name "BuyingReport.csv" type "csv" is compared with the expected one
+        
         
        @QAI
         Examples:
         |environment|withFA|
         |QAI        |false |
 
-    @TC43575
+    @TC43575 @Reports
     Scenario Outline: Destinations to publish - Location Gap Check - Export Successfully
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
         And a central user is selected
@@ -320,7 +328,7 @@ Scenario Outline: Buying Report - Local - Export Successfully
     |environment|withFA|menuCycle|
     |QAI        |false |Meda     |
 
-@TC44242
+@TC44242 @Reports
 Scenario Outline: Allergen Report - Local - Export Successfully 
    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
        And a local user is selected
@@ -336,6 +344,77 @@ Scenario Outline: Allergen Report - Local - Export Successfully
         |Brunch             |
     Then Report is exported
        And Verify notification message "Successfully Exported." is displayed
+       And report "AllergenReport" with name "AllergenAndIntoleranceReport.pdf" type "pdf" is compared with the expected one
+        
+       @QAI
+        Examples:
+        |environment|withFA|
+        |QAI        |false |
+        
+@Reports
+Scenario Outline: Local Production Requirements - Export Successfully 
+   Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+       And a local user is selected
+       And location "Site EUR1" is selected
+       And Menu Cycle "FOR Local User AUTOMATION" is selected
+    When Reports page is opened
+       And Report "LocalProductionRequirements" is opened
+       And Report start date "01/10/2019" is selected
+       And Report end date "31/01/2020" is selected
+       And Meal periods are selected
+        |MealPeriod         |
+        |Lunch              |
+        |Brunch             |
+    Then Report is exported
+       And Verify notification message "Successfully Exported." is displayed
+       And report "LocalProductionRequirements" with name "LocalProductionRequirementsReport.csv" type "csv" is compared with the expected one
+        
+       @QAI
+        Examples:
+        |environment|withFA|
+        |QAI        |false |
+
+@Reports
+Scenario Outline: Local Sales History - Export Successfully 
+   Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+       And a local user is selected
+       And location "Site EUR1" is selected
+       And Menu Cycle "FOR Local User AUTOMATION" is selected
+    When Reports page is opened
+       And Report "LocalSalesHistory" is opened
+       And Report start date "01/10/2019" is selected
+       And Report end date "31/01/2020" is selected
+       And Meal periods are selected
+        |MealPeriod         |
+        |Lunch              |
+        |Brunch             |
+    Then Report is exported
+       And Verify notification message "Successfully Exported." is displayed
+       And report "LocalSalesHistory" with name "LocalSalesHistoryReport.csv" type "csv" is compared with the expected one
+        
+       @QAI
+        Examples:
+        |environment|withFA|
+        |QAI        |false |
+
+
+@Reports
+Scenario Outline: Performance Report - Local - Export Successfully 
+   Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+       And a local user is selected
+       And location "Site EUR1" is selected
+       And Menu Cycle "FOR Local User AUTOMATION" is selected
+    When Reports page is opened
+       And Report "PerformanceReport" is opened
+       And Report start date "01/10/2019" is selected
+       And Report end date "31/01/2020" is selected
+       And Meal periods are selected
+        |MealPeriod         |
+        |Lunch              |
+        |Brunch             |
+    Then Report is exported
+       And Verify notification message "Successfully Exported." is displayed
+       And report "PerformanceReport" with name "PerformanceReport.csv" type "csv" is compared with the expected one
         
        @QAI
         Examples:
