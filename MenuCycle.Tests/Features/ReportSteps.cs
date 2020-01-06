@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using static MenuCycle.Tests.PageObjects.ReportsView;
+using System.IO;
 
 namespace MenuCycle.Tests.Steps
 {
@@ -144,6 +145,11 @@ namespace MenuCycle.Tests.Steps
             Assert.IsTrue(reportsView.IsExportButtonVisible);
         }
 
+        [Then(@"report ""(.*)"" with name ""(.*)"" type ""(.*)"" is compared with the expected one")]
+        public void ThenReportTypeIsComparedWithTheExpetedOne(Reports report, string reportName, string reportType)
+        {
+            reportsView.CompareReports(report, reportType, reportName);
+        }
         [When(@"Checkbox for Select All is selected")]
         public void WhenCheckboxForSelectAllIsSelected()
         {
