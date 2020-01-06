@@ -252,7 +252,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Open menu cycle with 4000 items in one week")]
         [NUnit.Framework.CategoryAttribute("TC39657")]
-        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "4000 items - Do not use", new string[] {
+        [NUnit.Framework.TestCaseAttribute("QAI", "false", "Site EUR1", "Big MC FOR AUTOMATION TESTING", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void OpenMenuCycleWith4000ItemsInOneWeek(string environment, string withFA, string location, string menuCycle, string[] exampleTags)
         {

@@ -81,4 +81,4 @@ Scenario Outline: Open menu cycle with 4000 items in one week
     @QAI
     Examples:
     |environment|withFA|location|menuCycle               |
-    |QAI        |false |Site EUR1   |4000 items - Do not use|
+    |QAI        |false |Site EUR1   |Big MC FOR AUTOMATION TESTING|
