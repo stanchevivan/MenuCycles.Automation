@@ -172,14 +172,12 @@ namespace MenuCycle.Tests.PageObjects
         }
 
         /// <summary>
-        /// Start reading PDF file from specific line.
+        /// Start reading file from specific line.
         /// </summary>
         public string StartReadingPDFFromLine(string filePath, int line, string reportType)
         {
             string reportText = File.ReadAllText(filePath);
 
-            if (reportType.ToLower() == "pdf")
-            {
                 string[] fromLine = reportText
                                         .Split(Environment.NewLine.ToCharArray())
                                         .Skip(line)
@@ -188,14 +186,12 @@ namespace MenuCycle.Tests.PageObjects
                 string actualOutput = string.Join(Environment.NewLine, fromLine);
 
                 return actualOutput;
-            }
-
-            return reportText;
         }
 
         public void CompareReports(Reports report, string reportType, string reportName)
         {
-            int startFromLine = 10;
+            int startFromLine;
+            string actualReportOutput;
             string expectedReportOutput;
 
             string currentDirectory = Directory.GetCurrentDirectory();
@@ -212,106 +208,115 @@ namespace MenuCycle.Tests.PageObjects
                  .OrderByDescending(f => f.LastWriteTime)
                  .First().ToString();
 
-            var actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
-
             switch (report)
             {
                 case Reports.ConsumerFacing:
                     string consumerFacingPath = Path.Combine(expectedReportPath, "ConsumerFacing");
-
                     string expectedConsumerFacingPDF = Path.Combine(consumerFacingPath, reportName);
 
+                    startFromLine = 10;
                     expectedReportOutput = StartReadingPDFFromLine(expectedConsumerFacingPDF, startFromLine, reportType);
+                    actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.MenuExtract:
                     string menuExtractReportPath = Path.Combine(expectedReportPath, "MenuExtract");
-
                     string expectedMenuExtract = Path.Combine(menuExtractReportPath, reportName);
 
+                    startFromLine = 10;
                     expectedReportOutput = StartReadingPDFFromLine(expectedMenuExtract, startFromLine, reportType);
+                    actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.RecipeCard:
                     string recipeCardReportPath = Path.Combine(expectedReportPath, "RecipeCard");
-
                     string expectedRecipeCard = Path.Combine(recipeCardReportPath, reportName);
 
+                    startFromLine = 10;
                     expectedReportOutput = StartReadingPDFFromLine(expectedRecipeCard, startFromLine, reportType);
+                    actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.TrafficLight:
                     string trafficLightReportPath = Path.Combine(expectedReportPath, "TrafficLight");
-
                     string expectedTrafficLight = Path.Combine(trafficLightReportPath, reportName);
 
+                    startFromLine = 10;
                     expectedReportOutput = StartReadingPDFFromLine(expectedTrafficLight, startFromLine, reportType);
+                    actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.MenuCycleCalendar:
                     string menuCycleCalendarReportPath = Path.Combine(expectedReportPath, "MenuCycleCalendar");
-
                     string expectedMenuCycleCalendar = Path.Combine(menuCycleCalendarReportPath, reportName);
 
+                    startFromLine = 10;
                     expectedReportOutput = StartReadingPDFFromLine(expectedMenuCycleCalendar, startFromLine, reportType);
+                    actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.BuyingReport:
                     string buyingReportReportPath = Path.Combine(expectedReportPath, "BuyingReport");
-
                     string expectedBuyingReport = Path.Combine(buyingReportReportPath, reportName);
 
-                    expectedReportOutput = StartReadingPDFFromLine(expectedBuyingReport, 0, reportType);
+                    startFromLine = 0;
+                    expectedReportOutput = StartReadingPDFFromLine(expectedBuyingReport, startFromLine, reportType);
+                    actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.LocalProductionRequirements:
                     string localProductionRequirementsPath = Path.Combine(expectedReportPath, "LocalProductionRequirements");
-
                     string expectedLocalProductionRequirements = Path.Combine(localProductionRequirementsPath, reportName);
 
-                    expectedReportOutput = StartReadingPDFFromLine(expectedLocalProductionRequirements, 0, reportType);
+                    startFromLine = 0;
+                    expectedReportOutput = StartReadingPDFFromLine(expectedLocalProductionRequirements, startFromLine, reportType);
+                    actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.LocalSalesHistory:
                     string localSalesHistoryPath = Path.Combine(expectedReportPath, "LocalSalesHistory");
-
                     string expectedLocalSalesHistory = Path.Combine(localSalesHistoryPath, reportName);
 
-                    expectedReportOutput = StartReadingPDFFromLine(expectedLocalSalesHistory, 0, reportType);
+                    startFromLine = 1;
+                    expectedReportOutput = StartReadingPDFFromLine(expectedLocalSalesHistory, startFromLine, reportType);
+                    actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.PerformanceReport:
                     string PerformanceReportPath = Path.Combine(expectedReportPath, "PerformanceReport");
-
                     string expectedPerformanceReport = Path.Combine(PerformanceReportPath, reportName);
 
-                    expectedReportOutput = StartReadingPDFFromLine(expectedPerformanceReport, 0, reportType);
+                    startFromLine = 2;
+                    expectedReportOutput = StartReadingPDFFromLine(expectedPerformanceReport, startFromLine, reportType);
+                    actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.AllergenReport:
                     string allergenReportReportPath = Path.Combine(expectedReportPath, "AllergenReport");
-
                     string expectedAllergenReport = Path.Combine(allergenReportReportPath, reportName);
 
+                    startFromLine = 10;
                     expectedReportOutput = StartReadingPDFFromLine(expectedAllergenReport, startFromLine, reportType);
+                    actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.LocationGapCheck:
                     string locatioGapCheckReportPath = Path.Combine(expectedReportPath, "LocationGapCheck");
-
                     string expectedLocationGapCheck = Path.Combine(locatioGapCheckReportPath, reportName);
 
-                    expectedReportOutput = StartReadingPDFFromLine(expectedLocationGapCheck, 2, reportType);
+                    startFromLine = 1;
+                    expectedReportOutput = StartReadingPDFFromLine(expectedLocationGapCheck, startFromLine, reportType);
+                    actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;

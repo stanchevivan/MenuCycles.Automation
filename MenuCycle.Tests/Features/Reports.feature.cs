@@ -1067,9 +1067,6 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.Then("Report is exported", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 416
        testRunner.And("Verify notification message \"Successfully Exported.\" is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 417
-       testRunner.And("report \"PerformanceReport\" with name \"PerformanceReport.csv\" type \"csv\" is compar" +
-                    "ed with the expected one", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
