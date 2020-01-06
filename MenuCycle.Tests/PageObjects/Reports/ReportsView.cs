@@ -218,6 +218,7 @@ namespace MenuCycle.Tests.PageObjects
                     expectedReportOutput = StartReadingPDFFromLine(expectedConsumerFacingPDF, startFromLine, reportType);
                     actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
+                    Console.WriteLine("EXPECTED RESULTAT " + expectedReportOutput + "ACTUAL RESULTAT " + actualReportOutput);
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.MenuExtract:
@@ -228,6 +229,7 @@ namespace MenuCycle.Tests.PageObjects
                     expectedReportOutput = StartReadingPDFFromLine(expectedMenuExtract, startFromLine, reportType);
                     actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
+                    Console.WriteLine("EXPECTED RESULTAT " + expectedReportOutput + "ACTUAL RESULTAT " + actualReportOutput);
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.RecipeCard:
@@ -238,6 +240,7 @@ namespace MenuCycle.Tests.PageObjects
                     expectedReportOutput = StartReadingPDFFromLine(expectedRecipeCard, startFromLine, reportType);
                     actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
+                    Console.WriteLine("EXPECTED RESULTAT " + expectedReportOutput + "ACTUAL RESULTAT " + actualReportOutput);
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.TrafficLight:
@@ -248,6 +251,7 @@ namespace MenuCycle.Tests.PageObjects
                     expectedReportOutput = StartReadingPDFFromLine(expectedTrafficLight, startFromLine, reportType);
                     actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
+                    Console.WriteLine("EXPECTED RESULTAT " + expectedReportOutput + "ACTUAL RESULTAT " + actualReportOutput);
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.MenuCycleCalendar:
@@ -258,6 +262,7 @@ namespace MenuCycle.Tests.PageObjects
                     expectedReportOutput = StartReadingPDFFromLine(expectedMenuCycleCalendar, startFromLine, reportType);
                     actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
+                    Console.WriteLine("EXPECTED RESULTAT " + expectedReportOutput + "ACTUAL RESULTAT " + actualReportOutput);
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.BuyingReport:
@@ -268,6 +273,7 @@ namespace MenuCycle.Tests.PageObjects
                     expectedReportOutput = StartReadingPDFFromLine(expectedBuyingReport, startFromLine, reportType);
                     actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
+                    Console.WriteLine("EXPECTED RESULTAT " + expectedReportOutput + "ACTUAL RESULTAT " + actualReportOutput);
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.LocalProductionRequirements:
@@ -278,6 +284,7 @@ namespace MenuCycle.Tests.PageObjects
                     expectedReportOutput = StartReadingPDFFromLine(expectedLocalProductionRequirements, startFromLine, reportType);
                     actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
+                    Console.WriteLine("EXPECTED RESULTAT " + expectedReportOutput + "ACTUAL RESULTAT " + actualReportOutput);
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.LocalSalesHistory:
@@ -288,6 +295,7 @@ namespace MenuCycle.Tests.PageObjects
                     expectedReportOutput = StartReadingPDFFromLine(expectedLocalSalesHistory, startFromLine, reportType);
                     actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
+                    Console.WriteLine("EXPECTED RESULTAT " + expectedReportOutput + "ACTUAL RESULTAT " + actualReportOutput);
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.PerformanceReport:
@@ -298,6 +306,7 @@ namespace MenuCycle.Tests.PageObjects
                     expectedReportOutput = StartReadingPDFFromLine(expectedPerformanceReport, startFromLine, reportType);
                     actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
+                    Console.WriteLine("EXPECTED RESULTAT " + expectedReportOutput + "ACTUAL RESULTAT " + actualReportOutput);
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.AllergenReport:
@@ -308,6 +317,7 @@ namespace MenuCycle.Tests.PageObjects
                     expectedReportOutput = StartReadingPDFFromLine(expectedAllergenReport, startFromLine, reportType);
                     actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
+                    Console.WriteLine("EXPECTED RESULTAT " + expectedReportOutput + "ACTUAL RESULTAT " + actualReportOutput);
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
                 case Reports.LocationGapCheck:
@@ -318,6 +328,7 @@ namespace MenuCycle.Tests.PageObjects
                     expectedReportOutput = StartReadingPDFFromLine(expectedLocationGapCheck, startFromLine, reportType);
                     actualReportOutput = StartReadingPDFFromLine(actualReport, startFromLine, reportType);
 
+                    Console.WriteLine("EXPECTED RESULTAT " + expectedReportOutput + "ACTUAL RESULTAT " + actualReportOutput);
                     Assert.AreEqual(expectedReportOutput, actualReportOutput);
                     break;
             }
