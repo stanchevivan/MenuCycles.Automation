@@ -20,7 +20,7 @@ namespace MenuCycle.Tests.Support
         {
             mockServer = FluentMockServer.StartWithAdminInterface(new[] { "http://+:4300" });
             var path = AppDomain.CurrentDomain.BaseDirectory;
-            mockServer.ReadStaticMappings($"{path}Support/mappings");
+            mockServer.ReadStaticMappings($"{path}mappings");
         }
 
         public void Stop()

@@ -1,1090 +1,4814 @@
 {
-  "Request": {
-    "Path": {
-      "Matchers": [
-        {
-          "Name": "WildcardMatcher",
-          "Pattern": "/user",
-          "IgnoreCase": true
-        }
-      ]
-    },
-    "Method": "GET"
-  },
-  "Response": {
-    "StatusCode": 200,
-    "Headers": {
-      "Content-Type": "application/vnd.siren+json",
-      "Access-Control-Allow-Origin": "http://localhost:4200",
-      "Access-Control-Allow-Headers": "Authorization, Content-Type, X-Fourth-Org, X-Fourth-UserID"
-    },
-    "BodyAsJson": {
-      "class": [
-        "User"
-      ],
-      "properties": {
-        "userId": 10044,
-        "name": "MC Automation",
-        "externalId": "0058E000002wxbQQAQ",
-        "isCentral": false,
-        "canCreateMenuCycle": true,
-        "canDeleteMenuCycle": true,
-        "canEditMenuCycle": true,
-        "canViewMenu": true,
-        "canViewMenuCycle": true,
-        "canViewRecipe": true,
-        "canPublishMenuCycle": true,
-        "preventSellPriceEditMenuCycle": false,
-        "canLockMenuCycle": true
-      },
-      "entities": [
-        {
-          "class": [
-            "Groups"
-          ],
-          "rel": [
-            "/rels/user/groups"
-          ],
-          "properties": {
-            "defaultPageSize": 17,
-            "totalRows": 17
-          },
-          "entities": [
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 1,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "SodexoUK"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/1",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 2,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "UK Group"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/2",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 3,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "UK Library"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/3",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 4,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "UK Live Data Management"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/4",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 5,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "E&W Library"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/5",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 6,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "GB Library"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/6",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 7,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "NI Library"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/7",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 8,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "Scotland Library"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/8",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 9,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "ROI Group"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/9",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 10,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "ROI Library"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/10",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 11,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "ROI Live Data Management"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/11",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 12,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "ROI Archive"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/12",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 13,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "UK Archive"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/13",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 20,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "TestGroupPrice"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/20",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 21,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "TestGroupPrice2"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/21",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 24,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "TestGroupPrice3"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/24",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Group"
-              ],
-              "rel": [
-                "/rels/group"
-              ],
-              "properties": {
-                "groupId": 10028,
-                "groupGuid": "00000000-0000-0000-0000-000000000000",
-                "name": "Demo Zhivko"
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups/10028",
-                  "method": "GET",
-                  "title": "Group",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/groups"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Groups",
-                  "method": "GET",
-                  "title": "Groups",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            }
-          ],
-          "links": [
-            {
-              "rel": [
-                "self"
-              ],
-              "href": "https://api-dev.fourth.com/qai/api/menuservice/groups",
-              "method": "GET",
-              "title": "Groups",
-              "type": "application/vnd.siren+json;"
-            }
-          ]
-        },
-        {
-          "class": [
-            "Locations"
-          ],
-          "rel": [
-            "/rels/user/locations"
-          ],
-          "properties": {
-            "defaultPageSize": 11,
-            "totalRows": 11
-          },
-          "entities": [
-            {
-              "class": [
-                "Location"
-              ],
-              "rel": [
-                "/rels/location"
-              ],
-              "properties": {
-                "locationId": 2,
-                "name": "Site EUR2",
-                "locationCode": "SE002",
-                "canCreateMenuCycle": true,
-                "canDeleteMenuCycle": true,
-                "canEditMenuCycle": true,
-                "preventSellPriceEditMenuCycle": false
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/2",
-                  "method": "GET",
-                  "title": "Location",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/menucycle/locations"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
-                  "method": "GET",
-                  "title": "Locations",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Location"
-              ],
-              "rel": [
-                "/rels/location"
-              ],
-              "properties": {
-                "locationId": 3,
-                "name": "Site EUR1",
-                "locationCode": "SE001",
-                "canCreateMenuCycle": true,
-                "canDeleteMenuCycle": true,
-                "canEditMenuCycle": true,
-                "preventSellPriceEditMenuCycle": false
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/3",
-                  "method": "GET",
-                  "title": "Location",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/menucycle/locations"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
-                  "method": "GET",
-                  "title": "Locations",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Location"
-              ],
-              "rel": [
-                "/rels/location"
-              ],
-              "properties": {
-                "locationId": 4,
-                "name": "Site GBP1",
-                "locationCode": "SG001",
-                "canCreateMenuCycle": true,
-                "canDeleteMenuCycle": true,
-                "canEditMenuCycle": true,
-                "preventSellPriceEditMenuCycle": false
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/4",
-                  "method": "GET",
-                  "title": "Location",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/menucycle/locations"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
-                  "method": "GET",
-                  "title": "Locations",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Location"
-              ],
-              "rel": [
-                "/rels/location"
-              ],
-              "properties": {
-                "locationId": 5,
-                "name": "Site GBP2",
-                "locationCode": "SG002",
-                "canCreateMenuCycle": true,
-                "canDeleteMenuCycle": true,
-                "canEditMenuCycle": true,
-                "preventSellPriceEditMenuCycle": false
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/5",
-                  "method": "GET",
-                  "title": "Location",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/menucycle/locations"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
-                  "method": "GET",
-                  "title": "Locations",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Location"
-              ],
-              "rel": [
-                "/rels/location"
-              ],
-              "properties": {
-                "locationId": 6,
-                "name": "Demo site",
-                "locationCode": "DS123",
-                "canCreateMenuCycle": true,
-                "canDeleteMenuCycle": true,
-                "canEditMenuCycle": true,
-                "preventSellPriceEditMenuCycle": false
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/6",
-                  "method": "GET",
-                  "title": "Location",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/menucycle/locations"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
-                  "method": "GET",
-                  "title": "Locations",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Location"
-              ],
-              "rel": [
-                "/rels/location"
-              ],
-              "properties": {
-                "locationId": 7,
-                "name": "site gbp3",
-                "locationCode": "SG003",
-                "canCreateMenuCycle": true,
-                "canDeleteMenuCycle": true,
-                "canEditMenuCycle": true,
-                "preventSellPriceEditMenuCycle": false
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/7",
-                  "method": "GET",
-                  "title": "Location",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/menucycle/locations"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
-                  "method": "GET",
-                  "title": "Locations",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Location"
-              ],
-              "rel": [
-                "/rels/location"
-              ],
-              "properties": {
-                "locationId": 8,
-                "name": "Sodexosite",
-                "locationCode": "SS01",
-                "canCreateMenuCycle": true,
-                "canDeleteMenuCycle": true,
-                "canEditMenuCycle": true,
-                "preventSellPriceEditMenuCycle": false
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/8",
-                  "method": "GET",
-                  "title": "Location",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/menucycle/locations"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
-                  "method": "GET",
-                  "title": "Locations",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Location"
-              ],
-              "rel": [
-                "/rels/location"
-              ],
-              "properties": {
-                "locationId": 15,
-                "name": "DemositeM02at0956",
-                "locationCode": "DS002",
-                "canCreateMenuCycle": true,
-                "canDeleteMenuCycle": true,
-                "canEditMenuCycle": true,
-                "preventSellPriceEditMenuCycle": false
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/15",
-                  "method": "GET",
-                  "title": "Location",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/menucycle/locations"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
-                  "method": "GET",
-                  "title": "Locations",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Location"
-              ],
-              "rel": [
-                "/rels/location"
-              ],
-              "properties": {
-                "locationId": 16,
-                "name": "NewMSTestSite M209:57",
-                "locationCode": "sitecode_09:57",
-                "canCreateMenuCycle": true,
-                "canDeleteMenuCycle": true,
-                "canEditMenuCycle": true,
-                "preventSellPriceEditMenuCycle": false
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/16",
-                  "method": "GET",
-                  "title": "Location",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/menucycle/locations"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
-                  "method": "GET",
-                  "title": "Locations",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Location"
-              ],
-              "rel": [
-                "/rels/location"
-              ],
-              "properties": {
-                "locationId": 17,
-                "name": "MenuServiceSite",
-                "locationCode": "MS0123",
-                "canCreateMenuCycle": true,
-                "canDeleteMenuCycle": true,
-                "canEditMenuCycle": true,
-                "preventSellPriceEditMenuCycle": false
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/17",
-                  "method": "GET",
-                  "title": "Location",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/menucycle/locations"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
-                  "method": "GET",
-                  "title": "Locations",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            },
-            {
-              "class": [
-                "Location"
-              ],
-              "rel": [
-                "/rels/location"
-              ],
-              "properties": {
-                "locationId": 20,
-                "name": "MenuService01",
-                "locationCode": "MS4321",
-                "canCreateMenuCycle": true,
-                "canDeleteMenuCycle": true,
-                "canEditMenuCycle": true,
-                "preventSellPriceEditMenuCycle": false
-              },
-              "entities": [],
-              "links": [
-                {
-                  "rel": [
-                    "self"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations/20",
-                  "method": "GET",
-                  "title": "Location",
-                  "type": "application/vnd.siren+json;"
-                },
-                {
-                  "rel": [
-                    "/rels/menucycle/locations"
-                  ],
-                  "href": "https://api-dev.fourth.com/qai/api/menuservice/Locations",
-                  "method": "GET",
-                  "title": "Locations",
-                  "type": "application/vnd.siren+json;"
-                }
-              ]
-            }
-          ],
-          "links": [
-            {
-              "rel": [
-                "self"
-              ],
-              "href": "https://api-dev.fourth.com/qai/api/menuservice/locations",
-              "method": "GET",
-              "title": "Locations",
-              "type": "application/vnd.siren+json;"
-            }
-          ]
-        }
-      ]
-    }
-  }
+	"Request": {
+		"Path": {
+			"Matchers": [
+				{
+					"Name": "WildcardMatcher",
+					"Pattern": "//User",
+					"IgnoreCase": true
+				}
+			]
+		},
+		"Method": "GET"
+	},
+	"Response": {
+		"StatusCode": 200,
+		"Headers": {
+			"Content-Type": "application/vnd.siren+json; charset=utf-8",
+			"Access-Control-Allow-Origin": "http://localhost:4200",
+			"Access-Control-Allow-Headers": "Authorization, Content-Type, X-Fourth-Org, X-Fourth-UserID"
+		},
+		"BodyAsJson": {
+			"class": [
+				"User"
+			],
+			"properties": {
+				"userId": 10044,
+				"name": "MArtin Petkov",
+				"externalId": "0058E000002wxbQQAQ",
+				"isCentral": false,
+				"canCreateMenuCycle": true,
+				"canDeleteMenuCycle": true,
+				"canEditMenuCycle": true,
+				"canViewMenu": true,
+				"canViewMenuCycle": true,
+				"canViewRecipe": true,
+				"canPublishMenuCycle": true,
+				"preventSellPriceEditMenuCycle": false,
+				"canLockMenuCycle": true
+			},
+			"entities": [
+				{
+					"class": [
+						"Groups"
+					],
+					"rel": [
+						"/rels/user/groups"
+					],
+					"properties": {
+						"defaultPageSize": 17,
+						"totalRows": 17
+					},
+					"entities": [
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 1,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "SodexoUK"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/1",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 2,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "UK Group"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/2",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 3,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "UK Library"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/3",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 4,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "UK Live Data Management"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/4",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 5,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "E&W Library"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/5",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 6,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "GB Library"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/6",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 7,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "NI Library"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/7",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 8,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "Scotland Library"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/8",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 9,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "ROI Group"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/9",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 10,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "ROI Library"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/10",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 11,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "ROI Live Data Management"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/11",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 12,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "ROI Archive"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/12",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 13,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "UK Archive"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/13",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 20,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "TestGroupPrice"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/20",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 21,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "TestGroupPrice2"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/21",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 24,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "TestGroupPrice3"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/24",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Group"
+							],
+							"rel": [
+								"/rels/group"
+							],
+							"properties": {
+								"groupId": 10028,
+								"groupGuid": "00000000-0000-0000-0000-000000000000",
+								"name": "Demo Zhivko"
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups/10028",
+									"method": "GET",
+									"title": "Group",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/groups"
+									],
+									"href": "http://qai-menuservice.fourth.com/Groups",
+									"method": "GET",
+									"title": "Groups",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						}
+					],
+					"links": [
+						{
+							"rel": [
+								"self"
+							],
+							"href": "http://qai-menuservice.fourth.com/groups",
+							"method": "GET",
+							"title": "Groups",
+							"type": "application/vnd.siren+json;"
+						}
+					]
+				},
+				{
+					"class": [
+						"Locations"
+					],
+					"rel": [
+						"/rels/user/locations"
+					],
+					"properties": {
+						"defaultPageSize": 109,
+						"totalRows": 109
+					},
+					"entities": [
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 2,
+								"name": "Site EUR2",
+								"locationCode": "SE002",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/2",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 3,
+								"name": "Site EUR1",
+								"locationCode": "SE001",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/3",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 4,
+								"name": "Site GBP1",
+								"locationCode": "SG001",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/4",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 5,
+								"name": "Site GBP2",
+								"locationCode": "SG002",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/5",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 6,
+								"name": "Demo site",
+								"locationCode": "DS123",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/6",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 7,
+								"name": "site gbp3",
+								"locationCode": "SG003",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/7",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 8,
+								"name": "Sodexosite",
+								"locationCode": "SS01",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/8",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 15,
+								"name": "DemositeM02at0956",
+								"locationCode": "DS002",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/15",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 16,
+								"name": "NewMSTestSite M209:57",
+								"locationCode": "sitecode0957",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/16",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 17,
+								"name": "MenuServiceSite",
+								"locationCode": "MS0123",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/17",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 20,
+								"name": "MenuService01",
+								"locationCode": "MS4321",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/20",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 21,
+								"name": "Sofia 1",
+								"locationCode": "Sofia1",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/21",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 26,
+								"name": "Sofia 2",
+								"locationCode": "Sofia2",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/26",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 27,
+								"name": "Sofia 3",
+								"locationCode": "Sofia3",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/27",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 28,
+								"name": "Sofia 4",
+								"locationCode": "Sofia4",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/28",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 29,
+								"name": "Sofia 5",
+								"locationCode": "Sofia5",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/29",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 30,
+								"name": "Sofia 6",
+								"locationCode": "Sofia6",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/30",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 31,
+								"name": "Sofia 7",
+								"locationCode": "Sofia7",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/31",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 32,
+								"name": "Sofia 8",
+								"locationCode": "Sofia8",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/32",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 33,
+								"name": "Sofia 9",
+								"locationCode": "Sofia9",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/33",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 34,
+								"name": "Sofia 10",
+								"locationCode": "Sofia10",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/34",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 35,
+								"name": "Sofia 11",
+								"locationCode": "Sofia11",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/35",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 36,
+								"name": "Sofia 12",
+								"locationCode": "Sofia12",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/36",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 37,
+								"name": "Sofia 13",
+								"locationCode": "Sofia13",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/37",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 38,
+								"name": "Sofia 14",
+								"locationCode": "Sofia14",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/38",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 39,
+								"name": "Sofia 554",
+								"locationCode": "Sofia817",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/39",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 40,
+								"name": "Sofia 402",
+								"locationCode": "Sofia122",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/40",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 41,
+								"name": "Sofia 855",
+								"locationCode": "Sofia270",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/41",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 42,
+								"name": "Sofia 947",
+								"locationCode": "Sofia713",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/42",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 43,
+								"name": "Sofia 232",
+								"locationCode": "Sofia935",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/43",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 44,
+								"name": "Sofia 994",
+								"locationCode": "Sofia250",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/44",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 45,
+								"name": "Sofia 464",
+								"locationCode": "Sofia689",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/45",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 46,
+								"name": "Sofia 515",
+								"locationCode": "Sofia380",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/46",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 47,
+								"name": "Sofia 920",
+								"locationCode": "Sofia800",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/47",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 48,
+								"name": "Sofia 538",
+								"locationCode": "Sofia836",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/48",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 49,
+								"name": "Sofia 417",
+								"locationCode": "Sofia567",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/49",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 50,
+								"name": "Sofia 783",
+								"locationCode": "Sofia393",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/50",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 51,
+								"name": "Sofia 346",
+								"locationCode": "Sofia391",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/51",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 52,
+								"name": "Sofia 640",
+								"locationCode": "Sofia710",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/52",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 53,
+								"name": "Sofia 158",
+								"locationCode": "Sofia810",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/53",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 54,
+								"name": "Sofia 737",
+								"locationCode": "Sofia537",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/54",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 55,
+								"name": "Sofia 3",
+								"locationCode": "Sofia400",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/55",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 56,
+								"name": "Sofia 952",
+								"locationCode": "Sofia757",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/56",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 57,
+								"name": "Sofia 947",
+								"locationCode": "Sofia275",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/57",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 58,
+								"name": "Sofia 349",
+								"locationCode": "Sofia213",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/58",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 59,
+								"name": "Sofia 367",
+								"locationCode": "Sofia227",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/59",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 60,
+								"name": "Sofia 631",
+								"locationCode": "Sofia909",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/60",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 61,
+								"name": "Sofia 127",
+								"locationCode": "Sofia85",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/61",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 62,
+								"name": "Sofia 322",
+								"locationCode": "Sofia51",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/62",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 63,
+								"name": "Sofia 889",
+								"locationCode": "Sofia158",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/63",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 64,
+								"name": "Sofia 808",
+								"locationCode": "Sofia685",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/64",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 65,
+								"name": "Sofia 791",
+								"locationCode": "Sofia431",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/65",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 66,
+								"name": "Sofia 723",
+								"locationCode": "Sofia599",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/66",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 67,
+								"name": "Sofia 853",
+								"locationCode": "Sofia297",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/67",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 68,
+								"name": "Sofia 2",
+								"locationCode": "Sofia119",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/68",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 69,
+								"name": "Sofia 171",
+								"locationCode": "Sofia35",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/69",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 70,
+								"name": "Sofia 379",
+								"locationCode": "Sofia505",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/70",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 71,
+								"name": "Sofia 340",
+								"locationCode": "Sofia596",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/71",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 72,
+								"name": "Sofia 117",
+								"locationCode": "Sofia640",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/72",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 73,
+								"name": "Sofia 401",
+								"locationCode": "Sofia777",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/73",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 74,
+								"name": "Sofia 66",
+								"locationCode": "Sofia942",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/74",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 75,
+								"name": "Sofia 74",
+								"locationCode": "Sofia228",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/75",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 76,
+								"name": "Sofia 302",
+								"locationCode": "Sofia916",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/76",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 77,
+								"name": "Sofia 76",
+								"locationCode": "Sofia19",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/77",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 78,
+								"name": "Sofia 796",
+								"locationCode": "Sofia913",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/78",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 79,
+								"name": "Sofia 265",
+								"locationCode": "Sofia484",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/79",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 80,
+								"name": "Sofia 211",
+								"locationCode": "Sofia790",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/80",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 81,
+								"name": "Sofia 617",
+								"locationCode": "Sofia221",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/81",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 82,
+								"name": "Sofia 351",
+								"locationCode": "Sofia237",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/82",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 83,
+								"name": "Sofia 491",
+								"locationCode": "Sofia62",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/83",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 84,
+								"name": "Sofia 281",
+								"locationCode": "Sofia849",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/84",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 85,
+								"name": "Sofia 767",
+								"locationCode": "Sofia629",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/85",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 86,
+								"name": "Sofia 973",
+								"locationCode": "Sofia928",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/86",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 87,
+								"name": "Sofia 20",
+								"locationCode": "Sofia146",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/87",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 88,
+								"name": "Sofia 230",
+								"locationCode": "Sofia814",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/88",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 89,
+								"name": "Sofia 476",
+								"locationCode": "Sofia548",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/89",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 90,
+								"name": "Sofia 264",
+								"locationCode": "Sofia319",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/90",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 91,
+								"name": "Sofia 956",
+								"locationCode": "Sofia132",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/91",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 92,
+								"name": "Sofia 198",
+								"locationCode": "Sofia610",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/92",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 93,
+								"name": "Sofia 802",
+								"locationCode": "Sofia380",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/93",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 94,
+								"name": "Sofia 497",
+								"locationCode": "Sofia27",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/94",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 95,
+								"name": "Sofia 518",
+								"locationCode": "Sofia490",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/95",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 96,
+								"name": "Sofia 630",
+								"locationCode": "Sofia339",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/96",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 97,
+								"name": "Sofia 477",
+								"locationCode": "Sofia364",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/97",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 98,
+								"name": "Sofia 974",
+								"locationCode": "Sofia840",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/98",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 99,
+								"name": "Sofia 2",
+								"locationCode": "Sofia882",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/99",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 100,
+								"name": "Sofia 318",
+								"locationCode": "Sofia309",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/100",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 101,
+								"name": "Sofia 539",
+								"locationCode": "Sofia396",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/101",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 102,
+								"name": "Sofia 344",
+								"locationCode": "Sofia923",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/102",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 103,
+								"name": "Sofia 832",
+								"locationCode": "Sofia294",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/103",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 104,
+								"name": "Sofia 943",
+								"locationCode": "Sofia56",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/104",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 105,
+								"name": "Sofia 131",
+								"locationCode": "Sofia793",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/105",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 106,
+								"name": "Sofia 726",
+								"locationCode": "Sofia685",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/106",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 107,
+								"name": "Sofia 169",
+								"locationCode": "Sofia142",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/107",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 108,
+								"name": "Sofia 357",
+								"locationCode": "Sofia569",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/108",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 109,
+								"name": "Sofia 495",
+								"locationCode": "Sofia10",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/109",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 110,
+								"name": "Sofia 379",
+								"locationCode": "Sofia468",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/110",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 111,
+								"name": "Sofia 937",
+								"locationCode": "Sofia587",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/111",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 112,
+								"name": "Sofia 662",
+								"locationCode": "Sofia81",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/112",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 113,
+								"name": "Sofia 399",
+								"locationCode": "Sofia222",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/113",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 114,
+								"name": "Sofia 813",
+								"locationCode": "Sofia358",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/114",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 115,
+								"name": "Sofia 538",
+								"locationCode": "Sofia106",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/115",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 116,
+								"name": "Sofia 96",
+								"locationCode": "Sofia961",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/116",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 117,
+								"name": "Sofia 188",
+								"locationCode": "Sofia946",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/117",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 118,
+								"name": "Sofia 876",
+								"locationCode": "Sofia319",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/118",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 119,
+								"name": "Sofia 675",
+								"locationCode": "Sofia493",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/119",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 120,
+								"name": "Sofia 784",
+								"locationCode": "Sofia400",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/120",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 121,
+								"name": "Sofia 341",
+								"locationCode": "Sofia754",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/121",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						},
+						{
+							"class": [
+								"Location"
+							],
+							"rel": [
+								"/rels/location"
+							],
+							"properties": {
+								"locationId": 122,
+								"name": "Sofia 612",
+								"locationCode": "Sofia854",
+								"canCreateMenuCycle": true,
+								"canDeleteMenuCycle": true,
+								"canEditMenuCycle": true,
+								"preventSellPriceEditMenuCycle": false
+							},
+							"entities": [],
+							"links": [
+								{
+									"rel": [
+										"self"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations/122",
+									"method": "GET",
+									"title": "Location",
+									"type": "application/vnd.siren+json;"
+								},
+								{
+									"rel": [
+										"/rels/menucycle/locations"
+									],
+									"href": "http://qai-menuservice.fourth.com/Locations",
+									"method": "GET",
+									"title": "Locations",
+									"type": "application/vnd.siren+json;"
+								}
+							]
+						}
+					],
+					"links": [
+						{
+							"rel": [
+								"self"
+							],
+							"href": "http://qai-menuservice.fourth.com/locations",
+							"method": "GET",
+							"title": "Locations",
+							"type": "application/vnd.siren+json;"
+						}
+					]
+				}
+			]
+		}
+	}
 }

@@ -1,0 +1,74 @@
+{
+	"Request": {
+		"Path": {
+			"Matchers": [
+				{
+					"Name": "WildcardMatcher",
+					"Pattern": "//MenuCycles/1/MealPeriods",
+					"IgnoreCase": true
+				}
+			]
+		},
+		"Method": "GET"
+	},
+	"Response": {
+		"StatusCode": 200,
+		"Headers": {
+			"Content-Type": "application/vnd.siren+json; charset=utf-8",
+			"Access-Control-Allow-Origin": "http://localhost:4200",
+			"Access-Control-Allow-Headers": "Authorization, Content-Type, X-Fourth-Org, X-Fourth-UserID"
+		},
+		"BodyAsJson": {
+			"class": [
+				"MealPeriodsResult"
+			],
+			"title": "GetMealPeriodsByMenucycleId",
+			"properties": {
+				"defaultPageSize": 1,
+				"totalRows": 1
+			},
+			"entities": [
+				{
+					"class": [
+						"MealPeriodSummaryData"
+					],
+					"rel": [],
+					"properties": {
+						"day": 1,
+						"mealPeriodId": 1,
+						"name": "Test Mealperiod",
+						"startTime": "22:15:00",
+						"endTime": "22:16:00",
+						"isAllDay": false,
+						"numberOfRecipes": 1,
+						"numberOfALaCarte": 0,
+						"numberOfBuffet": 0
+					},
+					"entities": [],
+					"links": [
+						{
+							"rel": [
+								"self"
+							],
+							"href": "http://qai-menuservice.fourth.com/MealPeriods/1",
+							"method": "GET",
+							"title": null,
+							"type": "application/vnd.siren+json;"
+						}
+					]
+				}
+			],
+			"links": [
+				{
+					"rel": [
+						"self"
+					],
+					"href": "http://qai-menuservice.fourth.com/MenuCycles/1/MealPeriods",
+					"method": "GET",
+					"title": "MealPeriodsResult",
+					"type": "application/vnd.siren+json;"
+				}
+			]
+		}
+	}
+}

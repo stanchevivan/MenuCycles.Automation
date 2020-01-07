@@ -939,18 +939,13 @@
     <None Include="Features\MassUpdate.feature">
       <LastGenOutput>MealPeriods.feature.cs</LastGenOutput>
     </None>
-    <None Include="Support\mappings\getMenuCycles.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Support\mappings\getUser.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PageObjects\Recipe\" />
+    <Folder Include="Support\mappings\" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />

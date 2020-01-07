@@ -1,0 +1,152 @@
+{
+	"Request": {
+		"Path": {
+			"Matchers": [
+				{
+					"Name": "WildcardMatcher",
+					"Pattern": "//MenuCycles/1",
+					"IgnoreCase": true
+				}
+			]
+		},
+		"Method": "GET"
+	},
+	"Response": {
+		"StatusCode": 200,
+		"Headers": {
+			"Content-Type": "application/vnd.siren+json; charset=utf-8",
+			"Access-Control-Allow-Origin": "http://localhost:4200",
+			"Access-Control-Allow-Headers": "Authorization, Content-Type, X-Fourth-Org, X-Fourth-UserID"
+		},
+		"BodyAsJson": {
+			"class": [
+				"MenuCycle"
+			],
+			"properties": {
+				"menuCycleId": 1,
+				"name": "CentralUser",
+				"description": "Test description",
+				"isPublished": false,
+				"isMaster": true,
+				"nonServingDays": 0,
+				"status": 0,
+				"numberOfWeeks": 1,
+				"numberOfRecipes": 1,
+				"numberOfPlannings": 0
+			},
+			"entities": [
+				{
+					"class": [
+						"Items"
+					],
+					"rel": [
+						"/rels/menucycle/items"
+					],
+					"href": "http://qai-menuservice.fourth.com/MenuCycles/1/Items"
+				},
+				{
+					"class": [
+						"Groups"
+					],
+					"rel": [
+						"/rels/menucycle/groups"
+					],
+					"href": "http://qai-menuservice.fourth.com/MenuCycles/1/Groups"
+				},
+				{
+					"class": [
+						"Locations"
+					],
+					"rel": [
+						"/rels/menucycle/publish"
+					],
+					"href": "http://qai-menuservice.fourth.com/MenuCycles/1/Publish"
+				},
+				{
+					"class": [
+						"Locations"
+					],
+					"rel": [
+						"/rels/menucycle/locations"
+					],
+					"href": "http://qai-menuservice.fourth.com/MenuCycles/1/Locations"
+				},
+				{
+					"class": [
+						"Planning"
+					],
+					"rel": [
+						"/rels/menucycle/planning"
+					],
+					"href": "http://qai-menuservice.fourth.com/MenuCycles/1/Planning"
+				}
+			],
+			"actions": [
+				{
+					"name": "Publish",
+					"class": [
+						"Publish"
+					],
+					"method": "POST",
+					"href": "http://qai-menuservice.fourth.com/MenuCycles/1/Publish",
+					"title": "Publish the menu cycle to the current list of locations",
+					"type": "application/vnd.siren+json;",
+					"fields": []
+				},
+				{
+					"name": "Delete",
+					"class": [
+						"Delete"
+					],
+					"method": "DELETE",
+					"href": "http://qai-menuservice.fourth.com/MenuCycles/1",
+					"title": "Deletes menu cycle",
+					"type": "application/vnd.siren+json;",
+					"fields": []
+				},
+				{
+					"name": "Update",
+					"class": [
+						"Update"
+					],
+					"method": "PUT",
+					"href": "http://qai-menuservice.fourth.com/MenuCycles/1",
+					"title": "Updates menu cycle",
+					"type": "application/vnd.siren+json;",
+					"fields": []
+				},
+				{
+					"name": "Search",
+					"class": [
+						"Search"
+					],
+					"method": "PUT",
+					"href": "http://qai-menuservice.fourth.com/Search/MenuCycles/1",
+					"title": "Search for menus and recipes to add to the cycle",
+					"type": "application/vnd.siren+json;",
+					"fields": []
+				}
+			],
+			"links": [
+				{
+					"rel": [
+						"self"
+					],
+					"href": "http://qai-menuservice.fourth.com/MenuCycles/1",
+					"method": "GET",
+					"title": "Menu Cycle",
+					"type": "application/vnd.siren+json;"
+				},
+				{
+					"rel": [
+						"/rels/menucycles"
+					],
+					"href": "http://qai-menuservice.fourth.com/MenuCycles",
+					"method": "GET",
+					"title": "Menu Cycles",
+					"type": "application/vnd.siren+json;"
+				}
+			]
+		}
+	}
+}
