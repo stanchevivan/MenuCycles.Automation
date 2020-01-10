@@ -632,11 +632,18 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Planing screen is opened from Nutrition total")]
+        [NUnit.Framework.CategoryAttribute("D43485")]
         [NUnit.Framework.TestCaseAttribute("QAI_2", "false", "Meda", "Monday", "LUNCH", new string[] {
                 "QAI"}, Category="QAI")]
         public virtual void PlaningScreenIsOpenedFromNutritionTotal(string environment, string withFA, string menuCycle, string day, string mealPeriod, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Planing screen is opened from Nutrition total", null, exampleTags);
+            string[] @__tags = new string[] {
+                    "D43485"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Planing screen is opened from Nutrition total", null, @__tags);
 #line 266
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();

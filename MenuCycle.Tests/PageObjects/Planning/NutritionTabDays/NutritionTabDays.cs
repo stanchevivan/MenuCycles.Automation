@@ -32,8 +32,6 @@ namespace MenuCycle.Tests.PageObjects
         private IWebElement dailyTotal_Sugar { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(8) > span:last-of-type")]
         private IWebElement dailyTotal_Salt { get; set; }
-        //[FindsBy(How = How.XPath, Using = "//span[contains(text(), 'MENU CYCLE TOTAL')]")]
-        //private IWebElement MCTotalPage { get; set; }
 
         public IList<DailyMealPeriodNutrition> MealPeriods => this.MealPeriodWrappers.Select(p => new DailyMealPeriodNutrition(p, Driver)).ToList();
 
