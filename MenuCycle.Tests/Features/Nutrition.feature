@@ -1,5 +1,5 @@
 ﻿Feature: Nutrition screen
-	
+    
 @TC36897
 Scenario Outline: Expand all / Collapse all meal periods Nutrition Days
     Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
@@ -260,3 +260,21 @@ Scenario Outline: Nutrition data is shown after changing planned quantity
     Examples:
     |environment|withFA|menuCycle         |day     |mealPeriod|recipeName      |energyKJ|
     |QAI_2      |false |Automation Testing|THURSDAY|CHLOE     |004Baked Beans_1|13092.00|
+
+
+    @D43485
+Scenario Outline: Planing screen is opened from Nutrition total
+    Given Menu Cycles app is open on "<environment>" with FourthApp "<withFA>" 
+        And a nouser user is selected
+        And Menu Cycle "<menuCycle>" is selected
+    When planning for "<day>" is opened
+        And nutrition tab is opened
+        And Meny Cycle Total is opened
+    Then planning tab is opened
+    And Verify the user stays on the planning page
+    
+    
+    @QAI
+    Examples:
+    |environment|withFA|menuCycle|day   |mealPeriod|
+    |QAI_2      |false |Meda     |Monday|LUNCH     |
