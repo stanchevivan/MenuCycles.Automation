@@ -629,6 +629,43 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Planing screen is opened from Nutrition total")]
+        [NUnit.Framework.CategoryAttribute("D43485")]
+        [NUnit.Framework.TestCaseAttribute("QAI_2", "false", "Meda", "Monday", "LUNCH", new string[] {
+                "QAI"}, Category="QAI")]
+        public virtual void PlaningScreenIsOpenedFromNutritionTotal(string environment, string withFA, string menuCycle, string day, string mealPeriod, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "D43485"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Planing screen is opened from Nutrition total", null, @__tags);
+#line 266
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 267
+    testRunner.Given(string.Format("Menu Cycles app is open on \"{0}\" with FourthApp \"{1}\"", environment, withFA), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 268
+        testRunner.And("a nouser user is selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 269
+        testRunner.And(string.Format("Menu Cycle \"{0}\" is selected", menuCycle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 270
+    testRunner.When(string.Format("planning for \"{0}\" is opened", day), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 271
+        testRunner.And("nutrition tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 272
+        testRunner.And("Meny Cycle Total is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 273
+    testRunner.Then("planning tab is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 274
+    testRunner.And("Verify the user stays on the planning page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
