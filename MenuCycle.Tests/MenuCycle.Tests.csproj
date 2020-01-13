@@ -629,6 +629,9 @@
     <None Include="App.RemoteIE.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Reports/**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Support\Environment.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -646,8 +649,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PageObjects\Recipe\" />
-    <Folder Include="PageObjects\MassUpdate\" />
-    <Folder Include="PageObjects\MassUpdate\UpdatePrices\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterCompile" Condition="Exists('App.$(Configuration).config')">
