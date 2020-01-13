@@ -16,6 +16,8 @@ namespace MenuCycle.Tests.PageObjects
         private IList<IWebElement> MealPeriodWrappers { get; set; }
         [FindsBy(How = How.XPath, Using = "//button[text()='Weeks']")]
         private IWebElement WeeklyViewButton { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".icon-stats-bars")]
+        private IWebElement MenuCycleTotal { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(1) > span:last-of-type")]
         private IWebElement dailyTotal_PlannedQty { get; set; }
         [FindsBy(How = How.CssSelector, Using = ".mealperiod-totals-footer__fixed .mealperiod-total__column:nth-of-type(3) > span:last-of-type")]
@@ -59,5 +61,11 @@ namespace MenuCycle.Tests.PageObjects
         {
             WeeklyViewButton.Click();
         }
+
+        public void ClickMCTotalButton()
+        {
+            MenuCycleTotal.Click();
+        }
+
     }
 }
